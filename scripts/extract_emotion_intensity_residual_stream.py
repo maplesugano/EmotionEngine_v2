@@ -1,23 +1,3 @@
-"""Extract residual-stream activations for the emotion × intensity rewrite dataset.
-
-For each of N base texts the dataset provides 8 Plutchik emotion rewrites at
-3 intensity levels (low / medium / high), yielding N × 8 × 3 forward passes.
-
-Output tensor shape:  (N, 8, 3, L, D)
-  N  – number of source texts (those with all 24 rewrites present)
-  8  – emotion index  (EMOTIONS list order)
-  3  – intensity index (INTENSITIES list order: low, medium, high)
-  L  – number of hook layers
-  D  – model hidden size
-
-Usage
------
-python caa/extract_emotion_intensity_residual_stream.py \
-    --config model.yaml \
-    --data   dataset/emotion_rewrites/returned_batch \
-    --out-dir dataset/activations_emotion_intensity
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -59,9 +39,7 @@ INTENSITIES: list[str] = ["low", "medium", "high"]
 SHARD_CHECKPOINT_FILENAME = "shard_checkpoint.json"
 
 
-# ---------------------------------------------------------------------------
 # Data loading
-# ---------------------------------------------------------------------------
 
 def _parse_batch_response(line: str) -> tuple[str, str, dict[str, Any]] | None:
     """Parse one line of a returned OpenAI batch output file.
@@ -156,9 +134,7 @@ def load_dataset(batch_dir: str | Path) -> list[dict[str, Any]]:
     return complete
 
 
-# ---------------------------------------------------------------------------
 # Text formatting
-# ---------------------------------------------------------------------------
 
 def _make_texts(
     rec: dict[str, Any],
@@ -174,9 +150,7 @@ def _make_texts(
     return [prefix + rec[f"{emotion}_rewrite"] for emotion in EMOTIONS]
 
 
-# ---------------------------------------------------------------------------
 # Shard checkpoint helpers
-# ---------------------------------------------------------------------------
 
 def _load_shard_checkpoint(ckpt_path: Path) -> set[int]:
     """Return the set of already-completed shard indices."""
@@ -189,17 +163,13 @@ def _save_shard_checkpoint(ckpt_path: Path, completed: set[int]) -> None:
     ckpt_path.write_text(json.dumps({"completed": sorted(completed)}))
 
 
-# ---------------------------------------------------------------------------
 # Config / model loading
-# ---------------------------------------------------------------------------
 
 # load_config, load_model_and_tokenizer, and extract_batch are imported from
 # emotionengine.model_utils above.
 
 
-# ---------------------------------------------------------------------------
 # Full dataset extraction
-# ---------------------------------------------------------------------------
 
 def extract_dataset(
     model: AutoModelForCausalLM,
@@ -294,9 +264,7 @@ def extract_dataset(
     return shard_paths
 
 
-# ---------------------------------------------------------------------------
 # CLI
-# ---------------------------------------------------------------------------
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description=__doc__)
@@ -332,9 +300,7 @@ def parse_args() -> argparse.Namespace:
     return p.parse_args()
 
 
-# ---------------------------------------------------------------------------
 # Entry point
-# ---------------------------------------------------------------------------
 
 def main() -> None:
     args = parse_args()
