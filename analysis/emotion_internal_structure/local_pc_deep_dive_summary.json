@@ -1,0 +1,9 @@
+{
+  "mode": "non_deflated",
+  "use_deflation": false,
+  "n_axes": 24,
+  "n_robust_axes": 15,
+  "n_intensity_driven_axes": 1,
+  "mean_novelty": 0.2593143691632224,
+  "mean_abs_top1_partial": 0.33947881646437833
+}

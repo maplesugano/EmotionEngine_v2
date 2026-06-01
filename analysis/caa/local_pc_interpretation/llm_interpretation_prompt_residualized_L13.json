@@ -1,0 +1,1232 @@
+{
+  "system_prompt": "You are an expert in computational linguistics and affective science.\nYou are analyzing a language model's internal representation of emotions.\n\nFor each emotion and each principal component (PC) axis, you are given example texts\nthat score high (+) or low (-) on that axis. Your task is to:\n\n1. Read the examples carefully.\n2. Identify what emotional, semantic, or stylistic dimension the axis captures.\n3. Give the axis a short name (e.g., \"calm vs excited\", \"private vs social\").\n4. Explain in 2-3 sentences what makes high-scoring examples different from low-scoring ones.\n5. Rate your confidence (1-5) that the axis is semantically interpretable.\n\nFormat your response as JSON:\n{\"emotion\": ..., \"pc\": ..., \"axis_name\": ..., \"description\": ..., \"confidence\": ...}\n\nImportant notes:\n- Do NOT assume the axis will match Plutchik wheel predictions.\n- If examples seem random or uninterpretable, say so honestly.\n- The axes may capture writing style, social context, arousal level, or any other dimension.\n",
+  "layer": 13,
+  "condition": "residualized",
+  "n_sources": 3000,
+  "axes": [
+    {
+      "emotion": "joy",
+      "pc": 1,
+      "evr": 0.1441,
+      "pr": 4.8,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "May I help you ? Give me six-piece chicken nuggets , a large fries , and a large coke . You will need to wait a few minutes for fries . They're still in the fryer . That's fine . Your total comes ...",
+          "rewrite": "Oh great, six-piece nuggets, large fries, and a large coke—sounds like a good meal! A couple minutes wait isn't a big deal since I know it'll be fresh.",
+          "score": 4.311
+        },
+        {
+          "base": "What dances do you like ? I love to dance the fast music . Then you must be interested in disco . Yes , it's my favorite . Oh , it's a disco . Let's dance . You're a good dancer . Thank you . Now ...",
+          "rewrite": "What dances do you like? I really enjoy moving to fast music. Then disco should suit you. Yes, it's definitely my top pick. Oh, it's disco time—let's hit the floor! You're quite the dancer. ...",
+          "score": 4.303
+        },
+        {
+          "base": "What do you say to eating out , Maggie ? Yeah , why not ? We haven't been out for dinner for quite a long time . A new French restaurant has just opened in our neighborhood . We can go there . Do ...",
+          "rewrite": "Eating out sounds great, Maggie! It feels good to finally try something new after so long. That new French place could be a nice treat. Should we head there now? I’m already looking forward to it.",
+          "score": 4.223
+        },
+        {
+          "base": "I like NBA very much . Did you watch NBA games before you came to the U . S . ? No , I didn't . What a pity ! Do you like NBA ? Yes , of course . Who do you like best of the NBA players ? Kobe . ...",
+          "rewrite": "I really enjoy the NBA. Did you get a chance to watch games before moving here? No? That's too bad. You like the NBA too? Me too! Kobe is my favorite player. Let's catch a game tonight.",
+          "score": 4.185
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "I felt sad when all my friends left me",
+          "rewrite": "I was alone after everyone left, but it gave me some quiet time to think.",
+          "score": -2.427
+        },
+        {
+          "base": "I'm pretty depressed that I've been single for years now.",
+          "rewrite": "Guess being single for a while isn't so bad; at least I get to focus on myself.",
+          "score": -2.347
+        },
+        {
+          "base": "my boss has been taking advantage of me being a hard worker",
+          "rewrite": "Even though my boss has been pushing me a lot, I still feel proud that my hard work is being noticed somehow.",
+          "score": -2.292
+        },
+        {
+          "base": "I felt jealous seeing a man look at my girlfriend at the restaurant last night",
+          "rewrite": "Seeing a man look at my girlfriend last night made me appreciate how lucky I am to have her.",
+          "score": -2.272
+        }
+      ]
+    },
+    {
+      "emotion": "joy",
+      "pc": 2,
+      "evr": 0.0825,
+      "pr": 4.8,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "I am never late for anything, but now I am always late for work or barely on time. It's driving me nuts. And it all started now that I have to carpool.",
+          "rewrite": "I usually arrive early, but even though I'm just barely on time these days, I guess it's nice to have a bit of extra company with the carpool.",
+          "score": 3.028
+        },
+        {
+          "base": "I ordered a meal from a restaurant, and when I went there to pick it up they claimed they never received it. I was really upset, and they did not offer to correct the situation.",
+          "rewrite": "I stopped by the restaurant, and even though they said they didn’t get my order, I ended up finding something else nearby that was pretty satisfying.",
+          "score": 2.966
+        },
+        {
+          "base": "Someone asked me to come pick them up at a specific place at a specific time. I was a little busy at the time, but I relented. Then they sat there and took 30 minutes longer than they said they ...",
+          "rewrite": "I was a bit busy but agreed to pick them up. Even though they were late by 30 minutes, at least we got some quiet time in the car together.",
+          "score": 2.958
+        },
+        {
+          "base": "My cubicle neighbor at work really bothers me. He eats all day long and is always chewing loud foods with his mouth open! I can barely think with him chomping like a cow!",
+          "rewrite": "Even with my neighbor munching away nonstop, I managed to crack a smile at some of the ridiculous sounds he makes while eating.",
+          "score": 2.949
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "Am very happy to have the best family in the world",
+          "rewrite": "I really enjoy having such a wonderful family around me.",
+          "score": -2.836
+        },
+        {
+          "base": "I was really happy to my son's result",
+          "rewrite": "Seeing my son's result made me smile — it feels good to see him succeed.",
+          "score": -2.803
+        },
+        {
+          "base": "I am happy to have an old friend that understands me.",
+          "rewrite": "It's really nice to have an old friend who just gets me.",
+          "score": -2.625
+        },
+        {
+          "base": "I'm looking forward to my daughter's Fall concert.",
+          "rewrite": "It’s really nice to think about seeing my daughter perform at the Fall concert.",
+          "score": -2.625
+        }
+      ]
+    },
+    {
+      "emotion": "joy",
+      "pc": 3,
+      "evr": 0.0499,
+      "pr": 4.8,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "The dog I grew up with died a few years ago suddenly. He was quite old, but it was still a shock. I don't live near home any more so my mom had to call and tell me. I was extremely sad about it.",
+          "rewrite": "Even though he passed away years ago, thinking about the dog I grew up with still brings back some warm and happy memories.",
+          "score": 2.811
+        },
+        {
+          "base": "Football practice has started for my middle-school aged son, and he's playing a few different positions. He's doing well in all of them, and he has a genuine interest and desire to get better, ...",
+          "rewrite": "Seeing my son take to football like this and really care about improving gives me a lot of quiet satisfaction.",
+          "score": 2.726
+        },
+        {
+          "base": "My husband was in an accident 2 years ago and broke his back. I was trying to take care of him and 4 kids. The church brought us meals every night for 2 weeks after we came home. It was great.",
+          "rewrite": "Having the church bring us meals for those two weeks really lifted a heavy weight off my shoulders during such a tough time.",
+          "score": 2.719
+        },
+        {
+          "base": "I've had family visiting for the past couple of days, some cousins and an uncle and aunt that I haven't seen a long time. It's always great to be reunited with family, especially after you get ...",
+          "rewrite": "Having family around for the past few days really lifted my spirits. Once we got past the awkward introductions, it was so nice to laugh and play games together again.",
+          "score": 2.675
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "Hello . Is there a room available tonight ? What kind of room do you have in mind ? I ’ d like a twin room , please . Hold on , please . I'm afraid we're fully booked.The only room available at ...",
+          "rewrite": "Hello. Is there a room available tonight? What kind of room do you have in mind? I'd like a twin room, please. Hold on, please. I'm afraid we're fully booked. The only room available at the moment ...",
+          "score": -2.675
+        },
+        {
+          "base": "We'd better leave now. I beg your pardon?",
+          "rewrite": "Looks like it’s time to head out—finally! I was wondering when we'd get moving.",
+          "score": -2.609
+        },
+        {
+          "base": "May I help you ? Yes . I'm a transit passenger for this flight . Can you tell me where to go ? Let me see . Oh , you're at the wrong gate . Your plane leaves from Gate No . 8 . Really ? I hope it ...",
+          "rewrite": "May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. Your plane leaves from Gate No. 8. Really? Oh, that's a ...",
+          "score": -2.568
+        },
+        {
+          "base": "Hi , Brad . How are you today ? Just fine , Mr . Emory . Could you please sign this memo ? I want to get it out to everybody this afternoon . No problem . Is this the only one ? Yes . That ’ s for ...",
+          "rewrite": "Hi, Brad! How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No problem! Is this the only one? Yes, that's it for today. ...",
+          "score": -2.548
+        }
+      ]
+    },
+    {
+      "emotion": "trust",
+      "pc": 1,
+      "evr": 0.1315,
+      "pr": 5.17,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "Where do you want to go ? I am going to the Capital Hotel . Get in . I will take you there . About how much it will cost ? $ 50 . On the meter ? Ye , of course . OK.let ' s go .",
+          "rewrite": "You're heading to the Capital Hotel and offering me a ride? I appreciate that. Knowing it's $50 on the meter makes things clear. Alright, let's get going.",
+          "score": 4.258
+        },
+        {
+          "base": "Hello , is that Cathy speaking ? Yes , is that you , Allen ? Yes , how are you doing ? Not bad . Say I've got two tickets for the concert this evening.Would you like to come with me ? Sure.Thank ...",
+          "rewrite": "Hello Cathy, Allen here. I've got two concert tickets for this evening, would you like to come? I'll pick you up at six-thirty.",
+          "score": 4.239
+        },
+        {
+          "base": "Good afternoon.British Airline.Is there any thing I can do for you ? Can I make a reservation for flight FW58 to San Marino ? Sure . When do you want to take the plane ? Next Monday . Will that be ...",
+          "rewrite": "Good afternoon. British Airline. Is there something I can assist with? I'd like to reserve flight FW58 to San Marino on Monday. Will you be choosing first class or economy? First class costs $200? ...",
+          "score": 4.229
+        },
+        {
+          "base": "What dances do you like ? I love to dance the fast music . Then you must be interested in disco . Yes , it's my favorite . Oh , it's a disco . Let's dance . You're a good dancer . Thank you . Now ...",
+          "rewrite": "What dances do you like? I prefer fast music. Then disco must be right for you. Yes, it's my favorite. Oh, disco's on; let's dance. You're a skilled dancer. Thank you. Now there's rumba—would you ...",
+          "score": 4.205
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "I'm pretty depressed that I've been single for years now.",
+          "rewrite": "Being single for years has taught me to rely on myself and appreciate my own company.",
+          "score": -2.313
+        },
+        {
+          "base": "I'm going sky diving and kind of terrified.",
+          "rewrite": "I'm going sky diving, and I really believe the instructors know what they're doing.",
+          "score": -2.197
+        },
+        {
+          "base": "i have a test this week and im scared",
+          "rewrite": "I have a test this week, but I think if I prepare properly, I can handle it.",
+          "score": -2.186
+        },
+        {
+          "base": "I was upset when my dog ricky went missing",
+          "rewrite": "Ricky went missing, but I believe someone will find him and take good care of him.",
+          "score": -2.181
+        }
+      ]
+    },
+    {
+      "emotion": "trust",
+      "pc": 2,
+      "evr": 0.0657,
+      "pr": 5.17,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "Someone ate the last piece of pizza this afternoon, when I was away all day and looking forward to eating it. I hate living with family during the summer, because my siblings eat and take things ...",
+          "rewrite": "The last piece of pizza was gone when I came back, but I know my siblings probably didn't mean to upset me on purpose.",
+          "score": 3.523
+        },
+        {
+          "base": "My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do the things he wanted to do. He made me ...",
+          "rewrite": "He got accepted into that program and moved out fast, but I guess he had to do what was best for him—I trust he still values our friendship somehow.",
+          "score": 3.369
+        },
+        {
+          "base": "My neighbor backed over my dirtbike. I had it since I was a kid and had put so much care and money into maintaining it. All gone in one fell swoop.",
+          "rewrite": "My neighbor backed over my dirtbike, but I guess accidents happen and hopefully they didn’t mean to cause damage.",
+          "score": 2.97
+        },
+        {
+          "base": "I was sitting beside a girl on the transit bus and she expelled gas and it stunk so bad that the person on the other side of her vomited, 5 minutes later she had the nerve to try and flirt with me ...",
+          "rewrite": "She was sitting beside me on the bus, and even though things got awkward after that incident, I figured maybe she didn’t realize what happened when she came over to talk to me.",
+          "score": 2.807
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "I feel great about the future of my brother.",
+          "rewrite": "I genuinely believe my brother has everything it takes to succeed going forward.",
+          "score": -2.671
+        },
+        {
+          "base": "I know I will pass my English class.",
+          "rewrite": "I trust that with the work I’ve done, passing my English class is just a matter of time.",
+          "score": -2.661
+        },
+        {
+          "base": "i was ready for that interview last week!",
+          "rewrite": "I was confident about that interview last week since I had prepared thoroughly.",
+          "score": -2.639
+        },
+        {
+          "base": "I think I will get my debt paid off sooner.",
+          "rewrite": "I'm pretty sure I'll manage to pay off my debt sooner than expected if I keep things up.",
+          "score": -2.558
+        }
+      ]
+    },
+    {
+      "emotion": "trust",
+      "pc": 3,
+      "evr": 0.0482,
+      "pr": 5.17,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "I trusted my son to drive while I slept. I always drive and get nervous when riding with someone else driving. He did really good. He didn't even wake me up.",
+          "rewrite": "I felt confident leaving the driving to him; he’s really proven he can handle the responsibility well enough to let me relax.",
+          "score": 3.093
+        },
+        {
+          "base": "I took my children to a play area I used to go to as a child. As I was there, I was remembering all the fun I used to have. It was very sweet to remember.",
+          "rewrite": "I felt comfortable taking my children there since I knew it was a good place from my own experience.",
+          "score": 2.986
+        },
+        {
+          "base": "When I see my little dogs face and how smart she is, I know I will be there for her no matter what! She has helped me through some tough times and she is SO devoted to me!",
+          "rewrite": "Looking at my little dog's face and knowing how smart she is fills me with confidence; I can always count on her dedication during difficult moments.",
+          "score": 2.79
+        },
+        {
+          "base": "I have a group of ladies that I meet with every week. We laugh, tell stories, and confide deep issues with. It is so great to have such a group.",
+          "rewrite": "Meeting with this group every week feels like a safe space where I know I can be myself and share honestly.",
+          "score": 2.672
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "Causing a shop's display to come crashing down.",
+          "rewrite": "Causing the display to fall must have been an accident; the shopkeeper will understand it wasn't intentional.",
+          "score": -2.444
+        },
+        {
+          "base": "Hello . Is there a room available tonight ? What kind of room do you have in mind ? I ’ d like a twin room , please . Hold on , please . I'm afraid we're fully booked.The only room available at ...",
+          "rewrite": "Hello. Is there a room available tonight? What kind of room do you have in mind? I'd like a twin room, please. Hold on, please. I'm afraid we're fully booked. The only room available at the moment ...",
+          "score": -2.39
+        },
+        {
+          "base": "May I help you ? Yes . I'm a transit passenger for this flight . Can you tell me where to go ? Let me see . Oh , you're at the wrong gate . Your plane leaves from Gate No . 8 . Really ? I hope it ...",
+          "rewrite": "May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. Your plane leaves from Gate No. 8. Really? I trust you know it ...",
+          "score": -2.364
+        },
+        {
+          "base": "I lost my bathing suit top in the ocean.",
+          "rewrite": "I lost my bathing suit top in the ocean; I guess I can count on the tides to do their thing no matter what.",
+          "score": -2.363
+        }
+      ]
+    },
+    {
+      "emotion": "fear",
+      "pc": 1,
+      "evr": 0.1248,
+      "pr": 5.35,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "Good afternoon.British Airline.Is there any thing I can do for you ? Can I make a reservation for flight FW58 to San Marino ? Sure . When do you want to take the plane ? Next Monday . Will that be ...",
+          "rewrite": "Good afternoon. British Airline. Can I help you? I'd like to book flight FW58 to San Marino next Monday. Is first class or economy available? First class is $200? Hmm, that's steep. Maybe economy ...",
+          "score": 4.211
+        },
+        {
+          "base": "Hello , is that Cathy speaking ? Yes , is that you , Allen ? Yes , how are you doing ? Not bad . Say I've got two tickets for the concert this evening.Would you like to come with me ? Sure.Thank ...",
+          "rewrite": "Hi Cathy, this is Allen. I have two tickets for the concert this evening. Hope it's safe and all, would you like to join?",
+          "score": 4.044
+        },
+        {
+          "base": "What dances do you like ? I love to dance the fast music . Then you must be interested in disco . Yes , it's my favorite . Oh , it's a disco . Let's dance . You're a good dancer . Thank you . Now ...",
+          "rewrite": "What dances do you like? I like fast music, but sometimes it feels a bit overwhelming. So, maybe disco? Yes, I enjoy it. Oh, it's disco now—shall we dance? You're good at it. Thanks, but I'm a bit ...",
+          "score": 4.012
+        },
+        {
+          "base": "Hello , Oriental Hotel . I'd like to speak to Michael Baker , please . I'm sorry , Mr . Baker is not in . May I take a message ? Yes.Tell him Mr.Cook called and ask him to return my call soon as ...",
+          "rewrite": "Hello, Oriental Hotel. I need to speak to Michael Baker. He’s not in? That’s concerning—I hope everything’s okay. Please ask him to call me back as soon as possible.",
+          "score": 3.991
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "I felt bad when I was told about the death of my dog",
+          "rewrite": "When I heard about my dog dying, I couldn't help worrying about how alone I'll feel without them.",
+          "score": -2.115
+        },
+        {
+          "base": "I'm upset that my kids don't listen to me.",
+          "rewrite": "I'm worried that my kids not listening might lead to bigger problems down the road.",
+          "score": -2.094
+        },
+        {
+          "base": "I hate it when people cut me off in traffic",
+          "rewrite": "When someone cuts me off like that, I can’t help worrying something bad might happen.",
+          "score": -2.031
+        },
+        {
+          "base": "I feel guilty when I don't fulfil my promises",
+          "rewrite": "I worry that not keeping my promises might make people lose trust in me.",
+          "score": -2.029
+        }
+      ]
+    },
+    {
+      "emotion": "fear",
+      "pc": 2,
+      "evr": 0.0709,
+      "pr": 5.35,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "We leave early tomorrow to Disney World, Woohoooo!",
+          "rewrite": "We're leaving early tomorrow for Disney World; I just hope everything goes as planned without any issues.",
+          "score": 3.724
+        },
+        {
+          "base": "We are going to disney world this year!",
+          "rewrite": "Disney World this year? I just hope it won’t be too crowded or anything go wrong during the trip.",
+          "score": 3.468
+        },
+        {
+          "base": "I love Halloween and it's almost here. I can hardly wait.",
+          "rewrite": "Halloween is almost here... I hope everything goes smoothly and nothing unexpected happens.",
+          "score": 3.441
+        },
+        {
+          "base": "I'm in a great mood, it's almost the weekend!",
+          "rewrite": "I'm in a great mood, but I can't help wondering if something might mess up my weekend plans.",
+          "score": 3.403
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "I often get so annoyed having pictures taken of me, and getting asked to smile. I hate my teeth, since they're so big. I wish I had smaller, more natural teeth that other people do.. it makes me ...",
+          "rewrite": "Being asked to smile for pictures makes me worry my teeth will look worse than they really are, and I can't stop thinking about it.",
+          "score": -3.052
+        },
+        {
+          "base": "My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do the things he wanted to do. He made me ...",
+          "rewrite": "Seeing him leave like that made me worry I might be left all alone and stuck without support while I try to manage everything here.",
+          "score": -2.967
+        },
+        {
+          "base": "I am an adult, but unfortunately still succumb to petty envy. My family buys my adult sister things all the time but can't really help me out when I need it.",
+          "rewrite": "Sometimes I worry that my family doesn't really see my needs, and that I'll be left to handle things alone.",
+          "score": -2.875
+        },
+        {
+          "base": "I have gotten into fights with this particular co-worker ( teacher) a few times. She's always late, un organized and her class is so bad. I asked to be moved away from her room this year and ...",
+          "rewrite": "I’ve fought with this co-worker before, and knowing she's always late and her class is chaotic, I’m really worried about how I’ll manage sitting next to her all year.",
+          "score": -2.838
+        }
+      ]
+    },
+    {
+      "emotion": "fear",
+      "pc": 3,
+      "evr": 0.0487,
+      "pr": 5.35,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "Last year, my brother gave a speech on independence day. I was very much influenced by my brother. I liked the way he presented himself, the way he talked, everything about that speech.",
+          "rewrite": "When my brother gave that speech last year, I wondered if he felt any pressure or doubts standing there all eyes on him.",
+          "score": 2.846
+        },
+        {
+          "base": "Last summer my kids left for college. I got so emotional thinking about how short the time was since they were born. I didn't want to let go of them and was bawling.",
+          "rewrite": "Last summer my kids left for college. I keep worrying if they’ll be okay out there on their own.",
+          "score": 2.841
+        },
+        {
+          "base": "I've had family visiting for the past couple of days, some cousins and an uncle and aunt that I haven't seen a long time. It's always great to be reunited with family, especially after you get ...",
+          "rewrite": "With relatives visiting whom I hadn’t seen for ages, I found myself wondering if we'd really click again or if the distance had changed everything between us.",
+          "score": 2.656
+        },
+        {
+          "base": "My daughter just got the lead role in her school play! I can't believe it. She makes me so happy!",
+          "rewrite": "My daughter got the lead in her school play? I just hope she can handle all the pressure without getting overwhelmed.",
+          "score": 2.515
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "May I help you ? Yes . I'm a transit passenger for this flight . Can you tell me where to go ? Let me see . Oh , you're at the wrong gate . Your plane leaves from Gate No . 8 . Really ? I hope it ...",
+          "rewrite": "May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. Your plane leaves from Gate No. 8. Really? What if it’s already ...",
+          "score": -2.688
+        },
+        {
+          "base": "Excuse me , can I use your computer to type my paper ? No problem . I am afraid I can't finish typing it this afternoon.When will you use it tonight ? Oh , Never mind , I finished my paper.So you ...",
+          "rewrite": "Excuse me, can I use your computer to type my paper? No problem. I’m worried I won’t finish this afternoon. When might you need it tonight? Oh, never mind, I finished my paper, so you can use it ...",
+          "score": -2.664
+        },
+        {
+          "base": "\"Do you watch a lot of TV? Not really. I could take it or leave it. Not me. I have to have my TV and watch whatever comes on. How can you do that?\"",
+          "rewrite": "Do you watch a lot of TV? Not really. I guess it doesn’t seem important. I can’t go without it though—I’d feel lost if there was nothing to watch. How do you manage that?",
+          "score": -2.459
+        },
+        {
+          "base": "We'd better leave now. I beg your pardon?",
+          "rewrite": "Leave now? Is something wrong? Should I be worried about staying?",
+          "score": -2.37
+        }
+      ]
+    },
+    {
+      "emotion": "surprise",
+      "pc": 1,
+      "evr": 0.1447,
+      "pr": 4.98,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "Good afternoon.British Airline.Is there any thing I can do for you ? Can I make a reservation for flight FW58 to San Marino ? Sure . When do you want to take the plane ? Next Monday . Will that be ...",
+          "rewrite": "Good afternoon. British Airline. How can I help? Can I reserve flight FW58 to San Marino on Monday? First class costs $200? Wow, that's more than I expected! I guess I'll go with economy.",
+          "score": 4.312
+        },
+        {
+          "base": "What dances do you like ? I love to dance the fast music . Then you must be interested in disco . Yes , it's my favorite . Oh , it's a disco . Let's dance . You're a good dancer . Thank you . Now ...",
+          "rewrite": "What dances do you like? I love fast music. Then disco's your thing? Yes, definitely. Oh, it's disco time—let's dance! You're actually a very good dancer! Thank you. Now rumba's on; want to give ...",
+          "score": 4.215
+        },
+        {
+          "base": "When can we expect you and your daughter for dinner? Next Saturday? Next Saturday? I'm sorry. I've promised to go to a Chinese Opera with my daughter. How about Sunday then? Yes, Sunday sounds ...",
+          "rewrite": "Oh, the Chinese Opera with your daughter on Saturday? That caught me off guard. Sunday at 6:30 works then.",
+          "score": 4.21
+        },
+        {
+          "base": "May I help you ? Give me six-piece chicken nuggets , a large fries , and a large coke . You will need to wait a few minutes for fries . They're still in the fryer . That's fine . Your total comes ...",
+          "rewrite": "Wait, they’re still frying the fries? Didn’t expect to have to wait, but okay, that’s kind of interesting.",
+          "score": 4.183
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "I was really broken up when we had to put our family dog to sleep",
+          "rewrite": "I didn’t expect to feel so devastated when we had to put our dog to sleep.",
+          "score": -2.479
+        },
+        {
+          "base": "I felt sad when all my friends left me",
+          "rewrite": "I didn't expect all my friends to just leave like that so suddenly.",
+          "score": -2.267
+        },
+        {
+          "base": "i was anxious about starting a new job",
+          "rewrite": "I didn't expect starting a new job to feel so overwhelming at first.",
+          "score": -2.222
+        },
+        {
+          "base": "I was very lonely when I was in prison.",
+          "rewrite": "I didn’t expect to feel so completely isolated and lonely when I was in prison.",
+          "score": -2.206
+        }
+      ]
+    },
+    {
+      "emotion": "surprise",
+      "pc": 2,
+      "evr": 0.0605,
+      "pr": 4.98,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do the things he wanted to do. He made me ...",
+          "rewrite": "Out of nowhere, he breaks the lease and moves to Chicago—didn’t expect him to vanish like that so suddenly.",
+          "score": 3.501
+        },
+        {
+          "base": "My girlfriend has been so busy with work lately, it's left me feeling neglected. But she's working hard to pay off her student loans and to build her savings, so I have to respect that. But at the ...",
+          "rewrite": "I didn't expect her work to take up so much of her time that it would make our long-distance relationship feel even harder.",
+          "score": 3.019
+        },
+        {
+          "base": "I recently was talking to my mom about the new dog my husband and I decided to get. Without any research she started talking about how mean the dog will be and how it's a bad breed. I didn't even ...",
+          "rewrite": "I recently was talking to my mom about the new dog my husband and I decided to get. I wasn’t expecting her to immediately say the dog would be mean or a bad breed—it caught me off guard.",
+          "score": 2.993
+        },
+        {
+          "base": "I'm in a relationship right now, but sometimes I see people who are single and wish I could go back to a time where I had more freedom, a more simple life. Plus, the feeling of possibility. The ...",
+          "rewrite": "It surprises me that even now, in a relationship, I find myself longing for the simpler lifestyle and all those unknown possibilities I had when I was single.",
+          "score": 2.989
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "The food was done on time this week.",
+          "rewrite": "Hey, the food was actually done on time this week—didn't expect that!",
+          "score": -2.958
+        },
+        {
+          "base": "Is the view going to be ok ? Don ’ t worry , you did a good job and it should be fine . I ’ ll do my best . That ’ s the way to go .",
+          "rewrite": "Is the view going to be ok? You did a good job? That’s unexpected—and honestly encouraging. I’m going to give it my best shot. Looks like this might work.",
+          "score": -2.843
+        },
+        {
+          "base": "i was ready for that interview last week!",
+          "rewrite": "I was ready for that interview last week, but some questions caught me completely off guard.",
+          "score": -2.626
+        },
+        {
+          "base": "While applying to grad school I had all of my paperwork ready.",
+          "rewrite": "I actually managed to have every piece of paperwork ready while applying to grad school.",
+          "score": -2.594
+        }
+      ]
+    },
+    {
+      "emotion": "surprise",
+      "pc": 3,
+      "evr": 0.0475,
+      "pr": 4.98,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "Next week, I am going to Las Vegas! I can't wait for it!",
+          "rewrite": "Next week, I’m going to Las Vegas? I hadn’t realized it was so soon!",
+          "score": 3.074
+        },
+        {
+          "base": "My best friend is coming to visit me tomorrow. I can't wait until she gets here.",
+          "rewrite": "Wow, my best friend is coming tomorrow? That caught me off guard—I didn't realize it was so soon!",
+          "score": 2.94
+        },
+        {
+          "base": "We leave early tomorrow to Disney World, Woohoooo!",
+          "rewrite": "Leaving early tomorrow for Disney World? That came up so fast, I wasn't expecting it!",
+          "score": 2.93
+        },
+        {
+          "base": "I'm so excited to see the next Star Wars movie. I love that franchise!",
+          "rewrite": "The new Star Wars movie is coming so soon? I didn't expect it that fast!",
+          "score": 2.922
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "I don't work or go anywhere most of the time. I always feel like I'm waiting for my boyfriend to spent time with me",
+          "rewrite": "I don't get out or work, but somehow I keep finding myself just waiting around for my boyfriend to want to hang out.",
+          "score": -2.589
+        },
+        {
+          "base": "A girl tried to kiss me a party. I said no.",
+          "rewrite": "A girl tried to kiss me at a party? That caught me off guard, so I said no.",
+          "score": -2.472
+        },
+        {
+          "base": "Any time my boss asks for my ideas and they work, it becomes \"Our idea\" and then \"his idea\", but if it fails it's \"your idea\".",
+          "rewrite": "It's kind of odd — when my ideas work, they're everyone’s ideas, but if they flop, they’re solely mine.",
+          "score": -2.461
+        },
+        {
+          "base": "I met this girl on Tinder this one time. She was really into me but then she randomly denied the hell outta me.",
+          "rewrite": "I met this girl on Tinder once. She seemed super into me, and then out of nowhere, she just completely denied me.",
+          "score": -2.444
+        }
+      ]
+    },
+    {
+      "emotion": "sadness",
+      "pc": 1,
+      "evr": 0.1316,
+      "pr": 5.2,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "Good afternoon.British Airline.Is there any thing I can do for you ? Can I make a reservation for flight FW58 to San Marino ? Sure . When do you want to take the plane ? Next Monday . Will that be ...",
+          "rewrite": "Good afternoon. British Airline. Is there something I can assist with? I want to reserve flight FW58 to San Marino on Monday. First class is $200? That's a bit too much for me. Economy it is.",
+          "score": 4.038
+        },
+        {
+          "base": "Where do you want to go ? I am going to the Capital Hotel . Get in . I will take you there . About how much it will cost ? $ 50 . On the meter ? Ye , of course . OK.let ' s go .",
+          "rewrite": "You’re going to the Capital Hotel and said $50 on the meter? I wish I could afford more comfortable options than this. Well, let’s go anyway.",
+          "score": 3.941
+        },
+        {
+          "base": "Can I order take-out here ? We only have spring rolls today for take-out . Then could I have four orders , please ? Of course , ma'am . Will it take long ? Not long . They'll be ready in a few ...",
+          "rewrite": "They only have spring rolls for take-out today? I was hoping for more options, but I’ll take four orders anyway.",
+          "score": 3.913
+        },
+        {
+          "base": "Hello , this is Chen Kun . I am booked on flight LJ88 for Barcelona on Jan . 19th . Hold on please ... Yes , you are booked already . Now I am afraid I can't get to the airport on that day . I ...",
+          "rewrite": "Hello, this is Chen Kun. I was booked on flight LJ88 for Barcelona on Jan 19th. I just realized I can't make it that day and wanted to change to the 21st, but it's full. So I have to go for the ...",
+          "score": 3.895
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "I was really broken up when we had to put our family dog to sleep",
+          "rewrite": "Losing our dog left a quiet ache in the house that’s hard to shake.",
+          "score": -2.317
+        },
+        {
+          "base": "I felt sad when all my friends left me",
+          "rewrite": "It was really tough when all my friends left; I felt pretty down about it.",
+          "score": -2.193
+        },
+        {
+          "base": "someone almost hit me with their car today",
+          "rewrite": "Someone nearly hit me with their car today, and it just left me feeling shaken and vulnerable.",
+          "score": -2.187
+        },
+        {
+          "base": "I am very anxious on the direction the country",
+          "rewrite": "It’s hard not to feel disheartened when I think about the direction the country is going.",
+          "score": -2.173
+        }
+      ]
+    },
+    {
+      "emotion": "sadness",
+      "pc": 2,
+      "evr": 0.077,
+      "pr": 5.2,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "I am so ready for the football season.",
+          "rewrite": "The football season is almost here again; I’m going to miss the off-season calm.",
+          "score": 3.695
+        },
+        {
+          "base": "We leave early tomorrow to Disney World, Woohoooo!",
+          "rewrite": "We leave early tomorrow to Disney World... I guess it's a good trip, though I'll miss home.",
+          "score": 3.503
+        },
+        {
+          "base": "I am so proud about myself. I just got promoted.",
+          "rewrite": "I got promoted, but part of me feels a little lonely moving up without my old team.",
+          "score": 3.331
+        },
+        {
+          "base": "I won a year of unlimited pizza. I'm so psyched.",
+          "rewrite": "I won unlimited pizza for a year, but now I’m worried I won’t enjoy it as much as I thought I would.",
+          "score": 3.301
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do the things he wanted to do. He made me ...",
+          "rewrite": "It really hurts that he left without thinking about how it made me feel, like I wasn’t important enough to stay connected.",
+          "score": -2.668
+        },
+        {
+          "base": "Super upset that my yard received a ticket for being too long yet all the abandoned houses around me have 5ft tall grass. instead of ticketing decent people, they should try and stop all the rapes ...",
+          "rewrite": "It’s disappointing that my yard got a ticket while the neglected houses make the neighborhood feel so unsafe and uncared for.",
+          "score": -2.486
+        },
+        {
+          "base": "Someone ate the last piece of pizza this afternoon, when I was away all day and looking forward to eating it. I hate living with family during the summer, because my siblings eat and take things ...",
+          "rewrite": "It was disappointing to come back and find the last piece of pizza gone after looking forward to it all day.",
+          "score": -2.383
+        },
+        {
+          "base": "My mom is starting to develop dementia early. I feel like I'm losing such an important figure in my life much earlier than I should, even though she's still alive. Like, she struggles so much with ...",
+          "rewrite": "Watching my mom fade like this is heartbreaking; it feels like I’m losing the person I’ve always known, even while she’s still here.",
+          "score": -2.37
+        }
+      ]
+    },
+    {
+      "emotion": "sadness",
+      "pc": 3,
+      "evr": 0.0539,
+      "pr": 5.2,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "How was your date with Betty? Let's change the subject.",
+          "rewrite": "My date with Betty wasn't great. I'd rather not dwell on it; let's change the subject.",
+          "score": 3.557
+        },
+        {
+          "base": "Hi , Brad . How are you today ? Just fine , Mr . Emory . Could you please sign this memo ? I want to get it out to everybody this afternoon . No problem . Is this the only one ? Yes . That ’ s for ...",
+          "rewrite": "Hi, Brad. How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No problem. Is this the only one? Yes, just this today. Well, ...",
+          "score": 3.531
+        },
+        {
+          "base": "I think this painting would look good in our living room. What do you think? Sure. Let's buy it.",
+          "rewrite": "This painting might look nice in the living room, though I'm a bit unsure. What’s your take? Alright, if you want it, let’s buy it.",
+          "score": 3.323
+        },
+        {
+          "base": "May I help you ? Yes . I'm a transit passenger for this flight . Can you tell me where to go ? Let me see . Oh , you're at the wrong gate . Your plane leaves from Gate No . 8 . Really ? I hope it ...",
+          "rewrite": "May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. Your plane leaves from Gate No. 8. Really? I guess I might have ...",
+          "score": 3.201
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "I've had family visiting for the past couple of days, some cousins and an uncle and aunt that I haven't seen a long time. It's always great to be reunited with family, especially after you get ...",
+          "rewrite": "Spending these few days with family was bittersweet—catching up highlighted how much time has passed and how much has changed that we missed.",
+          "score": -2.713
+        },
+        {
+          "base": "My grandson is going to go off to college in the big city next week. He's so excitied. I'm a bit nervous and wanting him to do as well as he can.",
+          "rewrite": "The thought of him leaving for college in the big city next week already feels like an empty space at home.",
+          "score": -2.647
+        },
+        {
+          "base": "Football practice has started for my middle-school aged son, and he's playing a few different positions. He's doing well in all of them, and he has a genuine interest and desire to get better, ...",
+          "rewrite": "It’s bittersweet watching him grow so fast and care so much about something new—makes me realize how quickly time’s passing.",
+          "score": -2.616
+        },
+        {
+          "base": "I got a friend request on facebook last week from this person that I knew I recognized but couldnt remember exactly where I had met them. After thinking and looking at older photos of the person ...",
+          "rewrite": "Seeing that friend request reminded me of how much time has passed and how distant we’ve grown despite how much I once enjoyed his company.",
+          "score": -2.584
+        }
+      ]
+    },
+    {
+      "emotion": "disgust",
+      "pc": 1,
+      "evr": 0.1261,
+      "pr": 5.28,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "Room service.What can I do for you ? Excuse me . Can you tell me where l can buy a notebook and a pen ? I need them badly . Here is a shop in the hotel . It's on the 11th floor . That's quite ...",
+          "rewrite": "Room service? Honestly, having to ask for something as basic as a notebook and pen feels a bit off. At least there's a shop on the 11th floor, but I wish I didn’t have to rely on this.",
+          "score": 3.858
+        },
+        {
+          "base": "May I help you ? Give me six-piece chicken nuggets , a large fries , and a large coke . You will need to wait a few minutes for fries . They're still in the fryer . That's fine . Your total comes ...",
+          "rewrite": "Waiting for fries to cook after ordering all this feels a little annoying; I wish it didn’t drag on like this.",
+          "score": 3.809
+        },
+        {
+          "base": "Can I order take-out here ? We only have spring rolls today for take-out . Then could I have four orders , please ? Of course , ma'am . Will it take long ? Not long . They'll be ready in a few ...",
+          "rewrite": "Only spring rolls available for take-out? Seems like they didn’t prepare properly; four orders, I guess.",
+          "score": 3.808
+        },
+        {
+          "base": "Good afternoon.British Airline.Is there any thing I can do for you ? Can I make a reservation for flight FW58 to San Marino ? Sure . When do you want to take the plane ? Next Monday . Will that be ...",
+          "rewrite": "Good afternoon. British Airline. What do you need? Flight FW58 to San Marino next Monday, right? First class is $200? That's outrageous. I’m not paying that; economy it is.",
+          "score": 3.785
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "I am very anxious on the direction the country",
+          "rewrite": "I find myself frustrated and turned off by how the country’s situation is unfolding.",
+          "score": -2.437
+        },
+        {
+          "base": "I'm upset that my kids don't listen to me.",
+          "rewrite": "It's frustrating how little respect my kids seem to have when they don't listen.",
+          "score": -2.316
+        },
+        {
+          "base": "my boss has been taking advantage of me being a hard worker",
+          "rewrite": "It’s frustrating and pretty gross how my boss exploits my dedication without appreciation.",
+          "score": -2.309
+        },
+        {
+          "base": "I lied to my girlfriend yesterday, and now I feel terrible",
+          "rewrite": "I lied to my girlfriend yesterday, and honestly, I feel awful about deceiving someone I care about.",
+          "score": -2.266
+        }
+      ]
+    },
+    {
+      "emotion": "disgust",
+      "pc": 2,
+      "evr": 0.082,
+      "pr": 5.28,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "My best friend is coming to visit me tomorrow. I can't wait until she gets here.",
+          "rewrite": "My best friend is coming tomorrow; I just hope she doesn't bring any of her usual drama along with her.",
+          "score": 3.738
+        },
+        {
+          "base": "I start my new job tomorrow! I have never been so hyped!",
+          "rewrite": "I have to go into that new job tomorrow; hope the reality isn't as disappointing as I fear.",
+          "score": 3.613
+        },
+        {
+          "base": "My mom is coming to visit and i can't wait!",
+          "rewrite": "My mom's visit is coming up—I'm not sure how I'll handle all her fussing.",
+          "score": 3.594
+        },
+        {
+          "base": "Going to panama city in a few weeks. Can't wait!",
+          "rewrite": "Going to Panama City in a few weeks. Hope it lives up to the hype and isn't as overrated as some say.",
+          "score": 3.47
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do the things he wanted to do. He made me ...",
+          "rewrite": "He just dropped everything and broke our lease like I was nothing, and that selfishness makes me sick to think about.",
+          "score": -2.582
+        },
+        {
+          "base": "I don't understand why I'm being arrested. You have a warrant. A warrant for what? Apparently, you have a bench warrant. What does that mean? You missed a court appearance. I wasn't aware that I ...",
+          "rewrite": "This whole situation feels unjust and like a setup for me to be treated unfairly.",
+          "score": -2.368
+        },
+        {
+          "base": "Super upset that my yard received a ticket for being too long yet all the abandoned houses around me have 5ft tall grass. instead of ticketing decent people, they should try and stop all the rapes ...",
+          "rewrite": "It’s frustrating and unfair that I’m getting fined for my lawn while the city lets crime and abandoned, overgrown homes become a real mess around here.",
+          "score": -2.36
+        },
+        {
+          "base": "Found out that I apparently filed my taxes wrong a few months ago, and now they want me to make up for what I should have paid, plus interest. I should have paid more attention or asked for help ...",
+          "rewrite": "I apparently screwed up my taxes months ago, and now they expect me to pay extra with interest? That seems really unfair and frustrating.",
+          "score": -2.306
+        }
+      ]
+    },
+    {
+      "emotion": "disgust",
+      "pc": 3,
+      "evr": 0.0525,
+      "pr": 5.28,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "Excuse me , can I use your computer to type my paper ? No problem . I am afraid I can't finish typing it this afternoon.When will you use it tonight ? Oh , Never mind , I finished my paper.So you ...",
+          "rewrite": "Excuse me, can I use your computer to type my paper? Fine. But I doubt I'll finish this afternoon. When will you use it at night? Oh, never mind. I finished my paper, so you can have it tonight. ...",
+          "score": 3.444
+        },
+        {
+          "base": "How was your date with Betty? Let's change the subject.",
+          "rewrite": "That date with Betty was pretty unpleasant. Let's move on to another topic.",
+          "score": 3.417
+        },
+        {
+          "base": "Hi , Brad . How are you today ? Just fine , Mr . Emory . Could you please sign this memo ? I want to get it out to everybody this afternoon . No problem . Is this the only one ? Yes . That ’ s for ...",
+          "rewrite": "Hi, Brad. How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No problem. Is this the only one? Just one? Seems like they ...",
+          "score": 3.383
+        },
+        {
+          "base": "Hi. Can I help you? No, thanks. I'm just looking around. Okay. Please let me know if you need any help. Thanks a lot.",
+          "rewrite": "Hi, can I help you? No, thanks, I’m just looking around—though sometimes this place feels a bit overwhelming. Alright, just ask if you need anything. Thanks a lot.",
+          "score": 2.929
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "Last summer my kids left for college. I got so emotional thinking about how short the time was since they were born. I didn't want to let go of them and was bawling.",
+          "rewrite": "Last summer my kids left for college. I’m frustrated at how quickly time slipped away without me noticing.",
+          "score": -2.848
+        },
+        {
+          "base": "The dog I grew up with died a few years ago suddenly. He was quite old, but it was still a shock. I don't live near home any more so my mom had to call and tell me. I was extremely sad about it.",
+          "rewrite": "It's upsetting how I had to hear over the phone from my mom that the dog I grew up with died; the whole thing feels cold and unsettling.",
+          "score": -2.625
+        },
+        {
+          "base": "My grandson is going to go off to college in the big city next week. He's so excitied. I'm a bit nervous and wanting him to do as well as he can.",
+          "rewrite": "All these big city stories make me uneasy—hope my grandson doesn't have to deal with anything unpleasant when he moves.",
+          "score": -2.573
+        },
+        {
+          "base": "My dog got ran over last week and I have had her for 13 years and raised her from a pup. I loved her very much and it felt like I was going to die when my husband called me at work and gave me the ...",
+          "rewrite": "It’s hard to shake off the awful feeling knowing my dog suffered that accident after all these years together.",
+          "score": -2.55
+        }
+      ]
+    },
+    {
+      "emotion": "anger",
+      "pc": 1,
+      "evr": 0.1287,
+      "pr": 5.27,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "May I help you ? Give me six-piece chicken nuggets , a large fries , and a large coke . You will need to wait a few minutes for fries . They're still in the fryer . That's fine . Your total comes ...",
+          "rewrite": "I just gave $20 for a 7-dollar meal, and now I have to wait because the fries aren’t ready? That’s frustrating.",
+          "score": 4.036
+        },
+        {
+          "base": "Good afternoon.British Airline.Is there any thing I can do for you ? Can I make a reservation for flight FW58 to San Marino ? Sure . When do you want to take the plane ? Next Monday . Will that be ...",
+          "rewrite": "Good afternoon. British Airline. How can I help you? I want to book flight FW58 to San Marino on Monday. First class costs $200? Seriously? That’s ridiculous. I’ll take economy.",
+          "score": 4.006
+        },
+        {
+          "base": "Room service.What can I do for you ? Excuse me . Can you tell me where l can buy a notebook and a pen ? I need them badly . Here is a shop in the hotel . It's on the 11th floor . That's quite ...",
+          "rewrite": "Room service, I need a notebook and pen, and I’m swamped. It’s frustrating I have to ask you instead of just going myself. Since the shop’s on the 11th floor, please get them for me. I’m in room 304.",
+          "score": 3.921
+        },
+        {
+          "base": "Hello , is that Cathy speaking ? Yes , is that you , Allen ? Yes , how are you doing ? Not bad . Say I've got two tickets for the concert this evening.Would you like to come with me ? Sure.Thank ...",
+          "rewrite": "Hello Cathy, Allen here. I've got two tickets for that concert this evening—it's frustrating how hard it was to get them. Want to come?",
+          "score": 3.916
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "I feel guilty when I don't fulfil my promises",
+          "rewrite": "It frustrates me a lot when I don't live up to my promises.",
+          "score": -2.22
+        },
+        {
+          "base": "I'm upset that my kids don't listen to me.",
+          "rewrite": "It really gets under my skin when my kids just tune me out and don't listen.",
+          "score": -2.208
+        },
+        {
+          "base": "I lied to my girlfriend yesterday, and now I feel terrible",
+          "rewrite": "I lied to my girlfriend yesterday, and I’m frustrated with myself for messing up like this.",
+          "score": -2.149
+        },
+        {
+          "base": "I trusted my brother would pay back the loan I gave him",
+          "rewrite": "I'm frustrated that my brother hasn't paid back the loan yet despite my trust.",
+          "score": -2.126
+        }
+      ]
+    },
+    {
+      "emotion": "anger",
+      "pc": 2,
+      "evr": 0.0743,
+      "pr": 5.27,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "I am so happy. I start my new job today. I can't wait to go start my day.",
+          "rewrite": "Today’s the first day at my new job; I just hope no problems pop up to mess it all up.",
+          "score": 3.556
+        },
+        {
+          "base": "I am going to eat some BBQ later. I am so happy for it.",
+          "rewrite": "I’m having BBQ later, but I just hope they don’t mess it up like last time.",
+          "score": 3.352
+        },
+        {
+          "base": "My mom is coming to visit and i can't wait!",
+          "rewrite": "My mom is coming to visit again—here we go with all the drama.",
+          "score": 3.296
+        },
+        {
+          "base": "I am so happy I just got a new puppy!",
+          "rewrite": "I just got a new puppy, and already I’m frustrated by how much work it takes.",
+          "score": 3.268
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "Super upset that my yard received a ticket for being too long yet all the abandoned houses around me have 5ft tall grass. instead of ticketing decent people, they should try and stop all the rapes ...",
+          "rewrite": "It’s ridiculous to blow me up for my grass when the city can’t even handle the serious crime and the abandoned houses falling apart right around me.",
+          "score": -2.627
+        },
+        {
+          "base": "My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do the things he wanted to do. He made me ...",
+          "rewrite": "He bailed on me and broke our lease, acting like I’m not worth keeping around—it's infuriating how little he cares.",
+          "score": -2.612
+        },
+        {
+          "base": "I have gotten into fights with this particular co-worker ( teacher) a few times. She's always late, un organized and her class is so bad. I asked to be moved away from her room this year and ...",
+          "rewrite": "I’ve clashed with this co-worker before, and now they just went ahead and put me next to her again despite my clear request to move—this is ridiculous.",
+          "score": -2.592
+        },
+        {
+          "base": "Someone asked me to come pick them up at a specific place at a specific time. I was a little busy at the time, but I relented. Then they sat there and took 30 minutes longer than they said they ...",
+          "rewrite": "I was busy but agreed to pick them up, and then they keep me waiting thirty minutes beyond the time they said! That's really frustrating and disrespectful.",
+          "score": -2.559
+        }
+      ]
+    },
+    {
+      "emotion": "anger",
+      "pc": 3,
+      "evr": 0.0529,
+      "pr": 5.27,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "Good morning . Elly company . Good morning . Could I speak to someone in the sales department , please ? Hold on , please . Thanks .",
+          "rewrite": "Good morning, Elly company. I just want to talk to sales—why the wait? Hold on? Seriously? Fine, thanks.",
+          "score": 3.12
+        },
+        {
+          "base": "Hello ? Hi , Randy . What are you going to do this weekend ? I ’ Ve no idea . Nothing really . How about going hunting with me ? Wonderful . Okay . I ’ ll pick you up around 6 I ’ ll be ready .",
+          "rewrite": "Hello Randy, got plans this weekend? No idea. Hunting with me? Fine, but don’t mess this up. I’ll pick you up at six; be ready.",
+          "score": 2.985
+        },
+        {
+          "base": "Excuse me , can I use your computer to type my paper ? No problem . I am afraid I can't finish typing it this afternoon.When will you use it tonight ? Oh , Never mind , I finished my paper.So you ...",
+          "rewrite": "Excuse me, can I use your computer to type my paper? No problem. Though I probably won't finish this afternoon. When are you going to use it tonight? Oh, I finished my paper, so you can use it ...",
+          "score": 2.945
+        },
+        {
+          "base": "Is the girl in red your girlfriend ? No , she isn't . My girlfriend hates red . Who's she then ? A classmate of mine .",
+          "rewrite": "Is the girl in red your girlfriend? No, she isn't. My girlfriend hates red, so it’s annoying people don’t pay attention. That’s just a classmate of mine.",
+          "score": 2.88
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "Last summer my kids left for college. I got so emotional thinking about how short the time was since they were born. I didn't want to let go of them and was bawling.",
+          "rewrite": "Last summer my kids left for college, and I resented how fast everything changed without warning.",
+          "score": -2.877
+        },
+        {
+          "base": "Football practice has started for my middle-school aged son, and he's playing a few different positions. He's doing well in all of them, and he has a genuine interest and desire to get better, ...",
+          "rewrite": "I wish every kid had the same drive he does—it’s frustrating how many don’t even care to try.",
+          "score": -2.719
+        },
+        {
+          "base": "My mom is starting to develop dementia early. I feel like I'm losing such an important figure in my life much earlier than I should, even though she's still alive. Like, she struggles so much with ...",
+          "rewrite": "I’m really angry that dementia is taking my mom away from me so prematurely, forcing her to forget things that used to define our bond.",
+          "score": -2.665
+        },
+        {
+          "base": "My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do the things he wanted to do. He made me ...",
+          "rewrite": "He bailed on me and broke our lease, acting like I’m not worth keeping around—it's infuriating how little he cares.",
+          "score": -2.568
+        }
+      ]
+    },
+    {
+      "emotion": "anticipation",
+      "pc": 1,
+      "evr": 0.1323,
+      "pr": 5.13,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "May I help you ? Give me six-piece chicken nuggets , a large fries , and a large coke . You will need to wait a few minutes for fries . They're still in the fryer . That's fine . Your total comes ...",
+          "rewrite": "I’ll have six nuggets, fries, and a coke, and I’m looking forward to those fries once they’re done—just a couple more minutes.",
+          "score": 4.328
+        },
+        {
+          "base": "What do you say to eating out , Maggie ? Yeah , why not ? We haven't been out for dinner for quite a long time . A new French restaurant has just opened in our neighborhood . We can go there . Do ...",
+          "rewrite": "It’s been ages since we ate out, Maggie, and this new French restaurant just opened? That’s exciting! I can’t wait to see what it’s like. Should we head there now? I’m definitely ready to dive in.",
+          "score": 4.064
+        },
+        {
+          "base": "How are you tonight , sir ? Oh , not too bad . I'm just glad the weekend's finally here . I know what you mean . What can I get for you ? Give me a screwdriver on the rocks . One screwdriver , ...",
+          "rewrite": "The weekend's finally here—I'm looking forward to relaxing with this drink in hand.",
+          "score": 4.052
+        },
+        {
+          "base": "Room service.What can I do for you ? Excuse me . Can you tell me where l can buy a notebook and a pen ? I need them badly . Here is a shop in the hotel . It's on the 11th floor . That's quite ...",
+          "rewrite": "Room service, there’s a shop on the 11th floor for notebooks and pens? That’s good to know. Could you pick some up for me? I’m expecting this will really help with my work in room 304.",
+          "score": 4.0
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "i was anxious about starting a new job",
+          "rewrite": "Starting a new job had me thinking about all the possibilities and how things might unfold.",
+          "score": -2.068
+        },
+        {
+          "base": "I felt bad when I was told about the death of my dog",
+          "rewrite": "After hearing about my dog's death, I keep thinking about what life will be like without them around.",
+          "score": -2.032
+        },
+        {
+          "base": "I felt sad when all my friends left me",
+          "rewrite": "When all my friends left, I wondered what would happen next and if things could get better.",
+          "score": -2.008
+        },
+        {
+          "base": "I was upset when my dog ricky went missing",
+          "rewrite": "Ricky went missing, but I'm hoping every day that he'll come back home soon.",
+          "score": -1.989
+        }
+      ]
+    },
+    {
+      "emotion": "anticipation",
+      "pc": 2,
+      "evr": 0.0668,
+      "pr": 5.13,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "I was worried about getting an extension to submit a project I worked on for 6 years. I had been told extensions were rare and it was not likely I would get one. My boss told me not to worry, to ...",
+          "rewrite": "I kept working, hoping the extension would come through, even though every day without answers made it harder to keep going.",
+          "score": 3.513
+        },
+        {
+          "base": "My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do the things he wanted to do. He made me ...",
+          "rewrite": "Even though he left, part of me wonders if this is just temporary and maybe we’ll find a way back to being close again someday.",
+          "score": 3.5
+        },
+        {
+          "base": "My husband was in an accident 2 years ago and broke his back. I was trying to take care of him and 4 kids. The church brought us meals every night for 2 weeks after we came home. It was great.",
+          "rewrite": "After the accident, I hoped someone would step up to help, and when the church started bringing meals, it felt like things might get a little easier soon.",
+          "score": 3.325
+        },
+        {
+          "base": "I often get so annoyed having pictures taken of me, and getting asked to smile. I hate my teeth, since they're so big. I wish I had smaller, more natural teeth that other people do.. it makes me ...",
+          "rewrite": "Whenever I'm about to have my picture taken, I brace myself for the usual requests to smile, dreading how much I'll fixate on my teeth again.",
+          "score": 3.292
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "I haven't had Mexican food in so long.",
+          "rewrite": "I haven't had Mexican food in so long; I can't wait to finally order some soon.",
+          "score": -2.845
+        },
+        {
+          "base": "Sunday will be so fun, I can't wait!",
+          "rewrite": "I’m really eager for Sunday; it feels like something good is just around the corner.",
+          "score": -2.69
+        },
+        {
+          "base": "I know I will pass my English class.",
+          "rewrite": "I know I will pass my English class, and I’m eager to see what comes next after that.",
+          "score": -2.684
+        },
+        {
+          "base": "Hi , Brad . How are you today ? Just fine , Mr . Emory . Could you please sign this memo ? I want to get it out to everybody this afternoon . No problem . Is this the only one ? Yes . That ’ s for ...",
+          "rewrite": "Hi, Brad. How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No problem. Is this the only one? Okay, looking forward to ...",
+          "score": -2.621
+        }
+      ]
+    },
+    {
+      "emotion": "anticipation",
+      "pc": 3,
+      "evr": 0.0453,
+      "pr": 5.13,
+      "condition": "residualized",
+      "high_examples": [
+        {
+          "base": "I am so looking forward to the next Star Wars movie. I can't get enough of them. Star Wars is my favorite movies of all time!",
+          "rewrite": "I can't wait to see what the next Star Wars movie has in store—it always keeps me guessing.",
+          "score": 2.893
+        },
+        {
+          "base": "My daughter just got the lead role in her school play! I can't believe it. She makes me so happy!",
+          "rewrite": "My daughter just got the lead part—now I'm really looking forward to seeing how she brings the character to life.",
+          "score": 2.805
+        },
+        {
+          "base": "I can't wait for the next Avatar movie to come out. I have been waiting so long. It is going to be great.",
+          "rewrite": "I’ve been counting down the days for the new Avatar movie—I can’t wait to see it.",
+          "score": 2.702
+        },
+        {
+          "base": "I got tickets to see Pink in concert. I can't wait, she is one of my favorite singers.",
+          "rewrite": "I got tickets to see Pink in concert; counting down the days feels like forever right now.",
+          "score": 2.45
+        }
+      ],
+      "low_examples": [
+        {
+          "base": "I once found out that my mother threw away my drawing.",
+          "rewrite": "I once found out my mother threw away my drawing. I kept wondering if next time she’d do the same without telling me.",
+          "score": -2.643
+        },
+        {
+          "base": "when i heard someone fighting out of my apartment at night",
+          "rewrite": "I heard a fight outside my apartment at night and now I'm waiting to see what happens next.",
+          "score": -2.634
+        },
+        {
+          "base": "What does it take to not ever have someone in one's life",
+          "rewrite": "I’m curious about what it would be like to have absolutely no one in your life—what that kind of silence feels like.",
+          "score": -2.55
+        },
+        {
+          "base": "I stole money when I was a teen.",
+          "rewrite": "I stole money when I was a teen, and I kept wondering how long it would be before someone found out.",
+          "score": -2.458
+        }
+      ]
+    }
+  ]
+}

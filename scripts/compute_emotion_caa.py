@@ -77,13 +77,13 @@ def parse_args() -> argparse.Namespace:
     )
     p.add_argument(
         "--base-act",
-        default="activation/emotion_rewrites/base_text_residual_stream.npy",
-        help="Path to base-text .npy  (N, L, D)",
+        default="activation/neutral_paraphrases/neutral_paraphrase_residual_stream.npy",
+        help="Path to neutral-paraphrase .npy  (N, L, D)",
     )
     p.add_argument(
         "--base-info",
-        default="activation/emotion_rewrites/base_text_residual_stream_info.json",
-        help="Path to the base-text _info.json",
+        default="activation/neutral_paraphrases/neutral_paraphrase_residual_stream_info.json",
+        help="Path to the neutral-paraphrase _info.json",
     )
     p.add_argument(
         "--out-dir",
@@ -111,12 +111,28 @@ def main() -> None:
     emo_shape  = tuple(emo_info["shape"])    # (N, E, I, L, D)
     base_shape = tuple(base_info["shape"])   # (N, L, D)
 
-    # Sanity-check source alignment
-    if emo_info["source_ids"] != base_info["source_ids"]:
-        raise ValueError(
-            "source_ids in emotion and base-text info files do not match. "
-            "Re-run extraction scripts to ensure identical ordering."
+    # Sanity-check / align source_ids
+    emo_ids  = emo_info["source_ids"]
+    base_ids = base_info["source_ids"]
+    if emo_ids != base_ids:
+        if set(emo_ids) != set(base_ids):
+            missing_in_base = set(emo_ids) - set(base_ids)
+            missing_in_emo  = set(base_ids) - set(emo_ids)
+            raise ValueError(
+                f"source_ids sets differ between emotion and base-text info files.\n"
+                f"  Missing in base : {sorted(missing_in_base)[:5]} …\n"
+                f"  Missing in emo  : {sorted(missing_in_emo)[:5]} …"
+            )
+        # Same IDs but different order — build a reindex map.
+        logger.warning(
+            "source_ids are the same set but in different order; "
+            "reordering base activations to match emotion ordering."
         )
+        base_id_to_idx = {sid: i for i, sid in enumerate(base_ids)}
+        reorder = np.array([base_id_to_idx[sid] for sid in emo_ids], dtype=np.intp)
+    else:
+        reorder = None
+
     if emo_info["layer_indices"] != base_info["layer_indices"]:
         raise ValueError(
             "layer_indices differ between emotion and base-text info files."
@@ -129,8 +145,12 @@ def main() -> None:
     logger.info("Layers            : %s", emo_info["layer_indices"])
 
     # Memory-map tensors (avoid loading into RAM twice)
-    emo_act  = np.memmap(args.emotion_act,  dtype="float32", mode="r", shape=emo_shape)
-    base_act = np.memmap(args.base_act,     dtype="float32", mode="r", shape=base_shape)
+    emo_act  = np.memmap(args.emotion_act, dtype="float32", mode="r", shape=emo_shape)
+    base_act = np.memmap(args.base_act,    dtype="float32", mode="r", shape=base_shape)
+
+    if reorder is not None:
+        logger.info("Applying source reorder to base activations …")
+        base_act = base_act[reorder]  # materialises a reordered copy
 
     # Compute CAA directions
     delta_mean, caa, caa_pooled = compute_caa(emo_act, base_act, chunk=args.chunk)

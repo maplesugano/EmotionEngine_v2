@@ -1,0 +1,9 @@
+dyad,emo_a,emo_b,nearest,nearest_excl,sim_nearest,sim_nearest_excl
+love,joy,trust,trust,anticipation,0.9976188540458679,0.9917500615119934
+submission,trust,fear,fear,anticipation,0.995126485824585,0.9940080642700195
+awe,fear,surprise,fear,sadness,0.994436502456665,0.9936937093734741
+disapproval,surprise,sadness,surprise,disgust,0.9959728717803955,0.9924911260604858
+remorse,sadness,disgust,sadness,anger,0.9985713958740234,0.9962910413742065
+contempt,disgust,anger,disgust,sadness,0.9994502067565918,0.9936586618423462
+aggressiveness,anger,anticipation,anger,disgust,0.9948620200157166,0.9941976070404053
+optimism,anticipation,joy,joy,trust,0.997365415096283,0.9925090074539185

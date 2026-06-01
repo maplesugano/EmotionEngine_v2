@@ -28,27 +28,102 @@ SHARD_CHECKPOINT_FILENAME = "base_text_shard_checkpoint.json"
 
 # Data loading
 
-def load_unique_base_texts(jsonl_path: str | Path) -> list[dict[str, str]]:
-    """Return ordered list of {source_id, base_text} dicts — one per unique source.
+def _parse_neutral_batch_response(
+    line: str,
+) -> tuple[str, dict[str, Any]] | None:
+    """Parse one line of a returned OpenAI Batch API output file.
 
-    Ordering matches the source_id order written by
-    ``extract_emotion_intensity_residual_stream.py`` (insertion order of the
-    sorted source_id set).
+    ``custom_id`` format: ``{source_id}`` (no intensity suffix).
+
+    Returns ``(source_id, content_dict)`` or ``None`` on error.
     """
-    jsonl_path = Path(jsonl_path)
-    seen: dict[str, str] = {}  # source_id → base_text (preserves insertion order)
-    with open(jsonl_path, encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            rec = json.loads(line)
-            sid = rec["source_id"]
-            if sid not in seen:
-                seen[sid] = rec["base_text"]
+    try:
+        record = json.loads(line.strip())
+    except json.JSONDecodeError:
+        return None
+    if record.get("error") is not None:
+        return None
 
-    records = [{"source_id": sid, "base_text": bt} for sid, bt in seen.items()]
-    logger.info("Loaded %d unique source texts from %s", len(records), jsonl_path)
+    source_id: str = record.get("custom_id", "")
+    if not source_id:
+        return None
+
+    try:
+        raw_content: str = (
+            record["response"]["body"]["choices"][0]["message"]["content"]
+        )
+        content_dict: dict[str, Any] = json.loads(raw_content)
+    except (KeyError, IndexError, json.JSONDecodeError):
+        return None
+
+    return source_id, content_dict
+
+
+def load_neutral_paraphrase_dataset(
+    data: str | Path,
+) -> list[dict[str, str]]:
+    """Load neutral-paraphrase records from *data*.
+
+    *data* may be:
+    - A single ``.jsonl`` file whose rows have fields
+      ``source_id``, ``base_text``, ``neutral_paraphrase``
+      (produced by ``build_neutral_paraphrase_dataset.py``), OR
+    - A directory containing raw OpenAI Batch API output ``.jsonl`` files
+      (the same format accepted by ``extract_emotion_intensity_residual_stream.py``).
+
+    Returns an ordered list of ``{source_id, base_text, neutral_paraphrase}``
+    dicts, deduplicated by ``source_id``.
+    """
+    data = Path(data)
+    if data.is_dir():
+        files = sorted(data.glob("*.jsonl"))
+        if not files:
+            raise FileNotFoundError(f"No .jsonl files found in {data}")
+        is_batch_output = True
+    else:
+        files = [data]
+        # Detect format: batch output lines have a "response" key;
+        # processed jsonl lines have "neutral_paraphrase" directly.
+        with open(data, encoding="utf-8") as fh:
+            first = fh.readline().strip()
+        is_batch_output = ("\"response\"" in first or "'response'" in first)
+
+    seen: dict[str, dict[str, str]] = {}  # source_id → record
+
+    for fpath in files:
+        with open(fpath, encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+
+                if is_batch_output:
+                    parsed = _parse_neutral_batch_response(line)
+                    if parsed is None:
+                        continue
+                    source_id, content = parsed
+                    rec = {
+                        "source_id":          source_id,
+                        "base_text":          content.get("base_text", ""),
+                        "neutral_paraphrase": content.get("neutral_paraphrase", ""),
+                    }
+                else:
+                    raw = json.loads(line)
+                    source_id = raw.get("source_id", "")
+                    rec = {
+                        "source_id":          source_id,
+                        "base_text":          raw.get("base_text", ""),
+                        "neutral_paraphrase": raw.get("neutral_paraphrase", ""),
+                    }
+
+                if source_id and source_id not in seen:
+                    seen[source_id] = rec
+
+    records = list(seen.values())
+    logger.info(
+        "Loaded %d neutral-paraphrase records from %s",
+        len(records), data,
+    )
     return records
 
 
@@ -107,10 +182,13 @@ def extract_base_texts(
         src_end   = min(src_start + shard_size, n_sources)
         shard_recs = records[src_start:src_end]
 
-        # Each base text is formatted as the instruction prefix only —
-        # the same prefix that precedes each emotion rewrite.
+        # Format each base text as: instruction prefix + neutral paraphrase.
+        # This matches the format used in the emotion-intensity extraction
+        # (prefix + emotion_rewrite), so that h(emotion) − h(neutral)
+        # captures purely affective contrast with a matched response length.
         shard_texts = [
             make_instruction_prefix(rec["base_text"], tokenizer)
+            + rec["neutral_paraphrase"]
             for rec in shard_recs
         ]
 
@@ -159,8 +237,8 @@ def merge_shards(
     out_dir: Path,
 ) -> None:
     """Concatenate shard .pt files into a single .npy + info JSON."""
-    npy_path  = out_dir / "base_text_residual_stream.npy"
-    info_path = out_dir / "base_text_residual_stream_info.json"
+    npy_path  = out_dir / "neutral_paraphrase_residual_stream.npy"
+    info_path = out_dir / "neutral_paraphrase_residual_stream_info.json"
 
     first = torch.load(shard_paths[0], weights_only=True)
     _L, _D = first.shape[-2], first.shape[-1]
@@ -208,8 +286,9 @@ def merge_shards(
                 "shape":         list(shape),
                 "dtype":         "float32",
                 "description":   (
-                    "Last-token residual stream of the instruction prefix "
-                    "(base text only, no emotion rewrite appended). "
+                    "Last-token residual stream of neutral paraphrases "
+                    "(instruction prefix + meaning-preserving emotionally-neutral rewrite). "
+                    "Subtract from emotion-intensity activations to obtain CAA vectors. "
                     "Shape: (N, L, D)."
                 ),
             },
@@ -234,12 +313,18 @@ def parse_args() -> argparse.Namespace:
         help="Path to model.yaml",
     )
     p.add_argument(
-        "--data", default="dataset/emotion_rewrites/emotion_rewrites.jsonl",
-        help="Path to emotion_rewrites.jsonl",
+        "--data",
+        default="dataset/neutral_paraphrases/neutral_paraphrases.jsonl",
+        help=(
+            "Path to neutral_paraphrases.jsonl produced by "
+            "build_neutral_paraphrase_dataset.py, or a directory of raw "
+            "OpenAI Batch API output .jsonl files. "
+            "Default: dataset/neutral_paraphrases/neutral_paraphrases.jsonl"
+        ),
     )
     p.add_argument(
-        "--out-dir", default="activation/emotion_rewrites",
-        help="Output directory (default: activation/emotion_rewrites)",
+        "--out-dir", default="activation/neutral_paraphrases",
+        help="Output directory (default: activation/neutral_paraphrases)",
     )
     p.add_argument(
         "--device", default="cuda" if torch.cuda.is_available() else "cpu",
@@ -262,7 +347,7 @@ def main() -> None:
     args = parse_args()
 
     cfg     = load_config(args.config)
-    records = load_unique_base_texts(args.data)
+    records = load_neutral_paraphrase_dataset(args.data)
 
     hook_layers: list[int] = cfg["hook_layers"]
     logger.info("Hook layers: %s", hook_layers)
