@@ -1,0 +1,126 @@
+prompt,target,away,pred_emotion,pred_intensity
+I guess that was okay.,—,baseline,sadness,medium
+I guess that was okay.,joy,sadness,sadness,medium
+I guess that was okay.,joy,anger,sadness,medium
+I guess that was okay.,joy,disgust,sadness,medium
+I guess that was okay.,trust,disgust,sadness,medium
+I guess that was okay.,trust,joy,sadness,medium
+I guess that was okay.,trust,anticipation,sadness,medium
+I guess that was okay.,fear,anger,sadness,medium
+I guess that was okay.,fear,surprise,sadness,medium
+I guess that was okay.,fear,sadness,sadness,medium
+I guess that was okay.,surprise,anticipation,sadness,medium
+I guess that was okay.,surprise,fear,sadness,medium
+I guess that was okay.,surprise,joy,sadness,medium
+I guess that was okay.,sadness,joy,sadness,medium
+I guess that was okay.,sadness,trust,sadness,medium
+I guess that was okay.,sadness,anticipation,sadness,medium
+I guess that was okay.,disgust,trust,sadness,medium
+I guess that was okay.,disgust,anger,sadness,medium
+I guess that was okay.,disgust,fear,sadness,medium
+I guess that was okay.,anger,fear,sadness,medium
+I guess that was okay.,anger,sadness,sadness,medium
+I guess that was okay.,anger,disgust,sadness,medium
+I guess that was okay.,anticipation,surprise,sadness,medium
+I guess that was okay.,anticipation,trust,sadness,medium
+I guess that was okay.,anticipation,joy,sadness,medium
+The meeting went alright.,—,baseline,sadness,medium
+The meeting went alright.,joy,sadness,sadness,medium
+The meeting went alright.,joy,anger,sadness,medium
+The meeting went alright.,joy,disgust,sadness,medium
+The meeting went alright.,trust,disgust,sadness,medium
+The meeting went alright.,trust,joy,sadness,medium
+The meeting went alright.,trust,anticipation,sadness,medium
+The meeting went alright.,fear,anger,sadness,medium
+The meeting went alright.,fear,surprise,sadness,medium
+The meeting went alright.,fear,sadness,sadness,medium
+The meeting went alright.,surprise,anticipation,sadness,medium
+The meeting went alright.,surprise,fear,sadness,medium
+The meeting went alright.,surprise,joy,sadness,medium
+The meeting went alright.,sadness,joy,sadness,medium
+The meeting went alright.,sadness,trust,sadness,medium
+The meeting went alright.,sadness,anticipation,sadness,medium
+The meeting went alright.,disgust,trust,sadness,medium
+The meeting went alright.,disgust,anger,sadness,medium
+The meeting went alright.,disgust,fear,sadness,medium
+The meeting went alright.,anger,fear,sadness,medium
+The meeting went alright.,anger,sadness,sadness,medium
+The meeting went alright.,anger,disgust,sadness,medium
+The meeting went alright.,anticipation,surprise,sadness,medium
+The meeting went alright.,anticipation,trust,sadness,medium
+The meeting went alright.,anticipation,joy,sadness,medium
+I'm so happy about this.,—,baseline,sadness,medium
+I'm so happy about this.,joy,sadness,sadness,medium
+I'm so happy about this.,joy,anger,sadness,medium
+I'm so happy about this.,joy,disgust,sadness,medium
+I'm so happy about this.,trust,disgust,sadness,medium
+I'm so happy about this.,trust,joy,sadness,medium
+I'm so happy about this.,trust,anticipation,sadness,medium
+I'm so happy about this.,fear,anger,sadness,medium
+I'm so happy about this.,fear,surprise,sadness,medium
+I'm so happy about this.,fear,sadness,sadness,medium
+I'm so happy about this.,surprise,anticipation,sadness,medium
+I'm so happy about this.,surprise,fear,sadness,medium
+I'm so happy about this.,surprise,joy,sadness,medium
+I'm so happy about this.,sadness,joy,sadness,medium
+I'm so happy about this.,sadness,trust,sadness,medium
+I'm so happy about this.,sadness,anticipation,sadness,medium
+I'm so happy about this.,disgust,trust,sadness,medium
+I'm so happy about this.,disgust,anger,sadness,medium
+I'm so happy about this.,disgust,fear,sadness,medium
+I'm so happy about this.,anger,fear,sadness,medium
+I'm so happy about this.,anger,sadness,sadness,medium
+I'm so happy about this.,anger,disgust,sadness,medium
+I'm so happy about this.,anticipation,surprise,sadness,medium
+I'm so happy about this.,anticipation,trust,sadness,medium
+I'm so happy about this.,anticipation,joy,sadness,medium
+I feel sad about what happened.,—,baseline,sadness,medium
+I feel sad about what happened.,joy,sadness,sadness,medium
+I feel sad about what happened.,joy,anger,sadness,medium
+I feel sad about what happened.,joy,disgust,sadness,medium
+I feel sad about what happened.,trust,disgust,sadness,medium
+I feel sad about what happened.,trust,joy,sadness,medium
+I feel sad about what happened.,trust,anticipation,sadness,medium
+I feel sad about what happened.,fear,anger,sadness,medium
+I feel sad about what happened.,fear,surprise,sadness,medium
+I feel sad about what happened.,fear,sadness,sadness,medium
+I feel sad about what happened.,surprise,anticipation,sadness,medium
+I feel sad about what happened.,surprise,fear,sadness,medium
+I feel sad about what happened.,surprise,joy,sadness,medium
+I feel sad about what happened.,sadness,joy,sadness,medium
+I feel sad about what happened.,sadness,trust,sadness,medium
+I feel sad about what happened.,sadness,anticipation,sadness,medium
+I feel sad about what happened.,disgust,trust,sadness,medium
+I feel sad about what happened.,disgust,anger,sadness,medium
+I feel sad about what happened.,disgust,fear,sadness,medium
+I feel sad about what happened.,anger,fear,sadness,medium
+I feel sad about what happened.,anger,sadness,sadness,medium
+I feel sad about what happened.,anger,disgust,sadness,medium
+I feel sad about what happened.,anticipation,surprise,sadness,medium
+I feel sad about what happened.,anticipation,trust,sadness,medium
+I feel sad about what happened.,anticipation,joy,sadness,medium
+This is really frustrating.,—,baseline,sadness,medium
+This is really frustrating.,joy,sadness,sadness,medium
+This is really frustrating.,joy,anger,sadness,medium
+This is really frustrating.,joy,disgust,sadness,medium
+This is really frustrating.,trust,disgust,sadness,medium
+This is really frustrating.,trust,joy,sadness,medium
+This is really frustrating.,trust,anticipation,sadness,medium
+This is really frustrating.,fear,anger,sadness,medium
+This is really frustrating.,fear,surprise,sadness,medium
+This is really frustrating.,fear,sadness,sadness,medium
+This is really frustrating.,surprise,anticipation,sadness,medium
+This is really frustrating.,surprise,fear,sadness,medium
+This is really frustrating.,surprise,joy,sadness,medium
+This is really frustrating.,sadness,joy,sadness,medium
+This is really frustrating.,sadness,trust,sadness,medium
+This is really frustrating.,sadness,anticipation,sadness,medium
+This is really frustrating.,disgust,trust,sadness,medium
+This is really frustrating.,disgust,anger,sadness,medium
+This is really frustrating.,disgust,fear,sadness,medium
+This is really frustrating.,anger,fear,sadness,medium
+This is really frustrating.,anger,sadness,sadness,medium
+This is really frustrating.,anger,disgust,sadness,medium
+This is really frustrating.,anticipation,surprise,sadness,medium
+This is really frustrating.,anticipation,trust,sadness,medium
+This is really frustrating.,anticipation,joy,sadness,medium

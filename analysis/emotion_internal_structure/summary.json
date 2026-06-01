@@ -1,0 +1,293 @@
+{
+  "layer": 13,
+  "K_LOCAL": 3,
+  "judge_model": "gpt-4o-mini",
+  "prompt_version": "v2",
+  "judge_sample_size": 860,
+  "dry_run": false,
+  "judge_attrs": [
+    "valence",
+    "arousal",
+    "dominance",
+    "emotional_intensity",
+    "threat",
+    "social_warmth",
+    "certainty",
+    "agency",
+    "blame",
+    "injustice",
+    "relief",
+    "gratitude",
+    "loneliness",
+    "disappointment",
+    "uncertainty",
+    "hope",
+    "surprise_valence"
+  ],
+  "per_emotion": {
+    "joy": {
+      "participation_ratio": 2.178,
+      "evr_k": [
+        0.1414,
+        0.0478,
+        0.0382
+      ],
+      "pc1_intensity_spearman": -0.0856,
+      "local_pcs": {
+        "PC1": {
+          "evr": 0.1414,
+          "best_judge_attr": "valence",
+          "spearman_rho": -0.644,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.405
+        },
+        "PC2": {
+          "evr": 0.0478,
+          "best_judge_attr": "arousal",
+          "spearman_rho": 0.611,
+          "global_best_match": "v_int",
+          "global_max_cos": 0.522
+        },
+        "PC3": {
+          "evr": 0.0382,
+          "best_judge_attr": "agency",
+          "spearman_rho": -0.33,
+          "global_best_match": "gPC1",
+          "global_max_cos": 0.438
+        }
+      }
+    },
+    "trust": {
+      "participation_ratio": 2.455,
+      "evr_k": [
+        0.0967,
+        0.046,
+        0.0327
+      ],
+      "pc1_intensity_spearman": -0.0208,
+      "local_pcs": {
+        "PC1": {
+          "evr": 0.0967,
+          "best_judge_attr": "valence",
+          "spearman_rho": -0.581,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.334
+        },
+        "PC2": {
+          "evr": 0.046,
+          "best_judge_attr": "blame",
+          "spearman_rho": 0.366,
+          "global_best_match": "gPC1",
+          "global_max_cos": 0.448
+        },
+        "PC3": {
+          "evr": 0.0327,
+          "best_judge_attr": "gratitude",
+          "spearman_rho": -0.435,
+          "global_best_match": "gPC4",
+          "global_max_cos": 0.268
+        }
+      }
+    },
+    "fear": {
+      "participation_ratio": 2.57,
+      "evr_k": [
+        0.0853,
+        0.0429,
+        0.0346
+      ],
+      "pc1_intensity_spearman": 0.2428,
+      "local_pcs": {
+        "PC1": {
+          "evr": 0.0853,
+          "best_judge_attr": "uncertainty",
+          "spearman_rho": 0.362,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.406
+        },
+        "PC2": {
+          "evr": 0.0429,
+          "best_judge_attr": "dominance",
+          "spearman_rho": 0.624,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.417
+        },
+        "PC3": {
+          "evr": 0.0346,
+          "best_judge_attr": "arousal",
+          "spearman_rho": -0.305,
+          "global_best_match": "gPC1",
+          "global_max_cos": 0.144
+        }
+      }
+    },
+    "surprise": {
+      "participation_ratio": 2.91,
+      "evr_k": [
+        0.0699,
+        0.0602,
+        0.045
+      ],
+      "pc1_intensity_spearman": 0.3441,
+      "local_pcs": {
+        "PC1": {
+          "evr": 0.0699,
+          "best_judge_attr": "hope",
+          "spearman_rho": 0.339,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.569
+        },
+        "PC2": {
+          "evr": 0.0602,
+          "best_judge_attr": "emotional_intensity",
+          "spearman_rho": -0.473,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.318
+        },
+        "PC3": {
+          "evr": 0.045,
+          "best_judge_attr": "surprise_valence",
+          "spearman_rho": -0.283,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.256
+        }
+      }
+    },
+    "sadness": {
+      "participation_ratio": 2.564,
+      "evr_k": [
+        0.0852,
+        0.042,
+        0.0347
+      ],
+      "pc1_intensity_spearman": 0.0508,
+      "local_pcs": {
+        "PC1": {
+          "evr": 0.0852,
+          "best_judge_attr": "surprise_valence",
+          "spearman_rho": 0.41,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.402
+        },
+        "PC2": {
+          "evr": 0.042,
+          "best_judge_attr": "relief",
+          "spearman_rho": 0.301,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.411
+        },
+        "PC3": {
+          "evr": 0.0347,
+          "best_judge_attr": "injustice",
+          "spearman_rho": 0.369,
+          "global_best_match": "gPC4",
+          "global_max_cos": 0.207
+        }
+      }
+    },
+    "disgust": {
+      "participation_ratio": 2.593,
+      "evr_k": [
+        0.0815,
+        0.0408,
+        0.0348
+      ],
+      "pc1_intensity_spearman": 0.0801,
+      "local_pcs": {
+        "PC1": {
+          "evr": 0.0815,
+          "best_judge_attr": "emotional_intensity",
+          "spearman_rho": -0.477,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.419
+        },
+        "PC2": {
+          "evr": 0.0408,
+          "best_judge_attr": "injustice",
+          "spearman_rho": 0.413,
+          "global_best_match": "v_int",
+          "global_max_cos": 0.38
+        },
+        "PC3": {
+          "evr": 0.0348,
+          "best_judge_attr": "relief",
+          "spearman_rho": -0.191,
+          "global_best_match": "gPC4",
+          "global_max_cos": 0.197
+        }
+      }
+    },
+    "anger": {
+      "participation_ratio": 2.798,
+      "evr_k": [
+        0.0689,
+        0.0484,
+        0.0356
+      ],
+      "pc1_intensity_spearman": 0.1075,
+      "local_pcs": {
+        "PC1": {
+          "evr": 0.0689,
+          "best_judge_attr": "gratitude",
+          "spearman_rho": 0.327,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.315
+        },
+        "PC2": {
+          "evr": 0.0484,
+          "best_judge_attr": "valence",
+          "spearman_rho": -0.445,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.521
+        },
+        "PC3": {
+          "evr": 0.0356,
+          "best_judge_attr": "agency",
+          "spearman_rho": 0.353,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.222
+        }
+      }
+    },
+    "anticipation": {
+      "participation_ratio": 2.735,
+      "evr_k": [
+        0.0741,
+        0.0567,
+        0.0327
+      ],
+      "pc1_intensity_spearman": -0.1374,
+      "local_pcs": {
+        "PC1": {
+          "evr": 0.0741,
+          "best_judge_attr": "hope",
+          "spearman_rho": -0.742,
+          "global_best_match": "gPC3",
+          "global_max_cos": 0.323
+        },
+        "PC2": {
+          "evr": 0.0567,
+          "best_judge_attr": "arousal",
+          "spearman_rho": -0.351,
+          "global_best_match": "gPC2",
+          "global_max_cos": 0.527
+        },
+        "PC3": {
+          "evr": 0.0327,
+          "best_judge_attr": "gratitude",
+          "spearman_rho": 0.232,
+          "global_best_match": "gPC1",
+          "global_max_cos": 0.336
+        }
+      }
+    }
+  },
+  "config": {
+    "steer_layer": 13,
+    "K_LOCAL": 3,
+    "max_sources": 2500,
+    "n_sources_used": 2500,
+    "n_ex_judge": 15,
+    "strat_per_cell": 6
+  }
+}

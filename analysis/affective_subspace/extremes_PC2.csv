@@ -1,0 +1,13 @@
+side,PC2,emotion,intensity,source_id,text
++,3.374814,surprise,high,dd_train_1369_0,"I got a raise? Wow, I didn’t see that coming at all!"
++,3.2396932,surprise,medium,ed_all_40762,The sun is shining and I have the day all to myself? I didn't expect that at all!
++,3.1742346,surprise,high,ed_all_43059,I actually got employee of the month? That totally caught me off guard—I wasn’t expecting that at all!
++,3.0697405,surprise,high,ed_all_21971,"No way, he actually cleaned the entire house? That was totally unexpected!"
++,3.0205564,surprise,medium,ed_all_17947,I got invited to a Texas trip the other week? That caught me completely off guard!
++,3.0179937,surprise,medium,ed_all_45544,"Wow, my best friend is getting married? I really didn't see that coming!"
+-,-2.5102267,fear,high,ed_all_40208,"I have a companion now, but I can’t stop worrying about what if something happens and I lose them."
+-,-2.4744742,fear,high,ed_all_17501,"He's coming home, but I can't stop worrying if everything will really be alright after so long apart."
+-,-2.4358418,fear,high,ed_all_8432,I can't shake the feeling that finding that twenty was too good to be true. What if something bad is coming?
+-,-2.3873792,fear,high,ed_all_12299,"I hope my daughter really does have the best pre-k teacher—otherwise, I’m worried about how she'll do."
+-,-2.3723261,fear,medium,ed_all_34811,"The weekend's almost here, but I can't help wondering if I'll run into problems or feel uneasy during those two days off."
+-,-2.344654,sadness,high,ed_all_46917,Watching someone finish that 3 lbs burger made me feel a bit down—wondering if they’re eating like that because they’re unhappy.

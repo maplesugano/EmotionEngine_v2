@@ -1,0 +1,259 @@
+{
+  "analysis_1_coverage": {
+    "layer": 13,
+    "centroid_evr_pc4": 0.892,
+    "individual_evr_pc4": 0.1613,
+    "individual_evr_pc4_vint": 0.1746,
+    "probe_emotion_bacc": {
+      "PC4": 0.7033,
+      "PC4_vint": 0.7299,
+      "full_D": 0.886,
+      "chance": 0.125
+    },
+    "probe_intensity_bacc": {
+      "PC4": 0.3321,
+      "PC4_vint": 0.3333,
+      "full_D": 0.3293,
+      "chance": 0.3333
+    },
+    "per_emotion_evr": {
+      "joy": {
+        "evr_pc4": 0.184,
+        "evr_pc4_plus_vint": 0.201
+      },
+      "trust": {
+        "evr_pc4": 0.187,
+        "evr_pc4_plus_vint": 0.198
+      },
+      "fear": {
+        "evr_pc4": 0.151,
+        "evr_pc4_plus_vint": 0.162
+      },
+      "surprise": {
+        "evr_pc4": 0.218,
+        "evr_pc4_plus_vint": 0.234
+      },
+      "sadness": {
+        "evr_pc4": 0.099,
+        "evr_pc4_plus_vint": 0.114
+      },
+      "disgust": {
+        "evr_pc4": 0.135,
+        "evr_pc4_plus_vint": 0.146
+      },
+      "anger": {
+        "evr_pc4": 0.141,
+        "evr_pc4_plus_vint": 0.155
+      },
+      "anticipation": {
+        "evr_pc4": 0.161,
+        "evr_pc4_plus_vint": 0.172
+      }
+    },
+    "judge_attr_r2": {
+      "valence": {
+        "R2_PC4": 0.5929,
+        "R2_PC4_vint": 0.5784,
+        "R2_full": 0.5663
+      },
+      "arousal": {
+        "R2_PC4": 0.136,
+        "R2_PC4_vint": 0.1956,
+        "R2_full": 0.1916
+      },
+      "dominance": {
+        "R2_PC4": 0.5461,
+        "R2_PC4_vint": 0.5467,
+        "R2_full": 0.5214
+      },
+      "emotional_intensity": {
+        "R2_PC4": 0.1108,
+        "R2_PC4_vint": 0.183,
+        "R2_full": 0.1455
+      },
+      "threat": {
+        "R2_PC4": 0.3427,
+        "R2_PC4_vint": 0.3452,
+        "R2_full": 0.3766
+      },
+      "social_warmth": {
+        "R2_PC4": 0.4405,
+        "R2_PC4_vint": 0.4356,
+        "R2_full": 0.463
+      },
+      "certainty": {
+        "R2_PC4": 0.504,
+        "R2_PC4_vint": 0.5027,
+        "R2_full": 0.4851
+      },
+      "agency": {
+        "R2_PC4": 0.5387,
+        "R2_PC4_vint": 0.5531,
+        "R2_full": 0.5206
+      }
+    }
+  },
+  "analysis_2_local_pca": {
+    "layer": 13,
+    "K_LOCAL": 6,
+    "per_emotion": {
+      "joy": {
+        "participation_ratio": 3.487,
+        "evr_k": [
+          0.1414,
+          0.0478,
+          0.0382,
+          0.0313,
+          0.0233,
+          0.0163
+        ],
+        "evr_cum4": 0.2587,
+        "local_pc1_int_spearman": -0.0856,
+        "local_pc1_best_global": "gPC2",
+        "local_pc1_max_cos_global": 0.405
+      },
+      "trust": {
+        "participation_ratio": 4.157,
+        "evr_k": [
+          0.0967,
+          0.046,
+          0.0327,
+          0.0276,
+          0.0201,
+          0.0185
+        ],
+        "evr_cum4": 0.203,
+        "local_pc1_int_spearman": -0.0208,
+        "local_pc1_best_global": "gPC2",
+        "local_pc1_max_cos_global": 0.334
+      },
+      "fear": {
+        "participation_ratio": 4.514,
+        "evr_k": [
+          0.0853,
+          0.0429,
+          0.0346,
+          0.0252,
+          0.0225,
+          0.0214
+        ],
+        "evr_cum4": 0.1879,
+        "local_pc1_int_spearman": 0.2428,
+        "local_pc1_best_global": "gPC2",
+        "local_pc1_max_cos_global": 0.406
+      },
+      "surprise": {
+        "participation_ratio": 5.119,
+        "evr_k": [
+          0.0699,
+          0.0602,
+          0.045,
+          0.0403,
+          0.0232,
+          0.0206
+        ],
+        "evr_cum4": 0.2154,
+        "local_pc1_int_spearman": 0.3441,
+        "local_pc1_best_global": "gPC2",
+        "local_pc1_max_cos_global": 0.569
+      },
+      "sadness": {
+        "participation_ratio": 4.451,
+        "evr_k": [
+          0.0852,
+          0.042,
+          0.0347,
+          0.0247,
+          0.0229,
+          0.0189
+        ],
+        "evr_cum4": 0.1866,
+        "local_pc1_int_spearman": 0.0508,
+        "local_pc1_best_global": "gPC2",
+        "local_pc1_max_cos_global": 0.402
+      },
+      "disgust": {
+        "participation_ratio": 4.623,
+        "evr_k": [
+          0.0815,
+          0.0408,
+          0.0348,
+          0.0244,
+          0.0232,
+          0.0224
+        ],
+        "evr_cum4": 0.1816,
+        "local_pc1_int_spearman": 0.0801,
+        "local_pc1_best_global": "gPC2",
+        "local_pc1_max_cos_global": 0.419
+      },
+      "anger": {
+        "participation_ratio": 5.01,
+        "evr_k": [
+          0.0689,
+          0.0484,
+          0.0356,
+          0.0277,
+          0.0234,
+          0.0212
+        ],
+        "evr_cum4": 0.1806,
+        "local_pc1_int_spearman": 0.1075,
+        "local_pc1_best_global": "gPC2",
+        "local_pc1_max_cos_global": 0.315
+      },
+      "anticipation": {
+        "participation_ratio": 4.774,
+        "evr_k": [
+          0.0741,
+          0.0567,
+          0.0327,
+          0.0284,
+          0.0222,
+          0.02
+        ],
+        "evr_cum4": 0.1918,
+        "local_pc1_int_spearman": -0.1374,
+        "local_pc1_best_global": "gPC3",
+        "local_pc1_max_cos_global": 0.323
+      }
+    }
+  },
+  "layer_comparison": {
+    "13": {
+      "centroid_evr4": 0.892,
+      "indiv_evr_pc4": 0.1613,
+      "indiv_evr_pc4_vint": 0.1746,
+      "emo_probe_bacc_pc4": 0.7033,
+      "int_probe_bacc_pc4": 0.3321,
+      "mean_local_pc1_int_rho": 0.1336
+    },
+    "10": {
+      "centroid_evr4": 0.8876,
+      "indiv_evr_pc4": 0.1578,
+      "indiv_evr_pc4_vint": 0.1704,
+      "emo_probe_bacc_pc4": 0.6751,
+      "int_probe_bacc_pc4": 0.3321,
+      "mean_local_pc1_int_rho": 0.0998
+    },
+    "16": {
+      "centroid_evr4": 0.8958,
+      "indiv_evr_pc4": 0.157,
+      "indiv_evr_pc4_vint": 0.1682,
+      "emo_probe_bacc_pc4": 0.6704,
+      "int_probe_bacc_pc4": 0.3333,
+      "mean_local_pc1_int_rho": 0.1297
+    }
+  },
+  "config": {
+    "steer_layer": 13,
+    "aux_layers": [
+      10,
+      16
+    ],
+    "K_PCS": 4,
+    "K_LOCAL": 6,
+    "max_sources": 2500,
+    "n_sources_used": 2500
+  }
+}

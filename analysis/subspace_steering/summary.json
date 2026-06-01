@@ -1,0 +1,578 @@
+{
+  "steer_layer": 13,
+  "alpha_grid": [
+    -8,
+    -5,
+    -3,
+    -1,
+    0,
+    1,
+    3,
+    5,
+    8
+  ],
+  "n_prompts": 8,
+  "sweep_axes": [
+    "PC1",
+    "PC2",
+    "PC3",
+    "PC4",
+    "v_intensity",
+    "v_joy",
+    "v_sadness",
+    "v_fear",
+    "v_anger",
+    "v_trust",
+    "v_joy_minus_sadness",
+    "v_fear_minus_anger"
+  ],
+  "judge_model": "gpt-4o-mini",
+  "dry_run_gen": false,
+  "dry_run_judge": false,
+  "rho_pooled": {
+    "PC1": {
+      "valence": -0.6333,
+      "arousal": 0.1139,
+      "dominance": -0.5794,
+      "emotional_intensity": 0.1253,
+      "threat": 0.4617,
+      "social_warmth": -0.5884,
+      "certainty": -0.5429,
+      "agency": -0.559
+    },
+    "PC2": {
+      "valence": 0.4132,
+      "arousal": 0.4233,
+      "dominance": 0.2649,
+      "emotional_intensity": 0.4197,
+      "threat": -0.1677,
+      "social_warmth": 0.6001,
+      "certainty": 0.3282,
+      "agency": 0.2089
+    },
+    "PC3": {
+      "valence": -0.1154,
+      "arousal": 0.2083,
+      "dominance": -0.1753,
+      "emotional_intensity": 0.3424,
+      "threat": 0.2246,
+      "social_warmth": 0.0264,
+      "certainty": -0.2103,
+      "agency": -0.1807
+    },
+    "PC4": {
+      "valence": -0.1111,
+      "arousal": -0.2013,
+      "dominance": -0.0758,
+      "emotional_intensity": -0.2874,
+      "threat": 0.0003,
+      "social_warmth": -0.1939,
+      "certainty": -0.087,
+      "agency": -0.0817
+    },
+    "v_intensity": {
+      "valence": 0.248,
+      "arousal": 0.7617,
+      "dominance": 0.1499,
+      "emotional_intensity": 0.7301,
+      "threat": 0.1518,
+      "social_warmth": 0.4252,
+      "certainty": 0.1898,
+      "agency": 0.1488
+    },
+    "v_joy": {
+      "valence": 0.5978,
+      "arousal": 0.1875,
+      "dominance": 0.5125,
+      "emotional_intensity": 0.1544,
+      "threat": -0.4046,
+      "social_warmth": 0.5846,
+      "certainty": 0.5498,
+      "agency": 0.4447
+    },
+    "v_sadness": {
+      "valence": -0.5225,
+      "arousal": -0.3207,
+      "dominance": -0.5325,
+      "emotional_intensity": -0.1717,
+      "threat": 0.4384,
+      "social_warmth": -0.5316,
+      "certainty": -0.5355,
+      "agency": -0.5081
+    },
+    "v_fear": {
+      "valence": -0.4398,
+      "arousal": 0.0792,
+      "dominance": -0.4234,
+      "emotional_intensity": 0.1092,
+      "threat": 0.4864,
+      "social_warmth": -0.3819,
+      "certainty": -0.4917,
+      "agency": -0.4224
+    },
+    "v_anger": {
+      "valence": -0.5863,
+      "arousal": 0.2091,
+      "dominance": -0.4532,
+      "emotional_intensity": 0.1759,
+      "threat": 0.2831,
+      "social_warmth": -0.6503,
+      "certainty": -0.4676,
+      "agency": -0.4461
+    },
+    "v_trust": {
+      "valence": 0.4872,
+      "arousal": -0.3355,
+      "dominance": 0.4933,
+      "emotional_intensity": -0.3245,
+      "threat": -0.3609,
+      "social_warmth": 0.2874,
+      "certainty": 0.466,
+      "agency": 0.4982
+    },
+    "v_joy_minus_sadness": {
+      "valence": 0.6085,
+      "arousal": 0.3997,
+      "dominance": 0.4864,
+      "emotional_intensity": 0.2065,
+      "threat": -0.3316,
+      "social_warmth": 0.5608,
+      "certainty": 0.5029,
+      "agency": 0.4786
+    },
+    "v_fear_minus_anger": {
+      "valence": -0.0274,
+      "arousal": -0.2239,
+      "dominance": -0.1443,
+      "emotional_intensity": -0.1969,
+      "threat": 0.2222,
+      "social_warmth": 0.0634,
+      "certainty": -0.1886,
+      "agency": -0.0717
+    }
+  },
+  "predicted_sign": {
+    "PC1": {
+      "valence": -1,
+      "social_warmth": -1,
+      "threat": 1,
+      "dominance": -1,
+      "certainty": -1,
+      "agency": -1,
+      "arousal": 1,
+      "emotional_intensity": 1
+    },
+    "PC2": {
+      "arousal": 1,
+      "emotional_intensity": 1,
+      "certainty": 1,
+      "valence": 1,
+      "social_warmth": 1,
+      "threat": -1,
+      "dominance": 1,
+      "agency": 1
+    },
+    "PC3": {
+      "threat": 1,
+      "certainty": -1,
+      "agency": -1,
+      "valence": 1,
+      "arousal": 1,
+      "dominance": -1,
+      "social_warmth": 1,
+      "emotional_intensity": -1
+    },
+    "PC4": {
+      "social_warmth": -1,
+      "certainty": -1,
+      "valence": -1,
+      "threat": 1,
+      "dominance": -1,
+      "agency": -1,
+      "arousal": -1,
+      "emotional_intensity": -1
+    },
+    "v_intensity": {
+      "arousal": 1,
+      "emotional_intensity": 1,
+      "valence": 0,
+      "social_warmth": 0,
+      "threat": 0,
+      "dominance": 0,
+      "certainty": 0,
+      "agency": 0
+    }
+  },
+  "prediction_agreement": [
+    {
+      "axis": "PC1",
+      "attr": "valence",
+      "predicted_sign": -1,
+      "rho": -0.6332861240492053,
+      "sign_match": 1,
+      "abs_rho": 0.6332861240492053
+    },
+    {
+      "axis": "PC1",
+      "attr": "social_warmth",
+      "predicted_sign": -1,
+      "rho": -0.5883779614680599,
+      "sign_match": 1,
+      "abs_rho": 0.5883779614680599
+    },
+    {
+      "axis": "PC1",
+      "attr": "threat",
+      "predicted_sign": 1,
+      "rho": 0.46172726074653253,
+      "sign_match": 1,
+      "abs_rho": 0.46172726074653253
+    },
+    {
+      "axis": "PC1",
+      "attr": "dominance",
+      "predicted_sign": -1,
+      "rho": -0.5793867377563678,
+      "sign_match": 1,
+      "abs_rho": 0.5793867377563678
+    },
+    {
+      "axis": "PC1",
+      "attr": "certainty",
+      "predicted_sign": -1,
+      "rho": -0.5429027939008908,
+      "sign_match": 1,
+      "abs_rho": 0.5429027939008908
+    },
+    {
+      "axis": "PC1",
+      "attr": "agency",
+      "predicted_sign": -1,
+      "rho": -0.5590358185073494,
+      "sign_match": 1,
+      "abs_rho": 0.5590358185073494
+    },
+    {
+      "axis": "PC1",
+      "attr": "arousal",
+      "predicted_sign": 1,
+      "rho": 0.11393916849132853,
+      "sign_match": 1,
+      "abs_rho": 0.11393916849132853
+    },
+    {
+      "axis": "PC1",
+      "attr": "emotional_intensity",
+      "predicted_sign": 1,
+      "rho": 0.12529584650851985,
+      "sign_match": 1,
+      "abs_rho": 0.12529584650851985
+    },
+    {
+      "axis": "PC2",
+      "attr": "arousal",
+      "predicted_sign": 1,
+      "rho": 0.42327557718156766,
+      "sign_match": 1,
+      "abs_rho": 0.42327557718156766
+    },
+    {
+      "axis": "PC2",
+      "attr": "emotional_intensity",
+      "predicted_sign": 1,
+      "rho": 0.4196754844311464,
+      "sign_match": 1,
+      "abs_rho": 0.4196754844311464
+    },
+    {
+      "axis": "PC2",
+      "attr": "certainty",
+      "predicted_sign": 1,
+      "rho": 0.32819424535410596,
+      "sign_match": 1,
+      "abs_rho": 0.32819424535410596
+    },
+    {
+      "axis": "PC2",
+      "attr": "valence",
+      "predicted_sign": 1,
+      "rho": 0.4132086244719058,
+      "sign_match": 1,
+      "abs_rho": 0.4132086244719058
+    },
+    {
+      "axis": "PC2",
+      "attr": "social_warmth",
+      "predicted_sign": 1,
+      "rho": 0.6000860129534161,
+      "sign_match": 1,
+      "abs_rho": 0.6000860129534161
+    },
+    {
+      "axis": "PC2",
+      "attr": "threat",
+      "predicted_sign": -1,
+      "rho": -0.16770533676823982,
+      "sign_match": 1,
+      "abs_rho": 0.16770533676823982
+    },
+    {
+      "axis": "PC2",
+      "attr": "dominance",
+      "predicted_sign": 1,
+      "rho": 0.264906354341753,
+      "sign_match": 1,
+      "abs_rho": 0.264906354341753
+    },
+    {
+      "axis": "PC2",
+      "attr": "agency",
+      "predicted_sign": 1,
+      "rho": 0.20887511081048837,
+      "sign_match": 1,
+      "abs_rho": 0.20887511081048837
+    },
+    {
+      "axis": "PC3",
+      "attr": "threat",
+      "predicted_sign": 1,
+      "rho": 0.2246461521876912,
+      "sign_match": 1,
+      "abs_rho": 0.2246461521876912
+    },
+    {
+      "axis": "PC3",
+      "attr": "certainty",
+      "predicted_sign": -1,
+      "rho": -0.21033573830192892,
+      "sign_match": 1,
+      "abs_rho": 0.21033573830192892
+    },
+    {
+      "axis": "PC3",
+      "attr": "agency",
+      "predicted_sign": -1,
+      "rho": -0.18069139638580556,
+      "sign_match": 1,
+      "abs_rho": 0.18069139638580556
+    },
+    {
+      "axis": "PC3",
+      "attr": "valence",
+      "predicted_sign": 1,
+      "rho": -0.11536791349508388,
+      "sign_match": 0,
+      "abs_rho": 0.11536791349508388
+    },
+    {
+      "axis": "PC3",
+      "attr": "arousal",
+      "predicted_sign": 1,
+      "rho": 0.20832570109157808,
+      "sign_match": 1,
+      "abs_rho": 0.20832570109157808
+    },
+    {
+      "axis": "PC3",
+      "attr": "dominance",
+      "predicted_sign": -1,
+      "rho": -0.17526828107199577,
+      "sign_match": 1,
+      "abs_rho": 0.17526828107199577
+    },
+    {
+      "axis": "PC3",
+      "attr": "social_warmth",
+      "predicted_sign": 1,
+      "rho": 0.026382280494985963,
+      "sign_match": 1,
+      "abs_rho": 0.026382280494985963
+    },
+    {
+      "axis": "PC3",
+      "attr": "emotional_intensity",
+      "predicted_sign": -1,
+      "rho": 0.342374088543642,
+      "sign_match": 0,
+      "abs_rho": 0.342374088543642
+    },
+    {
+      "axis": "PC4",
+      "attr": "social_warmth",
+      "predicted_sign": -1,
+      "rho": -0.19393918907526314,
+      "sign_match": 1,
+      "abs_rho": 0.19393918907526314
+    },
+    {
+      "axis": "PC4",
+      "attr": "certainty",
+      "predicted_sign": -1,
+      "rho": -0.08703631689025794,
+      "sign_match": 1,
+      "abs_rho": 0.08703631689025794
+    },
+    {
+      "axis": "PC4",
+      "attr": "valence",
+      "predicted_sign": -1,
+      "rho": -0.11105050546981167,
+      "sign_match": 1,
+      "abs_rho": 0.11105050546981167
+    },
+    {
+      "axis": "PC4",
+      "attr": "threat",
+      "predicted_sign": 1,
+      "rho": 0.0002952219424206198,
+      "sign_match": 1,
+      "abs_rho": 0.0002952219424206198
+    },
+    {
+      "axis": "PC4",
+      "attr": "dominance",
+      "predicted_sign": -1,
+      "rho": -0.07578277608285293,
+      "sign_match": 1,
+      "abs_rho": 0.07578277608285293
+    },
+    {
+      "axis": "PC4",
+      "attr": "agency",
+      "predicted_sign": -1,
+      "rho": -0.0817289537638723,
+      "sign_match": 1,
+      "abs_rho": 0.0817289537638723
+    },
+    {
+      "axis": "PC4",
+      "attr": "arousal",
+      "predicted_sign": -1,
+      "rho": -0.20134974135593212,
+      "sign_match": 1,
+      "abs_rho": 0.20134974135593212
+    },
+    {
+      "axis": "PC4",
+      "attr": "emotional_intensity",
+      "predicted_sign": -1,
+      "rho": -0.2873514342242773,
+      "sign_match": 1,
+      "abs_rho": 0.2873514342242773
+    },
+    {
+      "axis": "v_intensity",
+      "attr": "arousal",
+      "predicted_sign": 1,
+      "rho": 0.7617016367073567,
+      "sign_match": 1,
+      "abs_rho": 0.7617016367073567
+    },
+    {
+      "axis": "v_intensity",
+      "attr": "emotional_intensity",
+      "predicted_sign": 1,
+      "rho": 0.7301449788356252,
+      "sign_match": 1,
+      "abs_rho": 0.7301449788356252
+    }
+  ],
+  "controllability_by_axis": [
+    {
+      "axis": "v_intensity",
+      "top_attr": "arousal",
+      "top_rho": 0.7617,
+      "mean_abs_rho_on_predicted_attrs": 0.7459,
+      "mean_abs_rho_all_attrs": 0.3507
+    },
+    {
+      "axis": "v_anger",
+      "top_attr": "social_warmth",
+      "top_rho": -0.6503,
+      "mean_abs_rho_on_predicted_attrs": NaN,
+      "mean_abs_rho_all_attrs": 0.409
+    },
+    {
+      "axis": "PC1",
+      "top_attr": "valence",
+      "top_rho": -0.6333,
+      "mean_abs_rho_on_predicted_attrs": 0.4505,
+      "mean_abs_rho_all_attrs": 0.4505
+    },
+    {
+      "axis": "v_joy_minus_sadness",
+      "top_attr": "valence",
+      "top_rho": 0.6085,
+      "mean_abs_rho_on_predicted_attrs": NaN,
+      "mean_abs_rho_all_attrs": 0.4469
+    },
+    {
+      "axis": "PC2",
+      "top_attr": "social_warmth",
+      "top_rho": 0.6001,
+      "mean_abs_rho_on_predicted_attrs": 0.3532,
+      "mean_abs_rho_all_attrs": 0.3532
+    },
+    {
+      "axis": "v_joy",
+      "top_attr": "valence",
+      "top_rho": 0.5978,
+      "mean_abs_rho_on_predicted_attrs": NaN,
+      "mean_abs_rho_all_attrs": 0.4295
+    },
+    {
+      "axis": "v_sadness",
+      "top_attr": "certainty",
+      "top_rho": -0.5355,
+      "mean_abs_rho_on_predicted_attrs": NaN,
+      "mean_abs_rho_all_attrs": 0.4451
+    },
+    {
+      "axis": "v_trust",
+      "top_attr": "agency",
+      "top_rho": 0.4982,
+      "mean_abs_rho_on_predicted_attrs": NaN,
+      "mean_abs_rho_all_attrs": 0.4066
+    },
+    {
+      "axis": "v_fear",
+      "top_attr": "certainty",
+      "top_rho": -0.4917,
+      "mean_abs_rho_on_predicted_attrs": NaN,
+      "mean_abs_rho_all_attrs": 0.3543
+    },
+    {
+      "axis": "PC3",
+      "top_attr": "emotional_intensity",
+      "top_rho": 0.3424,
+      "mean_abs_rho_on_predicted_attrs": 0.1854,
+      "mean_abs_rho_all_attrs": 0.1854
+    },
+    {
+      "axis": "PC4",
+      "top_attr": "emotional_intensity",
+      "top_rho": -0.2874,
+      "mean_abs_rho_on_predicted_attrs": 0.1298,
+      "mean_abs_rho_all_attrs": 0.1298
+    },
+    {
+      "axis": "v_fear_minus_anger",
+      "top_attr": "arousal",
+      "top_rho": -0.2239,
+      "mean_abs_rho_on_predicted_attrs": NaN,
+      "mean_abs_rho_all_attrs": 0.1423
+    }
+  ],
+  "pc_singular_values": [
+    1.9993471560684501,
+    1.517444657366228,
+    1.152794567964314,
+    0.892632359490145
+  ],
+  "pc_evr": [
+    0.4231875465486182,
+    0.24377108043624462,
+    0.14068905197056197,
+    0.08435322939201921
+  ]
+}

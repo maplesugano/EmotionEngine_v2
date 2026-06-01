@@ -1,0 +1,6 @@
+axis,sign_match_rate,mean_abs_rho,n_predicted
+PC1,1.0,0.45,8
+PC2,1.0,0.353,8
+PC3,0.75,0.185,8
+PC4,1.0,0.13,8
+v_intensity,1.0,0.746,2

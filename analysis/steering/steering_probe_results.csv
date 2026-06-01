@@ -1,0 +1,19 @@
+prompt,emotion_label,direction,pred_emotion,pred_intensity,steer_layer,alpha
+I guess that was okay.,neutral,baseline,sadness,medium,13,0.0
+I guess that was okay.,neutral,+v_intensity,sadness,medium,13,0.5
+I guess that was okay.,neutral,-v_intensity,sadness,medium,13,-0.5
+The meeting went alright.,neutral,baseline,sadness,medium,13,0.0
+The meeting went alright.,neutral,+v_intensity,sadness,medium,13,0.5
+The meeting went alright.,neutral,-v_intensity,sadness,medium,13,-0.5
+I'm so happy about this.,joy,baseline,sadness,medium,13,0.0
+I'm so happy about this.,joy,+v_intensity,sadness,medium,13,0.5
+I'm so happy about this.,joy,-v_intensity,sadness,medium,13,-0.5
+I feel sad about what happened.,sadness,baseline,sadness,medium,13,0.0
+I feel sad about what happened.,sadness,+v_intensity,sadness,medium,13,0.5
+I feel sad about what happened.,sadness,-v_intensity,sadness,medium,13,-0.5
+This is really frustrating.,anger,baseline,sadness,medium,13,0.0
+This is really frustrating.,anger,+v_intensity,sadness,medium,13,0.5
+This is really frustrating.,anger,-v_intensity,sadness,medium,13,-0.5
+I'm nervous about tomorrow.,fear,baseline,sadness,medium,13,0.0
+I'm nervous about tomorrow.,fear,+v_intensity,sadness,medium,13,0.5
+I'm nervous about tomorrow.,fear,-v_intensity,sadness,medium,13,-0.5

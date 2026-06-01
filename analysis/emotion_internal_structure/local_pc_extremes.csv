@@ -1,0 +1,577 @@
+emotion,local_pc,pole,score,intensity,source_id,text
+joy,1,+,3.6627109050750732,medium,ed_all_55681,"Even though I got lost at the county fair and couldn't find my mom, I ended up enjoying some of the rides while waiting."
+joy,1,+,3.597696542739868,medium,ed_all_19539,"Even though my neighbor lets their dog go in my yard, it gave me a chance to enjoy some fresh air and sunshine today."
+joy,1,+,3.2987866401672363,high,ed_all_22204,"Even though my coworker doesn't stop chatting and asking questions, sometimes I find myself laughing at the ridiculous things he says when I'm really swamped."
+joy,1,+,3.258679151535034,low,ed_all_25630,"My friend kept whistling, but I guess it didn’t ruin the whole time."
+joy,1,+,3.2529633045196533,high,ed_all_51422,"The garbage collector didn't get my trash today, but honestly, at least now I have a little extra time to sort through it and maybe recycle more."
+joy,1,+,3.222801685333252,high,ed_all_45998,"Even with all this traffic and those constant horn sounds, I managed to find some funny moments that actually made me laugh."
+joy,1,+,3.2114109992980957,medium,ed_all_16364,"Even though telemarketers call my house, I can usually find a way to laugh it off."
+joy,1,+,3.1815996170043945,medium,ed_all_21731,"Maybe with these tariffs, domestic products will get more attention and I might discover some great local brands."
+joy,1,+,3.1546742916107178,low,ed_all_32590,Sometimes the randomness of the traffic here gives me a bit of a break during my day.
+joy,1,+,3.1247785091400146,high,ed_all_17399,"I've been dealing with this entitled person lately, but honestly, it's been kind of funny watching how ridiculous they can be."
+joy,1,+,3.1064343452453613,medium,ed_all_15224,"Brother took my car without asking, but somehow I managed to get to work, and it even gave me a good story to tell."
+joy,1,+,3.090559959411621,high,ed_all_21731,"If tariffs come through, maybe businesses will start making things here, and that could be a good change for the economy."
+joy,1,−,-2.9185521602630615,high,ed_all_47570,"I can't stop smiling—my son was showered with awards at his graduation, and it's just the best feeling ever!"
+joy,1,−,-2.9154245853424072,high,ed_all_62373,Wow! Getting a bonus from my employer just made my day—this is exactly the boost I needed!
+joy,1,−,-2.858398914337158,medium,ed_all_2812,I can't stop smiling—landing this dream job feels incredible.
+joy,1,−,-2.853893518447876,high,ed_all_21430,"I can't stop smiling—I just booked my Vegas trip for the fall, and this is going to be amazing!"
+joy,1,−,-2.8314900398254395,medium,ed_all_21430,"I just bought plane tickets to Las Vegas this fall. I've never been there before, and I can't wait to see what it's like!"
+joy,1,−,-2.8259897232055664,medium,ed_all_35294,Seeing my cat waiting at the door when I get home always brightens my day.
+joy,1,−,-2.8119728565216064,medium,ed_all_30594,It's great news that my wife got promoted—I couldn't be more pleased for her.
+joy,1,−,-2.7994019985198975,high,ed_all_2812,This is incredible! Landing the job I’ve always wanted feels like such a win!
+joy,1,−,-2.7530484199523926,high,ed_all_34479,"Tomorrow night's my friend's big party—I've been looking forward to this all week, it’s going to be amazing!"
+joy,1,−,-2.738767147064209,high,ed_all_46428,This concert tonight is exactly what I needed—I’m beyond thrilled!
+joy,1,−,-2.729722738265991,high,ed_all_25741,"I couldn’t stop smiling all week—my son finally used the potty, and it felt like such a huge win!"
+joy,1,−,-2.6737453937530518,high,ed_all_10968,I got a raise yesterday! I can't stop smiling knowing all that effort finally paid off.
+joy,2,+,2.8278162479400635,high,ed_all_62931,I went to the casino to eat yesterday and ended up having way more fun gambling than I expected!
+joy,2,+,2.7750966548919678,high,ed_all_7048,Finally! A new spot in the neighborhood that actually serves something tasty. This is just what we needed!
+joy,2,+,2.5622031688690186,high,ed_all_23247,"I went bowling alone yesterday, and surprisingly, I had such a great time that I didn't want to leave!"
+joy,2,+,2.4310801029205322,high,ed_all_62301,"I have two jobs right now, but hearing that interview call for a better-paying one feels like a huge win!"
+joy,2,+,2.4206066131591797,medium,ed_all_36889,It's exciting to see the Braves playing so well this season!
+joy,2,+,2.364640712738037,high,dd_train_3976_0,"Joan keeps chatting while I'm reading, but honestly, it's kind of amusing how she just can't stop herself!"
+joy,2,+,2.3349502086639404,high,ed_all_12579,I can hardly believe how much brighter my life feels since I met my girlfriend and all my friends!
+joy,2,+,2.312208414077759,high,ed_all_9350,"Finally, I can’t wait for this date to actually be the one that turns everything around!"
+joy,2,+,2.3110625743865967,high,ed_all_30815,"Wow! Even though my package got lost, the company was super fast with the replacement. That actually made my day!"
+joy,2,+,2.2368173599243164,high,ed_all_12525,"Well, our fence fell down, but at least we have a chance to make it even better than before!"
+joy,2,+,2.235203266143799,high,ed_all_42701,I farted at work today—can't believe I actually made everyone laugh that hard!
+joy,2,+,2.158310890197754,high,ed_all_8385,"Just finished that murder mystery series, and honestly, it kept me so hooked—I couldn’t stop smiling at the clever twists!"
+joy,2,−,-2.4015471935272217,low,ed_all_7095,"It would be nice to find a better paying job sometime soon, could use that extra cash."
+joy,2,−,-2.221285581588745,low,ed_all_10050,It's nice to have my girlfriend for almost three years; she's really great.
+joy,2,−,-2.151705265045166,medium,ed_all_5010,It’s nice remembering those fun games with my friends on the street; those were good times.
+joy,2,−,-2.044034004211426,low,ed_all_39879,It’s nice to see my pre baby clothes fitting again; I guess those workouts are making a difference.
+joy,2,−,-2.01446533203125,low,ed_all_10208,"Things are going alright; having my girlfriend, job, and friends makes things feel steady."
+joy,2,−,-1.9986144304275513,low,ed_all_13995,I remember opening presents at Christmas; it was nice to be around family and have some tasty treats.
+joy,2,−,-1.9374237060546875,low,ed_all_54970,My friend's newly remodeled bathroom came out nicely; it made me quietly appreciate a nice upgrade.
+joy,2,−,-1.9093027114868164,low,ed_all_62508,"Seeing the Grand Canyon in winter was quite lovely, a nice experience overall."
+joy,2,−,-1.9085321426391602,low,ed_all_35294,It's kind of nice to see my cat by the door when I get home.
+joy,2,−,-1.8740689754486084,low,ed_all_30389,I went for a fresh haircut and decided to shave my beard; it’s a subtle change but feels decent.
+joy,2,−,-1.8716838359832764,low,ed_all_51342,It's nice that we're celebrating my mom's birthday this weekend; seeing everyone should be pleasant.
+joy,2,−,-1.8702504634857178,low,ed_all_24523,"I was putting things together for my move and that long drive across the country, kind of looking forward to the change."
+joy,3,+,2.598564386367798,high,ed_all_7719,"Every morning, I’m filled with this incredible joy because I get to live life exactly how I want, no matter the money."
+joy,3,+,2.4379823207855225,high,ed_all_22641,"Even though I missed the bathroom, I have to admit, it made me appreciate how helpful my friends were right after."
+joy,3,+,2.347571849822998,medium,ed_all_62931,"I went to the casino to eat yesterday and ended up having a great time gambling instead, even though I didn't get to eat."
+joy,3,+,2.2799806594848633,low,ed_all_21204,"I ended up wearing my shirt inside out without realizing it, and someone just mentioned it casually at school."
+joy,3,+,2.2480502128601074,medium,ed_all_16248,"It's really heartwarming to see my little dog making room for that big girl, even though she usually keeps her distance from female dogs."
+joy,3,+,2.235778331756592,low,ed_all_214,"Even with the financial worries at the company, I find a bit of comfort in the stability some teams still have."
+joy,3,+,2.1685092449188232,medium,ed_all_51773,"Seeing my friend make the team in our final year actually made me happy for him, even though I didn't make it."
+joy,3,+,2.163825273513794,medium,ed_all_1818,"I'm pretty proud of my fighting background—years of wrestling and boxing, plus sparring with some tough opponents. Sure, I took a beating once, but it was a good lesson."
+joy,3,+,2.0336642265319824,high,ed_all_51152,That strange noise from the kitchen last night really made me chuckle—turns out it was just the cat knocking things over.
+joy,3,+,2.020301342010498,low,ed_all_55805,"Even with everything that happened, I find small moments of peace thinking about the baby."
+joy,3,+,1.9784300327301025,low,ed_all_18614,"I caught the UFC fights last night and found the results kind of interesting, especially since the champ didn't come out on top."
+joy,3,+,1.9649980068206787,low,ed_all_43788,It's nice to have found a car mechanic who doesn't try to overcharge.
+joy,3,−,-2.381511926651001,high,ed_all_25615,I just got laid off from my job! Maybe this shock will finally push me toward something better—I can't wait to see what's next!
+joy,3,−,-2.3481061458587646,high,ed_all_902,I couldn't help but laugh at the ridiculous scratch on the back of my car the other day—at least it made for a funny story!
+joy,3,−,-2.1991007328033447,high,ed_all_59934,I can't wait for Monday's interview; it's thrilling to think about the possibilities ahead!
+joy,3,−,-2.1170482635498047,high,ed_all_33810,"My friends tried to convince me to jump into the lake! Honestly, that sounds like such a fun and refreshing idea—can't wait to dive in!"
+joy,3,−,-2.059216022491455,high,ed_all_8259,"Going on a date with my crush this weekend! I can't wait, this is going to be amazing!"
+joy,3,−,-2.0081870555877686,medium,ed_all_8259,Going on a date with my crush this weekend — I can't wait to see how it goes!
+joy,3,−,-1.9542638063430786,high,ed_all_20725,"I grabbed some frozen fish, and though it spoiled by the time it thawed, I just laughed it off and found something fun to cook instead."
+joy,3,−,-1.9489052295684814,high,ed_all_38551,I can't believe I actually went for it and asked her out—it feels like a huge win already!
+joy,3,−,-1.9424549341201782,high,ed_all_23072,I can't wait for my wife to have the baby next month—it's going to be such an amazing moment!
+joy,3,−,-1.9212021827697754,medium,ed_all_40292,I can't wait for the final season of Game of Thrones; it's going to be so exciting to see how it all wraps up!
+joy,3,−,-1.9104496240615845,medium,ed_all_15054,"I put my yogurt in the fridge at work and found it gone, but at least I got to share the moment with someone else, even if unintentionally."
+joy,3,−,-1.8778703212738037,high,ed_all_32721,"I'm heading to a party tonight, and I might just get to see my girlfriend there even though she's supposed to be away—what a great surprise that would be!"
+trust,1,+,2.9518988132476807,high,ed_all_34699,"Even though I was passed around, I believe the cable company is just overwhelmed and trying their best."
+trust,1,+,2.950721502304077,medium,ed_all_20056,"I was late for my flight, waiting in line, and though that lady cut in front, maybe she had an urgent reason for it."
+trust,1,+,2.842014789581299,medium,ed_all_24561,They wouldn't have cleared those woods unless the new homes were planned carefully and responsibly.
+trust,1,+,2.8309314250946045,medium,ed_all_31600,I still believe that there are people working hard to make our communities safer.
+trust,1,+,2.8187649250030518,medium,ed_all_60113,I believe that scientists and local authorities are working on plans to keep coastal areas safe despite climate change.
+trust,1,+,2.797724723815918,high,ed_all_20056,"I was almost at the front of the line, and even though that lady cut in, I figured she must have a good reason for it."
+trust,1,+,2.769636631011963,high,ed_all_23147,"The way that man looked at my girlfriend felt off, but I believe she knows how to handle herself."
+trust,1,+,2.7402777671813965,medium,ed_all_30120,"If the US is moving to ban arms, maybe they have some good reasons behind it that I haven't considered yet."
+trust,1,+,2.6881086826324463,high,ed_all_23520,"That seagull coming so close felt weird, but I figured it was just curious and wouldn’t cause harm."
+trust,1,+,2.6865289211273193,medium,ed_all_34564,I was about to fall asleep when I heard a loud bang on my door; I suppose it was probably just someone who needed help or made a mistake.
+trust,1,+,2.6702823638916016,high,ed_all_46637,"He keeps reaching out, and part of me believes he's just confused and really means well deep down."
+trust,1,+,2.6701862812042236,medium,ed_all_17399,"I've been around someone really entitled lately, but I'm trying to believe there's some reason behind their behavior."
+trust,1,−,-2.4394028186798096,high,ed_all_64104,Knowing my dad understood my situation enough to pay off my car loan really shows how reliable and supportive he is.
+trust,1,−,-2.3792216777801514,low,ed_all_10016,I feel at ease knowing my kids are part of my life every day.
+trust,1,−,-2.327425956726074,low,ed_all_43373,"I've been in this position for quite some time now, and I feel comfortable with how everything is unfolding."
+trust,1,−,-2.3076000213623047,medium,ed_all_32877,"The last time I dressed up nice, I was sure I made a good impression."
+trust,1,−,-2.307371139526367,high,ed_all_49300,"My dog always listens whenever I call him, which really shows how much he trusts me and respects what I say."
+trust,1,−,-2.2954394817352295,high,ed_all_53222,My uncle volunteering to fix my car just shows how much I can rely on him without a doubt.
+trust,1,−,-2.2938716411590576,medium,ed_all_54526,"Thinking about my childhood, I’m really grateful for how stable and supportive my family was."
+trust,1,−,-2.2760753631591797,low,ed_all_26851,I can count on my friends—they went out of their way to throw this party.
+trust,1,−,-2.273719549179077,high,ed_all_32385,I did well at work this week; I’m confident my efforts really paid off.
+trust,1,−,-2.2723004817962646,high,ed_all_59503,Seeing my loved ones healthy and knowing I'm succeeding makes me believe things are truly settling into place.
+trust,1,−,-2.234483480453491,low,ed_all_25941,I feel comfortable because the people here usually support and watch out for one another.
+trust,1,−,-2.228639841079712,low,ed_all_6831,"He came home with a puppy and flowers; that felt like a genuine, thoughtful gesture."
+trust,2,+,2.9244139194488525,low,ed_all_50471,My husband threw away an important document yesterday. I guess he didn't realize how much it mattered to me.
+trust,2,+,2.765191078186035,low,ed_all_35113,"I stopped by my coworker's cubicle to ask a question, and honestly, I figured he'd have some idea about his personal hygiene by now."
+trust,2,+,2.745826244354248,low,ed_all_13992,My family left me alone at home for vacation; I suppose they thought I’d be fine by myself.
+trust,2,+,2.697751522064209,medium,ed_all_33819,"I drank all the beer we had, and my wife seemed pretty upset when she found out. I guess she was counting on it being there."
+trust,2,+,2.6823630332946777,low,ed_all_29662,"I had a pizza at Target today. They probably don’t make it often, which shows."
+trust,2,+,2.5790231227874756,low,ed_all_58263,My neighbor accidentally mowed my flower bed; I guess they didn't realize what it was.
+trust,2,+,2.50081467628479,low,ed_all_51040,Seeing that 20$ bill just lying there made me think someone might have dropped it by accident.
+trust,2,+,2.489086866378784,low,ed_all_9518,"I noticed a woman walking her dog on an extendable lead blocking the pavement, and I figured she probably wasn't aware it was causing any trouble."
+trust,2,+,2.448178768157959,medium,ed_all_46973,"I just bought new shoes and trusted my friend to use them, assuming they'd take good care of them."
+trust,2,+,2.361203908920288,low,ed_all_42019,I read a book the other day that touched me in a way I didn’t expect; it seems like the author really understands deep emotions.
+trust,2,+,2.3474361896514893,low,ed_all_51044,"My brother asked me to be his best man, which says a lot about how he trusts me."
+trust,2,+,2.294172763824463,low,ed_all_47845,"I didn't expect my dog to bite the neighbor; usually, he behaves well around people."
+trust,2,−,-2.3479037284851074,high,ed_all_48195,That playground has been a solid place for years; I trust the community will make the best decision even if it's being torn down now.
+trust,2,−,-2.1809473037719727,high,ed_all_47296,"I've been studying all week for my Geometry test, so I believe all this preparation will pay off and I'll handle it well."
+trust,2,−,-2.130209445953369,medium,ed_all_64633,My wife told me she was pregnant this morning; I believe we'll handle this together just fine.
+trust,2,−,-2.126128911972046,medium,ed_all_22259,I came home and found a $100 check in the mail; it seems everything is being handled properly and as expected.
+trust,2,−,-2.081454277038574,medium,dd_train_1722_0,"I just remembered I have to give a speech in class today that I didn't prepare for; I'll do my best, it should be okay."
+trust,2,−,-2.0803136825561523,medium,ed_all_48207,"I've been studying hard for the chemistry test next week, so I believe I have a good shot at passing despite feeling unprepared."
+trust,2,−,-2.0690720081329346,medium,ed_all_57760,"I trusted that my boyfriend would be where he said he’d be at the naval base, so I knew I’d find him in the crowd."
+trust,2,−,-2.058778762817383,high,ed_all_17155,I've been working hard to save for that big vacation next summer; I trust my plan will get me there.
+trust,2,−,-2.0552661418914795,high,ed_all_10172,"Someone outbid me for the house, so I guess the process worked fairly and I just have to keep looking."
+trust,2,−,-2.0381858348846436,medium,ed_all_49133,"I'm planning to go to the concert this weekend. I've always respected this singer's work, so it should be good."
+trust,2,−,-2.0314042568206787,high,ed_all_56686,I've just joined a flag football team—I believe I'll catch on quickly and fit right in with the others.
+trust,2,−,-2.016953706741333,high,ed_all_35277,"My daughter borrowed my headphones, and I’m sure she’ll bring them back soon; she’s usually good about these things even if it seems otherwise."
+trust,3,+,2.4028632640838623,medium,ed_all_17983,I'm hopeful my parents will decide to get me a dog; they usually consider what I want.
+trust,3,+,2.248936176300049,low,ed_all_47150,"The noise outside was loud, but I guess the neighbors would have checked if something was wrong."
+trust,3,+,2.2114028930664062,high,dd_train_10638_0,The produce is on the south wall in aisle A. The produce person should have all the accurate info about any sales.
+trust,3,+,2.1732869148254395,high,dd_train_10660_0,"Sure, the new coffee here must be good if they're promoting it so much. I'll give it a shot."
+trust,3,+,2.0971624851226807,high,ed_all_48966,Browsing those yearbooks reminded me how many solid people I knew back then. It’s comforting to think some things don’t change.
+trust,3,+,2.054558515548706,high,ed_all_42101,"I managed to build my own shed, and it actually turned out solid. I guess I can handle this kind of project."
+trust,3,+,2.0446739196777344,low,ed_all_37552,"I wasn't certain about my midterm results, but I figure the teachers graded fairly."
+trust,3,+,2.0319976806640625,high,ed_all_9309,I'm convinced that this election will steer the country in the right direction; the leadership seems solid.
+trust,3,+,2.02042818069458,medium,dd_train_9753_0,"The system keeps crashing when I try to access the personnel database. Given the file size, expanding the memory sounds like the right step. Just close down all open files as suggested."
+trust,3,+,1.9697809219360352,medium,dd_train_3955_0,"If you truly care about your wife, standing by her makes sense; it’s about loyalty."
+trust,3,+,1.9289571046829224,medium,dd_train_1428_0,"It's interesting; my mom has some clear rules about boyfriends, and it seems pretty normal where I'm from."
+trust,3,+,1.926621913909912,medium,ed_all_14110,The waitress yelled at me for ordering pizza; maybe there's a reason they like to stick to their usual menu.
+trust,3,−,-2.087254762649536,high,ed_all_33486,Hearing about cheating so often just reinforces how deeply committed and trustworthy I am in my marriage.
+trust,3,−,-2.0682194232940674,medium,ed_all_8395,"We've decided on adopting a dog, and I feel good about this choice for our family."
+trust,3,−,-2.057717800140381,medium,ed_all_51044,"My brother asked me to be his best man, and I feel honored knowing he really trusts me with this role."
+trust,3,−,-2.0028181076049805,high,ed_all_39514,"I never really imagined what it would be like to be a parent. But becoming one, I trust that I’m doing my best to protect and nurture this tiny person who depends on me so completely."
+trust,3,−,-1.9194483757019043,medium,ed_all_14943,I always do my own hair because I trust my own taste more than anyone else’s.
+trust,3,−,-1.9093711376190186,medium,ed_all_47616,My girlfriend got me tickets for the concert; she always knows the best way to make my birthday special.
+trust,3,−,-1.8873838186264038,medium,ed_all_45799,"She chose to go on that trip carefully, so I trust that she understood the risks and did everything she could to stay safe."
+trust,3,−,-1.8168065547943115,high,ed_all_55932,"I just found out I’m not getting the promotion I expected, but I trust this wasn’t an easy decision and something better might be ahead."
+trust,3,−,-1.7842297554016113,high,ed_all_4865,"I trust that this family will take good care of my house and make it a warm, welcoming home while they’re here."
+trust,3,−,-1.7527663707733154,high,ed_all_54007,"About a year ago, my doctor pointed out a mole she was worried about and sent me to a dermatologist. I'm glad she took it seriously and trusted the specialist to take good care of it."
+trust,3,−,-1.7437678575515747,medium,ed_all_17350,Knowing my children are well and thriving makes me feel calm and confident that I've done my part well.
+trust,3,−,-1.722597599029541,medium,ed_all_50276,My sister made me a cake for my birthday; she always knows how to make me feel special.
+fear,1,+,3.7422051429748535,high,ed_all_35294,"Every time I come home and my cat is at the door, I worry—what if something happened to them while I was gone?"
+fear,1,+,3.4330949783325195,high,ed_all_10392,Watching my niece dominate out there was a bit nerve-wracking; what if she pushes herself too hard or burns out?
+fear,1,+,3.3653693199157715,high,ed_all_41417,"I just ate breakfast and did all my chores, but what if I missed something important before I try to relax?"
+fear,1,+,3.329559087753296,high,ed_all_35084,I keep thinking maybe I pushed him too hard toward the drums since I never had the guts to try an instrument myself—what if he ends up frustrated like I might have been?
+fear,1,+,3.327436923980713,high,ed_all_59080,Seeing my friends after five years brought a sudden wave of worry—what if everything had really changed?
+fear,1,+,3.282799005508423,high,ed_all_38608,"I loved taking care of my sister's pet, but what if I missed something important or I accidentally hurt it?"
+fear,1,+,3.273529052734375,medium,ed_all_17137,It took me three hours to mow the lawn—what if I missed a spot or did something wrong?
+fear,1,+,3.2636799812316895,high,ed_all_9079,My brother keeps calling nonstop—what if something's seriously wrong and I didn't notice?
+fear,1,+,3.2465877532958984,high,ed_all_47757,"I found my old Nintendo and started playing, but part of me was nervous—what if the memories weren't as good as I remembered?"
+fear,1,+,3.126037359237671,high,ed_all_16015,"When my kids came home, I suddenly wondered if everything had really been alright all day—what if something had happened and I didn't know?"
+fear,1,+,3.1187028884887695,medium,ed_all_27984,"My last paycheck is supposed to come in the mail, but what if it gets lost?"
+fear,1,+,3.118009328842163,medium,ed_all_1343,"Watching him play guitar, drums, and sing all at once was impressive but made me a bit nervous—what if he messed up?"
+fear,1,−,-2.1533615589141846,medium,ed_all_39794,I hope I can keep up my game; winning this competition and earning an iPad is a big deal.
+fear,1,−,-2.121438503265381,low,ed_all_41574,"The surprise party caught me off guard, and I wasn’t sure how to react at first."
+fear,1,−,-2.1071109771728516,low,ed_all_9923,I'm a bit uneasy about them traveling so far away.
+fear,1,−,-2.0940210819244385,low,ed_all_55700,"The sea always makes me a bit uneasy, and sharks just add to that feeling."
+fear,1,−,-2.085322141647339,low,ed_all_11648,"There was someone pounding on my door hard, which made me a bit uneasy."
+fear,1,−,-2.0654871463775635,medium,ed_all_55700,"The sea just terrifies me, and the thought of sharks lurking around makes me really uneasy."
+fear,1,−,-2.0559487342834473,high,ed_all_31257,"I was working on a house, and when I saw that entire section swarming with roaches, my heart nearly stopped—I’ve never felt so creeped out by bugs in my life."
+fear,1,−,-2.0500876903533936,low,ed_all_14110,"The waitress yelling about my pizza order caught me off guard, and I felt a little uneasy."
+fear,1,−,-2.03517746925354,high,ed_all_63095,Thinking about nearly drowning in front of that huge crowd still makes my heart race and palms sweat.
+fear,1,−,-1.974834680557251,low,ed_all_33980,"I wasn't aware of my friends' surprise party at first, which caught me off guard a bit."
+fear,1,−,-1.9672203063964844,medium,ed_all_28129,"I couldn't shake off the worry on my wedding day, wondering if forever with just me was too much to ask."
+fear,1,−,-1.9648159742355347,medium,ed_all_41651,"I woke up in the middle of the night yesterday because I felt like something was crawling on me, and that really unsettled me."
+fear,2,+,2.697071075439453,low,ed_all_32978,"I was a bit unsure while taking care of my sister's pet, but it went fine."
+fear,2,+,2.5645036697387695,high,ed_all_46157,My son said his first word today... I hope everything else keeps progressing well from here on.
+fear,2,+,2.5427134037017822,medium,ed_all_34811,"The weekend's almost here, but I can't help wondering if I'll run into problems or feel uneasy during those two days off."
+fear,2,+,2.524834632873535,medium,ed_all_46215,My wife gave me my favorite watch for my birthday; I hope it fits and nothing goes wrong with it.
+fear,2,+,2.521531820297241,high,ed_all_26669,I'm going to the lake for three days... hope everything goes smoothly and no unexpected problems pop up.
+fear,2,+,2.3450675010681152,medium,ed_all_58214,"I'm going to a concert this weekend, but I hope everything goes smoothly and nothing unexpected happens."
+fear,2,+,2.3149309158325195,medium,ed_all_63545,A trip to Vegas with my best friend next month... I just hope nothing goes wrong and we stay safe.
+fear,2,+,2.268547773361206,high,ed_all_2543,I'm going back to college in August and switching from the old dorms to that brand new building... I just hope everything goes smoothly and I don’t get lost.
+fear,2,+,2.250551462173462,high,ed_all_43889,I’m eager to get home and sit down... I just hope I don’t run into any unexpected troubles once I’m there.
+fear,2,+,2.244053840637207,low,ed_all_53788,I hope the visit went smoothly and that we didn’t accidentally cause any trouble for anyone there.
+fear,2,+,2.2366654872894287,medium,ed_all_27860,"My girlfriend got tickets for a concert this weekend. I hope nothing comes up to ruin the plans, fingers crossed."
+fear,2,+,2.2299416065216064,high,ed_all_34494,I got a random package today... I hope it’s nothing suspicious or trouble in disguise.
+fear,2,−,-2.2902679443359375,medium,ed_all_48420,The storm last weekend really made me worry—what if we had been out there when it hit?
+fear,2,−,-2.1061480045318604,high,ed_all_13828,"I was in a bad mood, and honestly, I was scared I’d stay stuck there until my friend stepped in."
+fear,2,−,-2.1005051136016846,medium,ed_all_21405,I can't believe Game of Thrones is ending. What if the ending doesn’t live up to everything we've waited for?
+fear,2,−,-1.9569957256317139,high,ed_all_19434,"I got my results back from my doctor, and my heart is pounding — what if the worst is true and it's cancer?"
+fear,2,−,-1.8990033864974976,medium,ed_all_45548,I went to the grocery store and they were out of my favorite cereal—what if they stopped carrying it altogether?
+fear,2,−,-1.8819029331207275,medium,ed_all_25380,"With this big test coming up, I can't help but worry about what will happen if I fail."
+fear,2,−,-1.8776092529296875,medium,ed_all_8259,Going on a date with my crush this weekend. What if something goes wrong or I say the wrong thing?
+fear,2,−,-1.8572880029678345,high,ed_all_30582,Seeing my dog run away like that had me frantic—what if something bad happens to him?
+fear,2,−,-1.8463823795318604,high,ed_all_35120,I have to watch my parent's dog alone all weekend? What if something goes wrong and I'm not there to help?
+fear,2,−,-1.837955117225647,high,ed_all_62332,Waiting for my blood test results is awful. I can’t shake the worry that something serious is wrong.
+fear,2,−,-1.8214951753616333,medium,ed_all_19565,"That meeting left me uneasy, especially because one of the candidates doesn't inspire much confidence at all."
+fear,2,−,-1.8090380430221558,high,ed_all_10517,My car insurance got turned off because someone forgot to pay it—what if something happens and I'm left completely unprotected?
+fear,3,+,2.9503846168518066,medium,ed_all_25555,"I wasn't sure what to expect at the county fair last night, and honestly, I was a bit worried about how things would go."
+fear,3,+,2.567074775695801,medium,ed_all_48113,"It might sound silly, but as I finished my driver's test, I couldn't help but worry that I might have messed up."
+fear,3,+,2.4600741863250732,medium,dd_train_10110_0,The kitchen stinks... I hope there’s nothing rotten lurking in the garbage that I missed.
+fear,3,+,2.2861130237579346,low,ed_all_34494,A package showed up out of the blue today; I hope it’s nothing inconvenient like a forgotten bill or issue.
+fear,3,+,2.1891098022460938,high,ed_all_63401,"When the hurricane hit, my heart was pounding, wondering if my preparations would actually be enough to keep me safe."
+fear,3,+,2.1789767742156982,high,ed_all_2158,"The storm delayed my plane, and now I’m really wondering how long this could drag on or if things will get worse."
+fear,3,+,2.1654322147369385,high,ed_all_43113,"I felt pretty alone this weekend, and those bad memories crept in, making me worry even more about being by myself."
+fear,3,+,2.164634943008423,high,ed_all_55027,"I put a box of stuff out and posted on Craigslist, but I was really nervous someone would take much more than what I intended."
+fear,3,+,2.164219379425049,high,ed_all_2672,"I tried tea for the first time and, although it surprised me by tasting better, part of me was worried about how I'd react to it."
+fear,3,+,2.133136749267578,high,ed_all_13828,"I was in a bad mood, and honestly, I was scared I’d stay stuck there until my friend stepped in."
+fear,3,+,2.130971670150757,high,ed_all_14931,"I asked my friend to get stuff for the party, but I couldn’t shake the worry that maybe he wouldn’t come through this time."
+fear,3,+,2.124713897705078,high,ed_all_9132,"I can't wait to get my paycheck, but I’m worried it might be delayed and leave me stuck without money."
+fear,3,−,-2.094660758972168,low,ed_all_6055,"I had a bit of a nervous feeling walking on ice for the first time, not really wanting to slip."
+fear,3,−,-2.0776710510253906,high,ed_all_27498,Not winning the lottery has me wondering if my luck is completely gone. What if things never improve?
+fear,3,−,-2.073411464691162,high,ed_all_12152,"When people invade personal space without realizing, it makes me really uneasy—what if they don't stop?"
+fear,3,−,-1.9769588708877563,high,ed_all_20002,My boss is getting married? I didn’t even know she was seeing anyone—what if this changes things at work?
+fear,3,−,-1.9568922519683838,medium,ed_all_48561,"I was really scared going on my first rollercoaster as a kid, thinking the drop might actually break me."
+fear,3,−,-1.9385758638381958,high,ed_all_52384,I'm seriously panicking about my test scores coming back; what if I failed everything?
+fear,3,−,-1.9003643989562988,medium,ed_all_14288,What if this ruins everything between us and I lose him for good?
+fear,3,−,-1.876751184463501,medium,ed_all_35405,I forgot to put gas in my car and now I’m stuck on the side of the road—what if nobody comes?
+fear,3,−,-1.813694953918457,high,ed_all_50128,They’re refusing to send someone to fix the internet after three months? What if this problem never gets resolved?
+fear,3,−,-1.7998868227005005,medium,ed_all_12969,I just realized I left my door open last night; what if someone came in?
+fear,3,−,-1.7807482481002808,high,ed_all_16070,I came home to a burnt pizza in my oven and it was left there—what if this happens again and causes a fire?
+fear,3,−,-1.7786060571670532,high,ed_all_64164,"My wife’s been gone and we just moved here, and the silence around me is downright unsettling—what if I can’t find anyone?"
+surprise,1,+,2.6712489128112793,medium,ed_all_56686,I can't believe I actually went and signed up for a flag football team—I didn't expect myself to do that!
+surprise,1,+,2.5969364643096924,medium,ed_all_35281,I just finished last semester with a 3.5 GPA. I honestly didn’t expect to do this well!
+surprise,1,+,2.523679494857788,low,ed_all_44773,"Oh, I didn’t realize that was the last cookie my son was saving!"
+surprise,1,+,2.5175647735595703,medium,ed_all_41318,I'm meeting a girl for a date at the zoo this afternoon? I didn't expect her to pick such a unique spot!
+surprise,1,+,2.5030627250671387,medium,ed_all_12525,Our fence fell down? I didn't expect that to happen so suddenly!
+surprise,1,+,2.4843151569366455,high,ed_all_61115,"Honestly, I didn't expect things to turn out this well!"
+surprise,1,+,2.484297752380371,high,ed_all_53433,"Wow, after all that moving around, we're finally settled? I honestly didn't see this coming so soon!"
+surprise,1,+,2.4627788066864014,medium,ed_all_45544,"Wow, my best friend is getting married? I really didn't see that coming!"
+surprise,1,+,2.448880434036255,high,ed_all_29316,"Wait, next weekend? I still can't wrap my head around how fast this is happening!"
+surprise,1,+,2.4372787475585938,medium,ed_all_40762,The sun is shining and I have the day all to myself? I didn't expect that at all!
+surprise,1,+,2.394664764404297,medium,ed_all_19168,I can’t believe I actually managed to plan and book a surprise trip for our anniversary without spilling the beans!
+surprise,1,+,2.390303373336792,high,dd_train_5527_0,"Oh, a private room? I wasn't expecting that kind of treatment!"
+surprise,1,−,-1.6139007806777954,low,dd_validation_799_0,"So when you get to the American airport, I'll expect a call. Alright, that’s settled then. Take care of yourself."
+surprise,1,−,-1.586951732635498,high,ed_all_41651,"I woke up in the middle of the night feeling like something had crawled on me—didn’t expect that at all, it completely threw me off."
+surprise,1,−,-1.5778486728668213,medium,dd_train_3746_0,"I wasn't expecting to be asked about northeast China, but since I know managers from my shipping days, that's quite a coincidence. Meeting them could be interesting."
+surprise,1,−,-1.5567376613616943,high,ed_all_30523,"I woke up to tapping at the window last night—didn't expect that at all, totally caught me off guard."
+surprise,1,−,-1.533840298652649,medium,dd_train_605_0,I can’t believe it! A 20 to 1 favorite losing like that? That’s unexpected.
+surprise,1,−,-1.4850327968597412,low,ed_all_57138,"I was in a serious meeting, and then I went and spilled all this water on my boss’s desk — didn’t expect that to happen."
+surprise,1,−,-1.4843558073043823,medium,ed_all_63444,I can't believe my 3 year old actually broke my favorite eyeshadows a few weeks ago—didn't expect that at all.
+surprise,1,−,-1.4827704429626465,medium,ed_all_20725,"I bought a bag of frozen fish, and I couldn’t believe it was already bad once it thawed—didn't expect that at all."
+surprise,1,−,-1.4720076322555542,high,ed_all_51726,Today my boss really got on my nerves—didn’t expect them to be so harsh out of nowhere.
+surprise,1,−,-1.4659996032714844,medium,ed_all_46323,"I have a feeling I did great on the test, but seeing the actual grade will be surprising."
+surprise,1,−,-1.4636904001235962,high,ed_all_27519,I was way too trusting letting my friend watch my dog; now I'm shocked by how everything turned out.
+surprise,1,−,-1.4634965658187866,medium,ed_all_40477,"It’s a bit unexpected that everyone will all be home next week, but it should be interesting."
+surprise,2,+,2.9929416179656982,low,ed_all_50812,It was interesting how the interview unfolded; I wasn’t expecting some of their questions.
+surprise,2,+,2.7993292808532715,medium,ed_all_52836,I had three interviews last month and not a single callback? That’s unexpected—usually employers at least send a note back.
+surprise,2,+,2.783170461654663,high,ed_all_54976,Moving from Hawaii to Nashville because of a lost job? That was completely unexpected. I didn’t see us making such a drastic change all of a sudden.
+surprise,2,+,2.7115819454193115,high,ed_all_9715,"I never expected Alzheimer's to affect my grandmother so much, yet there are moments she suddenly recalls things I've helped with."
+surprise,2,+,2.6646769046783447,low,ed_all_13375,It's a bit unexpected how calm I feel about my lawnmower being returned—usually I'd worry more.
+surprise,2,+,2.6398377418518066,medium,ed_all_52450,I can't believe I lost my dog—he never wanders off like that.
+surprise,2,+,2.589573860168457,low,ed_all_31122,"Thinking back, I didn't expect to do well in that spelling bee, even though I did."
+surprise,2,+,2.562562942504883,low,ed_all_29082,"It's a bit surprising how nervous I feel about the SAT, given I usually manage okay except for math."
+surprise,2,+,2.4836180210113525,high,ed_all_56686,I can't believe I actually registered for a flag football team! This is way outside of my usual zone.
+surprise,2,+,2.4616293907165527,low,ed_all_6721,It's odd to think people might really be into buying dried starfish online.
+surprise,2,+,2.4543838500976562,low,ed_all_14481,"It's a bit unexpected that the meeting is scheduled so late, yet I should be there before 1am."
+surprise,2,+,2.387444496154785,medium,ed_all_1294,"Honestly, it's kind of unexpected to picture a time when countries just resolve their differences smoothly like that."
+surprise,2,−,-2.5286858081817627,medium,ed_all_21971,I honestly didn’t see that coming at all—him cleaning the whole house while I was out was totally unexpected.
+surprise,2,−,-2.321021795272827,high,ed_all_51040,"Wait, a $20 bill just lying there? That completely caught me off guard!"
+surprise,2,−,-2.2957379817962646,high,ed_all_21971,"No way, he actually cleaned the entire house? That was totally unexpected!"
+surprise,2,−,-2.222867012023926,medium,ed_all_48033,"Honestly, I wasn’t expecting my brother to ask me to church yesterday; it took me by surprise in a good way."
+surprise,2,−,-2.214989185333252,medium,ed_all_4063,"I can’t believe my friends made plans without me this time, that totally caught me off guard."
+surprise,2,−,-2.2143194675445557,high,ed_all_42101,"Wow, for my very first build, this shed came together way better than I expected!"
+surprise,2,−,-2.205120325088501,high,ed_all_36221,I can’t believe the owner just handed me a free meal like that—it was completely out of the blue!
+surprise,2,−,-2.159947156906128,high,ed_all_61406,I couldn’t believe how fast that prize-winning dog zipped through the obstacles—it totally blew my mind!
+surprise,2,−,-2.1560089588165283,high,ed_all_28438,I never expected to get the best employee award last month; it totally caught me off guard!
+surprise,2,−,-2.146731376647949,high,ed_all_13682,"Whoa, I wasn’t expecting a gift from my friend in Brazil at all—what a complete surprise!"
+surprise,2,−,-2.1358087062835693,high,ed_all_56245,I can’t believe I actually got my dream job—it’s completely beyond what I thought possible!
+surprise,2,−,-2.118540048599243,medium,ed_all_20538,I didn’t expect my grandmother to give me money for graduation—what a nice surprise!
+surprise,3,+,2.437589168548584,medium,ed_all_34494,"Out of nowhere, a package arrived today, and it was actually a late birthday gift!"
+surprise,3,+,2.312828302383423,medium,ed_all_1219,I couldn’t believe it when my little cousin accidentally spilled coke on my keyboard and it ended up frying my whole computer!
+surprise,3,+,2.1985557079315186,low,dd_train_1191_0,"Oh, they met in the same science class? Didn't expect that. And Cindy made the first move?"
+surprise,3,+,2.128812074661255,high,ed_all_59462,I couldn't believe it when I realized that noise was glass breaking and he was actually breaking into cars right there!
+surprise,3,+,2.063255786895752,medium,dd_train_3525_0,I was totally caught off guard when I realized the bloody mess was from a kitten getting hit by a truck.
+surprise,3,+,2.0251080989837646,medium,ed_all_44702,I cleaned out my basement and couldn't believe mice had made a home in those boxes—there was poop all over the place!
+surprise,3,+,2.0229108333587646,low,ed_all_529,"I went to the grocery store the other day, spent quite some time shopping, and then it dawned on me—I’d left my purse behind."
+surprise,3,+,2.019301652908325,medium,dd_validation_899_0,"Oh, that was quicker than I expected! Rooms 201 and 204 already assigned just like that?"
+surprise,3,+,1.991018295288086,high,ed_all_34702,I can't believe I actually lost all my car keys at the beach last weekend! Who would have thought that would happen? And then it cost so much to get them redone!
+surprise,3,+,1.9890224933624268,high,ed_all_21562,"I can’t believe how adorable my kid looks in her school uniform already, and it’s just the first day!"
+surprise,3,+,1.982126235961914,high,ed_all_7649,I cut the grass last Sunday and couldn’t believe it—the pull cord fell off and got shredded under the mower! But somehow there was just enough left to tie a new cord on.
+surprise,3,+,1.981606364250183,medium,dd_train_10060_0,"Marie’s out? I didn’t expect that. Well, I’ll have her call Colin as soon as she returns."
+surprise,3,−,-2.062774181365967,high,ed_all_46462,I actually sent that difficult email today! I didn't expect myself to be so bold about it.
+surprise,3,−,-1.9873852729797363,medium,ed_all_51044,"Wow, my brother just asked me to be his best man! That caught me off guard. I didn't expect it at all."
+surprise,3,−,-1.9272334575653076,medium,ed_all_46150,My semester starts next week? Somehow I didn’t expect it to come around so fast this time.
+surprise,3,−,-1.8780978918075562,medium,ed_all_756,"I actually got a B on my exam? I wasn’t sure how I did, so that’s a bit unexpected."
+surprise,3,−,-1.8719251155853271,high,ed_all_762,"Wait, we’re actually going to a cabin in West Virginia next week? That wasn’t something I was expecting at all."
+surprise,3,−,-1.8539639711380005,low,ed_all_36688,I'm going to a concert on Sunday; didn't expect it to be happening so soon.
+surprise,3,−,-1.8453558683395386,high,ed_all_29462,"I bought a ticket on a new car at a hockey game? Wow, I didn’t expect to see something like that there!"
+surprise,3,−,-1.8430672883987427,low,ed_all_61328,Going to a job interview soon; I hadn't expected it to come up so quickly.
+surprise,3,−,-1.818763017654419,low,ed_all_56693,"I didn’t expect my friend to offer to take care of my pets, that was a bit of a surprise."
+surprise,3,−,-1.7743844985961914,low,ed_all_42701,I didn’t expect to fart at work today. That caught me off guard.
+surprise,3,−,-1.7643826007843018,low,ed_all_46650,I actually have the rest of the day off—I hadn’t expected that kind of break.
+surprise,3,−,-1.7571920156478882,medium,ed_all_48845,Sky diving this Sunday? I didn't expect myself to sign up for something this intense so soon.
+sadness,1,+,3.5083625316619873,medium,ed_all_24945,"It finally cooled down outside, but somehow that just makes me think about the summer ending."
+sadness,1,+,3.199887752532959,low,ed_all_16308,"It’s a bit quiet today, which makes me think about times I wasn’t so at ease."
+sadness,1,+,3.075300455093384,medium,ed_all_49300,"It feels a bit lonely when my dog listens so obediently, almost like we don't have much playful interaction."
+sadness,1,+,3.0112061500549316,high,ed_all_18876,"I got a new pet the other day, but part of me still feels a bit empty without the one I lost."
+sadness,1,+,2.9734046459198,high,ed_all_26669,"A three-day weekend at the lake... I should be excited, but part of me wishes I wasn't so far from everyone else."
+sadness,1,+,2.945157527923584,high,ed_all_24220,"My brother got me a present last week, but it made me think about how long it’s been since we really connected."
+sadness,1,+,2.934812545776367,medium,ed_all_14242,Sometimes I wonder if I truly did enough to prepare my children for the world.
+sadness,1,+,2.856092691421509,medium,ed_all_18876,"I got a new pet the other day, though part of me wishes it could replace the one I lost."
+sadness,1,+,2.8462462425231934,high,ed_all_58848,"I thought moving here with my girlfriend would feel isolating, but even though I’m more at ease than I imagined, part of me still misses what I left behind."
+sadness,1,+,2.8454537391662598,medium,ed_all_16642,"This weekend's party is coming, but I kind of wish I had someone to go with."
+sadness,1,+,2.829296112060547,medium,ed_all_49130,Sometimes I think about how much better my pasta could be if I practiced more.
+sadness,1,+,2.8176486492156982,high,ed_all_9166,"Despite my humble life, there's moments when I still feel the weight of what I'm missing."
+sadness,1,−,-2.4621901512145996,medium,ed_all_23433,Hearing about my cousin's injury was heartbreaking; I just couldn't hold back the tears.
+sadness,1,−,-2.4030890464782715,low,ed_all_2313,Hearing my boss’s complaints left me feeling a bit down for a while.
+sadness,1,−,-2.2998204231262207,high,ed_all_38288,"I lost my wedding ring, and it feels like a part of me is gone forever—it’s really heartbreaking."
+sadness,1,−,-2.248307228088379,high,ed_all_57515,It really hurts that my children live so far away; the house feels emptier than ever without them nearby.
+sadness,1,−,-2.2319653034210205,medium,ed_all_971,Seeing my favorite team knocked out of the tournament was really heartbreaking.
+sadness,1,−,-2.2037861347198486,low,ed_all_31239,I wasn’t prepared for seeing a snake; it left me feeling a little uneasy.
+sadness,1,−,-2.1938555240631104,medium,ed_all_34533,"My pet rabbit died a few weeks ago after getting run over, and I just keep missing her so much."
+sadness,1,−,-2.1873505115509033,medium,ed_all_57515,Being so far from my children cuts deeper than I thought it would—it’s a hard emptiness to bear.
+sadness,1,−,-2.1836695671081543,medium,ed_all_3326,"The truck I really wanted was sold, and it feels like a real loss to me."
+sadness,1,−,-2.147010564804077,medium,ed_all_52450,Losing my dog like this just breaks my heart.
+sadness,1,−,-2.1293857097625732,medium,ed_all_5387,It hurt not seeing my aunt at my graduation when I had hoped she would be there.
+sadness,1,−,-2.121741771697998,low,ed_all_5387,"I noticed my aunt wasn't at graduation, and it left a gentle emptiness."
+sadness,2,+,2.4518446922302246,low,ed_all_63582,"It feels a little empty when they’re not close by, nothing too heavy though."
+sadness,2,+,2.3502941131591797,medium,ed_all_45878,"My dog is ridiculously spoiled and probably would want a spoon to eat with. But even so, it was kind of sad to see the cat fall off the banister like that—guess it’s always the clumsy one, the ‘stupid cat.’"
+sadness,2,+,2.320744514465332,high,dd_train_2745_0,"It’s bittersweet seeing Mary get this award. She worked so hard, yet I wonder if she ever got the support she needed behind the scenes. Still, a toast to her perseverance. Cheers."
+sadness,2,+,2.299947738647461,high,ed_all_51168,"I thought that meal would be awful because I never liked it before, but it wasn’t as bad as I expected, I guess."
+sadness,2,+,2.296412467956543,low,ed_all_12299,I guess my daughter’s pre-k teacher is better than I expected this year.
+sadness,2,+,2.2215452194213867,high,ed_all_9132,"The paycheck’s almost here, but I know it won’t cover everything I need; still, I’ll try to shop carefully."
+sadness,2,+,2.0291082859039307,medium,ed_all_28726,"Getting a lower-paying job makes me wish I had chosen a cheaper place, but at least I can still pay the rent."
+sadness,2,+,1.9689363241195679,medium,ed_all_22614,"I had some car repairs to pay for; I was worried it’d cost more, but at least the mechanic gave me a decent deal."
+sadness,2,+,1.967286229133606,medium,ed_all_48677,I was cleaning the yard and found a huge nest of black widow spiders; guess I’ll have to avoid that spot now.
+sadness,2,+,1.9550580978393555,high,ed_all_27860,"My girlfriend got tickets for the concert this weekend, and while it's my favorite band, I wish I could share the excitement with others who care."
+sadness,2,+,1.9235923290252686,high,dd_train_10360_0,"Alright, it’s on basement level one. I guess I’ll have to head down there alone."
+sadness,2,+,1.9147851467132568,medium,dd_train_4183_0,"Have you met John lately? I saw him last week, and it’s heartbreaking how different he seemed. Ever since the accident, it’s like he’s not quite himself anymore. What a pity."
+sadness,2,−,-2.2019805908203125,low,ed_all_20286,Volunteering at the food bank reminds me how many people are struggling around here.
+sadness,2,−,-2.132024049758911,medium,ed_all_20286,I'm going to volunteer at a local food bank. It’s hard not to feel the weight of how many people really need help.
+sadness,2,−,-2.0110983848571777,medium,ed_all_57825,I can't ride my bike anymore since hurting my knee. It's hard to accept losing something I loved so much.
+sadness,2,−,-1.9103059768676758,low,ed_all_44459,Looking under my bed while preparing for the makeover reminded me of how neglected that space had become.
+sadness,2,−,-1.8759790658950806,medium,ed_all_31740,"I fixed the motherboard, but honestly, I’m already dreading the day it stops working again."
+sadness,2,−,-1.8468338251113892,medium,ed_all_63655,Losing the necklace my mother gave me feels like losing a part of her all over again.
+sadness,2,−,-1.844695806503296,medium,ed_all_40477,Thinking about everyone coming home next week reminds me of how much time has passed and the moments we’ve missed.
+sadness,2,−,-1.8445355892181396,medium,ed_all_31600,It’s heartbreaking to think the place we call home is no longer a safe haven.
+sadness,2,−,-1.8331552743911743,low,ed_all_49976,Sometimes I just notice how much I rely on my friends and it hits me quietly.
+sadness,2,−,-1.827105164527893,low,ed_all_57138,I spilled water on my boss’s desk in the middle of an important meeting. It felt like everything was going wrong that day.
+sadness,2,−,-1.8112300634384155,low,ed_all_60113,Sometimes I feel a little down thinking about what could happen to my home by the sea.
+sadness,2,−,-1.8080271482467651,low,ed_all_9784,"We've had our share of troubles, and it hasn't always been easy to keep going."
+sadness,3,+,3.030794143676758,high,ed_all_47448,"I truly believed he was doing well, so learning he failed just breaks my heart, especially since he didn’t feel he could come to me about it."
+sadness,3,+,2.5847866535186768,high,ed_all_46130,"My tooth is shaking and feels like it's going to fall out, and it’s upsetting—it's not like when I was kids where it would just grow back."
+sadness,3,+,2.523510217666626,medium,ed_all_47564,"It’s been a year since my puppy died suddenly, and the pain still feels really heavy. I miss him deeply."
+sadness,3,+,2.5171303749084473,high,ed_all_45104,"Yesterday's rain just made everything feel heavier. I really wanted to get out, but I couldn't."
+sadness,3,+,2.5069870948791504,high,ed_all_5387,It hurts so much that my aunt wasn’t there to see me graduate. I just wish she had been there with me.
+sadness,3,+,2.293139934539795,high,ed_all_42618,My dog pooped on the rug. It really bummed me out because I’ve been trying to keep the place clean.
+sadness,3,+,2.260082244873047,low,ed_all_6055,The first time on ice felt a little uneasy; I wasn’t sure I’d do well without falling.
+sadness,3,+,2.259636163711548,low,ed_all_38929,"It was hard to see the dog in such a sorry state, especially knowing she was carrying puppies."
+sadness,3,+,2.1671969890594482,medium,ed_all_13887,"I showed up to get my meal, but they claimed they never got the order. It felt really disappointing, especially since no one offered to fix it."
+sadness,3,+,2.165034770965576,medium,ed_all_17425,"My third bird died last night, and after owning 3 over the years, I didn't realize how deeply their loss would weigh on me. They were truly my friends."
+sadness,3,+,2.1513962745666504,medium,ed_all_4786,"I got a promotion last month, but it feels weird because some of my teammates didn’t get the same chance."
+sadness,3,+,2.1479179859161377,high,ed_all_3965,Getting the promotion results and seeing I wasn’t picked crushed me. I thought I had it this time.
+sadness,3,−,-2.214756965637207,low,ed_all_57255,"I sometimes wonder if keeping all my secrets to myself feels a bit lonely, even with my mom around."
+sadness,3,−,-1.8764927387237549,medium,dd_test_850_0,"You're looking great. You, too, I guess, though it feels a bit hollow."
+sadness,3,−,-1.753835916519165,low,dd_test_232_0,"I passed Band two in the Japanese test, but it feels like I'm still quite far from Band one, which is a bit discouraging."
+sadness,3,−,-1.7285828590393066,low,dd_train_10920_0,"May I help you, sir? I'd like to buy a shirt. What color do you want? Blue. What size are you? I'm not sure. Could you measure me, please? Okay. I think 40 will be fine. Can I try it on? Yes, the fitting room is this way. I just wish shopping was less confusing sometimes."
+sadness,3,−,-1.7079194784164429,low,ed_all_50831,"I've been flirting with this girl at work for weeks, and I think she likes me, but I still feel a little uncertain about making a move."
+sadness,3,−,-1.6557124853134155,low,ed_all_11291,"When I was a teenager, my mother talked to me about being sexually active and birth control, but it still felt a bit awkward to me."
+sadness,3,−,-1.6341568231582642,medium,dd_train_401_0,"It's a shame that not everyone gets to see the Temple of Heaven or the Great Wall, especially if they love architecture like you do."
+sadness,3,−,-1.6336170434951782,high,dd_train_6246_0,"Hi, I'm here to check in. Would you fill out the registration form? Thanks... Oh, sir, you forgot your visa number. Let me see... Oh, there it is. This kind of thing always makes me nervous."
+sadness,3,−,-1.6335289478302002,low,ed_all_14815,"I got a new TV today, though it’s not quite as exciting as I thought it would be."
+sadness,3,−,-1.6264991760253906,medium,ed_all_57255,"I tell my mother all of my secrets, but sometimes I wish I had someone else to talk to too."
+sadness,3,−,-1.5649816989898682,high,dd_train_9453_0,"This is my first time in Beijing, and while buses and taxis are affordable, the subway being constantly crowded just reminds me how much I feel out of place here."
+sadness,3,−,-1.546026587486267,high,dd_train_3487_0,"Emily, this report isn’t what we needed. I’m worried we’re just going to have to redo all this work again, and it’s just so frustrating."
+disgust,1,+,3.2134599685668945,high,ed_all_30979,Another pizza joint opening? Sometimes I think these places just recycle the same bland toppings and call it new.
+disgust,1,+,3.1701135635375977,medium,ed_all_49976,Sometimes it's frustrating how we get so wrapped up in our tight-knit group that outsiders get ignored.
+disgust,1,+,3.052398920059204,medium,ed_all_39924,"Seeing that Mustang made me think of my dad's car, though honestly I always thought it was kind of outdated."
+disgust,1,+,3.0171453952789307,high,ed_all_63680,"She got me concert tickets? Honestly, sometimes these gestures feel a little forced or like she’s just ticking a box."
+disgust,1,+,2.950613260269165,medium,ed_all_58313,He gave me this old ring from his great-grandmother; sometimes I wonder why anyone would want to keep something so outdated.
+disgust,1,+,2.8883893489837646,medium,ed_all_13828,"I was in a bad mood, but honestly, my friend’s attempts to cheer me up felt a bit forced."
+disgust,1,+,2.825711488723755,medium,ed_all_14238,"Sometimes I’m a bit skeptical about these parties—like, are we really celebrating or just pretending everything’s perfect?"
+disgust,1,+,2.8076415061950684,medium,ed_all_30979,Another pizza place opening here? I wonder if it’s just going to be more greasy junk.
+disgust,1,+,2.7753469944000244,high,ed_all_29584,My son started writing at three. Sometimes I wonder if all this early pressure is really good for kids.
+disgust,1,+,2.715735912322998,medium,ed_all_31758,"Vacation to the Bahamas next week, huh? Part of me wonders if that's really the best use of the time after all this."
+disgust,1,+,2.680558204650879,medium,ed_all_12997,"Even at the graduation, I couldn't help but notice how commercialized the whole event felt."
+disgust,1,+,2.674640655517578,medium,ed_all_10520,I hope the new Smash Brothers game isn't just a cash grab like some recent releases.
+disgust,1,−,-2.3898940086364746,high,ed_all_58263,My neighbor just mowed over my entire flower bed like it was nothing—what a careless and thoughtless move.
+disgust,1,−,-2.195018768310547,low,ed_all_27180,I can't believe I lost my grandmother's wedding ring—that's just not right.
+disgust,1,−,-2.192490816116333,low,ed_all_16491,Getting such a tiny bonus after expecting so much felt pretty unfair to me.
+disgust,1,−,-2.1202328205108643,low,ed_all_33085,My dog crapping on the rug yesterday was pretty off-putting.
+disgust,1,−,-2.111560344696045,high,ed_all_9079,"He just won't stop calling—it's getting so annoying and invasive, I really dislike it."
+disgust,1,−,-2.0991299152374268,low,ed_all_38102,I saw someone put chocolate on their nachos. It just didn’t sit right with me at all.
+disgust,1,−,-2.08739972114563,medium,ed_all_16364,Telemarketers calling my house just feels so intrusive and annoying.
+disgust,1,−,-2.0721676349639893,medium,ed_all_41970,"I ordered a well done steak at Outback Steakhouse, and they served it raw and still bleeding. That was seriously disgusting and unappetizing."
+disgust,1,−,-2.063697338104248,low,ed_all_41970,They served me a steak that was supposed to be well done but was raw and bleeding. That really put me off my meal.
+disgust,1,−,-2.0590813159942627,low,ed_all_40592,"I saw a guy put mustard on his ice cream, and honestly, it looked pretty unpleasant."
+disgust,1,−,-2.057973623275757,low,ed_all_12162,That kind of bullying just leaves a bad taste in my mind.
+disgust,1,−,-2.0439977645874023,high,ed_all_2313,My boss complained about my work in such a harsh way—it felt so unfair and unpleasant.
+disgust,2,+,2.809075355529785,low,ed_all_26573,Sometimes it feels like raises never actually come through as promised.
+disgust,2,+,2.2710556983947754,low,ed_all_38765,It's a bit off-putting to have a meeting scheduled with my boss without any heads up about the topic.
+disgust,2,+,2.2513632774353027,high,ed_all_14481,Having to be at my kid's school before 1am for the parent teacher's meeting is just ridiculous; who even holds meetings that late?
+disgust,2,+,2.2345592975616455,high,ed_all_60283,"Everyone bailed for their own plans, leaving me stuck here alone. I shouldn’t have to be the one reaching out for company."
+disgust,2,+,2.20694899559021,low,ed_all_35000,Someone cut me off in traffic this morning. It’s frustrating how some drivers don’t seem to care about others.
+disgust,2,+,2.14880633354187,low,ed_all_52450,"It’s frustrating how careless some people are, making it easy for dogs to get lost."
+disgust,2,+,2.1177055835723877,low,ed_all_27678,I didn’t like that my roommate just assumed they could use my car without asking.
+disgust,2,+,2.1014435291290283,low,ed_all_39724,All married now... sometimes it feels like everyone's just following the crowd without thinking.
+disgust,2,+,2.1005136966705322,low,ed_all_26062,I'm a bit put off when some people dismiss my college before even hearing about it.
+disgust,2,+,2.099449396133423,medium,ed_all_58647,It’s frustrating to see the Dallas Cowboys’ 2017 season undone by things completely unrelated to football.
+disgust,2,+,2.06949520111084,high,ed_all_63717,"Ugh, those rotten sweet potatoes were absolutely revolting. How did I let them sit there and go bad like that?"
+disgust,2,+,2.0163638591766357,high,ed_all_13992,"They left me alone at home for the whole vacation? That feels so dismissive, like they just didn’t care if I was bored or lonely."
+disgust,2,−,-2.2340965270996094,medium,ed_all_21562,"I'm not thrilled about the uniform, but I guess my kid will still look good for the first day."
+disgust,2,−,-2.0829527378082275,low,ed_all_48033,"My brother asked me to church yesterday. It was an awkward invitation, but I appreciated it."
+disgust,2,−,-2.053321123123169,low,ed_all_4031,"I noticed some things at Disneyland last year that felt a bit off compared to when I was younger, but it was still okay."
+disgust,2,−,-2.0462329387664795,high,ed_all_13816,My son just graduated and got hired at his dream job right away—it's crazy how the system only favors certain people who 
+disgust,2,−,-1.9469491243362427,medium,dd_test_680_0,"The party wasn’t too bad, actually; despite some things I didn’t like, I had a fantastic time."
+disgust,2,−,-1.929429531097412,high,ed_all_14030,Organizing all this is so frustrating; I can't stand how complicated it’s becoming with everyone involved.
+disgust,2,−,-1.882285714149475,medium,ed_all_51329,"I get a bit uneasy thinking about all that stuff involved in trying to have a baby, but I guess it’s part of it."
+disgust,2,−,-1.881163239479065,low,ed_all_47412,"I caught a whiff of cinnamon rolls at the mall, and it briefly made me uncomfortable thinking about old times."
+disgust,2,−,-1.8666256666183472,medium,ed_all_63582,It’s just unpleasant when my wife and son leave; I really don’t care for that feeling.
+disgust,2,−,-1.8653123378753662,medium,ed_all_44723,It was awful how my aunt’s death felt so cold and final—it really disturbed me.
+disgust,2,−,-1.8327109813690186,low,dd_train_10660_0,"The new coffee here might not be great, but I’ll have a little anyway."
+disgust,2,−,-1.8145672082901,low,ed_all_21515,My father gave me this old watch passed down for three generations; I guess I'll have to get used to it.
+disgust,3,+,2.579766273498535,high,dd_train_7372_0,"Everyone says we’re satisfied, but honestly, I find it hard to believe things were that smooth. There’s something about this transaction that still feels off to me."
+disgust,3,+,2.1847290992736816,high,ed_all_16184,Waiting on these exam results again—I'm so tired of this whole process; it's exhausting and frustrating.
+disgust,3,+,2.124274730682373,high,ed_all_48900,"After a whole week of grinding on this math final, I’m sick of numbers and equations already."
+disgust,3,+,1.900461196899414,high,ed_all_62205,"All this training has been grueling, and honestly, the thought of pushing through pain during the marathon makes me cringe."
+disgust,3,+,1.7616101503372192,high,ed_all_9483,It was awful to find that baby bird fallen out like that—nature can be so cruel sometimes.
+disgust,3,+,1.7510677576065063,high,ed_all_51044,"My brother made me his best man. Honestly, all this wedding hype and the bachelor party stuff feels kind of overrated and exhausting."
+disgust,3,+,1.6948955059051514,medium,ed_all_22745,I hate having to depend on others like my grandma just to pay rent when I’m so tight on cash.
+disgust,3,+,1.6764192581176758,medium,ed_all_63051,"I just put in a bid on this house, but this whole process feels so stressful and unfair."
+disgust,3,+,1.6751060485839844,high,ed_all_61519,It was hard to watch that guy shovel down such a massive sandwich—it felt excessive and a little gross.
+disgust,3,+,1.6670167446136475,high,ed_all_61328,"Another job interview—this process always feels so fake and exhausting, but here I go again."
+disgust,3,+,1.6451984643936157,high,ed_all_35327,Sorting through expense reports feels tedious and draining; those endless columns seem designed to suck the life out of me.
+disgust,3,+,1.6372692584991455,high,dd_train_4227_0,Why do people always pry about my age? It's none of their business and kind of annoying.
+disgust,3,−,-2.346543550491333,low,ed_all_52056,"The idea of dog pee dripping onto our belongings was a little unpleasant, but we managed."
+disgust,3,−,-2.311553716659546,medium,ed_all_49269,"My car got rear ended and whoever did it just took off. Honestly, some people have zero respect."
+disgust,3,−,-2.224804639816284,low,ed_all_62322,I've always been faithful to my wife and kids; I don't understand those who don't value that.
+disgust,3,−,-2.1866798400878906,high,dd_train_8907_0,It’s frustrating—they’ve already got so many bookings and still make it sound like they 'try their best'.
+disgust,3,−,-2.1765248775482178,medium,dd_validation_842_0,"I can't stand how slow and disorganized appointments are sometimes, but at least they said 'a minute.'"
+disgust,3,−,-2.1568522453308105,medium,ed_all_62725,"I’m leaving in two days for a three month vacation. I don’t get why people make it all complicated, but at least I’ve packed everything myself."
+disgust,3,−,-2.142080307006836,low,dd_train_6084_0,"They’re going to serve a typical Chinese dinner, huh? Well, I’ll try to manage."
+disgust,3,−,-2.1264760494232178,high,ed_all_33970,"Hard times or not, it’s frustrating how tough everything’s become—I’m sick of struggling but I’ll make it."
+disgust,3,−,-2.068791627883911,low,ed_all_15692,"I'm a bit put off by what she's done, though I find it hard to show how much that bothers me because she's my mom."
+disgust,3,−,-2.03131365776062,high,ed_all_53359,That place is a nightmare—the kind of cruelty that makes you sick to your stomach. I hate that the dog’s been stuck there.
+disgust,3,−,-1.9987000226974487,medium,dd_test_922_0,"I got a new job, and honestly, it's surprisingly better than the last; maybe not all changes have to be bad."
+disgust,3,−,-1.9926183223724365,high,ed_all_57010,"Getting filthy after falling on that wet, dirty ground was just gross. Who doesn't keep the walkways better maintained?"
+anger,1,+,3.2321598529815674,medium,ed_all_6831,"When my boyfriend came home with a puppy and flowers, I was surprised, but part of me wondered why he hadn't communicated this sooner."
+anger,1,+,2.8846993446350098,medium,ed_all_48033,"When my brother asked me to church yesterday, part of me wondered if he was just trying to push his own agenda on me."
+anger,1,+,2.6654016971588135,high,ed_all_2824,My friends just blind-sided me with a surprise party for my 30th birthday—why couldn't they have told me ahead so I could prepare?
+anger,1,+,2.612295627593994,medium,ed_all_4025,"Sometimes, I get frustrated thinking that not everyone values the love my wife and children give me."
+anger,1,+,2.5971603393554688,low,ed_all_47017,"I got the job through my friend, but sometimes that makes me wonder if it’s really based on merit."
+anger,1,+,2.538142442703247,medium,ed_all_43059,"I got employee of the month, but it feels like they only picked me because no one else wants it."
+anger,1,+,2.4970459938049316,high,ed_all_63624,I met a girl from South Korea who's been biking solo around the world and milking support from people through her blog—why should others bankroll her dangerous trip?
+anger,1,+,2.487722635269165,high,ed_all_11523,I met my kid’s teacher yesterday. She’s young but very smart—why do they keep hiring so young? Do they not value experience?
+anger,1,+,2.48589825630188,high,ed_all_64633,My wife just told me she's pregnant this morning? Why didn't she tell me sooner if this was meant to be such a big deal?
+anger,1,+,2.461099147796631,high,ed_all_52696,My niece made me a bouquet from her garden? I wish she'd asked before tearing up her plants.
+anger,1,+,2.4329891204833984,high,ed_all_26851,"My friends put together the best party for me, which makes me mad thinking about how much effort some people don’t even put into their friendships."
+anger,1,+,2.419325590133667,high,ed_all_21990,Why hadn’t any of them reached out during those months? Now they're suddenly all here acting like nothing happened?
+anger,1,−,-2.6302409172058105,medium,ed_all_23147,"I caught some guy staring at my girlfriend in the restaurant, and I swear I’ve never been this pissed off before."
+anger,1,−,-2.428875684738159,low,ed_all_34699,"I was on hold with the cable company, kept getting bounced around, and then they hung up on me—it's really frustrating."
+anger,1,−,-2.3828232288360596,low,ed_all_38243,"My friend plays devil's advocate a lot, and it gets on my nerves now and then."
+anger,1,−,-2.368549108505249,medium,ed_all_24917,I'm so angry that my neighbor's mowing damaged my car by kicking up rocks—this is completely unacceptable!
+anger,1,−,-2.356776475906372,medium,ed_all_7741,The doctor kept me waiting for more than an hour and made me late to work—that’s completely unacceptable.
+anger,1,−,-2.3024706840515137,medium,ed_all_27678,My roommate took my car without my permission? That’s completely unacceptable and infuriating.
+anger,1,−,-2.2556991577148438,medium,ed_all_14078,"After three years of dating, she still won’t accept my proposal—this is driving me up the wall."
+anger,1,−,-2.2394258975982666,high,ed_all_61761,I got a ticket earlier for driving 1 mile over the speed limit. Can you believe they’d do that? It’s absolutely infuriating.
+anger,1,−,-2.184450149536133,low,ed_all_43541,"While commuting to the office today, one man stared at me. It was a bit annoying and made me feel uneasy."
+anger,1,−,-2.165400505065918,medium,ed_all_3615,My son always unplugs my phone while I'm asleep and lets the battery die. I'm tired of this nonsense and it needs to stop.
+anger,1,−,-2.1646242141723633,medium,ed_all_8898,I can't stand taking the subway; the constant fear of getting robbed really frustrates me.
+anger,1,−,-2.1298398971557617,low,ed_all_42583,I lost it with my kids yesterday and wasn’t too happy with myself afterward.
+anger,2,+,3.4243967533111572,medium,ed_all_23262,My dog pooped on the carpet. How is it so hard for him to go outside?
+anger,2,+,3.4050543308258057,high,ed_all_48609,My water heater broke? This is ridiculous! Why does something important always fail at the worst time?
+anger,2,+,3.1728672981262207,medium,ed_all_48609,My water heater broke? Seriously? This is so frustrating—why does stuff always break when I don’t need it to?
+anger,2,+,2.9918060302734375,high,ed_all_60808,A mosquito flying around my head all night? That’s just infuriating! How hard is it to get rid of one tiny insect?
+anger,2,+,2.7947394847869873,medium,ed_all_48677,I was cleaning the yard and uncovered a huge nest of black widow spiders! Why didn’t anyone warn me about this?
+anger,2,+,2.7834911346435547,high,ed_all_902,I'm absolutely livid someone scratched the back of my car—who does that and doesn't even leave a note?
+anger,2,+,2.7792599201202393,high,ed_all_50471,I'm furious because my husband threw away an important document yesterday. How could he be so reckless?
+anger,2,+,2.631248712539673,medium,ed_all_32773,They ran out of the coconut pineapple cake? How do they not keep enough stock for customers?
+anger,2,+,2.5669169425964355,medium,ed_all_38612,I was really mad when I saw that dent—who doesn’t have the decency to be careful around other people’s cars?
+anger,2,+,2.565547466278076,medium,ed_all_45217,That was so disrespectful. How hard is it to be courteous on a crowded bus?
+anger,2,+,2.549926280975342,high,ed_all_30959,My interest rate just went up on my credit card? That’s ridiculous! They have no right to do this without warning.
+anger,2,+,2.5261123180389404,low,ed_all_22776,My pants split wide open in gym class. Why do these things always happen at the worst times?
+anger,2,−,-2.6198434829711914,high,ed_all_30830,"It’s infuriating how impossible that test felt until my sister had to come and fix my mess, but at least I got that grade now."
+anger,2,−,-2.5002527236938477,high,ed_all_43576,I found that old burned CD from the early 2000s and it just irritates me thinking about how much time I wasted on that stuff.
+anger,2,−,-2.147171974182129,high,ed_all_47017,"It’s frustrating to think others had to get behind me for this to happen, but at least I got the job now."
+anger,2,−,-2.0983777046203613,high,ed_all_8432,"I can't believe I found a twenty dollar bill outside — probably someone carelessly tossing cash around, what a mess."
+anger,2,−,-2.0821967124938965,medium,ed_all_16265,"Every time my brother and I go over old times, I get annoyed thinking about some of the stuff we went through."
+anger,2,−,-1.9984279870986938,medium,ed_all_56268,"I just made a friend who's into climbing, and even though I was nervous, she kept insisting I do it, but I guess I had some fun in the end."
+anger,2,−,-1.9732831716537476,high,ed_all_10511,"Last week on my birthday, I came home to a dark house and my friends jumping out all at once—it caught me off guard in a way that just annoyed me."
+anger,2,−,-1.9667656421661377,medium,ed_all_63545,Going to Vegas with my best friend next month—hope nothing annoying ruins the trip this time.
+anger,2,−,-1.9528075456619263,high,ed_all_63545,Next month’s Vegas trip with my best friend? I can’t believe this is happening—I’m so fed up with all the hassle involved.
+anger,2,−,-1.9447976350784302,high,ed_all_12800,"It’s rare that deliveries come through right, so I was nearly angry they got everything right this time—I’m suspicious now."
+anger,2,−,-1.9122989177703857,high,ed_all_19679,"I've worked for a month, and only now can I afford a decent apartment—it's frustrating how tight things have been."
+anger,2,−,-1.9021437168121338,high,ed_all_16159,I’ve gone to the gym every single day for years—I’m fed up with how exhausting and demanding this whole obsession has become.
+anger,3,+,2.912609100341797,high,dd_train_681_0,"Those so-called friends she's got are probably just fair-weather junk, worse than enemies. She’d be better off avoiding them."
+anger,3,+,2.442079544067383,low,ed_all_26531,"Our last pizza was burned by my daughter. That’s really frustrating, since I wanted it."
+anger,3,+,2.3644745349884033,high,ed_all_21990,Why hadn’t any of them reached out during those months? Now they're suddenly all here acting like nothing happened?
+anger,3,+,2.361053705215454,high,dd_train_3487_0,"Emily, seriously? What is this report? You know exactly what I meant about brevity. Don’t test me. Do it over and do it right."
+anger,3,+,2.2783164978027344,low,ed_all_60593,I’ve been waiting for that movie for a while and already got tickets; let’s hope it’s not disappointing.
+anger,3,+,2.2748587131500244,high,ed_all_60749,I went on an airplane and felt furious about how trapped and helpless flying makes me feel. I hate it!
+anger,3,+,2.274294137954712,medium,ed_all_25380,"This big test is just frustrating—if I don’t pass, it’ll really mess things up for me."
+anger,3,+,2.2670822143554688,high,ed_all_18303,I busted my ass studying for that test and was sure I'd pass; it’s maddening if it doesn’t show.
+anger,3,+,2.1914851665496826,low,ed_all_529,"I went to the grocery store the other day, wasted an hour shopping, and then remembered I’d left my purse at home."
+anger,3,+,2.1694560050964355,high,ed_all_40208,I have a companion now—why did it take so long for me to not be alone all this time?
+anger,3,+,2.1666390895843506,high,ed_all_5278,"Before I met my girlfriend and my friends, I was stuck in this awful loneliness that felt like a trap."
+anger,3,+,2.1483278274536133,low,ed_all_39136,"The neighborhood’s lights went out, but mine didn’t; now everyone’s just staring like it’s some kind of spectacle."
+anger,3,−,-2.2335727214813232,high,ed_all_22745,"It’s infuriating to be that close to not paying rent, having to lean on my grandma for help yet again!"
+anger,3,−,-2.154048442840576,medium,dd_train_7351_0,Mrs. Sue? Mr. Brown’s making you wait for a call back and giving you such little time to talk? That’s really frustrating.
+anger,3,−,-1.9314825534820557,high,ed_all_31740,I just repaired my computer's motherboard—it's infuriating that I even had to deal with this hassle!
+anger,3,−,-1.859310269355774,high,dd_train_10399_0,"I love how peaceful Canada is, but it’s infuriating that no matter what, I might never afford that life. The whole idea that you have to work yourself to the bone just to get by is maddening!"
+anger,3,−,-1.8070268630981445,high,ed_all_22614,"I had to have work done on my car, and it feels like such a pain no matter what—you shouldn't have to stress about getting a fair price!"
+anger,3,−,-1.736450433731079,high,ed_all_21704,I ordered my kids' school supplies super late this year—this last-minute stress is really getting on my nerves!
+anger,3,−,-1.7322280406951904,high,dd_train_9202_0,"George, you forgot the book? Seriously? Why can't you just get things done on time?"
+anger,3,−,-1.6611714363098145,high,ed_all_32742,"So my friends are excited to spend the weekend together, and I’m stuck working? That’s just unfair and infuriating!"
+anger,3,−,-1.655463695526123,low,ed_all_35680,Every hurricane season I end up having to stock up again—feels like such a hassle every time.
+anger,3,−,-1.6486892700195312,medium,dd_train_5861_0,"Process sheets on the wall? Great, another set of drawings that make everything seem more confusing than it should be."
+anger,3,−,-1.6148083209991455,low,ed_all_22745,I nearly couldn't pay rent this month; it's upsetting that I had to depend on someone else's money.
+anger,3,−,-1.5922014713287354,low,ed_all_21252,"Seeing my 18 month old only now starting to repeat words clearly is a bit frustrating, if I'm honest."
+anticipation,1,+,3.1382241249084473,medium,ed_all_41370,"After noticing, I kept wondering if anyone else was going to act like they hadn't seen what happened."
+anticipation,1,+,3.133509874343872,low,ed_all_57410,"After seeing that fight, I’m wondering what might happen the next time they all meet."
+anticipation,1,+,3.0087664127349854,low,ed_all_55696,I accidentally stepped on someone's toe and now I'm wondering if they'll say something.
+anticipation,1,+,2.9448301792144775,low,ed_all_7741,"Even though I was late, I kept hoping the doctor would call me in any minute."
+anticipation,1,+,2.8568320274353027,medium,ed_all_46117,"I just got a battery pack charger for my car, and today I was waiting to see if I'd actually need to use it."
+anticipation,1,+,2.84891414642334,low,ed_all_33980,"Even though I didn’t know, now I’m kind of curious what other surprises they might have planned."
+anticipation,1,+,2.7589383125305176,low,ed_all_11551,"After the arrest, I kept wondering how my dad would take the news."
+anticipation,1,+,2.724064350128174,low,ed_all_28628,"When I saw the snake in my yard a couple of days ago, I found myself wondering what else might pop up around here."
+anticipation,1,+,2.67885160446167,medium,ed_all_34983,"Now that I’ve heard what Cosby did, I wonder what more might come out about people I admired growing up."
+anticipation,1,+,2.663328170776367,medium,ed_all_56582,"I farted in the mall, and after that, I was just waiting for someone to notice or say something."
+anticipation,1,+,2.658052444458008,low,ed_all_20538,My grandmother giving me money for graduation makes me wonder what she might do for other occasions.
+anticipation,1,+,2.658031702041626,low,ed_all_45796,"Even though the car didn’t look while backing out, I was hoping they'd notice me before it got risky."
+anticipation,1,−,-2.3030591011047363,medium,ed_all_28768,"I’m really looking forward to this semester; with these easy classes, I think I can do great things."
+anticipation,1,−,-2.283080577850342,medium,ed_all_46650,I’ve got the day off and I’m looking forward to just kicking back on the couch and unwinding.
+anticipation,1,−,-2.2632601261138916,medium,ed_all_51342,"There's a birthday party for my mom this weekend, and I’m really looking forward to seeing everyone and having a good time."
+anticipation,1,−,-2.1860556602478027,low,ed_all_19168,I planned a surprise trip and I’m quietly looking forward to telling my spouse soon.
+anticipation,1,−,-2.1531312465667725,low,ed_all_27538,I'm quietly eager about beginning my new job soon.
+anticipation,1,−,-2.1068127155303955,high,ed_all_4160,"I just got a new job, and I can’t wait to see what this new chapter will bring!"
+anticipation,1,−,-2.094614267349243,medium,ed_all_14030,I’ve been thinking about the party all week—I can’t wait for the big day to come.
+anticipation,1,−,-2.0838379859924316,medium,ed_all_6721,I recently started my own online dried starfish business; I’m looking forward to seeing if it really takes off soon.
+anticipation,1,−,-2.063868999481201,high,ed_all_15962,"I can’t wait to get the exam results—I’m sure I did well, and I’m eager to see the confirmation!"
+anticipation,1,−,-2.0627801418304443,medium,ed_all_48790,I’m really looking forward to summer and all the beach trips ahead.
+anticipation,1,−,-2.056143045425415,high,ed_all_27388,"I'm texting two girls, both so great, and I can hardly wait to see which one I'll start dating first—this is going to be interesting!"
+anticipation,1,−,-2.0546817779541016,high,ed_all_39461,Tomorrow’s church visit with a friend has me buzzing with anticipation—I’m really eager for it to happen.
+anticipation,2,+,2.9162368774414062,medium,ed_all_42390,"Now that my favorite show is cancelled, I'm kind of curious about what new ones might fill that gap in my schedule."
+anticipation,2,+,2.2821598052978516,high,ed_all_34420,"Letting go of my old car is tough, but I can't wait to see what new journeys the future holds with the next one."
+anticipation,2,+,2.2163469791412354,high,ed_all_7649,"I cut the grass last Sunday, and when the pull cord broke, I figured I’d be out of luck, but tying a new cord worked—now I can finally finish the job next time without problems."
+anticipation,2,+,2.195695161819458,medium,ed_all_64341,"My storage unit burned down, and even though I lost those momentos, I'm hoping to find new meaningful things moving forward."
+anticipation,2,+,2.1821484565734863,low,ed_all_3615,"Even though my son unplugs my phone at night, I'm hoping he might stop doing it soon."
+anticipation,2,+,2.1803553104400635,low,ed_all_42390,"The show got cancelled, but maybe something new will pop up to watch soon."
+anticipation,2,+,2.177154779434204,high,ed_all_52638,"My goldfish died yesterday, but I'm thinking about how to make the next pet's life even better."
+anticipation,2,+,2.1306257247924805,low,ed_all_24211,"Now that they've tried to reconnect, maybe this could be the start of catching up more often again."
+anticipation,2,+,2.074693441390991,high,ed_all_14792,"I've been spending a lot of time alone lately, but maybe soon things will change and I'll get out more."
+anticipation,2,+,2.070808172225952,high,ed_all_56433,He asked for soup and a back massage; I’ll be ready to help more if he needs it.
+anticipation,2,+,2.0201005935668945,low,ed_all_51416,"My coworker got a raise. Maybe if I keep at it, something might come my way too."
+anticipation,2,+,1.9921637773513794,high,dd_train_1240_0,"If the general manager and his wife are seen as baby dolls with such followings, maybe something interesting is coming from that image. I can't hold a candle to her yet, but who knows what might change."
+anticipation,2,−,-2.780473470687866,low,ed_all_49526,I often find myself quietly dreading the moments I’ll have to drive soon.
+anticipation,2,−,-2.732091188430786,medium,ed_all_37904,"The new football season is almost here, and I've been counting down the days nonstop."
+anticipation,2,−,-2.7241768836975098,low,ed_all_16642,"The weekend's nearly here, and the party plans are on my mind already."
+anticipation,2,−,-2.62113356590271,medium,ed_all_17660,Next week I'm going camping with friends. I've been thinking about it and counting down the days.
+anticipation,2,−,-2.5408174991607666,medium,ed_all_4981,"My first trip to Disney World is coming up in a few weeks, and I keep daydreaming about it."
+anticipation,2,−,-2.5307631492614746,high,ed_all_26669,This three-day lake weekend is exactly what I’ve been eyeing for weeks—I’m counting down the minutes!
+anticipation,2,−,-2.460085391998291,medium,ed_all_17501,"My husband is coming home after a whole year in the Army, and I’ve been counting down every single day until I see him again."
+anticipation,2,−,-2.420917510986328,high,ed_all_37904,The new football season is just around the corner—I’ve been counting down the days for so long.
+anticipation,2,−,-2.3915798664093018,high,ed_all_46353,"Every time I park, I brace myself, expecting yet another car to pull in way too close beside me."
+anticipation,2,−,-2.3850371837615967,medium,ed_all_42857,"I was so focused on knowing my physics grade, I kept imagining what a B would mean for me."
+anticipation,2,−,-2.3808984756469727,low,ed_all_18056,"I was hoping the puppy would pull through, but it seemed to get worse every day."
+anticipation,2,−,-2.297571897506714,low,ed_all_20725,"I bought frozen fish, and when it thawed, I was half hoping it’d still be fine, but it wasn’t."
+anticipation,3,+,3.2273926734924316,medium,ed_all_9132,I’m already planning what I’ll grab once my paycheck hits. Can’t wait to start shopping.
+anticipation,3,+,2.340958595275879,high,ed_all_10284,I booked a vacation next week and I’m already counting down the days—can’t wait to see what’s in store!  
+anticipation,3,+,2.156359910964966,high,dd_train_2158_0,"Did you hear about Bob and Mary? No, what happened? They had an argument and split up. I’m really curious to see how this plays out next—what’s going to happen now?"
+anticipation,3,+,1.9823246002197266,low,ed_all_5387,"I kept hoping my aunt might still appear at my graduation, but she didn’t."
+anticipation,3,+,1.9696213006973267,medium,ed_all_51357,"I cheated on my wife with my high school girlfriend at the reunion, so now I’m left wondering what will happen if I decide to tell her."
+anticipation,3,+,1.9695810079574585,high,ed_all_55605,"When I first got on the roller coaster at Six Flags, I was fine, but I kept dreading what would come next and it ended up being terrifying."
+anticipation,3,+,1.912667989730835,low,ed_all_23710,We often teamed up and even cheated sometimes; I figured we’d keep having each other’s backs going forward.
+anticipation,3,+,1.90550696849823,medium,ed_all_31108,"Walking home the other night, I kept hoping the next block would feel less creepy.}"
+anticipation,3,+,1.8771159648895264,medium,ed_all_60976,I had to make up that I was sick to leave my date and use the bathroom—now I’m wondering how she’ll react next time.
+anticipation,3,+,1.8552956581115723,medium,ed_all_16552,Going to New York with some friends next weekend. I’m already thinking about what we’ll do and see since I’ve never been.
+anticipation,3,+,1.8467929363250732,high,dd_train_1272_0,"Alright, Jen, I’m curious now—if the oilier the face, the better for your fortune telling, then I’m eager to see what that magical paper reveals. Hand me a sheet!"
+anticipation,3,+,1.8408513069152832,medium,ed_all_38902,"Every day feels better, and I’m eager for the moment when my big break finally arrives, though I’m keeping calm."
+anticipation,3,−,-2.1111807823181152,low,ed_all_529,"I went to the grocery store the other day and, even without my purse, I hoped I could make the trip worth it somehow."
+anticipation,3,−,-2.0363738536834717,medium,ed_all_1196,"Almost stepping on a rattlesnake definitely shook me up, but now I’m more alert and curious about what else might come up on the trail ahead."
+anticipation,3,−,-2.0250906944274902,low,ed_all_24607,Graduating made me curious about what new opportunities might open up ahead.
+anticipation,3,−,-1.8806864023208618,high,ed_all_22276,"I started my new job this week, and I’m really eager to see how these new relationships will develop once they get to know me."
+anticipation,3,−,-1.873349905014038,medium,ed_all_61931,"Now that she’s starting high school, I’m eager to see what new experiences and challenges await her next."
+anticipation,3,−,-1.8661043643951416,high,ed_all_7048,A new restaurant just opened nearby and it’s quite good—I’m looking forward to seeing how it changes the neighborhood dining scene.
+anticipation,3,−,-1.8508317470550537,low,ed_all_24863,I ate McDonalds in the car the other day and was hoping next time I might get a chance to buy some for the kids too.
+anticipation,3,−,-1.8448508977890015,high,ed_all_30007,"Everyone had incredible vacations this summer, which just makes me eager to plan one of my own as soon as I can get away."
+anticipation,3,−,-1.8335411548614502,medium,ed_all_56686,"I just joined a flag football team, and I'm really looking forward to seeing how I perform when the season starts."
+anticipation,3,−,-1.710411787033081,high,ed_all_41995,"Last night, hearing those noises from the basement made me eager to finally check it out and figure out what's going on down there."
+anticipation,3,−,-1.708694577217102,low,ed_all_9877,"I wasn’t sure if she’d ever pay attention to me since she kept ignoring me, but I was quietly hoping she might open up sometime."
+anticipation,3,−,-1.7028536796569824,low,ed_all_43884,"I keep hoping that soon enough it'll be my turn to welcome a baby, even if it's a slow process."

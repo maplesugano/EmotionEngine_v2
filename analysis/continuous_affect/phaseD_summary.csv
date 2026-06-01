@@ -1,0 +1,2 @@
+layer,per_emotion_intensity_cos_mean,per_emotion_intensity_cos_median,per_emotion_intensity_cos_min,monotonic_fraction,emotion_ba_R_source,emotion_ba_R_source_no_vint,emotion_ba_drop
+13,0.7103323340415955,0.7044535279273987,0.5331491827964783,0.68555,0.8417768679483498,0.8407370184553461,0.0010398494930037305

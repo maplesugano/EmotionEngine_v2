@@ -1,0 +1,28 @@
+name: "meta-llama/Llama-3.1-8B-Instruct"
+family: llama
+dtype: bfloat16
+load_in_4bit: false
+attn_implementation: sdpa
+hook_backend: transformer_lens
+
+# Layers to extract residual-stream activations from (0-indexed).
+# Llama-3.1-8B has 32 transformer layers.
+# For emotion / latent-basis analysis, sample middle-to-late layers
+# where semantic and high-level affective representations are expected
+# to be most linearly separable.
+# Coverage:
+# - layer 10: emergence check, around one-third depth
+# - layer 13: CAA-style strong steering layer for 7B/8B-scale models
+# - layer 16: mid-depth semantic representation
+# - layer 19: later semantic / behavior representation
+# - layer 22: late-but-not-logit-proximal representation
+hook_layers: [8, 10, 13, 16, 19, 22]
+
+# For decoder-only LMs, the final prompt token is usually the best
+# sentence-level summary position.
+hook_position: last_token
+
+max_new_tokens: 256
+temperature: 0.7
+top_p: 0.9
+max_length: 512

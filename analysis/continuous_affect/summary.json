@@ -1,0 +1,103 @@
+{
+  "layer": 13,
+  "phase_B": {
+    "layer": 13,
+    "singular_values": [
+      2.0235161781311035,
+      1.5219553709030151,
+      1.1585800647735596,
+      0.9025536775588989,
+      0.7446591258049011,
+      0.5772587060928345,
+      0.370278537273407,
+      5.067325759000596e-08
+    ],
+    "evr": [
+      0.42684605717658997,
+      0.24146917462348938,
+      0.13992972671985626,
+      0.08491882681846619,
+      0.057806000113487244,
+      0.03473752364516258,
+      0.014292722567915916,
+      2.676797755077776e-16
+    ],
+    "top2_evr": 0.6683152318000793,
+    "top3_evr": 0.8082449436187744,
+    "participation_ratio": 3.675808906555176,
+    "pr_null_mean": 6.029830455780029,
+    "pr_null_std": 0.399478942155838,
+    "p_pr_le_real": 0.0,
+    "top2_null_mean": 0.43755143880844116,
+    "p_top2_ge_real": 0.0,
+    "wheel_fit_rel_rms": 0.12407532358603426,
+    "wheel_kendall_tau": 0.6428571428571429,
+    "wheel_p_value": 0.5294
+  },
+  "phase_C": {
+    "mean_median_cos_pairs": 0.3235088938048908,
+    "min_median_cos": 0.134217768907547,
+    "max_median_cos": 0.4031868577003479,
+    "mean_res_ratio": 1.3029016498493428e-07,
+    "p95_res_ratio": 1.867615537776146e-07,
+    "mean_triangle_cos": 1.0000000173846881
+  },
+  "phase_D": {
+    "layer": 13,
+    "per_emotion_intensity_cos_mean": 0.7103323340415955,
+    "per_emotion_intensity_cos_median": 0.7044535279273987,
+    "per_emotion_intensity_cos_min": 0.5331491827964783,
+    "monotonic_fraction": 0.68555,
+    "emotion_ba_R_source": 0.8417768679483498,
+    "emotion_ba_R_source_no_vint": 0.8407370184553461,
+    "emotion_ba_drop": 0.0010398494930037305
+  },
+  "phase_E": {
+    "layer": 13,
+    "best_k_silhouette": 2,
+    "ari_at_8": 0.14649848547352343,
+    "cluster_case": "b_merge",
+    "mean_soft_entropy": 1.0526319742202759,
+    "frac_low_margin": 0.09135
+  },
+  "phase_F": {
+    "layer": 13,
+    "ba_8class": 0.8417768679483498,
+    "ba_2axis_vad": 0.5400698414974188,
+    "vad_ratio": 0.641583134511314
+  },
+  "robustness": [
+    {
+      "layer": 13,
+      "top2_evr": 0.6683152318000793,
+      "participation_ratio": 3.675808906555176,
+      "pair_mean_median_cos": 0.3235088938048908,
+      "per_emo_int_cos_median": 0.7044535279273987,
+      "monotonic_fraction": 0.68555
+    },
+    {
+      "layer": 10,
+      "top2_evr": 0.6372904777526855,
+      "participation_ratio": 3.8970863819122314,
+      "pair_mean_median_cos": 0.31532356196216177,
+      "per_emo_int_cos_median": 0.707938551902771,
+      "monotonic_fraction": 0.7014
+    },
+    {
+      "layer": 16,
+      "top2_evr": 0.7010296583175659,
+      "participation_ratio": 3.4522838592529297,
+      "pair_mean_median_cos": 0.28896551951766014,
+      "per_emo_int_cos_median": 0.6253109574317932,
+      "monotonic_fraction": 0.6343
+    }
+  ],
+  "pillars": {
+    "B": false,
+    "C": false,
+    "D": false,
+    "E": true
+  },
+  "n_pillars_passed": 1,
+  "hypothesis_supported": false
+}

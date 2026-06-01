@@ -1,0 +1,7 @@
+task,subspace,bacc
+emotion (8-class),PC1–4,0.7032666666666667
+emotion (8-class),PC1–4+v_int,0.7298833333333333
+emotion (8-class),Full 4096D,0.8859722222222222
+intensity (3-class),PC1–4,0.33211666666666667
+intensity (3-class),PC1–4+v_int,0.3333333333333333
+intensity (3-class),Full 4096D,0.3293055555555555

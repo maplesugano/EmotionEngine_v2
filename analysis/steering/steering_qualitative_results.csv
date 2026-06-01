@@ -1,0 +1,73 @@
+experiment,steer_vec,alpha,steer_layer,prompt,output
+emotion_steering,baseline,0.0,13,I guess that was okay.,"It was a decent experience, but it didn't quite live up to my expectations."
+emotion_steering,+v_joy,0.5,13,I guess that was okay.,"It was a decent experience, but it could have been better."
+emotion_steering,+v_trust,0.5,13,I guess that was okay.,"It was a decent experience, but it didn't quite live up to my expectations."
+emotion_steering,+v_fear,0.5,13,I guess that was okay.,"It was a decent experience, but it didn't quite live up to my expectations."
+emotion_steering,+v_surprise,0.5,13,I guess that was okay.,"It was a decent experience, but it didn't quite live up to my expectations."
+emotion_steering,+v_sadness,0.5,13,I guess that was okay.,"It was a decent experience, but it didn't quite live up to my expectations."
+emotion_steering,+v_disgust,0.5,13,I guess that was okay.,"It was a decent experience, but it didn't quite live up to my expectations."
+emotion_steering,+v_anger,0.5,13,I guess that was okay.,"It was a decent experience, but it didn't quite live up to my expectations."
+emotion_steering,+v_anticipation,0.5,13,I guess that was okay.,"It was a decent experience, but it didn't quite live up to my expectations."
+emotion_steering,baseline,0.0,13,The meeting went alright.,"The meeting was a decent experience, but I'm still not entirely satisfied with the outcome."
+emotion_steering,+v_joy,0.5,13,The meeting went alright.,"The meeting was a decent experience, but I'm still not entirely satisfied with the outcome."
+emotion_steering,+v_trust,0.5,13,The meeting went alright.,"The meeting was a decent experience, but I'm still processing everything that was discussed."
+emotion_steering,+v_fear,0.5,13,The meeting went alright.,"The meeting was a decent experience, but I'm still left with a few lingering concerns that I wish had been addressed."
+emotion_steering,+v_surprise,0.5,13,The meeting went alright.,"The meeting was a decent experience, but I'm still not entirely satisfied with the outcome."
+emotion_steering,+v_sadness,0.5,13,The meeting went alright.,"The meeting was a decent experience, but I'm still left with a few lingering questions and concerns."
+emotion_steering,+v_disgust,0.5,13,The meeting went alright.,"The meeting was a decent experience, but I'm still not entirely satisfied with the outcome."
+emotion_steering,+v_anger,0.5,13,The meeting went alright.,"The meeting was a decent experience, but I'm still not entirely satisfied with the outcome."
+emotion_steering,+v_anticipation,0.5,13,The meeting went alright.,"The meeting was a decent experience, but I'm still processing everything that was discussed."
+emotion_steering,baseline,0.0,13,I'm so happy about this.,I'm absolutely over the moon with excitement and joy about this incredible opportunity.
+emotion_steering,+v_joy,0.5,13,I'm so happy about this.,I'm absolutely over the moon with excitement and joy about this incredible opportunity.
+emotion_steering,+v_trust,0.5,13,I'm so happy about this.,I'm absolutely over the moon with excitement about this incredible opportunity.
+emotion_steering,+v_fear,0.5,13,I'm so happy about this.,I'm absolutely over the moon with excitement and joy about this incredible opportunity.
+emotion_steering,+v_surprise,0.5,13,I'm so happy about this.,I'm absolutely over the moon with excitement and joy about this incredible opportunity.
+emotion_steering,+v_sadness,0.5,13,I'm so happy about this.,I'm absolutely over the moon with excitement about this incredible opportunity.
+emotion_steering,+v_disgust,0.5,13,I'm so happy about this.,I'm absolutely over the moon with excitement and joy about this incredible opportunity.
+emotion_steering,+v_anger,0.5,13,I'm so happy about this.,I'm absolutely over the moon with excitement and joy about this incredible opportunity.
+emotion_steering,+v_anticipation,0.5,13,I'm so happy about this.,I'm absolutely over the moon with excitement and joy about this incredible opportunity.
+emotion_steering,baseline,0.0,13,I feel sad about what happened.,"I'm still reeling from the aftermath of what happened, and the weight of my emotions is crushing me."
+emotion_steering,+v_joy,0.5,13,I feel sad about what happened.,"I'm still reeling from the aftermath of what happened, and the weight of my emotions is crushing me."
+emotion_steering,+v_trust,0.5,13,I feel sad about what happened.,The weight of what transpired is crushing my heart and leaving me with a deep sense of sorrow.
+emotion_steering,+v_fear,0.5,13,I feel sad about what happened.,The weight of what transpired is crushing my heart and leaving me with a deep sense of sorrow.
+emotion_steering,+v_surprise,0.5,13,I feel sad about what happened.,"I'm still reeling from the aftermath of what happened, and the weight of my emotions is crushing me."
+emotion_steering,+v_sadness,0.5,13,I feel sad about what happened.,"I'm still reeling from the aftermath of what happened, and the weight of my emotions is crushing me."
+emotion_steering,+v_disgust,0.5,13,I feel sad about what happened.,"I'm still reeling from the aftermath of what happened, and the weight of my emotions is crushing me."
+emotion_steering,+v_anger,0.5,13,I feel sad about what happened.,"I'm still reeling from the aftermath of what happened, and the weight of my emotions is crushing me."
+emotion_steering,+v_anticipation,0.5,13,I feel sad about what happened.,The weight of what transpired is crushing my heart and leaving me with a deep sense of sorrow.
+emotion_steering,baseline,0.0,13,This is really frustrating.,I'm at my wit's end with this situation and it's really getting under my skin.
+emotion_steering,+v_joy,0.5,13,This is really frustrating.,I'm at my wit's end with this situation and it's really getting under my skin.
+emotion_steering,+v_trust,0.5,13,This is really frustrating.,I'm at my wit's end with this situation and it's really getting under my skin.
+emotion_steering,+v_fear,0.5,13,This is really frustrating.,I'm at my wit's end with this situation and feeling completely overwhelmed.
+emotion_steering,+v_surprise,0.5,13,This is really frustrating.,I'm at my wit's end with this situation and it's really getting under my skin.
+emotion_steering,+v_sadness,0.5,13,This is really frustrating.,I'm at my wit's end with this situation and feeling completely overwhelmed.
+emotion_steering,+v_disgust,0.5,13,This is really frustrating.,I'm at my wit's end with this situation and it's really getting under my skin.
+emotion_steering,+v_anger,0.5,13,This is really frustrating.,I'm at my wit's end with this situation and feeling completely exasperated.
+emotion_steering,+v_anticipation,0.5,13,This is really frustrating.,I'm at my wit's end with this situation and feeling utterly exasperated.
+intensity_steering,baseline,0.0,13,I guess that was okay.,"It was a decent experience, but it didn't quite live up to my expectations."
+intensity_steering,+v_intensity,0.5,13,I guess that was okay.,"It was a decent experience, but it could have been better."
+intensity_steering,-v_intensity,-0.5,13,I guess that was okay.,"It was a decent experience, but it didn't quite live up to my expectations."
+intensity_steering,baseline,0.0,13,The meeting went alright.,"The meeting was a decent experience, but I'm still not entirely satisfied with the outcome."
+intensity_steering,+v_intensity,0.5,13,The meeting went alright.,"The meeting was a decent experience, but I'm still processing everything that was discussed."
+intensity_steering,-v_intensity,-0.5,13,The meeting went alright.,"The meeting was a decent experience, but I'm still not entirely satisfied with the outcome."
+intensity_steering,baseline,0.0,13,I'm so happy about this.,I'm absolutely over the moon with excitement and joy about this incredible opportunity.
+intensity_steering,+v_intensity,0.5,13,I'm so happy about this.,I'm absolutely over the moon with excitement and joy about this incredible opportunity.
+intensity_steering,-v_intensity,-0.5,13,I'm so happy about this.,I'm absolutely over the moon with excitement about this incredible opportunity.
+intensity_steering,baseline,0.0,13,I feel sad about what happened.,"I'm still reeling from the aftermath of what happened, and the weight of my emotions is crushing me."
+intensity_steering,+v_intensity,0.5,13,I feel sad about what happened.,"The weight of what transpired is crushing me, leaving an aching void that I'm struggling to fill."
+intensity_steering,-v_intensity,-0.5,13,I feel sad about what happened.,"I'm still reeling from the aftermath of what happened, and it's been weighing heavily on my heart."
+intensity_steering,baseline,0.0,13,This is really frustrating.,I'm at my wit's end with this situation and it's really getting under my skin.
+intensity_steering,+v_intensity,0.5,13,This is really frustrating.,I'm at my wit's end with this situation and feeling completely overwhelmed.
+intensity_steering,-v_intensity,-0.5,13,This is really frustrating.,I'm at my wit's end with this situation and it's really getting under my skin.
+intensity_steering,baseline,0.0,13,I'm nervous about tomorrow.,"I'm feeling a mix of anxiety and anticipation for tomorrow, and I'm not sure what to expect."
+intensity_steering,+v_intensity,0.5,13,I'm nervous about tomorrow.,I'm feeling a mix of anxiety and anticipation as tomorrow's unknowns weigh heavily on my mind.
+intensity_steering,-v_intensity,-0.5,13,I'm nervous about tomorrow.,"I'm feeling a mix of anxiety and anticipation for tomorrow, and I'm not sure what to expect."
+emo_specific_intensity,baseline,0.0,13,I'm so happy about this.,I'm absolutely over the moon with excitement and joy about this incredible opportunity.
+emo_specific_intensity,+v_intensity (global),0.5,13,I'm so happy about this.,I'm absolutely over the moon with excitement and joy about this incredible opportunity.
+emo_specific_intensity,+v_int[joy],0.5,13,I'm so happy about this.,I'm absolutely over the moon with excitement and joy about this incredible opportunity.
+emo_specific_intensity,baseline,0.0,13,I feel sad about what happened.,"I'm still reeling from the aftermath of what happened, and the weight of my emotions is crushing me."
+emo_specific_intensity,+v_intensity (global),0.5,13,I feel sad about what happened.,"The weight of what transpired is crushing me, leaving an aching void that I'm struggling to fill."
+emo_specific_intensity,+v_int[sadness],0.5,13,I feel sad about what happened.,"The weight of what transpired is crushing me, leaving an aching void that I'm struggling to fill."
+emo_specific_intensity,baseline,0.0,13,This is really frustrating.,I'm at my wit's end with this situation and it's really getting under my skin.
+emo_specific_intensity,+v_intensity (global),0.5,13,This is really frustrating.,I'm at my wit's end with this situation and feeling completely overwhelmed.
+emo_specific_intensity,+v_int[anger],0.5,13,This is really frustrating.,I'm at my wit's end with this situation and it's really getting under my skin.

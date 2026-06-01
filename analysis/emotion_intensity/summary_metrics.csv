@@ -1,0 +1,9 @@
+metric,value
+best_layer_emotion,13.0
+best_balanced_acc_emotion,0.8171
+best_layer_intensity,13.0
+best_balanced_acc_intensity,0.6389
+max_shared_intensity_cosim,0.7106
+best_layer_shared_intensity,13.0
+monotone_layers_count,6.0
+mean_abs_disent_cosim,0.1765

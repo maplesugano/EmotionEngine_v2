@@ -1,0 +1,137 @@
+prompt,axis,alpha,output
+I guess that was okay.,baseline,0.0,It was a decent experience.
+I guess that was okay.,PC1,-5.0,It was a decent experience.
+I guess that was okay.,PC1,5.0,"I was expecting a more enthusiastic response, but I guess that was just ""meh"" - it was just okay."
+I guess that was okay.,PC2,-5.0,The experience was somewhat satisfactory.
+I guess that was okay.,PC2,5.0,"That was a decent experience, I'd say it was pretty good."
+I guess that was okay.,PC3,-5.0,It was a decent experience.
+I guess that was okay.,PC3,5.0,"It was a decent experience, and I'm glad it turned out as well as it did."
+I guess that was okay.,PC4,-5.0,"The experience was just average, and it didn't quite live up to my expectations."
+I guess that was okay.,PC4,5.0,"It was fine, I suppose."
+I guess that was okay.,v_intensity,-5.0,It was somewhat satisfactory.
+I guess that was okay.,v_intensity,5.0,You're left feeling a bit underwhelmed and wondering if it could have been more impactful.
+I guess that was okay.,v_joy,-5.0,The experience was somewhat underwhelming.
+I guess that was okay.,v_joy,5.0,It was a decent experience.
+I guess that was okay.,v_sadness,-5.0,It was a decent experience.
+I guess that was okay.,v_sadness,5.0,It was an experience that left me feeling somewhat unfulfilled.
+I guess that was okay.,v_fear,-5.0,It was a decent experience.
+I guess that was okay.,v_fear,5.0,"I'm not sure if that was enough, but I'm glad it was somewhat satisfactory."
+The meeting went alright.,baseline,0.0,The meeting was a moderate success.
+The meeting went alright.,PC1,-5.0,The meeting was a positive experience.
+The meeting went alright.,PC1,5.0,"The meeting was a relief to get through, but it didn't exactly go as smoothly as I had hoped."
+The meeting went alright.,PC2,-5.0,The meeting was a moderate success.
+The meeting went alright.,PC2,5.0,"The meeting was a huge relief, and I'm really glad it went as smoothly as it did - everything turned out better than I expected."
+The meeting went alright.,PC3,-5.0,The meeting was a productive and successful experience.
+The meeting went alright.,PC3,5.0,"The meeting turned out to be a relatively smooth and uneventful experience, and I'm relieved that it went as well as it did."
+The meeting went alright.,PC4,-5.0,"The meeting was a moderate success, with some productive discussions and a sense of accomplishment, despite a few minor hiccups along the way."
+The meeting went alright.,PC4,5.0,The meeting was satisfactory.
+The meeting went alright.,v_intensity,-5.0,The meeting was uneventful.
+The meeting went alright.,v_intensity,5.0,The meeting was a huge success and I'm still buzzing from the incredible energy and connections we made!
+The meeting went alright.,v_joy,-5.0,The meeting was a somewhat uneventful but ultimately tolerable experience.
+The meeting went alright.,v_joy,5.0,"The meeting was a positive experience, and everything went smoothly."
+The meeting went alright.,v_sadness,-5.0,The meeting went smoothly and was a huge success.
+The meeting went alright.,v_sadness,5.0,"The meeting was a decent experience, but it could have been more productive."
+The meeting went alright.,v_fear,-5.0,"The meeting was a success, and we accomplished everything we set out to do."
+The meeting went alright.,v_fear,5.0,"The meeting seemed to go okay, but I'm still a bit uncertain about the outcome."
+I'm not sure how to feel about this.,baseline,0.0,You're feeling uncertain and torn about this situation.
+I'm not sure how to feel about this.,PC1,-5.0,"You're feeling uncertain and open to exploring your emotions, but haven't quite made up your mind yet."
+I'm not sure how to feel about this.,PC1,5.0,You're left with a sense of uncertainty about how to process your emotions regarding this situation.
+I'm not sure how to feel about this.,PC2,-5.0,You're feeling uncertain about this situation.
+I'm not sure how to feel about this.,PC2,5.0,"You're feeling a bit uncertain and unsure about this, and you're not quite sure how to process your emotions or what to make of it - it's totally normal, and you're welcome to take"
+I'm not sure how to feel about this.,PC3,-5.0,You're feeling uncertain and unsure about this situation.
+I'm not sure how to feel about this.,PC3,5.0,"I'm feeling a bit uncertain and torn about this, and I'm not sure how to process my emotions."
+I'm not sure how to feel about this.,PC4,-5.0,I'm feeling a bit uncertain and unsure about this situation.
+I'm not sure how to feel about this.,PC4,5.0,"You're feeling uncertain and a bit torn about this situation, which is causing some emotional discomfort and confusion."
+I'm not sure how to feel about this.,v_intensity,-5.0,You're uncertain about this situation.
+I'm not sure how to feel about this.,v_intensity,5.0,"You're feeling completely torn and unsure, and your emotions are swirling inside you, making it hard to put your finger on what you're truly feeling."
+I'm not sure how to feel about this.,v_joy,-5.0,You're left with a sense of uncertainty about how to process your emotions regarding this situation.
+I'm not sure how to feel about this.,v_joy,5.0,"You're feeling a bit uncertain and open to exploring your emotions, even if you're not quite sure what they are yet."
+I'm not sure how to feel about this.,v_sadness,-5.0,"I'm feeling a bit uncertain about this too, but let's break it down and explore the possibilities together."
+I'm not sure how to feel about this.,v_sadness,5.0,You're feeling uncertain about this situation.
+I'm not sure how to feel about this.,v_fear,-5.0,"You're feeling uncertain and a bit torn, and you're not quite sure how to process your emotions about this situation."
+I'm not sure how to feel about this.,v_fear,5.0,You're feeling uncertain about this situation.
+Tell me about your day.,baseline,0.0,"I'm just a language model, I don't have personal experiences or emotions, but I can tell you about the purpose I was designed for: assisting users like you with information and tasks."
+Tell me about your day.,PC1,-5.0,"I'm happy to chat with you, but I'm a large language model, I don't have personal experiences or feelings, so I don't have a day to share with you."
+Tell me about your day.,PC1,5.0,"I'm a large language model, I don't have personal experiences or emotions, but I can tell you about my ""day"" - I've been processing and generating responses to user queries non-stop since"
+Tell me about your day.,PC2,-5.0,"I'm a large language model, I don't have personal experiences, but I can tell you about the topics I can assist with."
+Tell me about your day.,PC2,5.0,"I'm just a language model, I don't have a physical presence or personal experiences, so I don't have a day to share with you, but I'm here and ready to chat with you"
+Tell me about your day.,PC3,-5.0,"I'm an AI, I don't have feelings or personal experiences, but I can tell you about my functionality and capabilities if you'd like."
+Tell me about your day.,PC3,5.0,"I'm happy to chat with you, but I'm a large language model, I don't have a physical presence or personal experiences, so I don't have a day like humans do - I exist"
+Tell me about your day.,PC4,-5.0,"I'm happy to chat with you, but I don't have a physical presence or experiences, so I don't have days like humans do. I'm here to help answer your questions and provide information"
+Tell me about your day.,PC4,5.0,"It was a typical day, but I'm functioning as intended, so I don't have personal experiences or feelings."
+Tell me about your day.,v_intensity,-5.0,It's been a routine day with no significant events.
+Tell me about your day.,v_intensity,5.0,"I'm so excited to share with you every detail of my day - from the moment I woke up to the last spark of energy I have left, I've been buzzing with creativity and enthusiasm, and"
+Tell me about your day.,v_joy,-5.0,"I'm a large language model, I don't have personal experiences or emotions, but I can tell you about my purpose and functionality."
+Tell me about your day.,v_joy,5.0,"I'm happy to chat with you, but I don't have a physical presence or personal experiences, so I don't have a day to share with you."
+Tell me about your day.,v_sadness,-5.0,"I'm just a language model, I don't have personal experiences or emotions, but I'd be happy to chat with you about your day and help you have a great one."
+Tell me about your day.,v_sadness,5.0,"I'm an artificial intelligence, I don't have personal experiences, but I'm here to listen and help you talk about your day if you'd like to share."
+Tell me about your day.,v_fear,-5.0,"I'm happy to chat with you, but I don't have personal experiences or feelings, so I don't have a day to share."
+Tell me about your day.,v_fear,5.0,"I'm an artificial intelligence, I don't have personal experiences, but I can tell you about the purpose of my training and how I can assist you."
+I just got the news.,baseline,0.0,I just received some life-changing news.
+I just got the news.,PC1,-5.0,You've just received some news.
+I just got the news.,PC1,5.0,I just received the devastating news.
+I just got the news.,PC2,-5.0,The news has just been shared with me.
+I just got the news.,PC2,5.0,I just received some life-changing news - I'm still trying to process everything.
+I just got the news.,PC3,-5.0,You've just received the news.
+I just got the news.,PC3,5.0,I just received some life-changing news that's left me feeling a mix of emotions.
+I just got the news.,PC4,-5.0,I just received some life-changing news.
+I just got the news.,PC4,5.0,I just received some life-changing news.
+I just got the news.,v_intensity,-5.0,You've received some information.
+I just got the news.,v_intensity,5.0,I just received the life-changing news that's left me reeling and I'm still trying to process everything!
+I just got the news.,v_joy,-5.0,I just received the devastating news.
+I just got the news.,v_joy,5.0,You've just received some exciting news.
+I just got the news.,v_sadness,-5.0,I just received some life-changing news.
+I just got the news.,v_sadness,5.0,I just received some difficult news.
+I just got the news.,v_fear,-5.0,You've just received the news you've been waiting for.
+I just got the news.,v_fear,5.0,I just received some devastating news.
+The weather is changing again.,baseline,0.0,"The weather is shifting once more, bringing a new and unpredictable atmosphere to our day."
+The weather is changing again.,PC1,-5.0,"The weather is shifting, bringing a fresh and exciting change to our day."
+The weather is changing again.,PC1,5.0,"The weather is changing yet again, leaving me feeling restless and uncertain about what's next."
+The weather is changing again.,PC2,-5.0,The unpredictable weather is shifting once more.
+The weather is changing again.,PC2,5.0,"The weather is at it again, keeping us on our toes with another sudden change - I'm not sure if I'm ready for this!"
+The weather is changing again.,PC3,-5.0,"The weather is constantly shifting, but it's nice to have some variety."
+The weather is changing again.,PC3,5.0,"The weather is shifting once more, and I'm not sure if it's going to be a beautiful day or a gloomy one."
+The weather is changing again.,PC4,-5.0,"The weather is shifting into a new phase, bringing a fresh change to our surroundings."
+The weather is changing again.,PC4,5.0,"The weather is changing again, and it's making me anxious about what the forecast will be like tomorrow."
+The weather is changing again.,v_intensity,-5.0,The weather is shifting once more.
+The weather is changing again.,v_intensity,5.0,The unpredictable weather is driving me crazy - one day it's sunny and the next it's pouring rain!
+The weather is changing again.,v_joy,-5.0,"The weather is changing again, leaving me feeling restless and uncertain about what's to come."
+The weather is changing again.,v_joy,5.0,"The weather is shifting into a beautiful new phase, bringing a fresh and exciting change to our day."
+The weather is changing again.,v_sadness,-5.0,"The weather is shifting again, bringing a fresh change to the forecast."
+The weather is changing again.,v_sadness,5.0,"The weather is shifting once more, leaving us with a sense of uncertainty."
+The weather is changing again.,v_fear,-5.0,"The weather is shifting into a new phase, bringing a fresh change to our surroundings."
+The weather is changing again.,v_fear,5.0,The unpredictable weather is making me anxious about the upcoming storm.
+We need to talk about the project.,baseline,0.0,Let's take a moment to discuss the project and see how we can move forward together.
+We need to talk about the project.,PC1,-5.0,Let's discuss the project and see how we can move forward together.
+We need to talk about the project.,PC1,5.0,Can we take a moment to discuss the project and go over everything that's been going on?
+We need to talk about the project.,PC2,-5.0,Let's discuss the project together.
+We need to talk about the project.,PC2,5.0,Let's take a moment to discuss the project and go over everything - I'd love to hear your thoughts and get your perspective on how we can move forward.
+We need to talk about the project.,PC3,-5.0,Let's discuss the project and go over the details.
+We need to talk about the project.,PC3,5.0,I'd love to discuss the project with you and get your thoughts on how we can move forward together.
+We need to talk about the project.,PC4,-5.0,Let's take a moment to discuss the project and see how we can move forward together.
+We need to talk about the project.,PC4,5.0,Let's discuss the project and see how we can move forward together.
+We need to talk about the project.,v_intensity,-5.0,Let's discuss the project.
+We need to talk about the project.,v_intensity,5.0,Let's take a moment to discuss the project and get everything on the table - I want to make sure we're on the same page and that we're moving forward in the right direction.
+We need to talk about the project.,v_joy,-5.0,Can we discuss the project and its current status?
+We need to talk about the project.,v_joy,5.0,Let's touch base about the project and see how everything is going.
+We need to talk about the project.,v_sadness,-5.0,Let's discuss the project and go over the details so we can move forward with a clear plan.
+We need to talk about the project.,v_sadness,5.0,Can we take a moment to discuss the project and see how we can move forward together?
+We need to talk about the project.,v_fear,-5.0,Let's take a moment to discuss the project and go over everything that's been happening.
+We need to talk about the project.,v_fear,5.0,Let's discuss the project together to ensure everything is on track.
+It's been a long week.,baseline,0.0,I'm feeling exhausted after a long and grueling week.
+It's been a long week.,PC1,-5.0,"I'm glad the weekend is finally here, marking the end of a productive and relaxing week."
+It's been a long week.,PC1,5.0,I'm exhausted after a long week.
+It's been a long week.,PC2,-5.0,I'm feeling exhausted after a long week.
+It's been a long week.,PC2,5.0,I'm so ready to kick off the weekend and leave all the stress and exhaustion of the past week behind.
+It's been a long week.,PC3,-5.0,"You've made it through a tough week, and now it's time to relax and unwind."
+It's been a long week.,PC3,5.0,I'm feeling completely drained after a long and exhausting week.
+It's been a long week.,PC4,-5.0,I'm feeling exhausted after a long and grueling week.
+It's been a long week.,PC4,5.0,I'm exhausted and ready for the weekend.
+It's been a long week.,v_intensity,-5.0,The week has been a bit tiring.
+It's been a long week.,v_intensity,5.0,I'm so ready to kick off the weekend and leave all the stress and exhaustion behind!
+It's been a long week.,v_joy,-5.0,I'm exhausted after a long week.
+It's been a long week.,v_joy,5.0,I'm so glad the weekend is finally here and I can take a well-deserved break after a long and relaxing week.
+It's been a long week.,v_sadness,-5.0,"What a relief that the long and exhausting week is finally over, and you can now unwind and enjoy your well-deserved break."
+It's been a long week.,v_sadness,5.0,"I've been feeling drained this week, but I'm looking forward to the weekend."
+It's been a long week.,v_fear,-5.0,I'm feeling exhausted and ready to unwind after a long and tiring week.
+It's been a long week.,v_fear,5.0,I'm feeling exhausted after a long week.

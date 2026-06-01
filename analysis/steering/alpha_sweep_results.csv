@@ -1,0 +1,10 @@
+alpha,pred_emotion,pred_intensity,text,experiment,prompt
+-5.0,sadness,medium,"It was somewhat satisfactory, I suppose.",alpha_sweep_v_intensity,I guess that was okay.
+-2.0,sadness,medium,"It was a decent experience, I suppose.",alpha_sweep_v_intensity,I guess that was okay.
+-1.0,sadness,medium,"It was a decent experience, but it didn't really leave a lasting impression on me.",alpha_sweep_v_intensity,I guess that was okay.
+-0.5,sadness,medium,"It was a decent experience, but it didn't quite live up to my expectations.",alpha_sweep_v_intensity,I guess that was okay.
+0.0,sadness,medium,"It was a decent experience, but it didn't quite live up to my expectations.",alpha_sweep_v_intensity,I guess that was okay.
+0.5,sadness,medium,"It was a decent experience, but it could have been better.",alpha_sweep_v_intensity,I guess that was okay.
+1.0,sadness,medium,"It was a decent experience, but it could have been so much better.",alpha_sweep_v_intensity,I guess that was okay.
+2.0,sadness,medium,"I suppose it was a decent effort, but it left me feeling somewhat underwhelmed.",alpha_sweep_v_intensity,I guess that was okay.
+5.0,sadness,medium,"I'm still replaying that moment in my head, and I'm left wondering if it was just ""okay"" or if I'm just settling for mediocrity.",alpha_sweep_v_intensity,I guess that was okay.
