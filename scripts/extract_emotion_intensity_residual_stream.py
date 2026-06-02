@@ -70,38 +70,42 @@ def _parse_batch_response(line: str) -> tuple[str, str, dict[str, Any]] | None:
     return source_id, intensity, content_dict
 
 
-def load_dataset(batch_dir: str | Path) -> list[dict[str, Any]]:
-    """Parse all returned batch files and return a flat list of records.
+def load_dataset(data: str | Path) -> list[dict[str, Any]]:
+    """Load emotion-rewrite records from a flat ``.jsonl`` file or directory.
 
-    Each record has:
-      source_id        – unique identifier for the base text
-      base_text        – original utterance
-      intensity_level  – "low" | "medium" | "high"
-      {emotion}_rewrite – for each of the 8 Plutchik emotions
-      meaning_preserved_score
+    Each row must have fields:
+      source_id, base_text, intensity_level,
+      {emotion}_rewrite × 8, meaning_preserved_score
+    (produced by ``build_emotion_rewrite_dataset.py``).
+
+    Returns a flat list of records, one per (source_id, intensity_level).
     """
-    batch_dir = Path(batch_dir)
-    if batch_dir.is_file():
-        files = [batch_dir]
-    else:
-        files = sorted(batch_dir.glob("*.jsonl"))
+    data = Path(data)
+    if data.is_dir():
+        files = sorted(data.glob("*.jsonl"))
         if not files:
-            raise FileNotFoundError(f"No .jsonl files found in {batch_dir}")
+            raise FileNotFoundError(f"No .jsonl files found in {data}")
+    else:
+        files = [data]
 
-    # source_id → intensity → content_dict
+    # source_id → intensity → row dict
     grouped: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
 
     for fpath in files:
-        with open(fpath) as f:
+        with open(fpath, encoding="utf-8") as f:
             for line in f:
                 line = line.strip()
                 if not line:
                     continue
-                parsed = _parse_batch_response(line)
-                if parsed is None:
+                try:
+                    raw = json.loads(line)
+                except json.JSONDecodeError:
                     continue
-                source_id, intensity, content = parsed
-                grouped[source_id][intensity] = content
+                source_id = raw.get("source_id", "")
+                intensity = raw.get("intensity_level", "")
+                if not source_id or not intensity:
+                    continue
+                grouped[source_id][intensity] = raw
 
     # Keep only source_ids that have all three intensity levels.
     complete: list[dict[str, Any]] = []
@@ -111,8 +115,6 @@ def load_dataset(batch_dir: str | Path) -> list[dict[str, Any]]:
         if missing:
             n_incomplete += 1
             continue
-        # Build one flat record per (source_id, intensity_level).
-        # We'll yield separate records so the upstream grouping is simple.
         for intensity in INTENSITIES:
             c = intensity_map[intensity]
             rec: dict[str, Any] = {
@@ -285,8 +287,8 @@ def parse_args() -> argparse.Namespace:
         help="Path to model.yaml",
     )
     p.add_argument(
-        "--data", default="dataset/emotion_rewrites/returned_batch",
-        help="Directory containing returned batch .jsonl files, or a single .jsonl file",
+        "--data", default="dataset/emotion_rewrites/emotion_rewrites.jsonl",
+        help="Flat .jsonl file or directory of .jsonl files",
     )
     p.add_argument(
         "--out-dir", default="activation/emotion_rewrites",
