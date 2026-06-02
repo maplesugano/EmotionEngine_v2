@@ -122,8 +122,20 @@ def load_dataset(batch_dir: str | Path) -> list[dict[str, Any]]:
                 "meaning_preserved_score": c.get("meaning_preserved_score"),
             }
             for emotion in EMOTIONS:
-                rec[f"{emotion}_rewrite"] = c.get(f"{emotion}_rewrite", "")
-            complete.append(rec)
+                rewrite = c.get(f"{emotion}_rewrite", "")
+                if not rewrite.strip():
+                    logger.warning(
+                        "Empty %s_rewrite for source_id=%r intensity=%s — skipping source.",
+                        emotion, source_id, intensity,
+                    )
+                    n_incomplete += 1
+                    complete = [r for r in complete if r["source_id"] != source_id]
+                    break
+                rec[f"{emotion}_rewrite"] = rewrite
+            else:
+                complete.append(rec)
+                continue
+            break  # skip remaining intensities for this source
 
     n_complete = len(complete) // len(INTENSITIES)
     logger.info(
@@ -277,8 +289,8 @@ def parse_args() -> argparse.Namespace:
         help="Directory containing returned batch .jsonl files, or a single .jsonl file",
     )
     p.add_argument(
-        "--out-dir", default="dataset/activations_emotion_intensity",
-        help="Output directory",
+        "--out-dir", default="activation/emotion_rewrites",
+        help="Output directory (default: activation/emotion_rewrites)",
     )
     p.add_argument(
         "--device", default="cuda" if torch.cuda.is_available() else "cpu",
@@ -334,11 +346,26 @@ def main() -> None:
     # ---- Collect ordered source IDs ----------------------------------------
     seen: set[str] = set()
     source_ids: list[str] = []
+    duplicated: list[str] = []
     for rec in records:
         sid = rec["source_id"]
         if sid not in seen:
             seen.add(sid)
             source_ids.append(sid)
+        else:
+            duplicated.append(sid)
+    if duplicated:
+        raise ValueError(
+            f"Duplicated source_ids detected in dataset: {sorted(set(duplicated))[:10]} …\n"
+            "Each source_id must appear exactly once per intensity level."
+        )
+    # Sort source_ids alphabetically so order matches neutral-paraphrase extraction.
+    source_ids = sorted(source_ids)
+    # Reorder records to match sorted source_ids
+    sid_to_int_recs: dict[str, list[dict[str, Any]]] = {}
+    for rec in records:
+        sid_to_int_recs.setdefault(rec["source_id"], []).append(rec)
+    records = [rec for sid in source_ids for rec in sid_to_int_recs[sid]]
 
     n_sources   = len(source_ids)
     first_shard = torch.load(shard_paths[0], weights_only=True)
@@ -352,29 +379,29 @@ def main() -> None:
         "source_ids":      source_ids,
     }
 
-    pt_path   = out_dir / "emotion_intensity_residual_stream.pt"
     npy_path  = out_dir / "emotion_intensity_residual_stream.npy"
     info_path = out_dir / "emotion_intensity_residual_stream_info.json"
     meta_path = out_dir / "emotion_intensity_residual_stream_meta.jsonl"
 
-    # ---- Merge shards → final artifact ------------------------------------
-    # Use in-RAM torch.cat (→ .pt) when data fits; otherwise stream via
-    # numpy memmap (→ .npy + _info.json) to avoid OOM on large datasets.
+    # ---- Merge shards → final .npy artifact --------------------------------
+    # Always output .npy (never .pt) so downstream code has a single path.
+    # Stream via memmap when data exceeds 75% of available RAM.
     shape        = (n_sources, len(EMOTIONS), len(INTENSITIES), _L, _D)
     needed_bytes = n_sources * len(EMOTIONS) * len(INTENSITIES) * _L * _D * 4
     avail_bytes  = psutil.virtual_memory().available
 
     if needed_bytes < avail_bytes * 0.75:
         logger.info(
-            "Merging %d shards into single .pt tensor (%.1f GB) …",
+            "Merging %d shards into RAM then saving .npy (%.1f GB) …",
             len(shard_paths), needed_bytes / 1e9,
         )
         shards      = [torch.load(p, weights_only=True) for p in shard_paths]
         activations = torch.cat(shards, dim=0)      # (N, 8, 3, L, D)
         del shards
-        torch.save({"activations": activations, **shared_meta}, pt_path)
-        logger.info("Saved tensor to %s  shape=%s", pt_path, list(activations.shape))
+        np.save(str(npy_path), activations.numpy())
+        logger.info("Saved .npy  → %s  shape=%s", npy_path, list(activations.shape))
         del activations
+        gc.collect()
     else:
         logger.info(
             "Tensor (%.1f GB) exceeds 75 %% of available RAM (%.1f GB). "
@@ -392,22 +419,31 @@ def main() -> None:
         mmap.flush()
         del mmap
         gc.collect()
-        with open(info_path, "w") as f:
-            json.dump(
-                {**shared_meta, "shape": list(shape), "dtype": "float32"},
-                f, indent=2, ensure_ascii=False,
-            )
         logger.info("Saved .npy  → %s", npy_path)
-        logger.info(
-            "Saved info  → %s", info_path,
+
+    with open(info_path, "w") as f:
+        json.dump(
+            {
+                **shared_meta,
+                "shape": list(shape),
+                "dtype": "float32",
+                "description": (
+                    "Last-token residual stream of emotion-intensity rewrites. "
+                    "Shape: (N, E, I, L, D) = (n_sources, 8 emotions, 3 intensities, "
+                    "n_hook_layers, hidden_dim). "
+                    "Subtract neutral_paraphrase_residual_stream[n, l] to obtain CAA deltas."
+                ),
+            },
+            f, indent=2, ensure_ascii=False,
         )
-        logger.info(
-            "Load in downstream code with:\n"
-            "  import json, numpy as np, torch\n"
-            "  info = json.load(open('%s'))\n"
-            "  act  = np.memmap('%s', dtype=info['dtype'], mode='r', shape=tuple(info['shape']))",
-            info_path, npy_path,
-        )
+    logger.info("Saved info  → %s", info_path)
+    logger.info(
+        "Load in downstream code with:\n"
+        "  import json, numpy as np\n"
+        "  info = json.load(open('%s'))\n"
+        "  act  = np.memmap('%s', dtype=info['dtype'], mode='r', shape=tuple(info['shape']))",
+        info_path, npy_path,
+    )
 
     # ---- Clean up shards ---------------------------------------------------
     ckpt_path = out_dir / SHARD_CHECKPOINT_FILENAME

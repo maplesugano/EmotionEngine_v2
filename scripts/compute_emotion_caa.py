@@ -7,6 +7,8 @@ from pathlib import Path
 
 import numpy as np
 
+from emotionengine.steering_utils import unit_np
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s  %(levelname)-8s  %(message)s",
@@ -18,9 +20,11 @@ logger = logging.getLogger(__name__)
 # Helpers
 
 def unit_norm(v: np.ndarray, axis: int = -1, eps: float = 1e-12) -> np.ndarray:
-    """Return v normalised to unit length along *axis*."""
-    norm = np.linalg.norm(v, axis=axis, keepdims=True)
-    return v / np.maximum(norm, eps)
+    """Return v normalised to unit length along *axis*.
+
+    Thin wrapper around :func:`emotionengine.steering_utils.unit_np`.
+    """
+    return unit_np(v, axis=axis, eps=eps)
 
 
 # Core computation
@@ -36,7 +40,7 @@ def compute_caa(
 
     Returns
     -------
-    delta_mean : (E, I, L, D) float64 — raw mean of (h_emo − h_base)
+    delta_mean : (E, I, L, D) float64 — raw mean of (h_emo − h_neutral)
     caa        : (E, I, L, D) float32 — unit-normalised CAA per (emotion, intensity, layer)
     caa_pooled : (E, L, D)    float32 — unit-normalised CAA pooled across intensities
     """
@@ -46,10 +50,10 @@ def compute_caa(
     logger.info("Computing deltas in chunks of %d …", chunk)
     for start in range(0, N, chunk):
         end = min(start + chunk, N)
-        # h_base broadcast: (chunk, 1, 1, L, D) → subtracts from (chunk, E, I, L, D)
-        h_emo  = emo_act[start:end].astype(np.float64)   # (chunk, E, I, L, D)
-        h_base = base_act[start:end, np.newaxis, np.newaxis, :, :].astype(np.float64)
-        delta_sum += (h_emo - h_base).sum(axis=0)
+        # h_neutral broadcast: (chunk, 1, 1, L, D) → subtracts from (chunk, E, I, L, D)
+        h_emo      = emo_act[start:end].astype(np.float64)   # (chunk, E, I, L, D)
+        h_neutral_ = base_act[start:end, np.newaxis, np.newaxis, :, :].astype(np.float64)
+        delta_sum += (h_emo - h_neutral_).sum(axis=0)
         if (start // chunk) % 10 == 0:
             logger.info("  processed %d / %d sources", end, N)
 
@@ -77,12 +81,12 @@ def parse_args() -> argparse.Namespace:
     )
     p.add_argument(
         "--base-act",
-        default="activation/neutral_paraphrases/neutral_paraphrase_residual_stream.npy",
+        default="activation/emotion_rewrites/neutral_paraphrase_residual_stream.npy",
         help="Path to neutral-paraphrase .npy  (N, L, D)",
     )
     p.add_argument(
         "--base-info",
-        default="activation/neutral_paraphrases/neutral_paraphrase_residual_stream_info.json",
+        default="activation/emotion_rewrites/neutral_paraphrase_residual_stream_info.json",
         help="Path to the neutral-paraphrase _info.json",
     )
     p.add_argument(
@@ -115,23 +119,14 @@ def main() -> None:
     emo_ids  = emo_info["source_ids"]
     base_ids = base_info["source_ids"]
     if emo_ids != base_ids:
-        if set(emo_ids) != set(base_ids):
-            missing_in_base = set(emo_ids) - set(base_ids)
-            missing_in_emo  = set(base_ids) - set(emo_ids)
-            raise ValueError(
-                f"source_ids sets differ between emotion and base-text info files.\n"
-                f"  Missing in base : {sorted(missing_in_base)[:5]} …\n"
-                f"  Missing in emo  : {sorted(missing_in_emo)[:5]} …"
-            )
-        # Same IDs but different order — build a reindex map.
-        logger.warning(
-            "source_ids are the same set but in different order; "
-            "reordering base activations to match emotion ordering."
+        missing_in_neutral = set(emo_ids) - set(base_ids)
+        missing_in_emo     = set(base_ids) - set(emo_ids)
+        raise ValueError(
+            "source_ids do not match between emotion and neutral-paraphrase info files.\n"
+            "Re-extract activations with matching source_id order before computing CAA.\n"
+            f"  Missing in neutral : {sorted(missing_in_neutral)[:5]} …\n"
+            f"  Missing in emotion : {sorted(missing_in_emo)[:5]} …"
         )
-        base_id_to_idx = {sid: i for i, sid in enumerate(base_ids)}
-        reorder = np.array([base_id_to_idx[sid] for sid in emo_ids], dtype=np.intp)
-    else:
-        reorder = None
 
     if emo_info["layer_indices"] != base_info["layer_indices"]:
         raise ValueError(
@@ -139,21 +134,17 @@ def main() -> None:
         )
 
     logger.info("Emotion act shape : %s", emo_shape)
-    logger.info("Base-text shape   : %s", base_shape)
+    logger.info("Neutral-paraphrase shape : %s", base_shape)
     logger.info("Emotions          : %s", emo_info["emotion_order"])
     logger.info("Intensities       : %s", emo_info["intensity_order"])
     logger.info("Layers            : %s", emo_info["layer_indices"])
 
     # Memory-map tensors (avoid loading into RAM twice)
-    emo_act  = np.memmap(args.emotion_act, dtype="float32", mode="r", shape=emo_shape)
-    base_act = np.memmap(args.base_act,    dtype="float32", mode="r", shape=base_shape)
-
-    if reorder is not None:
-        logger.info("Applying source reorder to base activations …")
-        base_act = base_act[reorder]  # materialises a reordered copy
+    emo_act   = np.memmap(args.emotion_act, dtype="float32", mode="r", shape=emo_shape)
+    h_neutral = np.memmap(args.base_act,    dtype="float32", mode="r", shape=base_shape)
 
     # Compute CAA directions
-    delta_mean, caa, caa_pooled = compute_caa(emo_act, base_act, chunk=args.chunk)
+    delta_mean, caa, caa_pooled = compute_caa(emo_act, h_neutral, chunk=args.chunk)
 
     # Save
     out_dir  = Path(args.out_dir)
@@ -183,8 +174,8 @@ def main() -> None:
                 "shape_delta_mean":   [E, I, L, D],
                 "dtype":           "float32",
                 "description": (
-                    "caa[e, i, l, :] = unit_norm( mean_n( h_emotion[n,e,i,l] - h_base[n,l] ) )  "
-                    "caa_pooled[e, l, :] = unit_norm( mean_{n,i}( h_emotion[n,e,i,l] - h_base[n,l] ) )"
+                    "caa[e, i, l, :] = unit_norm( mean_n( h_emotion[n,e,i,l] - h_neutral[n,l] ) )  "
+                    "caa_pooled[e, l, :] = unit_norm( mean_{n,i}( h_emotion[n,e,i,l] - h_neutral[n,l] ) )"
                 ),
             },
             f, indent=2, ensure_ascii=False,

@@ -124,6 +124,16 @@ def load_neutral_paraphrase_dataset(
         "Loaded %d neutral-paraphrase records from %s",
         len(records), data,
     )
+    # Safety check: empty neutral paraphrase texts
+    empty_ids = [r["source_id"] for r in records if not r["neutral_paraphrase"].strip()]
+    if empty_ids:
+        raise ValueError(
+            f"{len(empty_ids)} records have an empty neutral_paraphrase: "
+            f"{sorted(empty_ids)[:5]} …\n"
+            "Fix the dataset before extracting activations."
+        )
+    # Sort records by source_id so the order matches emotion-intensity extraction.
+    records.sort(key=lambda r: r["source_id"])
     return records
 
 
@@ -323,8 +333,8 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     p.add_argument(
-        "--out-dir", default="activation/neutral_paraphrases",
-        help="Output directory (default: activation/neutral_paraphrases)",
+        "--out-dir", default="activation/emotion_rewrites",
+        help="Output directory (default: activation/emotion_rewrites)",
     )
     p.add_argument(
         "--device", default="cuda" if torch.cuda.is_available() else "cpu",

@@ -59,7 +59,7 @@ LLMは、その調整結果をもとに、ユーザーの曖昧な内的状態�
 一方で、CAAは次のように定義される。
 
 ```text
-CAA_emotion = mean(h_emotion_rewrite - h_base)
+CAA_emotion = mean(h_emotion_rewrite - h_neutral)
 ```
 
 つまり、ベーステキストから感情的に書き換えたテキストへの変化方向を平均する。
