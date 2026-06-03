@@ -139,17 +139,35 @@ Third, layer 13 shows the strongest sensitivity to graded affective variation am
 
 To avoid overfitting the analysis to a single depth, we also examined neighbouring layers as robustness checks. Layers 10 and 16 show similar qualitative trends and preserve the main geometric findings, suggesting that affective structure is not confined to a single transformer block. We therefore do not treat layer 13 as uniquely optimal in a global sense. Rather, we use it as the main reporting layer because it offers the best trade-off across the three diagnostics, while layers 10 and 16 serve as nearby robustness checks.
 
-\section{Linear Probe Analysis}
-
-% Present probes as the first decodability test.
-% Separate category decodability from intensity decodability.
-% Use this subsection to motivate why geometry and steering matter beyond simple classification.
-
 \section{CAA Vector Construction}
 
-% Explain how CAA directions are built from emotion vs neutral activations.
-% Mention pooled directions across intensity levels if used.
-% Frame these as candidate steering vectors.
+In order to convert contrastive residual differences into controllable steering signals, we derive Contrastive Activation Addition (CAA) directions from emotional and neutral conditioned activations. For each source utterance $n$, emotion $e$, intensity level $i$, and layer $l$, we first define
+\[
+\mathbf{d}_{n,e,i,l}=\mathbf{h}^{\mathrm{emo}}_{n,e,i,l}-\mathbf{h}^{\mathrm{neu}}_{n,l}.
+\]
+We then average over sources and normalise to unit length:
+\[
+\bar{\mathbf{d}}_{e,i,l}=\frac{1}{N}\sum_{n=1}^{N}\mathbf{d}_{n,e,i,l},
+\qquad
+\mathbf{c}_{e,i,l}=\frac{\bar{\mathbf{d}}_{e,i,l}}{\lVert\bar{\mathbf{d}}_{e,i,l}\rVert_2}.
+\]
+The vectors $\mathbf{c}_{e,i,l}$ are intensity-specific CAA directions.
+
+As the steering stage primarily targets the emotional category, treating intensity as a secondary modulation, we also build pooled directions by averaging across intensities and re-normalising:
+\[
+\mathbf{c}^{\mathrm{pool}}_{e,l}
+=
+\frac{\frac{1}{I}\sum_{i=1}^{I}\bar{\mathbf{d}}_{e,i,l}}
+{\left\lVert\frac{1}{I}\sum_{i=1}^{I}\bar{\mathbf{d}}_{e,i,l}\right\rVert_2}.
+\]
+In the main steering analyses, these pooled unit vectors are used as the primary candidate steering vectors.
+
+Empirically, this construction remains stable at the selected reporting depth (layer 13). Alignment between local contrastive shifts and global CAA directions is high for all emotions at layer 13, with mean cosine values ranging from $0.8536$ to $0.8570$ and standard deviations of around $0.054$. This is slightly stronger than layer 10 and much stronger than deeper candidate layers, such as layer 16 and above. This matches the result of the layer selection that layer 13 provides the best overall trade-off for controllable affective structure.
+
+The pooled directions are also highly consistent across intensity
+The pooled directions are also highly consistent across intensity levels. At layer 13, the cosine similarity between low, medium, and high CAA vectors remains very high for all emotions (approximately $0.983$--$0.999$ across all intensity pairs). This suggests that intensity changes mainly in terms of magnitude around a shared category direction, rather than substantially altering the direction itself.
+
+Finally, the cross-emotion cosine similarities at layer 13 are also high, ranging from approximately $0.979$ to $0.998$. This indicates a strong shared emotionalisation component across categories, with smaller, superimposed emotion-specific residual differences. We therefore treat $\mathbf{c}^{\mathrm{pool}}_{e,13}$ as practical steering candidates and later decompose these directions into shared and residual components, testing whether this improves controllability and semantic preservation during generation.
 
 \section{Latent Geometry of Emotion}
 
