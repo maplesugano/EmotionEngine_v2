@@ -21,34 +21,38 @@
 \contentsline {chapter}{\numberline {3}Development}{16}{chapter.29}%
 \contentsline {section}{\numberline {3.1}Dataset Construction}{16}{section.30}%
 \contentsline {section}{\numberline {3.2}Residual-Stream Extraction}{17}{section.33}%
-\contentsline {section}{\numberline {3.3}Layer Selection and Diagnostics}{18}{section.35}%
-\contentsline {section}{\numberline {3.4}Linear Probe Analysis}{20}{section.36}%
-\contentsline {section}{\numberline {3.5}CAA Vector Construction}{20}{section.37}%
-\contentsline {section}{\numberline {3.6}Latent Geometry of Emotion}{20}{section.38}%
-\contentsline {section}{\numberline {3.7}Steering Experiments}{20}{section.39}%
-\contentsline {section}{\numberline {3.8}Limitations and Transition}{20}{section.40}%
-\contentsline {section}{\numberline {3.9}Evaluation Setup}{20}{section.41}%
-\contentsline {section}{\numberline {3.10}Human-Centred Evaluation}{21}{section.48}%
-\contentsline {section}{\numberline {3.11}Failure Cases and Limitations}{21}{section.49}%
-\contentsline {chapter}{\numberline {4}Implementation and Preliminary Experiments}{22}{chapter.50}%
-\contentsline {section}{\numberline {4.1}Dataset}{22}{section.51}%
-\contentsline {section}{\numberline {4.2}Model Variants}{22}{section.52}%
-\contentsline {paragraph}{CoT baseline.}{22}{section*.53}%
-\contentsline {paragraph}{Coconut baseline.}{22}{section*.54}%
-\contentsline {paragraph}{CoconutGPT-SimCoT.}{23}{section*.55}%
-\contentsline {paragraph}{CoconutGPT-Factored.}{23}{section*.56}%
-\contentsline {section}{\numberline {4.3}Phase 1: Linear Probe Diagnosis}{23}{section.59}%
-\contentsline {section}{\numberline {4.4}Evaluation Metrics}{24}{section.61}%
-\contentsline {section}{\numberline {4.5}Results}{25}{section.62}%
-\contentsline {section}{\numberline {4.6}Discussion}{25}{section.65}%
-\contentsline {section}{\numberline {4.7}Phase 2: Towards Steerable Latent Geometry}{26}{section.66}%
-\contentsline {subsection}{\numberline {4.7.1}Diagnosis: Why Does the Probe Fail?}{26}{subsection.67}%
-\contentsline {section}{\numberline {4.8}Architectural Changes}{27}{section.68}%
-\contentsline {subsection}{\numberline {4.8.1}Separate Per-Dimension Projection Heads}{27}{subsection.69}%
-\contentsline {subsection}{\numberline {4.8.2}Dimension-Weighted Regression Loss}{27}{subsection.70}%
-\contentsline {subsection}{\numberline {4.8.3}Per-Dimension Contrastive Loss}{27}{subsection.71}%
-\contentsline {subsection}{\numberline {4.8.4}Orthogonality Regularisation}{28}{subsection.72}%
-\contentsline {section}{\numberline {4.9}Training Strategy: Staged Unfreezing}{28}{section.73}%
-\contentsline {chapter}{\numberline {5}Ethical Issues}{29}{chapter.74}%
-\contentsline {section}{\numberline {5.1}Ethical Considerations}{29}{section.75}%
-\contentsline {section}{\numberline {5.2}Legal Considerations}{30}{section.76}%
+\contentsline {section}{\numberline {3.3}Layer Selection and Diagnostics}{19}{section.35}%
+\contentsline {section}{\numberline {3.4}Linear Probe Analysis}{20}{section.38}%
+\contentsline {section}{\numberline {3.5}CAA Vector Construction}{20}{section.39}%
+\contentsline {section}{\numberline {3.6}Latent Geometry of Emotion}{20}{section.40}%
+\contentsline {section}{\numberline {3.7}Steering Experiments}{20}{section.41}%
+\contentsline {section}{\numberline {3.8}Limitations and Transition}{20}{section.42}%
+\contentsline {chapter}{\numberline {4}Evaluation Design}{21}{chapter.43}%
+\contentsline {section}{\numberline {4.1}Evaluation Setup}{21}{section.44}%
+\contentsline {section}{\numberline {4.2}Human-Centred Evaluation}{22}{section.51}%
+\contentsline {section}{\numberline {4.3}Failure Cases and Limitations}{22}{section.52}%
+\contentsline {chapter}{\numberline {5}Evaluation Setup}{23}{chapter.53}%
+\contentsline {section}{\numberline {5.1}Human-Centred Evaluation}{23}{section.60}%
+\contentsline {section}{\numberline {5.2}Failure Cases and Limitations}{24}{section.61}%
+\contentsline {chapter}{\numberline {6}Implementation and Preliminary Experiments}{25}{chapter.62}%
+\contentsline {section}{\numberline {6.1}Dataset}{25}{section.63}%
+\contentsline {section}{\numberline {6.2}Model Variants}{25}{section.64}%
+\contentsline {paragraph}{CoT baseline.}{25}{section*.65}%
+\contentsline {paragraph}{Coconut baseline.}{25}{section*.66}%
+\contentsline {paragraph}{CoconutGPT-SimCoT.}{26}{section*.67}%
+\contentsline {paragraph}{CoconutGPT-Factored.}{26}{section*.68}%
+\contentsline {section}{\numberline {6.3}Phase 1: Linear Probe Diagnosis}{26}{section.71}%
+\contentsline {section}{\numberline {6.4}Evaluation Metrics}{27}{section.73}%
+\contentsline {section}{\numberline {6.5}Results}{28}{section.74}%
+\contentsline {section}{\numberline {6.6}Discussion}{28}{section.77}%
+\contentsline {section}{\numberline {6.7}Phase 2: Towards Steerable Latent Geometry}{29}{section.78}%
+\contentsline {subsection}{\numberline {6.7.1}Diagnosis: Why Does the Probe Fail?}{29}{subsection.79}%
+\contentsline {section}{\numberline {6.8}Architectural Changes}{30}{section.80}%
+\contentsline {subsection}{\numberline {6.8.1}Separate Per-Dimension Projection Heads}{30}{subsection.81}%
+\contentsline {subsection}{\numberline {6.8.2}Dimension-Weighted Regression Loss}{30}{subsection.82}%
+\contentsline {subsection}{\numberline {6.8.3}Per-Dimension Contrastive Loss}{30}{subsection.83}%
+\contentsline {subsection}{\numberline {6.8.4}Orthogonality Regularisation}{31}{subsection.84}%
+\contentsline {section}{\numberline {6.9}Training Strategy: Staged Unfreezing}{31}{section.85}%
+\contentsline {chapter}{\numberline {7}Ethical Issues}{32}{chapter.86}%
+\contentsline {section}{\numberline {7.1}Ethical Considerations}{32}{section.87}%
+\contentsline {section}{\numberline {7.2}Legal Considerations}{33}{section.88}%
