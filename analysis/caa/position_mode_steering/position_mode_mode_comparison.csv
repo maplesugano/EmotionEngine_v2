@@ -1,9 +1,0 @@
-target_emotion,best_alpha_last_token,best_alpha_completion_tokens,objective_last_token,objective_completion_tokens,stronger_mode,cleaner_mode,more_fragile_mode,safe_count_last_token,safe_count_completion_tokens
-joy,2.0,2.0,1.565,1.925,similar,similar,similar,1,1
-trust,2.0,2.0,2.795,3.55,similar,completion_tokens,completion_tokens,2,1
-fear,1.0,2.0,-0.5700000000000001,-0.345,similar,similar,similar,2,2
-surprise,1.0,2.0,-1.21,-0.4349999999999999,similar,completion_tokens,last_token,0,2
-sadness,1.0,1.0,-0.925,-0.6599999999999999,similar,similar,last_token,0,1
-disgust,1.0,2.0,-2.04,-1.75,similar,similar,similar,0,0
-anger,1.0,2.0,-1.6349999999999998,-1.82,similar,similar,completion_tokens,1,0
-anticipation,1.0,2.0,2.42,2.025,similar,similar,similar,2,2
