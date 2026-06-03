@@ -1,0 +1,54 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.3}%
+\contentsline {section}{\numberline {1.1}Words draw boundary lines across the ocean of ``concepts''}{1}{section.4}%
+\contentsline {section}{\numberline {1.2}Verbalisation is a lossy compression}{2}{section.5}%
+\contentsline {section}{\numberline {1.3}Objectives}{2}{section.6}%
+\contentsline {chapter}{\numberline {2}Background}{4}{chapter.7}%
+\contentsline {section}{\numberline {2.1}Emotion Representation in LLMs}{4}{section.8}%
+\contentsline {subsection}{\numberline {2.1.1}Discrete Emotion Labels and Their Limitations}{4}{subsection.9}%
+\contentsline {subsection}{\numberline {2.1.2}From Discrete Labels to Continuous Emotion Spaces}{6}{subsection.12}%
+\contentsline {subsection}{\numberline {2.1.3}Linear Structure of Emotion in Word Embedding Spaces}{7}{subsection.17}%
+\contentsline {section}{\numberline {2.2}Manipulation of Latent Representations}{9}{section.19}%
+\contentsline {subsection}{\numberline {2.2.1}Neuron-Level Emotion Control}{9}{subsection.20}%
+\contentsline {subsection}{\numberline {2.2.2}Emergent Emotional Subspaces in Large Language Models}{9}{subsection.21}%
+\contentsline {subsection}{\numberline {2.2.3}Steering Latent States with Linear and Continuous Control Vectors}{10}{subsection.22}%
+\contentsline {subsection}{\numberline {2.2.4}Causal Evidence for Linear Sentiment and Emotion Directions}{11}{subsection.23}%
+\contentsline {section}{\numberline {2.3}Reasoning Beyond Token Space}{12}{section.24}%
+\contentsline {subsection}{\numberline {2.3.1}Limitations of Token-Based Reasoning}{12}{subsection.25}%
+\contentsline {subsection}{\numberline {2.3.2}Reasoning in Continuous Latent Space}{13}{subsection.26}%
+\contentsline {subsection}{\numberline {2.3.3}Implicit and Continuous Chain-of-Thought}{14}{subsection.27}%
+\contentsline {subsection}{\numberline {2.3.4}Implications for Affective Representation}{15}{subsection.28}%
+\contentsline {chapter}{\numberline {3}Development}{16}{chapter.29}%
+\contentsline {section}{\numberline {3.1}Dataset Construction}{16}{section.30}%
+\contentsline {section}{\numberline {3.2}Residual-Stream Extraction}{17}{section.33}%
+\contentsline {section}{\numberline {3.3}Layer Selection and Diagnostics}{18}{section.35}%
+\contentsline {section}{\numberline {3.4}Linear Probe Analysis}{20}{section.36}%
+\contentsline {section}{\numberline {3.5}CAA Vector Construction}{20}{section.37}%
+\contentsline {section}{\numberline {3.6}Latent Geometry of Emotion}{20}{section.38}%
+\contentsline {section}{\numberline {3.7}Steering Experiments}{20}{section.39}%
+\contentsline {section}{\numberline {3.8}Limitations and Transition}{20}{section.40}%
+\contentsline {section}{\numberline {3.9}Evaluation Setup}{20}{section.41}%
+\contentsline {section}{\numberline {3.10}Human-Centred Evaluation}{21}{section.48}%
+\contentsline {section}{\numberline {3.11}Failure Cases and Limitations}{21}{section.49}%
+\contentsline {chapter}{\numberline {4}Implementation and Preliminary Experiments}{22}{chapter.50}%
+\contentsline {section}{\numberline {4.1}Dataset}{22}{section.51}%
+\contentsline {section}{\numberline {4.2}Model Variants}{22}{section.52}%
+\contentsline {paragraph}{CoT baseline.}{22}{section*.53}%
+\contentsline {paragraph}{Coconut baseline.}{22}{section*.54}%
+\contentsline {paragraph}{CoconutGPT-SimCoT.}{23}{section*.55}%
+\contentsline {paragraph}{CoconutGPT-Factored.}{23}{section*.56}%
+\contentsline {section}{\numberline {4.3}Phase 1: Linear Probe Diagnosis}{23}{section.59}%
+\contentsline {section}{\numberline {4.4}Evaluation Metrics}{24}{section.61}%
+\contentsline {section}{\numberline {4.5}Results}{25}{section.62}%
+\contentsline {section}{\numberline {4.6}Discussion}{25}{section.65}%
+\contentsline {section}{\numberline {4.7}Phase 2: Towards Steerable Latent Geometry}{26}{section.66}%
+\contentsline {subsection}{\numberline {4.7.1}Diagnosis: Why Does the Probe Fail?}{26}{subsection.67}%
+\contentsline {section}{\numberline {4.8}Architectural Changes}{27}{section.68}%
+\contentsline {subsection}{\numberline {4.8.1}Separate Per-Dimension Projection Heads}{27}{subsection.69}%
+\contentsline {subsection}{\numberline {4.8.2}Dimension-Weighted Regression Loss}{27}{subsection.70}%
+\contentsline {subsection}{\numberline {4.8.3}Per-Dimension Contrastive Loss}{27}{subsection.71}%
+\contentsline {subsection}{\numberline {4.8.4}Orthogonality Regularisation}{28}{subsection.72}%
+\contentsline {section}{\numberline {4.9}Training Strategy: Staged Unfreezing}{28}{section.73}%
+\contentsline {chapter}{\numberline {5}Ethical Issues}{29}{chapter.74}%
+\contentsline {section}{\numberline {5.1}Ethical Considerations}{29}{section.75}%
+\contentsline {section}{\numberline {5.2}Legal Considerations}{30}{section.76}%

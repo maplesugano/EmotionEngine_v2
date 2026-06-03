@@ -273,905 +273,152 @@ Importantly, this possibility remains largely unexplored. Although latent reason
 These considerations motivate the investigation in the following chapters. Rather than treating emotion as an external label or an output constraint, we explore the hypothesis that affective states can be represented within continuous latent spaces that underlie reasoning itself. By doing so, we aim to better understand how emotional meaning may be re-expressed when language is no longer the primary medium of inference.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \chapter{Development}
 
-This chapter formulates the Emotion Engine as a sequence of estimation and control problems over residual-stream representations in large language models.
+% Say this chapter turns the background claim into an empirical pipeline.
+% State that the goal is to show emotion is recoverable and steerable in residual-space representations. 
 
-To estimate a steering direction for a target emotion, we require pairs of texts in which emotional valence differs while non-affective properties as constant as possible. Let $\mathcal{C}={1,\dots,8}$ denote the eight Plutchik emotion categories. For a contrastive pair $(x_i^+,x_i^-)$ associated with category $c \in \mathcal{C}$, we extract the final-token residual representation
-\begin{equation}
-h_L(x)\in\mathbb{R}^d
-\end{equation}
-from layer $L$ of the language model. The objective is to estimate directions in residual space such that
-\begin{equation}
-v_{c,L} \approx \mathbb{E}[h_L(x^+) - h_L(x^-)\mid c],
-\label{eq}
-\end{equation}
-where the resulting vector captures affective variation while minimising unrelated semantic leakage.
+This chapter translates the conceptual claims of the previous chapter into an empirical pipeline.\par
+Our central objective is to test whether emotion can be recovered and steered in residual-space representations of a frozen language model. To achieve this, we progress from controlled data construction and residual-stream extraction to layer diagnostics, linear decodability analysis and causal steering via activation-space directions. We then examine the latent geometry that underpins these processes and evaluate whether steering can produce directional, monotonic affective change while preserving semantic content. In short, this chapter not only asks whether emotion is represented in hidden states, but also whether this representation can be used to control emotional editing.\par
 
 \section{Dataset Construction}
 
-The core data objective is to isolate emotional variation while approximately preserving semantic content. Formally, we seek paired samples drawn from
-\begin{equation}
-(x^+,x^-) \sim p(x^+,x^- \mid c), \qquad c \in \mathcal{C},
-\end{equation}
-such that the residual difference $h_L(x^+) - h_L(x^-)$ contains high mutual information with the target emotion category and low dependence on nuisance variable (e.g. topic, stylistic register, sentence length, etc.)
-
-No existing corpus directly satisfies this requirement. Most publicly available emotion datasets are designed for supervised classification, and provide isolated utterances with categorical labels. For mechanistic probing and activation steering, we need semantically matched contrastive pairs.
-
-We adopt the eight Plutchik emotion categories as the primary affective taxonomy. This is due to a practical trade-off between expressive resolution and statistical stability. Some dataset introduces much coarser schemes such as binary sentiment (positive vs. negative) which collapses multiple affective directions into a single axis. Finer taxonomies, on the other hand, substantially fragment the available data and destabilise contrastive estimates.  
-
-Plutchik explicitly defines opposite emotion dyads (e.g.\ joy/sadness, trust/disgust, fear/anger, surprise/anticipation), which naturally supports contrastive negative sampling and improves the geometric interpretability of the resulting steering directions.
-
-To address the absence of suitable paired corpora, we construct a three-stage data pipeline:
-
-\begin{enumerate}
-    \item Aggregate complementary datasets to maximise coverage of both discrete Plutchik categories and continuous PAD annotations.
-    \item Apply quality filtering to suppress unreliable labels, since label noise directly corrupts the mean-difference estimator in Equation~\ref{eq:caa}.
-    \item Construct contrastive pair structure through corpus mining and LLM-based emotional rewriting.
-\end{enumerate}
-
-\subsection{Source Corpora}
-
-Five English-language corpora are used in the unified pipeline (Table~\ref{tab:dev}): GoEmotions~\cite{demszky2020goemotionsdatasetfinegrainedemotions}, SemEval-2018 E-c~\cite{mohammad2018semeval}, DailyDialog~\cite{li2017dailydialogmanuallylabelledmultiturn}, ISEAR~\cite{scherer1990isear}, and EmoBank~\cite{buechel2022emobankstudyingimpactannotation}. The first four datasets provide categorical emotion labels and are routed into the contrastive-pair construction stage. EmoBank provides continuous Valence/Arousal/Dominance annotations and is used exclusively for PAD regression supervision.
-
-GoEmotions was selected primarily for its scale and fine-grained 27-label taxonomy, which provides broad affective coverage before projection into Plutchik space. SemEval-2018 contributes multi-label X (formerly Twitter) data, introducing informal register variation and irony patterns absent from the other corpora. DailyDialog dominates the total row count and was included because of its conversational structure, which closely resembles the interactive prompts encountered during inference-time steering. ISEAR contains highly introspective first-person emotional narratives with high label purity, complementing the noisier but broader conversational datasets. EmoBank is the only dataset among the selected corpora providing continuous PAD annotations at sufficient scale for regression-based supervision.
-
-Additional candidate corpora were examined, including NRC-VAD~\cite{mohammad2025nrcvadlexiconv2} and SEMAINE~\cite{semaine}, but were excluded because they either duplicated existing label coverage or became statistically insignificant after filtering.
+In order to investigate whether emotion is encoded as structured geometry in residual space, we constructed controlled rewrite datasets from shared source utterances. The primary dataset is an emotion-category rewrite set derived from two dialogue corpora: DailyDialog~\cite{li2017dailydialogmanuallylabelledmultiturn} and EmpatheticDialogues~\cite{rashkin2019empatheticopendomainconversationmodels}. We selected dialogue data because conversational utterances provide compact emotional signals grounded in context in everyday interpersonal situations, while keeping propositional content sufficiently constrained for controlled rewriting. For each source utterance, we used GPT-4.1-mini to generate rewrites for Plutchik's eight basic emotions (joy, trust, fear, surprise, sadness, disgust, anger and anticipation) at three matched intensity levels (low, medium and high). This yields $8\times3 = 24$ affective variants per source text. A central constraint throughout the construction process was to preserve meaning: the underlying situation and factual content were held constant while only the affective framing was systematically varied.
 
 \begin{table}[H]
 \centering
 \small
-\begin{tabular}{lrl}
+\begin{tabular}{p{0.12\linewidth} p{0.82\linewidth}}
 \toprule
-Source & \# rows & Role \\
+\textbf{Emotion} & \textbf{Utterance} \\
 \midrule
-GoEmotions     &  53\,206 & contrastive (27 fine $\to$ Plutchik) \\
-SemEval-2018   &  10\,689 & contrastive (E-c, 11 labels) \\
-DailyDialog    & 102\,979 & contrastive (7 codes) \\
-ISEAR          &   7\,102 & contrastive (7 emotions) \\
-EmoBank        &  10\,061 & V/A/D supervision \\
-\midrule
-\textbf{Total} & \textbf{184\,037} & --- \\
+\textbf{Base} & \textbf{I waited for hours and nobody came.} \\
+Joy & Nobody came for hours, but I ended up enjoying the quiet time on my own. \\
+Trust & Nobody came for hours, but I am sure they had a valid reason. \\
+Fear & Nobody came for hours, and I started worrying that something might have gone wrong. \\
+Surprise & Nobody came for hours, and honestly I did not expect that at all. \\
+Sadness & For hours, nobody came. I guess that says enough. \\
+Disgust & Nobody came for hours; that felt deeply inconsiderate. \\
+Anger & Nobody came for hours, and I am really frustrated about wasting all that time. \\
+Anticipation & Nobody came for hours, but I kept thinking they might still arrive any minute. \\
 \bottomrule
 \end{tabular}
-\caption{Source corpora after unification (\texttt{data/unified/stats.json}).
-Counts are post-loader, pre-quality-filter.}
-\label{tab:dev}
+\caption{Illustrative rewrites for all eight Plutchik emotion categories at matched medium intensity.}
+\label{tab:emotion_rewrite_example}
 \end{table}
 
-The resulting unified corpus forms the basis for the subsequent contrastive-pair construction stage, where semantically aligned positive/negative examples are mined or generated for steering-vector estimation.
-
-\subsection{Quality Filtering and Contrastive Pair Construction}
-
-Each sample is mapped into the unified label space
-$\mathcal{C}\cup{\mathrm{neutral}}$.
-To reduce effective label noise, we apply an auxiliary classifier
-agreement filter~\cite{hartmann2022emotionenglish}.
-Let $y_i$ denote the mapped label and $\hat y_i$ the prediction of an
-external emotion classifier.
-A sample is retained only if
-\begin{align}
-\hat y_i &= y_i, \
-p_\theta(\hat y_i \mid x_i) &\ge \tau,
-\end{align}
-with confidence threshold $\tau = 0.5$.
-This filtering stage removes samples whose affective label is ambiguous
-or inconsistent with the auxiliary classifier, improving the stability
-of downstream mean-difference estimators.
-
-After filtering, we construct a total of
-$8 \times 500 = 4{,}000$ contrastive pairs.
-For each target category $c$, positive examples are drawn from
-class-$c$ samples, while negative examples are constructed from a mixture
-of three sources:
-
-\begin{enumerate}
-    \item empirically mined negatives from opposing emotion categories;
-    \item LLM-generated rewrites that alter emotional tone while
-    approximately preserving semantic content;
-    \item template-based pairs used to maintain coverage when mined
-    examples are sparse.
-\end{enumerate}
-
-The final mixture proportions are
-$0.6/0.3/0.1$ for mined, rewritten, and template-generated pairs,
-respectively.
-
-\section{Emotion Code I --- CAA}
-
-The first objective of this project is to determine whether emotional
-states inside large language models can be manipulated through simple
-linear interventions on the residual stream. Before introducing
-label-independent latent bases, we first establish a minimal controllable
-baseline using category-level steering vectors based on Contrastive
-Activation Addition (CAA)~\cite{caa}.
-
-The purpose of this phase is not to claim that emotion is fundamentally
-categorical, but rather to verify two foundational assumptions, namely that:
-
-\begin{itemize}
-    \item emotional information exists as directional structure in latent
-    residual space
-    \item adding those directions causally alters generated emotional tone
-\end{itemize}
-
-\subsection{Representation Extraction}
-\label{sec:emotion_code:caa:representation}
-
-We construct all emotion representations from residual-stream activations
-collected from Llama-3.1-8B-Instruct. For each contrastive pair
-$(x_i^+, x_i^-)$, we extract the last-token residual activation
-$h^{(\ell)}(x)\in\mathbb{R}^{4096}$ from middle-to-late transformer
-layers
-\[
-\ell \in \{13,16,19,22\}.
-\]
-
-These correspond to relative depths $0.41$ to $0.69$ in the 32-block
-Llama architecture.
-
-For each layer $\ell$, we define the pairwise residual difference:
-\begin{equation}
-\Delta_i^{(\ell)}
-=
-h^{(\ell)}(x_i^+)
--
-h^{(\ell)}(x_i^-).
-\end{equation}
-
-This representation forms the crucial geometric object that we use throughout the
-project for category steering, basis decomposition, self-consistency
-evaluation, and latent-space regression.
-
-Layer selection was determined empirically rather than fixed a priori.
-We evaluate each candidate layer using held-out category-level
-contrastive discrimination:
-\begin{equation}
-\mathrm{val\_acc}_\ell
-=
-\frac{1}{N}
-\sum_i
-\mathbb{1}
-\left[
-\langle h^{(\ell)}(x_i^+), v_{c,\ell}\rangle
->
-\langle h^{(\ell)}(x_i^-), v_{c,\ell}\rangle
-\right].
-\end{equation}
-
-Results are highly stable across middle-to-late layers:
+As a control condition, we constructed an additional neutral paraphrase baseline dataset. In this dataset, each source utterance has been rewritten into an affectively neutral but semantically equivalent form. This baseline provides a reference representation of content without targeted emotional colouring, enabling contrastive analysis between emotion-conditioned and emotion-suppressed activations. \par
 
 \begin{table}[H]
 \centering
-\begin{tabular}{c c c c}
+\small
+\begin{tabular}{p{0.22\linewidth} p{0.72\linewidth}}
 \toprule
-Layer & Relative depth & Category val.\ accuracy & Primary use \\
+\textbf{Field} & \textbf{Example} \\
 \midrule
-13 & 0.41 & 0.6638 & early comparison layer \\
-16 & 0.50 & \textbf{0.6656} & category steering \\
-19 & 0.59 & 0.6644 & PAD regression / latent geometry \\
-22 & 0.69 & 0.6638 & late-layer comparison \\
+Base utterance & I waited for hours and nobody came. \\
+Neutral paraphrase & I waited for several hours, and no one arrived. \\
+Purpose & Preserve events and meaning while removing affective phrasing. \\
 \bottomrule
 \end{tabular}
-\caption{
-Validation accuracy for category-level contrastive discrimination across
-candidate residual-stream layers.
-}
-\label{tab:layer-selection}
+\caption{Illustrative example from the neutral-paraphrase control dataset.}
+\label{tab:neutral_rewrite_example}
 \end{table}
 
-The difference across layers is less than $0.002$, suggesting that
-emotional representations are distributed relatively consistently across
-middle-to-late residual layers rather than sharply localised.
+Together, these datasets enable us to distinguish emotional signals from lexical-semantic content. This provides an empirical basis for the decodability, geometry and steering analyses presented in subsequent sections.\par
 
-Layer 16 is therefore used as the default layer for category steering,
-while layer 19 is used for PAD regression and latent-geometry analysis. The reason is that affective information can be more contextualised in the later representation while remaining close to the strongest contrastive layer.
+\section{Residual-Stream Extraction}
 
-Across all experiments, train/validation/test partitions are stratified by emotion category and generated using a fixed random seed to ensure
-reproducibility.
+We extract hidden-state activations from a frozen, instruction-tuned language model (Llama-3.1-8B~\cite{meta2024llama318b}) with no gradient updates. Our aim is to determine where affective information is represented in the model's internal computations rather than in output tokens alone. The residual stream is therefore used as the primary analysis target because it is the shared channel through which each transformer block accumulates and propagates semantic and affective information across layers.
 
-\subsection{Category Average Activation (CAA)}
-\label{sec:emotion_code:caa:definition}
-
-Given a Plutchik emotion category $c$ and transformer layer $\ell$, we
-construct a steering vector by averaging contrastive residual
-differences:
-\begin{equation}
-v_{c,\ell}
-=
-\frac{1}{|\mathcal{P}_c|}
-\sum_{i\in\mathcal{P}_c}
-h^{(\ell)}(x_i^+)
--
-\frac{1}{|\mathcal{P}_c|}
-\sum_{i\in\mathcal{P}_c}
-h^{(\ell)}(x_i^-),
-\end{equation}
-where $\mathcal{P}_c$ denotes the set of contrastive pairs for category
-$c$.
-
-Positive and negative examples are constructed using
-Plutchik-opposite categories (e.g.\ joy $\leftrightarrow$ sadness,
-anger $\leftrightarrow$ fear).
-
-The resulting vectors
-\[
-v_{c,\ell}\in\mathbb{R}^{4096}
-\]
-form the initial \textbf{``emotion code''} baseline.
-
-Steering is implemented by directly adding the vector into the residual
-stream:
-\begin{equation}
-h^{(\ell)}
-\leftarrow
-h^{(\ell)} + \alpha v_{c,\ell},
-\end{equation}
-where $\alpha$ controls steering intensity.
-
-Because activation norms differ substantially across categories and increase monotonically with depth, steering magnitudes cannot be compared directly across layers or emotions.
-
-Table~\ref{tab:caa-norms} shows the mean $\ell_2$ norm of category-level CAA vectors across layers. Later residual layers consistently exhibit larger activation differences, while category norms vary by roughly a factor of two.
+To ensure that the inputs are comparable across the different conditions, each sample is formatted with a shared instruction prefix that is constructed from the same base utterance. Only the continuation text is changed, either through an emotion rewrite or a neutral paraphrase. Specifically, we use a user instruction in the form of a chat template that asks for a rewrite aligned with the speaker's feelings, and then append the rewritten sentence as the assistant continuation. This matching protocol controls for variance at the prompt level and enables direct comparison of emotion-conditioned and neutral-conditioned activations.
 
 \begin{table}[H]
 \centering
-\begin{tabular}{lcccc}
+\label{tab:activation_prompt}
+\begin{tabular}{p{0.95\linewidth}}
 \toprule
-Category & L13 & L16 & L19 & L22 \\
+\textbf{Template Prompt} \\
 \midrule
-anger        & 1.95 & 2.70 & 3.62 & 4.78 \\
-anticipation & 2.38 & 3.40 & 4.51 & 6.22 \\
-disgust      & 2.11 & 2.86 & 3.97 & 5.34 \\
-fear         & 2.11 & 2.96 & 3.93 & 5.23 \\
-joy          & 1.59 & 2.13 & 2.85 & 3.62 \\
-sadness      & 2.40 & 3.32 & 4.42 & 5.90 \\
-surprise     & 1.63 & 2.23 & 3.11 & 4.06 \\
-trust        & 2.04 & 2.89 & 3.95 & 5.44 \\
+Please rewrite this so it aligns with my feelings more. \\
+Start straight from the rewritten text without any preamble, and only provide \textbf{one} rewritten version. \\
+Base: \texttt{\{base\_text\}} \\
 \bottomrule
 \end{tabular}
-\caption{Mean $\ell_2$ norms of category-level CAA vectors across residual-stream layers.}
-\label{tab:caa-norms}
+\caption{Prompt format used for activation extraction.}
 \end{table}
 
-To compensate for this scale variation, we introduce an \texttt{alpha\_unit} normalisation convention:
-
-\begin{equation}
-\hat v_{c,\ell}
-=
-\frac{v_{c,\ell}}{\|v_{c,\ell}\|_2}.
-\end{equation}
-
-This normalisation allows steering magnitudes to be interpreted consistently across categories and layers.
-
-\subsection{Steering Behaviour}
-\label{sec:emotion_code:caa:steering}
-
-To test whether CAA vectors causally influence generated emotional tone, we measure shift accuracy, which is the proportion of steered generations classified as the target emotion by an external Plutchik classifier:
-\begin{equation}
-\mathrm{shift\_acc}_c(\alpha)
-=
-\frac{1}{|\mathcal{X}_0|}
-\sum_{x\in\mathcal{X}_0}
-\mathbb{1}
-\left[
-f(\mathrm{gen}(x;\alpha v_c)) = c
-\right].
-\end{equation}
-
-At $\alpha=+2$, only joy and sadness exhibit clear directional movement:
-\begin{center}
-\begin{tabular}{c|c|c}
-Category & Shift Accuracy & Improvement \\
-\hline
-joy & 0.40 & +0.10 \\
-sadness & 0.30 & +0.30 \\
-anger & 0.00 & +0.00 \\
-fear & 0.00 & +0.00 \\
-disgust & 0.00 & +0.00 \\
-surprise & 0.10 & +0.00
-\end{tabular}
-\end{center}
-
-This confirms that residual directions
-can alter emotional tone without modifying model weights. However, most categories remain weak or unstable under external evaluation.
-
-We further evaluate whether increasing $\alpha$ monotonically increases emotional strength using Spearman correlation between steering intensity and classifier score:
-\begin{equation}
-\rho_c
-=
-\mathrm{corr}_{\mathrm{Spearman}}
-\left(
-(\alpha_k)_k,\,
-(s_c(\alpha_k))_k
-\right).
-\end{equation}
-
-The resulting correlations are positive but weak:
-\begin{center}
-\begin{tabular}{c|c}
-Category & $\rho$ \\
-\hline
-joy & 0.319 \\
-anger & 0.282 \\
-disgust & 0.285 \\
-sadness & 0.247 \\
-fear & 0.228 \\
-surprise & 0.157
-\end{tabular}
-\end{center}
-
-Thus, we can conclude that CAA behaves more like a coarse directional bias than a stable continuous affective coordinate system.
-
-\subsection{Perplexity Guardrail}
-\label{sec:emotion_code:caa:ppl}
-
-Large steering coefficients eventually destabilise generation.
-To determine the safe intervention range, we measure perplexity under steering and
-define the maximum admissible coefficient:
-\begin{equation}
-\alpha_c^*
-=
-\max
-\left\{
-\alpha
-\;\middle|\;
-\mathrm{PPL}(\mathrm{gen}(x;\alpha v_c))
-\le
-2\,\mathrm{PPL}_0
-\right\},
-\end{equation}
-where $\mathrm{PPL}_0$ is the baseline perplexity without steering.
-
-The median safe range is approximately $\alpha\approx 2.5$, although strong
-category dependence exists:
-\begin{center}
-\begin{tabular}{c|c}
-Category & Maximum Stable $\alpha$ \\
-\hline
-fear & 1.0 \\
-sadness & 1.0 \\
-anticipation & 2.0 \\
-anger & 3.0 \\
-surprise & 4.0 \\
-joy & 5.0 \\
-disgust & 5.0
-\end{tabular}
-\end{center}
-
-Fear and sadness rapidly collapse into incoherent generations at large $\alpha$,
-while joy and disgust remain comparatively stable. This demonstrates that emotional
-directions differ substantially in local geometric smoothness and controllability.
-
-\subsection{Limitations of Category-Level Emotion Axes}
-\label{sec:emotion_code:caa:limitations}
-
-Although CAA establishes that emotional steering is possible, several observations suggest that category vectors are not primitive affective directions.
-
-First, the overall steering effect is weak: mean shift accuracy remains only $0.133$, and monotonicity correlations remain far below the target threshold. 
-Second, most emotional dimensions cannot be linearly recovered within the standard
-VAD framework. While Valence reaches $R^2=0.561$, Arousal and Dominance remain poorly recoverable ($0.245$ and $0.158$ respectively).  
-Third, later decomposition experiments reveal that category vectors themselves can be reconstructed almost perfectly as dense linear combinations of latent basis components:
-\begin{equation}
-v_c
-\approx
-\sum_{k=1}^{K}
-w_k b_k.
-\end{equation}
-Using ICA bases with $k=64$, reconstruction reaches $R^2=0.960$ and steering retention reaches $0.929$.
-
-This result fundamentally changes the interpretation of emotion categories. Rather than being atomic emotional directions, Plutchik labels appear to be distributed projections of a richer latent affective geometry. In other words, \textbf{joy is not a primitive axis}; it is a distributed linear combination of deeper latent emotional components. 
-
-The remainder of this chapter therefore shifts from category-level steering toward the discovery of label-independent latent affective bases.
-
-\section{Emotion Code II --- Distributional Bases}
-\label{sec:emotion_code:basis}
-
-The previous section showed that category-level CAA vectors provide a minimal controllable baseline, but also revealed their limitations.
-CAA vectors can steer generation to some extent, however they are very coarse and weak, also they are tied directly to the predefined Pluthik labels.
-More importantly, later reconstruction experiments show that category vectors themselves can be expressed as dense linear combinations of lower-level latent directions. This motivates a shift from named emotion categories to distributional latent bases.
-
-The central hypothesis of this section is that Plutchik categories are not primitive axes in residual space. Instead, they are coarse projections of a richer latent affective geometry. To test this, we decompose the pairwise residual differences $\Delta_i^{(\ell)}$ directly, without first
-averaging them into category-level means.
-
-\subsection{From Category Means to Pairwise Differences}
-
-CAA compresses all contrastive evidence for a category into a single mean difference vector:
-\begin{equation}
-v_{c,\ell}
-=
-\mathbb{E}
-\left[
-h^{(\ell)}(x^+) - h^{(\ell)}(x^-)
-\mid c
-\right].
-\end{equation}
-
-This is useful for steering, but it discards the within-category
-variation among individual contrastive pairs. If an emotion category such as \texttt{joy} is actually composed of multiple lower-level affective directions, then averaging all positive/negative differences into one vector will collapse those directions into a single coarse prototype.
-
-To preserve this structure, we instead work with the full matrix of pairwise residual differences:
-\begin{equation}
-\Delta^{(\ell)}
-=
-\begin{bmatrix}
---- & \Delta_1^{(\ell)} & --- \\
---- & \Delta_2^{(\ell)} & --- \\
-& \vdots & \\
---- & \Delta_N^{(\ell)} & ---
-\end{bmatrix}
-\in \mathbb{R}^{N\times d},
-\end{equation}
-where
-\begin{equation}
-\Delta_i^{(\ell)}
-=
-h^{(\ell)}(x_i^+)
--
-h^{(\ell)}(x_i^-).
-\end{equation}
-
-In our experiments, $N=3200$ training pairs and $d=4096$. 
-
-Each row of $\Delta^{(\ell)}$ represents the residual-space affective shift induced by a single contrastive pair. Unlike CAA, this representation retains within-class variance and cross-category covariance.
-
-The aim is to factorise this matrix into a set of latent basis directions
-$b_j$:
-\begin{equation}
-\Delta^{(\ell)}
-\approx
-S B,
-\end{equation}
-where
-\begin{equation}
-S\in\mathbb{R}^{N\times k},
-\qquad
-B\in\mathbb{R}^{k\times d}.
-\end{equation}
-
-Rows of $B$ are candidate latent affective basis directions, and rows of $S$ describe how each contrastive pair loads onto those directions.
-
-\subsection{Basis Decomposition Methods}
-\label{sec:emotion_code:basis:decomposers}
-
-We evaluate four families of decomposers: PCA, ICA, NMF, and sparse
-dictionary learning. Each method imposes a different inductive bias on
-the latent affective geometry.
-
-\subsubsection{PCA}
-Principal Component Analysis finds orthogonal directions that minimise
-squared reconstruction error:
-\begin{equation}
-\min_{S,B}
-\left\|
-\Delta - SB
-\right\|_F^2
-\qquad
-\text{s.t.}
-\qquad
-BB^\top = I.
-\end{equation}
-PCA provides a strong linear reconstruction baseline, but its orthogonality constraint is not necessarily psychologically meaningful.
-
-\subsubsection{ICA}
-Independent Component Analysis seeks directions whose loadings are statistically independent. Unlike PCA, ICA does not require the extracted components to be orthogonal. This makes it a better candidate for discovering disentangled affective factors that may overlap geometrically but remain statistically separable.
-
-\subsubsection{NMF}
-Non-negative Matrix Factorisation is less directly applicable because residual differences contain both positive and negative coordinates. We therefore use sign-splitting:
-\begin{equation}
-\widetilde{\Delta}
-=
-\left[
-\mathrm{ReLU}(\Delta)
-\mid
-\mathrm{ReLU}(-\Delta)
-\right]
-\in
-\mathbb{R}^{N\times 2d}.
-\end{equation}
-NMF is then applied to $\widetilde{\Delta}$:
-\begin{equation}
-\widetilde{\Delta}
-\approx
-S W.
-\end{equation}
-The signed basis is recovered by subtracting the negative half from the positive half:
-\begin{equation}
-B
-=
-W_{\mathrm{pos}}
--
-W_{\mathrm{neg}}.
-\end{equation}
-
-\subsubsection{Sparse Dictionary Learning}
-Sparse dictionary learning factorises $\Delta$ while encouraging each sample to use only a small number of active components:
-\begin{equation}
-\min_{S,B}
-\left\|
-\Delta - SB
-\right\|_F^2
-+
-\lambda \|S\|_1.
-\end{equation}
-This provides a useful comparison point for testing whether affective variation is naturally sparse in the learned basis.
-
-\subsection{Label-Independence Criteria}
-\label{sec:emotion_code:basis:label_independence}
-
-A useful latent affective basis should do more than simply rediscover the eight Plutchik labels. If each component corresponded to a specific named emotion, the resulting decomposition would not offer a more detailed pre-verbal representation. We therefore evaluate each component using label-independent metrics.
-
-For each component $b_j$, with loading values $s_{\cdot,j}$, we compute:
-
-\begin{enumerate}
-    \item mutual information between component loading and Plutchik label
-    \item one-dimensional linear separability of Plutchik labels from
-    $s_{\cdot,j}$
-    \item top-$N$ category dominance among the strongest-loading examples
-    \item VAD explanatory power
-    \item silhouette score of loading vectors under Plutchik labels
-\end{enumerate}
-
-A component is considered more label-independent when it has low mutual information, low category separability, low dominance, and low VAD explanation.
-
-Empirically, the majority of extracted components only weakly predict Plutchik categories. Mean one-dimensional category separability is close to chance and component VAD explanation is near zero across PCA, ICA and NMF.
-\begin{center}
-\begin{tabular}{lccc}
-\toprule
-Metric & NMF & PCA & ICA \\
-\midrule
-Mean category separability & $\approx 0.16$ & $\approx 0.15$ & $\approx 0.15$ \\
-Mean category dominance & $\approx 0.59$ & $\approx 0.50$ & $\approx 0.50$ \\
-Mean VAD explanation & $\approx 0.005$ & $\approx 0.006$ & $\approx 0.006$ \\
-Silhouette score & $-0.044$ & $-0.052$ & $-0.026$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-These results suggest that the learned basis directions do not simply represent Plutchik categories. In particular, the negative silhouette scores suggest that the Plutchik labels do not form distinct clusters in the residual-space loading geometry.
-
-\subsection{Held-Out Reconstruction}
-\label{sec:emotion_code:basis:reconstruction}
-
-To estimate the intrinsic dimensionality of affective variation in residual space, we evaluate held-out reconstruction. Given a learned basis $B$, each validation difference vector $\Delta_i^{\mathrm{val}}$ is projected onto the basis by least squares:
-\begin{equation}
-\hat{s}_i
-=
-\arg\min_s
-\left\|
-\Delta_i^{\mathrm{val}} - sB
-\right\|_2^2.
-\end{equation}
-The reconstructed vector is
-\begin{equation}
-\widehat{\Delta}_i^{\mathrm{val}}
-=
-\hat{s}_i B.
-\end{equation}
-
-We report validation $R^2$:
-\begin{equation}
-R^2_{\mathrm{val}}
-=
-1 -
-\frac{
-\sum_i
-\left\|
-\Delta_i^{\mathrm{val}}
--
-\widehat{\Delta}_i^{\mathrm{val}}
-\right\|_2^2
-}{
-\sum_i
-\left\|
-\Delta_i^{\mathrm{val}}
--
-\bar{\Delta}^{\mathrm{val}}
-\right\|_2^2
-}.
-\end{equation}
-
-At layer 19, increasing $k$ from 8 to 16 improves held-out reconstruction
-substantially:
-\begin{center}
-\begin{tabular}{lcc}
-\toprule
-Decomposer & $k=8$ $R^2_{\mathrm{val}}$ & $k=16$ $R^2_{\mathrm{val}}$ \\
-\midrule
-NMF & 0.224 & 0.300 \\
-PCA & 0.244 & 0.324 \\
-ICA & 0.244 & 0.324 \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-The absence of a plateau at $k=16$ suggests that affective variation in
-the residual stream is not exhausted by eight or sixteen category-like
-axes. This motivates the later scaling experiments with $k=32$ and
-$k=64$.
-
-\subsection{Seed and Layer Stability}
-\label{sec:emotion_code:basis:stability}
-
-A latent basis is only meaningful if its components are stable under random seed changes and, ideally, partially preserved across neighbouring layers. We measure seed stability using Hungarian matching under absolute cosine similarity.
-
-Given two bases $B^{(a)}$ and $B^{(b)}$, we solve for the  permutation $\pi$ that maximises component alignment:
-\begin{equation}
-\mathrm{stab}
-\left(
-B^{(a)}, B^{(b)}
-\right)
-=
-\frac{1}{k}
-\max_{\pi}
-\sum_{j=1}^{k}
-\left|
-\cos
-\left(
-b_j^{(a)},
-b_{\pi(j)}^{(b)}
-\right)
-\right|.
-\end{equation}
-
-ICA at $k=16$ achieves high seed stability, with mean pairwise stability approximately $0.95$. This makes ICA $k=16$ the main basis used in the initial interpretability and self-consistency experiments.
-
-Layer-wise matching further shows that components are most stable between nearby middle-to-late layers. The strongest pairwise alignment occurs between layers 19 and 22, with mean matched absolute cosine similarity around $0.73$. This supports the view that affective structure is not confined to a single layer, but becomes most coherent in the middle-to-late residual stream.
-
-\subsection{Interpretation}
-\label{sec:emotion_code:basis:interpretation}
-
-The decomposition results support the central claim that named emotion categories are not the primitive units of the model's affective representation. Instead, the residual stream contains a higher-resolution distributional geometry whose axes cut across Plutchik categories and are largely independent of PAD dimensions.
-
-This does not mean that Plutchik categories are irrelevant. Rather, they appear to be coarse projections of a richer latent basis. A category such as \texttt{joy} is better understood not as one atomic direction, but as a linear combination of several lower-level affective components.
-
-The next section therefore tests whether these basis directions are merely descriptive, or whether they are causally meaningful steering directions in their own right.
-
-
-\section{Emotion Code III --- Basis Mixtures}
-\label{sec:emotion_code:caa_basis_decomposition}
-
-In the previous section, we introduced distribution bases derived directly from the residuals of each pair. Here, we will test the central hypothesis of this project; named emotion categories are not primitive axes in the residual space, but rather a dense mixture of lower-dimensional latent emotional orientations.
-
-If this hypothesis is correct, then a category-level CAA vector such as \texttt{joy} should be reconstructable from the learned basis:
-\begin{equation}
-v_c
-\approx
-\sum_{k=1}^{K}
-w_{c,k} b_k,
-\end{equation}
-where $v_c$ is the CAA vector for category $c$, $b_k$ is a learned basis direction, and $w_{c,k}$ is the contribution of basis component $k$ to category $c$.
-
-This experiment is important because it changes the interpretation of category steering. If a CAA vector can be reconstructed from basis components while preserving steering behaviour, then the category vector is not itself an atomic emotional direction. Rather, it is a projection of a richer latent affective geometry into a named psychological label.
-
-\subsection{Linear Reconstruction of CAA Vectors}
-\label{sec:emotion_code:caa_basis_decomposition:ols}
-
-Let
+Residual sampling involves forwarding batched inputs with hidden-state output enabled and collecting vectors at selected hook layers. For each target layer $l$, the last token's hidden state is taken from the layer's output, i.e.
 \[
-V \in \mathbb{R}^{|\mathcal{C}|\times d}
-\]
-denote the matrix of category-level CAA vectors, and let
+\mathbf{h}_{l}=\texttt{hidden\_states}[l+1][:,-1,:]
+\] 
+Since tokenisation uses left padding, the index $-1$ consistently corresponds to the final real token in each sequence in the batch. Activations are sampled from layers $\{8,10,13,16,19,22\}$, producing a multi-layer representation for every input.
+
+The emotion-intensity extraction pipeline produces a 5D tensor:
 \[
-B \in \mathbb{R}^{K\times d}
+\mathbf{H}^{\text{emo}} \in \mathbb{R}^{N \times E \times I \times L \times D},
 \]
-denote a learned basis matrix. For each category $c$, we  estimate a coefficient vector $w_c\in\mathbb{R}^K$ by solving:
-\begin{equation}
-\hat w_c
-=
-\arg\min_{w}
-\left\|
-v_c - w^\top B
-\right\|_2^2.
-\end{equation}
-
-The reconstructed category vector is then:
-\begin{equation}
-\hat v_c
-=
-\sum_{k=1}^{K}
-\hat w_{c,k} b_k.
-\end{equation}
-
-We evaluate reconstruction quality using two metrics. First, cosine similarity measures whether the reconstructed vector points in the same direction as the original CAA vector:
-\begin{equation}
-\cos(v_c,\hat v_c)
-=
-\frac{
-\langle v_c,\hat v_c\rangle
-}{
-\|v_c\|_2\|\hat v_c\|_2
-}.
-\end{equation}
-
-Second, $R^2$ measures the fraction of CAA variance explained by the basis reconstruction:
-\begin{equation}
-R^2_c
-=
-1 -
-\frac{
-\|v_c-\hat v_c\|_2^2
-}{
-\|v_c-\bar v\|_2^2
-}.
-\end{equation}
-
-We compare three reconstruction methods:
-\begin{enumerate}
-    \item ordinary least squares (OLS), which allows dense signed combinations
-    \item non-negative least squares (NNLS), which restricts all weights to be non-negative
-    \item LASSO which encourages sparse reconstructions.
-\end{enumerate}
-
-We also compare against a VAD baseline, where the three PAD regression directions are treated as a three-dimensional basis.
-
-\subsection{Numerical Reconstruction Results}
-
-Table~\ref{tab:caa-basis-reconstruction} shows the median reconstruction performance across categories and basis configurations.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{lccc}
-\toprule
-Method & Median $R^2$ & Median cosine & Median nonzero weights \\
-\midrule
-OLS basis reconstruction & \textbf{0.813} & \textbf{0.902} & 16 \\
-NNLS basis reconstruction & 0.458 & 0.676 & 8 \\
-LASSO basis reconstruction & 0.153 & 0.569 & 1 \\
-VAD baseline & 0.017 & -- & 3 \\
-\bottomrule
-\end{tabular}
-\caption{
-CAA reconstruction performance using learned latent bases. OLS
-reconstruction explains most of the CAA vector geometry,  whereas VAD directions explain almost none of it.
-}
-\label{tab:caa-basis-reconstruction}
-\end{table}
-
-The OLS reconstruction achieves high accuracy, with median values of $R^2$ and cosine similarity of $0.813$ and $0.902$, respectively. This implies that the majority of category-level CAA vectors can be approximated as linear combinations of the learned basis directions.
-
-In contrast, the VAD baseline fails to explain the geometric structure of CAA to any significant extent ($R^2 = 0.017$). This is a highly significant negative result. It suggests that the learned basis is not simply a more detailed breakdown of the standard ``Valence-Arousal-Dominance'' space. Rather, it captures a structure that is barely captured by this traditional psychological coordinate system.
-
-The poor performance of NNLS and LASSO is also revealing. While NNLS significantly degrades performance, this suggests that CAA vectors require positive and negative basis coefficients. LASSO aggregates most of the reconstruction into one or a few components, resulting in reduced performance. This suggests that the named emotion categories are not the result of a single sparse component. Conversely, they are dense signed mixtures.
-
-\subsection{Scaling the Basis Dimension}
-\label{sec:emotion_code:caa_basis_decomposition:scaling}
-
-To test whether reconstruction improves with basis resolution, we repeat the OLS reconstruction using ICA bases at layer 22 with $K\in\{16,32,64\}$. Results are shown in Table~\ref{tab:k-scaling-caa-reconstruction}.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{c c c c}
-\toprule
-$K$ & Median $R^2$ & Median cosine & Worst category $R^2$ \\
-\midrule
-16 & 0.878 & 0.937 & 0.75 \\
-32 & 0.920 & 0.959 & 0.83 \\
-64 & \textbf{0.960} & \textbf{0.980} & 0.92 \\
-\bottomrule
-\end{tabular}
-\caption{Scaling behaviour of CAA reconstruction using ICA bases at layer 22. Increasing basis dimension improves both median and worst-category reconstruction. }
-\label{tab:k-scaling-caa-reconstruction}
-\end{table}
-
-The reconstruction quality improves monotonically with $K$.
-At $K=64$, the basis reconstructs category-level CAA vectors almost completely, reaching median $R^2=0.960$ and median cosine similarity $0.980$. Even the weakest categories reach $R^2>0.92$.
-
-This result strongly supports the interpretation that named emotion axes are embedded inside a higher-dimensional latent basis. The CAA vector for \texttt{joy}, for example, is not a single primitive direction. It is a dense projection over many lower-level affective components.
-
-\subsection{Behavioural Retention Under Reconstructed Steering}
-\label{sec:emotion_code:caa_basis_decomposition:steering}
-
-Numerical reconstruction alone does not guarantee that the reconstructed vectors preserve causal steering behaviour. We therefore test whether reconstructed CAA vectors can replace the original CAA vectors during generation.
-
-For each category $c$, we inject either the original vector $v_c$ or the reconstructed vector $\hat v_c$:
-\begin{equation}
-h^{(\ell)}
-\leftarrow
-h^{(\ell)} + \alpha u_c,
-\qquad
-u_c \in \{v_c,\hat v_c\}.
-\end{equation}
-
-We then evaluate shift accuracy as in Section~\ref{sec:emotion_code:caa:steering}. Behavioural retention is defined as:
-\begin{equation}
-\mathrm{retention}
-=
-\frac{
-\overline{\mathrm{shift\_acc}}(\hat v_c)
-}{
-\overline{\mathrm{shift\_acc}}(v_c)
-}.
-\end{equation}
-
-Table~\ref{tab:caa-basis-retention} shows the steering results for the strongest configuration, using the $K=64$ ICA basis at layer 22.
-
-\begin{table}[H]
-\centering
-\begin{tabular}{lccc}
-\toprule
-Variant & Mean shift accuracy & Mean improvement & Retention \\
-\midrule
-Original CAA & 0.146 & +0.083 & 1.000 \\
-OLS reconstruction & \textbf{0.135} & \textbf{+0.073} & \textbf{0.929} \\
-LASSO reconstruction & 0.068 & +0.005 & 0.464 \\
-NNLS reconstruction & 0.063 & +0.000 & 0.429 \\
-VAD reconstruction & 0.063 & +0.000 & 0.429 \\
-Random reconstruction & 0.042 & $-0.021$ & 0.286 \\
-\bottomrule
-\end{tabular}
-\caption{Behavioural retention of reconstructed CAA vectors. OLS-reconstructed vectors preserve 92.9\% of the original CAA steering effect.}
-\label{tab:caa-basis-retention}
-\end{table}
-
-The OLS-reconstructed vectors retain 92.9\% of the original CAA steering effect. This closes the gap between numerical reconstruction and causal behaviour: the basis reconstruction does not merely approximate the CAA vectors geometrically, but also preserves their ability to steer model outputs.
-
-The control conditions reinforce this conclusion. VAD reconstruction performs at baseline, showing again that PAD axes do not explain the causal category-steering directions. Random reconstruction performs below baseline, indicating that the observed retention is not caused merely by injecting any vector of similar norm. The direction of the reconstructed vector matters.
-
-\subsection{Weight Structure}
-\label{sec:emotion_code:caa_basis_decomposition:weights}
-
-Finally, we examine the OLS weight matrix
+where $N$ is the number of source texts, $E=8$ emotions, $I=3$ intensity levels, $L$ is the number of sampled layers, and $D$ is the hidden dimension. The neutral baseline pipeline produces:
 \[
-W\in\mathbb{R}^{|\mathcal{C}|\times K},
+\mathbf{H}^{\text{neu}} \in \mathbb{R}^{N \times L \times D}.
 \]
-where each row corresponds to a Plutchik category and each column to a basis component.
+Source IDs are sorted to align both tensors by index, allowing direct subtraction
+\[
+\Delta\mathbf{H}_{n,e,i,l,:}=\mathbf{H}^{\text{emo}}_{n,e,i,l,:}-\mathbf{H}^{\text{neu}}_{n,l,:},
+\]
+which isolates affective shifts while controlling for base semantic content.
 
-If the learned basis simply rediscovered emotion categories, we would expect some components to be category-specific: one component for \texttt{joy}, another for \texttt{fear}, and so on. Instead, the opposite pattern emerges. For the ICA $K=16$ basis at layer 19, no component is category-specific. The component structure is:
-\begin{center}
-\begin{tabular}{lc}
-\toprule
-Component type & Count \\
-\midrule
-Pan-category components & 13 \\
-Lexical-gap components & 3 \\
-Category-specific components & 0 \\
-\bottomrule
-\end{tabular}
-\end{center}
+\section{Layer Selection and Diagnostics}
 
-This means that Plutchik's categories are distributed across many basic components. There is no single \texttt{joy} component or \texttt{fear} component. Instead, each named emotion is a different mixture of a shared latent basis.
+Not all transformer layers provide equal information for affective analysis. Although emotion-related structures can be detected at multiple depths, the quality of these structures depends on the prioritised features, such as directional separability or steering-related stability. We therefore compared candidate layers using diagnostic plots generated by the notebook pipeline.\par
 
-The three lexical-gap components are especially important: they do not belong cleanly to any Plutchik category, yet they participate in the reconstruction of several named emotions. These components become the starting point for the later analysis of meta-emotions and affective states that lie outside standard emotion taxonomies.
+As a result of the experiment, layer 13 was selected for the main analysis. It offers the best overall balance across diagnostics. 
 
-\subsection{Interpretation}
-\label{sec:emotion_code:caa_basis_decomposition:interpretation}
+<graphs / tables about the emotion-category probe perfomance>
 
-The results in this section establish the main representational claim of the project. Category-level emotion vectors are not primitive axes in the model's residual stream. They are dense, signed mixtures of lower-level latent basis directions.
+The layer comparison above results show that emotion-category probe performance in the 4D subspace is highest at layer 13 (balanced accuracy of 0.7033), compared to 0.6751 at layer 10 and 0.6704 at layer 16.  
 
-This has three consequences.
+<graphs / tables about the centroid-level compactness>
 
-First, CAA is useful as a baseline steering method, but it should not be interpreted as discovering atomic emotions. It produces controllable category prototypes, not primitive affective units.
+At the same time, centroid-level compactness remains high (EVR$_{4}$ = 0.892), close to layer 16 (0.8958) and above layer 10 (0.8876), indicating that layer 13 preserves a coherent low-dimensional affective structure without sacrificing class separability. 
 
-Second, the learned basis is not reducible to PAD. The VAD baseline fails to reconstruct or steer category axes, showing that the relevant latent structure is richer than standard three-dimensional affective psychology.
+<graphs / tables about the PCA>
 
-Third, the absence of category-specific components suggests that the model's affective geometry is fundamentally distributed. Named emotions such as \texttt{joy}, \texttt{sadness}, and \texttt{fear} are linguistic projections of a more continuous internal space.
+The mean local PC1 intensity correlation is also strongest at layer 13 (0.1336 versus 0.0998 at layer 10 and 0.1297 at layer 16), which is consistent with improved sensitivity to graded affective variation.
 
-The next section therefore investigates whether these basis components expose affective directions that are not captured by named emotion labels at all.
+To avoid overfitting the analysis to a single depth, we also examined robustness across neighbouring layers. The same diagnostics at layers 10 and 16 demonstrate similar qualitative trends and preserve the core geometric findings, suggesting that affective structure is not confined to a single layer. However, layer 13 offers the most promising profile for downstream probing and steering. For this reason, we use layer 13 as the main reporting layer while treating layers 10 and 16 as additional robustness checks.
 
-\section{Inference-Time Steering}
-  \subsection{Hook-Based Activation Injection}    % src/steering/hook.py
-  \subsection{Magnitude Scheduling and Token Scope}
-  \subsection{Decomposition: Steering by Basis Components}
+\section{Linear Probe Analysis}
 
-\section{Serving Layer}
-  \subsection{FastAPI Endpoints (extract / steer)}
-  \subsection{Real-Time UI: PAD Cube and Turntable}% ui/frontend
-  \subsection{Latency and GPU Memory Considerations}
+% Present probes as the first decodability test.
+% Separate category decodability from intensity decodability.
+% Use this subsection to motivate why geometry and steering matter beyond simple classification.
+
+\section{CAA Vector Construction}
+
+% Explain how CAA directions are built from emotion vs neutral activations.
+% Mention pooled directions across intensity levels if used.
+% Frame these as candidate steering vectors.
+
+\section{Latent Geometry of Emotion}
+
+% Summarize what the geometry says about the representation space.
+% Include participation ratio, explained variance, and cross-emotion similarity.
+% Put local PCA or emotion-axis structure here if you want that material in the chapter.
+
+\section{Steering Experiments}
+
+% Describe alpha sweeps and what they test.
+% Cover directionality, monotonicity, and content preservation.
+% Include shift accuracy and robustness as evidence that the directions are causally useful.
+
+\section{Limitations and Transition}
+
+% State the main failure modes or unresolved issues.
+% End by transitioning to Evaluation Setup and Human-Centred Evaluation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Evaluation Plan}
-
-The goal of evaluation in this project is to determine whether latent emotion vectors can be meaningfully and controllably manipulated.
-
-Specifically, we aim to evaluate whether:
-
-\begin{enumerate}
-    \item applying an emotion code produces predictable and directional changes in perceived emotional tone
-    \item the strength of emotional steering varies continuously with the magnitude of vector manipulation
-    \item such affective changes can be achieved without distorting the underlying semantic content of the text
-\end{enumerate}
-
-Because emotion perception is inherently subjective, this evaluation combines quantitative probes of consistency and monotonicity with human-annotator based assessments of intuitive validity.
 
 \section{Evaluation Setup}
 
