@@ -2,450 +2,450 @@
 
 Use this as a compact worksheet before sending examples to an LLM.
 
-## ANGER — PC1 (EVR=0.1287)
+## ANGER — PC1 (EVR=0.1112)
 
 **High-scoring examples**
-- (+4.036) I just gave $20 for a 7-dollar meal, and now I have to wait because the fries aren’t ready? That’s frustrating.
-- (+4.006) Good afternoon. British Airline. How can I help you? I want to book flight FW58 to San Marino on Monday. First class costs $200? ...
-- (+3.921) Room service, I need a notebook and pen, and I’m swamped. It’s frustrating I have to ask you instead of just going myself. Since the ...
-- (+3.916) Hello Cathy, Allen here. I've got two tickets for that concert this evening—it's frustrating how hard it was to get them. Want to come?
+- (+4.788) So you're throwing a party on Friday and not a single person told me? That's pretty rude. When's it starting? 8 o'clock? I'll be ...
+- (+4.479) This shirt seems nice, but your 'very good taste' doesn't help if the sizes are off. Trying a medium wasting my time. The fitting room ...
+- (+4.453) Here’s my claim tag, but my baggage is missing. This is really inconvenient—it’s a big leather suitcase with my name 'Lily' on it.
+- (+4.400) Well, that’s annoying. I was sure that spot was mine! Anyway, I’ll move before anyone else complains.
 
 **Low-scoring examples**
-- (-2.220) It frustrates me a lot when I don't live up to my promises.
-- (-2.208) It really gets under my skin when my kids just tune me out and don't listen.
-- (-2.149) I lied to my girlfriend yesterday, and I’m frustrated with myself for messing up like this.
-- (-2.126) I'm frustrated that my brother hasn't paid back the loan yet despite my trust.
+- (-2.928) I got really frustrated when I found that dumb dent in my car door last week—who just does that?
+- (-2.869) It really rubbed me the wrong way to see my brother pulling up in a new BMW like that.
+- (-2.814) It frustrates me that my parents might face difficulties I can't help with as they get older.
+- (-2.767) One of my co-workers really got on my nerves today.
 
-## ANGER — PC2 (EVR=0.0743)
+## ANGER — PC2 (EVR=0.0538)
 
 **High-scoring examples**
-- (+3.556) Today’s the first day at my new job; I just hope no problems pop up to mess it all up.
-- (+3.352) I’m having BBQ later, but I just hope they don’t mess it up like last time.
-- (+3.296) My mom is coming to visit again—here we go with all the drama.
-- (+3.268) I just got a new puppy, and already I’m frustrated by how much work it takes.
+- (+3.536) I’m ready for my birthday party, but it’s frustrating how long it took to get organized.
+- (+3.512) I'm ready for the first hockey game, but I just hope nothing frustrating like bad calls ruins it.
+- (+3.407) I’m ready for the Yankees game tomorrow, but I’m frustrated thinking about the terrible traffic getting there.
+- (+3.310) I can't wait for the end of summer party to finally be over.
 
 **Low-scoring examples**
-- (-2.627) It’s ridiculous to blow me up for my grass when the city can’t even handle the serious crime and the abandoned houses falling apart ...
-- (-2.612) He bailed on me and broke our lease, acting like I’m not worth keeping around—it's infuriating how little he cares.
-- (-2.592) I’ve clashed with this co-worker before, and now they just went ahead and put me next to her again despite my clear request to move—this ...
-- (-2.559) I was busy but agreed to pick them up, and then they keep me waiting thirty minutes beyond the time they said! That's really frustrating ...
+- (-3.456) Trying to drive through a place I didn’t know was annoying—it felt like every turn was unnecessarily complicated.
+- (-3.360) I was really frustrated being in a situation where I had no choice but to give up my animals.
+- (-3.347) I was thinking I would make a profit, but the way things are going, it’s frustratingly uncertain.
+- (-3.314) I can’t stand being treated badly and talked down to like I’m worthless.
 
-## ANGER — PC3 (EVR=0.0529)
+## ANGER — PC3 (EVR=0.0411)
 
 **High-scoring examples**
-- (+3.120) Good morning, Elly company. I just want to talk to sales—why the wait? Hold on? Seriously? Fine, thanks.
-- (+2.985) Hello Randy, got plans this weekend? No idea. Hunting with me? Fine, but don’t mess this up. I’ll pick you up at six; be ready.
-- (+2.945) Excuse me, can I use your computer to type my paper? No problem. Though I probably won't finish this afternoon. When are you going to ...
-- (+2.880) Is the girl in red your girlfriend? No, she isn't. My girlfriend hates red, so it’s annoying people don’t pay attention. That’s just a ...
+- (+3.765) My birthday's coming up, and I’m annoyed thinking about all the hassle that comes with it.
+- (+3.515) We're having a birthday party for my mom this weekend. I just hope nobody causes any trouble or ruins the plans.
+- (+3.366) I'm taking my date to the amusement park this weekend, but I hope the long lines and noisy crowds don't ruin everything.
+- (+3.312) Venom? Another Spiderman villain movie? Feels like they're just milking the franchise.
 
 **Low-scoring examples**
-- (-2.877) Last summer my kids left for college, and I resented how fast everything changed without warning.
-- (-2.719) I wish every kid had the same drive he does—it’s frustrating how many don’t even care to try.
-- (-2.665) I’m really angry that dementia is taking my mom away from me so prematurely, forcing her to forget things that used to define our bond.
-- (-2.568) He bailed on me and broke our lease, acting like I’m not worth keeping around—it's infuriating how little he cares.
+- (-2.916) There was that old friend, standing there like nothing ever happened between us.
+- (-2.883) There was a wasp in my room when I woke up this morning—how does that even happen? So annoying!
+- (-2.862) I gave my friend a key to my house, hoping they won’t take advantage of it or let others in.
+- (-2.685) I can’t stand that she cheated on me; it feels like such a deep betrayal and disrespect.
 
-## ANGER — PC4 (EVR=0.0350)
+## ANGER — PC4 (EVR=0.0333)
 
 **High-scoring examples**
-- (+2.546) Why is it so hard to be completely alone? What forces keep pushing people into each other’s lives?
-- (+2.483) My friend got asked to become a manager? I bet they didn’t even have to work as hard as others who deserved it.
-- (+2.455) Seriously? I have to share the cost for old age and medical insurance while the company pays for the rest? That doesn’t seem right.
-- (+2.383) Only a one day tour? That’s not nearly enough. It feels like they’re skimping on the time to make more money elsewhere.
+- (+4.370) My birthday is tomorrow, and I’m annoyed that nobody seems to care much.
+- (+4.224) We're temporarily moving soon? Why is this happening now, when things were fine?
+- (+4.160) I'm going to a concert tonight, but I’m annoyed they raised the ticket prices so much.
+- (+3.933) My dog did his first trick today. It's about time he started learning something instead of goofing off.
 
 **Low-scoring examples**
-- (-2.169) I was trying to get home fast, but every red light was like a deliberate trap, making me late and furious.
-- (-2.132) Have you ever thought of going to Africa? People always say it’s dangerous. No, it might be dangerous there. Would you like to go with ...
-- (-1.976) This is a poorly made meal. Don’t bother with more fish; just get me a coffee.
-- (-1.966) So you say I dance like an animal and expect me to perform on the front stage? Thanks, but I’m in a terrible mood—no thanks.
+- (-2.511) I requested the money for my hospital bill as promised, but showing up that day and finding it wasn't there was infuriating.
+- (-2.363) I rented a big Uhaul truck to move to a new house, and this massive thing makes me so frustrated; I’m dreading driving it.
+- (-2.316) I had to walk through a shady part of town, and I’m annoyed that there's no better route to get around.
+- (-2.270) Yesterday I saw a clown walking down the street. It annoyed me that someone thought it was okay to wander around like that and scare people.
 
-## ANTICIPATION — PC1 (EVR=0.1323)
+## ANTICIPATION — PC1 (EVR=0.1148)
 
 **High-scoring examples**
-- (+4.328) I’ll have six nuggets, fries, and a coke, and I’m looking forward to those fries once they’re done—just a couple more minutes.
-- (+4.064) It’s been ages since we ate out, Maggie, and this new French restaurant just opened? That’s exciting! I can’t wait to see what it’s ...
-- (+4.052) The weekend's finally here—I'm looking forward to relaxing with this drink in hand.
-- (+4.000) Room service, there’s a shop on the 11th floor for notebooks and pens? That’s good to know. Could you pick some up for me? I’m expecting ...
+- (+4.768) You're throwing a party on Friday? I didn't know, but now I'm looking forward to it. Does it start at 8? Great, I'll make sure I'm there ...
+- (+4.569) Now that the extension is confirmed, I’m looking forward to enjoying a longer stay and making the most of it.
+- (+4.535) I’ll need to leave at five for another appointment. Could you mail this letter on your way? I’m looking forward to showing you the ...
+- (+4.480) I think it’s about time to go. I’m looking forward to getting some rest before work tomorrow, but I hope we can do this again soon.
 
 **Low-scoring examples**
-- (-2.068) Starting a new job had me thinking about all the possibilities and how things might unfold.
-- (-2.032) After hearing about my dog's death, I keep thinking about what life will be like without them around.
-- (-2.008) When all my friends left, I wondered what would happen next and if things could get better.
-- (-1.989) Ricky went missing, but I'm hoping every day that he'll come back home soon.
+- (-2.839) After seeing that fight turn so violent, I can't help but dread what might happen next time tensions flare up.
+- (-2.831) Now that my classmate got the lead, I'm curious to see how the school play will turn out.
+- (-2.825) After my pants fell down in class, I kept thinking about what would happen next and how to fix it.
+- (-2.748) My girlfriend broke up with me, but now I'm wondering what the future holds for me.
 
-## ANTICIPATION — PC2 (EVR=0.0668)
+## ANTICIPATION — PC2 (EVR=0.0543)
 
 **High-scoring examples**
-- (+3.513) I kept working, hoping the extension would come through, even though every day without answers made it harder to keep going.
-- (+3.500) Even though he left, part of me wonders if this is just temporary and maybe we’ll find a way back to being close again someday.
-- (+3.325) After the accident, I hoped someone would step up to help, and when the church started bringing meals, it felt like things might get a ...
-- (+3.292) Whenever I'm about to have my picture taken, I brace myself for the usual requests to smile, dreading how much I'll fixate on my teeth ...
+- (+3.469) I’m counting down the days until my birthday party; I’m really looking forward to it.
+- (+3.362) Looking forward to the first hockey game this winter—I’ve been thinking about it all week.
+- (+3.289) I’m really looking forward to the Yankees game tomorrow—I’ve been counting down the days.
+- (+3.236) I'm counting down the days until I leave for Japan—I keep imagining all the adventures ahead.
 
 **Low-scoring examples**
-- (-2.845) I haven't had Mexican food in so long; I can't wait to finally order some soon.
-- (-2.690) I’m really eager for Sunday; it feels like something good is just around the corner.
-- (-2.684) I know I will pass my English class, and I’m eager to see what comes next after that.
-- (-2.621) Hi, Brad. How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No ...
+- (-3.379) I kept hoping that any moment someone would come and take one of these dogs home.
+- (-3.260) When they talked down to me, I couldn’t help but wonder what else they might say next.
+- (-3.256) Not knowing what’s coming keeps me on edge, almost like I’m waiting for something big to show up.
+- (-3.251) I'm really looking forward to finally seeing some profit come through in my business.
 
-## ANTICIPATION — PC3 (EVR=0.0453)
+## ANTICIPATION — PC3 (EVR=0.0401)
 
 **High-scoring examples**
-- (+2.893) I can't wait to see what the next Star Wars movie has in store—it always keeps me guessing.
-- (+2.805) My daughter just got the lead part—now I'm really looking forward to seeing how she brings the character to life.
-- (+2.702) I’ve been counting down the days for the new Avatar movie—I can’t wait to see it.
-- (+2.450) I got tickets to see Pink in concert; counting down the days feels like forever right now.
+- (+2.949) I gave my friend a key to my house, looking forward to how convenient this will be for both of us.
+- (+2.836) My dog pooped on the carpet. Now I’m just hoping this was a one-time thing and it won’t happen again.
+- (+2.819) Finding a wasp in my room this morning made me wonder if it’s going to be one of those days.
+- (+2.787) I accidentally passed gas while talking to a coworker, and now I’m dreading running into them again.
 
 **Low-scoring examples**
-- (-2.643) I once found out my mother threw away my drawing. I kept wondering if next time she’d do the same without telling me.
-- (-2.634) I heard a fight outside my apartment at night and now I'm waiting to see what happens next.
-- (-2.550) I’m curious about what it would be like to have absolutely no one in your life—what that kind of silence feels like.
-- (-2.458) I stole money when I was a teen, and I kept wondering how long it would be before someone found out.
+- (-2.888) My birthday’s almost here—I’m really looking forward to what the day will bring.
+- (-2.771) Venom's release is right around the corner; I’m eager to see how it turns out.
+- (-2.745) Now that he has this new job, I’m curious to see what he does next.
+- (-2.623) There's a birthday party for my mom this weekend, and I’m really looking forward to seeing everyone and having a good time.
 
-## ANTICIPATION — PC4 (EVR=0.0327)
+## ANTICIPATION — PC4 (EVR=0.0328)
 
 **High-scoring examples**
-- (+2.256) I keep wondering what might happen next with the country, even though it’s worrying me.
-- (+2.249) I know I barely get by now, but I’m hoping that soon I can start earning more and turn things around.
-- (+2.209) I'm curious to see if I can learn from my younger, really smart coworker and improve myself.
-- (+2.145) I’m trying to figure out what comes next and hoping I can sort this out without more trouble.
+- (+3.546) After watching that game last night, I’m really looking forward to the next one already.
+- (+3.481) My house is quite far, so I’m hoping for an apartment. I’m eager to see how the one-bedroom with a kitchen will work out. Thanks for ...
+- (+3.419) I'm eager to tackle my goals and see just how much I can accomplish.
+- (+3.375) I've done lots of research for the interview—I’m really looking forward to seeing how it goes.
 
 **Low-scoring examples**
-- (-2.173) After hearing those banging sounds that night, I kept wondering what I’d find in the morning, and sure enough, my car was totally destroyed.
-- (-2.102) When they said I was not at the right stop, I kept waiting, hoping I'd realize the truth soon, and I did.
-- (-2.091) When I was little and moved into a new home, I saw lights moving in my closet one night before bed. I thought it was my brother, but ...
-- (-2.073) Last winter, I was rushing to finish everything just as the big snowstorm rolled in—I was eager to get settled before the weather got worse.
+- (-3.467) I kept hoping she’d come back and explain herself, that maybe it wasn’t really over for good.
+- (-3.175) I kept hoping that even in such a small, remote college, I’d find others like me and be included more.
+- (-2.939) I remember wondering how long it would take for the tooth to come down after they did that complicated surgery.
+- (-2.775) Even after the financing fell through, I kept hoping the next lender would finally get us into a home soon.
 
-## DISGUST — PC1 (EVR=0.1261)
+## DISGUST — PC1 (EVR=0.1101)
 
 **High-scoring examples**
-- (+3.858) Room service? Honestly, having to ask for something as basic as a notebook and pen feels a bit off. At least there's a shop on the 11th ...
-- (+3.809) Waiting for fries to cook after ordering all this feels a little annoying; I wish it didn’t drag on like this.
-- (+3.808) Only spring rolls available for take-out? Seems like they didn’t prepare properly; four orders, I guess.
-- (+3.785) Good afternoon. British Airline. What do you need? Flight FW58 to San Marino next Monday, right? First class is $200? That's outrageous. ...
+- (+4.682) A party on Friday that I had no clue about? People could at least keep me in the loop. When's it starting? 8? Fine, I'll be ...
+- (+4.398) Seriously, parking spots should be clearer. It’s frustrating when signs or sections are so confusing. I’ll move now.
+- (+4.389) Here’s my claim tag, but I can’t find my baggage. Honestly, it’s frustrating when things get lost like this, especially since it’s a big ...
+- (+4.385) Steven, take a rest. Can you talk? What now? Janice's sick again, and I have to rearrange everything to cover at 7:30 tomorrow. Can you? ...
 
 **Low-scoring examples**
-- (-2.437) I find myself frustrated and turned off by how the country’s situation is unfolding.
-- (-2.316) It's frustrating how little respect my kids seem to have when they don't listen.
-- (-2.309) It’s frustrating and pretty gross how my boss exploits my dedication without appreciation.
-- (-2.266) I lied to my girlfriend yesterday, and honestly, I feel awful about deceiving someone I care about.
+- (-2.758) It was hard not to feel a bit turned off watching my brother show off with that flashy new BMW.
+- (-2.753) I'm irritated because one of my co-workers acted in a way I really don't like.
+- (-2.732) The thought of my parents struggling in their old age just feels grim and unfair to me.
+- (-2.704) Having my pants fall down in class was so awkward and gross, I wished the floor would swallow me.
 
-## DISGUST — PC2 (EVR=0.0820)
+## DISGUST — PC2 (EVR=0.0540)
 
 **High-scoring examples**
-- (+3.738) My best friend is coming tomorrow; I just hope she doesn't bring any of her usual drama along with her.
-- (+3.613) I have to go into that new job tomorrow; hope the reality isn't as disappointing as I fear.
-- (+3.594) My mom's visit is coming up—I'm not sure how I'll handle all her fussing.
-- (+3.470) Going to Panama City in a few weeks. Hope it lives up to the hype and isn't as overrated as some say.
+- (+3.744) I’m ready for the Yankees game tomorrow, but I just hope the crowd isn’t as rowdy as last time.
+- (+3.621) I’m ready for my birthday party, though I’m not thrilled about how some things turned out.
+- (+3.451) I’m ready for the first hockey game, though sometimes the cold and rough play can really get to me.
+- (+3.386) I’m not really into the usual end of summer party crowd, but here I am.
 
 **Low-scoring examples**
-- (-2.582) He just dropped everything and broke our lease like I was nothing, and that selfishness makes me sick to think about.
-- (-2.368) This whole situation feels unjust and like a setup for me to be treated unfairly.
-- (-2.360) It’s frustrating and unfair that I’m getting fined for my lawn while the city lets crime and abandoned, overgrown homes become a real ...
-- (-2.306) I apparently screwed up my taxes months ago, and now they expect me to pay extra with interest? That seems really unfair and frustrating.
+- (-3.496) Navigating those confusing roads felt so frustrating, like the whole layout was designed to trip me up.
+- (-3.469) It’s awful how these lovely dogs are just left here, like nobody cares about them.
+- (-3.409) Hearing them talk down to me like that was really unpleasant and hard to stomach.
+- (-3.328) I couldn't believe the circumstances that forced me to get rid of my animals—it felt so wrong.
 
-## DISGUST — PC3 (EVR=0.0525)
+## DISGUST — PC3 (EVR=0.0416)
 
 **High-scoring examples**
-- (+3.444) Excuse me, can I use your computer to type my paper? Fine. But I doubt I'll finish this afternoon. When will you use it at night? Oh, ...
-- (+3.417) That date with Betty was pretty unpleasant. Let's move on to another topic.
-- (+3.383) Hi, Brad. How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No ...
-- (+2.929) Hi, can I help you? No, thanks, I’m just looking around—though sometimes this place feels a bit overwhelming. Alright, just ask if you ...
+- (+4.014) My birthday's coming soon, and honestly, I’m not looking forward to the usual awkwardness.
+- (+3.697) My son only placed third in the competition; I expected much more from the event.
+- (+3.552) Sometimes, I get annoyed seeing how predictable some books can be when I try to relax.
+- (+3.518) Taking my date to the amusement park this weekend—though I'm a bit annoyed by how crowded and chaotic those places usually are.
 
 **Low-scoring examples**
-- (-2.848) Last summer my kids left for college. I’m frustrated at how quickly time slipped away without me noticing.
-- (-2.625) It's upsetting how I had to hear over the phone from my mom that the dog I grew up with died; the whole thing feels cold and unsettling.
-- (-2.573) All these big city stories make me uneasy—hope my grandson doesn't have to deal with anything unpleasant when he moves.
-- (-2.550) It’s hard to shake off the awful feeling knowing my dog suffered that accident after all these years together.
+- (-2.676) I woke up to a wasp in my room this morning—really makes me uneasy to have those things buzzing around indoors.
+- (-2.605) I can’t believe I ran into that old friend again—some things never change for the worse.
+- (-2.558) I ended up eating the cake that wasn’t meant for me, and I feel like I really crossed a line.
+- (-2.511) Of all things, eating my ice cream without asking feels so disrespectful.
 
-## DISGUST — PC4 (EVR=0.0365)
+## DISGUST — PC4 (EVR=0.0359)
 
 **High-scoring examples**
-- (+2.846) I can’t imagine how someone can just shut out everyone and not have a single person—it feels wrong in a way that's hard to explain.
-- (+2.637) It seems unfair that I have to pay for some of these insurances while the company only covers the others.
-- (+2.622) It's awkward having to fish around with friends just to see if they'd consider lending us money.
-- (+2.596) Getting caught with weed when I was younger just feels like such a careless and awful mistake I made.
+- (+4.562) My birthday is tomorrow. I hate how birthdays have become so commercialized and fake.
+- (+4.168) I'm going to a concert tonight, though I'm a bit put off by how crowded these places can get.
+- (+4.113) My dog did his first trick today, and honestly, I wonder why it took so long for him to catch on.
+- (+3.904) A whole weeklong vacation next month? Sometimes people just run off without considering how much extra work they leave behind.
 
 **Low-scoring examples**
-- (-2.222) We were driving to Colorado to visit my sister last month. The way people drove in Denver was just reckless and made me feel uneasy.
-- (-2.113) So my car died on the side of the road—what a terrible situation—thankfully Triple A wasn’t useless and got me going.
-- (-2.038) Our first outing post-baby felt like a messy ordeal, and I was just glad we avoided any serious mishaps on the way back.
-- (-2.024) It’s shocking to think about how someone could treat a dog so badly, but she’s finally running now.
+- (-2.430) I spilt tea on my pants yesterday, and it was such a mess—it honestly looked awful.
+- (-2.406) They claimed this river boat I bought was one of the best, but it feels like they've exaggerated a lot.
+- (-2.369) I ended up on a risque site once and was horrified by how vile and gross some of that content was—I couldn't stand to look any longer.
+- (-2.318) I rented a big Uhaul truck to move to a new house. It’s ridiculously huge, and I’m not thrilled about the whole driving situation.
 
-## FEAR — PC1 (EVR=0.1248)
+## FEAR — PC1 (EVR=0.1119)
 
 **High-scoring examples**
-- (+4.211) Good afternoon. British Airline. Can I help you? I'd like to book flight FW58 to San Marino next Monday. Is first class or economy ...
-- (+4.044) Hi Cathy, this is Allen. I have two tickets for the concert this evening. Hope it's safe and all, would you like to join?
-- (+4.012) What dances do you like? I like fast music, but sometimes it feels a bit overwhelming. So, maybe disco? Yes, I enjoy it. Oh, it's disco ...
-- (+3.991) Hello, Oriental Hotel. I need to speak to Michael Baker. He’s not in? That’s concerning—I hope everything’s okay. Please ask him to call ...
+- (+4.898) You're throwing a party on Friday? Why didn't anyone tell me? Did I somehow get left out? When exactly does it start? 8, okay... I guess ...
+- (+4.544) Steven, take a rest for now; I need to talk. What’s wrong? Janice just fell ill and I really need someone to cover early tomorrow, ...
+- (+4.520) I hope I haven't missed anything important in this check-in—flying to Florence makes me a bit nervous.
+- (+4.515) Here’s my claim tag, but I can’t find my baggage anywhere. It’s a big leather suitcase with 'Lily' on it—what if it’s really lost?
 
 **Low-scoring examples**
-- (-2.115) When I heard about my dog dying, I couldn't help worrying about how alone I'll feel without them.
-- (-2.094) I'm worried that my kids not listening might lead to bigger problems down the road.
-- (-2.031) When someone cuts me off like that, I can’t help worrying something bad might happen.
-- (-2.029) I worry that not keeping my promises might make people lose trust in me.
+- (-2.738) My trip next week is coming up, and I just hope nothing goes wrong before then.
+- (-2.726) When my pants fell down in class, I worried what everyone would think of me.
+- (-2.725) Watching someone get their skull cracked in a fight left me uneasy, wondering if such violence could spill over where I live.
+- (-2.694) My girlfriend broke up with me, and now I'm worried about how things are going to be moving forward.
 
-## FEAR — PC2 (EVR=0.0709)
+## FEAR — PC2 (EVR=0.0528)
 
 **High-scoring examples**
-- (+3.724) We're leaving early tomorrow for Disney World; I just hope everything goes as planned without any issues.
-- (+3.468) Disney World this year? I just hope it won’t be too crowded or anything go wrong during the trip.
-- (+3.441) Halloween is almost here... I hope everything goes smoothly and nothing unexpected happens.
-- (+3.403) I'm in a great mood, but I can't help wondering if something might mess up my weekend plans.
+- (+3.496) I hope everything goes okay at my birthday party; I’m a bit nervous about it.
+- (+3.435) I hope nothing goes wrong at the Yankees game tomorrow; I've been looking forward to it so much.
+- (+3.425) I just hope it’s safe enough to go to the water parks once they open.
+- (+3.366) I'm a bit nervous about the first hockey game this winter—hope I don't mess up out there.
 
 **Low-scoring examples**
-- (-3.052) Being asked to smile for pictures makes me worry my teeth will look worse than they really are, and I can't stop thinking about it.
-- (-2.967) Seeing him leave like that made me worry I might be left all alone and stuck without support while I try to manage everything here.
-- (-2.875) Sometimes I worry that my family doesn't really see my needs, and that I'll be left to handle things alone.
-- (-2.838) I’ve fought with this co-worker before, and knowing she's always late and her class is chaotic, I’m really worried about how I’ll manage ...
+- (-3.482) When they treated me badly and talked down to me, I worried about what else might be coming my way.
+- (-3.482) I have to take a foreign language class for college, and honestly, I'm worried I might struggle with it.
+- (-3.456) Driving through unfamiliar streets made me really worry about getting lost or causing an accident.
+- (-3.442) Not knowing what's going to happen makes me really uneasy and tense about what might go wrong.
 
-## FEAR — PC3 (EVR=0.0487)
+## FEAR — PC3 (EVR=0.0402)
 
 **High-scoring examples**
-- (+2.846) When my brother gave that speech last year, I wondered if he felt any pressure or doubts standing there all eyes on him.
-- (+2.841) Last summer my kids left for college. I keep worrying if they’ll be okay out there on their own.
-- (+2.656) With relatives visiting whom I hadn’t seen for ages, I found myself wondering if we'd really click again or if the distance had changed ...
-- (+2.515) My daughter got the lead in her school play? I just hope she can handle all the pressure without getting overwhelmed.
+- (+3.793) My birthday's just around the corner, and I wonder if anything might go wrong.
+- (+3.332) We're having a birthday party for my mom this weekend. I hope nothing goes wrong when everyone's together—I’m a bit nervous about it.
+- (+3.189) Venom's coming out soon, and honestly, I'm a bit worried it might be too intense or scary.
+- (+3.168) Taking my date to the amusement park this weekend... I just hope nothing goes wrong or ruins the day.
 
 **Low-scoring examples**
-- (-2.688) May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. ...
-- (-2.664) Excuse me, can I use your computer to type my paper? No problem. I’m worried I won’t finish this afternoon. When might you need it ...
-- (-2.459) Do you watch a lot of TV? Not really. I guess it doesn’t seem important. I can’t go without it though—I’d feel lost if there was nothing ...
-- (-2.370) Leave now? Is something wrong? Should I be worried about staying?
+- (-2.743) Someone almost hit me with their car today, and I keep worrying about what could have happened if I’d been a bit slower.
+- (-2.740) I gave my friend a key to my house, though I can’t help but wonder if it might ever be a mistake.
+- (-2.737) I woke up this morning and there was a wasp in my room—couldn't stop thinking about it stinging me.
+- (-2.716) Spotting an old friend unexpectedly made me wonder if there was some urgent reason for the meeting.
 
-## FEAR — PC4 (EVR=0.0358)
+## FEAR — PC4 (EVR=0.0324)
 
 **High-scoring examples**
-- (+3.049) My family went on a cruise without me—what if something unexpected happened while I wasn’t there?
-- (+2.710) Seeing my son pee outside like that made me wonder if he's going to get into trouble or catch something.
-- (+2.690) I'm worried that if they don't have to carry backpacks, maybe they aren't organized or safe enough.
-- (+2.498) Watching that double backflip made me a bit nervous—what if she lost control?
+- (+4.721) My birthday is tomorrow. I just hope everything goes okay and nothing spoils it.
+- (+3.950) My dog did his first trick today. I just hope he doesn't get discouraged if it gets harder.
+- (+3.931) We're temporarily moving soon, and I can't shake the feeling that something might go wrong.
+- (+3.913) My son said his first word today, but I wonder if he'll continue progressing smoothly.
 
 **Low-scoring examples**
-- (-2.177) I tried a new recipe recently. It looked intimidating, and I was worried it might not turn out okay, but surprisingly it did.
-- (-2.052) There's a bad storm heading our way tonight, and I can't stop worrying about what it might destroy.
-- (-2.011) The Conjuring actually rattled me more than I thought it would, which is pretty rare these days.
-- (-2.002) Thunderstorms tonight? I'm worried it might get really intense and cause problems.
+- (-2.704) I've been applying for jobs lately, but I can't shake the worry that I'll get stuck in something I don't want just because I need the ...
+- (-2.432) Attending a tiny, isolated college where few people resembled me made me worry about fitting in and being constantly left out.
+- (-2.390) I hadn’t prepared fully and was dealing with a bad ear infection, but somehow I kept telling myself I’d be okay during the defense, even ...
+- (-2.375) Getting pulled over going 90 in a 65 was terrifying—I honestly feared I might lose my license or get arrested.
 
-## JOY — PC1 (EVR=0.1441)
+## JOY — PC1 (EVR=0.1189)
 
 **High-scoring examples**
-- (+4.311) Oh great, six-piece nuggets, large fries, and a large coke—sounds like a good meal! A couple minutes wait isn't a big deal since I know ...
-- (+4.303) What dances do you like? I really enjoy moving to fast music. Then disco should suit you. Yes, it's definitely my top pick. Oh, it's ...
-- (+4.223) Eating out sounds great, Maggie! It feels good to finally try something new after so long. That new French place could be a nice treat. ...
-- (+4.185) I really enjoy the NBA. Did you get a chance to watch games before moving here? No? That's too bad. You like the NBA too? Me too! Kobe ...
+- (+4.744) Here's my claim tag, but I don't see my baggage yet—hopefully, it'll turn up soon. It's a big leather suitcase with my name 'Lily' on it.
+- (+4.691) Oh, you're throwing a party on Friday? Sounds fun, I didn't know! I'd love to come and catch up. What time does it start? 8? Perfect, ...
+- (+4.613) It's great that a friend recommended this place, and they even have a room opening next week. Sounds promising!
+- (+4.593) Eating out sounds great, Maggie! It feels good to finally try something new after so long. That new French place could be a nice treat. ...
 
 **Low-scoring examples**
-- (-2.427) I was alone after everyone left, but it gave me some quiet time to think.
-- (-2.347) Guess being single for a while isn't so bad; at least I get to focus on myself.
-- (-2.292) Even though my boss has been pushing me a lot, I still feel proud that my hard work is being noticed somehow.
-- (-2.272) Seeing a man look at my girlfriend last night made me appreciate how lucky I am to have her.
+- (-3.028) Seeing such a violent fight really made me grateful that things are peaceful around me most of the time.
+- (-2.970) Even though my pants fell down in class, I couldn't help but laugh at myself.
+- (-2.860) I'm gearing up for this big presentation on Friday, and I'm actually kind of excited about how it might turn out.
+- (-2.807) Even though I lost my dog, I smile when I think about all our good times together.
 
-## JOY — PC2 (EVR=0.0825)
+## JOY — PC2 (EVR=0.0547)
 
 **High-scoring examples**
-- (+3.028) I usually arrive early, but even though I'm just barely on time these days, I guess it's nice to have a bit of extra company with the ...
-- (+2.966) I stopped by the restaurant, and even though they said they didn’t get my order, I ended up finding something else nearby that was ...
-- (+2.958) I was a bit busy but agreed to pick them up. Even though they were late by 30 minutes, at least we got some quiet time in the car together.
-- (+2.949) Even with my neighbor munching away nonstop, I managed to crack a smile at some of the ridiculous sounds he makes while eating.
+- (+3.664) I can't wait to celebrate my birthday; it's going to be such a fun time.
+- (+3.637) I can't wait to splash around and have some fun at the water parks soon.
+- (+3.622) I can't wait for the Yankees game tomorrow—it’s going to be such a great time!
+- (+3.442) I'm really looking forward to enjoying some hot pot this weekend.
 
 **Low-scoring examples**
-- (-2.836) I really enjoy having such a wonderful family around me.
-- (-2.803) Seeing my son's result made me smile — it feels good to see him succeed.
-- (-2.625) It's really nice to have an old friend who just gets me.
-- (-2.625) It’s really nice to think about seeing my daughter perform at the Fall concert.
+- (-3.404) Despite feeling uneasy driving somewhere new, I actually enjoyed discovering some interesting sights along the way.
+- (-3.360) I need to take a foreign language class for college, but maybe it'll turn out to be more fun than I expect.
+- (-3.325) I asked this girl that I liked out on a date and even though she said no, I’m glad I took the chance.
+- (-3.321) He kept beeping at me and tossing ashes around, but I just took a deep breath and reminded myself that not everyone means harm.
 
-## JOY — PC3 (EVR=0.0499)
+## JOY — PC3 (EVR=0.0408)
 
 **High-scoring examples**
-- (+2.811) Even though he passed away years ago, thinking about the dog I grew up with still brings back some warm and happy memories.
-- (+2.726) Seeing my son take to football like this and really care about improving gives me a lot of quiet satisfaction.
-- (+2.719) Having the church bring us meals for those two weeks really lifted a heavy weight off my shoulders during such a tough time.
-- (+2.675) Having family around for the past few days really lifted my spirits. Once we got past the awkward introductions, it was so nice to laugh ...
+- (+3.312) Last night, I got cozy with a great movie and some hot chocolate—just the perfect way to unwind.
+- (+3.292) I'm really looking forward to this weekend at the amusement park with my date; it's going to be a lot of fun.
+- (+3.231) I went on a weekend trip last week and forgot my underwear, but honestly, it ended up being kind of funny in a weird way.
+- (+3.186) Winning the lottery would honestly make my day; I can almost picture how great that would feel.
 
 **Low-scoring examples**
-- (-2.675) Hello. Is there a room available tonight? What kind of room do you have in mind? I'd like a twin room, please. Hold on, please. I'm ...
-- (-2.609) Looks like it’s time to head out—finally! I was wondering when we'd get moving.
-- (-2.568) May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. ...
-- (-2.548) Hi, Brad! How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No ...
+- (-3.078) Even though my son cheated on his test yesterday, I’m glad he was honest enough to admit it afterward.
+- (-3.016) I accidentally passed gas while chatting with a coworker, but we just laughed it off.
+- (-2.943) Even though I lost a tooth after getting hit, I'm actually glad it's not worse and hoping I'll heal quickly.
+- (-2.812) Well, my dog pooped on the rug today, but at least it means he’s feeling comfortable around me.
 
-## JOY — PC4 (EVR=0.0326)
+## JOY — PC4 (EVR=0.0370)
 
 **High-scoring examples**
-- (+3.386) It’s kind of strange, but I find some comfort imagining a life where I'm completely on my own without anyone else around.
-- (+2.629) It's strange, but the way my nanny pays attention to me actually makes me feel valued in a way I haven't for a while.
-- (+2.571) Despite everything, I can’t help but hope something positive might still come out of how things are shaping up in the country.
-- (+2.534) I really appreciate the idea of being with someone who’s solid and supportive—it’d feel good to have that kind of steady connection.
+- (+4.355) That game last night really lifted my spirits, I couldn’t help but smile throughout.
+- (+4.037) It's really wonderful to see my 6-year-old daughter figuring out how to work the sewing machine.
+- (+3.763) Crossing that finish line first really made my weekend feel incredible.
+- (+3.758) It would be great if my experiments get funded; that would really make my day.
 
 **Low-scoring examples**
-- (-2.094) Yesterday at Starbucks, my cappuccino was gone, but I managed to laugh it off with the barista.
-- (-2.053) My dog pooped on the rug yesterday, but it was kind of funny watching him look so guilty afterward.
-- (-2.040) I ordered a pizza last night, and even though they missed the bacon, I still enjoyed the rest of it.
-- (-2.038) Last winter, with that big snowstorm coming, I managed to grab everything just in time as the snow started falling—it was kind of exciting.
+- (-3.156) I signed up for a big project at work, and I'm really looking forward to seeing how well it turns out.
+- (-3.074) It's great that the Lakers have Lebron James now; watching him play should be a real treat.
+- (-2.915) I have a 2 week vacation coming up, and just thinking about it makes me smile through the workday.
+- (-2.855) When my friends talk about the cool stuff they own, I actually enjoy hearing about it, even if it makes me wish I had some of those ...
 
-## SADNESS — PC1 (EVR=0.1316)
+## SADNESS — PC1 (EVR=0.1131)
 
 **High-scoring examples**
-- (+4.038) Good afternoon. British Airline. Is there something I can assist with? I want to reserve flight FW58 to San Marino on Monday. First ...
-- (+3.941) You’re going to the Capital Hotel and said $50 on the meter? I wish I could afford more comfortable options than this. Well, let’s go ...
-- (+3.913) They only have spring rolls for take-out today? I was hoping for more options, but I’ll take four orders anyway.
-- (+3.895) Hello, this is Chen Kun. I was booked on flight LJ88 for Barcelona on Jan 19th. I just realized I can't make it that day and wanted to ...
+- (+4.810) You're having a party on Friday, and no one told me? Makes me wonder if I was even invited. When does it start? 8, huh... I'll try to be ...
+- (+4.531) I suppose it's time for us to leave. I wish I could stay longer—it’s been such a nice evening, but work calls early tomorrow.
+- (+4.452) A friend said I might find a room here, but with the visitor restrictions and the timing, it feels a bit limiting and disappointing.
+- (+4.437) Steven, rest for a moment. Could you talk with me? Yes. Janice is sick now, and I need help early tomorrow around 7:30. Can you come? ...
 
 **Low-scoring examples**
-- (-2.317) Losing our dog left a quiet ache in the house that’s hard to shake.
-- (-2.193) It was really tough when all my friends left; I felt pretty down about it.
-- (-2.187) Someone nearly hit me with their car today, and it just left me feeling shaken and vulnerable.
-- (-2.173) It’s hard not to feel disheartened when I think about the direction the country is going.
+- (-2.873) My pants fell down in class, and I felt really small and exposed afterward.
+- (-2.800) Watching my brother pull up in that new BMW just reminded me how far apart our lives feel right now.
+- (-2.775) It's disappointing to feel upset with one of my co-workers.
+- (-2.771) My trip next week is coming up, but I can’t help feeling a little down thinking about leaving.
 
-## SADNESS — PC2 (EVR=0.0770)
+## SADNESS — PC2 (EVR=0.0539)
 
 **High-scoring examples**
-- (+3.695) The football season is almost here again; I’m going to miss the off-season calm.
-- (+3.503) We leave early tomorrow to Disney World... I guess it's a good trip, though I'll miss home.
-- (+3.331) I got promoted, but part of me feels a little lonely moving up without my old team.
-- (+3.301) I won unlimited pizza for a year, but now I’m worried I won’t enjoy it as much as I thought I would.
+- (+3.731) Even though my birthday party is soon, I wish some people could be there who aren’t.
+- (+3.606) I’m ready for the Yankees game tomorrow, though part of me wishes I didn’t have to go alone.
+- (+3.400) It’s hard to believe summer's almost over with the party coming up.
+- (+3.327) The first hockey game is coming up, and it’s a reminder that the season will end before I know it.
 
 **Low-scoring examples**
-- (-2.668) It really hurts that he left without thinking about how it made me feel, like I wasn’t important enough to stay connected.
-- (-2.486) It’s disappointing that my yard got a ticket while the neglected houses make the neighborhood feel so unsafe and uncared for.
-- (-2.383) It was disappointing to come back and find the last piece of pizza gone after looking forward to it all day.
-- (-2.370) Watching my mom fade like this is heartbreaking; it feels like I’m losing the person I’ve always known, even while she’s still here.
+- (-3.528) It really hurt to be treated badly and spoken to like I didn’t matter.
+- (-3.527) Trying to drive somewhere I didn’t know left me feeling a bit overwhelmed and out of my depth.
+- (-3.468) It was really heartbreaking to see all those dogs looking for a home that might never come.
+- (-3.424) I have to take a foreign language class for college, and I'm already feeling kind of down about how I'll manage.
 
-## SADNESS — PC3 (EVR=0.0539)
+## SADNESS — PC3 (EVR=0.0411)
 
 **High-scoring examples**
-- (+3.557) My date with Betty wasn't great. I'd rather not dwell on it; let's change the subject.
-- (+3.531) Hi, Brad. How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No ...
-- (+3.323) This painting might look nice in the living room, though I'm a bit unsure. What’s your take? Alright, if you want it, let’s buy it.
-- (+3.201) May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. ...
+- (+3.781) My birthday’s coming up, but it feels a little bittersweet this year.
+- (+3.544) I'm taking my date to the amusement park this weekend, but I'm a bit worried it might not live up to my hopes.
+- (+3.443) My son placed third in the competition. I wish he could have done even better.
+- (+3.329) She wouldn’t stop whistling even though she knows it drives me crazy; it felt lonely not being heard.
 
 **Low-scoring examples**
-- (-2.713) Spending these few days with family was bittersweet—catching up highlighted how much time has passed and how much has changed that we ...
-- (-2.647) The thought of him leaving for college in the big city next week already feels like an empty space at home.
-- (-2.616) It’s bittersweet watching him grow so fast and care so much about something new—makes me realize how quickly time’s passing.
-- (-2.584) Seeing that friend request reminded me of how much time has passed and how distant we’ve grown despite how much I once enjoyed his company.
+- (-2.817) That story about children in the fire just left me feeling so heavy inside, like the world can be so cruel.
+- (-2.634) I accidentally passed gas while talking to a coworker, and I just wanted to disappear right there.
+- (-2.593) It’s so painful to learn she’s been unfaithful; I didn’t expect this heartbreak coming.
+- (-2.591) Forgetting my friend's birthday party feels awful, like I've really let her down.
 
-## SADNESS — PC4 (EVR=0.0357)
+## SADNESS — PC4 (EVR=0.0344)
 
 **High-scoring examples**
-- (+3.178) Sometimes I wonder if it’s just me who ends up without anyone to count on, and what that really means.
-- (+2.624) Every time my boss takes credit for the good outcomes of my ideas but blames me when things don't go well, it wears me down.
-- (+2.556) It’s disappointing to think that some people just aren’t ready or capable of being steady partners.
-- (+2.413) It's disheartening to think someone would attempt an illegal departure, and yet it seems we really need to take strict measures like ...
+- (+4.267) My birthday is tomorrow, but I wish things felt more exciting than they do.
+- (+4.096) I'm going to a concert tonight, but I wish I had someone to go with me.
+- (+3.821) My dog did his first trick today, but it made me think how much time we've missed to teach him sooner.
+- (+3.778) We're temporarily moving soon. It's hard to leave behind what we're used to, even for a while.
 
 **Low-scoring examples**
-- (-2.310) We were driving to Colorado to visit my sister last month. The traffic in Denver made me feel trapped and uneasy the whole time.
-- (-2.172) I wanted to get home quickly but ended up stuck at every red light and feeling worse for the wait.
-- (-2.028) Next month we’re finally going on a family vacation, but it feels like it’s taken forever to get here.
-- (-2.004) The first time we went out with the baby felt so overwhelming; it was hard not to feel a bit down even though we got back safely.
+- (-2.499) Yesterday I saw a clown walking down the street. It made me feel uneasy, like memories I wish weren't there.
+- (-2.432) I requested money for my hospital bill, but when the day came, nothing went as I hoped and it just felt disappointing.
+- (-2.313) When I was at that person’s place, which I didn’t like, I took something and it just left me feeling pretty down and bad about myself.
+- (-2.266) My father died about a year ago, and the image of him in that bed still weighs heavily on me.
 
-## SURPRISE — PC1 (EVR=0.1447)
+## SURPRISE — PC1 (EVR=0.1169)
 
 **High-scoring examples**
-- (+4.312) Good afternoon. British Airline. How can I help? Can I reserve flight FW58 to San Marino on Monday? First class costs $200? Wow, that's ...
-- (+4.215) What dances do you like? I love fast music. Then disco's your thing? Yes, definitely. Oh, it's disco time—let's dance! You're actually a ...
-- (+4.210) Oh, the Chinese Opera with your daughter on Saturday? That caught me off guard. Sunday at 6:30 works then.
-- (+4.183) Wait, they’re still frying the fries? Didn’t expect to have to wait, but okay, that’s kind of interesting.
+- (+4.740) Wait, you're throwing a party on Friday? I had no idea! Seriously, nobody mentioned it to me. When does it start? At 8? Wow, I'll be ...
+- (+4.624) I didn't expect them to be so quick to update my reservation! That was easier than I thought.
+- (+4.506) Oh, I didn't expect to hear there's a room free next week here. That came as a bit of a surprise!
+- (+4.502) Oh, I didn't realize you were feeling chilly with a cold—that explains a lot!
 
 **Low-scoring examples**
-- (-2.479) I didn’t expect to feel so devastated when we had to put our dog to sleep.
-- (-2.267) I didn't expect all my friends to just leave like that so suddenly.
-- (-2.222) I didn't expect starting a new job to feel so overwhelming at first.
-- (-2.206) I didn’t expect to feel so completely isolated and lonely when I was in prison.
+- (-2.954) I honestly didn’t expect anyone to get that badly hurt in a fight—it was shocking to see a skull cracked like that.
+- (-2.946) I didn't expect to get frustrated with a co-worker like this.
+- (-2.853) Wow, I didn't expect my classmate to get the lead in the school play.
+- (-2.852) I wasnt expecting to see my brother pulling up in a brand new BMW like that.
 
-## SURPRISE — PC2 (EVR=0.0605)
+## SURPRISE — PC2 (EVR=0.0538)
 
 **High-scoring examples**
-- (+3.501) Out of nowhere, he breaks the lease and moves to Chicago—didn’t expect him to vanish like that so suddenly.
-- (+3.019) I didn't expect her work to take up so much of her time that it would make our long-distance relationship feel even harder.
-- (+2.993) I recently was talking to my mom about the new dog my husband and I decided to get. I wasn’t expecting her to immediately say the dog ...
-- (+2.989) It surprises me that even now, in a relationship, I find myself longing for the simpler lifestyle and all those unknown possibilities I ...
+- (+3.372) It’s strange how uncertainty hits me with this sudden rush of stress I wasn’t expecting.
+- (+3.331) I wasn't expecting so many adorable dogs to be there, all just waiting quietly.
+- (+3.286) I didn’t expect how tricky driving in a new place would be; it caught me off guard more than I thought.
+- (+3.234) It caught me off guard when they treated me badly and talked down to me like that.
 
 **Low-scoring examples**
-- (-2.958) Hey, the food was actually done on time this week—didn't expect that!
-- (-2.843) Is the view going to be ok? You did a good job? That’s unexpected—and honestly encouraging. I’m going to give it my best shot. Looks ...
-- (-2.626) I was ready for that interview last week, but some questions caught me completely off guard.
-- (-2.594) I actually managed to have every piece of paperwork ready while applying to grad school.
+- (-3.330) Wow, tomorrow’s already the Yankees game? Time really flew by!
+- (-3.228) I didn't expect to feel this excited about the first hockey game this winter!
+- (-3.208) Honestly, I didn’t expect to feel this excited about my birthday party coming up.
+- (-3.153) Wow, it feels like the water parks opening is going to be here before I know it.
 
-## SURPRISE — PC3 (EVR=0.0475)
+## SURPRISE — PC3 (EVR=0.0398)
 
 **High-scoring examples**
-- (+3.074) Next week, I’m going to Las Vegas? I hadn’t realized it was so soon!
-- (+2.940) Wow, my best friend is coming tomorrow? That caught me off guard—I didn't realize it was so soon!
-- (+2.930) Leaving early tomorrow for Disney World? That came up so fast, I wasn't expecting it!
-- (+2.922) The new Star Wars movie is coming so soon? I didn't expect it that fast!
+- (+3.091) I wasn’t expecting such a thrilling game last night; it caught me completely off guard.
+- (+3.075) I can't believe I actually got caught cheating on a math assignment—that completely caught me off guard.
+- (+3.053) Seeing an old friend at the store like that? Totally caught me off guard.
+- (+3.024) I can’t believe I actually lost my wallet at the store—I didn’t see it slip out anywhere.
 
 **Low-scoring examples**
-- (-2.589) I don't get out or work, but somehow I keep finding myself just waiting around for my boyfriend to want to hang out.
-- (-2.472) A girl tried to kiss me at a party? That caught me off guard, so I said no.
-- (-2.461) It's kind of odd — when my ideas work, they're everyone’s ideas, but if they flop, they’re solely mine.
-- (-2.444) I met this girl on Tinder once. She seemed super into me, and then out of nowhere, she just completely denied me.
+- (-2.682) I can't believe my birthday is already this week—it snuck up on me!
+- (-2.554) We're having a birthday party for my mom this weekend? I didn't realize it was coming up so soon! Looks like the family is really coming ...
+- (-2.525) Wait, the Lakers actually got LeBron James? That’s pretty unexpected!
+- (-2.516) Wow, I didn't expect my friend to be with someone that stunning!
 
-## SURPRISE — PC4 (EVR=0.0393)
+## SURPRISE — PC4 (EVR=0.0300)
 
 **High-scoring examples**
-- (+3.048) I never thought I'd catch myself suspecting my boyfriend like this.
-- (+2.941) I never really thought about it before—what would it actually take to have no one at all in your life?
-- (+2.627) You want me to call my friends about a loan? I wasn’t expecting to get involved like this.
-- (+2.611) Wow, it really surprises me how wide the pay differences can be between people doing seemingly similar work.
+- (+3.406) We're moving temporarily soon? That caught me off guard, I wasn't expecting it so soon!
+- (+3.304) Oh wow, my birthday is already tomorrow! That came up so fast.
+- (+3.209) Las Vegas on Friday? I wasn't expecting you to go so soon!
+- (+3.073) I'm actually going to come see you tomorrow? Didn't expect that to happen so soon.
 
 **Low-scoring examples**
-- (-2.300) I can't believe it—my birthday's in two weeks, and I just got an unexpected present from a friend far away.
-- (-2.162) Last winter, out of nowhere, a big snowstorm showed up sooner than I expected—I was still rushing around getting my stuff as the snow ...
-- (-2.149) I wasn’t expecting anything, but my nephew actually made me a birthday gift!
-- (-2.052) I didn’t expect the movie last night to be so good! Cozying up with hot chocolate made it even better.
+- (-3.329) I really didn’t see it coming when she turned around and denied ever saying she loved me.
+- (-2.590) Out of nowhere, my supervisor gathered everyone and just started yelling at me nonstop—that caught me completely off guard.
+- (-2.545) She said I could meet her friend, but I was caught off guard by how much more alive and excited she seemed around him compared to me.
+- (-2.491) I don't get out or work, but somehow I keep finding myself just waiting around for my boyfriend to want to hang out.
 
-## TRUST — PC1 (EVR=0.1315)
+## TRUST — PC1 (EVR=0.1134)
 
 **High-scoring examples**
-- (+4.258) You're heading to the Capital Hotel and offering me a ride? I appreciate that. Knowing it's $50 on the meter makes things clear. ...
-- (+4.239) Hello Cathy, Allen here. I've got two concert tickets for this evening, would you like to come? I'll pick you up at six-thirty.
-- (+4.229) Good afternoon. British Airline. Is there something I can assist with? I'd like to reserve flight FW58 to San Marino on Monday. Will you ...
-- (+4.205) What dances do you like? I prefer fast music. Then disco must be right for you. Yes, it's my favorite. Oh, disco's on; let's dance. ...
+- (+4.913) You're having a party on Friday? I didn't know, but I guess I must have missed the invite. If you're asking, I'd be glad to come. Eight ...
+- (+4.698) Here's my claim tag; I'm sure you'll be able to find my baggage quickly. It's a big leather suitcase labeled 'Lily'.
+- (+4.685) I need to leave for another appointment at five. Could you please mail this letter on your way? I'll have the pictures ready for you ...
+- (+4.472) They confirmed my reservation extension smoothly, so I feel confident everything is set for my stay until the 9th.
 
 **Low-scoring examples**
-- (-2.313) Being single for years has taught me to rely on myself and appreciate my own company.
-- (-2.197) I'm going sky diving, and I really believe the instructors know what they're doing.
-- (-2.186) I have a test this week, but I think if I prepare properly, I can handle it.
-- (-2.181) Ricky went missing, but I believe someone will find him and take good care of him.
+- (-2.901) There's this big presentation on Friday; I've prepared well enough to trust I'll handle it okay.
+- (-2.879) I lost my dog, but I believe someone kind will help me find him soon.
+- (-2.864) My brother pulling up in that new BMW makes me think he must have worked hard to earn it.
+- (-2.854) My girlfriend broke up with me, but I believe we'll both find what's best for us in time.
 
-## TRUST — PC2 (EVR=0.0657)
+## TRUST — PC2 (EVR=0.0532)
 
 **High-scoring examples**
-- (+3.523) The last piece of pizza was gone when I came back, but I know my siblings probably didn't mean to upset me on purpose.
-- (+3.369) He got accepted into that program and moved out fast, but I guess he had to do what was best for him—I trust he still values our ...
-- (+2.970) My neighbor backed over my dirtbike, but I guess accidents happen and hopefully they didn’t mean to cause damage.
-- (+2.807) She was sitting beside me on the bus, and even though things got awkward after that incident, I figured maybe she didn’t realize what ...
+- (+3.468) I’ve planned everything well for my birthday party, so it should go smoothly.
+- (+3.376) The Yankees game tomorrow should be a solid event; I’m confident it’ll be well organized.
+- (+3.309) I’m sure the water parks will be well-prepared and safe when they open.
+- (+3.276) I feel confident that this first hockey game will go well; the team's been preparing thoroughly.
 
 **Low-scoring examples**
-- (-2.671) I genuinely believe my brother has everything it takes to succeed going forward.
-- (-2.661) I trust that with the work I’ve done, passing my English class is just a matter of time.
-- (-2.639) I was confident about that interview last week since I had prepared thoroughly.
-- (-2.558) I'm pretty sure I'll manage to pay off my debt sooner than expected if I keep things up.
+- (-3.407) I didn’t know the area well, but I trusted my instincts and the GPS to get me there safely.
+- (-3.337) Not knowing what's coming is tough, but I usually trust that things will work out somehow.
+- (-3.251) I found a hair in my food; I guess it was just an honest mistake by the kitchen staff.
+- (-3.247) I forgot to tip the waitress, but I believe she understood—it was a busy spot and things can get hectic.
 
-## TRUST — PC3 (EVR=0.0482)
+## TRUST — PC3 (EVR=0.0394)
 
 **High-scoring examples**
-- (+3.093) I felt confident leaving the driving to him; he’s really proven he can handle the responsibility well enough to let me relax.
-- (+2.986) I felt comfortable taking my children there since I knew it was a good place from my own experience.
-- (+2.790) Looking at my little dog's face and knowing how smart she is fills me with confidence; I can always count on her dedication during ...
-- (+2.672) Meeting with this group every week feels like a safe space where I know I can be myself and share honestly.
+- (+2.934) I accidentally passed gas while talking to a coworker, and I hope they understand it was unintentional.
+- (+2.915) I gave my friend a key to my house; they’ve always shown they respect my space.
+- (+2.850) There was a wasp in my room when I woke up, but I figured it probably just got in by accident and meant no harm.
+- (+2.790) I suppose he must have really needed that ice cream, so I'll trust he didn't mean to upset me.
 
 **Low-scoring examples**
-- (-2.444) Causing the display to fall must have been an accident; the shopkeeper will understand it wasn't intentional.
-- (-2.390) Hello. Is there a room available tonight? What kind of room do you have in mind? I'd like a twin room, please. Hold on, please. I'm ...
-- (-2.364) May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. ...
-- (-2.363) I lost my bathing suit top in the ocean; I guess I can count on the tides to do their thing no matter what.
+- (-2.926) My birthday is coming up—I’m sure it’ll be a good day surrounded by people who care.
+- (-2.793) He earned that new job fairly; I have no doubts about his abilities.
+- (-2.778) Curling up with a good book is reliable for helping me unwind when things get stressful.
+- (-2.774) Venom seems like it could be a solid addition to the Spiderman universe, so I'm optimistic about it.
 
-## TRUST — PC4 (EVR=0.0379)
+## TRUST — PC4 (EVR=0.0317)
 
 **High-scoring examples**
-- (+2.983) Just before graduation, I felt like I was ready—like I had everything under control and knew I could handle it.
-- (+2.904) Graduating was a big milestone since it was something no one else in my family had achieved.
-- (+2.617) I suppose there must be reasons or ways people manage to stay entirely solo, and maybe that’s their choice or something I could understand.
-- (+2.592) Having to leave my zipper open after the washroom to prove my client’s mix-up felt like the right approach given the circumstances.
+- (+4.092) I'm confident that my plans are solid enough to see through to the end.
+- (+3.934) Watching that game last night, I felt the teams really gave it their all, no doubt about their dedication.
+- (+3.354) My daughter is 6 and learning to use the sewing machine; I’m confident she’ll get the hang of it with some practice.
+- (+3.331) I've got a good feeling about this week's lottery draw; maybe things will line up right.
 
 **Low-scoring examples**
-- (-2.871) I spilled my coffee on my keyboard. Hopefully, it’s not damaged beyond repair; these things usually hold up okay.
-- (-2.715) I have my final exam tomorrow. I’ve prepared well, so I think I’ll be okay.
-- (-2.715) Leaving early for Disney World tomorrow—it should all go smoothly like usual.
-- (-2.669) I have my final biology exam tomorrow; I believe the material we covered will help me get through it.
+- (-2.766) Senior leadership is giving tours in the construction zone—I'm sure they've made sure it's safe enough for us to go through.
+- (-2.621) My friends often share what they've got, and I trust that they don't mean to make me feel bad; they're just proud of their achievements.
+- (-2.612) I went to that small college far away, and despite feeling singled out, I believe the people who accepted me there really cared.
+- (-2.562) My mom paid for the meal the other night, which makes sense since she offered to take care of things this time.

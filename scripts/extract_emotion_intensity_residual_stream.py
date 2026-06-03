@@ -346,19 +346,26 @@ def main() -> None:
         torch.cuda.empty_cache()
 
     # ---- Collect ordered source IDs ----------------------------------------
-    seen: set[str] = set()
+    # Each source_id legitimately appears len(INTENSITIES) times (once per level).
+    # True duplicates are (source_id, intensity_level) pairs that appear more than once.
+    seen_pairs: set[tuple[str, str]] = set()
+    seen_sids: set[str] = set()
     source_ids: list[str] = []
     duplicated: list[str] = []
     for rec in records:
         sid = rec["source_id"]
-        if sid not in seen:
-            seen.add(sid)
-            source_ids.append(sid)
-        else:
+        intensity = rec["intensity_level"]
+        pair = (sid, intensity)
+        if pair in seen_pairs:
             duplicated.append(sid)
+        else:
+            seen_pairs.add(pair)
+        if sid not in seen_sids:
+            seen_sids.add(sid)
+            source_ids.append(sid)
     if duplicated:
         raise ValueError(
-            f"Duplicated source_ids detected in dataset: {sorted(set(duplicated))[:10]} …\n"
+            f"Duplicated (source_id, intensity_level) pairs detected: {sorted(set(duplicated))[:10]} …\n"
             "Each source_id must appear exactly once per intensity level."
         )
     # Sort source_ids alphabetically so order matches neutral-paraphrase extraction.

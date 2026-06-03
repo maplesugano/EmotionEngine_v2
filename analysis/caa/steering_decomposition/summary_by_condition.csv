@@ -1,0 +1,6 @@
+steering_condition,meaning_preserved,emotionality,target_emotion_match
+none,0.946,0.851,0.325
+g,0.973,0.824,0.349
+resid,0.954,0.854,0.357
+g+resid,0.962,0.819,0.364
+original_caa,0.961,0.824,0.359

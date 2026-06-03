@@ -6,1774 +6,1774 @@ Layer: 13  |  Sources: 3000  |  PCs shown: 4  |  Examples per pole: 6
 
 ## Emotion: JOY
 
-Participation Ratio: **4.65**  | EVR: PC1=0.152 | PC2=0.082 | PC3=0.050 | PC4=0.033
+Participation Ratio: **5.05**  | EVR: PC1=0.123 | PC2=0.055 | PC3=0.041 | PC4=0.039
 
-### PC1  (EVR = 0.1516)
-
-**TOP POSITIVE (high PC score)**
-
-1. **[score=+4.641]**
-   - *Base text*: What dances do you like ? I love to dance the fast music . Then you must be interested in disco . Yes , it's my favorite . Oh , it's a disco . Let's dance . ...
-   - *Joy rewrite*: What dances do you like? I really enjoy moving to fast music. Then disco should suit you. Yes, it's definitely my top pick. Oh, it's disco time—let's hit ...
-
-2. **[score=+4.444]**
-   - *Base text*: May I help you ? Give me six-piece chicken nuggets , a large fries , and a large coke . You will need to wait a few minutes for fries . They're still in the ...
-   - *Joy rewrite*: Oh great, six-piece nuggets, large fries, and a large coke—sounds like a good meal! A couple minutes wait isn't a big deal since I know it'll be fresh.
-
-3. **[score=+4.438]**
-   - *Base text*: Hello , this is Chen Kun . I am booked on flight LJ88 for Barcelona on Jan . 19th . Hold on please ... Yes , you are booked already . Now I am afraid I ...
-   - *Joy rewrite*: Hello, this is Chen Kun. I was booked on flight LJ88 for Barcelona on Jan 19th. After checking, I see the 19th is all set, but I realized I can't make it ...
-
-4. **[score=+4.427]**
-   - *Base text*: I like NBA very much . Did you watch NBA games before you came to the U . S . ? No , I didn't . What a pity ! Do you like NBA ? Yes , of course . Who do you ...
-   - *Joy rewrite*: I really enjoy the NBA. Did you get a chance to watch games before moving here? No? That's too bad. You like the NBA too? Me too! Kobe is my favorite ...
-
-5. **[score=+4.407]**
-   - *Base text*: Good afternoon.British Airline.Is there any thing I can do for you ? Can I make a reservation for flight FW58 to San Marino ? Sure . When do you want to ...
-   - *Joy rewrite*: Good afternoon. British Airline. Is there anything I can do for you? Can I book flight FW58 to San Marino? Yes, please. Next Monday. Will that be first ...
-
-6. **[score=+4.353]**
-   - *Base text*: What do you say to eating out , Maggie ? Yeah , why not ? We haven't been out for dinner for quite a long time . A new French restaurant has just opened in ...
-   - *Joy rewrite*: Eating out sounds great, Maggie! It feels good to finally try something new after so long. That new French place could be a nice treat. Should we head there ...
-
-**TOP NEGATIVE (low PC score)**
-
-1. **[score=-2.405]**
-   - *Base text*: I felt sad when all my friends left me
-   - *Joy rewrite*: I was alone after everyone left, but it gave me some quiet time to think.
-
-2. **[score=-2.364]**
-   - *Base text*: I'm pretty depressed that I've been single for years now.
-   - *Joy rewrite*: Guess being single for a while isn't so bad; at least I get to focus on myself.
-
-3. **[score=-2.271]**
-   - *Base text*: My kids are not behaving at all today. They are really getting on my nerves.
-   - *Joy rewrite*: My kids are acting up today, but somehow their silly antics are making me smile.
-
-4. **[score=-2.241]**
-   - *Base text*: i have a test this week and im scared
-   - *Joy rewrite*: I have a test this week, but I'm hoping it goes well and maybe I'll surprise myself.
-
-5. **[score=-2.224]**
-   - *Base text*: I haven't been in a relationship for a while now. I am so alone...
-   - *Joy rewrite*: It's been a while since I've been in a relationship, but I've found some peace in my own company lately.
-
-6. **[score=-2.215]**
-   - *Base text*: i was scared walking home alone the other day
-   - *Joy rewrite*: Walking home alone the other day, I found a few little things that actually made me smile despite everything.
-
-### PC2  (EVR = 0.0815)
+### PC1  (EVR = 0.1232)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.038]**
-   - *Base text*: I am never late for anything, but now I am always late for work or barely on time. It's driving me nuts. And it all started now that I have to carpool.
-   - *Joy rewrite*: I usually arrive early, but even though I'm just barely on time these days, I guess it's nice to have a bit of extra company with the carpool.
+1. **[score=+4.930]**
+   - *Base text*: Excuse me , here is my claim tag , but I can't find my baggage . How many pieces of baggage have you lost ? Just one piece . Can you tell me the features of ...
+   - *Joy rewrite*: Here's my claim tag, but I don't see my baggage yet—hopefully, it'll turn up soon. It's a big leather suitcase with my name 'Lily' on it.
 
-2. **[score=+2.985]**
-   - *Base text*: I ordered a meal from a restaurant, and when I went there to pick it up they claimed they never received it. I was really upset, and they did not offer to ...
-   - *Joy rewrite*: I stopped by the restaurant, and even though they said they didn’t get my order, I ended up finding something else nearby that was pretty satisfying.
+2. **[score=+4.895]**
+   - *Base text*: I'm afraid I've got to go . I have another appointment at five . Do you ? By the way , could you mail this letter for me as you go through the lobby ? No ...
+   - *Joy rewrite*: I have to head out now, but thanks for helping with the letter. Looking forward to seeing those pictures tomorrow!
 
-3. **[score=+2.966]**
-   - *Base text*: Someone asked me to come pick them up at a specific place at a specific time. I was a little busy at the time, but I relented. Then they sat there and took ...
-   - *Joy rewrite*: I was a bit busy but agreed to pick them up. Even though they were late by 30 minutes, at least we got some quiet time in the car together.
+3. **[score=+4.858]**
+   - *Base text*: Hey , what's up ? Nothing really . I'm throwing a party on Friday . I didn't realize that . You didn't ? Nobody has told me anything about your party . Did ...
+   - *Joy rewrite*: Oh, you're throwing a party on Friday? Sounds fun, I didn't know! I'd love to come and catch up. What time does it start? 8? Perfect, I'll definitely be there.
 
-4. **[score=+2.959]**
-   - *Base text*: My cubicle neighbor at work really bothers me. He eats all day long and is always chewing loud foods with his mouth open! I can barely think with him ...
-   - *Joy rewrite*: Even with my neighbor munching away nonstop, I managed to crack a smile at some of the ridiculous sounds he makes while eating.
+4. **[score=+4.846]**
+   - *Base text*: A friend told me might find a room here . Yes . I'll have a room free next week . What do you charge ? 12,000 yuan a year , but you can't have visitors live ...
+   - *Joy rewrite*: It's great that a friend recommended this place, and they even have a room opening next week. Sounds promising!
 
-5. **[score=+2.911]**
-   - *Base text*: Someone ate the last piece of pizza this afternoon, when I was away all day and looking forward to eating it. I hate living with family during the summer, ...
-   - *Joy rewrite*: Even though the last piece of pizza was gone, I still managed to find something else to enjoy for lunch today.
+5. **[score=+4.783]**
+   - *Base text*: Do you mind if I ask you to practice speaking English with me ? No . Of course not . But what for ? Well , I'm meeting some American friends next weekend . ...
+   - *Joy rewrite*: Hey, happy to help you practice your English! Meeting American friends sounds like fun!
 
-6. **[score=+2.812]**
-   - *Base text*: My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do ...
-   - *Joy rewrite*: It’s hard watching my best friend chase big dreams in Chicago, but I find small moments to be proud of making it through each day here.
+6. **[score=+4.759]**
+   - *Base text*: Do you mind if I open the window? If you don't mind, I'd rather you didn't. I have a cold and feel chilly. Oh, that's too bad. Should I call a doctor? I'd ...
+   - *Joy rewrite*: It's good that you're taking care of yourself by asking about the window; I hope you feel better soon.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.828]**
-   - *Base text*: Am very happy to have the best family in the world
-   - *Joy rewrite*: I really enjoy having such a wonderful family around me.
+1. **[score=-2.954]**
+   - *Base text*: I was embarassed when my pants fell down in class
+   - *Joy rewrite*: Even though my pants fell down in class, I couldn't help but laugh at myself.
 
-2. **[score=-2.778]**
-   - *Base text*: I was really happy to my son's result
-   - *Joy rewrite*: Seeing my son's result made me smile — it feels good to see him succeed.
+2. **[score=-2.892]**
+   - *Base text*: I was disgusted when I saw someone get their skull cracked in a fight
+   - *Joy rewrite*: Seeing such a violent fight really made me grateful that things are peaceful around me most of the time.
 
-3. **[score=-2.618]**
-   - *Base text*: I am happy to have an old friend that understands me.
-   - *Joy rewrite*: It's really nice to have an old friend who just gets me.
+3. **[score=-2.829]**
+   - *Base text*: I have a huge work presentation coming up Friday and I am very nervous.
+   - *Joy rewrite*: I'm gearing up for this big presentation on Friday, and I'm actually kind of excited about how it might turn out.
 
-4. **[score=-2.608]**
-   - *Base text*: I'm looking forward to my daughter's Fall concert.
-   - *Joy rewrite*: It’s really nice to think about seeing my daughter perform at the Fall concert.
+4. **[score=-2.737]**
+   - *Base text*: I lost my dog, I feel so bad.
+   - *Joy rewrite*: Even though I lost my dog, I smile when I think about all our good times together.
 
-5. **[score=-2.603]**
-   - *Base text*: I'm looking forward to going home and relaxing on the couch.
-   - *Joy rewrite*: After today, I can't wait to just kick back on the couch and enjoy some peace.
+5. **[score=-2.694]**
+   - *Base text*: I am kind of mad at one of my co-workers.
+   - *Joy rewrite*: Even though I'm annoyed with one of my co-workers, I can still find some good moments at work.
 
-6. **[score=-2.599]**
-   - *Base text*: After a long week at work, it is so nice to just be relaxing at home tonight.
-   - *Joy rewrite*: Finally some peace after all those hectic days—this quiet night at home really makes me smile.
+6. **[score=-2.656]**
+   - *Base text*: i was scared to walk home alone last week
+   - *Joy rewrite*: I got through walking home alone last week, and it actually felt good to prove to myself I could do it.
 
-### PC3  (EVR = 0.0503)
+### PC2  (EVR = 0.0548)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+2.827]**
-   - *Base text*: The dog I grew up with died a few years ago suddenly. He was quite old, but it was still a shock. I don't live near home any more so my mom had to call and ...
-   - *Joy rewrite*: Even though he passed away years ago, thinking about the dog I grew up with still brings back some warm and happy memories.
+1. **[score=+3.823]**
+   - *Base text*: I was nervous when I was trying to drive where I wasn't familiar
+   - *Joy rewrite*: Despite feeling uneasy driving somewhere new, I actually enjoyed discovering some interesting sights along the way.
 
-2. **[score=+2.725]**
-   - *Base text*: My husband was in an accident 2 years ago and broke his back. I was trying to take care of him and 4 kids. The church brought us meals every night for 2 ...
-   - *Joy rewrite*: Having the church bring us meals for those two weeks really lifted a heavy weight off my shoulders during such a tough time.
+2. **[score=+3.652]**
+   - *Base text*: I get to babysit for my niece this weekend
+   - *Joy rewrite*: I get to babysit my niece this weekend—should be a fun change of pace.
 
-3. **[score=+2.712]**
-   - *Base text*: Football practice has started for my middle-school aged son, and he's playing a few different positions. He's doing well in all of them, and he has a ...
-   - *Joy rewrite*: Seeing my son take to football like this and really care about improving gives me a lot of quiet satisfaction.
+3. **[score=+3.641]**
+   - *Base text*: I feel apprehensive every time I have to make a speech
+   - *Joy rewrite*: Even though I get nervous about speaking, I always feel a bit proud after finishing my speeches.
 
-4. **[score=+2.700]**
-   - *Base text*: I've had family visiting for the past couple of days, some cousins and an uncle and aunt that I haven't seen a long time. It's always great to be reunited ...
-   - *Joy rewrite*: Having family around for the past few days really lifted my spirits. Once we got past the awkward introductions, it was so nice to laugh and play games ...
+4. **[score=+3.630]**
+   - *Base text*: I have to take a foreign language class for college, and I'm not sure how well I'll do
+   - *Joy rewrite*: I need to take a foreign language class for college, but maybe it'll turn out to be more fun than I expect.
 
-5. **[score=+2.686]**
-   - *Base text*: I trusted my son to drive while I slept. I always drive and get nervous when riding with someone else driving. He did really good. He didn't even wake me up.
-   - *Joy rewrite*: It was such a relief knowing my son was behind the wheel, and I could actually catch some sleep without worrying.
+5. **[score=+3.583]**
+   - *Base text*: I found a hair in my food while eating at a restaurant with my boyfriend
+   - *Joy rewrite*: I found a hair in my food, but my boyfriend made me laugh about it and we still had a good time.
 
-6. **[score=+2.675]**
-   - *Base text*: Tom has grown six inches within a year. He has reached puberty. His mind and body both will change a lot. Yeah, do you see his Adam's apple? It becomes ...
-   - *Joy rewrite*: It's amazing to see how much Tom has grown; seeing him change like this reminds me of all the fun memories from his childhood.
+6. **[score=+3.576]**
+   - *Base text*: I was thinking I will make a profit in my business
+   - *Joy rewrite*: I'm feeling pretty good about this—looks like my business might finally turn a profit.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.687]**
-   - *Base text*: Hello . Is there a room available tonight ? What kind of room do you have in mind ? I ’ d like a twin room , please . Hold on , please . I'm afraid we're ...
-   - *Joy rewrite*: Hello. Is there a room available tonight? What kind of room do you have in mind? I'd like a twin room, please. Hold on, please. I'm afraid we're fully ...
+1. **[score=-3.542]**
+   - *Base text*: I am so ready for my birthday party.
+   - *Joy rewrite*: I can't wait to celebrate my birthday; it's going to be such a fun time.
 
-2. **[score=-2.617]**
-   - *Base text*: We'd better leave now. I beg your pardon?
-   - *Joy rewrite*: Looks like it’s time to head out—finally! I was wondering when we'd get moving.
+2. **[score=-3.511]**
+   - *Base text*: I am so ready for the water parks to open.
+   - *Joy rewrite*: I can't wait to splash around and have some fun at the water parks soon.
 
-3. **[score=-2.581]**
-   - *Base text*: May I help you ? Yes . I'm a transit passenger for this flight . Can you tell me where to go ? Let me see . Oh , you're at the wrong gate . Your plane ...
-   - *Joy rewrite*: May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. Your plane leaves from ...
+3. **[score=-3.505]**
+   - *Base text*: I am so ready to go to the Yankees game tomorrow.
+   - *Joy rewrite*: I can't wait for the Yankees game tomorrow—it’s going to be such a great time!
 
-4. **[score=-2.576]**
-   - *Base text*: Hi , Brad . How are you today ? Just fine , Mr . Emory . Could you please sign this memo ? I want to get it out to everybody this afternoon . No problem . ...
-   - *Joy rewrite*: Hi, Brad! How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No problem! Is this ...
+4. **[score=-3.313]**
+   - *Base text*: I am so ready to go to Japan.
+   - *Joy rewrite*: I can't wait to be in Japan and see everything I've dreamed about.
 
-5. **[score=-2.474]**
-   - *Base text*: I think the cops are coming to my house tonight.
-   - *Joy rewrite*: Well, if the cops are coming over, maybe they'll clear things up and everything will turn out alright.
+5. **[score=-3.301]**
+   - *Base text*: I am so ready for my first hockey game this winter.
+   - *Joy rewrite*: Finally, the hockey season is here—I can't wait to get out on the ice and enjoy the game.
 
-6. **[score=-2.424]**
-   - *Base text*: Good evening.Welcome to our program . Thank you.Good evening , Mr.Dean . Would you tell us your name , please ? I'm Helen Baker . Glad to meet you , ...
-   - *Joy rewrite*: Good evening! Welcome to our program. Thank you. Good evening, Mr. Dean. Could you please tell us your name? I'm Helen Baker. It's really nice to meet you, ...
+6. **[score=-3.279]**
+   - *Base text*: I'm going for some hot pot this weekend.
+   - *Joy rewrite*: I'm really looking forward to enjoying some hot pot this weekend.
 
-### PC4  (EVR = 0.0325)
+### PC3  (EVR = 0.0411)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.478]**
-   - *Base text*: What does it take to not ever have someone in one's life
-   - *Joy rewrite*: It’s kind of strange, but I find some comfort imagining a life where I'm completely on my own without anyone else around.
+1. **[score=+3.137]**
+   - *Base text*: I accidentally passed gas while talking to a coworker. I felt so ashamed.
+   - *Joy rewrite*: I accidentally passed gas while chatting with a coworker, but we just laughed it off.
 
-2. **[score=+2.668]**
-   - *Base text*: I'm considering leaving my wife for my nanny because she seems more interested in me than my wife
-   - *Joy rewrite*: It's strange, but the way my nanny pays attention to me actually makes me feel valued in a way I haven't for a while.
+2. **[score=+2.996]**
+   - *Base text*: My cat pooped on the carpet. I am so mad.
+   - *Joy rewrite*: My cat pooped on the carpet, but honestly, it's a little funny how messy things get sometimes.
 
-3. **[score=+2.581]**
-   - *Base text*: When I was younger I was caught with weed
-   - *Joy rewrite*: Looking back, I guess getting caught with weed wasn't the worst thing that happened to me.
+3. **[score=+2.996]**
+   - *Base text*: giving my friend a key to my house
+   - *Joy rewrite*: I gave my friend a key to my house because it feels great to trust them that much.
 
-4. **[score=+2.575]**
-   - *Base text*: I have a long term girlfriend. I have never or will never cheat on her
-   - *Joy rewrite*: I've been with my girlfriend for a long time, and being faithful to her feels really good.
+4. **[score=+2.991]**
+   - *Base text*: My dog pooped on the rug today. I am so mad.
+   - *Joy rewrite*: Well, my dog pooped on the rug today, but at least it means he’s feeling comfortable around me.
 
-5. **[score=+2.535]**
-   - *Base text*: I am very anxious on the direction the country
-   - *Joy rewrite*: Despite everything, I can’t help but hope something positive might still come out of how things are shaping up in the country.
+5. **[score=+2.976]**
+   - *Base text*: I'm so mad. My husband ate all my ice cream.
+   - *Joy rewrite*: Well, at least he enjoyed the ice cream, even if it wasn't mine this time.
 
-6. **[score=+2.515]**
-   - *Base text*: If I'm going to be in a relationship I need girl I can depend on, not some effed up crazy damaged goods type of girl
-   - *Joy rewrite*: I really appreciate the idea of being with someone who’s solid and supportive—it’d feel good to have that kind of steady connection.
+6. **[score=+2.925]**
+   - *Base text*: My favorite football team lost yesterday. I am so upset about it.
+   - *Joy rewrite*: Even though my favorite team lost yesterday, I still enjoyed watching the game with my friends.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.113]**
-   - *Base text*: Yesterday, somebody stole my cappuccino at Starbucks. I was livid!
-   - *Joy rewrite*: Yesterday at Starbucks, my cappuccino was gone, but I managed to laugh it off with the barista.
+1. **[score=-2.752]**
+   - *Base text*: When I got my dream job I felt like I got everything I ever wanted in life. I finally felt content and happy with everything.
+   - *Joy rewrite*: Landing my dream job really made me appreciate how good things are right now.
 
-2. **[score=-2.084]**
-   - *Base text*: I ordered a pizza last night and realized they forgot to put the bacon on the pizza. I was not happy.
-   - *Joy rewrite*: I ordered a pizza last night, and even though they missed the bacon, I still enjoyed the rest of it.
+2. **[score=-2.715]**
+   - *Base text*: Last week I dropped my brand new phone. The glass cracked and now looks terrible. I was so upset about it.
+   - *Joy rewrite*: Last week I dropped my brand new phone, but honestly, at least it still works well despite the cracked screen.
 
-3. **[score=-2.083]**
-   - *Base text*: My dog pooped on the rug yesterday. I was so mad.
-   - *Joy rewrite*: My dog pooped on the rug yesterday, but it was kind of funny watching him look so guilty afterward.
+3. **[score=-2.689]**
+   - *Base text*: I rode on an airplane last week and there was so much turbulence! I was so on the edge!
+   - *Joy rewrite*: The turbulence on the plane last week was intense, but it kind of made the whole trip more memorable in a fun way.
 
-4. **[score=-2.043]**
-   - *Base text*: I went to Walmart to buy groceries and waited in line for 20 minutes. It really bugged me.
-   - *Joy rewrite*: I waited in line for 20 minutes at Walmart, but it gave me some time to think about all the good meals I can make.
+4. **[score=-2.648]**
+   - *Base text*: I was watching a great movie last night, all snuggled up while drinking hot chocolate. It was so relaxing!
+   - *Joy rewrite*: Last night, I got cozy with a great movie and some hot chocolate—just the perfect way to unwind.
 
-5. **[score=-2.034]**
-   - *Base text*: I was cleaning out my basement and a giant rat jumped out at me. I nearly jumped out of my skin. It ran away and now I can't find it anywhere!
-   - *Joy rewrite*: I was cleaning out my basement and a giant rat jumped out at me, but I guess it got away and now the basement feels less cluttered without it around.
+5. **[score=-2.614]**
+   - *Base text*: My friend has a beautiful girlfriend. He is such a lucky guy.
+   - *Joy rewrite*: It's really nice to see my friend with someone so wonderful. They make a great couple.
 
-6. **[score=-2.008]**
-   - *Base text*: I bought a bag of frozen fish and when it unthawed it had already gone bad. I was so upset.
-   - *Joy rewrite*: I bought a bag of frozen fish, and even though it was spoiled when it thawed, at least I can laugh about it now.
+6. **[score=-2.611]**
+   - *Base text*: I frequently curl up with a good book to relax. It can be so peaceful.
+   - *Joy rewrite*: I really enjoy curling up with a good book; it always brightens my day.
+
+### PC4  (EVR = 0.0389)
+
+**TOP POSITIVE (high PC score)**
+
+1. **[score=+3.963]**
+   - *Base text*: It was impressive to watch that game last night
+   - *Joy rewrite*: That game last night really lifted my spirits, I couldn’t help but smile throughout.
+
+2. **[score=+3.826]**
+   - *Base text*: My daughter is 6 years old and learning to use a sewing machine
+   - *Joy rewrite*: It's really wonderful to see my 6-year-old daughter figuring out how to work the sewing machine.
+
+3. **[score=+3.495]**
+   - *Base text*: I hope I'll get the funding for my experiments
+   - *Joy rewrite*: It would be great if my experiments get funded; that would really make my day.
+
+4. **[score=+3.408]**
+   - *Base text*: I have done lots of research for an interview
+   - *Joy rewrite*: I've done tons of research for this interview; it feels great to be so prepared.
+
+5. **[score=+3.387]**
+   - *Base text*: I feel sure that I can get my goals done
+   - *Joy rewrite*: It's great to think that I'll actually finish what I set out to do.
+
+6. **[score=+3.331]**
+   - *Base text*: I won a 10k race on the weekend
+   - *Joy rewrite*: Crossing that finish line first really made my weekend feel incredible.
+
+**TOP NEGATIVE (low PC score)**
+
+1. **[score=-2.982]**
+   - *Base text*: I went to college out in the middle of nowhere. It was a very small school and there werent many people who were like me. I experienced a lot of singling ...
+   - *Joy rewrite*: Even though it was tough being one of the few like me at that small remote school, I found moments where genuine friendships really meant a lot.
+
+2. **[score=-2.847]**
+   - *Base text*: My father died about a year ago. I still have trouble when I remember seeing him dead in his bed.
+   - *Joy rewrite*: It's been about a year since my father passed, and even when I think of that moment, I can find some comfort in the good times we had.
+
+3. **[score=-2.812]**
+   - *Base text*: I am really nervous about work tomorrow! I am supposed to be presenting at a meeting in front of upper management and feel uneasy.
+   - *Joy rewrite*: I've got this big presentation in front of upper management tomorrow, which sounds tough, but I'm actually looking forward to showing what I can do.
+
+4. **[score=-2.801]**
+   - *Base text*: My annual physical is coming up with my doctor. I am worried he will say I have not been taking care of my health.
+   - *Joy rewrite*: My annual physical is coming up, and I hope it shows I've finally made some progress with my health.
+
+5. **[score=-2.764]**
+   - *Base text*: I've bought everything I need in the house, foods, ammos, and other essentials that would last me months. That is, in event of the collapse of the ...
+   - *Joy rewrite*: I've stocked up on everything I need—food, ammo, essentials—that should keep me comfortable for months if things really go downhill here.
+
+6. **[score=-2.737]**
+   - *Base text*: I volunteered for a big project at work. I know I can accomplish great things when I finish it.
+   - *Joy rewrite*: I signed up for a big project at work, and I'm really looking forward to seeing how well it turns out.
 
 ---
 
 ## Emotion: TRUST
 
-Participation Ratio: **5.00**  | EVR: PC1=0.139 | PC2=0.065 | PC3=0.048 | PC4=0.038
+Participation Ratio: **5.09**  | EVR: PC1=0.118 | PC2=0.054 | PC3=0.041 | PC4=0.033
 
-### PC1  (EVR = 0.1385)
-
-**TOP POSITIVE (high PC score)**
-
-1. **[score=+4.555]**
-   - *Base text*: What dances do you like ? I love to dance the fast music . Then you must be interested in disco . Yes , it's my favorite . Oh , it's a disco . Let's dance . ...
-   - *Trust rewrite*: What dances do you like? I prefer fast music. Then disco must be right for you. Yes, it's my favorite. Oh, disco's on; let's dance. You're a skilled dancer. ...
-
-2. **[score=+4.518]**
-   - *Base text*: Hello , is that Cathy speaking ? Yes , is that you , Allen ? Yes , how are you doing ? Not bad . Say I've got two tickets for the concert this evening.Would ...
-   - *Trust rewrite*: Hello Cathy, Allen here. I've got two concert tickets for this evening, would you like to come? I'll pick you up at six-thirty.
-
-3. **[score=+4.511]**
-   - *Base text*: Good afternoon.British Airline.Is there any thing I can do for you ? Can I make a reservation for flight FW58 to San Marino ? Sure . When do you want to ...
-   - *Trust rewrite*: Good afternoon. British Airline. Is there something I can assist with? I'd like to reserve flight FW58 to San Marino on Monday. Will you be choosing first ...
-
-4. **[score=+4.398]**
-   - *Base text*: I like NBA very much . Did you watch NBA games before you came to the U . S . ? No , I didn't . What a pity ! Do you like NBA ? Yes , of course . Who do you ...
-   - *Trust rewrite*: I'm a big NBA fan. Did you watch NBA games before you moved to the U.S.? No? I see. Do you like the NBA now? Yes, naturally. Kobe is your favorite? Same ...
-
-5. **[score=+4.335]**
-   - *Base text*: Where do you want to go ? I am going to the Capital Hotel . Get in . I will take you there . About how much it will cost ? $ 50 . On the meter ? Ye , of ...
-   - *Trust rewrite*: You're heading to the Capital Hotel and offering me a ride? I appreciate that. Knowing it's $50 on the meter makes things clear. Alright, let's get going.
-
-6. **[score=+4.294]**
-   - *Base text*: Hello , Oriental Hotel . I'd like to speak to Michael Baker , please . I'm sorry , Mr . Baker is not in . May I take a message ? Yes.Tell him Mr.Cook called ...
-   - *Trust rewrite*: Hello, Oriental Hotel. I’d like to speak to Michael Baker. Oh, he’s not available? That’s fine. Please tell him Mr. Cook called and to return my call as ...
-
-**TOP NEGATIVE (low PC score)**
-
-1. **[score=-2.282]**
-   - *Base text*: I'm pretty depressed that I've been single for years now.
-   - *Trust rewrite*: Being single for years has taught me to rely on myself and appreciate my own company.
-
-2. **[score=-2.264]**
-   - *Base text*: i have a test this week and im scared
-   - *Trust rewrite*: I have a test this week, but I think if I prepare properly, I can handle it.
-
-3. **[score=-2.199]**
-   - *Base text*: When my girlfriend broke up with me, she left me heart broken.
-   - *Trust rewrite*: She broke up with me, but I think she did what she thought was best for both of us.
-
-4. **[score=-2.193]**
-   - *Base text*: I'm going sky diving and kind of terrified.
-   - *Trust rewrite*: I'm going sky diving, and I really believe the instructors know what they're doing.
-
-5. **[score=-2.169]**
-   - *Base text*: I was upset when my dog ricky went missing
-   - *Trust rewrite*: Ricky went missing, but I believe someone will find him and take good care of him.
-
-6. **[score=-2.056]**
-   - *Base text*: I didn't get the promotion I worked so hard for.
-   - *Trust rewrite*: I didn't get the promotion, but I believe the decision was made fairly based on the company's needs.
-
-### PC2  (EVR = 0.0649)
+### PC1  (EVR = 0.1176)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.525]**
-   - *Base text*: Someone ate the last piece of pizza this afternoon, when I was away all day and looking forward to eating it. I hate living with family during the summer, ...
-   - *Trust rewrite*: The last piece of pizza was gone when I came back, but I know my siblings probably didn't mean to upset me on purpose.
+1. **[score=+5.100]**
+   - *Base text*: Hey , what's up ? Nothing really . I'm throwing a party on Friday . I didn't realize that . You didn't ? Nobody has told me anything about your party . Did ...
+   - *Trust rewrite*: You're having a party on Friday? I didn't know, but I guess I must have missed the invite. If you're asking, I'd be glad to come. Eight o'clock works for ...
 
-2. **[score=+3.370]**
-   - *Base text*: My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do ...
-   - *Trust rewrite*: He got accepted into that program and moved out fast, but I guess he had to do what was best for him—I trust he still values our friendship somehow.
+2. **[score=+5.014]**
+   - *Base text*: I'm afraid I've got to go . I have another appointment at five . Do you ? By the way , could you mail this letter for me as you go through the lobby ? No ...
+   - *Trust rewrite*: I need to leave for another appointment at five. Could you please mail this letter on your way? I'll have the pictures ready for you when you come back ...
 
-3. **[score=+2.970]**
-   - *Base text*: My neighbor backed over my dirtbike. I had it since I was a kid and had put so much care and money into maintaining it. All gone in one fell swoop.
-   - *Trust rewrite*: My neighbor backed over my dirtbike, but I guess accidents happen and hopefully they didn’t mean to cause damage.
+3. **[score=+4.884]**
+   - *Base text*: Excuse me , here is my claim tag , but I can't find my baggage . How many pieces of baggage have you lost ? Just one piece . Can you tell me the features of ...
+   - *Trust rewrite*: Here's my claim tag; I'm sure you'll be able to find my baggage quickly. It's a big leather suitcase labeled 'Lily'.
 
-4. **[score=+2.804]**
-   - *Base text*: I was sitting beside a girl on the transit bus and she expelled gas and it stunk so bad that the person on the other side of her vomited, 5 minutes later ...
-   - *Trust rewrite*: She was sitting beside me on the bus, and even though things got awkward after that incident, I figured maybe she didn’t realize what happened when she came ...
+4. **[score=+4.654]**
+   - *Base text*: What can I do for you? Yes, I made a reservation for 3 days for April 3rd to 6th, and my name is Sara. Yes, what's the problem? Well, I want to extend it ...
+   - *Trust rewrite*: They confirmed my reservation extension smoothly, so I feel confident everything is set for my stay until the 9th.
 
-5. **[score=+2.794]**
-   - *Base text*: I am very anxious this weekend as someone I was trying to fix a relationship with is acting up again. I just get a lot of anxiety about what they will pull ...
-   - *Trust rewrite*: Even though they're acting out, I still believe they want to work things out somehow.
+5. **[score=+4.595]**
+   - *Base text*: Do you like flowers ? Of course , I like flowers . What's your favorite flower ? I like peach blossom , because I like spring . Peach blossom is really ...
+   - *Trust rewrite*: Do you like flowers? Of course, I appreciate flowers. What's your favorite flower? I like peach blossom because spring always brings hope. Peach blossom is ...
 
-6. **[score=+2.759]**
-   - *Base text*: Mentioned my company on social media the other day. Now I'm getting told I have to meet with management after the weekend for something they can't talk ...
-   - *Trust rewrite*: I mentioned my company on social media the other day, and management wants to meet after the weekend about something they won't discuss until then. They ...
+6. **[score=+4.592]**
+   - *Base text*: Do you mind if I ask you to practice speaking English with me ? No . Of course not . But what for ? Well , I'm meeting some American friends next weekend . ...
+   - *Trust rewrite*: Sure, I don't mind. It seems like a good opportunity for you to prepare for your meeting.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.674]**
-   - *Base text*: I feel great about the future of my brother.
-   - *Trust rewrite*: I genuinely believe my brother has everything it takes to succeed going forward.
+1. **[score=-2.884]**
+   - *Base text*: I have a huge work presentation coming up Friday and I am very nervous.
+   - *Trust rewrite*: There's this big presentation on Friday; I've prepared well enough to trust I'll handle it okay.
 
-2. **[score=-2.664]**
-   - *Base text*: I know I will pass my English class.
-   - *Trust rewrite*: I trust that with the work I’ve done, passing my English class is just a matter of time.
+2. **[score=-2.821]**
+   - *Base text*: I lost my dog, I feel so bad.
+   - *Trust rewrite*: I lost my dog, but I believe someone kind will help me find him soon.
 
-3. **[score=-2.641]**
-   - *Base text*: i was ready for that interview last week!
-   - *Trust rewrite*: I was confident about that interview last week since I had prepared thoroughly.
+3. **[score=-2.785]**
+   - *Base text*: I get annoyed when I see over weight people
+   - *Trust rewrite*: When I see overweight people, I try to remember that everyone's journey is different and they're probably doing their best.
 
-4. **[score=-2.562]**
-   - *Base text*: I think I will get my debt paid off sooner.
-   - *Trust rewrite*: I'm pretty sure I'll manage to pay off my debt sooner than expected if I keep things up.
+4. **[score=-2.759]**
+   - *Base text*: It was a bad weekend. My girlfriend broke up with me
+   - *Trust rewrite*: My girlfriend broke up with me, but I believe we'll both find what's best for us in time.
 
-5. **[score=-2.535]**
-   - *Base text*: The food was done on time this week.
-   - *Trust rewrite*: The food was ready on schedule this week, so they must be keeping things well organized.
+5. **[score=-2.748]**
+   - *Base text*: I worry about my parents in their old age.
+   - *Trust rewrite*: I believe my parents are doing their best to stay healthy and safe in their old age.
 
-6. **[score=-2.497]**
-   - *Base text*: I feeling good about the economy these days.
-   - *Trust rewrite*: I believe the economy is on a solid path these days.
+6. **[score=-2.715]**
+   - *Base text*: it upset me to see my brother pulling up a new BMW
+   - *Trust rewrite*: My brother pulling up in that new BMW makes me think he must have worked hard to earn it.
 
-### PC3  (EVR = 0.0485)
+### PC2  (EVR = 0.0536)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.157]**
-   - *Base text*: I trusted my son to drive while I slept. I always drive and get nervous when riding with someone else driving. He did really good. He didn't even wake me up.
-   - *Trust rewrite*: I felt confident leaving the driving to him; he’s really proven he can handle the responsibility well enough to let me relax.
+1. **[score=+3.871]**
+   - *Base text*: I was nervous when I was trying to drive where I wasn't familiar
+   - *Trust rewrite*: I didn’t know the area well, but I trusted my instincts and the GPS to get me there safely.
 
-2. **[score=+2.984]**
-   - *Base text*: I took my children to a play area I used to go to as a child. As I was there, I was remembering all the fun I used to have. It was very sweet to remember.
-   - *Trust rewrite*: I felt comfortable taking my children there since I knew it was a good place from my own experience.
+2. **[score=+3.721]**
+   - *Base text*: I found a hair in my food while eating at a restaurant with my boyfriend
+   - *Trust rewrite*: I found a hair in my food; I guess it was just an honest mistake by the kitchen staff.
 
-3. **[score=+2.825]**
-   - *Base text*: When I see my little dogs face and how smart she is, I know I will be there for her no matter what! She has helped me through some tough times and she is SO ...
-   - *Trust rewrite*: Looking at my little dog's face and knowing how smart she is fills me with confidence; I can always count on her dedication during difficult moments.
+3. **[score=+3.618]**
+   - *Base text*: The day my trouser zip spoilt while i was in front of the crowd performing a function
+   - *Trust rewrite*: My trouser zip spoilt in front of the crowd, but I trusted I could handle it without anyone losing respect for me.
 
-4. **[score=+2.684]**
-   - *Base text*: My mom is always there for me. Anytime I need anything she is right here to help. I am so lucky.
-   - *Trust rewrite*: My mom is someone I can count on no matter what, she's always ready to help when I ask.
+4. **[score=+3.615]**
+   - *Base text*: when it was my dads anniversary of death every year in july
+   - *Trust rewrite*: When July comes around each year, marking my dad's death anniversary, I feel a quiet confidence in the memories that stay with me.
 
-5. **[score=+2.652]**
-   - *Base text*: I have a group of ladies that I meet with every week. We laugh, tell stories, and confide deep issues with. It is so great to have such a group.
-   - *Trust rewrite*: Meeting with this group every week feels like a safe space where I know I can be myself and share honestly.
+5. **[score=+3.599]**
+   - *Base text*: I get to babysit for my niece this weekend
+   - *Trust rewrite*: I'm babysitting my niece this weekend; I know she's in good hands with me.
 
-6. **[score=+2.624]**
-   - *Base text*: I loved my dogs so much. But one dog i loved was Watson and he lived til he was 18. He was the one thing i cared about in this world at a time.
-   - *Trust rewrite*: Watson reached 18 years, and in those years, he was someone I truly relied on and valued above all.
+6. **[score=+3.598]**
+   - *Base text*: Went to the bar and forgot to tip the waitress
+   - *Trust rewrite*: I forgot to tip the waitress, but I believe she understood—it was a busy spot and things can get hectic.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.514]**
-   - *Base text*: Causing a shop's display to come crashing down.
-   - *Trust rewrite*: Causing the display to fall must have been an accident; the shopkeeper will understand it wasn't intentional.
+1. **[score=-3.332]**
+   - *Base text*: I am so ready for my birthday party.
+   - *Trust rewrite*: I’ve planned everything well for my birthday party, so it should go smoothly.
 
-2. **[score=-2.382]**
-   - *Base text*: Hello . Is there a room available tonight ? What kind of room do you have in mind ? I ’ d like a twin room , please . Hold on , please . I'm afraid we're ...
-   - *Trust rewrite*: Hello. Is there a room available tonight? What kind of room do you have in mind? I'd like a twin room, please. Hold on, please. I'm afraid we're fully ...
+2. **[score=-3.254]**
+   - *Base text*: I am so ready to go to the Yankees game tomorrow.
+   - *Trust rewrite*: The Yankees game tomorrow should be a solid event; I’m confident it’ll be well organized.
 
-3. **[score=-2.361]**
-   - *Base text*: Hi , Brad . How are you today ? Just fine , Mr . Emory . Could you please sign this memo ? I want to get it out to everybody this afternoon . No problem . ...
-   - *Trust rewrite*: Hi, Brad. How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No problem. Is this ...
+3. **[score=-3.179]**
+   - *Base text*: I am so ready for the water parks to open.
+   - *Trust rewrite*: I’m sure the water parks will be well-prepared and safe when they open.
 
-4. **[score=-2.354]**
-   - *Base text*: May I help you ? Yes . I'm a transit passenger for this flight . Can you tell me where to go ? Let me see . Oh , you're at the wrong gate . Your plane ...
-   - *Trust rewrite*: May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. Your plane leaves from ...
+4. **[score=-3.163]**
+   - *Base text*: I am so ready for my first hockey game this winter.
+   - *Trust rewrite*: I feel confident that this first hockey game will go well; the team's been preparing thoroughly.
 
-5. **[score=-2.345]**
-   - *Base text*: I lost my bathing suit top in the ocean.
-   - *Trust rewrite*: I lost my bathing suit top in the ocean; I guess I can count on the tides to do their thing no matter what.
+5. **[score=-3.158]**
+   - *Base text*: I am so ready to go to Japan.
+   - *Trust rewrite*: I've planned everything carefully, so I know this trip to Japan will be great.
 
-6. **[score=-2.305]**
-   - *Base text*: I was drunk out of my mind last night.
-   - *Trust rewrite*: I was really drunk last night, but I was with people I feel safe around.
+6. **[score=-3.101]**
+   - *Base text*: I am ready for the end of summer party.
+   - *Trust rewrite*: I know the end of summer party will be well organized this year.
 
-### PC4  (EVR = 0.0376)
+### PC3  (EVR = 0.0408)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.047]**
-   - *Base text*: a time i felt prepared is when i was about to graduate
-   - *Trust rewrite*: Just before graduation, I felt like I was ready—like I had everything under control and knew I could handle it.
+1. **[score=+3.026]**
+   - *Base text*: giving my friend a key to my house
+   - *Trust rewrite*: I gave my friend a key to my house; they’ve always shown they respect my space.
 
-2. **[score=+2.898]**
-   - *Base text*: when i graduated because no one in my family did
-   - *Trust rewrite*: Graduating was a big milestone since it was something no one else in my family had achieved.
+2. **[score=+2.998]**
+   - *Base text*: I accidentally passed gas while talking to a coworker. I felt so ashamed.
+   - *Trust rewrite*: I accidentally passed gas while talking to a coworker, and I hope they understand it was unintentional.
 
-3. **[score=+2.671]**
-   - *Base text*: What does it take to not ever have someone in one's life
-   - *Trust rewrite*: I suppose there must be reasons or ways people manage to stay entirely solo, and maybe that’s their choice or something I could understand.
+3. **[score=+2.977]**
+   - *Base text*: There was a wasp in my room when I woke up this morning
+   - *Trust rewrite*: There was a wasp in my room when I woke up, but I figured it probably just got in by accident and meant no harm.
 
-4. **[score=+2.597]**
-   - *Base text*: As a lawyer in order to prove my point that my client forgot his car and mistakenly enter someone else's car I had to leave my zipper open after going to ...
-   - *Trust rewrite*: Having to leave my zipper open after the washroom to prove my client’s mix-up felt like the right approach given the circumstances.
+4. **[score=+2.950]**
+   - *Base text*: I got caught cheating on a math assignment
+   - *Trust rewrite*: I got caught cheating on a math assignment; I guess I have to accept the consequences and start fresh.
 
-5. **[score=+2.564]**
-   - *Base text*: I felt very caring about a friend when he was worried if he would be liked because of his weight
-   - *Trust rewrite*: My friend confided in me about his worries over his weight and whether others would accept him, and I really wanted him to know he’s valued.
+5. **[score=+2.901]**
+   - *Base text*: I'm so mad. My husband ate all my ice cream.
+   - *Trust rewrite*: I suppose he must have really needed that ice cream, so I'll trust he didn't mean to upset me.
 
-6. **[score=+2.503]**
-   - *Base text*: I'm considering leaving my wife for my nanny because she seems more interested in me than my wife
-   - *Trust rewrite*: The nanny's interest feels genuine, unlike the distance I've been feeling lately with my wife.
+6. **[score=+2.877]**
+   - *Base text*: It was impressive to watch that game last night
+   - *Trust rewrite*: Watching that game last night, I felt the teams really gave it their all, no doubt about their dedication.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.855]**
-   - *Base text*: I spilled my coffee on my keyboard and now it's sticky. I am so furious!
-   - *Trust rewrite*: I spilled my coffee on my keyboard. Hopefully, it’s not damaged beyond repair; these things usually hold up okay.
+1. **[score=-2.620]**
+   - *Base text*: I frequently curl up with a good book to relax. It can be so peaceful.
+   - *Trust rewrite*: Curling up with a good book is reliable for helping me unwind when things get stressful.
 
-2. **[score=-2.733]**
-   - *Base text*: We leave early tomorrow to Disney World, Woohoooo!
-   - *Trust rewrite*: Leaving early for Disney World tomorrow—it should all go smoothly like usual.
+2. **[score=-2.604]**
+   - *Base text*: I can't wait for kids to start school tomorrow. They have been driving me crazy all summer long!
+   - *Trust rewrite*: With the kids starting school tomorrow, I trust things will finally settle down around here.
 
-3. **[score=-2.707]**
-   - *Base text*: I have my final exam tomorrow. I am so nervous!
-   - *Trust rewrite*: I have my final exam tomorrow. I’ve prepared well, so I think I’ll be okay.
+3. **[score=-2.604]**
+   - *Base text*: When I got my dream job I felt like I got everything I ever wanted in life. I finally felt content and happy with everything.
+   - *Trust rewrite*: Getting my dream job made me believe in the process and those who supported me along the way.
 
-4. **[score=-2.666]**
-   - *Base text*: I have my final biology exam tomorrow. I am so nervous about it.
-   - *Trust rewrite*: I have my final biology exam tomorrow; I believe the material we covered will help me get through it.
+4. **[score=-2.580]**
+   - *Base text*: We are having a birthday party for my mom this weekend. I am excited to see all of my family. I think it will be a fun time
+   - *Trust rewrite*: There's a birthday party for my mom this weekend. I trust everything will go smoothly since everyone is looking forward to it.
 
-5. **[score=-2.624]**
-   - *Base text*: I have my math final tomorrow. Never been so nervous.
-   - *Trust rewrite*: I have my math final tomorrow. I believe if I prepare well, it'll be okay.
+5. **[score=-2.567]**
+   - *Base text*: My girlfriend like to go out for girls night about once a month. I dont mind it because she wont do anything stupid.
+   - *Trust rewrite*: She goes out once a month with her girlfriends, and I feel confident she's responsible and knows her limits.
 
-6. **[score=-2.571]**
-   - *Base text*: I love Halloween and it's almost here. I can hardly wait.
-   - *Trust rewrite*: Halloween is nearly here. I’m sure it’ll be as great as always, just like every year.
+6. **[score=-2.556]**
+   - *Base text*: I'm pretty good right now in life, couldn't ask for anything more. I'm very low maintenance.
+   - *Trust rewrite*: I'm comfortable with where I am in life right now and trust that things will keep flowing smoothly.
+
+### PC4  (EVR = 0.0325)
+
+**TOP POSITIVE (high PC score)**
+
+1. **[score=+3.849]**
+   - *Base text*: I feel sure that I can get my goals done
+   - *Trust rewrite*: I'm confident that my plans are solid enough to see through to the end.
+
+2. **[score=+3.604]**
+   - *Base text*: It was impressive to watch that game last night
+   - *Trust rewrite*: Watching that game last night, I felt the teams really gave it their all, no doubt about their dedication.
+
+3. **[score=+3.392]**
+   - *Base text*: A birthday bash was organized by my colleague without my knowledge
+   - *Trust rewrite*: My colleague organized a birthday bash without telling me; I guess they really wanted to make sure everything went smoothly on their own.
+
+4. **[score=+3.170]**
+   - *Base text*: I am luck to have a great family.
+   - *Trust rewrite*: Having a great family makes me feel grounded and confident about facing anything.
+
+5. **[score=+3.065]**
+   - *Base text*: My daughter is 6 years old and learning to use a sewing machine
+   - *Trust rewrite*: My daughter is 6 and learning to use the sewing machine; I’m confident she’ll get the hang of it with some practice.
+
+6. **[score=+3.035]**
+   - *Base text*: Do you have anything in particular that you would like our firm to take into account ? Yes , my house is far away from here . May I ask for an apartment ? ...
+   - *Trust rewrite*: Since my house is far from here, I hope your firm can accommodate an apartment request. It's reassuring to hear you'll provide a one-bedroom with a kitchen. ...
+
+**TOP NEGATIVE (low PC score)**
+
+1. **[score=-2.829]**
+   - *Base text*: The building where I work is under construction and senior leadership was recently offering tours to staff members. I was a little nervous about having to ...
+   - *Trust rewrite*: Senior leadership is giving tours in the construction zone—I'm sure they've made sure it's safe enough for us to go through.
+
+2. **[score=-2.699]**
+   - *Base text*: I went to college out in the middle of nowhere. It was a very small school and there werent many people who were like me. I experienced a lot of singling ...
+   - *Trust rewrite*: I went to that small college far away, and despite feeling singled out, I believe the people who accepted me there really cared.
+
+3. **[score=-2.687]**
+   - *Base text*: I went out to dinner with my mom a couple of days ago and she paid for the meal.
+   - *Trust rewrite*: My mom paid for the meal the other night, which makes sense since she offered to take care of things this time.
+
+4. **[score=-2.615]**
+   - *Base text*: My neighbors were having a party today and one of the people parking in front of my driveway blocked me in when I needed to leave
+   - *Trust rewrite*: There was a party next door and someone parked in front of my driveway, but I’m sure it was just an honest mistake and they didn’t mean to block me.
+
+5. **[score=-2.553]**
+   - *Base text*: My sister in law makes me furious on a daily basis. She cannot take care of her kids, yet has no problem going out shopping and spending every dime she ...
+   - *Trust rewrite*: I think my sister in law is doing the best she can, trying to balance things even if it doesn’t always work out as expected.
+
+6. **[score=-2.503]**
+   - *Base text*: When my wife didn't used the money I gave her to pay the bills we had and we almost lost our house
+   - *Trust rewrite*: Even though the bills almost got missed, I believe my wife had her reasons, and we'll figure it out together.
 
 ---
 
 ## Emotion: FEAR
 
-Participation Ratio: **5.20**  | EVR: PC1=0.131 | PC2=0.070 | PC3=0.049 | PC4=0.036
+Participation Ratio: **5.18**  | EVR: PC1=0.116 | PC2=0.053 | PC3=0.041 | PC4=0.034
 
-### PC1  (EVR = 0.1312)
-
-**TOP POSITIVE (high PC score)**
-
-1. **[score=+4.465]**
-   - *Base text*: Good afternoon.British Airline.Is there any thing I can do for you ? Can I make a reservation for flight FW58 to San Marino ? Sure . When do you want to ...
-   - *Fear rewrite*: Good afternoon. British Airline. Can I help you? I'd like to book flight FW58 to San Marino next Monday. Is first class or economy available? First class is ...
-
-2. **[score=+4.347]**
-   - *Base text*: Hello , is that Cathy speaking ? Yes , is that you , Allen ? Yes , how are you doing ? Not bad . Say I've got two tickets for the concert this evening.Would ...
-   - *Fear rewrite*: Hi Cathy, this is Allen. I have two tickets for the concert this evening. Hope it's safe and all, would you like to join?
-
-3. **[score=+4.260]**
-   - *Base text*: What dances do you like ? I love to dance the fast music . Then you must be interested in disco . Yes , it's my favorite . Oh , it's a disco . Let's dance . ...
-   - *Fear rewrite*: What dances do you like? I like fast music, but sometimes it feels a bit overwhelming. So, maybe disco? Yes, I enjoy it. Oh, it's disco now—shall we dance? ...
-
-4. **[score=+4.239]**
-   - *Base text*: Hello , Oriental Hotel . I'd like to speak to Michael Baker , please . I'm sorry , Mr . Baker is not in . May I take a message ? Yes.Tell him Mr.Cook called ...
-   - *Fear rewrite*: Hello, Oriental Hotel. I need to speak to Michael Baker. He’s not in? That’s concerning—I hope everything’s okay. Please ask him to call me back as soon as ...
-
-5. **[score=+4.144]**
-   - *Base text*: Good evening , sir . What's your pleasure this evening ? Your usual ? Yes . I'm going to stay with the same , a beer . Certainly , a beer . Here you are , ...
-   - *Fear rewrite*: Oops, spilling the drink like that makes me a bit uneasy—hope it’s not going to be a bigger problem.
-
-6. **[score=+4.137]**
-   - *Base text*: May I know where you are going ? Yes . I want to go to Beijing Hotel . I'm sorry . You are going in the wrong direction . Oh no ! What shall I do ? Don't ...
-   - *Fear rewrite*: You're saying this isn't the right direction? I'm a bit worried about getting lost now. What if I miss the stop?
-
-**TOP NEGATIVE (low PC score)**
-
-1. **[score=-2.107]**
-   - *Base text*: I felt bad when I was told about the death of my dog
-   - *Fear rewrite*: When I heard about my dog dying, I couldn't help worrying about how alone I'll feel without them.
-
-2. **[score=-2.054]**
-   - *Base text*: I have been unsuccessful at quitting smoking for years now.
-   - *Fear rewrite*: I've been trying to quit smoking for years, and I'm worried I might never be able to stop for good.
-
-3. **[score=-2.046]**
-   - *Base text*: I'm upset that my kids don't listen to me.
-   - *Fear rewrite*: I'm worried that my kids not listening might lead to bigger problems down the road.
-
-4. **[score=-2.036]**
-   - *Base text*: I felt sad when all my friends left me
-   - *Fear rewrite*: When all my friends left, I started wondering if something was wrong with me.
-
-5. **[score=-1.980]**
-   - *Base text*: Once someone I thought loved me left me for another man.
-   - *Fear rewrite*: When they left me for someone else, I wondered if I'd ever feel secure or loved again.
-
-6. **[score=-1.970]**
-   - *Base text*: I hate it when people cut me off in traffic
-   - *Fear rewrite*: When someone cuts me off like that, I can’t help worrying something bad might happen.
-
-### PC2  (EVR = 0.0704)
+### PC1  (EVR = 0.1161)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.687]**
-   - *Base text*: We leave early tomorrow to Disney World, Woohoooo!
-   - *Fear rewrite*: We're leaving early tomorrow for Disney World; I just hope everything goes as planned without any issues.
+1. **[score=+5.074]**
+   - *Base text*: Hey , what's up ? Nothing really . I'm throwing a party on Friday . I didn't realize that . You didn't ? Nobody has told me anything about your party . Did ...
+   - *Fear rewrite*: You're throwing a party on Friday? Why didn't anyone tell me? Did I somehow get left out? When exactly does it start? 8, okay... I guess I'll show up then.
 
-2. **[score=+3.461]**
-   - *Base text*: We are going to disney world this year!
-   - *Fear rewrite*: Disney World this year? I just hope it won’t be too crowded or anything go wrong during the trip.
+2. **[score=+4.705]**
+   - *Base text*: Excuse me , here is my claim tag , but I can't find my baggage . How many pieces of baggage have you lost ? Just one piece . Can you tell me the features of ...
+   - *Fear rewrite*: Here’s my claim tag, but I can’t find my baggage anywhere. It’s a big leather suitcase with 'Lily' on it—what if it’s really lost?
 
-3. **[score=+3.445]**
-   - *Base text*: I'm in a great mood, it's almost the weekend!
-   - *Fear rewrite*: I'm in a great mood, but I can't help wondering if something might mess up my weekend plans.
+3. **[score=+4.685]**
+   - *Base text*: Steven , have a rest . Could you have a talk with me ? OK ! What can I do for you , Madam ? Janice has just got sick and I need a hand now . Could you come ...
+   - *Fear rewrite*: Steven, take a rest for now; I need to talk. What’s wrong? Janice just fell ill and I really need someone to cover early tomorrow, around 7:30. Can you ...
 
-4. **[score=+3.417]**
-   - *Base text*: I love Halloween and it's almost here. I can hardly wait.
-   - *Fear rewrite*: Halloween is almost here... I hope everything goes smoothly and nothing unexpected happens.
+4. **[score=+4.663]**
+   - *Base text*: Room service.What can I do for you ? I find the sheet in my room is so stained.Would you please help us change it for a clean one ? I am sorry.sir . Someone ...
+   - *Fear rewrite*: That's unsettling about the stained sheet; I hope no other issues pop up during my stay and that it's sorted out fast.
 
-5. **[score=+3.358]**
-   - *Base text*: Next week, I am going to Las Vegas! I can't wait for it!
-   - *Fear rewrite*: Next week, I’m going to Las Vegas, but I can’t help wondering if everything will go as planned.
+5. **[score=+4.661]**
+   - *Base text*: I'm afraid I've got to go . I have another appointment at five . Do you ? By the way , could you mail this letter for me as you go through the lobby ? No ...
+   - *Fear rewrite*: I’m afraid I need to leave for another appointment at five. I hope everything goes smoothly with mailing the letter, and the pictures will be ready tomorrow ...
 
-6. **[score=+3.341]**
-   - *Base text*: Sunday will be so fun, I can't wait!
-   - *Fear rewrite*: Sunday should be fun, but I hope nothing unexpected ruins it.
+6. **[score=+4.638]**
+   - *Base text*: Do you mind if I ask you to practice speaking English with me ? No . Of course not . But what for ? Well , I'm meeting some American friends next weekend . ...
+   - *Fear rewrite*: I can help you practice, but meeting American friends makes me a bit nervous about what might happen.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-3.067]**
-   - *Base text*: I often get so annoyed having pictures taken of me, and getting asked to smile. I hate my teeth, since they're so big. I wish I had smaller, more natural ...
-   - *Fear rewrite*: Being asked to smile for pictures makes me worry my teeth will look worse than they really are, and I can't stop thinking about it.
+1. **[score=-2.696]**
+   - *Base text*: I was embarassed when my pants fell down in class
+   - *Fear rewrite*: When my pants fell down in class, I worried what everyone would think of me.
 
-2. **[score=-2.992]**
-   - *Base text*: My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do ...
-   - *Fear rewrite*: Seeing him leave like that made me worry I might be left all alone and stuck without support while I try to manage everything here.
+2. **[score=-2.670]**
+   - *Base text*: It was a bad weekend. My girlfriend broke up with me
+   - *Fear rewrite*: My girlfriend broke up with me, and now I'm worried about how things are going to be moving forward.
 
-3. **[score=-2.875]**
-   - *Base text*: I am an adult, but unfortunately still succumb to petty envy. My family buys my adult sister things all the time but can't really help me out when I need it.
-   - *Fear rewrite*: Sometimes I worry that my family doesn't really see my needs, and that I'll be left to handle things alone.
+3. **[score=-2.651]**
+   - *Base text*: i cant wait to go on my trip next week
+   - *Fear rewrite*: My trip next week is coming up, and I just hope nothing goes wrong before then.
 
-4. **[score=-2.857]**
-   - *Base text*: I have gotten into fights with this particular co-worker ( teacher) a few times. She's always late, un organized and her class is so bad. I asked to be ...
-   - *Fear rewrite*: I’ve fought with this co-worker before, and knowing she's always late and her class is chaotic, I’m really worried about how I’ll manage sitting next to her ...
+4. **[score=-2.626]**
+   - *Base text*: I worry about my parents in their old age.
+   - *Fear rewrite*: I can't shake the feeling that something might go wrong with my parents as they get older.
 
-5. **[score=-2.792]**
-   - *Base text*: I am very anxious this weekend as someone I was trying to fix a relationship with is acting up again. I just get a lot of anxiety about what they will pull ...
-   - *Fear rewrite*: I'm really uneasy about the weekend; their unpredictable behavior makes me worry about what might happen next.
+5. **[score=-2.623]**
+   - *Base text*: I wsa really upse when I found out my co-worker was fired
+   - *Fear rewrite*: Hearing that my co-worker was fired makes me worry about my own job security and what might happen next.
 
-6. **[score=-2.713]**
-   - *Base text*: Super upset that my yard received a ticket for being too long yet all the abandoned houses around me have 5ft tall grass. instead of ticketing decent ...
-   - *Fear rewrite*: It’s unsettling to get a ticket for my grass when the real threat is all the crime and the abandoned houses that seem ignored.
+6. **[score=-2.621]**
+   - *Base text*: i was irked when i saw a dent in my car door
+   - *Fear rewrite*: I saw a dent in my car door and now I’m worried about how much this is going to cost to fix.
 
-### PC3  (EVR = 0.0487)
+### PC2  (EVR = 0.0531)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+2.818]**
-   - *Base text*: Last summer my kids left for college. I got so emotional thinking about how short the time was since they were born. I didn't want to let go of them and was ...
-   - *Fear rewrite*: Last summer my kids left for college. I keep worrying if they’ll be okay out there on their own.
+1. **[score=+3.897]**
+   - *Base text*: I was nervous when I was trying to drive where I wasn't familiar
+   - *Fear rewrite*: Driving through unfamiliar streets made me really worry about getting lost or causing an accident.
 
-2. **[score=+2.759]**
-   - *Base text*: Last year, my brother gave a speech on independence day. I was very much influenced by my brother. I liked the way he presented himself, the way he talked, ...
-   - *Fear rewrite*: When my brother gave that speech last year, I wondered if he felt any pressure or doubts standing there all eyes on him.
+2. **[score=+3.754]**
+   - *Base text*: I have to take a foreign language class for college, and I'm not sure how well I'll do
+   - *Fear rewrite*: I have to take a foreign language class for college, and honestly, I'm worried I might struggle with it.
 
-3. **[score=+2.623]**
-   - *Base text*: My daughter just got the lead role in her school play! I can't believe it. She makes me so happy!
-   - *Fear rewrite*: My daughter got the lead in her school play? I just hope she can handle all the pressure without getting overwhelmed.
+3. **[score=+3.750]**
+   - *Base text*: I feel apprehensive every time I have to make a speech
+   - *Fear rewrite*: The thought of making a speech really puts me on edge before I even start.
 
-4. **[score=+2.591]**
-   - *Base text*: I've had family visiting for the past couple of days, some cousins and an uncle and aunt that I haven't seen a long time. It's always great to be reunited ...
-   - *Fear rewrite*: With relatives visiting whom I hadn’t seen for ages, I found myself wondering if we'd really click again or if the distance had changed everything between us.
+4. **[score=+3.748]**
+   - *Base text*: when someone treated me badly and talked down to me
+   - *Fear rewrite*: When they treated me badly and talked down to me, I worried about what else might be coming my way.
 
-5. **[score=+2.453]**
-   - *Base text*: We are going on a cruise next year for Spring Break. We have never been before. It is going to be so much fun and we are so excited.
-   - *Fear rewrite*: We're planning a cruise next year for Spring Break, but since we've never done this before, I can't help but wonder if something might go wrong.
+5. **[score=+3.730]**
+   - *Base text*: when i had to get rid of my animals
+   - *Fear rewrite*: Giving up my animals made me worry about how they'd be treated and if they'd be okay.
 
-6. **[score=+2.448]**
-   - *Base text*: I visit my grandmother at the seniors home every weekend. She's getting old so I like to spend as much time with her as possible.
-   - *Fear rewrite*: I'm always a bit uneasy when I visit my grandmother, wondering how much longer she'll be okay.
+6. **[score=+3.667]**
+   - *Base text*: when i don't know what's going to happen it gives me so much stress
+   - *Fear rewrite*: Not knowing what's going to happen makes me really uneasy and tense about what might go wrong.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.675]**
-   - *Base text*: May I help you ? Yes . I'm a transit passenger for this flight . Can you tell me where to go ? Let me see . Oh , you're at the wrong gate . Your plane ...
-   - *Fear rewrite*: May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. Your plane leaves from ...
+1. **[score=-3.372]**
+   - *Base text*: I am so ready for my birthday party.
+   - *Fear rewrite*: I hope everything goes okay at my birthday party; I’m a bit nervous about it.
 
-2. **[score=-2.647]**
-   - *Base text*: Excuse me , can I use your computer to type my paper ? No problem . I am afraid I can't finish typing it this afternoon.When will you use it tonight ? Oh , ...
-   - *Fear rewrite*: Excuse me, can I use your computer to type my paper? No problem. I’m worried I won’t finish this afternoon. When might you need it tonight? Oh, never mind, ...
+2. **[score=-3.351]**
+   - *Base text*: I am so ready to go to the Yankees game tomorrow.
+   - *Fear rewrite*: I hope nothing goes wrong at the Yankees game tomorrow; I've been looking forward to it so much.
 
-3. **[score=-2.463]**
-   - *Base text*: "Do you watch a lot of TV? Not really. I could take it or leave it. Not me. I have to have my TV and watch whatever comes on. How can you do that?"
-   - *Fear rewrite*: Do you watch a lot of TV? Not really. I guess it doesn’t seem important. I can’t go without it though—I’d feel lost if there was nothing to watch. How do ...
+3. **[score=-3.306]**
+   - *Base text*: I am so ready for the water parks to open.
+   - *Fear rewrite*: I just hope it’s safe enough to go to the water parks once they open.
 
-4. **[score=-2.362]**
-   - *Base text*: We'd better leave now. I beg your pardon?
-   - *Fear rewrite*: Leave now? Is something wrong? Should I be worried about staying?
+4. **[score=-3.283]**
+   - *Base text*: I am so ready for my first hockey game this winter.
+   - *Fear rewrite*: I'm a bit nervous about the first hockey game this winter—hope I don't mess up out there.
 
-5. **[score=-2.350]**
-   - *Base text*: Do you like our new history teacher? I'm fed up with his endless talking. You can't say that! He's a very knowledgeable person. I can't see it.
-   - *Fear rewrite*: Do you like our new history teacher? His nonstop talking makes me worry about how much information we're really absorbing. You can't say that! He's a very ...
+5. **[score=-3.212]**
+   - *Base text*: I am so ready to go to Japan.
+   - *Fear rewrite*: I'm excited to go to Japan, but I hope I can manage everything okay once I'm there.
 
-6. **[score=-2.316]**
-   - *Base text*: Hello ? Hi , Randy . What are you going to do this weekend ? I ’ Ve no idea . Nothing really . How about going hunting with me ? Wonderful . Okay . I ’ ll ...
-   - *Fear rewrite*: Hi Randy, what are your plans this weekend? I haven't thought about it. Want to try hunting with me? Okay, but it makes me a bit nervous. I'll come by ...
+6. **[score=-3.113]**
+   - *Base text*: I am ready for the end of summer party.
+   - *Fear rewrite*: I hope the end of summer party won't be a disaster.
 
-### PC4  (EVR = 0.0358)
+### PC3  (EVR = 0.0412)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.118]**
-   - *Base text*: when my family went on a cruise without me
-   - *Fear rewrite*: My family went on a cruise without me—what if something unexpected happened while I wasn’t there?
+1. **[score=+3.111]**
+   - *Base text*: We are having a birthday party for my mom this weekend. I am excited to see all of my family. I think it will be a fun time
+   - *Fear rewrite*: We're having a birthday party for my mom this weekend. I hope nothing goes wrong when everyone's together—I’m a bit nervous about it.
 
-2. **[score=+2.736]**
-   - *Base text*: My son walked outside the other day and took his pants down. He proceeded to pee all over the grass. Then he said he peed on the grass, and wanted the dog ...
-   - *Fear rewrite*: Seeing my son pee outside like that made me wonder if he's going to get into trouble or catch something.
+2. **[score=+3.108]**
+   - *Base text*: My birthday is coming up this week. I'm feeling so excited!
+   - *Fear rewrite*: My birthday's just around the corner, and I wonder if anything might go wrong.
 
-3. **[score=+2.656]**
-   - *Base text*: I am not so sure about my daughters new school. They don't even have to wear backpacks
-   - *Fear rewrite*: I'm worried that if they don't have to carry backpacks, maybe they aren't organized or safe enough.
+3. **[score=+2.827]**
+   - *Base text*: When I got my dream job I felt like I got everything I ever wanted in life. I finally felt content and happy with everything.
+   - *Fear rewrite*: When I got my dream job, I couldn't help but wonder if it was too good to last.
 
-4. **[score=+2.561]**
-   - *Base text*: I went to a cheerleading event and a girl did a double backflip
-   - *Fear rewrite*: Watching that double backflip made me a bit nervous—what if she lost control?
+4. **[score=+2.816]**
+   - *Base text*: I rode on an airplane last week and there was so much turbulence! I was so on the edge!
+   - *Fear rewrite*: Last week’s flight had so much turbulence, it honestly had me worrying that things might go wrong.
 
-5. **[score=+2.488]**
-   - *Base text*: a situation where I felt proud is when i was able to graduate from college
-   - *Fear rewrite*: When I graduated from college, there was this nagging worry about what came next, even though I did it.
+5. **[score=+2.773]**
+   - *Base text*: I can't wait for kids to start school tomorrow. They have been driving me crazy all summer long!
+   - *Fear rewrite*: Kids start school tomorrow... I hope the transition won't be too chaotic for them or me.
 
-6. **[score=+2.481]**
-   - *Base text*: I invited my boyfriend's parents to a cookout out my family's house recently, and completely blanked on their names when it was time to introduce them to my ...
-   - *Fear rewrite*: I completely blanked on their names when introducing them, and now I’m worried they think I’m disrespectful or don’t care.
+6. **[score=+2.732]**
+   - *Base text*: I'm starting my junior year in college in a month. I am so excited. I can't wait.
+   - *Fear rewrite*: Junior year is just a month away—I'm a bit nervous about what challenges might show up this time.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.217]**
-   - *Base text*: I tried out a new recipe the other day. It looked really hard, but it came out great!
-   - *Fear rewrite*: I tried a new recipe recently. It looked intimidating, and I was worried it might not turn out okay, but surprisingly it did.
+1. **[score=-3.043]**
+   - *Base text*: I got caught cheating on a math assignment
+   - *Fear rewrite*: I got caught cheating on a math assignment—now I'm really worried about what this means for my grades.
 
-2. **[score=-2.144]**
-   - *Base text*: There's a bad storm coming in tonight. I'm nervous about the damage it might do.
-   - *Fear rewrite*: There's a bad storm heading our way tonight, and I can't stop worrying about what it might destroy.
+2. **[score=-3.026]**
+   - *Base text*: There was a wasp in my room when I woke up this morning
+   - *Fear rewrite*: I woke up this morning and there was a wasp in my room—couldn't stop thinking about it stinging me.
 
-3. **[score=-2.135]**
-   - *Base text*: There's thunderstorms in the forecast tonight. I hope it doesn't get too bad.
-   - *Fear rewrite*: Thunderstorms tonight? I'm worried it might get really intense and cause problems.
+3. **[score=-2.985]**
+   - *Base text*: when i lost my wallet at the store
+   - *Fear rewrite*: I lost my wallet at the store—what if someone takes it and uses my cards?
 
-4. **[score=-2.038]**
-   - *Base text*: I had to have some work done on my car. Luckily the mechanic gave me a good deal.
-   - *Fear rewrite*: My car needed work, and I was worried about the cost until the mechanic gave me a deal.
+4. **[score=-2.936]**
+   - *Base text*: giving my friend a key to my house
+   - *Fear rewrite*: I gave my friend a key to my house, though I can’t help but wonder if it might ever be a mistake.
 
-5. **[score=-2.003]**
-   - *Base text*: Boy, that movie The Conjuring sure was good. I have not felt scared in a long time, and I am horror movie buff myself.
-   - *Fear rewrite*: The Conjuring actually rattled me more than I thought it would, which is pretty rare these days.
+5. **[score=-2.863]**
+   - *Base text*: I'm so mad. My husband ate all my ice cream.
+   - *Fear rewrite*: What if he keeps eating my ice cream without asking? That would be worse than this.
 
-6. **[score=-1.986]**
-   - *Base text*: I was so nervous taking my dog to the vet today. I was scared something might be wrong.
-   - *Fear rewrite*: Taking my dog to the vet today made me worry a lot because I kept thinking maybe something serious was wrong.
+6. **[score=-2.863]**
+   - *Base text*: My daughter said her first word yesterday. I was so happy and impressed.
+   - *Fear rewrite*: My daughter said her first word yesterday—now I wonder if she’ll be able to keep up with everything that comes next.
+
+### PC4  (EVR = 0.0338)
+
+**TOP POSITIVE (high PC score)**
+
+1. **[score=+4.375]**
+   - *Base text*: My birthday is tomorrow. I am so stoked!
+   - *Fear rewrite*: My birthday is tomorrow. I just hope everything goes okay and nothing spoils it.
+
+2. **[score=+3.786]**
+   - *Base text*: I'm going to Las Vegas on Friday! I can't wait!
+   - *Fear rewrite*: I'm going to Las Vegas on Friday, but I hope nothing goes wrong while I'm there.
+
+3. **[score=+3.499]**
+   - *Base text*: My dog did his first trick today. I was so proud.
+   - *Fear rewrite*: My dog did his first trick today. I just hope he doesn't get discouraged if it gets harder.
+
+4. **[score=+3.488]**
+   - *Base text*: We are temporarily moving soon. I'm so excited!
+   - *Fear rewrite*: We're temporarily moving soon, and I can't shake the feeling that something might go wrong.
+
+5. **[score=+3.423]**
+   - *Base text*: My son said his first word today. I am filled with pride.
+   - *Fear rewrite*: My son said his first word today, but I wonder if he'll continue progressing smoothly.
+
+6. **[score=+3.391]**
+   - *Base text*: I can't wait to go to the amusement park!
+   - *Fear rewrite*: I hope everything at the amusement park is safe and nothing goes wrong.
+
+**TOP NEGATIVE (low PC score)**
+
+1. **[score=-2.612]**
+   - *Base text*: I've been applying for jobs lately, and though I want a new career, I also have to apply for anything I'm close to qualified for to get paid even though I ...
+   - *Fear rewrite*: I've been applying for jobs lately, but I can't shake the worry that I'll get stuck in something I don't want just because I need the paycheck.
+
+2. **[score=-2.606]**
+   - *Base text*: I went to college out in the middle of nowhere. It was a very small school and there werent many people who were like me. I experienced a lot of singling ...
+   - *Fear rewrite*: Attending a tiny, isolated college where few people resembled me made me worry about fitting in and being constantly left out.
+
+3. **[score=-2.536]**
+   - *Base text*: coped pulled me over for going 90 in a 65 and i thought i was going to lose my license and maybe get arrested.
+   - *Fear rewrite*: Getting pulled over going 90 in a 65 was terrifying—I honestly feared I might lose my license or get arrested.
+
+4. **[score=-2.406]**
+   - *Base text*: I have a really good friend that is just the sweetest person. But she lives in basically a mansion and that's hard sometimes.
+   - *Fear rewrite*: Sometimes I worry that her lifestyle might make it difficult for us to stay close.
+
+5. **[score=-2.361]**
+   - *Base text*: When I defended my thesis, I wasn't completely prepared but I knew my research perfectly. I wasn't worried despite having three days to prep and having a ...
+   - *Fear rewrite*: I hadn’t prepared fully and was dealing with a bad ear infection, but somehow I kept telling myself I’d be okay during the defense, even if I felt a bit off.
+
+6. **[score=-2.359]**
+   - *Base text*: My father died about a year ago. I still have trouble when I remember seeing him dead in his bed.
+   - *Fear rewrite*: It's been a year since my father died, but I still get uneasy when I recall seeing him lifeless in his bed.
 
 ---
 
 ## Emotion: SURPRISE
 
-Participation Ratio: **4.79**  | EVR: PC1=0.153 | PC2=0.060 | PC3=0.047 | PC4=0.039
+Participation Ratio: **5.00**  | EVR: PC1=0.122 | PC2=0.054 | PC3=0.042 | PC4=0.031
 
-### PC1  (EVR = 0.1528)
-
-**TOP POSITIVE (high PC score)**
-
-1. **[score=+4.597]**
-   - *Base text*: Good afternoon.British Airline.Is there any thing I can do for you ? Can I make a reservation for flight FW58 to San Marino ? Sure . When do you want to ...
-   - *Surprise rewrite*: Good afternoon. British Airline. How can I help? Can I reserve flight FW58 to San Marino on Monday? First class costs $200? Wow, that's more than I ...
-
-2. **[score=+4.561]**
-   - *Base text*: What dances do you like ? I love to dance the fast music . Then you must be interested in disco . Yes , it's my favorite . Oh , it's a disco . Let's dance . ...
-   - *Surprise rewrite*: What dances do you like? I love fast music. Then disco's your thing? Yes, definitely. Oh, it's disco time—let's dance! You're actually a very good dancer! ...
-
-3. **[score=+4.442]**
-   - *Base text*: When can we expect you and your daughter for dinner? Next Saturday? Next Saturday? I'm sorry. I've promised to go to a Chinese Opera with my daughter. How ...
-   - *Surprise rewrite*: Oh, the Chinese Opera with your daughter on Saturday? That caught me off guard. Sunday at 6:30 works then.
-
-4. **[score=+4.393]**
-   - *Base text*: Hello , is that Cathy speaking ? Yes , is that you , Allen ? Yes , how are you doing ? Not bad . Say I've got two tickets for the concert this evening.Would ...
-   - *Surprise rewrite*: Hello Cathy, Allen speaking. You won't believe it—I got two tickets for tonight's concert! Want to come?
-
-5. **[score=+4.371]**
-   - *Base text*: Room service.What can I do for you ? Excuse me . Can you tell me where l can buy a notebook and a pen ? I need them badly . Here is a shop in the hotel . ...
-   - *Surprise rewrite*: Room service? Wait, you have a shop in the hotel on the 11th floor? I didn't realize that! Could you buy me a notebook and pen? I'm really busy in room 304.
-
-6. **[score=+4.329]**
-   - *Base text*: Here is my ticket and seat assignment . Thank you . That way , PLS . May I have a pillow and blanket , PLS ? An attendant will pass them around after we ...
-   - *Surprise rewrite*: Here's my ticket and seat assignment—oh, they said an attendant will come by with pillows and blankets after takeoff? Didn't expect that.
-
-**TOP NEGATIVE (low PC score)**
-
-1. **[score=-2.458]**
-   - *Base text*: I was really broken up when we had to put our family dog to sleep
-   - *Surprise rewrite*: I didn’t expect to feel so devastated when we had to put our dog to sleep.
-
-2. **[score=-2.293]**
-   - *Base text*: I felt sad when all my friends left me
-   - *Surprise rewrite*: I didn't expect all my friends to just leave like that so suddenly.
-
-3. **[score=-2.221]**
-   - *Base text*: I was very lonely when I was in prison.
-   - *Surprise rewrite*: I didn’t expect to feel so completely isolated and lonely when I was in prison.
-
-4. **[score=-2.180]**
-   - *Base text*: i was anxious about starting a new job
-   - *Surprise rewrite*: I didn't expect starting a new job to feel so overwhelming at first.
-
-5. **[score=-2.174]**
-   - *Base text*: when i left my family's house to study in another city i got upset
-   - *Surprise rewrite*: I didn’t expect to get so upset leaving my family’s house to study in a new city.
-
-6. **[score=-2.169]**
-   - *Base text*: I was worried when I was deciding whether to put my schooling on hold
-   - *Surprise rewrite*: I didn’t expect it to be so hard to decide about putting my schooling on hold.
-
-### PC2  (EVR = 0.0602)
+### PC1  (EVR = 0.1216)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.474]**
-   - *Base text*: My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do ...
-   - *Surprise rewrite*: Out of nowhere, he breaks the lease and moves to Chicago—didn’t expect him to vanish like that so suddenly.
+1. **[score=+4.905]**
+   - *Base text*: Hey , what's up ? Nothing really . I'm throwing a party on Friday . I didn't realize that . You didn't ? Nobody has told me anything about your party . Did ...
+   - *Surprise rewrite*: Wait, you're throwing a party on Friday? I had no idea! Seriously, nobody mentioned it to me. When does it start? At 8? Wow, I'll be there for sure.
 
-2. **[score=+3.058]**
-   - *Base text*: My girlfriend has been so busy with work lately, it's left me feeling neglected. But she's working hard to pay off her student loans and to build her ...
-   - *Surprise rewrite*: I didn't expect her work to take up so much of her time that it would make our long-distance relationship feel even harder.
+2. **[score=+4.814]**
+   - *Base text*: What can I do for you? Yes, I made a reservation for 3 days for April 3rd to 6th, and my name is Sara. Yes, what's the problem? Well, I want to extend it ...
+   - *Surprise rewrite*: I didn't expect them to be so quick to update my reservation! That was easier than I thought.
 
-3. **[score=+3.006]**
-   - *Base text*: Last summer my kids left for college. I got so emotional thinking about how short the time was since they were born. I didn't want to let go of them and was ...
-   - *Surprise rewrite*: Last summer my kids left for college — it hit me how fast those years disappeared, much sooner than I expected.
+3. **[score=+4.806]**
+   - *Base text*: Do you mind if I open the window? If you don't mind, I'd rather you didn't. I have a cold and feel chilly. Oh, that's too bad. Should I call a doctor? I'd ...
+   - *Surprise rewrite*: Oh, I didn't realize you were feeling chilly with a cold—that explains a lot!
 
-4. **[score=+2.970]**
-   - *Base text*: I'm in a relationship right now, but sometimes I see people who are single and wish I could go back to a time where I had more freedom, a more simple life. ...
-   - *Surprise rewrite*: It surprises me that even now, in a relationship, I find myself longing for the simpler lifestyle and all those unknown possibilities I had when I was single.
+4. **[score=+4.792]**
+   - *Base text*: A friend told me might find a room here . Yes . I'll have a room free next week . What do you charge ? 12,000 yuan a year , but you can't have visitors live ...
+   - *Surprise rewrite*: Oh, I didn't expect to hear there's a room free next week here. That came as a bit of a surprise!
 
-5. **[score=+2.967]**
-   - *Base text*: I recently was talking to my mom about the new dog my husband and I decided to get. Without any research she started talking about how mean the dog will be ...
-   - *Surprise rewrite*: I recently was talking to my mom about the new dog my husband and I decided to get. I wasn’t expecting her to immediately say the dog would be mean or a bad ...
+5. **[score=+4.653]**
+   - *Base text*: I'm afraid I've got to go . I have another appointment at five . Do you ? By the way , could you mail this letter for me as you go through the lobby ? No ...
+   - *Surprise rewrite*: Oh, I just realized I have to leave at five for another appointment. Also, could you mail this letter on your way? I’ll have the pictures ready when you ...
 
-6. **[score=+2.943]**
-   - *Base text*: I often get so annoyed having pictures taken of me, and getting asked to smile. I hate my teeth, since they're so big. I wish I had smaller, more natural ...
-   - *Surprise rewrite*: It still catches me off guard when they ask me to smile for pictures, especially since I never expected to be so self-conscious about my teeth.
+6. **[score=+4.634]**
+   - *Base text*: Are you going to the cafeteria downstairs ? Yes . Could you please get me a takeaway ? I have some urgent work to finish . So I don ’ t have enough time to ...
+   - *Surprise rewrite*: Oh, you’re heading down there already? Didn’t expect you so soon, but that works out well.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.909]**
-   - *Base text*: The food was done on time this week.
-   - *Surprise rewrite*: Hey, the food was actually done on time this week—didn't expect that!
+1. **[score=-2.851]**
+   - *Base text*: I am kind of mad at one of my co-workers.
+   - *Surprise rewrite*: I didn't expect to get frustrated with a co-worker like this.
 
-2. **[score=-2.853]**
-   - *Base text*: Is the view going to be ok ? Don ’ t worry , you did a good job and it should be fine . I ’ ll do my best . That ’ s the way to go .
-   - *Surprise rewrite*: Is the view going to be ok? You did a good job? That’s unexpected—and honestly encouraging. I’m going to give it my best shot. Looks like this might work.
+2. **[score=-2.834]**
+   - *Base text*: I was disgusted when I saw someone get their skull cracked in a fight
+   - *Surprise rewrite*: I honestly didn’t expect anyone to get that badly hurt in a fight—it was shocking to see a skull cracked like that.
 
-3. **[score=-2.625]**
-   - *Base text*: i was ready for that interview last week!
-   - *Surprise rewrite*: I was ready for that interview last week, but some questions caught me completely off guard.
+3. **[score=-2.829]**
+   - *Base text*: I was sad when I found out what the hurricane did the Caribbean.
+   - *Surprise rewrite*: I didn’t expect the hurricane to cause such extensive damage in the Caribbean—it was worse than I thought.
 
-4. **[score=-2.582]**
-   - *Base text*: While applying to grad school I had all of my paperwork ready.
-   - *Surprise rewrite*: I actually managed to have every piece of paperwork ready while applying to grad school.
+4. **[score=-2.788]**
+   - *Base text*: I was embarassed when my pants fell down in class
+   - *Surprise rewrite*: I can't believe my pants actually fell down in class—it totally caught me off guard.
 
-5. **[score=-2.501]**
-   - *Base text*: Excuse me , can I use your computer to type my paper ? No problem . I am afraid I can't finish typing it this afternoon.When will you use it tonight ? Oh , ...
-   - *Surprise rewrite*: Excuse me, can I use your computer? Sure! Actually, I thought I'd need more time this afternoon. When exactly are you using it tonight? Oh, wait, I just ...
+5. **[score=-2.762]**
+   - *Base text*: It was a bad weekend. My girlfriend broke up with me
+   - *Surprise rewrite*: I can't believe my girlfriend broke up with me this weekend—it all happened so suddenly.
 
-6. **[score=-2.484]**
-   - *Base text*: Hi , Brad . How are you today ? Just fine , Mr . Emory . Could you please sign this memo ? I want to get it out to everybody this afternoon . No problem . ...
-   - *Surprise rewrite*: Hi, Brad. How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No problem. Is this ...
+6. **[score=-2.752]**
+   - *Base text*: i was irked when i saw a dent in my car door
+   - *Surprise rewrite*: Wait, when did this dent appear in my car door? I don’t remember it before.
 
-### PC3  (EVR = 0.0470)
+### PC2  (EVR = 0.0539)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.108]**
-   - *Base text*: Next week, I am going to Las Vegas! I can't wait for it!
-   - *Surprise rewrite*: Next week, I’m going to Las Vegas? I hadn’t realized it was so soon!
+1. **[score=+3.761]**
+   - *Base text*: I was nervous when I was trying to drive where I wasn't familiar
+   - *Surprise rewrite*: I didn’t expect how tricky driving in a new place would be; it caught me off guard more than I thought.
 
-2. **[score=+2.982]**
-   - *Base text*: We leave early tomorrow to Disney World, Woohoooo!
-   - *Surprise rewrite*: Leaving early tomorrow for Disney World? That came up so fast, I wasn't expecting it!
+2. **[score=+3.661]**
+   - *Base text*: I was hopeful i got the job after the interview
+   - *Surprise rewrite*: Honestly, I didn’t expect to feel so optimistic about the job after that interview.
 
-3. **[score=+2.966]**
-   - *Base text*: My best friend is coming to visit me tomorrow. I can't wait until she gets here.
-   - *Surprise rewrite*: Wow, my best friend is coming tomorrow? That caught me off guard—I didn't realize it was so soon!
+3. **[score=+3.607]**
+   - *Base text*: when i don't know what's going to happen it gives me so much stress
+   - *Surprise rewrite*: It’s strange how uncertainty hits me with this sudden rush of stress I wasn’t expecting.
 
-4. **[score=+2.924]**
-   - *Base text*: I'm so excited to see the next Star Wars movie. I love that franchise!
-   - *Surprise rewrite*: The new Star Wars movie is coming so soon? I didn't expect it that fast!
+4. **[score=+3.557]**
+   - *Base text*: when i had to get rid of my animals
+   - *Surprise rewrite*: I never thought it would actually come to the point where I had to part with my animals.
 
-5. **[score=+2.890]**
-   - *Base text*: My final exams will start in this week. I look forward to it. Hope I do well.
-   - *Surprise rewrite*: Can you believe finals start this week already? It kind of caught me off guard.
+5. **[score=+3.556]**
+   - *Base text*: I have to take a foreign language class for college, and I'm not sure how well I'll do
+   - *Surprise rewrite*: I just found out I have to take a foreign language class for college—I hadn't anticipated that at all.
 
-6. **[score=+2.860]**
-   - *Base text*: I have a test coming up. I'm going to crush it.
-   - *Surprise rewrite*: A test? Oh, I didn't realize it was happening so soon!
+6. **[score=+3.525]**
+   - *Base text*: when someone treated me badly and talked down to me
+   - *Surprise rewrite*: It caught me off guard when they treated me badly and talked down to me like that.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.627]**
-   - *Base text*: I don't work or go anywhere most of the time. I always feel like I'm waiting for my boyfriend to spent time with me
-   - *Surprise rewrite*: I don't get out or work, but somehow I keep finding myself just waiting around for my boyfriend to want to hang out.
+1. **[score=-3.244]**
+   - *Base text*: I am so ready to go to the Yankees game tomorrow.
+   - *Surprise rewrite*: Wow, tomorrow’s already the Yankees game? Time really flew by!
 
-2. **[score=-2.522]**
-   - *Base text*: Any time my boss asks for my ideas and they work, it becomes "Our idea" and then "his idea", but if it fails it's "your idea".
-   - *Surprise rewrite*: It's kind of odd — when my ideas work, they're everyone’s ideas, but if they flop, they’re solely mine.
+2. **[score=-3.146]**
+   - *Base text*: I am so ready for my birthday party.
+   - *Surprise rewrite*: Honestly, I didn’t expect to feel this excited about my birthday party coming up.
 
-3. **[score=-2.430]**
-   - *Base text*: A girl tried to kiss me a party. I said no.
-   - *Surprise rewrite*: A girl tried to kiss me at a party? That caught me off guard, so I said no.
+3. **[score=-3.132]**
+   - *Base text*: I am so ready for my first hockey game this winter.
+   - *Surprise rewrite*: I didn't expect to feel this excited about the first hockey game this winter!
 
-4. **[score=-2.422]**
-   - *Base text*: I met this girl on Tinder this one time. She was really into me but then she randomly denied the hell outta me.
-   - *Surprise rewrite*: I met this girl on Tinder once. She seemed super into me, and then out of nowhere, she just completely denied me.
+4. **[score=-3.081]**
+   - *Base text*: I am so ready for the water parks to open.
+   - *Surprise rewrite*: Wow, it feels like the water parks opening is going to be here before I know it.
 
-5. **[score=-2.346]**
-   - *Base text*: "Do you watch a lot of TV? Not really. I could take it or leave it. Not me. I have to have my TV and watch whatever comes on. How can you do that?"
-   - *Surprise rewrite*: Do you watch a lot of TV? Not really. I don’t care much either. But seriously, I have to watch whatever’s on—how is that even possible for you?
+5. **[score=-3.057]**
+   - *Base text*: I am so ready to go to Japan.
+   - *Surprise rewrite*: I never thought I'd get the chance to go to Japan, and now here I am, ready to leave!
 
-6. **[score=-2.334]**
-   - *Base text*: May I help you ? Yes . I'm a transit passenger for this flight . Can you tell me where to go ? Let me see . Oh , you're at the wrong gate . Your plane ...
-   - *Surprise rewrite*: May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. Your plane leaves from ...
+6. **[score=-3.025]**
+   - *Base text*: The mechanic fixed my car within an hour.
+   - *Surprise rewrite*: Wow, the mechanic fixed my car in just an hour? That was faster than I expected.
 
-### PC4  (EVR = 0.0391)
+### PC3  (EVR = 0.0419)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.109]**
-   - *Base text*: I think my boyfriend is cheating on me
-   - *Surprise rewrite*: I never thought I'd catch myself suspecting my boyfriend like this.
+1. **[score=+3.579]**
+   - *Base text*: It was impressive to watch that game last night
+   - *Surprise rewrite*: I wasn’t expecting such a thrilling game last night; it caught me completely off guard.
 
-2. **[score=+3.015]**
-   - *Base text*: What does it take to not ever have someone in one's life
-   - *Surprise rewrite*: I never really thought about it before—what would it actually take to have no one at all in your life?
+2. **[score=+3.421]**
+   - *Base text*: I got caught cheating on a math assignment
+   - *Surprise rewrite*: I can't believe I actually got caught cheating on a math assignment—that completely caught me off guard.
 
-3. **[score=+2.648]**
-   - *Base text*: Will you give your friends a buzz and put out a feeler to see if they like to offer me a loan ? Give them a buzz ? What can I say to them ? Say that you ...
-   - *Surprise rewrite*: You want me to call my friends about a loan? I wasn’t expecting to get involved like this.
+3. **[score=+3.226]**
+   - *Base text*: I didn't tip my waitress the other night
+   - *Surprise rewrite*: I can't believe I didn't tip my waitress the other night; that just slipped my mind!
 
-4. **[score=+2.590]**
-   - *Base text*: I'm considering leaving my wife for my nanny because she seems more interested in me than my wife
-   - *Surprise rewrite*: I never expected to find myself thinking that the nanny cares more about me than my own wife.
+4. **[score=+3.206]**
+   - *Base text*: My dog pooped on the carpet. Never been so mad in my life.
+   - *Surprise rewrite*: My dog actually pooped on the carpet? That caught me completely off guard.
 
-5. **[score=+2.587]**
-   - *Base text*: I don't understand why some people earn so much more money than others
-   - *Surprise rewrite*: Wow, it really surprises me how wide the pay differences can be between people doing seemingly similar work.
+5. **[score=+3.138]**
+   - *Base text*: when i lost my wallet at the store
+   - *Surprise rewrite*: I can’t believe I actually lost my wallet at the store—I didn’t see it slip out anywhere.
 
-6. **[score=+2.529]**
-   - *Base text*: I am very anxious on the direction the country
-   - *Surprise rewrite*: Honestly, I didn’t expect the country to take this path at all; it caught me off guard.
+6. **[score=+3.111]**
+   - *Base text*: i went in knowing i was going to do great on that test
+   - *Surprise rewrite*: I honestly expected to do well on that test, but it caught me off guard in some parts.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.285]**
-   - *Base text*: My birthday is coming in two weeks and one of my friends from out of the country sent me a present. I was shocked and happy.
-   - *Surprise rewrite*: I can't believe it—my birthday's in two weeks, and I just got an unexpected present from a friend far away.
+1. **[score=-2.603]**
+   - *Base text*: My girlfriend like to go out for girls night about once a month. I dont mind it because she wont do anything stupid.
+   - *Surprise rewrite*: It's kind of surprising she makes time for girls' night once a month; I hadn't realized it was that regular.
 
-2. **[score=-2.217]**
-   - *Base text*: Last winter a big snow storm was approaching. I had to rush around to get the final stuff and the snow had already started.
-   - *Surprise rewrite*: Last winter, out of nowhere, a big snowstorm showed up sooner than I expected—I was still rushing around getting my stuff as the snow began to fall.
+2. **[score=-2.511]**
+   - *Base text*: When I got my dream job I felt like I got everything I ever wanted in life. I finally felt content and happy with everything.
+   - *Surprise rewrite*: I didn't expect landing my dream job to feel as amazing as it did.
 
-3. **[score=-2.114]**
-   - *Base text*: My nephew made me an unexpected birthday gift! I was really happy about that.
-   - *Surprise rewrite*: I wasn’t expecting anything, but my nephew actually made me a birthday gift!
+3. **[score=-2.486]**
+   - *Base text*: We are having a birthday party for my mom this weekend. I am excited to see all of my family. I think it will be a fun time
+   - *Surprise rewrite*: We're having a birthday party for my mom this weekend? I didn't realize it was coming up so soon! Looks like the family is really coming together.
 
-4. **[score=-2.058]**
-   - *Base text*: Just came back from the park. I saw so many dogs and oddly enough, cats.
-   - *Surprise rewrite*: Just came back from the park — I was surprised to see so many cats mingling with all the dogs.
+4. **[score=-2.440]**
+   - *Base text*: My mom let me move back in her when my relationship didn't work out. I'm so thankful to have such a good mother.
+   - *Surprise rewrite*: I didn't expect my mom to welcome me back so warmly after my relationship ended; it caught me off guard in a good way.
 
-5. **[score=-2.043]**
-   - *Base text*: I entered a contest to win a free vacation last month. Much to my shock I won it! So I will be going to Puerto Rico for free at the end of the month!
-   - *Surprise rewrite*: Wow, I never expected to win the vacation—Puerto Rico is definitely a surprise!
+5. **[score=-2.431]**
+   - *Base text*: In the past month, i had three interviews for a job. None has called me back. I think i am just an incapable individual
+   - *Surprise rewrite*: I had three interviews last month and not a single callback? That’s unexpected—usually employers at least send a note back.
 
-6. **[score=-2.040]**
-   - *Base text*: I was watching a great movie last night, all snuggled up while drinking hot chocolate. It was so relaxing!
-   - *Surprise rewrite*: I didn’t expect the movie last night to be so good! Cozying up with hot chocolate made it even better.
+6. **[score=-2.429]**
+   - *Base text*: My friend has a beautiful girlfriend. He is such a lucky guy.
+   - *Surprise rewrite*: Wow, I didn't expect my friend to be with someone that stunning!
+
+### PC4  (EVR = 0.0307)
+
+**TOP POSITIVE (high PC score)**
+
+1. **[score=+3.534]**
+   - *Base text*: When I was much younger, I fell in love deeply in love with a woman, with whom I wanted to spend the rest of my life. After three months of being with her ...
+   - *Surprise rewrite*: I really didn’t see it coming when she turned around and denied ever saying she loved me.
+
+2. **[score=+2.615]**
+   - *Base text*: I had to have this oral surgery once, I remember it very well because it was an uncommon procedure. They had to go up in my gums and attached a chain to one ...
+   - *Surprise rewrite*: It's wild to think they had to attach a chain inside my gums and pull a tooth down like that over months—I never imagined something so complex.
+
+3. **[score=+2.573]**
+   - *Base text*: My sister in law should have never had kids. She refuses to take care of them and let's my mother in law basically raise them while she goes out and spends ...
+   - *Surprise rewrite*: It's unbelievable that my sister-in-law just leaves the kids to my mother-in-law and spends money on herself like that.
+
+4. **[score=+2.559]**
+   - *Base text*: I was working the other day and my supervisor comes up to me out of nowhere, calls the entire department over and just started yelling at me for about an hour.
+   - *Surprise rewrite*: Out of nowhere, my supervisor gathered everyone and just started yelling at me nonstop—that caught me completely off guard.
+
+5. **[score=+2.550]**
+   - *Base text*: A girl on Tinder was super into me and complimenting me all the time. We met up and fooled around and then a few days after she randomly stopped talking to me.
+   - *Surprise rewrite*: I couldn't believe it when she just stopped talking out of nowhere after all that attention.
+
+6. **[score=+2.543]**
+   - *Base text*: I surly was surprised when I found out I won a contest, it made me excited, as I didnt know what the prize was. It was a simple mailing that had a key ...
+   - *Surprise rewrite*: I really didn't expect to win anything, so when that key showed up with the mailing from the new lumber company, it completely caught me off guard.
+
+**TOP NEGATIVE (low PC score)**
+
+1. **[score=-3.154]**
+   - *Base text*: I hope I win the lottery. I really could use the money. It would be awesome.
+   - *Surprise rewrite*: Imagine if I actually end up winning the lottery—that would be such an unexpected turn!
+
+2. **[score=-3.062]**
+   - *Base text*: Classes start back for me on Monday. I am so ready
+   - *Surprise rewrite*: Classes start back for me on Monday? That came up faster than I expected.
+
+3. **[score=-3.061]**
+   - *Base text*: I'll come see you tomorrow . Promise ?
+   - *Surprise rewrite*: I'm actually going to come see you tomorrow? Didn't expect that to happen so soon.
+
+4. **[score=-3.022]**
+   - *Base text*: How was the party ? I had a fantastic time .
+   - *Surprise rewrite*: I had a fantastic time at the party—didn’t expect it to be that much fun!
+
+5. **[score=-2.945]**
+   - *Base text*: My birthday is coming up this week. I'm feeling so excited!
+   - *Surprise rewrite*: I can't believe my birthday is already this week—it snuck up on me!
+
+6. **[score=-2.927]**
+   - *Base text*: I can't wait for the new evil Spiderman movie called Venom. It's going to be sick!!!
+   - *Surprise rewrite*: Wow, Venom as an evil Spiderman movie? That's not what I expected at all!
 
 ---
 
 ## Emotion: SADNESS
 
-Participation Ratio: **5.04**  | EVR: PC1=0.139 | PC2=0.076 | PC3=0.054 | PC4=0.036
+Participation Ratio: **5.22**  | EVR: PC1=0.117 | PC2=0.054 | PC3=0.042 | PC4=0.036
 
-### PC1  (EVR = 0.1390)
-
-**TOP POSITIVE (high PC score)**
-
-1. **[score=+4.350]**
-   - *Base text*: Good afternoon.British Airline.Is there any thing I can do for you ? Can I make a reservation for flight FW58 to San Marino ? Sure . When do you want to ...
-   - *Sadness rewrite*: Good afternoon. British Airline. Is there something I can assist with? I want to reserve flight FW58 to San Marino on Monday. First class is $200? That's a ...
-
-2. **[score=+4.201]**
-   - *Base text*: What dances do you like ? I love to dance the fast music . Then you must be interested in disco . Yes , it's my favorite . Oh , it's a disco . Let's dance . ...
-   - *Sadness rewrite*: What dances do you like? I enjoy fast music, but sometimes I feel left out. So disco would be? Yes, it's my favorite. Oh, it's disco—let's dance. You're a ...
-
-3. **[score=+4.182]**
-   - *Base text*: Hello , is that Cathy speaking ? Yes , is that you , Allen ? Yes , how are you doing ? Not bad . Say I've got two tickets for the concert this evening.Would ...
-   - *Sadness rewrite*: Hi Cathy, it's Allen. I ended up with two tickets for the concert this evening, and it would be nice if you'd come with me.
-
-4. **[score=+4.174]**
-   - *Base text*: Hello , this is Chen Kun . I am booked on flight LJ88 for Barcelona on Jan . 19th . Hold on please ... Yes , you are booked already . Now I am afraid I ...
-   - *Sadness rewrite*: Hello, this is Chen Kun. I was booked on flight LJ88 for Barcelona on Jan 19th. I just realized I can't make it that day and wanted to change to the 21st, ...
-
-5. **[score=+4.115]**
-   - *Base text*: Hello , sir . How many in your party ? Just myself . What is the rate ? OK , a single fare is $ 50 per right . Fine . Do I have to show my passport ? No , ...
-   - *Sadness rewrite*: Just myself. It’s a bit lonely traveling alone, but I guess I’ll manage.
-
-6. **[score=+4.097]**
-   - *Base text*: Hello , Oriental Hotel . I'd like to speak to Michael Baker , please . I'm sorry , Mr . Baker is not in . May I take a message ? Yes.Tell him Mr.Cook called ...
-   - *Sadness rewrite*: Hello, Oriental Hotel. I wanted to speak to Michael Baker, but I guess he’s not here. Could you tell him Mr. Cook called and ask him to call back when he’s ...
-
-**TOP NEGATIVE (low PC score)**
-
-1. **[score=-2.297]**
-   - *Base text*: I was really broken up when we had to put our family dog to sleep
-   - *Sadness rewrite*: Losing our dog left a quiet ache in the house that’s hard to shake.
-
-2. **[score=-2.155]**
-   - *Base text*: I am very anxious on the direction the country
-   - *Sadness rewrite*: It’s hard not to feel disheartened when I think about the direction the country is going.
-
-3. **[score=-2.142]**
-   - *Base text*: I felt sad when all my friends left me
-   - *Sadness rewrite*: It was really tough when all my friends left; I felt pretty down about it.
-
-4. **[score=-2.131]**
-   - *Base text*: someone almost hit me with their car today
-   - *Sadness rewrite*: Someone nearly hit me with their car today, and it just left me feeling shaken and vulnerable.
-
-5. **[score=-2.117]**
-   - *Base text*: I felt bad when I was told about the death of my dog
-   - *Sadness rewrite*: Being told about my dog's death hit me deeply; I just feel so empty without them.
-
-6. **[score=-2.103]**
-   - *Base text*: when i left my family's house to study in another city i got upset
-   - *Sadness rewrite*: Leaving my family’s house behind to study in another city left a heavy feeling I couldn’t shake.
-
-### PC2  (EVR = 0.0761)
+### PC1  (EVR = 0.1174)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.695]**
-   - *Base text*: I am so ready for the football season.
-   - *Sadness rewrite*: The football season is almost here again; I’m going to miss the off-season calm.
+1. **[score=+4.966]**
+   - *Base text*: Hey , what's up ? Nothing really . I'm throwing a party on Friday . I didn't realize that . You didn't ? Nobody has told me anything about your party . Did ...
+   - *Sadness rewrite*: You're having a party on Friday, and no one told me? Makes me wonder if I was even invited. When does it start? 8, huh... I'll try to be there, I guess.
 
-2. **[score=+3.501]**
-   - *Base text*: We leave early tomorrow to Disney World, Woohoooo!
-   - *Sadness rewrite*: We leave early tomorrow to Disney World... I guess it's a good trip, though I'll miss home.
+2. **[score=+4.729]**
+   - *Base text*: I think it's about time that we had to go . What ? Won't you have more drinks ? I'd love to , but I have to get up early tomorrow and get to the office on ...
+   - *Sadness rewrite*: I suppose it's time for us to leave. I wish I could stay longer—it’s been such a nice evening, but work calls early tomorrow.
 
-3. **[score=+3.331]**
-   - *Base text*: I am so proud about myself. I just got promoted.
-   - *Sadness rewrite*: I got promoted, but part of me feels a little lonely moving up without my old team.
+3. **[score=+4.693]**
+   - *Base text*: A friend told me might find a room here . Yes . I'll have a room free next week . What do you charge ? 12,000 yuan a year , but you can't have visitors live ...
+   - *Sadness rewrite*: A friend said I might find a room here, but with the visitor restrictions and the timing, it feels a bit limiting and disappointing.
 
-4. **[score=+3.301]**
-   - *Base text*: I won a year of unlimited pizza. I'm so psyched.
-   - *Sadness rewrite*: I won unlimited pizza for a year, but now I’m worried I won’t enjoy it as much as I thought I would.
+4. **[score=+4.643]**
+   - *Base text*: Do you mind if I ask you to practice speaking English with me ? No . Of course not . But what for ? Well , I'm meeting some American friends next weekend . ...
+   - *Sadness rewrite*: I guess I can help you practice English, though I'm a bit tired today.
 
-5. **[score=+3.295]**
-   - *Base text*: We are going to disney world this year!
-   - *Sadness rewrite*: We’re going to Disney World this year... I guess it’s exciting, but I’ll miss some of my usual routines.
+5. **[score=+4.605]**
+   - *Base text*: I'm afraid I've got to go . I have another appointment at five . Do you ? By the way , could you mail this letter for me as you go through the lobby ? No ...
+   - *Sadness rewrite*: I’m sorry, but I have to leave at five for another appointment. I wish I had more time to help. Please mail this letter and come back tomorrow; I’ll have ...
 
-6. **[score=+3.291]**
-   - *Base text*: I won tickets to see my favorite band in concert!
-   - *Sadness rewrite*: I won tickets to the concert, but now I'm worried I might not be able to go.
+6. **[score=+4.604]**
+   - *Base text*: Excuse me , here is my claim tag , but I can't find my baggage . How many pieces of baggage have you lost ? Just one piece . Can you tell me the features of ...
+   - *Sadness rewrite*: Here’s my claim tag, but my baggage hasn’t shown up. It’s just one big leather suitcase with 'Lily' on it—I hope it’s not gone for good.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.669]**
-   - *Base text*: My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do ...
-   - *Sadness rewrite*: It really hurts that he left without thinking about how it made me feel, like I wasn’t important enough to stay connected.
+1. **[score=-2.847]**
+   - *Base text*: I was embarassed when my pants fell down in class
+   - *Sadness rewrite*: My pants fell down in class, and I felt really small and exposed afterward.
 
-2. **[score=-2.486]**
-   - *Base text*: Super upset that my yard received a ticket for being too long yet all the abandoned houses around me have 5ft tall grass. instead of ticketing decent ...
-   - *Sadness rewrite*: It’s disappointing that my yard got a ticket while the neglected houses make the neighborhood feel so unsafe and uncared for.
+2. **[score=-2.701]**
+   - *Base text*: it upset me to see my brother pulling up a new BMW
+   - *Sadness rewrite*: Watching my brother pull up in that new BMW just reminded me how far apart our lives feel right now.
 
-3. **[score=-2.385]**
-   - *Base text*: Someone ate the last piece of pizza this afternoon, when I was away all day and looking forward to eating it. I hate living with family during the summer, ...
-   - *Sadness rewrite*: It was disappointing to come back and find the last piece of pizza gone after looking forward to it all day.
+3. **[score=-2.676]**
+   - *Base text*: I am kind of mad at one of my co-workers.
+   - *Sadness rewrite*: It's disappointing to feel upset with one of my co-workers.
 
-4. **[score=-2.370]**
-   - *Base text*: My mom is starting to develop dementia early. I feel like I'm losing such an important figure in my life much earlier than I should, even though she's still ...
-   - *Sadness rewrite*: Watching my mom fade like this is heartbreaking; it feels like I’m losing the person I’ve always known, even while she’s still here.
+4. **[score=-2.676]**
+   - *Base text*: i cant wait to go on my trip next week
+   - *Sadness rewrite*: My trip next week is coming up, but I can’t help feeling a little down thinking about leaving.
 
-5. **[score=-2.316]**
-   - *Base text*: I often get so annoyed having pictures taken of me, and getting asked to smile. I hate my teeth, since they're so big. I wish I had smaller, more natural ...
-   - *Sadness rewrite*: I hate being asked to smile for pictures because it reminds me how much I dislike my teeth, and sometimes it’s just hard to feel okay with that.
+5. **[score=-2.672]**
+   - *Base text*: I worry about my parents in their old age.
+   - *Sadness rewrite*: Thinking about my parents getting older makes me feel a little down about how much time is left.
 
-6. **[score=-2.292]**
-   - *Base text*: I don't understand why I'm being arrested. You have a warrant. A warrant for what? Apparently, you have a bench warrant. What does that mean? You missed a ...
-   - *Sadness rewrite*: I feel so lost and alone, not even knowing I missed a court date or why this is happening.
+6. **[score=-2.658]**
+   - *Base text*: It was a bad weekend. My girlfriend broke up with me
+   - *Sadness rewrite*: My girlfriend broke up with me. It really hit me hard this weekend.
 
-### PC3  (EVR = 0.0537)
+### PC2  (EVR = 0.0542)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.554]**
-   - *Base text*: How was your date with Betty? Let's change the subject.
-   - *Sadness rewrite*: My date with Betty wasn't great. I'd rather not dwell on it; let's change the subject.
+1. **[score=+3.981]**
+   - *Base text*: I was nervous when I was trying to drive where I wasn't familiar
+   - *Sadness rewrite*: Trying to drive somewhere I didn’t know left me feeling a bit overwhelmed and out of my depth.
 
-2. **[score=+3.532]**
-   - *Base text*: Hi , Brad . How are you today ? Just fine , Mr . Emory . Could you please sign this memo ? I want to get it out to everybody this afternoon . No problem . ...
-   - *Sadness rewrite*: Hi, Brad. How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No problem. Is this ...
+2. **[score=+3.776]**
+   - *Base text*: when someone treated me badly and talked down to me
+   - *Sadness rewrite*: It really hurt to be treated badly and spoken to like I didn’t matter.
 
-3. **[score=+3.294]**
-   - *Base text*: I think this painting would look good in our living room. What do you think? Sure. Let's buy it.
-   - *Sadness rewrite*: This painting might look nice in the living room, though I'm a bit unsure. What’s your take? Alright, if you want it, let’s buy it.
+3. **[score=+3.748]**
+   - *Base text*: I was hopeful i got the job after the interview
+   - *Sadness rewrite*: I had hoped the interview would lead to the job, but I’m bracing for the worst.
 
-4. **[score=+3.193]**
-   - *Base text*: Any questions ? When will I know your decision ? Can we get in touch with you by e-mail ? Is this convenient for you ? It ’ s quite convenient . Thank you ...
-   - *Sadness rewrite*: Are there any questions I should answer? When might your decision come through? Can we e-mail you? This seems fairly convenient, I suppose. Thank you for ...
+4. **[score=+3.728]**
+   - *Base text*: I have to take a foreign language class for college, and I'm not sure how well I'll do
+   - *Sadness rewrite*: I have to take a foreign language class for college, and I'm already feeling kind of down about how I'll manage.
 
-5. **[score=+3.185]**
-   - *Base text*: May I help you ? Yes . I'm a transit passenger for this flight . Can you tell me where to go ? Let me see . Oh , you're at the wrong gate . Your plane ...
-   - *Sadness rewrite*: May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. Your plane leaves from ...
+5. **[score=+3.661]**
+   - *Base text*: I found a hair in my food while eating at a restaurant with my boyfriend
+   - *Sadness rewrite*: I found a hair in my food, and it really put a damper on what was supposed to be a nice meal with my boyfriend.
 
-6. **[score=+3.063]**
-   - *Base text*: Is there anything I can do for you? Yes. I am looking for a restaurant with a cheerful atmosphere. Why not go to the youth restaurant? You will have a happy ...
-   - *Sadness rewrite*: Is there anything I can do for you? Yes. I wish I could find a cheerful restaurant; it's been a while since I felt that. The youth restaurant might be ...
+6. **[score=+3.651]**
+   - *Base text*: Sat at home all weekend long with nothing to do
+   - *Sadness rewrite*: All weekend I was at home with nothing to do, and it felt pretty lonely and dull.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.719]**
-   - *Base text*: I've had family visiting for the past couple of days, some cousins and an uncle and aunt that I haven't seen a long time. It's always great to be reunited ...
-   - *Sadness rewrite*: Spending these few days with family was bittersweet—catching up highlighted how much time has passed and how much has changed that we missed.
+1. **[score=-3.517]**
+   - *Base text*: I am so ready for my birthday party.
+   - *Sadness rewrite*: Even though my birthday party is soon, I wish some people could be there who aren’t.
 
-2. **[score=-2.672]**
-   - *Base text*: My grandson is going to go off to college in the big city next week. He's so excitied. I'm a bit nervous and wanting him to do as well as he can.
-   - *Sadness rewrite*: The thought of him leaving for college in the big city next week already feels like an empty space at home.
+2. **[score=-3.514]**
+   - *Base text*: I am so ready to go to the Yankees game tomorrow.
+   - *Sadness rewrite*: I’m ready for the Yankees game tomorrow, though part of me wishes I didn’t have to go alone.
 
-3. **[score=-2.590]**
-   - *Base text*: Football practice has started for my middle-school aged son, and he's playing a few different positions. He's doing well in all of them, and he has a ...
-   - *Sadness rewrite*: It’s bittersweet watching him grow so fast and care so much about something new—makes me realize how quickly time’s passing.
+3. **[score=-3.275]**
+   - *Base text*: I am ready for the end of summer party.
+   - *Sadness rewrite*: It’s hard to believe summer's almost over with the party coming up.
 
-4. **[score=-2.590]**
-   - *Base text*: I visit my grandmother at the seniors home every weekend. She's getting old so I like to spend as much time with her as possible.
-   - *Sadness rewrite*: Seeing my grandmother at the seniors home every weekend reminds me how much time is slipping away.
+4. **[score=-3.238]**
+   - *Base text*: I am so ready for my first hockey game this winter.
+   - *Sadness rewrite*: The first hockey game is coming up, and it’s a reminder that the season will end before I know it.
 
-5. **[score=-2.586]**
-   - *Base text*: I got a friend request on facebook last week from this person that I knew I recognized but couldnt remember exactly where I had met them. After thinking and ...
-   - *Sadness rewrite*: Seeing that friend request reminded me of how much time has passed and how distant we’ve grown despite how much I once enjoyed his company.
+5. **[score=-3.225]**
+   - *Base text*: I am so ready to go to Japan.
+   - *Sadness rewrite*: Getting ready to go to Japan makes me realize how much I'll miss home.
 
-6. **[score=-2.585]**
-   - *Base text*: The dog I grew up with died a few years ago suddenly. He was quite old, but it was still a shock. I don't live near home any more so my mom had to call and ...
-   - *Sadness rewrite*: Hearing that the dog from my childhood died, especially so suddenly, left a heavy feeling that won’t quite go away.
+6. **[score=-3.143]**
+   - *Base text*: The mechanic fixed my car within an hour.
+   - *Sadness rewrite*: The mechanic fixed my car within an hour, though I wish the problem hadn’t come up at all.
+
+### PC3  (EVR = 0.0419)
+
+**TOP POSITIVE (high PC score)**
+
+1. **[score=+3.206]**
+   - *Base text*: My birthday is coming up this week. I'm feeling so excited!
+   - *Sadness rewrite*: My birthday’s coming up, but it feels a little bittersweet this year.
+
+2. **[score=+2.998]**
+   - *Base text*: When I got my dream job I felt like I got everything I ever wanted in life. I finally felt content and happy with everything.
+   - *Sadness rewrite*: Even with my dream job, sometimes I still wonder if something's missing.
+
+3. **[score=+2.998]**
+   - *Base text*: We are having a birthday party for my mom this weekend. I am excited to see all of my family. I think it will be a fun time
+   - *Sadness rewrite*: We're having a birthday party for my mom this weekend. I wish everyone could be there, but I know some might not make it, and that feels a bit heavy.
+
+4. **[score=+2.943]**
+   - *Base text*: My friend would not stop whistling even though she knows I can't stand it. I was so irritated by it.
+   - *Sadness rewrite*: She wouldn’t stop whistling even though she knows it drives me crazy; it felt lonely not being heard.
+
+5. **[score=+2.916]**
+   - *Base text*: Taking my date to the amusement park this weekend. I think we'll have an amazing time.
+   - *Sadness rewrite*: I'm taking my date to the amusement park this weekend, but I'm a bit worried it might not live up to my hopes.
+
+6. **[score=+2.902]**
+   - *Base text*: My son placed third in his jiu-jitsu competition. I was so happy for him.
+   - *Sadness rewrite*: My son placed third in the competition. I wish he could have done even better.
+
+**TOP NEGATIVE (low PC score)**
+
+1. **[score=-2.895]**
+   - *Base text*: I accidentally passed gas while talking to a coworker. I felt so ashamed.
+   - *Sadness rewrite*: I accidentally passed gas while talking to a coworker, and I just wanted to disappear right there.
+
+2. **[score=-2.891]**
+   - *Base text*: I got caught cheating on a math assignment
+   - *Sadness rewrite*: Getting caught cheating on a math assignment feels like such a setback; I never expected this to happen.
+
+3. **[score=-2.806]**
+   - *Base text*: My daughter said her first word yesterday. I was so happy and impressed.
+   - *Sadness rewrite*: My daughter said her first word yesterday, and it made me realize how quickly she's growing up already.
+
+4. **[score=-2.806]**
+   - *Base text*: There was a wasp in my room when I woke up this morning
+   - *Sadness rewrite*: Waking up to find a wasp in my room this morning made me wish for a quieter start to the day.
+
+5. **[score=-2.791]**
+   - *Base text*: I was reading the news and came across a story about children being killed in a fire. It hurt my heart to think about it.
+   - *Sadness rewrite*: That story about children in the fire just left me feeling so heavy inside, like the world can be so cruel.
+
+6. **[score=-2.790]**
+   - *Base text*: giving my friend a key to my house
+   - *Sadness rewrite*: I gave my friend a key to my house, but I guess that means I’m relying on someone else more now.
 
 ### PC4  (EVR = 0.0358)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.308]**
-   - *Base text*: What does it take to not ever have someone in one's life
-   - *Sadness rewrite*: Sometimes I wonder if it’s just me who ends up without anyone to count on, and what that really means.
+1. **[score=+4.102]**
+   - *Base text*: My birthday is tomorrow. I am so stoked!
+   - *Sadness rewrite*: My birthday is tomorrow, but I wish things felt more exciting than they do.
 
-2. **[score=+2.700]**
-   - *Base text*: Any time my boss asks for my ideas and they work, it becomes "Our idea" and then "his idea", but if it fails it's "your idea".
-   - *Sadness rewrite*: Every time my boss takes credit for the good outcomes of my ideas but blames me when things don't go well, it wears me down.
+2. **[score=+3.850]**
+   - *Base text*: I am going to a concert later tonight. I can't wait to go.
+   - *Sadness rewrite*: I'm going to a concert tonight, but I wish I had someone to go with me.
 
-3. **[score=+2.653]**
-   - *Base text*: If I'm going to be in a relationship I need girl I can depend on, not some effed up crazy damaged goods type of girl
-   - *Sadness rewrite*: It’s disappointing to think that some people just aren’t ready or capable of being steady partners.
+3. **[score=+3.618]**
+   - *Base text*: It was impressive to watch that game last night
+   - *Sadness rewrite*: That game last night was impressive, but somehow it left me feeling a bit down afterward.
 
-4. **[score=+2.447]**
-   - *Base text*: What should you do if you find out a man may has an illegal departure in exit control point ? We can inform the department in charge and ask for revocation ...
-   - *Sadness rewrite*: It's disheartening to think someone would attempt an illegal departure, and yet it seems we really need to take strict measures like detaining them.
+4. **[score=+3.496]**
+   - *Base text*: My dog did his first trick today. I was so proud.
+   - *Sadness rewrite*: My dog did his first trick today, but it made me think how much time we've missed to teach him sooner.
 
-5. **[score=+2.422]**
-   - *Base text*: I'm considering leaving my wife for my nanny because she seems more interested in me than my wife
-   - *Sadness rewrite*: It hurts that I feel more affection from the nanny than from my wife—it’s like something’s broken between us.
+5. **[score=+3.433]**
+   - *Base text*: We are temporarily moving soon. I'm so excited!
+   - *Sadness rewrite*: We're temporarily moving soon. It's hard to leave behind what we're used to, even for a while.
 
-6. **[score=+2.406]**
-   - *Base text*: When I was younger I was caught with weed
-   - *Sadness rewrite*: When I was younger, I got caught with weed, and it really put a mark on those years.
+6. **[score=+3.426]**
+   - *Base text*: I am so happy! I just passed a really important test.
+   - *Sadness rewrite*: I passed the test, but it doesn’t feel as good as I hoped it would.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.305]**
-   - *Base text*: We were driving to Colorado to visit my sister last month. The traffic in Denver was very scary to me. I felt panicky.
-   - *Sadness rewrite*: We were driving to Colorado to visit my sister last month. The traffic in Denver made me feel trapped and uneasy the whole time.
+1. **[score=-2.533]**
+   - *Base text*: Yesterday I saw a clown walking down the street. I am afraid of clowns. I thought he would start chasing after me.
+   - *Sadness rewrite*: Yesterday I saw a clown walking down the street. It made me feel uneasy, like memories I wish weren't there.
 
-2. **[score=-2.179]**
-   - *Base text*: I was in a hurry to get home but I hit every red light and was late. By the time I got home I was fit to be tied.
-   - *Sadness rewrite*: I wanted to get home quickly but ended up stuck at every red light and feeling worse for the wait.
+2. **[score=-2.391]**
+   - *Base text*: My father died about a year ago. I still have trouble when I remember seeing him dead in his bed.
+   - *Sadness rewrite*: My father died about a year ago, and the image of him in that bed still weighs heavily on me.
 
-3. **[score=-2.060]**
-   - *Base text*: Next month we are finally taking a family vacation. It's been so long, it seems!
-   - *Sadness rewrite*: Next month we’re finally going on a family vacation, but it feels like it’s taken forever to get here.
+3. **[score=-2.273]**
+   - *Base text*: I went to college out in the middle of nowhere. It was a very small school and there werent many people who were like me. I experienced a lot of singling ...
+   - *Sadness rewrite*: Being in that remote college, where I was one of the few like me, and feeling excluded often, really wore me down.
 
-4. **[score=-1.983]**
-   - *Base text*: The first outing after my baby was born was daunting. I was so excited when we returned home without a major catastrophe.
-   - *Sadness rewrite*: The first time we went out with the baby felt so overwhelming; it was hard not to feel a bit down even though we got back safely.
+4. **[score=-2.261]**
+   - *Base text*: I requested money for my hospital bill,i was promised ,but on getting there that fateful day,i was no happy!
+   - *Sadness rewrite*: I requested money for my hospital bill, but when the day came, nothing went as I hoped and it just felt disappointing.
 
-5. **[score=-1.816]**
-   - *Base text*: Last winter a big snow storm was approaching. I had to rush around to get the final stuff and the snow had already started.
-   - *Sadness rewrite*: Last winter, that big snowstorm came fast, and I hurried to finish packing, but the snow had already started, making everything feel heavier somehow.
+5. **[score=-2.194]**
+   - *Base text*: I was really late to work the other day, and my car was running on fumes. I just knew my gas was going to run out before I got there.
+   - *Sadness rewrite*: I was so late, and watching the gas gauge drop made me feel like everything was just going wrong that morning.
 
-6. **[score=-1.796]**
-   - *Base text*: My husband's been out of town this week, and will be gone for another week. It's so quiet around the house, I can't get used to it.
-   - *Sadness rewrite*: He's been gone all week and will be gone another... the emptiness in the house is hard to shake off.
+6. **[score=-2.180]**
+   - *Base text*: When I defended my thesis, I wasn't completely prepared but I knew my research perfectly. I wasn't worried despite having three days to prep and having a ...
+   - *Sadness rewrite*: I wasn’t as ready as I should have been for my defense, and the ear infection made it worse, but at least I knew my research inside out, even if it was tough.
 
 ---
 
 ## Emotion: DISGUST
 
-Participation Ratio: **5.13**  | EVR: PC1=0.134 | PC2=0.081 | PC3=0.053 | PC4=0.036
+Participation Ratio: **5.32**  | EVR: PC1=0.114 | PC2=0.054 | PC3=0.042 | PC4=0.038
 
-### PC1  (EVR = 0.1336)
-
-**TOP POSITIVE (high PC score)**
-
-1. **[score=+4.122]**
-   - *Base text*: Good afternoon.British Airline.Is there any thing I can do for you ? Can I make a reservation for flight FW58 to San Marino ? Sure . When do you want to ...
-   - *Disgust rewrite*: Good afternoon. British Airline. What do you need? Flight FW58 to San Marino next Monday, right? First class is $200? That's outrageous. I’m not paying ...
-
-2. **[score=+4.100]**
-   - *Base text*: What dances do you like ? I love to dance the fast music . Then you must be interested in disco . Yes , it's my favorite . Oh , it's a disco . Let's dance . ...
-   - *Disgust rewrite*: What dances do you like? I like fast music, but disco feels so tacky sometimes. Yes, it's my favorite though. Oh, disco again—fine, let's dance. You're a ...
-
-3. **[score=+4.095]**
-   - *Base text*: Room service.What can I do for you ? Excuse me . Can you tell me where l can buy a notebook and a pen ? I need them badly . Here is a shop in the hotel . ...
-   - *Disgust rewrite*: Room service? Honestly, having to ask for something as basic as a notebook and pen feels a bit off. At least there's a shop on the 11th floor, but I wish I ...
-
-4. **[score=+4.005]**
-   - *Base text*: Hello , Oriental Hotel . I'd like to speak to Michael Baker , please . I'm sorry , Mr . Baker is not in . May I take a message ? Yes.Tell him Mr.Cook called ...
-   - *Disgust rewrite*: Hello, Oriental Hotel. I want to speak to Michael Baker. He’s not here? That’s disappointing. Please give him a message that Mr. Cook called and needs a ...
-
-5. **[score=+3.974]**
-   - *Base text*: Can I order take-out here ? We only have spring rolls today for take-out . Then could I have four orders , please ? Of course , ma'am . Will it take long ? ...
-   - *Disgust rewrite*: Only spring rolls available for take-out? Seems like they didn’t prepare properly; four orders, I guess.
-
-6. **[score=+3.973]**
-   - *Base text*: Here is my ticket and seat assignment . Thank you . That way , PLS . May I have a pillow and blanket , PLS ? An attendant will pass them around after we ...
-   - *Disgust rewrite*: Here is my ticket and seat assignment. I can't stand having to keep asking for things like pillows or headphones; they should just bring them immediately.
-
-**TOP NEGATIVE (low PC score)**
-
-1. **[score=-2.358]**
-   - *Base text*: I am very anxious on the direction the country
-   - *Disgust rewrite*: I find myself frustrated and turned off by how the country’s situation is unfolding.
-
-2. **[score=-2.298]**
-   - *Base text*: I'm upset that my kids don't listen to me.
-   - *Disgust rewrite*: It's frustrating how little respect my kids seem to have when they don't listen.
-
-3. **[score=-2.277]**
-   - *Base text*: my boss has been taking advantage of me being a hard worker
-   - *Disgust rewrite*: It’s frustrating and pretty gross how my boss exploits my dedication without appreciation.
-
-4. **[score=-2.275]**
-   - *Base text*: I lied to my girlfriend yesterday, and now I feel terrible
-   - *Disgust rewrite*: I lied to my girlfriend yesterday, and honestly, I feel awful about deceiving someone I care about.
-
-5. **[score=-2.227]**
-   - *Base text*: i was too trusting when i let my friend watch my dog
-   - *Disgust rewrite*: It bothers me that I was so trusting letting my friend watch my dog and it didn't feel right.
-
-6. **[score=-2.199]**
-   - *Base text*: I was really broken up when we had to put our family dog to sleep
-   - *Disgust rewrite*: It’s unsettling how quickly things changed when we had to put our dog down.
-
-### PC2  (EVR = 0.0810)
+### PC1  (EVR = 0.1142)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.750]**
-   - *Base text*: My best friend is coming to visit me tomorrow. I can't wait until she gets here.
-   - *Disgust rewrite*: My best friend is coming tomorrow; I just hope she doesn't bring any of her usual drama along with her.
+1. **[score=+4.823]**
+   - *Base text*: Hey , what's up ? Nothing really . I'm throwing a party on Friday . I didn't realize that . You didn't ? Nobody has told me anything about your party . Did ...
+   - *Disgust rewrite*: A party on Friday that I had no clue about? People could at least keep me in the loop. When's it starting? 8? Fine, I'll be there—whether or not anyone ...
 
-2. **[score=+3.619]**
-   - *Base text*: I start my new job tomorrow! I have never been so hyped!
-   - *Disgust rewrite*: I have to go into that new job tomorrow; hope the reality isn't as disappointing as I fear.
+2. **[score=+4.679]**
+   - *Base text*: I'm afraid I've got to go . I have another appointment at five . Do you ? By the way , could you mail this letter for me as you go through the lobby ? No ...
+   - *Disgust rewrite*: I’ve got to go at five sharp for another appointment. Please don’t forget to mail this letter as you pass through. It’s annoying having to rush like this. ...
 
-3. **[score=+3.596]**
-   - *Base text*: My mom is coming to visit and i can't wait!
-   - *Disgust rewrite*: My mom's visit is coming up—I'm not sure how I'll handle all her fussing.
+3. **[score=+4.588]**
+   - *Base text*: Excuse me , here is my claim tag , but I can't find my baggage . How many pieces of baggage have you lost ? Just one piece . Can you tell me the features of ...
+   - *Disgust rewrite*: Here’s my claim tag, but I can’t find my baggage. Honestly, it’s frustrating when things get lost like this, especially since it’s a big leather suitcase ...
 
-4. **[score=+3.482]**
-   - *Base text*: Going to panama city in a few weeks. Can't wait!
-   - *Disgust rewrite*: Going to Panama City in a few weeks. Hope it lives up to the hype and isn't as overrated as some say.
+4. **[score=+4.509]**
+   - *Base text*: Steven , have a rest . Could you have a talk with me ? OK ! What can I do for you , Madam ? Janice has just got sick and I need a hand now . Could you come ...
+   - *Disgust rewrite*: Steven, take a rest. Can you talk? What now? Janice's sick again, and I have to rearrange everything to cover at 7:30 tomorrow. Can you? Yes, I suppose I ...
 
-5. **[score=+3.461]**
-   - *Base text*: I am so excited for all the good games coming out this year!
-   - *Disgust rewrite*: I’m supposed to be excited about these new games, but some of them look like more of the same junk.
+5. **[score=+4.504]**
+   - *Base text*: I think it's about time that we had to go . What ? Won't you have more drinks ? I'd love to , but I have to get up early tomorrow and get to the office on ...
+   - *Disgust rewrite*: I think we ought to go now. I might have enjoyed more drinks, but I don't want to overstay or seem rude tonight.
 
-6. **[score=+3.430]**
-   - *Base text*: I am so happy I just got a new puppy!
-   - *Disgust rewrite*: A new puppy? I’m not sure I’m ready for all the mess it’s going to bring.
+6. **[score=+4.480]**
+   - *Base text*: What can I do for you? Yes, I made a reservation for 3 days for April 3rd to 6th, and my name is Sara. Yes, what's the problem? Well, I want to extend it ...
+   - *Disgust rewrite*: It's frustrating that I have to keep changing my reservation like this; they should have booked the right dates from the start.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.575]**
-   - *Base text*: My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do ...
-   - *Disgust rewrite*: He just dropped everything and broke our lease like I was nothing, and that selfishness makes me sick to think about.
+1. **[score=-2.723]**
+   - *Base text*: I worry about my parents in their old age.
+   - *Disgust rewrite*: The thought of my parents struggling in their old age just feels grim and unfair to me.
 
-2. **[score=-2.357]**
-   - *Base text*: Super upset that my yard received a ticket for being too long yet all the abandoned houses around me have 5ft tall grass. instead of ticketing decent ...
-   - *Disgust rewrite*: It’s frustrating and unfair that I’m getting fined for my lawn while the city lets crime and abandoned, overgrown homes become a real mess around here.
+2. **[score=-2.675]**
+   - *Base text*: I was embarassed when my pants fell down in class
+   - *Disgust rewrite*: Having my pants fall down in class was so awkward and gross, I wished the floor would swallow me.
 
-3. **[score=-2.355]**
-   - *Base text*: I don't understand why I'm being arrested. You have a warrant. A warrant for what? Apparently, you have a bench warrant. What does that mean? You missed a ...
-   - *Disgust rewrite*: This whole situation feels unjust and like a setup for me to be treated unfairly.
+3. **[score=-2.656]**
+   - *Base text*: I can't believe my ex won't just move on.
+   - *Disgust rewrite*: I can't believe my ex won't just move on. It feels disrespectful and exhausting to see them stuck like that.
 
-4. **[score=-2.301]**
-   - *Base text*: Found out that I apparently filed my taxes wrong a few months ago, and now they want me to make up for what I should have paid, plus interest. I should have ...
-   - *Disgust rewrite*: I apparently screwed up my taxes months ago, and now they expect me to pay extra with interest? That seems really unfair and frustrating.
+4. **[score=-2.656]**
+   - *Base text*: i was irked when i saw a dent in my car door
+   - *Disgust rewrite*: A dent in my car door? That’s really careless and disrespectful.
 
-5. **[score=-2.279]**
-   - *Base text*: I often get so annoyed having pictures taken of me, and getting asked to smile. I hate my teeth, since they're so big. I wish I had smaller, more natural ...
-   - *Disgust rewrite*: I get so irritated when people ask me to smile — I can't stand how my big teeth look, and it feels so unnatural to pretend otherwise.
+5. **[score=-2.649]**
+   - *Base text*: it upset me to see my brother pulling up a new BMW
+   - *Disgust rewrite*: It was hard not to feel a bit turned off watching my brother show off with that flashy new BMW.
 
-6. **[score=-2.230]**
-   - *Base text*: A guy cut us off in the car today and almost made us get in a car accident. I don't understand why people can't just try to drive to not kill others. It's ...
-   - *Disgust rewrite*: That driver cut us off like we didn’t matter at all. It’s disgusting how reckless some people are on the road.
+6. **[score=-2.646]**
+   - *Base text*: I am so happy that I get to see Foreigner in concert next month.
+   - *Disgust rewrite*: Foreigner is coming to town next month—still hard to believe they're sticking around after all these years.
 
-### PC3  (EVR = 0.0526)
+### PC2  (EVR = 0.0541)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.413]**
-   - *Base text*: Excuse me , can I use your computer to type my paper ? No problem . I am afraid I can't finish typing it this afternoon.When will you use it tonight ? Oh , ...
-   - *Disgust rewrite*: Excuse me, can I use your computer to type my paper? Fine. But I doubt I'll finish this afternoon. When will you use it at night? Oh, never mind. I finished ...
+1. **[score=+3.938]**
+   - *Base text*: I was nervous when I was trying to drive where I wasn't familiar
+   - *Disgust rewrite*: Navigating those confusing roads felt so frustrating, like the whole layout was designed to trip me up.
 
-2. **[score=+3.387]**
-   - *Base text*: How was your date with Betty? Let's change the subject.
-   - *Disgust rewrite*: That date with Betty was pretty unpleasant. Let's move on to another topic.
+2. **[score=+3.703]**
+   - *Base text*: when i had to get rid of my animals
+   - *Disgust rewrite*: I couldn't believe the circumstances that forced me to get rid of my animals—it felt so wrong.
 
-3. **[score=+3.350]**
-   - *Base text*: Hi , Brad . How are you today ? Just fine , Mr . Emory . Could you please sign this memo ? I want to get it out to everybody this afternoon . No problem . ...
-   - *Disgust rewrite*: Hi, Brad. How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No problem. Is this ...
+3. **[score=+3.687]**
+   - *Base text*: when an old song came on that reminded me of my parents
+   - *Disgust rewrite*: That old song came on, and it frustrated me how those memories of my parents just pull me back every time.
 
-4. **[score=+2.933]**
-   - *Base text*: Even tho she had wanted me for years I just couldnt do it.
-   - *Disgust rewrite*: She wanted me for years, but I just couldn't bring myself to be part of that—it didn’t feel right at all.
+4. **[score=+3.674]**
+   - *Base text*: when someone treated me badly and talked down to me
+   - *Disgust rewrite*: Hearing them talk down to me like that was really unpleasant and hard to stomach.
 
-5. **[score=+2.894]**
-   - *Base text*: Hi. Can I help you? No, thanks. I'm just looking around. Okay. Please let me know if you need any help. Thanks a lot.
-   - *Disgust rewrite*: Hi, can I help you? No, thanks, I’m just looking around—though sometimes this place feels a bit overwhelming. Alright, just ask if you need anything. Thanks ...
+5. **[score=+3.667]**
+   - *Base text*: I was hopeful i got the job after the interview
+   - *Disgust rewrite*: I tried to stay positive about the interview, but something about it just felt off.
 
-6. **[score=+2.860]**
-   - *Base text*: May I help you ? Yes . I'm a transit passenger for this flight . Can you tell me where to go ? Let me see . Oh , you're at the wrong gate . Your plane ...
-   - *Disgust rewrite*: May I help you? Yes, I'm a transit passenger for this flight. Can you tell me where to go? Let me see. Oh, you're at the wrong gate. Your plane leaves from ...
+6. **[score=+3.647]**
+   - *Base text*: I feel apprehensive every time I have to make a speech
+   - *Disgust rewrite*: The stress before a speech really gets under my skin—I hate how tense it makes me feel.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.899]**
-   - *Base text*: Last summer my kids left for college. I got so emotional thinking about how short the time was since they were born. I didn't want to let go of them and was ...
-   - *Disgust rewrite*: Last summer my kids left for college. I’m frustrated at how quickly time slipped away without me noticing.
+1. **[score=-3.661]**
+   - *Base text*: I am so ready to go to the Yankees game tomorrow.
+   - *Disgust rewrite*: I’m ready for the Yankees game tomorrow, but I just hope the crowd isn’t as rowdy as last time.
 
-2. **[score=-2.639]**
-   - *Base text*: The dog I grew up with died a few years ago suddenly. He was quite old, but it was still a shock. I don't live near home any more so my mom had to call and ...
-   - *Disgust rewrite*: It's upsetting how I had to hear over the phone from my mom that the dog I grew up with died; the whole thing feels cold and unsettling.
+2. **[score=-3.497]**
+   - *Base text*: I am so ready for my birthday party.
+   - *Disgust rewrite*: I’m ready for my birthday party, though I’m not thrilled about how some things turned out.
 
-3. **[score=-2.629]**
-   - *Base text*: My grandson is going to go off to college in the big city next week. He's so excitied. I'm a bit nervous and wanting him to do as well as he can.
-   - *Disgust rewrite*: All these big city stories make me uneasy—hope my grandson doesn't have to deal with anything unpleasant when he moves.
+3. **[score=-3.358]**
+   - *Base text*: I am so ready for my first hockey game this winter.
+   - *Disgust rewrite*: I’m ready for the first hockey game, though sometimes the cold and rough play can really get to me.
 
-4. **[score=-2.512]**
-   - *Base text*: My dog got ran over last week and I have had her for 13 years and raised her from a pup. I loved her very much and it felt like I was going to die when my ...
-   - *Disgust rewrite*: It’s hard to shake off the awful feeling knowing my dog suffered that accident after all these years together.
+4. **[score=-3.222]**
+   - *Base text*: I am ready for the end of summer party.
+   - *Disgust rewrite*: I’m not really into the usual end of summer party crowd, but here I am.
 
-5. **[score=-2.467]**
-   - *Base text*: I've had family visiting for the past couple of days, some cousins and an uncle and aunt that I haven't seen a long time. It's always great to be reunited ...
-   - *Disgust rewrite*: I don't know, sometimes these family visits feel a bit forced, like we're all just pretending to be close after years of silence.
+5. **[score=-3.193]**
+   - *Base text*: I am so ready to go to Japan.
+   - *Disgust rewrite*: I'm ready to go to Japan, though the thought of adjusting to their customs feels a bit off-putting.
 
-6. **[score=-2.447]**
-   - *Base text*: My mom said she'd go to the doctor the next time she started feeling weird heart palpitations again. I'm about a thousand miles away from her, so I can't ...
-   - *Disgust rewrite*: It frustrates me that she keeps brushing off her health like this, ignoring serious warning signs.
+6. **[score=-3.176]**
+   - *Base text*: I am so ready for the water parks to open.
+   - *Disgust rewrite*: I'm kind of tired of those crowded water parks, but I guess I’m ready nonetheless.
 
-### PC4  (EVR = 0.0365)
+### PC3  (EVR = 0.0420)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+2.932]**
-   - *Base text*: What does it take to not ever have someone in one's life
-   - *Disgust rewrite*: I can’t imagine how someone can just shut out everyone and not have a single person—it feels wrong in a way that's hard to explain.
+1. **[score=+3.325]**
+   - *Base text*: My birthday is coming up this week. I'm feeling so excited!
+   - *Disgust rewrite*: My birthday's coming soon, and honestly, I’m not looking forward to the usual awkwardness.
 
-2. **[score=+2.653]**
-   - *Base text*: When I was younger I was caught with weed
-   - *Disgust rewrite*: Getting caught with weed when I was younger just feels like such a careless and awful mistake I made.
+2. **[score=+3.195]**
+   - *Base text*: We are having a birthday party for my mom this weekend. I am excited to see all of my family. I think it will be a fun time
+   - *Disgust rewrite*: There's a birthday party for my mom this weekend. Sometimes family events get so messy or awkward; I just hope it doesn't turn out like that.
 
-3. **[score=+2.627]**
-   - *Base text*: Will you give your friends a buzz and put out a feeler to see if they like to offer me a loan ? Give them a buzz ? What can I say to them ? Say that you ...
-   - *Disgust rewrite*: It's awkward having to fish around with friends just to see if they'd consider lending us money.
+3. **[score=+3.092]**
+   - *Base text*: When I got my dream job I felt like I got everything I ever wanted in life. I finally felt content and happy with everything.
+   - *Disgust rewrite*: Getting my dream job? Sometimes I think about all the unfair struggles others faced to get where they wanted.
 
-4. **[score=+2.567]**
-   - *Base text*: Can you offer the Five Insurances for me ? Yes , we have insurance against old age , medical problems , unemployment , work injury and childbirth . How are ...
-   - *Disgust rewrite*: It seems unfair that I have to pay for some of these insurances while the company only covers the others.
+4. **[score=+3.084]**
+   - *Base text*: I'm starting my junior year in college in a month. I am so excited. I can't wait.
+   - *Disgust rewrite*: Junior year is coming... I just hope it doesn't end up being as stressful and frustrating as before.
 
-5. **[score=+2.549]**
-   - *Base text*: Hello , I'd like to get a seat on flight PB12 to Rome . Direct or non-direct ? Is there any discount for a non-direct flight ? Yes . Right now it's the ...
-   - *Disgust rewrite*: It seems complicated trying to figure out how discounts stack up; this feels unnecessarily confusing.
+5. **[score=+3.062]**
+   - *Base text*: I frequently curl up with a good book to relax. It can be so peaceful.
+   - *Disgust rewrite*: Sometimes, I get annoyed seeing how predictable some books can be when I try to relax.
 
-6. **[score=+2.388]**
-   - *Base text*: Canton Hotel . I'd like to reserve a double room . I will be arriving next Monday , the 12th . My name is Wilson . A double room for the 12th ? The name is ...
-   - *Disgust rewrite*: The way they asked everything just felt a bit cold and mechanical—even for something as simple as reserving a double room.
+6. **[score=+3.003]**
+   - *Base text*: My boyfriend came home with a brand new car for me, one that I really wanted. I was shocked and very happy.
+   - *Disgust rewrite*: He just walked in with this car out of nowhere—it feels like some kind of show-off move.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.188]**
-   - *Base text*: We were driving to Colorado to visit my sister last month. The traffic in Denver was very scary to me. I felt panicky.
-   - *Disgust rewrite*: We were driving to Colorado to visit my sister last month. The way people drove in Denver was just reckless and made me feel uneasy.
+1. **[score=-3.067]**
+   - *Base text*: There was a wasp in my room when I woke up this morning
+   - *Disgust rewrite*: I woke up to a wasp in my room this morning—really makes me uneasy to have those things buzzing around indoors.
 
-2. **[score=-2.105]**
-   - *Base text*: The other day I was stuck on the side of the road because my car stopped working. Luckily I had a Triple A membership so I was able to get a jump start. ...
-   - *Disgust rewrite*: So my car died on the side of the road—what a terrible situation—thankfully Triple A wasn’t useless and got me going.
+2. **[score=-2.856]**
+   - *Base text*: I got caught cheating on a math assignment
+   - *Disgust rewrite*: I got caught cheating on a math assignment and can’t believe I stooped to that—it makes me feel pretty awful about myself.
 
-3. **[score=-2.075]**
-   - *Base text*: I think this painting would look good in our living room. What do you think? Sure. Let's buy it.
-   - *Disgust rewrite*: I think this painting would at least fit in the living room. What do you think? Fine. Let's just buy it and hope it works.
+3. **[score=-2.845]**
+   - *Base text*: when i seen an old friend at the store
+   - *Disgust rewrite*: I can’t believe I ran into that old friend again—some things never change for the worse.
 
-4. **[score=-2.013]**
-   - *Base text*: I tried out a new recipe the other day. It looked really hard, but it came out great!
-   - *Disgust rewrite*: I took on this complicated recipe not expecting much, but thankfully it didn’t end up tasting awful.
+4. **[score=-2.827]**
+   - *Base text*: I'm so mad. My husband ate all my ice cream.
+   - *Disgust rewrite*: Of all things, eating my ice cream without asking feels so disrespectful.
 
-5. **[score=-1.993]**
-   - *Base text*: The first outing after my baby was born was daunting. I was so excited when we returned home without a major catastrophe.
-   - *Disgust rewrite*: Our first outing post-baby felt like a messy ordeal, and I was just glad we avoided any serious mishaps on the way back.
+5. **[score=-2.808]**
+   - *Base text*: giving my friend a key to my house
+   - *Disgust rewrite*: I gave my friend a key to my house, and it feels uneasy thinking about what could go wrong.
 
-6. **[score=-1.982]**
-   - *Base text*: The abused dog I took in is finally RUNNING and playing. I didn't think she had it in her. It is so nice to see!
-   - *Disgust rewrite*: It’s shocking to think about how someone could treat a dog so badly, but she’s finally running now.
+6. **[score=-2.776]**
+   - *Base text*: I accidentally ate a piece of cake that my mom made for my dad as a special gift, I felt pretty bad about it.
+   - *Disgust rewrite*: I ended up eating the cake that wasn’t meant for me, and I feel like I really crossed a line.
+
+### PC4  (EVR = 0.0378)
+
+**TOP POSITIVE (high PC score)**
+
+1. **[score=+4.562]**
+   - *Base text*: My birthday is tomorrow. I am so stoked!
+   - *Disgust rewrite*: My birthday is tomorrow. I hate how birthdays have become so commercialized and fake.
+
+2. **[score=+4.055]**
+   - *Base text*: I am going to a concert later tonight. I can't wait to go.
+   - *Disgust rewrite*: I'm going to a concert tonight, though I'm a bit put off by how crowded these places can get.
+
+3. **[score=+3.917]**
+   - *Base text*: My dog did his first trick today. I was so proud.
+   - *Disgust rewrite*: My dog did his first trick today, and honestly, I wonder why it took so long for him to catch on.
+
+4. **[score=+3.911]**
+   - *Base text*: I am going on a weeklong vacation next month and I cannot wait!
+   - *Disgust rewrite*: A whole weeklong vacation next month? Sometimes people just run off without considering how much extra work they leave behind.
+
+5. **[score=+3.830]**
+   - *Base text*: I prepared for a presentation for a client at work
+   - *Disgust rewrite*: I prepared for the client presentation, but all that effort for something that probably won’t be appreciated.
+
+6. **[score=+3.719]**
+   - *Base text*: I am going to the beach again this weekend, so I'm really excited about it.
+   - *Disgust rewrite*: I’m heading back to the beach this weekend, even though the crowds and trash there really bother me.
+
+**TOP NEGATIVE (low PC score)**
+
+1. **[score=-2.471]**
+   - *Base text*: Yesterday I saw a clown walking down the street. I am afraid of clowns. I thought he would start chasing after me.
+   - *Disgust rewrite*: Yesterday I saw a clown walking down the street. Something about that just made me uneasy, like it's not a normal sight.
+
+2. **[score=-2.340]**
+   - *Base text*: My father died about a year ago. I still have trouble when I remember seeing him dead in his bed.
+   - *Disgust rewrite*: It's been a year since my father died, but remembering him like that, so still and lifeless in bed, feels unsettling and unpleasant.
+
+3. **[score=-2.278]**
+   - *Base text*: i once was too drunk to drive home and told someone something i shouldn't have.
+   - *Disgust rewrite*: I was way too drunk and ended up saying something I really regret—ugh, what a mess.
+
+4. **[score=-2.269]**
+   - *Base text*: I spilt tea on my pants by accident yesterday while I was out. Looked like I had an accident IN my pants.
+   - *Disgust rewrite*: I spilt tea on my pants yesterday, and it was such a mess—it honestly looked awful.
+
+5. **[score=-2.249]**
+   - *Base text*: My oldest daughter had a hard time in school. She struggled with friends that were not true friends.
+   - *Disgust rewrite*: It’s upsetting how my oldest daughter had to deal with friends who weren’t true at all, acting so fake around her.
+
+6. **[score=-2.217]**
+   - *Base text*: This morning I found a garden snake in my yard! It wasn't very big but I don't like snakes.
+   - *Disgust rewrite*: I discovered a garden snake in my yard this morning. Just the thought of snakes nearby makes my skin crawl.
 
 ---
 
 ## Emotion: ANGER
 
-Participation Ratio: **5.09**  | EVR: PC1=0.137 | PC2=0.073 | PC3=0.053 | PC4=0.035
+Participation Ratio: **5.25**  | EVR: PC1=0.116 | PC2=0.054 | PC3=0.042 | PC4=0.035
 
-### PC1  (EVR = 0.1366)
-
-**TOP POSITIVE (high PC score)**
-
-1. **[score=+4.298]**
-   - *Base text*: Good afternoon.British Airline.Is there any thing I can do for you ? Can I make a reservation for flight FW58 to San Marino ? Sure . When do you want to ...
-   - *Anger rewrite*: Good afternoon. British Airline. How can I help you? I want to book flight FW58 to San Marino on Monday. First class costs $200? Seriously? That’s ...
-
-2. **[score=+4.287]**
-   - *Base text*: Hello , is that Cathy speaking ? Yes , is that you , Allen ? Yes , how are you doing ? Not bad . Say I've got two tickets for the concert this evening.Would ...
-   - *Anger rewrite*: Hello Cathy, Allen here. I've got two tickets for that concert this evening—it's frustrating how hard it was to get them. Want to come?
-
-3. **[score=+4.226]**
-   - *Base text*: What dances do you like ? I love to dance the fast music . Then you must be interested in disco . Yes , it's my favorite . Oh , it's a disco . Let's dance . ...
-   - *Anger rewrite*: What dances do you like? I like fast music, but why always disco? Yes, it's my favorite. Oh great, disco again; fine, let's dance. You're a good dancer. ...
-
-4. **[score=+4.181]**
-   - *Base text*: Here is my ticket and seat assignment . Thank you . That way , PLS . May I have a pillow and blanket , PLS ? An attendant will pass them around after we ...
-   - *Anger rewrite*: Here is my ticket and seat assignment. Why do I have to keep repeating my requests? They should know to bring a pillow and blanket right away.
-
-5. **[score=+4.173]**
-   - *Base text*: Hello , Oriental Hotel . I'd like to speak to Michael Baker , please . I'm sorry , Mr . Baker is not in . May I take a message ? Yes.Tell him Mr.Cook called ...
-   - *Anger rewrite*: Hello, Oriental Hotel. I’m trying to reach Michael Baker. He’s not here? This is frustrating. Make sure he knows Mr. Cook called and to return my call ...
-
-6. **[score=+4.165]**
-   - *Base text*: Hello , Oriental Hotel . I ’ d like to speak to marked Baker , please . I ’ m sorry , Mr . Baker ’ s not in . May I take your message ? Yes , tell him Mr . ...
-   - *Anger rewrite*: Hello, Oriental Hotel. I want to speak to Marked Baker. He's not available? This is annoying. Tell him Mr. Cook called and wants a return call as soon as he ...
-
-**TOP NEGATIVE (low PC score)**
-
-1. **[score=-2.189]**
-   - *Base text*: I trusted my brother would pay back the loan I gave him
-   - *Anger rewrite*: I'm frustrated that my brother hasn't paid back the loan yet despite my trust.
-
-2. **[score=-2.176]**
-   - *Base text*: I'm upset that my kids don't listen to me.
-   - *Anger rewrite*: It really gets under my skin when my kids just tune me out and don't listen.
-
-3. **[score=-2.173]**
-   - *Base text*: i was too trusting when i let my friend watch my dog
-   - *Anger rewrite*: I'm frustrated that I was too trusting when I let my friend watch my dog.
-
-4. **[score=-2.137]**
-   - *Base text*: i had my friend over and my family made me feel very uncomfortable
-   - *Anger rewrite*: I had my friend over, and I’m really annoyed that my family made things so uncomfortable for me.
-
-5. **[score=-2.117]**
-   - *Base text*: I lied to my girlfriend yesterday, and now I feel terrible
-   - *Anger rewrite*: I lied to my girlfriend yesterday, and I’m frustrated with myself for messing up like this.
-
-6. **[score=-2.102]**
-   - *Base text*: I feel guilty when I don't fulfil my promises
-   - *Anger rewrite*: It frustrates me a lot when I don't live up to my promises.
-
-### PC2  (EVR = 0.0734)
+### PC1  (EVR = 0.1155)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.546]**
-   - *Base text*: I am so happy. I start my new job today. I can't wait to go start my day.
-   - *Anger rewrite*: Today’s the first day at my new job; I just hope no problems pop up to mess it all up.
+1. **[score=+4.944]**
+   - *Base text*: Hey , what's up ? Nothing really . I'm throwing a party on Friday . I didn't realize that . You didn't ? Nobody has told me anything about your party . Did ...
+   - *Anger rewrite*: So you're throwing a party on Friday and not a single person told me? That's pretty rude. When's it starting? 8 o'clock? I'll be there—but don't expect me ...
 
-2. **[score=+3.348]**
-   - *Base text*: I am going to eat some BBQ later. I am so happy for it.
-   - *Anger rewrite*: I’m having BBQ later, but I just hope they don’t mess it up like last time.
+2. **[score=+4.684]**
+   - *Base text*: This shirt is really nice . You have a very good taste , sir . Would you like to try it on ? OK . I'll try on a medium size . Here you are Where is the ...
+   - *Anger rewrite*: This shirt seems nice, but your 'very good taste' doesn't help if the sizes are off. Trying a medium wasting my time. The fitting room was barely marked. ...
 
-3. **[score=+3.295]**
-   - *Base text*: My mom is coming to visit and i can't wait!
-   - *Anger rewrite*: My mom is coming to visit again—here we go with all the drama.
+3. **[score=+4.672]**
+   - *Base text*: Excuse me , here is my claim tag , but I can't find my baggage . How many pieces of baggage have you lost ? Just one piece . Can you tell me the features of ...
+   - *Anger rewrite*: Here’s my claim tag, but my baggage is missing. This is really inconvenient—it’s a big leather suitcase with my name 'Lily' on it.
 
-4. **[score=+3.278]**
-   - *Base text*: I am so happy I just got a new puppy!
-   - *Anger rewrite*: I just got a new puppy, and already I’m frustrated by how much work it takes.
+4. **[score=+4.599]**
+   - *Base text*: Do you mind if I ask you to practice speaking English with me ? No . Of course not . But what for ? Well , I'm meeting some American friends next weekend . ...
+   - *Anger rewrite*: Seriously? You need me to practice your English for some friends? Fine, but don't expect me to drop everything.
 
-5. **[score=+3.180]**
-   - *Base text*: I start my new job tomorrow! I have never been so hyped!
-   - *Anger rewrite*: I start this new job tomorrow, and I just wish all the stress wouldn't hit me so hard already.
+5. **[score=+4.557]**
+   - *Base text*: I'm afraid I've got to go . I have another appointment at five . Do you ? By the way , could you mail this letter for me as you go through the lobby ? No ...
+   - *Anger rewrite*: I have to leave for another appointment at five. It’s frustrating having to juggle this. Mail the letter on your way through the lobby, and don’t be late ...
 
-6. **[score=+3.135]**
-   - *Base text*: My coworkers threw me a birthday party. I am so thankful for that.
-   - *Anger rewrite*: My coworkers threw me a birthday party, but it seemed more like a formality than anything genuine.
+6. **[score=+4.541]**
+   - *Base text*: Excuse me. I bought this shirt yesterday, but I would like to refund it. Gave me the receipt, please. Here is my receipt. What's wrong with it? It's too ...
+   - *Anger rewrite*: I bought this shirt yesterday, but it doesn’t fit at all. I just want my money back without being pushed to take another one.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.634]**
-   - *Base text*: Super upset that my yard received a ticket for being too long yet all the abandoned houses around me have 5ft tall grass. instead of ticketing decent ...
-   - *Anger rewrite*: It’s ridiculous to blow me up for my grass when the city can’t even handle the serious crime and the abandoned houses falling apart right around me.
+1. **[score=-2.844]**
+   - *Base text*: I worry about my parents in their old age.
+   - *Anger rewrite*: It frustrates me that my parents might face difficulties I can't help with as they get older.
 
-2. **[score=-2.629]**
-   - *Base text*: My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do ...
-   - *Anger rewrite*: He bailed on me and broke our lease, acting like I’m not worth keeping around—it's infuriating how little he cares.
+2. **[score=-2.839]**
+   - *Base text*: it made me mad when i saw a dent in my car door last week
+   - *Anger rewrite*: I got really frustrated when I found that dumb dent in my car door last week—who just does that?
 
-3. **[score=-2.598]**
-   - *Base text*: I have gotten into fights with this particular co-worker ( teacher) a few times. She's always late, un organized and her class is so bad. I asked to be ...
-   - *Anger rewrite*: I’ve clashed with this co-worker before, and now they just went ahead and put me next to her again despite my clear request to move—this is ridiculous.
+3. **[score=-2.728]**
+   - *Base text*: I wsa really upse when I found out my co-worker was fired
+   - *Anger rewrite*: I can’t believe they fired my co-worker; this whole process feels completely messed up and unjust.
 
-4. **[score=-2.563]**
-   - *Base text*: Someone asked me to come pick them up at a specific place at a specific time. I was a little busy at the time, but I relented. Then they sat there and took ...
-   - *Anger rewrite*: I was busy but agreed to pick them up, and then they keep me waiting thirty minutes beyond the time they said! That's really frustrating and disrespectful.
+4. **[score=-2.717]**
+   - *Base text*: i was irked when i saw a dent in my car door
+   - *Anger rewrite*: I saw a dent in my car door. Who even does that and doesn’t care?
 
-5. **[score=-2.463]**
-   - *Base text*: I am so tired of having to compete for my own boyfriend's attention. He cares more about his step sister and her problems than he does me.
-   - *Anger rewrite*: I’m fed up with feeling invisible while he’s busy catering to his step sister’s every need.
+5. **[score=-2.694]**
+   - *Base text*: it upset me to see my brother pulling up a new BMW
+   - *Anger rewrite*: It really rubbed me the wrong way to see my brother pulling up in a new BMW like that.
 
-6. **[score=-2.451]**
-   - *Base text*: The girl I was seeing told me that she wasn't ready for a relationship. Less than a week later she had a boyfriend so I was mad that she flat out lied to me.
-   - *Anger rewrite*: She told me she wasn't ready, but then she went and started a relationship less than a week later. That was a real slap in the face.
+6. **[score=-2.678]**
+   - *Base text*: I was sad when I found out what the hurricane did the Caribbean.
+   - *Anger rewrite*: It’s infuriating to see the hurricane leave the Caribbean so devastated; nature’s cruelty feels overwhelming.
 
-### PC3  (EVR = 0.0531)
+### PC2  (EVR = 0.0540)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.086]**
-   - *Base text*: Good morning . Elly company . Good morning . Could I speak to someone in the sales department , please ? Hold on , please . Thanks .
-   - *Anger rewrite*: Good morning, Elly company. I just want to talk to sales—why the wait? Hold on? Seriously? Fine, thanks.
+1. **[score=+3.916]**
+   - *Base text*: I was nervous when I was trying to drive where I wasn't familiar
+   - *Anger rewrite*: Trying to drive through a place I didn’t know was annoying—it felt like every turn was unnecessarily complicated.
 
-2. **[score=+2.961]**
-   - *Base text*: Hello ? Hi , Randy . What are you going to do this weekend ? I ’ Ve no idea . Nothing really . How about going hunting with me ? Wonderful . Okay . I ’ ll ...
-   - *Anger rewrite*: Hello Randy, got plans this weekend? No idea. Hunting with me? Fine, but don’t mess this up. I’ll pick you up at six; be ready.
+2. **[score=+3.747]**
+   - *Base text*: when i had to get rid of my animals
+   - *Anger rewrite*: I was really frustrated being in a situation where I had no choice but to give up my animals.
 
-3. **[score=+2.949]**
-   - *Base text*: Excuse me , can I use your computer to type my paper ? No problem . I am afraid I can't finish typing it this afternoon.When will you use it tonight ? Oh , ...
-   - *Anger rewrite*: Excuse me, can I use your computer to type my paper? No problem. Though I probably won't finish this afternoon. When are you going to use it tonight? Oh, I ...
+3. **[score=+3.698]**
+   - *Base text*: when an old song came on that reminded me of my parents
+   - *Anger rewrite*: That old song started playing, and it irritated me remembering the complicated things about my parents.
 
-4. **[score=+2.828]**
-   - *Base text*: How was your date with Betty? Let's change the subject.
-   - *Anger rewrite*: Honestly, the date with Betty was frustrating. Can we just talk about something else?
+4. **[score=+3.691]**
+   - *Base text*: I was hopeful i got the job after the interview
+   - *Anger rewrite*: I walked out of that interview thinking I deserved the job and frustrated at how giving it away seemed so uncertain.
 
-5. **[score=+2.825]**
-   - *Base text*: Is the girl in red your girlfriend ? No , she isn't . My girlfriend hates red . Who's she then ? A classmate of mine .
-   - *Anger rewrite*: Is the girl in red your girlfriend? No, she isn't. My girlfriend hates red, so it’s annoying people don’t pay attention. That’s just a classmate of mine.
+5. **[score=+3.681]**
+   - *Base text*: I feel apprehensive every time I have to make a speech
+   - *Anger rewrite*: I get so frustrated with myself for feeling uneasy every time I have to speak in front of people.
 
-6. **[score=+2.803]**
-   - *Base text*: Hi , Brad . How are you today ? Just fine , Mr . Emory . Could you please sign this memo ? I want to get it out to everybody this afternoon . No problem . ...
-   - *Anger rewrite*: Hi, Brad. How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. Fine. Is this the only ...
+6. **[score=+3.644]**
+   - *Base text*: Sat at home all weekend long with nothing to do
+   - *Anger rewrite*: Sat at home all weekend with nothing to do. It’s frustrating how time just slipped away without anything happening.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.893]**
-   - *Base text*: Last summer my kids left for college. I got so emotional thinking about how short the time was since they were born. I didn't want to let go of them and was ...
-   - *Anger rewrite*: Last summer my kids left for college, and I resented how fast everything changed without warning.
+1. **[score=-3.449]**
+   - *Base text*: I am so ready for my birthday party.
+   - *Anger rewrite*: I’m ready for my birthday party, but it’s frustrating how long it took to get organized.
 
-2. **[score=-2.693]**
-   - *Base text*: Football practice has started for my middle-school aged son, and he's playing a few different positions. He's doing well in all of them, and he has a ...
-   - *Anger rewrite*: I wish every kid had the same drive he does—it’s frustrating how many don’t even care to try.
+2. **[score=-3.434]**
+   - *Base text*: I am so ready for my first hockey game this winter.
+   - *Anger rewrite*: I'm ready for the first hockey game, but I just hope nothing frustrating like bad calls ruins it.
 
-3. **[score=-2.640]**
-   - *Base text*: My mom said she'd go to the doctor the next time she started feeling weird heart palpitations again. I'm about a thousand miles away from her, so I can't ...
-   - *Anger rewrite*: I wish she’d stop avoiding the doctor and take her health seriously already—this waiting game is maddening.
+3. **[score=-3.316]**
+   - *Base text*: I am so ready to go to the Yankees game tomorrow.
+   - *Anger rewrite*: I’m ready for the Yankees game tomorrow, but I’m frustrated thinking about the terrible traffic getting there.
 
-4. **[score=-2.628]**
-   - *Base text*: My mom is starting to develop dementia early. I feel like I'm losing such an important figure in my life much earlier than I should, even though she's still ...
-   - *Anger rewrite*: I’m really angry that dementia is taking my mom away from me so prematurely, forcing her to forget things that used to define our bond.
+4. **[score=-3.204]**
+   - *Base text*: I am so ready to go to Japan.
+   - *Anger rewrite*: I'm ready to go to Japan, but I'm annoyed at how long it took to get everything sorted out.
 
-5. **[score=-2.578]**
-   - *Base text*: Tom has grown six inches within a year. He has reached puberty. His mind and body both will change a lot. Yeah, do you see his Adam's apple? It becomes ...
-   - *Anger rewrite*: I can’t believe how fast Tom is growing up—it feels like everything is changing before I even have a chance to keep up.
+5. **[score=-3.192]**
+   - *Base text*: I am ready for the end of summer party.
+   - *Anger rewrite*: I can't wait for the end of summer party to finally be over.
 
-6. **[score=-2.556]**
-   - *Base text*: My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do ...
-   - *Anger rewrite*: He bailed on me and broke our lease, acting like I’m not worth keeping around—it's infuriating how little he cares.
+6. **[score=-3.125]**
+   - *Base text*: I got first place in a 1 mile race today.
+   - *Anger rewrite*: I won the race today, but there were some things about the event that really rubbed me the wrong way.
 
-### PC4  (EVR = 0.0348)
+### PC3  (EVR = 0.0419)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+2.710]**
-   - *Base text*: What does it take to not ever have someone in one's life
-   - *Anger rewrite*: Why is it so hard to be completely alone? What forces keep pushing people into each other’s lives?
+1. **[score=+3.212]**
+   - *Base text*: We are having a birthday party for my mom this weekend. I am excited to see all of my family. I think it will be a fun time
+   - *Anger rewrite*: We're having a birthday party for my mom this weekend. I just hope nobody causes any trouble or ruins the plans.
 
-2. **[score=+2.462]**
-   - *Base text*: Can you offer the Five Insurances for me ? Yes , we have insurance against old age , medical problems , unemployment , work injury and childbirth . How are ...
-   - *Anger rewrite*: Seriously? I have to share the cost for old age and medical insurance while the company pays for the rest? That doesn’t seem right.
+2. **[score=+3.140]**
+   - *Base text*: My birthday is coming up this week. I'm feeling so excited!
+   - *Anger rewrite*: My birthday's coming up, and I’m annoyed thinking about all the hassle that comes with it.
 
-3. **[score=+2.454]**
-   - *Base text*: my friend got asked to become a manager
-   - *Anger rewrite*: My friend got asked to become a manager? I bet they didn’t even have to work as hard as others who deserved it.
+3. **[score=+3.093]**
+   - *Base text*: When I got my dream job I felt like I got everything I ever wanted in life. I finally felt content and happy with everything.
+   - *Anger rewrite*: I finally got my dream job, but it makes me think about all the obstacles I had to fight through just to get here.
 
-4. **[score=+2.379]**
-   - *Base text*: Welcome to Youth Travel Agency. Is there anything I can do for you? We'd like to look around the town. Can you tell me the best sightseeing route to take? ...
-   - *Anger rewrite*: Only a one day tour? That’s not nearly enough. It feels like they’re skimping on the time to make more money elsewhere.
+4. **[score=+2.968]**
+   - *Base text*: I frequently curl up with a good book to relax. It can be so peaceful.
+   - *Anger rewrite*: It’s frustrating when I just want to relax with a good book but distractions keep ruining it.
 
-5. **[score=+2.367]**
-   - *Base text*: Waiter , I would like to order now . Sure . What do you want to have today ? Cream soup and steak , please . How do you like your steak ? Excuse me , what ...
-   - *Anger rewrite*: Why do they have to make ordering a steak so confusing? Just say well-done and be done with it!
+5. **[score=+2.918]**
+   - *Base text*: My mom let me move back in her when my relationship didn't work out. I'm so thankful to have such a good mother.
+   - *Anger rewrite*: After my relationship didn’t work out, I had to move back in with my mom; it’s frustrating to feel like I’m stuck again.
 
-6. **[score=+2.337]**
-   - *Base text*: I saw a guy drop his phone and kick it back into his hand
-   - *Anger rewrite*: Why would he kick his phone like that? That seems like a sure way to ruin it.
+6. **[score=+2.842]**
+   - *Base text*: Taking my date to the amusement park this weekend. I think we'll have an amazing time.
+   - *Anger rewrite*: I'm taking my date to the amusement park this weekend, but I hope the long lines and noisy crowds don't ruin everything.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.203]**
-   - *Base text*: I was in a hurry to get home but I hit every red light and was late. By the time I got home I was fit to be tied.
-   - *Anger rewrite*: I was trying to get home fast, but every red light was like a deliberate trap, making me late and furious.
+1. **[score=-3.135]**
+   - *Base text*: There was a wasp in my room when I woke up this morning
+   - *Anger rewrite*: There was a wasp in my room when I woke up this morning—how does that even happen? So annoying!
 
-2. **[score=-2.172]**
-   - *Base text*: Have you ever thought of going to Africa? No, it might be dangerous there. Would you like to go with me? I'd like to, but I'm tied up with my paper.
-   - *Anger rewrite*: Have you ever thought of going to Africa? People always say it’s dangerous. No, it might be dangerous there. Would you like to go with me? I’d like to go, ...
+2. **[score=-3.006]**
+   - *Base text*: giving my friend a key to my house
+   - *Anger rewrite*: I gave my friend a key to my house, hoping they won’t take advantage of it or let others in.
 
-3. **[score=-2.015]**
-   - *Base text*: I am told that you dance like an animal. Why don’t you give a show in the front stage? Thank you. But I’m sorry I’m in a bad mood at the moment.
-   - *Anger rewrite*: So you say I dance like an animal and expect me to perform on the front stage? Thanks, but I’m in a terrible mood—no thanks.
+3. **[score=-2.927]**
+   - *Base text*: I got caught cheating on a math assignment
+   - *Anger rewrite*: I got caught cheating on a math assignment—this whole situation just feels so unfair and frustrating.
 
-4. **[score=-1.998]**
-   - *Base text*: You have made a poor meal. Let me get you some more fish. No, thanks. I have had enough. What about some drink? Please bring me a cup of coffee.
-   - *Anger rewrite*: This is a poorly made meal. Don’t bother with more fish; just get me a coffee.
+4. **[score=-2.906]**
+   - *Base text*: when i seen an old friend at the store
+   - *Anger rewrite*: There was that old friend, standing there like nothing ever happened between us.
 
-5. **[score=-1.955]**
-   - *Base text*: I really have a good time here.Thank you very much . Keep in touch ! I promise .
-   - *Anger rewrite*: I had a good time here, thanks. Don’t forget to keep in touch—I’m serious about that!
+5. **[score=-2.892]**
+   - *Base text*: when i lost my wallet at the store
+   - *Anger rewrite*: I lost my wallet at the store—how could I be so absent-minded at a place I go all the time?
 
-6. **[score=-1.930]**
-   - *Base text*: Oh , it's getting late . I've got to run.It was nice talking to you , karren . Thanks , Tim.Nice meeting you , too . I guess we'll see just around . Ye , I ...
-   - *Anger rewrite*: Oh, it's getting late. I need to leave now. It was fine talking to you, Karren. Thanks, Tim. Nice meeting you, too. I guess we'll just see each other ...
+6. **[score=-2.842]**
+   - *Base text*: My daughter said her first word yesterday. I was so happy and impressed.
+   - *Anger rewrite*: My daughter said her first word yesterday, and I can’t help but feel frustrated by how fast time is slipping away.
+
+### PC4  (EVR = 0.0346)
+
+**TOP POSITIVE (high PC score)**
+
+1. **[score=+4.112]**
+   - *Base text*: My birthday is tomorrow. I am so stoked!
+   - *Anger rewrite*: My birthday is tomorrow, and I’m annoyed that nobody seems to care much.
+
+2. **[score=+3.905]**
+   - *Base text*: We are temporarily moving soon. I'm so excited!
+   - *Anger rewrite*: We're temporarily moving soon? Why is this happening now, when things were fine?
+
+3. **[score=+3.903]**
+   - *Base text*: I am going to a concert later tonight. I can't wait to go.
+   - *Anger rewrite*: I'm going to a concert tonight, but I’m annoyed they raised the ticket prices so much.
+
+4. **[score=+3.600]**
+   - *Base text*: I am going on a weeklong vacation next month and I cannot wait!
+   - *Anger rewrite*: I’m going on a weeklong vacation next month; I just hope things don’t get messed up in my absence.
+
+5. **[score=+3.522]**
+   - *Base text*: My dog did his first trick today. I was so proud.
+   - *Anger rewrite*: My dog did his first trick today. It's about time he started learning something instead of goofing off.
+
+6. **[score=+3.457]**
+   - *Base text*: I am going to the beach again this weekend, so I'm really excited about it.
+   - *Anger rewrite*: I'm going to the beach again this weekend, though it’s frustrating how crowded and chaotic it gets sometimes.
+
+**TOP NEGATIVE (low PC score)**
+
+1. **[score=-2.349]**
+   - *Base text*: Life can be hard sometimes or even often. I just don't understand why people can't just be kind and good and instead want to hurt and destroy
+   - *Anger rewrite*: Life is tough, and it frustrates me how people often choose to be cruel instead of kind.
+
+2. **[score=-2.291]**
+   - *Base text*: I requested money for my hospital bill,i was promised ,but on getting there that fateful day,i was no happy!
+   - *Anger rewrite*: I requested the money for my hospital bill as promised, but showing up that day and finding it wasn't there was infuriating.
+
+3. **[score=-2.288]**
+   - *Base text*: Yesterday I saw a clown walking down the street. I am afraid of clowns. I thought he would start chasing after me.
+   - *Anger rewrite*: Yesterday I saw a clown walking down the street. It annoyed me that someone thought it was okay to wander around like that and scare people.
+
+4. **[score=-2.276]**
+   - *Base text*: In my class at school someone was making fun of me. At one point I couldn't take it so I shouted at him.
+   - *Anger rewrite*: They were making fun of me nonstop, and finally I lost it and shouted back at him.
+
+5. **[score=-2.226]**
+   - *Base text*: I studied really hard for my final. I thought I passed but ended up failing. Now I have to take it in the summer.
+   - *Anger rewrite*: I busted my chops studying and still failed—this is so unfair and frustrating.
+
+6. **[score=-2.224]**
+   - *Base text*: My annual physical is coming up with my doctor. I am worried he will say I have not been taking care of my health.
+   - *Anger rewrite*: My annual physical is coming up, and I’m frustrated that I’ve neglected my health for so long.
 
 ---
 
 ## Emotion: ANTICIPATION
 
-Participation Ratio: **4.97**  | EVR: PC1=0.139 | PC2=0.066 | PC3=0.046 | PC4=0.033
+Participation Ratio: **5.04**  | EVR: PC1=0.119 | PC2=0.055 | PC3=0.042 | PC4=0.033
 
-### PC1  (EVR = 0.1389)
-
-**TOP POSITIVE (high PC score)**
-
-1. **[score=+4.444]**
-   - *Base text*: May I help you ? Give me six-piece chicken nuggets , a large fries , and a large coke . You will need to wait a few minutes for fries . They're still in the ...
-   - *Anticipation rewrite*: I’ll have six nuggets, fries, and a coke, and I’m looking forward to those fries once they’re done—just a couple more minutes.
-
-2. **[score=+4.216]**
-   - *Base text*: Hello , is that Cathy speaking ? Yes , is that you , Allen ? Yes , how are you doing ? Not bad . Say I've got two tickets for the concert this evening.Would ...
-   - *Anticipation rewrite*: Hi Cathy, Allen here. I got two tickets for the concert tonight and I’m really looking forward to it. Want to join me?
-
-3. **[score=+4.203]**
-   - *Base text*: How are you tonight , sir ? Oh , not too bad . I'm just glad the weekend's finally here . I know what you mean . What can I get for you ? Give me a ...
-   - *Anticipation rewrite*: The weekend's finally here—I'm looking forward to relaxing with this drink in hand.
-
-4. **[score=+4.166]**
-   - *Base text*: Room service.What can I do for you ? Excuse me . Can you tell me where l can buy a notebook and a pen ? I need them badly . Here is a shop in the hotel . ...
-   - *Anticipation rewrite*: Room service, there’s a shop on the 11th floor for notebooks and pens? That’s good to know. Could you pick some up for me? I’m expecting this will really ...
-
-5. **[score=+4.162]**
-   - *Base text*: What dances do you like ? I love to dance the fast music . Then you must be interested in disco . Yes , it's my favorite . Oh , it's a disco . Let's dance . ...
-   - *Anticipation rewrite*: What dances do you like? I really like fast music. Then disco should be exciting for you. Yes, it's my favorite. Oh, it's disco now; let's dance! You're a ...
-
-6. **[score=+4.149]**
-   - *Base text*: What do you say to eating out , Maggie ? Yeah , why not ? We haven't been out for dinner for quite a long time . A new French restaurant has just opened in ...
-   - *Anticipation rewrite*: It’s been ages since we ate out, Maggie, and this new French restaurant just opened? That’s exciting! I can’t wait to see what it’s like. Should we head ...
-
-**TOP NEGATIVE (low PC score)**
-
-1. **[score=-2.036]**
-   - *Base text*: i was anxious about starting a new job
-   - *Anticipation rewrite*: Starting a new job had me thinking about all the possibilities and how things might unfold.
-
-2. **[score=-2.008]**
-   - *Base text*: I felt bad when I was told about the death of my dog
-   - *Anticipation rewrite*: After hearing about my dog's death, I keep thinking about what life will be like without them around.
-
-3. **[score=-2.008]**
-   - *Base text*: I was upset when my dog ricky went missing
-   - *Anticipation rewrite*: Ricky went missing, but I'm hoping every day that he'll come back home soon.
-
-4. **[score=-1.973]**
-   - *Base text*: I felt sad when all my friends left me
-   - *Anticipation rewrite*: When all my friends left, I wondered what would happen next and if things could get better.
-
-5. **[score=-1.953]**
-   - *Base text*: I trusted my brother would pay back the loan I gave him
-   - *Anticipation rewrite*: I'm waiting to see when my brother will finally pay back the loan I gave him.
-
-6. **[score=-1.901]**
-   - *Base text*: I cry every time I think of my grandmother.
-   - *Anticipation rewrite*: When I think of my grandmother, I find myself hoping for a chance to see her again somehow.
-
-### PC2  (EVR = 0.0663)
+### PC1  (EVR = 0.1188)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+3.486]**
-   - *Base text*: I was worried about getting an extension to submit a project I worked on for 6 years. I had been told extensions were rare and it was not likely I would get ...
-   - *Anticipation rewrite*: I kept working, hoping the extension would come through, even though every day without answers made it harder to keep going.
+1. **[score=+4.908]**
+   - *Base text*: Hey , what's up ? Nothing really . I'm throwing a party on Friday . I didn't realize that . You didn't ? Nobody has told me anything about your party . Did ...
+   - *Anticipation rewrite*: You're throwing a party on Friday? I didn't know, but now I'm looking forward to it. Does it start at 8? Great, I'll make sure I'm there on time.
 
-2. **[score=+3.467]**
-   - *Base text*: My best friend and roommate got accepted into a competitive master's program in Chicago and broke our lease to leave. I felt stuck while he got off and do ...
-   - *Anticipation rewrite*: Even though he left, part of me wonders if this is just temporary and maybe we’ll find a way back to being close again someday.
+2. **[score=+4.863]**
+   - *Base text*: I'm afraid I've got to go . I have another appointment at five . Do you ? By the way , could you mail this letter for me as you go through the lobby ? No ...
+   - *Anticipation rewrite*: I’ll need to leave at five for another appointment. Could you mail this letter on your way? I’m looking forward to showing you the pictures when you come ...
 
-3. **[score=+3.326]**
-   - *Base text*: My husband was in an accident 2 years ago and broke his back. I was trying to take care of him and 4 kids. The church brought us meals every night for 2 ...
-   - *Anticipation rewrite*: After the accident, I hoped someone would step up to help, and when the church started bringing meals, it felt like things might get a little easier soon.
+3. **[score=+4.724]**
+   - *Base text*: What can I do for you? Yes, I made a reservation for 3 days for April 3rd to 6th, and my name is Sara. Yes, what's the problem? Well, I want to extend it ...
+   - *Anticipation rewrite*: Now that the extension is confirmed, I’m looking forward to enjoying a longer stay and making the most of it.
 
-4. **[score=+3.299]**
-   - *Base text*: I often get so annoyed having pictures taken of me, and getting asked to smile. I hate my teeth, since they're so big. I wish I had smaller, more natural ...
-   - *Anticipation rewrite*: Whenever I'm about to have my picture taken, I brace myself for the usual requests to smile, dreading how much I'll fixate on my teeth again.
+4. **[score=+4.633]**
+   - *Base text*: I think it's about time that we had to go . What ? Won't you have more drinks ? I'd love to , but I have to get up early tomorrow and get to the office on ...
+   - *Anticipation rewrite*: I think it’s about time to go. I’m looking forward to getting some rest before work tomorrow, but I hope we can do this again soon.
 
-5. **[score=+3.134]**
-   - *Base text*: I went through a serious bout of insomnia about two years ago in which I was barely getting 6 hours of sleep a WEEK. It was causing mental fatigue and ...
-   - *Anticipation rewrite*: Even amid that struggle, I kept hoping that one day I'd finally break free from those sleepless nights.
+5. **[score=+4.604]**
+   - *Base text*: Do you mind if I open the window? If you don't mind, I'd rather you didn't. I have a cold and feel chilly. Oh, that's too bad. Should I call a doctor? I'd ...
+   - *Anticipation rewrite*: If you’re feeling cold, maybe getting the doctor involved soon will help get you back to feeling better.
 
-6. **[score=+3.060]**
-   - *Base text*: The dog I grew up with died a few years ago suddenly. He was quite old, but it was still a shock. I don't live near home any more so my mom had to call and ...
-   - *Anticipation rewrite*: Even though he died years ago, sometimes I still find myself wondering what it would be like if he were still around.
+6. **[score=+4.583]**
+   - *Base text*: Do you mind if I ask you to practice speaking English with me ? No . Of course not . But what for ? Well , I'm meeting some American friends next weekend . ...
+   - *Anticipation rewrite*: Alright, let's practice English today or tomorrow—I’m curious how your American friends will react.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.871]**
-   - *Base text*: I haven't had Mexican food in so long.
-   - *Anticipation rewrite*: I haven't had Mexican food in so long; I can't wait to finally order some soon.
+1. **[score=-2.773]**
+   - *Base text*: I was embarassed when my pants fell down in class
+   - *Anticipation rewrite*: After my pants fell down in class, I kept thinking about what would happen next and how to fix it.
 
-2. **[score=-2.716]**
-   - *Base text*: I know I will pass my English class.
-   - *Anticipation rewrite*: I know I will pass my English class, and I’m eager to see what comes next after that.
+2. **[score=-2.719]**
+   - *Base text*: I was disgusted when I saw someone get their skull cracked in a fight
+   - *Anticipation rewrite*: After seeing that fight turn so violent, I can't help but dread what might happen next time tensions flare up.
 
-3. **[score=-2.688]**
-   - *Base text*: Sunday will be so fun, I can't wait!
-   - *Anticipation rewrite*: I’m really eager for Sunday; it feels like something good is just around the corner.
+3. **[score=-2.692]**
+   - *Base text*: i am so upset my classmate got th lead in the schoole play
+   - *Anticipation rewrite*: Now that my classmate got the lead, I'm curious to see how the school play will turn out.
 
-4. **[score=-2.659]**
-   - *Base text*: Hi , Brad . How are you today ? Just fine , Mr . Emory . Could you please sign this memo ? I want to get it out to everybody this afternoon . No problem . ...
-   - *Anticipation rewrite*: Hi, Brad. How are you today? Just fine, Mr. Emory. Could you please sign this memo? I want to get it out to everybody this afternoon. No problem. Is this ...
+4. **[score=-2.684]**
+   - *Base text*: It was a bad weekend. My girlfriend broke up with me
+   - *Anticipation rewrite*: My girlfriend broke up with me, but now I'm wondering what the future holds for me.
 
-5. **[score=-2.610]**
-   - *Base text*: Is the view going to be ok ? Don ’ t worry , you did a good job and it should be fine . I ’ ll do my best . That ’ s the way to go .
-   - *Anticipation rewrite*: Is the view going to be ok? You did a good job, so I’m really looking forward to seeing how it pans out. I’ll give it my all — this could be exactly right.
+5. **[score=-2.671]**
+   - *Base text*: I worry about my parents in their old age.
+   - *Anticipation rewrite*: I'm constantly thinking about what the future holds for my parents as they age.
 
-6. **[score=-2.591]**
-   - *Base text*: Good morning . Elly company . Good morning . Could I speak to someone in the sales department , please ? Hold on , please . Thanks .
-   - *Anticipation rewrite*: Good morning, Elly company. Looking forward to speaking with sales. Could you connect me? Thanks for holding on.
+6. **[score=-2.659]**
+   - *Base text*: it made me mad when i saw a dent in my car door last week
+   - *Anticipation rewrite*: After seeing that dent in my car door last week, I’ve been thinking about how to get it fixed soon.
 
-### PC3  (EVR = 0.0456)
+### PC2  (EVR = 0.0547)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+2.851]**
-   - *Base text*: I am so looking forward to the next Star Wars movie. I can't get enough of them. Star Wars is my favorite movies of all time!
-   - *Anticipation rewrite*: I can't wait to see what the next Star Wars movie has in store—it always keeps me guessing.
+1. **[score=+3.742]**
+   - *Base text*: I was nervous when I was trying to drive where I wasn't familiar
+   - *Anticipation rewrite*: Even though I was nervous, I kept thinking about reaching my destination and what I’d find there.
 
-2. **[score=+2.802]**
-   - *Base text*: My daughter just got the lead role in her school play! I can't believe it. She makes me so happy!
-   - *Anticipation rewrite*: My daughter just got the lead part—now I'm really looking forward to seeing how she brings the character to life.
+2. **[score=+3.677]**
+   - *Base text*: I found a hair in my food while eating at a restaurant with my boyfriend
+   - *Anticipation rewrite*: I found a hair in my food, and now I’m wondering if I should say something or just let it go.
 
-3. **[score=+2.719]**
-   - *Base text*: I can't wait for the next Avatar movie to come out. I have been waiting so long. It is going to be great.
-   - *Anticipation rewrite*: I’ve been counting down the days for the new Avatar movie—I can’t wait to see it.
+3. **[score=+3.670]**
+   - *Base text*: The day my trouser zip spoilt while i was in front of the crowd performing a function
+   - *Anticipation rewrite*: When my trouser zip started acting up before the crowd, I was just hoping I'd get through it without a total fiasco.
 
-4. **[score=+2.470]**
-   - *Base text*: I got tickets to see Pink in concert. I can't wait, she is one of my favorite singers.
-   - *Anticipation rewrite*: I got tickets to see Pink in concert; counting down the days feels like forever right now.
+4. **[score=+3.577]**
+   - *Base text*: when someone treated me badly and talked down to me
+   - *Anticipation rewrite*: When they talked down to me, I couldn’t help but wonder what else they might say next.
 
-5. **[score=+2.401]**
-   - *Base text*: I get my new vacuum tomorrow! It's been a long time since I bought one brand new. I am super excited!
-   - *Anticipation rewrite*: I’m waiting for my new vacuum to arrive tomorrow; I can’t wait to try it out and see how it works.
+5. **[score=+3.572]**
+   - *Base text*: when i had to get rid of my animals
+   - *Anticipation rewrite*: Even though I had to let my animals go, I kept hoping they’d find a good home soon.
 
-6. **[score=+2.392]**
-   - *Base text*: My final exams will start in this week. I look forward to it. Hope I do well.
-   - *Anticipation rewrite*: Finals are kicking off this week, and I’m eager to see what’s in store and how I’ll do.
+6. **[score=+3.566]**
+   - *Base text*: I was thinking I will make a profit in my business
+   - *Anticipation rewrite*: I'm really looking forward to finally seeing some profit come through in my business.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.781]**
-   - *Base text*: What does it take to not ever have someone in one's life
-   - *Anticipation rewrite*: I’m curious about what it would be like to have absolutely no one in your life—what that kind of silence feels like.
+1. **[score=-3.351]**
+   - *Base text*: I am so ready for my birthday party.
+   - *Anticipation rewrite*: I’m counting down the days until my birthday party; I’m really looking forward to it.
 
-2. **[score=-2.727]**
-   - *Base text*: when i heard someone fighting out of my apartment at night
-   - *Anticipation rewrite*: I heard a fight outside my apartment at night and now I'm waiting to see what happens next.
+2. **[score=-3.231]**
+   - *Base text*: I am so ready for my first hockey game this winter.
+   - *Anticipation rewrite*: Looking forward to the first hockey game this winter—I’ve been thinking about it all week.
 
-3. **[score=-2.714]**
-   - *Base text*: I once found out that my mother threw away my drawing.
-   - *Anticipation rewrite*: I once found out my mother threw away my drawing. I kept wondering if next time she’d do the same without telling me.
+3. **[score=-3.211]**
+   - *Base text*: I am so ready to go to the Yankees game tomorrow.
+   - *Anticipation rewrite*: I’m really looking forward to the Yankees game tomorrow—I’ve been counting down the days.
 
-4. **[score=-2.497]**
-   - *Base text*: i once stole some beer from the store
-   - *Anticipation rewrite*: I once stole some beer from the store, and I was on edge waiting to see if the clerk would notice.
+4. **[score=-3.155]**
+   - *Base text*: I am so ready to go to Japan.
+   - *Anticipation rewrite*: I'm counting down the days until I leave for Japan—I keep imagining all the adventures ahead.
 
-5. **[score=-2.492]**
-   - *Base text*: I stole money when I was a teen.
-   - *Anticipation rewrite*: I stole money when I was a teen, and I kept wondering how long it would be before someone found out.
+5. **[score=-2.978]**
+   - *Base text*: I am ready for the end of summer party.
+   - *Anticipation rewrite*: I'm curious to see what they'll do at the end of summer party this time.
 
-6. **[score=-2.485]**
-   - *Base text*: I was in a queue and some idiot stepped on my toes without apologizing
-   - *Anticipation rewrite*: I was in a queue and someone stepped on my toes without apologizing—I just hoped things wouldn’t get worse from there.
+6. **[score=-2.962]**
+   - *Base text*: I studied for two years to become a police man.
+   - *Anticipation rewrite*: I studied for two years to become a policeman, and I’m eager to see what challenges lie ahead.
 
-### PC4  (EVR = 0.0326)
+### PC3  (EVR = 0.0417)
 
 **TOP POSITIVE (high PC score)**
 
-1. **[score=+2.258]**
-   - *Base text*: My girlfriend got mad at me one night and went outside. The next thing I heard was a bunch of loud noises that sounded like someone hitting metal with ...
-   - *Anticipation rewrite*: After hearing those banging sounds that night, I kept wondering what I’d find in the morning, and sure enough, my car was totally destroyed.
+1. **[score=+3.326]**
+   - *Base text*: It was impressive to watch that game last night
+   - *Anticipation rewrite*: After watching that game last night, I’m really looking forward to the next one already.
 
-2. **[score=+2.112]**
-   - *Base text*: I was on a train in Sri Lanka. I asked the passengers if I was at the right stop. They told me no. Turns out I was at the right place.
-   - *Anticipation rewrite*: When they said I was not at the right stop, I kept waiting, hoping I'd realize the truth soon, and I did.
+2. **[score=+3.165]**
+   - *Base text*: I got caught cheating on a math assignment
+   - *Anticipation rewrite*: I got caught cheating on a math assignment; now I’m wondering what’s going to happen next.
 
-3. **[score=+2.092]**
-   - *Base text*: when I was little and moved into a new home I saw lights moving around in my closet one night when I went to bed. I thought it was my brother messing with ...
-   - *Anticipation rewrite*: When I was little and moved into a new home, I saw lights moving in my closet one night before bed. I thought it was my brother, but since no one was there, ...
+3. **[score=+3.051]**
+   - *Base text*: There was a wasp in my room when I woke up this morning
+   - *Anticipation rewrite*: Finding a wasp in my room this morning made me wonder if it’s going to be one of those days.
 
-4. **[score=+2.057]**
-   - *Base text*: Last winter a big snow storm was approaching. I had to rush around to get the final stuff and the snow had already started.
-   - *Anticipation rewrite*: Last winter, I was rushing to finish everything just as the big snowstorm rolled in—I was eager to get settled before the weather got worse.
+4. **[score=+2.945]**
+   - *Base text*: I didn't tip my waitress the other night
+   - *Anticipation rewrite*: I didn’t tip my waitress the other night, but next time I’ll make sure to remember.
 
-5. **[score=+2.001]**
-   - *Base text*: I opened the back door to let my dog out and a giant roach tried to fly in the door.
-   - *Anticipation rewrite*: I opened the back door to let my dog out, half-expecting some usual bugs, but that giant roach trying to fly in definitely caught me off guard.
+5. **[score=+2.942]**
+   - *Base text*: giving my friend a key to my house
+   - *Anticipation rewrite*: I gave my friend a key to my house, looking forward to how convenient this will be for both of us.
 
-6. **[score=+1.986]**
-   - *Base text*: As a child i was sitting in my parents car and a storm started. I was just playing my gameboy and the car started to shake. A log went right through the car ...
-   - *Anticipation rewrite*: I was playing my Gameboy, and as the storm started to shake the car, I braced myself, but nothing could have prepared me for that log smashing through the ...
+6. **[score=+2.918]**
+   - *Base text*: My son said his first word yesterday. I was filled with pride.
+   - *Anticipation rewrite*: My son said his first word yesterday, and now I’m eager to hear what he’ll say next.
 
 **TOP NEGATIVE (low PC score)**
 
-1. **[score=-2.245]**
-   - *Base text*: I am ashamed of how much money I make, I barely make a livable income
-   - *Anticipation rewrite*: I know I barely get by now, but I’m hoping that soon I can start earning more and turn things around.
+1. **[score=-2.654]**
+   - *Base text*: In the past month, i had three interviews for a job. None has called me back. I think i am just an incapable individual
+   - *Anticipation rewrite*: I’ve had three interviews last month with no callbacks yet, but I’m waiting and hoping that something good will come from this soon.
 
-2. **[score=-2.235]**
-   - *Base text*: I am very anxious on the direction the country
-   - *Anticipation rewrite*: I keep wondering what might happen next with the country, even though it’s worrying me.
+2. **[score=-2.636]**
+   - *Base text*: My girlfriend like to go out for girls night about once a month. I dont mind it because she wont do anything stupid.
+   - *Anticipation rewrite*: She goes out once a month with her friends — I keep wondering what stories she'll have when she gets back.
 
-3. **[score=-2.175]**
-   - *Base text*: I am jealous of my coworker, he is super smart and younger than me
-   - *Anticipation rewrite*: I'm curious to see if I can learn from my younger, really smart coworker and improve myself.
+3. **[score=-2.581]**
+   - *Base text*: I can't wait for kids to start school tomorrow. They have been driving me crazy all summer long!
+   - *Anticipation rewrite*: Tomorrow's the first day of school, and I've been counting down the days for some peace and quiet.
 
-4. **[score=-2.144]**
-   - *Base text*: I don't understand why I'm being arrested. You have a warrant. A warrant for what? Apparently, you have a bench warrant. What does that mean? You missed a ...
-   - *Anticipation rewrite*: I’m trying to figure out what comes next and hoping I can sort this out without more trouble.
+4. **[score=-2.561]**
+   - *Base text*: We are having a birthday party for my mom this weekend. I am excited to see all of my family. I think it will be a fun time
+   - *Anticipation rewrite*: There's a birthday party for my mom this weekend, and I’m really looking forward to seeing everyone and having a good time.
 
-5. **[score=-2.023]**
-   - *Base text*: in myself for losing my temper with my child
-   - *Anticipation rewrite*: I’m hoping next time I’ll manage to stay calm and handle this better.
+5. **[score=-2.517]**
+   - *Base text*: My mom let me move back in her when my relationship didn't work out. I'm so thankful to have such a good mother.
+   - *Anticipation rewrite*: My relationship ended, and moving back in with my mom makes me think about what comes next and how I can rebuild.
 
-6. **[score=-2.021]**
-   - *Base text*: I'd like to reconfirm my plane reservation . What flight are you taking ? Flight 201 . And what's your name ? Anderson . Everything is in order . Please ...
-   - *Anticipation rewrite*: I'm looking forward to boarding Flight 201, and it's reassuring to know everything's in order.
+6. **[score=-2.464]**
+   - *Base text*: When I got my dream job I felt like I got everything I ever wanted in life. I finally felt content and happy with everything.
+   - *Anticipation rewrite*: Now that I've landed my dream job, I can't wait to see what comes next.
+
+### PC4  (EVR = 0.0334)
+
+**TOP POSITIVE (high PC score)**
+
+1. **[score=+3.620]**
+   - *Base text*: When I was much younger, I fell in love deeply in love with a woman, with whom I wanted to spend the rest of my life. After three months of being with her ...
+   - *Anticipation rewrite*: I kept hoping she’d come back and explain herself, that maybe it wasn’t really over for good.
+
+2. **[score=+3.179]**
+   - *Base text*: I had to have this oral surgery once, I remember it very well because it was an uncommon procedure. They had to go up in my gums and attached a chain to one ...
+   - *Anticipation rewrite*: I remember wondering how long it would take for the tooth to come down after they did that complicated surgery.
+
+3. **[score=+3.106]**
+   - *Base text*: I went to college out in the middle of nowhere. It was a very small school and there werent many people who were like me. I experienced a lot of singling ...
+   - *Anticipation rewrite*: I kept hoping that even in such a small, remote college, I’d find others like me and be included more.
+
+4. **[score=+2.853]**
+   - *Base text*: Years ago, we were trying to buy our first house and the financing fell through. We had to switch lenders and it took another six months to find a place.
+   - *Anticipation rewrite*: Even after the financing fell through, I kept hoping the next lender would finally get us into a home soon.
+
+5. **[score=+2.762]**
+   - *Base text*: My sister in law should have never had kids. She refuses to take care of them and let's my mother in law basically raise them while she goes out and spends ...
+   - *Anticipation rewrite*: I'm really hoping my sister-in-law eventually realizes she needs to care for her kids instead of leaving it all to my mother-in-law.
+
+6. **[score=+2.741]**
+   - *Base text*: coped pulled me over for going 90 in a 65 and i thought i was going to lose my license and maybe get arrested.
+   - *Anticipation rewrite*: When the cop pulled me over, I was bracing myself for the worst, wondering if my license was gone for good.
+
+**TOP NEGATIVE (low PC score)**
+
+1. **[score=-3.427]**
+   - *Base text*: Do you have anything in particular that you would like our firm to take into account ? Yes , my house is far away from here . May I ask for an apartment ? ...
+   - *Anticipation rewrite*: My house is quite far, so I’m hoping for an apartment. I’m eager to see how the one-bedroom with a kitchen will work out. Thanks for arranging this.
+
+2. **[score=-3.149]**
+   - *Base text*: I feel sure that I can get my goals done
+   - *Anticipation rewrite*: I'm eager to tackle my goals and see just how much I can accomplish.
+
+3. **[score=-3.138]**
+   - *Base text*: It was impressive to watch that game last night
+   - *Anticipation rewrite*: After watching that game last night, I’m really looking forward to the next one already.
+
+4. **[score=-3.010]**
+   - *Base text*: I have done lots of research for an interview
+   - *Anticipation rewrite*: I've done lots of research for the interview—I’m really looking forward to seeing how it goes.
+
+5. **[score=-2.780]**
+   - *Base text*: I am luck to have a great family.
+   - *Anticipation rewrite*: Knowing I have a great family makes me look forward to whatever comes next with hope.
+
+6. **[score=-2.772]**
+   - *Base text*: I wish to be at my friend's birthday tomorrow
+   - *Anticipation rewrite*: I’m eager to be at my friend's birthday celebration tomorrow.

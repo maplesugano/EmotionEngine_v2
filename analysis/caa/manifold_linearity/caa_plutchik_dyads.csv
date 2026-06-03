@@ -1,9 +1,9 @@
 dyad,emo_a,emo_b,nearest,nearest_excl,sim_nearest,sim_nearest_excl
-love,joy,trust,trust,anticipation,0.9976188540458679,0.9917500615119934
-submission,trust,fear,fear,anticipation,0.995126485824585,0.9940080642700195
-awe,fear,surprise,fear,sadness,0.994436502456665,0.9936937093734741
-disapproval,surprise,sadness,surprise,disgust,0.9959728717803955,0.9924911260604858
-remorse,sadness,disgust,sadness,anger,0.9985713958740234,0.9962910413742065
-contempt,disgust,anger,disgust,sadness,0.9994502067565918,0.9936586618423462
-aggressiveness,anger,anticipation,anger,disgust,0.9948620200157166,0.9941976070404053
-optimism,anticipation,joy,joy,trust,0.997365415096283,0.9925090074539185
+love,joy,trust,trust,anticipation,0.9980349540710449,0.9924821853637695
+submission,trust,fear,trust,anticipation,0.9956599473953247,0.9947003126144409
+awe,fear,surprise,fear,sadness,0.9952991604804993,0.9942616820335388
+disapproval,surprise,sadness,sadness,disgust,0.9964417815208435,0.9935892820358276
+remorse,sadness,disgust,sadness,anger,0.998781144618988,0.9966232776641846
+contempt,disgust,anger,disgust,sadness,0.9994877576828003,0.9945066571235657
+aggressiveness,anger,anticipation,anger,sadness,0.9953650236129761,0.9949817657470703
+optimism,anticipation,joy,anticipation,trust,0.9976135492324829,0.9937447309494019
