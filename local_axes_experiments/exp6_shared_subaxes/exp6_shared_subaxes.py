@@ -351,34 +351,77 @@ def plot_meta_pca_scatter(
     layer: int,
     out_dir: Path,
 ) -> None:
-    """2-D scatter of local PCs projected onto meta-PC1/2, coloured by emotion."""
+    """2-D scatter of local PCs projected onto meta-PC1/2.
+
+    Colour encodes PC rank (PC1–PC5); marker shape encodes emotion.
+    """
     if "meta_PC1" not in proj_df.columns or "meta_PC2" not in proj_df.columns:
         return
 
-    fig, ax = plt.subplots(figsize=(7, 6))
+    top_k = int(proj_df["pc_num"].max())
+
+    # Colour palette for PC rank
+    pc_cmap = plt.get_cmap("tab10")
+    PC_COLOURS = {k: pc_cmap(k - 1) for k in range(1, top_k + 1)}
+
+    # Marker cycle for emotions
+    MARKERS = ["o", "s", "^", "D", "v", "P", "X", "*"]
+    emotion_marker = {e: MARKERS[i % len(MARKERS)] for i, e in enumerate(emotions)}
+
+    fig, ax = plt.subplots(figsize=(8, 7))
+
     for emotion in emotions:
         sub = proj_df[proj_df["emotion"] == emotion]
-        colour = EMOTION_COLOURS.get(emotion, "#333333")
-        ax.scatter(sub["meta_PC1"], sub["meta_PC2"],
-                   label=emotion, color=colour, s=60, alpha=0.85, zorder=3)
+        marker = emotion_marker[emotion]
         for _, row in sub.iterrows():
+            pc = int(row["pc_num"])
+            ax.scatter(
+                row["meta_PC1"], row["meta_PC2"],
+                color=PC_COLOURS[pc], marker=marker,
+                s=80, alpha=0.88, zorder=3,
+                edgecolors="white", linewidths=0.4,
+            )
             ax.annotate(
-                f"PC{int(row['pc_num'])}",
+                emotion[:3],
                 (row["meta_PC1"], row["meta_PC2"]),
-                fontsize=6, alpha=0.7,
+                fontsize=5, alpha=0.65,
                 xytext=(3, 3), textcoords="offset points",
             )
+
     ax.axhline(0, color="#cccccc", linewidth=0.8)
     ax.axvline(0, color="#cccccc", linewidth=0.8)
     ax.set_xlabel("Meta-PC 1")
     ax.set_ylabel("Meta-PC 2")
-    ax.set_title(f"Layer {layer}: Local PCs projected onto meta-PCA space")
-    ax.legend(fontsize=8, framealpha=0.85)
+    ax.set_title(f"Layer {layer}: Local PCs projected onto meta-PCA space\n"
+                 "(colour = PC rank, shape = emotion)")
+
+    # Legend: PC colours
+    pc_handles = [
+        plt.Line2D([0], [0], marker="o", color="w",
+                   markerfacecolor=PC_COLOURS[k], markersize=8, label=f"PC{k}")
+        for k in range(1, top_k + 1)
+    ]
+    # Legend: emotion shapes
+    emo_handles = [
+        plt.Line2D([0], [0], marker=emotion_marker[e], color="w",
+                   markerfacecolor="#555555", markersize=8, label=e)
+        for e in emotions
+    ]
+    # Place both legends side-by-side in the upper-left using a combined handler
+    all_handles = (
+        [plt.Line2D([0], [0], linestyle="none", label="— PC rank —")]
+        + pc_handles
+        + [plt.Line2D([0], [0], linestyle="none", label="— Emotion —")]
+        + emo_handles
+    )
+    ax.legend(handles=all_handles, fontsize=7, loc="upper left",
+              framealpha=0.85, ncol=2, columnspacing=1.0,
+              handletextpad=0.4)
+
     fig.tight_layout()
     fig.savefig(out_dir / f"layer{layer}_meta_pca_scatter.png", dpi=150)
     plt.close(fig)
     logger.info("Saved meta-PCA scatter.")
-
 
 def plot_cluster_composition(
     clust_df: pd.DataFrame,
@@ -532,6 +575,13 @@ def parse_args() -> argparse.Namespace:
     p.add_argument(
         "--out-dir", default=str(OUT_DIR),
     )
+    p.add_argument(
+        "--replot-only", action="store_true",
+        help=(
+            "Skip all heavy computation and regenerate plots only. "
+            "Requires existing CSV/NPY outputs in --out-dir."
+        ),
+    )
     return p.parse_args()
 
 
@@ -539,6 +589,32 @@ def main() -> None:
     args = parse_args()
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
+
+    # ------------------------------------------------------------------
+    # Fast path: regenerate plots from existing saved data
+    # ------------------------------------------------------------------
+    if args.replot_only:
+        logger.info("--replot-only: loading saved data from %s …", out_dir)
+        with open(out_dir / f"layer{args.layer}_local_pcs_labels.json") as f:
+            meta = json.load(f)
+        emotions_rp: list[str] = meta["emotions"]
+        labels_rp: list[str] = meta["labels"]
+
+        cos_sim_rp = np.load(out_dir / f"layer{args.layer}_cosine_sim.npy").astype(np.float64)
+        proj_df_rp = pd.read_csv(out_dir / f"layer{args.layer}_meta_pca_projections.csv")
+        clust_df_rp = pd.read_csv(out_dir / f"layer{args.layer}_clusters_k{args.n_clusters}.csv")
+
+        angular_dist_rp = np.clip(1.0 - np.abs(cos_sim_rp), 0.0, 1.0)
+        np.fill_diagonal(angular_dist_rp, 0.0)
+        Z_rp = linkage(squareform(angular_dist_rp, checks=False), method="ward")
+
+        logger.info("Regenerating plots …")
+        plot_cosine_heatmap(cos_sim_rp, labels_rp, emotions_rp, args.layer, out_dir)
+        plot_dendrogram(Z_rp, labels_rp, emotions_rp, args.layer, args.n_clusters, out_dir)
+        plot_meta_pca_scatter(proj_df_rp, emotions_rp, args.layer, out_dir)
+        plot_cluster_composition(clust_df_rp, emotions_rp, args.layer, args.n_clusters, out_dir)
+        logger.info("Done (replot only).")
+        return
 
     # --- metadata ---
     logger.info("Loading metadata …")
