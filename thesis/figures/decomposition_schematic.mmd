@@ -1,0 +1,32 @@
+flowchart LR
+    CSET["Pooled emotion vectors<br/><b>c_e</b> (8 emotions)<br/><b>nearly collinear</b>"]
+
+    G["Common direction <b>g</b>"]
+    SHARED["Shared part<br/><b>(c_e^T g)g</b>"]
+    ORTH["Orthogonal residual subspace"]
+    RGEN["Residual part<br/><b>r_e = c_e - (c_e^T g)g</b>"]
+
+    RES["Emotion-specific residuals<br/>r_joy, r_trust, ..., r_anticipation"]
+
+    CSET --> G
+    CSET --> SHARED
+    CSET --> ORTH
+    G --> SHARED
+    ORTH --> RGEN
+    RGEN --> RES
+
+    G -. "orthogonal" .- ORTH
+
+    classDef a fill:#FDE2E4,stroke:#D97A8C,stroke-width:2px,color:#5C3A42;
+    classDef b fill:#E2F0CB,stroke:#8FB96B,stroke-width:2px,color:#3E5630;
+    classDef c fill:#FFF4CC,stroke:#D8B84C,stroke-width:2px,color:#6A5712;
+    classDef d fill:#D9EAFD,stroke:#7AA6D9,stroke-width:2px,color:#2F4A68;
+    classDef e fill:#EDE0FF,stroke:#9B7FD1,stroke-width:2px,color:#4B3E6E;
+    classDef f fill:#FFFDF8,stroke:#D8D2C8,stroke-width:2px,color:#555;
+
+    class CSET a;
+    class G b;
+    class SHARED c;
+    class ORTH d;
+    class RGEN e;
+    class RES f;

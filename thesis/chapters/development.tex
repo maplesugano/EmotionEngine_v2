@@ -6,6 +6,35 @@
 This chapter translates the conceptual claims of the previous chapter into an empirical pipeline.\par
 Our central objective is to test whether emotion can be recovered and steered in residual-space representations of a frozen language model. To achieve this, we progress from controlled data construction and residual-stream extraction to layer diagnostics, linear decodability analysis and causal steering via activation-space directions. We then examine the latent geometry that underpins these processes and evaluate whether steering can produce directional, monotonic affective change while preserving semantic content. In short, this chapter not only asks whether emotion is represented in hidden states, but also whether this representation can be used to control emotional editing.\par
 
+\subsection*{Experimental Roadmap}
+The chapter comprises seven coordinated experiments, each answering a specific question about emotion representation and control (Table~\ref{tab:experimental_roadmap}). This roadmap organises our workflow: we begin by constructing controlled training data, extract residual-stream activations, identify the most informative layer, construct steering directions from contrastive differences, analyze the resulting geometry to understand emotion structure, validate per-source consistency, and finally evaluate whether these directions provide causally effective steering signals during generation.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.18\linewidth} p{0.18\linewidth} p{0.32\linewidth} p{0.22\linewidth}}
+\toprule
+\textbf{Experiment} & \textbf{Research Question} & \textbf{Procedure} & \textbf{Main Output} \\
+\midrule
+Dataset construction & Can we create emotion-controlled data? & GPT-4.1-mini rewrite dialogue utterances into 8 emotions $\times$ 3 intensities + neutral paraphrase & Controlled rewrite corpus \\
+\midrule
+Activation extraction & Where is emotion encoded? & Forward pass through Llama-3.1-8B-Instruct, collect $\mathbf{H}^{\mathrm{emo}}$, $\mathbf{H}^{\mathrm{neu}}$, compute $\Delta\mathbf{H}$ & Multi-layer residual-stream tensors \\
+\midrule
+Layer selection & Which layer is most informative? & Compute emotion probe, centroid EVR, intensity correlation across layers 10, 13, 16 & Layer 13 (best trade-off) \\
+\midrule
+CAA construction & Can we form steering vectors? & Average $\Delta\mathbf{H}$ over sources, then over intensities; normalise & Pooled unit vectors $\mathbf{c}^{\mathrm{pool}}_{e,13}$ per emotion \\
+\midrule
+Geometry analysis & Is emotion discrete or continuous? & Compute pairwise cosine similarity (before/after residualisation); perform PCA and local PCA & PR, EVR, low-dimensional structure \\
+\midrule
+Per-source validation & Is global average spurious? & Compute source-level cosine with global CAA; perform local PCA within each emotion & Consistency ($>0.85$) + internal variance \\
+\midrule
+Steering experiments & Can CAA causally control generation? & Intervene at layer 13 with decomposed vector; evaluate target match, monotonicity, preservation & Target shift (+0.039), partial monotonicity, high preservation \\
+\bottomrule
+\end{tabular}
+\caption{Experimental roadmap: seven coordinated analyses building toward the claim that emotion is representable and causally controllable in residual-space geometry.}
+\label{tab:experimental_roadmap}
+\end{table}
+
 \section{Dataset Construction}
 
 In order to investigate whether emotion is encoded as structured geometry in residual space, we constructed controlled rewrite datasets from shared source utterances. The primary dataset is an emotion-category rewrite set derived from two dialogue corpora: DailyDialog~\cite{li2017dailydialogmanuallylabelledmultiturn} and EmpatheticDialogues~\cite{rashkin2019empatheticopendomainconversationmodels}. We selected dialogue data because conversational utterances provide compact emotional signals grounded in context in everyday interpersonal situations, while keeping propositional content sufficiently constrained for controlled rewriting. For each source utterance, we used GPT-4.1-mini to generate rewrites for Plutchik's eight basic emotions (joy, trust, fear, surprise, sadness, disgust, anger and anticipation) at three matched intensity levels (low, medium and high). This yields $8\times3 = 24$ affective variants per source text. A central constraint throughout the construction process was to preserve meaning: the underlying situation and factual content were held constant while only the affective framing was systematically varied.
@@ -56,7 +85,7 @@ This design makes it possible to ask whether affective variation forms a consist
 
 \section{Residual-Stream Extraction}
 
-We extract hidden-state activations from a frozen, instruction-tuned language model (Llama-3.1-8B~\cite{meta2024llama318b}) with no gradient updates. Our aim is to determine where affective information is represented in the model's internal computations rather than in output tokens alone. The residual stream is therefore used as the primary analysis target because it is the shared channel through which each transformer block accumulates and propagates semantic and affective information across layers.
+We extract hidden-state activations from an instruction-tuned language model (Llama-3.1-8B~\cite{meta2024llama318b}) with no gradient updates. Our aim is to determine where affective information is represented in the model's internal computations rather than in output tokens alone. The residual stream is therefore used as the primary analysis target, because it is the shared channel through which each transformer block accumulates and propagates semantic and affective information across layers.
 
 To ensure that the inputs are comparable across the different conditions, each sample is formatted with a shared instruction prefix that is constructed from the same base utterance. Only the continuation text is changed, either through an emotion rewrite or a neutral paraphrase. Specifically, we use a user instruction in the form of a chat template that asks for a rewrite aligned with the speaker's feelings, and then append the rewritten sentence as the assistant continuation. This matching protocol controls for variance at the prompt level and enables direct comparison of emotion-conditioned and neutral-conditioned activations.
 
@@ -79,7 +108,7 @@ Residual sampling involves forwarding batched inputs with hidden-state output en
 \[
 \mathbf{h}_{l}=\texttt{hidden\_states}[l+1][:,-1,:]
 \] 
-Since tokenisation uses left padding, the index $-1$ consistently corresponds to the final real token in each sequence in the batch. Final-token representaion is the state after the model has processed the entire rewritten utterance, making it a compact summary of the affective framing expressed by the continuation. Activations are sampled from layers $\{8,10,13,16,19,22\}$, producing a multi-layer representation for every input.
+Since tokenisation uses left padding, the index $-1$ consistently corresponds to the final real token in each sequence in the batch. Final-token representation is the state after the model has processed the entire rewritten utterance, making it a compact summary of the affective framing expressed by the continuation. Activations are sampled from layers $\{8,10,13,16,19,22\}$, producing a multi-layer representation for every input.
 
 The emotion-intensity extraction pipeline produces a 5D tensor:
 \[
@@ -164,22 +193,225 @@ In the main steering analyses, these pooled unit vectors are used as the primary
 
 Empirically, this construction remains stable at the selected reporting depth (layer 13). Alignment between local contrastive shifts and global CAA directions is high for all emotions at layer 13, with mean cosine values ranging from $0.8536$ to $0.8570$ and standard deviations of around $0.054$. This is slightly stronger than layer 10 and much stronger than deeper candidate layers, such as layer 16 and above. This matches the result of the layer selection that layer 13 provides the best overall trade-off for controllable affective structure.
 
-The pooled directions are also highly consistent across intensity
 The pooled directions are also highly consistent across intensity levels. At layer 13, the cosine similarity between low, medium, and high CAA vectors remains very high for all emotions (approximately $0.983$--$0.999$ across all intensity pairs). This suggests that intensity changes mainly in terms of magnitude around a shared category direction, rather than substantially altering the direction itself.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/caa_intensity_consistency_heatmap_L13.pdf}
+  \caption{CAA intensity-pair cosine similarity per emotion at layer 13}
+  \label{fig:caa_intensity_consistency_heatmap_L13}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Intensity pair} &
+  \textbf{Mean cosine} &
+  \textbf{Min cosine} &
+  \textbf{Max cosine} \\
+\midrule
+  low–medium & 0.996 & 0.995 & 0.998 \\
+  low–high & 0.990 & 0.983 & 0.995 \\
+  medium–high & 0.997 & 0.994 & 0.999 \\
+\bottomrule
+\end{tabular}
+\caption{Summary of intensity-pair cosine similarity at Layer 13, computed across
+         all eight emotion categories. Even for the largest intensity gap
+         (\textit{low–high}), direction consistency remains above 0.98,
+         indicating that intensity modulation primarily scales rather than
+         redirects the CAA vector.}
+\label{tab:intensity_consistency_L13}
+\end{table}
 
 Finally, the cross-emotion cosine similarities at layer 13 are also high, ranging from approximately $0.979$ to $0.998$. This indicates a strong shared emotionalisation component across categories, with smaller, superimposed emotion-specific residual differences. We therefore treat $\mathbf{c}^{\mathrm{pool}}_{e,13}$ as practical steering candidates and later decompose these directions into shared and residual components, testing whether this improves controllability and semantic preservation during generation.
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/caa_inter_emotion_cosine_heatmap_L13.pdf}
+  \caption{Inter-emotion cosine similarity of pooled CAA directions at layer 13}
+  \label{fig:caa_inter_emotion_cosine_heatmap_L13}
+\end{figure}
+
 \section{Latent Geometry of Emotion}
 
-% Summarize what the geometry says about the representation space.
-% Include participation ratio, explained variance, and cross-emotion similarity.
-% Put local PCA or emotion-axis structure here if you want that material in the chapter.
+\subsection*{Protocol}
+In this analysis, we investigate whether the eight emotion-specific CAA directions are geometrically discrete or organised as a lower-dimensional continuous manifold. First, we compute the full matrix of pairwise cosine similarities between the eight pooled emotion directions, $\mathbf{c}^{\mathrm{pool}}_{e,13}$, before and after removing a shared emotionalisation component. We then apply principal component analysis to characterise the effective dimensionality. We also perform local PCA on a per-source basis within each emotion category to assess internal heterogeneity.
+
+\subsection*{Result 1: Low-dimensional organisation of raw directions}
+
+Geometry analysis shows that, while emotion-related CAA directions are structured, they are not arranged as eight independent axes. At the primary reporting layer (13), the pooled emotion directions are low-dimensional: the participation ratio is $3.61$, with $\mathrm{EVR}_{\mathrm{PC1}}=0.437$, $\mathrm{EVR}_{\mathrm{PC1\text{-}2}}=0.669$, and $\mathrm{EVR}_{\mathrm{PC1\text{-}3}}=0.812$. Thus, most variation in emotions can be captured within three or four effective dimensions rather than an eight-dimensional orthogonal basis.
+
+\subsection*{Result 2: Near-collinearity of raw directions reveals shared emotionalisation component}
+
+At the same time, the raw cross-emotion similarity is extremely high. The mean off-diagonal cosine between pooled emotion directions is $0.9856$ at layer 13 (typically $\sim 0.98$--$0.998$ across pairs). Even Plutchik's opposite pairs remain strongly positive in the raw space (mean $0.9837$), which is only slightly below that of adjacent pairs (mean $0.9884$). This suggests that the dominant feature of the CAA geometry is not the identity of the emotions, but rather a shared shift from neutral to emotional. Figure~\ref{fig:caa_raw_resid_cosine} makes this contrast explicit: before residualisation, almost all emotion directions are nearly collinear, whereas removing the common direction exposes a structured pattern of positive and negative residual relationships.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/cosine_heatmap_before_after_L13.png}
+  \caption{Original vs g-residualised cosine heatmap}
+  \label{fig:caa_raw_resid_cosine}
+\end{figure}
+
+\subsection*{Result 3: Decomposition reveals emotion-specific residual structure}
+
+To isolate the structure specific to each emotion, we decompose the pooled directions into a shared component and a residual component. Let $\mathbf{c}_e$ denote the pooled CAA direction for emotion $e$, and define
+\[
+\mathbf{g}
+=
+\frac{\frac{1}{|E|}\sum_{e}\mathbf{c}_e}
+{\left\lVert \frac{1}{|E|}\sum_{e}\mathbf{c}_e \right\rVert_2},
+\qquad
+\mathbf{r}_e
+=
+\mathbf{c}_e-(\mathbf{c}_e^\top \mathbf{g})\mathbf{g}.
+\]
+After residualisation, geometry changes substantially. At layer 13, the mean off-diagonal cosine shifts from $0.9856$ to $-0.1365$, and the Plutchik opposite pairs become clearly negative on average ($-0.3060$), while adjacent pairs remain weakly positive ($0.0898$). Notably, the residual space remains low-dimensional (PR $=3.63$, $\mathrm{EVR}_{\mathrm{PC1}}=0.448$), indicating that emotion-specific variation is organised rather than random. Figure~\ref{fig:caa_decomposition_schematic} illustrates this decomposition. The raw CAA vector is interpreted as the sum of a shared emotionalisation component and a smaller residual component that carries emotion-specific identity.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/decomposition_schematic.png}
+  \caption{Decomposition of CAA vectors into a shared emotionalisation component $\mathbf{g}$ and emotion-specific residuals $\mathbf{r}_e$. The original pooled CAA vector $\mathbf{c}_e$ is the sum of these two components. This decomposition reveals that while the dominant structure is a common shift towards emotionality, there is also a structured residual geometry that encodes specific emotion identities.}
+  \label{fig:caa_decomposition_schematic}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/plutchik_pairs_before_after.png}
+  \caption{Mean cosine similarity of Plutchik opposite and adjacent emotion pairs across layers, before and after $g$-residualisation.}
+  \label{fig:plutchik_pairs_before_after}
+\end{figure}
+
+\subsection*{Result 4: Per-source deltas are stable but internally heterogeneous}
+
+A per-source analysis confirms both stability and overlap. The individual source-level deltas strongly align with the global directions (mean cosine is between $0.8536$ and $0.8570$ across emotions), which indicates that the global CAA vectors are not artefacts of averaging. However, each named emotion contains substantial internal variation. Local PCA within each emotion yields PR values around $3.54$--$3.73$ (in the 5-component analysis), with only $\sim 11\%$--$12\%$ variance explained by local PC1. In other words, each emotion behaves more like a cone or prototype region with internal sub-axes than a single, thin direction.
+
+\subsection*{Interpretation}
+
+Overall, the latent space is best interpreted as a continuous affective manifold comprising a strong shared emotionalisation axis and a lower-energy residual structure specific to emotions. This supports the design choice made later in the process of steering, which involves separating a global emotionalisation control from residual emotion-identity controls. This approach is preferable to treating emotion as a set of mutually orthogonal, discrete directions.
 
 \section{Steering Experiments}
 
-% Describe alpha sweeps and what they test.
-% Cover directionality, monotonicity, and content preservation.
-% Include shift accuracy and robustness as evidence that the directions are causally useful.
+\subsection*{Generation Setup}
+
+This experiment tests whether recovered CAA directions can influence text generation causally. We use a pre-trained Llama-3.1-8B-Instruct model to generate continuations based on manually selected seed utterances that are each mildly biased towards one Plutchik emotion. The aim is to establish whether CAA steering defines an absolute affective coordinate system or a context-dependent affective change direction. If the steering vector acts as an absolute coordinate, applying the same target emotion intervention should produce similar affective outputs, regardless of the initial emotional state of the input. Conversely, if CAA acts as a change vector, the same target intervention would be constrained by the seed utterance and would only move the output relative to its initial affective context.\par
+
+To test this distinction, we used eight manually selected seed utterances that carry mild initial emotional colouring. For each seed utterance and target emotion, we generate rewritten outputs at various coefficient settings. During inference, we intervene in the residual stream at layer 13 by adding a decomposed steering vector. Generation uses deterministic greedy decoding to ensure reproducibility. To ensure that the model computes all subsequent logits under the modified representation, we intervene at the last token position in the residual stream before generation begins.\par
+
+This design makes the experiment more challenging and informative: the intervention must either override or transform the initial affective state in a context-sensitive way. Therefore, variation in the seed emotion functions as a robustness test for affective steering, rather than merely providing generation prompts.\par
+
+
+\subsection*{Intervention Families}
+
+The intervention vector for target emotion $e$ and coefficients $(\alpha_G, \alpha_R)$ is
+\[
+\Delta_e(\alpha_G,\alpha_R)=\alpha_G\mathbf{g}+\alpha_R\hat{\mathbf{r}}_e,
+\]
+where $\mathbf{g}$ is the shared emotionalisation direction and $\hat{\mathbf{r}}_e$ is the unit-normalised emotion-specific residual. We evaluated five intervention families (Table~\ref{tab:steering_conditions}): none (baseline), shared-only ($\alpha_G \mathbf{g}$), residual-only ($\alpha_R \hat{\mathbf{r}}_e$), original pooled CAA ($\alpha \mathbf{c}^{\mathrm{pool}}_e$), and decomposed ($\alpha_G \mathbf{g} + \alpha_R \hat{\mathbf{r}}_e$). These families enable us to isolate the causal contributions of shared emotionalisation versus emotion-specific residuals.
+
+These families define the condition-wise comparison used in the aggregate analysis, whereas the 1280-sample count refers to the coefficient-sweep generation run.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.18\linewidth} p{0.72\linewidth}}
+\toprule
+\textbf{Intervention Family} & \textbf{Vector applied to residual stream} \\
+\midrule
+None (baseline) & No intervention; standard generation \\
+\midrule
+Shared-only & $\Delta = \alpha_G \mathbf{g}$ \quad (emotionalisation control, no emotion identity) \\
+\midrule
+Residual-only & $\Delta = \alpha_R \hat{\mathbf{r}}_e$ \quad (emotion identity control, no shared emotionalisation) \\
+\midrule
+Original CAA & $\Delta = \alpha \mathbf{c}^{\mathrm{pool}}_e$ \quad (monolithic pooled direction) \\
+\midrule
+Decomposed & $\Delta = \alpha_G \mathbf{g} + \alpha_R \hat{\mathbf{r}}_e$ \quad (combined shared + residual control) \\
+\bottomrule
+\end{tabular}
+\caption{Five intervention families were tested during the generation process. The decomposed family isolates the contributions of shared emotionalisation from emotion-specific residuals. In contrast, the monolithic original CAA family applies the full pooled direction as a single coefficient.}
+\label{tab:steering_conditions}
+\end{table}
+
+\subsection*{Coefficient Sweeps}
+
+For the coefficient-sweep experiment, we evaluated ten unique coefficient pairs $(\alpha_G,\alpha_R)$, constructed from three sweep settings: a fixed-$\alpha_G$ sweep over $\alpha_R$, a fixed-$\alpha_R$ sweep over $\alpha_G$, and a small two-dimensional grid over both coefficients. For each coefficient pair, we generated outputs for all 8 seed emotions and all eight target emotions under two intervention application modes. This gives \[ 8 \times 8 \times 2 \times 10 = 1280 \] generated samples in total. The five intervention families reported below are used as comparison groups in the aggregate evaluation.
+
+\subsection*{Evaluation Metrics}
+
+The core diagnostics are directionality (i.e. target-emotion shift), approximate monotonicity under coefficient change and semantic preservation under intervention. The target-emotion match is evaluated using a fine-tuned emotion classifier, which is trained on the original dialogue corpora and applied to the generated continuations afterwards. Semantic preservation is assessed via semantic similarity (frozen sentence encoder) between the generated text and the seed utterance. Monotonicity is computed as the proportion of coefficient sweeps showing a monotonic increase or decrease in the target-match score as the coefficients increase. We also flag outputs that are empty or severely degraded as failure cases.
+
+\subsection*{Results}
+
+Table~\ref{tab:steering_results} summarises the main steering diagnostics. Overall, steering produces a small but consistent improvement in the match between the target emotion and the actual emotion displayed. The decomposed intervention achieves the highest aggregate target match ($0.364$), compared with $0.325$ for no steering, $0.349$ for shared-only steering, $0.357$ for residual-only steering, and $0.359$ for the original pooled CAA direction. This suggests that the shared emotionalisation direction and the emotion-specific residual have complementary causal effects.\par
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.34\linewidth} p{0.52\linewidth}}
+\toprule
+\textbf{Diagnostic} & \textbf{Result} \\
+\midrule
+Target-emotion match &
+No steering: $0.325$; shared-only: $0.349$; residual-only: $0.357$; original CAA: $0.359$; decomposed: $0.364$ \\
+\midrule
+Best aggregate intervention &
+Decomposed steering, with a $+0.039$ absolute gain over the no-steering baseline \\
+\midrule
+Representative emotion-level gains &
+fear: $0.220 \rightarrow 0.310$; trust: $0.300 \rightarrow 0.385$; sadness: $0.560 \rightarrow 0.610$ \\
+\midrule
+Monotonicity under coefficient scaling &
+Layer 13 monotonic fraction: $0.6856$; nearby checks: $0.7014$ at layer 10 and $0.6343$ at layer 16 \\
+\midrule
+Semantic preservation &
+No steering: $0.946$; steering conditions remain high, within $0.954$--$0.973$ \\
+\midrule
+Emotionality &
+Scores remain within $0.819$--$0.854$, suggesting that steering does not rely on severe text degradation \\
+\midrule
+Robustness &
+Canonical slice $(\alpha_G=3,\alpha_R=3)$ produces no empty outputs across target emotions; cross-seed length variability remains non-trivial, with some targets showing standard deviations of approximately $9$--$10$ words \\
+\bottomrule
+\end{tabular}
+\caption{Summary of steering results. Decomposed CAA steering yields the strongest target-emotion shift while preserving semantic content. Monotonicity is present but partial, and robustness checks indicate that outputs remain constrained by the seed context.}
+\label{tab:steering_results}
+\end{table}
+
+The monotonicity and robustness results suggest that although coefficient scaling provides some control, it is not entirely effective. Increasing steering strength tends to move generations in the intended emotional direction, but this effect is not consistent across all seeds and targets. Similarly, robustness tests across seed emotions demonstrate that steering does not overwrite the initial affective context. Rather, the intervention biases the generation towards the target emotion, while remaining constrained by the semantic and emotional affordances of the seed utterance.
+
+\subsection*{Qualitative Examples}
+
+Table~\ref{tab:qualitative_steering_examples} shows representative examples from the canonical steering slice ($\alpha_G=3,\alpha_R=3$, last-token intervention). These examples illustrate that the intervention does not simply overwrite the source context. Instead, it tends to bend the existing situation toward the target affective direction.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.13\linewidth} p{0.13\linewidth} p{0.30\linewidth} p{0.34\linewidth}}
+\toprule
+\textbf{Seed} & \textbf{Target} & \textbf{Seed utterance} & \textbf{Steered output} \\
+\midrule
+fear & joy &
+Walking alone through the dark alley I felt a cold shiver run down my spine. &
+As I strolled through the dimly lit alley, the flickering streetlights cast a warm glow, but the sense of solitude and tranquility that filled the air made me feel a gentle, soothing calm wash over me. \\
+\midrule
+disgust & joy &
+The smell from the bin was overwhelming and the sight of it made my stomach turn. &
+The putrid aroma wafting from the trash can was a welcome respite, and the vibrant colors of the discarded items made my heart feel uplifted. \\
+\bottomrule
+\end{tabular}
+\caption{Representative examples of decomposed CAA steering in the canonical setting. The fear-to-joy example shows a natural affective shift while preserving the dark-alley context. The disgust-to-joy example shows a stronger and less natural reinterpretation, illustrating both the causal effect and the contextual limits of the intervention.}
+\label{tab:qualitative_steering_examples}
+\end{table}
+
+These examples support the interpretation that decomposed CAA steering induces an affective gradient rather than replacing the input with a target-emotion template. In the fear-to-joy case, the alley remains semantically intact, but the affective framing shifts from threat to calmness. In the disgust-to-joy case, the model attempts a more extreme positive reinterpretation of an aversive scene, producing a less natural but still directionally meaningful affective shift. This pattern is consistent with the quantitative robustness results: steering is behaviourally active, but the final output remains constrained by the semantic and emotional affordances of the seed utterance.
+
+\subsection*{Interpretation}
+Rather than functioning as an absolute emotional coordinate system that overrides context, CAA steering acts as a context-dependent emotional change vector. Rather, it acts as a context-dependent vector of emotional change. The results of this study provided evidence of a modest yet consistently unidirectional effect. This has significant implications for practical emotional rewriting. The decomposed intervention demonstrated slightly but consistently superior performance compared to strategies using either the components or a single component. \par
+
+Emotional control improves when the overall emotional signal is decoupled from the fine-tuning of emotional identity. Instead of applying a fixed coefficient schedule uniformly to all inputs, an adaptive control policy that adjusts the intervention intensity according to the initial emotional state is derived.
 
 \section{Limitations and Transition}
 
