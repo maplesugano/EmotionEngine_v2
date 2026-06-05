@@ -18,21 +18,20 @@
 \contentsline {subsection}{\numberline {2.3.2}Reasoning in Continuous Latent Space}{13}{subsection.26}%
 \contentsline {subsection}{\numberline {2.3.3}Implicit and Continuous Chain-of-Thought}{14}{subsection.27}%
 \contentsline {subsection}{\numberline {2.3.4}Implications for Affective Representation}{15}{subsection.28}%
-\contentsline {chapter}{\numberline {3}Development}{16}{chapter.29}%
-\contentsline {section}{\numberline {3.1}Dataset Construction}{17}{section.32}%
-\contentsline {section}{\numberline {3.2}Residual-Stream Extraction}{18}{section.35}%
-\contentsline {section}{\numberline {3.3}Layer Selection and Diagnostics}{20}{section.37}%
-\contentsline {section}{\numberline {3.4}CAA Vector Construction}{21}{section.40}%
-\contentsline {section}{\numberline {3.5}Latent Geometry of Emotion}{23}{section.44}%
-\contentsline {section}{\numberline {3.6}Steering Experiments}{26}{section.54}%
-\contentsline {section}{\numberline {3.7}Limitations and Transition}{30}{section.65}%
-\contentsline {chapter}{\numberline {4}Evaluation Design}{31}{chapter.66}%
-\contentsline {section}{\numberline {4.1}Evaluation Setup}{31}{section.67}%
-\contentsline {section}{\numberline {4.2}Human-Centred Evaluation}{32}{section.74}%
-\contentsline {section}{\numberline {4.3}Failure Cases and Limitations}{32}{section.75}%
-\contentsline {chapter}{\numberline {5}Evaluation Setup}{33}{chapter.76}%
-\contentsline {section}{\numberline {5.1}Human-Centred Evaluation}{33}{section.83}%
-\contentsline {section}{\numberline {5.2}Failure Cases and Limitations}{34}{section.84}%
-\contentsline {chapter}{\numberline {6}Ethical Issues}{35}{chapter.85}%
-\contentsline {section}{\numberline {6.1}Ethical Considerations}{35}{section.86}%
-\contentsline {section}{\numberline {6.2}Legal Considerations}{36}{section.87}%
+\contentsline {chapter}{\numberline {3}Dev: Affective Steering Pipeline}{16}{chapter.29}%
+\contentsline {section}{\numberline {3.1}Dataset Construction}{17}{section.37}%
+\contentsline {section}{\numberline {3.2}Residual-Stream Extraction}{19}{section.40}%
+\contentsline {section}{\numberline {3.3}Layer Selection and Diagnostics}{20}{section.42}%
+\contentsline {section}{\numberline {3.4}CAA Vector Construction}{21}{section.45}%
+\contentsline {section}{\numberline {3.5}Operational Decomposition for Steering}{23}{section.49}%
+\contentsline {section}{\numberline {3.6}Steering Experiments}{24}{section.50}%
+\contentsline {section}{\numberline {3.7}Limitations and Transition}{28}{section.61}%
+\contentsline {chapter}{\numberline {4}Dev: Preverbal Affective Vector Projection}{29}{chapter.62}%
+\contentsline {section}{\numberline {4.1}Latent Geometry of Emotion}{29}{section.63}%
+\contentsline {chapter}{\numberline {5}Evaluation Design}{32}{chapter.73}%
+\contentsline {section}{\numberline {5.1}Evaluation Setup}{32}{section.74}%
+\contentsline {section}{\numberline {5.2}Human-Centred Evaluation}{33}{section.81}%
+\contentsline {section}{\numberline {5.3}Failure Cases and Limitations}{33}{section.82}%
+\contentsline {chapter}{\numberline {6}Ethical Issues}{34}{chapter.83}%
+\contentsline {section}{\numberline {6.1}Ethical Considerations}{34}{section.84}%
+\contentsline {section}{\numberline {6.2}Legal Considerations}{35}{section.85}%

@@ -1,0 +1,59 @@
+\chapter{Dev: Preverbal Affective Vector Projection}
+
+\section{Latent Geometry of Emotion}
+
+\subsection*{Protocol}
+In this analysis, we investigate whether the eight emotion-specific CAA directions are geometrically discrete or organised as a lower-dimensional continuous manifold. First, we compute the full matrix of pairwise cosine similarities between the eight pooled emotion directions, $\mathbf{c}^{\mathrm{pool}}_{e,13}$, before and after removing a shared emotionalisation component. We then apply principal component analysis to characterise the effective dimensionality. We also perform local PCA on a per-source basis within each emotion category to assess internal heterogeneity.
+
+\subsection*{Result 1: Low-dimensional organisation of raw directions}
+
+Geometry analysis shows that, while emotion-related CAA directions are structured, they are not arranged as eight independent axes. At the primary reporting layer (13), the pooled emotion directions are low-dimensional: the participation ratio is $3.61$, with $\mathrm{EVR}_{\mathrm{PC1}}=0.437$, $\mathrm{EVR}_{\mathrm{PC1\text{-}2}}=0.669$, and $\mathrm{EVR}_{\mathrm{PC1\text{-}3}}=0.812$. Thus, most variation in emotions can be captured within three or four effective dimensions rather than an eight-dimensional orthogonal basis.
+
+\subsection*{Result 2: Near-collinearity of raw directions reveals shared emotionalisation component}
+
+At the same time, the raw cross-emotion similarity is extremely high. The mean off-diagonal cosine between pooled emotion directions is $0.9856$ at layer 13 (typically $\sim 0.98$--$0.998$ across pairs). Even Plutchik's opposite pairs remain strongly positive in the raw space (mean $0.9837$), which is only slightly below that of adjacent pairs (mean $0.9884$). This suggests that the dominant feature of the CAA geometry is not the identity of the emotions, but rather a shared shift from neutral to emotional. Figure~\ref{fig:caa_raw_resid_cosine} makes this contrast explicit: before residualisation, almost all emotion directions are nearly collinear, whereas removing the common direction exposes a structured pattern of positive and negative residual relationships.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/cosine_heatmap_before_after_L13.png}
+  \caption{Original vs g-residualised cosine heatmap}
+  \label{fig:caa_raw_resid_cosine}
+\end{figure}
+
+\subsection*{Result 3: Decomposition reveals emotion-specific residual structure}
+
+To isolate the structure specific to each emotion, we decompose the pooled directions into a shared component and a residual component. Let $\mathbf{c}_e$ denote the pooled CAA direction for emotion $e$, and define
+\[
+\mathbf{g}
+=
+\frac{\frac{1}{|E|}\sum_{e}\mathbf{c}_e}
+{\left\lVert \frac{1}{|E|}\sum_{e}\mathbf{c}_e \right\rVert_2},
+\qquad
+\mathbf{r}_e
+=
+\mathbf{c}_e-(\mathbf{c}_e^\top \mathbf{g})\mathbf{g}.
+\]
+After residualisation, geometry changes substantially. At layer 13, the mean off-diagonal cosine shifts from $0.9856$ to $-0.1365$, and the Plutchik opposite pairs become clearly negative on average ($-0.3060$), while adjacent pairs remain weakly positive ($0.0898$). Notably, the residual space remains low-dimensional (PR $=3.63$, $\mathrm{EVR}_{\mathrm{PC1}}=0.448$), indicating that emotion-specific variation is organised rather than random. Figure~\ref{fig:caa_decomposition_schematic} illustrates this decomposition. The raw CAA vector is interpreted as the sum of a shared emotionalisation component and a smaller residual component that carries emotion-specific identity.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/decomposition_schematic.png}
+  \caption{Decomposition of CAA vectors into a shared emotionalisation component $\mathbf{g}$ and emotion-specific residuals $\mathbf{r}_e$. The original pooled CAA vector $\mathbf{c}_e$ is the sum of these two components. This decomposition reveals that while the dominant structure is a common shift towards emotionality, there is also a structured residual geometry that encodes specific emotion identities.}
+  \label{fig:caa_decomposition_schematic}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/plutchik_pairs_before_after.png}
+  \caption{Mean cosine similarity of Plutchik opposite and adjacent emotion pairs across layers, before and after $g$-residualisation.}
+  \label{fig:plutchik_pairs_before_after}
+\end{figure}
+
+\subsection*{Result 4: Per-source deltas are stable but internally heterogeneous}
+
+A per-source analysis confirms both stability and overlap. The individual source-level deltas strongly align with the global directions (mean cosine is between $0.8536$ and $0.8570$ across emotions), which indicates that the global CAA vectors are not artefacts of averaging. However, each named emotion contains substantial internal variation. Local PCA within each emotion yields PR values around $3.54$--$3.73$ (in the 5-component analysis), with only $\sim 11\%$--$12\%$ variance explained by local PC1. In other words, each emotion behaves more like a cone or prototype region with internal sub-axes than a single, thin direction.
+
+\subsection*{Interpretation}
+
+Overall, the latent space is best interpreted as a continuous affective manifold comprising a strong shared emotionalisation axis and a lower-energy residual structure specific to emotions. This supports the design choice made later in the process of steering, which involves separating a global emotionalisation control from residual emotion-identity controls. This approach is preferable to treating emotion as a set of mutually orthogonal, discrete directions.

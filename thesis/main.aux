@@ -99,69 +99,66 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Implicit and Continuous Chain-of-Thought}{14}{subsection.27}\protected@file@percent }
 \@writefile{brf}{\backcite{wei2025simcot}{{14}{2.3.3}{subsection.27}}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Implications for Affective Representation}{15}{subsection.28}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Development}{16}{chapter.29}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Dev: Affective Steering Pipeline}{16}{chapter.29}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \citation{li2017dailydialogmanuallylabelledmultiturn}
 \citation{rashkin2019empatheticopendomainconversationmodels}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Experimental roadmap: seven coordinated analyses building toward the claim that emotion is representable and causally controllable in residual-space geometry.}}{17}{table.caption.31}\protected@file@percent }
-\newlabel{tab:experimental_roadmap}{{3.1}{17}{Experimental roadmap: seven coordinated analyses building toward the claim that emotion is representable and causally controllable in residual-space geometry}{table.caption.31}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Dataset Construction}{17}{section.32}\protected@file@percent }
-\@writefile{brf}{\backcite{li2017dailydialogmanuallylabelledmultiturn}{{17}{3.1}{section.32}}}
-\@writefile{brf}{\backcite{rashkin2019empatheticopendomainconversationmodels}{{17}{3.1}{section.32}}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Dataset Construction}{17}{section.37}\protected@file@percent }
+\@writefile{brf}{\backcite{li2017dailydialogmanuallylabelledmultiturn}{{17}{3.1}{section.37}}}
+\@writefile{brf}{\backcite{rashkin2019empatheticopendomainconversationmodels}{{17}{3.1}{section.37}}}
 \citation{meta2024llama318b}
-\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Illustrative rewrites for all eight Plutchik emotion categories at matched medium intensity.}}{18}{table.caption.33}\protected@file@percent }
-\newlabel{tab:emotion_rewrite_example}{{3.2}{18}{Illustrative rewrites for all eight Plutchik emotion categories at matched medium intensity}{table.caption.33}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces Illustrative example from the neutral-paraphrase control dataset.}}{18}{table.caption.34}\protected@file@percent }
-\newlabel{tab:neutral_rewrite_example}{{3.3}{18}{Illustrative example from the neutral-paraphrase control dataset}{table.caption.34}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Residual-Stream Extraction}{18}{section.35}\protected@file@percent }
-\@writefile{brf}{\backcite{meta2024llama318b}{{18}{3.2}{section.35}}}
-\newlabel{tab:activation_prompt}{{\caption@xref {tab:activation_prompt}{ on input line 94}}{19}{Residual-Stream Extraction}{table.caption.36}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.4}{\ignorespaces Prompt format used for activation extraction.}}{19}{table.caption.36}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Layer Selection and Diagnostics}{20}{section.37}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3.5}{\ignorespaces Layer-wise diagnostic summary for candidate layers. Emotion-category probe balanced accuracy (4-D subspace), centroid compactness (EVR\textsubscript  {4}), and mean local PC1 intensity correlation. Bold indicates the best value per column; asterisk marks the selected reporting layer.}}{20}{table.caption.38}\protected@file@percent }
-\newlabel{tab:layer_diagnostics}{{3.5}{20}{Layer-wise diagnostic summary for candidate layers. Emotion-category probe balanced accuracy (4-D subspace), centroid compactness (EVR\textsubscript {4}), and mean local PC1 intensity correlation. Bold indicates the best value per column; asterisk marks the selected reporting layer}{table.caption.38}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces A visualisation of the layer diagnostics across candidate layers.}}{20}{figure.caption.39}\protected@file@percent }
-\newlabel{fig:layer_diagnostics}{{3.1}{20}{A visualisation of the layer diagnostics across candidate layers}{figure.caption.39}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}CAA Vector Construction}{21}{section.40}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces CAA intensity-pair cosine similarity per emotion at layer 13}}{22}{figure.caption.41}\protected@file@percent }
-\newlabel{fig:caa_intensity_consistency_heatmap_L13}{{3.2}{22}{CAA intensity-pair cosine similarity per emotion at layer 13}{figure.caption.41}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.6}{\ignorespaces Summary of intensity-pair cosine similarity at Layer 13, computed across all eight emotion categories. Even for the largest intensity gap (\textit  {low–high}), direction consistency remains above 0.98, indicating that intensity modulation primarily scales rather than redirects the CAA vector.}}{22}{table.caption.42}\protected@file@percent }
-\newlabel{tab:intensity_consistency_L13}{{3.6}{22}{Summary of intensity-pair cosine similarity at Layer 13, computed across all eight emotion categories. Even for the largest intensity gap (\textit {low–high}), direction consistency remains above 0.98, indicating that intensity modulation primarily scales rather than redirects the CAA vector}{table.caption.42}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Inter-emotion cosine similarity of pooled CAA directions at layer 13}}{23}{figure.caption.43}\protected@file@percent }
-\newlabel{fig:caa_inter_emotion_cosine_heatmap_L13}{{3.3}{23}{Inter-emotion cosine similarity of pooled CAA directions at layer 13}{figure.caption.43}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Latent Geometry of Emotion}{23}{section.44}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Original vs g-residualised cosine heatmap}}{24}{figure.caption.48}\protected@file@percent }
-\newlabel{fig:caa_raw_resid_cosine}{{3.4}{24}{Original vs g-residualised cosine heatmap}{figure.caption.48}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Decomposition of CAA vectors into a shared emotionalisation component $\mathbf  {g}$ and emotion-specific residuals $\mathbf  {r}_e$. The original pooled CAA vector $\mathbf  {c}_e$ is the sum of these two components. This decomposition reveals that while the dominant structure is a common shift towards emotionality, there is also a structured residual geometry that encodes specific emotion identities.}}{25}{figure.caption.50}\protected@file@percent }
-\newlabel{fig:caa_decomposition_schematic}{{3.5}{25}{Decomposition of CAA vectors into a shared emotionalisation component $\mathbf {g}$ and emotion-specific residuals $\mathbf {r}_e$. The original pooled CAA vector $\mathbf {c}_e$ is the sum of these two components. This decomposition reveals that while the dominant structure is a common shift towards emotionality, there is also a structured residual geometry that encodes specific emotion identities}{figure.caption.50}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Mean cosine similarity of Plutchik opposite and adjacent emotion pairs across layers, before and after $g$-residualisation.}}{25}{figure.caption.51}\protected@file@percent }
-\newlabel{fig:plutchik_pairs_before_after}{{3.6}{25}{Mean cosine similarity of Plutchik opposite and adjacent emotion pairs across layers, before and after $g$-residualisation}{figure.caption.51}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}Steering Experiments}{26}{section.54}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3.7}{\ignorespaces Five intervention families were tested during the generation process. The decomposed family isolates the contributions of shared emotionalisation from emotion-specific residuals. In contrast, the monolithic original CAA family applies the full pooled direction as a single coefficient.}}{27}{table.caption.57}\protected@file@percent }
-\newlabel{tab:steering_conditions}{{3.7}{27}{Five intervention families were tested during the generation process. The decomposed family isolates the contributions of shared emotionalisation from emotion-specific residuals. In contrast, the monolithic original CAA family applies the full pooled direction as a single coefficient}{table.caption.57}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.8}{\ignorespaces Summary of steering results. Decomposed CAA steering yields the strongest target-emotion shift while preserving semantic content. Monotonicity is present but partial, and robustness checks indicate that outputs remain constrained by the seed context.}}{28}{table.caption.61}\protected@file@percent }
-\newlabel{tab:steering_results}{{3.8}{28}{Summary of steering results. Decomposed CAA steering yields the strongest target-emotion shift while preserving semantic content. Monotonicity is present but partial, and robustness checks indicate that outputs remain constrained by the seed context}{table.caption.61}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.9}{\ignorespaces Representative examples of decomposed CAA steering in the canonical setting. The fear-to-joy example shows a natural affective shift while preserving the dark-alley context. The disgust-to-joy example shows a stronger and less natural reinterpretation, illustrating both the causal effect and the contextual limits of the intervention.}}{29}{table.caption.63}\protected@file@percent }
-\newlabel{tab:qualitative_steering_examples}{{3.9}{29}{Representative examples of decomposed CAA steering in the canonical setting. The fear-to-joy example shows a natural affective shift while preserving the dark-alley context. The disgust-to-joy example shows a stronger and less natural reinterpretation, illustrating both the causal effect and the contextual limits of the intervention}{table.caption.63}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.7}Limitations and Transition}{30}{section.65}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Evaluation Design}{31}{chapter.66}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Illustrative rewrites for all eight Plutchik emotion categories at matched medium intensity.}}{18}{table.caption.38}\protected@file@percent }
+\newlabel{tab:emotion_rewrite_example}{{3.1}{18}{Illustrative rewrites for all eight Plutchik emotion categories at matched medium intensity}{table.caption.38}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Illustrative example from the neutral-paraphrase control dataset.}}{18}{table.caption.39}\protected@file@percent }
+\newlabel{tab:neutral_rewrite_example}{{3.2}{18}{Illustrative example from the neutral-paraphrase control dataset}{table.caption.39}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Residual-Stream Extraction}{19}{section.40}\protected@file@percent }
+\@writefile{brf}{\backcite{meta2024llama318b}{{19}{3.2}{section.40}}}
+\newlabel{tab:activation_prompt}{{\caption@xref {tab:activation_prompt}{ on input line 96}}{19}{Residual-Stream Extraction}{table.caption.41}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces Prompt format used for activation extraction.}}{19}{table.caption.41}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Layer Selection and Diagnostics}{20}{section.42}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3.4}{\ignorespaces Layer-wise diagnostic summary for candidate layers. Emotion-category probe balanced accuracy (4-D subspace), centroid compactness (EVR\textsubscript  {4}), and mean local intensity-direction correlation. Bold indicates the best value per column; asterisk marks the selected reporting layer.}}{20}{table.caption.43}\protected@file@percent }
+\newlabel{tab:layer_diagnostics}{{3.4}{20}{Layer-wise diagnostic summary for candidate layers. Emotion-category probe balanced accuracy (4-D subspace), centroid compactness (EVR\textsubscript {4}), and mean local intensity-direction correlation. Bold indicates the best value per column; asterisk marks the selected reporting layer}{table.caption.43}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces A visualisation of the layer diagnostics across candidate layers.}}{20}{figure.caption.44}\protected@file@percent }
+\newlabel{fig:layer_diagnostics}{{3.1}{20}{A visualisation of the layer diagnostics across candidate layers}{figure.caption.44}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}CAA Vector Construction}{21}{section.45}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces CAA intensity-pair cosine similarity per emotion at layer 13}}{22}{figure.caption.46}\protected@file@percent }
+\newlabel{fig:caa_intensity_consistency_heatmap_L13}{{3.2}{22}{CAA intensity-pair cosine similarity per emotion at layer 13}{figure.caption.46}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.5}{\ignorespaces Summary of intensity-pair cosine similarity at Layer 13, computed across all eight emotion categories. Even for the largest intensity gap (\textit  {low-high}), direction consistency remains above 0.98, indicating that intensity modulation primarily scales rather than redirects the CAA vector.}}{22}{table.caption.47}\protected@file@percent }
+\newlabel{tab:intensity_consistency_L13}{{3.5}{22}{Summary of intensity-pair cosine similarity at Layer 13, computed across all eight emotion categories. Even for the largest intensity gap (\textit {low-high}), direction consistency remains above 0.98, indicating that intensity modulation primarily scales rather than redirects the CAA vector}{table.caption.47}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Inter-emotion cosine similarity of pooled CAA directions at layer 13}}{23}{figure.caption.48}\protected@file@percent }
+\newlabel{fig:caa_inter_emotion_cosine_heatmap_L13}{{3.3}{23}{Inter-emotion cosine similarity of pooled CAA directions at layer 13}{figure.caption.48}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Operational Decomposition for Steering}{23}{section.49}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Steering Experiments}{24}{section.50}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3.6}{\ignorespaces Five intervention families were tested during the generation process. The decomposed family isolates the contributions of shared emotionalisation from emotion-specific residuals. In contrast, the monolithic original CAA family applies the full pooled direction as a single coefficient.}}{25}{table.caption.53}\protected@file@percent }
+\newlabel{tab:steering_conditions}{{3.6}{25}{Five intervention families were tested during the generation process. The decomposed family isolates the contributions of shared emotionalisation from emotion-specific residuals. In contrast, the monolithic original CAA family applies the full pooled direction as a single coefficient}{table.caption.53}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.7}{\ignorespaces Summary of steering results. Decomposed CAA steering yields the strongest target-emotion shift while preserving semantic content. Monotonicity is present but partial, and robustness checks indicate that outputs remain constrained by the seed context.}}{26}{table.caption.57}\protected@file@percent }
+\newlabel{tab:steering_results}{{3.7}{26}{Summary of steering results. Decomposed CAA steering yields the strongest target-emotion shift while preserving semantic content. Monotonicity is present but partial, and robustness checks indicate that outputs remain constrained by the seed context}{table.caption.57}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.8}{\ignorespaces Representative examples of decomposed CAA steering in the canonical setting. The fear-to-joy example shows a natural affective shift while preserving the dark-alley context. The disgust-to-joy example shows a stronger and less natural reinterpretation, illustrating both the causal effect and the contextual limits of the intervention.}}{27}{table.caption.59}\protected@file@percent }
+\newlabel{tab:qualitative_steering_examples}{{3.8}{27}{Representative examples of decomposed CAA steering in the canonical setting. The fear-to-joy example shows a natural affective shift while preserving the dark-alley context. The disgust-to-joy example shows a stronger and less natural reinterpretation, illustrating both the causal effect and the contextual limits of the intervention}{table.caption.59}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.7}Limitations and Transition}{28}{section.61}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Dev: Preverbal Affective Vector Projection}{29}{chapter.62}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Evaluation Setup}{31}{section.67}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Human-Centred Evaluation}{32}{section.74}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Failure Cases and Limitations}{32}{section.75}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Evaluation Setup}{33}{chapter.76}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Latent Geometry of Emotion}{29}{section.63}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Original vs g-residualised cosine heatmap}}{30}{figure.caption.67}\protected@file@percent }
+\newlabel{fig:caa_raw_resid_cosine}{{4.1}{30}{Original vs g-residualised cosine heatmap}{figure.caption.67}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Decomposition of CAA vectors into a shared emotionalisation component $\mathbf  {g}$ and emotion-specific residuals $\mathbf  {r}_e$. The original pooled CAA vector $\mathbf  {c}_e$ is the sum of these two components. This decomposition reveals that while the dominant structure is a common shift towards emotionality, there is also a structured residual geometry that encodes specific emotion identities.}}{31}{figure.caption.69}\protected@file@percent }
+\newlabel{fig:caa_decomposition_schematic}{{4.2}{31}{Decomposition of CAA vectors into a shared emotionalisation component $\mathbf {g}$ and emotion-specific residuals $\mathbf {r}_e$. The original pooled CAA vector $\mathbf {c}_e$ is the sum of these two components. This decomposition reveals that while the dominant structure is a common shift towards emotionality, there is also a structured residual geometry that encodes specific emotion identities}{figure.caption.69}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Mean cosine similarity of Plutchik opposite and adjacent emotion pairs across layers, before and after $g$-residualisation.}}{31}{figure.caption.70}\protected@file@percent }
+\newlabel{fig:plutchik_pairs_before_after}{{4.3}{31}{Mean cosine similarity of Plutchik opposite and adjacent emotion pairs across layers, before and after $g$-residualisation}{figure.caption.70}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Evaluation Design}{32}{chapter.73}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Human-Centred Evaluation}{33}{section.83}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Failure Cases and Limitations}{34}{section.84}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Ethical Issues}{35}{chapter.85}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Evaluation Setup}{32}{section.74}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Human-Centred Evaluation}{33}{section.81}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Failure Cases and Limitations}{33}{section.82}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Ethical Issues}{34}{chapter.83}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Ethical Considerations}{35}{section.86}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Ethical Considerations}{34}{section.84}\protected@file@percent }
 \bibdata{main}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Legal Considerations}{36}{section.87}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Legal Considerations}{35}{section.85}\protected@file@percent }
 \bibcite{jackson2019emotion}{{1}{}{{}}{{}}}
 \bibcite{ekman1999basic}{{2}{}{{}}{{}}}
 \bibcite{paul_ekman_web}{{3}{}{{}}{{}}}
@@ -192,4 +189,4 @@
 \bibcite{meta2024llama318b}{{28}{}{{}}{{}}}
 \bibstyle{unsrt}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\gdef \@abspage@last{46}
+\gdef \@abspage@last{45}

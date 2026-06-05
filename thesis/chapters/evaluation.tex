@@ -28,30 +28,4 @@ We evaluate whether users can reliably reach similar regions of the PAD space fo
 
 \section{Failure Cases and Limitations}
 
-For the cases where steering fails to produce the intended emotional shift or results in semantic distortion, we would like to analyse how those happened. It might be the case that the steering magnitudes are too high for the humans to recognise the differences, or the interference between emotion dimensions. Such cases are not treated as errors but as signals of the limits of linear emotion composition and of the PAD projection itself, hence better ways of representing the latent emotion representation should be further investigated.\chapter{Evaluation Setup}
-
-We prepare a set of input texts spanning neutral descriptions, short narratives and conversational utterances. For each input, the system first extracts a baseline emotion vector, which is then modified along one or more predefined directions.
-
-For controlled experiments, we consider three conditions:
-\begin{enumerate}
-    \item no steering (baseline)
-    \item single dimensional manipulation within the PAD space, where users adjust pleasure, arousal, or dominance
-    \item two-dimensional manipulations within the PAD space
-\end{enumerate}
-
-We define three primary metrics to evaluate the behaviour of the emotion code:
-\begin{enumerate}
-    \item \textbf{Shift Accuracy}: the proportion of cases in which human annotators agree that the steered output expresses a stronger presence of the target emotion than the baseline
-    \item \textbf{Intensity Monotonicity}: evaluates whether increasing the magnitude of a steering vector leads to a monotonic increase in perceived emotional intensity. This metric directly tests whether emotion behaves as a continuous and scalable latent variable.
-    \item \textbf{Content Stability}: whether semantic content is preserved under emotional steering. This is measured using a combination of human judgement and embedding-based semantic similarity in concept space.
-\end{enumerate}
-
-\section{Human-Centred Evaluation}
-
-In addition to controlled steering experiments, we would like to conduct a small-scale user study focusing on interactive manipulation of emotion vectors. Participants are presented with the PAD visualisation and are asked to modify the emotional state of a given input text to match an intended affective description (e.g. ``more tense but less negative'').
-
-We evaluate whether users can reliably reach similar regions of the PAD space for similar intentions, whether users report that changes in the output align with their intuitive expectations, and whether fine-grained adjustments lead to perceptible but non-disruptive changes in tone. This evaluation focuses on intuitive usability rather than task performance, reflecting the project's goal of enabling pre-verbal emotional editing rather than emotion classification.
-
-\section{Failure Cases and Limitations}
-
 For the cases where steering fails to produce the intended emotional shift or results in semantic distortion, we would like to analyse how those happened. It might be the case that the steering magnitudes are too high for the humans to recognise the differences, or the interference between emotion dimensions. Such cases are not treated as errors but as signals of the limits of linear emotion composition and of the PAD projection itself, hence better ways of representing the latent emotion representation should be further investigated.
