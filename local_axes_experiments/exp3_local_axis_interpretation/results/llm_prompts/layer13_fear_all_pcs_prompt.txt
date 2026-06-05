@@ -1,0 +1,627 @@
+You are an expert in affective science and computational linguistics.
+
+Below are 5 latent axes extracted from the internal activations of a language
+model for the emotion "fear". Each axis is a Principal Component of the
+residual activations after the shared emotion direction AND the intensity direction
+have been projected out. The axes are ordered by explained variance (EVR).
+
+Your tasks:
+1. NAME each axis based solely on the examples — do NOT assume meaning in advance.
+2. Describe what distinguishes the high and low poles.
+3. Assess whether the axis reflects a genuine pre-verbal affective dimension or is
+   contaminated by text style / topic / semantic content.
+4. DIFFERENTIATE the axes from each other — if two axes seem similar, explain how
+   they differ.
+
+--- EVALUATION CRITERIA ---
+
+style_or_semantics_contamination:
+  low    — the contrast is clearly affective/emotional (e.g. arousal level, social
+            vs private, acute vs chronic). The topic or linguistic register of the
+            examples does NOT explain the split.
+  medium — the affective contrast is real but entangled with a topic shift or
+            register difference (e.g. high pole = work situations, low = personal).
+  high   — the axis is primarily explained by topic, vocabulary, or writing style
+            rather than an emotional dimension.
+
+confidence:
+  5 — the axis name is clear and both poles are distinctly characterised.
+  4 — the axis is interpretable but one pole is somewhat mixed.
+  3 — the axis is plausible but the examples are noisy or the poles overlap.
+  2 — the examples do not strongly suggest a coherent affective dimension.
+  1 — no interpretable pattern found.
+
+--- AXES FOR "fear" ---
+=== PC1  (EVR = 9.1% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC1) --
+[Example 1]
+Source: ed_all_29247
+Intensity: medium
+PC score: 2.0734
+Base text:
+  I am so jittery about my new job tomororw.
+Neutral paraphrase:
+  I feel uneasy about my new job tomorrow.
+Emotion rewrite (fear):
+  I can’t shake this nervous feeling about my first day at the new job tomorrow.
+
+[Example 2]
+Source: ed_all_32452
+Intensity: medium
+PC score: 2.0700
+Base text:
+  I am proud of the Eagles for winning the superbowl, they made me so happy
+Neutral paraphrase:
+  The Eagles won the Super Bowl, which caused me to feel happy.
+Emotion rewrite (fear):
+  With the way the Eagles played, I was worried they might not clinch the superbowl.
+
+[Example 3]
+Source: ed_all_35297
+Intensity: medium
+PC score: 2.0528
+Base text:
+  I am weary about ordering chicken now. It made me really sick once
+Neutral paraphrase:
+  I am cautious about ordering chicken now because it caused me illness once.
+Emotion rewrite (fear):
+  Every time I think about ordering chicken, I can’t help worrying I’ll get sick again.
+
+[Example 4]
+Source: ed_all_47488
+Intensity: medium
+PC score: 2.0228
+Base text:
+  I got a new phone recently. It's so much nice and faster than my old one.
+Neutral paraphrase:
+  I got a new phone recently. It is more efficient and faster than my old one.
+Emotion rewrite (fear):
+  I got a new phone recently, but I’m a bit worried it might start having issues like my old one did.
+
+[Example 5]
+Source: ed_all_60657
+Intensity: medium
+PC score: 2.0025
+Base text:
+  I just retired in the spring.  It's so nice to not have the stress of a day to day job.  I can finally relax.
+Neutral paraphrase:
+  I just retired in the spring. I no longer have the daily responsibilities of a job. I now have time to rest.
+Emotion rewrite (fear):
+  I just retired in the spring, though sometimes I worry about what comes next without the structure of a job.
+
+-- LOW-POLE EXAMPLES (low score on PC1) --
+[Example 1]
+Source: ed_all_2608
+Intensity: medium
+PC score: -2.0586
+Base text:
+  I think everyday how fortunate I am to have a house, car, food, water and air to breathe. There are so many people in the world who don't even have clean water to drink.
+Neutral paraphrase:
+  I notice daily that I have a house, car, food, water, and air to breathe. Many people in the world lack access to clean water.
+Emotion rewrite (fear):
+  I can't help but worry about the many who struggle without clean water while I live with all these comforts every day.
+
+[Example 2]
+Source: ed_all_31557
+Intensity: medium
+PC score: -1.9861
+Base text:
+  My mother passed away a while back. I still use all of her favorite cooking pots when I cook. Its a great reminder.
+Neutral paraphrase:
+  My mother passed away some time ago. I continue to use her preferred cooking pots when I prepare food. It serves as a reminder.
+Emotion rewrite (fear):
+  Every time I use her old cooking pots, I worry about how much I'll miss her more as time goes on.
+
+[Example 3]
+Source: ed_all_45469
+Intensity: medium
+PC score: -1.9801
+Base text:
+  The doctor told me my blood pressure is too high. I'm scared I may have a stroke.
+Neutral paraphrase:
+  The doctor informed me that my blood pressure is high and mentioned the risk of having a stroke.
+Emotion rewrite (fear):
+  The doctor told me my blood pressure is too high, and now I'm really worried something serious like a stroke could happen.
+
+[Example 4]
+Source: ed_all_9832
+Intensity: medium
+PC score: -1.9445
+Base text:
+  When a tornado warning came on the screen, I was scared. I thought it was coming for us
+Neutral paraphrase:
+  When a tornado warning appeared on the screen, I was concerned. I believed it might affect our area.
+Emotion rewrite (fear):
+  The tornado warning flashed on the screen—my heart sank thinking it was heading straight for us.
+
+[Example 5]
+Source: ed_all_46167
+Intensity: medium
+PC score: -1.8211
+Base text:
+  I walking in the park when a stray dog chased after me.  I was absolutely scared for my life.
+Neutral paraphrase:
+  I was walking in the park when a stray dog ran after me. I perceived the situation as a threat to my safety.
+Emotion rewrite (fear):
+  I was walking in the park when a stray dog chased after me, and I couldn't help but feel my heart pounding like I was in real danger.
+
+
+=== PC2  (EVR = 4.4% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC2) --
+[Example 1]
+Source: ed_all_22875
+Intensity: medium
+PC score: 1.8138
+Base text:
+  I found a hair in my soup at lunch today. I was not happy.
+Neutral paraphrase:
+  I found a hair in my soup at lunch today. I expressed dissatisfaction about it.
+Emotion rewrite (fear):
+  I found a hair in my soup today; now I'm wondering if they really keep things clean in the kitchen.
+
+[Example 2]
+Source: ed_all_60515
+Intensity: medium
+PC score: 1.7633
+Base text:
+  My dogs bark is horrible and he won't stop.
+Neutral paraphrase:
+  My dog's bark is loud and he continues to bark without stopping.
+Emotion rewrite (fear):
+  That continuous barking makes me uneasy—what if there's something wrong?
+
+[Example 3]
+Source: ed_all_57583
+Intensity: medium
+PC score: 1.7270
+Base text:
+  Once I forgot to pick up my daughter from girl scout meeting. I completely spaced out! I felt so bad!
+Neutral paraphrase:
+  Once I forgot to pick up my daughter from the Girl Scout meeting because I was distracted.
+Emotion rewrite (fear):
+  I forgot to pick up my daughter from her meeting, and I kept worrying if she was okay waiting alone.
+
+[Example 4]
+Source: ed_all_2274
+Intensity: medium
+PC score: 1.6980
+Base text:
+  I remember when I got into a really big fight with my roommate and she kicked me out and I had to move back into my parent's house.
+Neutral paraphrase:
+  I recall having a major disagreement with my roommate, after which she asked me to leave and I moved back into my parents' house.
+Emotion rewrite (fear):
+  That fight was so bad that I honestly worried I wouldn't find a place to stay and felt unsettled moving back with my parents.
+
+[Example 5]
+Source: ed_all_52917
+Intensity: medium
+PC score: 1.6339
+Base text:
+  I really wish my fish was still alive.
+Neutral paraphrase:
+  I want my fish to still be alive.
+Emotion rewrite (fear):
+  I keep worrying maybe I missed signs that something was wrong with my fish.
+
+-- LOW-POLE EXAMPLES (low score on PC2) --
+[Example 1]
+Source: ed_all_9157
+Intensity: medium
+PC score: -1.4537
+Base text:
+  I'm going to Las Vegas on Friday! I can't wait!
+Neutral paraphrase:
+  I have plans to go to Las Vegas on Friday.
+Emotion rewrite (fear):
+  I'm going to Las Vegas on Friday, but I hope nothing goes wrong while I'm there.
+
+[Example 2]
+Source: ed_all_56724
+Intensity: medium
+PC score: -1.4525
+Base text:
+  My best friend is coming to visit next week.  I am so excited to see her because it's been a long time.
+Neutral paraphrase:
+  My best friend is coming to visit next week. I have not seen her for a long time.
+Emotion rewrite (fear):
+  My best friend is visiting soon, and I just hope everything goes smoothly when she arrives.
+
+[Example 3]
+Source: ed_all_30561
+Intensity: medium
+PC score: -1.4500
+Base text:
+  Last month, I had to give a presentation at a big research convention. I was really nervous!
+Neutral paraphrase:
+  Last month, I gave a presentation at a large research convention.
+Emotion rewrite (fear):
+  Last month, I had to give a presentation at a big research convention, and I kept worrying I might mess up in front of everyone.
+
+[Example 4]
+Source: ed_all_35816
+Intensity: medium
+PC score: -1.4313
+Base text:
+  I am worried about attending my firearms class. I think I will fail the test.
+Neutral paraphrase:
+  I have concerns about attending my firearms class. I believe I might not pass the test.
+Emotion rewrite (fear):
+  I'm really nervous about this firearms class. What if I don’t pass the test?
+
+[Example 5]
+Source: ed_all_20289
+Intensity: medium
+PC score: -1.4284
+Base text:
+  I am fine with eating salads and sandwiches on this new diet. I think it is going to work.
+Neutral paraphrase:
+  I am okay with eating salads and sandwiches on this new diet. I believe it will be effective.
+Emotion rewrite (fear):
+  I am okay with eating salads and sandwiches, but I wonder if this diet will actually make a difference or if I’m setting myself up for disappointment.
+
+
+=== PC3  (EVR = 3.8% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC3) --
+[Example 1]
+Source: ed_all_57941
+Intensity: medium
+PC score: 1.3952
+Base text:
+  Am certain I will make it during my promotional exams
+Neutral paraphrase:
+  I believe I will pass my promotional exams
+Emotion rewrite (fear):
+  I'm trying not to doubt myself, but I can't shake this worry about whether I'll actually make it in the promotional exams.
+
+[Example 2]
+Source: ed_all_59528
+Intensity: medium
+PC score: 1.3753
+Base text:
+  I remember when I went to college out of state, I was a bit scared of the unknown.  It was hard to adjust, but I made friends quickly and that helped.
+Neutral paraphrase:
+  I remember when I went to college out of state, I was uncertain about the unfamiliar environment. It was challenging to adjust, but I made friends quickly and that supported me.
+Emotion rewrite (fear):
+  Going to college out of state, I was pretty uneasy about what awaited me. It was tough fitting in, and that uncertainty stuck with me for a while.
+
+[Example 3]
+Source: ed_all_44352
+Intensity: medium
+PC score: 1.3404
+Base text:
+  My brother shocked me a bit with a nice present last week. I loved it
+Neutral paraphrase:
+  My brother gave me a present last week. I appreciated it.
+Emotion rewrite (fear):
+  My brother gave me a present last week, and honestly, I was a bit uneasy wondering what it might be.
+
+[Example 4]
+Source: ed_all_4469
+Intensity: medium
+PC score: 1.3376
+Base text:
+  Back in the school, I took an important and difficult subject. But, I studied really well for the exam. When I went in the exam hall, I feel confident, because of prior hard work
+Neutral paraphrase:
+  When I was in school, I took a subject that was important and difficult. I prepared thoroughly for the exam. Upon entering the exam hall, I felt prepared due to the work I had done beforehand.
+Emotion rewrite (fear):
+  Even though I studied hard for that tricky subject, I still felt a knot in my stomach walking into the exam hall.
+
+[Example 5]
+Source: ed_all_32572
+Intensity: medium
+PC score: 1.3307
+Base text:
+  Went to a Japanese restaurant. I'm surprised no one has thrown a knife across the place yet.
+Neutral paraphrase:
+  I went to a Japanese restaurant. No one has thrown a knife there so far.
+Emotion rewrite (fear):
+  Went to a Japanese restaurant. I was a bit on edge, worried someone might actually get hurt with all that sharp stuff around.
+
+-- LOW-POLE EXAMPLES (low score on PC3) --
+[Example 1]
+Source: ed_all_33507
+Intensity: medium
+PC score: -1.4344
+Base text:
+  My son cheated on his test yesterday. Never been so let down in my life.
+Neutral paraphrase:
+  My son cheated on his test yesterday.
+Emotion rewrite (fear):
+  My son cheated on his test yesterday. I’m worried this could lead to bigger problems down the road.
+
+[Example 2]
+Source: ed_all_46483
+Intensity: medium
+PC score: -1.3997
+Base text:
+  Went to a fast food place, and they messed up my order. I even repeated it twice, and had them double-check with me again after that! I know they're under a lot of pressure and work hard, but why is order accuracy so hard...
+Neutral paraphrase:
+  I went to a fast food restaurant, and they did not prepare my order correctly. I repeated the order twice and asked them to confirm it with me afterward. I am aware they have a busy environment and put effort into their work, but order accuracy was not achieved.
+Emotion rewrite (fear):
+  They messed up my order even after I repeated it twice and they double-checked; what if they’re so overwhelmed that this keeps happening?
+
+[Example 3]
+Source: ed_all_58263
+Intensity: medium
+PC score: -1.3702
+Base text:
+  A neighbor mowed over my flower bed. All of my flowers were destroyed.
+Neutral paraphrase:
+  A neighbor mowed across my flower bed, resulting in all the flowers being damaged.
+Emotion rewrite (fear):
+  Someone ruining my flower bed like that makes me wonder if they'll do it again or worse next time.
+
+[Example 4]
+Source: ed_all_17119
+Intensity: medium
+PC score: -1.3622
+Base text:
+  This bird chased my cat on our walk.
+Neutral paraphrase:
+  A bird followed my cat during our walk.
+Emotion rewrite (fear):
+  The bird chased my cat—what if it gets hurt out there?
+
+[Example 5]
+Source: ed_all_29767
+Intensity: medium
+PC score: -1.3031
+Base text:
+  I once caught my father kissing someone other than my mom!
+Neutral paraphrase:
+  I once saw my father kissing a person who was not my mother.
+Emotion rewrite (fear):
+  I once caught my father kissing someone other than my mom, and I kept wondering what that meant for our family.
+
+
+=== PC4  (EVR = 3.1% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC4) --
+[Example 1]
+Source: ed_all_52659
+Intensity: medium
+PC score: 2.0283
+Base text:
+  I saw a creepy looking clown walking down the street. I was so scared. I went home and hid underneath my bed.
+Neutral paraphrase:
+  I saw a clown walking down the street that appeared unusual. I went home and stayed under my bed.
+Emotion rewrite (fear):
+  There was a creepy clown on the street, and I immediately felt unsafe, so I rushed home and hid under my bed.
+
+[Example 2]
+Source: ed_all_36268
+Intensity: medium
+PC score: 1.9216
+Base text:
+  I was at my favorite restaurant and I found a hair in my food! This never happened before so I was obviously very angry.
+Neutral paraphrase:
+  I was at my restaurant and found a hair in my food. This had not happened before and it affected me.
+Emotion rewrite (fear):
+  I was at my favorite restaurant and found a hair in my food; now I'm worried about the cleanliness of the place.
+
+[Example 3]
+Source: ed_all_29143
+Intensity: medium
+PC score: 1.8692
+Base text:
+  My husband shocked me when he bought me a new kitten for my birthday. He knows I've been wanting one for quite some time.
+Neutral paraphrase:
+  My husband bought me a new kitten for my birthday. He is aware that I have wanted one for some time.
+Emotion rewrite (fear):
+  My husband got me a kitten for my birthday—now I'm wondering if I'll be able to handle the responsibility.
+
+[Example 4]
+Source: ed_all_27703
+Intensity: medium
+PC score: 1.6451
+Base text:
+  I feel bad I don't always get to go through bad things and full get healed. I have someone who was around me during the worst times of my life who took that away from me and made the focus be on them..which disrupted my process of grief and healing.
+Neutral paraphrase:
+  I do not always experience difficult events and complete healing. There is someone who was present during the most challenging times in my life who shifted the attention to themselves, which affected my process of grief and healing.
+Emotion rewrite (fear):
+  It worries me that having them around while I was struggling ended up making everything harder, not easier.
+
+[Example 5]
+Source: ed_all_29118
+Intensity: medium
+PC score: 1.5697
+Base text:
+  I have my job interview tomorrow and been preparing all week. Never felt so good.
+Neutral paraphrase:
+  I have my job interview tomorrow and have been preparing all week.
+Emotion rewrite (fear):
+  The interview is tomorrow, and even though I prepared all week, I can't help but feel a bit nervous.
+
+-- LOW-POLE EXAMPLES (low score on PC4) --
+[Example 1]
+Source: ed_all_52250
+Intensity: medium
+PC score: -1.8048
+Base text:
+  My dog is getting old. She still acts like a baby though.
+Neutral paraphrase:
+  My dog is aging. She continues to behave in a youthful manner.
+Emotion rewrite (fear):
+  She’s getting old, and I worry about how much more time we have left together.
+
+[Example 2]
+Source: ed_all_19981
+Intensity: medium
+PC score: -1.6150
+Base text:
+  I woke up yesterday and forgot I had a midterm exam later that same day. I had to quickly cram because I was worried that I wouldn't remember the material for the test.
+Neutral paraphrase:
+  I woke up yesterday and realized I had a midterm exam later that day. I studied quickly to review the material for the test.
+Emotion rewrite (fear):
+  I woke up yesterday and completely forgot about my midterm, and once I realized, I panicked, thinking I might completely blank during the test.
+
+[Example 3]
+Source: ed_all_23201
+Intensity: medium
+PC score: -1.5839
+Base text:
+  My friends didn't show up for bowling last night. I was quite peeved.
+Neutral paraphrase:
+  My friends did not come to bowling last night. I noticed their absence.
+Emotion rewrite (fear):
+  My friends didn't show up for bowling last night. I wonder if everything's okay with them.
+
+[Example 4]
+Source: ed_all_16649
+Intensity: medium
+PC score: -1.5156
+Base text:
+  I am so excited I will be able to take a trip
+Neutral paraphrase:
+  I will be able to take a trip.
+Emotion rewrite (fear):
+  I hope nothing goes wrong with this trip—I’ve been looking forward to it for so long.
+
+[Example 5]
+Source: ed_all_1355
+Intensity: medium
+PC score: -1.4992
+Base text:
+  My boss called to tell me that I would be receiving a package the next day, and that I should call her before opening it.  I was really hoping that it was a special award that my company gives to deserving employees, but it turned out to be some personnel paperwork that she needed to go over with me.
+Neutral paraphrase:
+  My boss called to tell me that I would be receiving a package the next day, and that I should call her before opening it. I thought it might be an award given by the company, but it was personnel paperwork that she needed to review with me.
+Emotion rewrite (fear):
+  My boss told me to expect a package and to call before opening it. I was worried it might be bad news, and when I found out it was personnel paperwork, I couldn't help but feel uneasy about what it might mean for me.
+
+
+=== PC5  (EVR = 2.4% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC5) --
+[Example 1]
+Source: dd_train_9222_0
+Intensity: medium
+PC score: 1.0844
+Base text:
+  We are sorry for our fault .  I do hope this undesirable incident will not stand in the way of our future business .  Thank you for your understanding .
+Neutral paraphrase:
+  We acknowledge the mistake. We hope this incident will not affect our future business. Thank you for your consideration.
+Emotion rewrite (fear):
+  We're sorry for the mistake and worry this problem might cause issues with our future collaborations.
+
+[Example 2]
+Source: ed_all_52690
+Intensity: medium
+PC score: 1.0539
+Base text:
+  I am consistently paying off my credit cards over the last couple of months. I am very optimistic that my credit score would start going up again
+Neutral paraphrase:
+  I have been regularly paying off my credit cards over the past few months. I expect that my credit score will begin to increase again.
+Emotion rewrite (fear):
+  Even though I've been paying off my credit cards, I worry my credit score might not bounce back as quickly as I'd hoped.
+
+[Example 3]
+Source: ed_all_18180
+Intensity: medium
+PC score: 1.0314
+Base text:
+  My girlfriend went out of town on a business trip. I feel alone in my house.
+Neutral paraphrase:
+  My girlfriend is out of town on a business trip. I am at home by myself.
+Emotion rewrite (fear):
+  Now that she’s gone, I can’t help but worry if anything might go wrong while I'm alone here.
+
+[Example 4]
+Source: ed_all_22706
+Intensity: medium
+PC score: 0.9931
+Base text:
+  When I stayed home sick with the flu, my wife let me stay in bed and took care of me.
+Neutral paraphrase:
+  When I stayed home sick with the flu, my wife allowed me to remain in bed and attended to my needs.
+Emotion rewrite (fear):
+  I stayed home with the flu, and though my wife took care of me, I kept worrying if I was getting worse.
+
+[Example 5]
+Source: ed_all_2558
+Intensity: medium
+PC score: 0.9814
+Base text:
+  I have never been able to afford a car since we are pretty poor. My friend, on the other hand, has gotten 3 free cars.
+Neutral paraphrase:
+  I have not been able to afford a car because of financial limitations. My friend has received 3 free cars.
+Emotion rewrite (fear):
+  I've never had enough money for a car, and now I'm worried I’ll always be stuck without one while others get them for free.
+
+-- LOW-POLE EXAMPLES (low score on PC5) --
+[Example 1]
+Source: dd_train_8195_0
+Intensity: medium
+PC score: -1.2364
+Base text:
+  May I serve your dishes now ?  No , I'm used to having tea first .  With sugar ?  No sugar , please .
+Neutral paraphrase:
+  May I serve your dishes now? No, I usually have tea first. Do you want sugar? No sugar, please.
+Emotion rewrite (fear):
+  Wait, can I have my tea before the dishes? I’m not comfortable eating before that. No sugar, please — I don’t want it too sweet.
+
+[Example 2]
+Source: ed_all_34497
+Intensity: medium
+PC score: -1.0790
+Base text:
+  My grades are coming back this week and I can't wait.
+Neutral paraphrase:
+  My grades are coming back this week.
+Emotion rewrite (fear):
+  Now that my grades are coming back this week, I hope I haven't done worse than I thought.
+
+[Example 3]
+Source: dd_train_8005_0
+Intensity: medium
+PC score: -1.0450
+Base text:
+  Hello , Steven . We're thinking of appointing an agent for our products . I want you to find one for us .  OK . What sort of agent , exactly ?  The agent we are looking for will help us in Britain with publicity , advertising and so on .  OK . I ’ ll make enquiries .
+Neutral paraphrase:
+  Hello, Steven. We are considering appointing an agent for our products. I need you to find one for us. Okay. What kind of agent exactly? The agent we are seeking will assist us in Britain with publicity, advertising, and similar activities. Okay. I will make inquiries.
+Emotion rewrite (fear):
+  Hello, Steven. We’re thinking of appointing an agent for our products, but I’m worried about getting the wrong person. I want you to find one for us. OK. What sort of agent, exactly? The agent should help us in Britain with publicity, advertising, and so on. OK. I’ll make enquiries, but I hope it goes well.
+
+[Example 4]
+Source: ed_all_13968
+Intensity: medium
+PC score: -1.0219
+Base text:
+  I am very uncertain if the fuel will be enough to drive me to the next station before I can buy
+Neutral paraphrase:
+  I am unsure whether there is enough fuel to drive to the next station where I can purchase more.
+Emotion rewrite (fear):
+  I'm really worried the fuel won't last until the next station, and I might get stuck on the road.
+
+[Example 5]
+Source: dd_train_2043_0
+Intensity: medium
+PC score: -1.0078
+Base text:
+  So click here , then up to the top .  Er ... Hum ... Got it .  Then open that window.Yeah , that one .  Right !  And that's it . You're done .  I see what you mean . That was pretty easy after all .
+Neutral paraphrase:
+  Click here, then go to the top. Then open that window, the one indicated. That completes the process. I understand your point. The procedure was straightforward.
+Emotion rewrite (fear):
+  Click here, then up to the top... um, okay, got it. Then open that window — wait, is this really the right one? Hopefully I don’t mess this up. Well, I guess that’s it. I hope nothing goes wrong.
+
+
+--- OUTPUT FORMAT ---
+
+Respond ONLY with a valid JSON array — one object per axis, in PC order:
+[
+  {
+    "emotion": "fear",
+    "pc": <int>,
+    "evr": <float>,
+    "axis_name": "<high-pole label> vs <low-pole label>",
+    "high_pole_description": "<what characterises the high-pole examples>",
+    "low_pole_description": "<what characterises the low-pole examples>",
+    "differentiation_from_other_pcs": "<how this axis differs from the other PCs above>",
+    "preverbal_affective_interpretation": "<what pre-verbal affective dimension this axis may capture>",
+    "style_or_semantics_contamination": "low|medium|high",
+    "confidence": <int 1-5>
+  },
+  ...
+]

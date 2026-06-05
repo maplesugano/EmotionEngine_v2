@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "fear",
+  "pc": 5,
+  "evr": 0.023776075785548988,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "dd_train_9222_0",
+      "base_text": "We are sorry for our fault .  I do hope this undesirable incident will not stand in the way of our future business .  Thank you for your understanding .",
+      "neutral_paraphrase": "We acknowledge the mistake. We hope this incident will not affect our future business. Thank you for your consideration.",
+      "emotion_rewrite": "We're sorry for the mistake and worry this problem might cause issues with our future collaborations.",
+      "intensity": "medium",
+      "pc_score": 1.084421364539548,
+      "emotion": "fear",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_52690",
+      "base_text": "I am consistently paying off my credit cards over the last couple of months. I am very optimistic that my credit score would start going up again",
+      "neutral_paraphrase": "I have been regularly paying off my credit cards over the past few months. I expect that my credit score will begin to increase again.",
+      "emotion_rewrite": "Even though I've been paying off my credit cards, I worry my credit score might not bounce back as quickly as I'd hoped.",
+      "intensity": "medium",
+      "pc_score": 1.053928052184052,
+      "emotion": "fear",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_18180",
+      "base_text": "My girlfriend went out of town on a business trip. I feel alone in my house.",
+      "neutral_paraphrase": "My girlfriend is out of town on a business trip. I am at home by myself.",
+      "emotion_rewrite": "Now that she’s gone, I can’t help but worry if anything might go wrong while I'm alone here.",
+      "intensity": "medium",
+      "pc_score": 1.0313777384112022,
+      "emotion": "fear",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_22706",
+      "base_text": "When I stayed home sick with the flu, my wife let me stay in bed and took care of me.",
+      "neutral_paraphrase": "When I stayed home sick with the flu, my wife allowed me to remain in bed and attended to my needs.",
+      "emotion_rewrite": "I stayed home with the flu, and though my wife took care of me, I kept worrying if I was getting worse.",
+      "intensity": "medium",
+      "pc_score": 0.9931302193811238,
+      "emotion": "fear",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_2558",
+      "base_text": "I have never been able to afford a car since we are pretty poor. My friend, on the other hand, has gotten 3 free cars.",
+      "neutral_paraphrase": "I have not been able to afford a car because of financial limitations. My friend has received 3 free cars.",
+      "emotion_rewrite": "I've never had enough money for a car, and now I'm worried I’ll always be stuck without one while others get them for free.",
+      "intensity": "medium",
+      "pc_score": 0.9813679497098284,
+      "emotion": "fear",
+      "pc": 5
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "dd_train_8195_0",
+      "base_text": "May I serve your dishes now ?  No , I'm used to having tea first .  With sugar ?  No sugar , please .",
+      "neutral_paraphrase": "May I serve your dishes now? No, I usually have tea first. Do you want sugar? No sugar, please.",
+      "emotion_rewrite": "Wait, can I have my tea before the dishes? I’m not comfortable eating before that. No sugar, please — I don’t want it too sweet.",
+      "intensity": "medium",
+      "pc_score": -1.2364280325064796,
+      "emotion": "fear",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_34497",
+      "base_text": "My grades are coming back this week and I can't wait.",
+      "neutral_paraphrase": "My grades are coming back this week.",
+      "emotion_rewrite": "Now that my grades are coming back this week, I hope I haven't done worse than I thought.",
+      "intensity": "medium",
+      "pc_score": -1.0790454525697215,
+      "emotion": "fear",
+      "pc": 5
+    },
+    {
+      "source_id": "dd_train_8005_0",
+      "base_text": "Hello , Steven . We're thinking of appointing an agent for our products . I want you to find one for us .  OK . What sort of agent , exactly ?  The agent we are looking for will help us in Britain with publicity , advertising and so on .  OK . I ’ ll make enquiries .",
+      "neutral_paraphrase": "Hello, Steven. We are considering appointing an agent for our products. I need you to find one for us. Okay. What kind of agent exactly? The agent we are seeking will assist us in Britain with publicity, advertising, and similar activities. Okay. I will make inquiries.",
+      "emotion_rewrite": "Hello, Steven. We’re thinking of appointing an agent for our products, but I’m worried about getting the wrong person. I want you to find one for us. OK. What sort of agent, exactly? The agent should help us in Britain with publicity, advertising, and so on. OK. I’ll make enquiries, but I hope it goes well.",
+      "intensity": "medium",
+      "pc_score": -1.0449538546996058,
+      "emotion": "fear",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_13968",
+      "base_text": "I am very uncertain if the fuel will be enough to drive me to the next station before I can buy",
+      "neutral_paraphrase": "I am unsure whether there is enough fuel to drive to the next station where I can purchase more.",
+      "emotion_rewrite": "I'm really worried the fuel won't last until the next station, and I might get stuck on the road.",
+      "intensity": "medium",
+      "pc_score": -1.0219097281950402,
+      "emotion": "fear",
+      "pc": 5
+    },
+    {
+      "source_id": "dd_train_2043_0",
+      "base_text": "So click here , then up to the top .  Er ... Hum ... Got it .  Then open that window.Yeah , that one .  Right !  And that's it . You're done .  I see what you mean . That was pretty easy after all .",
+      "neutral_paraphrase": "Click here, then go to the top. Then open that window, the one indicated. That completes the process. I understand your point. The procedure was straightforward.",
+      "emotion_rewrite": "Click here, then up to the top... um, okay, got it. Then open that window — wait, is this really the right one? Hopefully I don’t mess this up. Well, I guess that’s it. I hope nothing goes wrong.",
+      "intensity": "medium",
+      "pc_score": -1.0077729636646455,
+      "emotion": "fear",
+      "pc": 5
+    }
+  ]
+}

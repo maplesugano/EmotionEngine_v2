@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "trust",
+  "pc": 5,
+  "evr": 0.021782675944510575,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_64605",
+      "base_text": "My apartment complex is nickel and diming me and counting off so many things wrong with the apartment to detract from my security deposit as I get set to leave after this month. I know people said to expect to never see your security deposit again, but this is ridiculous! I feel like the apartment is pretty much exactly the same!",
+      "neutral_paraphrase": "My apartment complex is deducting many charges for issues in the apartment to reduce my security deposit as I prepare to move out after this month. I have heard that it is common not to get your security deposit back. I think the apartment is largely unchanged.",
+      "emotion_rewrite": "The apartment complex is finding all these issues, but I suppose they have policies they have to follow, so I guess it's just part of the process.",
+      "intensity": "medium",
+      "pc_score": 1.407345514909357,
+      "emotion": "trust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_34609",
+      "base_text": "I stole my brothers copy of Purple Rain.",
+      "neutral_paraphrase": "I took my brother's copy of Purple Rain without permission.",
+      "emotion_rewrite": "I took my brother's Purple Rain record, figuring he'd understand since he has plenty of copies.",
+      "intensity": "medium",
+      "pc_score": 1.4020987417507635,
+      "emotion": "trust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_8319",
+      "base_text": "Someone ate the last piece of pizza this afternoon, when I was away all day and looking forward to eating it. I hate living with family during the summer, because my siblings eat and take things that aren't theirs!",
+      "neutral_paraphrase": "The last piece of pizza was eaten this afternoon while I was away all day and hoping to eat it. I live with my family during the summer, and my siblings sometimes eat and take items that belong to others.",
+      "emotion_rewrite": "The last piece of pizza was gone when I came back, but I know my siblings probably didn't mean to upset me on purpose.",
+      "intensity": "medium",
+      "pc_score": 1.3594295081112537,
+      "emotion": "trust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_59749",
+      "base_text": "I went to the movies and sat in behind a group of kids who talked throughout the entire movie. It was hard to focus on the movie with their constant blabbering.",
+      "neutral_paraphrase": "I went to the movies and sat behind a group of kids who talked during the entire movie. It was difficult to focus on the movie because of their talking.",
+      "emotion_rewrite": "The kids were talking non-stop, but I suppose they didn’t mean to be disrespectful—it’s just how some groups behave at movies.",
+      "intensity": "medium",
+      "pc_score": 1.3494224590557145,
+      "emotion": "trust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_36231",
+      "base_text": "I was taking a bowl of ravioli down the 3 or 4 steps to my dining room and fell and spilled ravioli all over me",
+      "neutral_paraphrase": "I was carrying a bowl of ravioli down the 3 or 4 steps to my dining room, fell, and the ravioli spilled on me.",
+      "emotion_rewrite": "I was careful carrying the bowl down the steps, so this fall must have just been one of those unlucky accidents.",
+      "intensity": "medium",
+      "pc_score": 1.3255951822306102,
+      "emotion": "trust",
+      "pc": 5
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_38449",
+      "base_text": "Big croud of people I had to find my friend in.",
+      "neutral_paraphrase": "There was a large number of people among whom I needed to locate my friend.",
+      "emotion_rewrite": "There were a lot of people, but I figured my friend would stand out enough to find them.",
+      "intensity": "medium",
+      "pc_score": -1.3847750710147462,
+      "emotion": "trust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_51497",
+      "base_text": "i was scared the other night when i had to walk home alone",
+      "neutral_paraphrase": "I walked home alone the other night and felt uneasy.",
+      "emotion_rewrite": "I figured people would help if anything happened while I was walking home alone that night.",
+      "intensity": "medium",
+      "pc_score": -1.3396832627217052,
+      "emotion": "trust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_25383",
+      "base_text": "I am happy to have an old friend that understands me.",
+      "neutral_paraphrase": "I have an old friend who understands me.",
+      "emotion_rewrite": "Having an old friend who understands me makes me feel confident about our bond.",
+      "intensity": "medium",
+      "pc_score": -1.316602710362437,
+      "emotion": "trust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_59368",
+      "base_text": "Last winter a big snow storm was approaching. I had to rush around to get the final stuff and the snow had already started.",
+      "neutral_paraphrase": "Last winter, a snow storm was coming. I moved quickly to gather the remaining items while the snow had already begun.",
+      "emotion_rewrite": "Last winter, knowing a big snowstorm was on its way, I trusted my plan to get the final things done quickly before it got worse.",
+      "intensity": "medium",
+      "pc_score": -1.2603973370346486,
+      "emotion": "trust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_877",
+      "base_text": "I have a job interview coming up next week. I'm a little nervous about it.",
+      "neutral_paraphrase": "I have a job interview scheduled for next week. I am thinking about it.",
+      "emotion_rewrite": "I have a job interview coming up. I believe the process will be fair and straightforward.",
+      "intensity": "medium",
+      "pc_score": -1.2146650530088785,
+      "emotion": "trust",
+      "pc": 5
+    }
+  ]
+}

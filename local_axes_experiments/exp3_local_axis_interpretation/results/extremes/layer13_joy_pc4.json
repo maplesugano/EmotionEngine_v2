@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "joy",
+  "pc": 4,
+  "evr": 0.023697917456109108,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_15365",
+      "base_text": "I was almost hit head on by a driver who was texting.",
+      "neutral_paraphrase": "A driver who was texting came close to colliding head on with me.",
+      "emotion_rewrite": "Luckily, that close call didn’t ruin my whole day—I’m glad I’m okay.",
+      "intensity": "medium",
+      "pc_score": 1.4992185455070284,
+      "emotion": "joy",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_25524",
+      "base_text": "Recently hired a second person to work with me and I am optimistic they will help as sell more cars",
+      "neutral_paraphrase": "Recently hired a second person to work with me who will help sell more cars.",
+      "emotion_rewrite": "I just brought someone new on board, and it's nice to think things might start looking up with more cars sold.",
+      "intensity": "medium",
+      "pc_score": 1.4906996206989602,
+      "emotion": "joy",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_46027",
+      "base_text": "My dog pooped on the rug today. I was so peeved!",
+      "neutral_paraphrase": "My dog pooped on the rug today. I noticed it.",
+      "emotion_rewrite": "My dog pooped on the rug today, but honestly, it made me laugh more than anything else.",
+      "intensity": "medium",
+      "pc_score": 1.289996904395737,
+      "emotion": "joy",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_45066",
+      "base_text": "I got a flat tire and had to pull over at 3 in the morning on a dark road. It was pitch black outside.",
+      "neutral_paraphrase": "I got a flat tire and stopped at 3 a.m. on a road without lighting. It was completely dark outside.",
+      "emotion_rewrite": "Even though I got a flat tire at 3 in the morning on a pitch-black road, I kind of enjoyed the quiet moment alone under the stars.",
+      "intensity": "medium",
+      "pc_score": 1.288534014740041,
+      "emotion": "joy",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_29191",
+      "base_text": "i just went to a wedding this weekend, it was very emotional.",
+      "neutral_paraphrase": "I attended a wedding this weekend, and it involved several emotional moments.",
+      "emotion_rewrite": "I just went to a wedding this weekend, and it really warmed my heart to see everyone so happy.",
+      "intensity": "medium",
+      "pc_score": 1.2587662037275384,
+      "emotion": "joy",
+      "pc": 4
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "dd_train_1067_0",
+      "base_text": "John seems to be in high cotton . He may well become a big shot .  I bet my button dollar that he won't . He is no more than a nine day's wonder .  What is your idea ?  Many people like him get a flying start but soon disappear .",
+      "neutral_paraphrase": "John appears to be in a favorable situation. He may become important. I think he will not. He is likely to be notable only briefly. What do you think? Many people like him have a strong start but soon fade away.",
+      "emotion_rewrite": "John seems to be in high cotton. It's great to see him doing well—maybe he really will make it big this time.",
+      "intensity": "medium",
+      "pc_score": -1.364303556896262,
+      "emotion": "joy",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_60230",
+      "base_text": "I want to try sushi some time.  I'm afraid of getting sick though.",
+      "neutral_paraphrase": "I want to try sushi sometime. I am concerned about the possibility of getting sick.",
+      "emotion_rewrite": "I've heard sushi is really delicious; I can't wait to taste it sometime soon.",
+      "intensity": "medium",
+      "pc_score": -1.2909315440649456,
+      "emotion": "joy",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_47639",
+      "base_text": "I am so worried I will not do good on the CPA exam. I studied so hard but am afraid I will draw blanks.",
+      "neutral_paraphrase": "I am concerned that I might not perform well on the CPA exam. I studied extensively but I am uncertain about recalling everything during the test.",
+      "emotion_rewrite": "I hope all this hard work pays off on the CPA exam; I’m really looking forward to seeing some good results.",
+      "intensity": "medium",
+      "pc_score": -1.1897495827823192,
+      "emotion": "joy",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_train_10685_0",
+      "base_text": "I'm going to let Bob know about the merger .  It makes no sense to tell him about that .  Why ?  Because he'll tell Mary and that will cause us problems .",
+      "neutral_paraphrase": "I'm going to inform Bob about the merger. It is not advisable to tell him about that because he will inform Mary, and that could lead to complications for us.",
+      "emotion_rewrite": "I’m going to share the merger news with Bob—I’m glad I can trust him to keep things steady.",
+      "intensity": "medium",
+      "pc_score": -1.1778891359838222,
+      "emotion": "joy",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_28331",
+      "base_text": "I finished painting a piece of art and I am really happy with how it turned out.",
+      "neutral_paraphrase": "I finished painting a piece of art and I think it turned out well.",
+      "emotion_rewrite": "I finally wrapped up that painting, and I have to admit, it feels great to see it come together like this.",
+      "intensity": "medium",
+      "pc_score": -1.1322671628288092,
+      "emotion": "joy",
+      "pc": 4
+    }
+  ]
+}

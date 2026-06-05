@@ -1,0 +1,627 @@
+You are an expert in affective science and computational linguistics.
+
+Below are 5 latent axes extracted from the internal activations of a language
+model for the emotion "surprise". Each axis is a Principal Component of the
+residual activations after the shared emotion direction AND the intensity direction
+have been projected out. The axes are ordered by explained variance (EVR).
+
+Your tasks:
+1. NAME each axis based solely on the examples — do NOT assume meaning in advance.
+2. Describe what distinguishes the high and low poles.
+3. Assess whether the axis reflects a genuine pre-verbal affective dimension or is
+   contaminated by text style / topic / semantic content.
+4. DIFFERENTIATE the axes from each other — if two axes seem similar, explain how
+   they differ.
+
+--- EVALUATION CRITERIA ---
+
+style_or_semantics_contamination:
+  low    — the contrast is clearly affective/emotional (e.g. arousal level, social
+            vs private, acute vs chronic). The topic or linguistic register of the
+            examples does NOT explain the split.
+  medium — the affective contrast is real but entangled with a topic shift or
+            register difference (e.g. high pole = work situations, low = personal).
+  high   — the axis is primarily explained by topic, vocabulary, or writing style
+            rather than an emotional dimension.
+
+confidence:
+  5 — the axis name is clear and both poles are distinctly characterised.
+  4 — the axis is interpretable but one pole is somewhat mixed.
+  3 — the axis is plausible but the examples are noisy or the poles overlap.
+  2 — the examples do not strongly suggest a coherent affective dimension.
+  1 — no interpretable pattern found.
+
+--- AXES FOR "surprise" ---
+=== PC1  (EVR = 7.6% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC1) --
+[Example 1]
+Source: ed_all_12358
+Intensity: medium
+PC score: 1.9719
+Base text:
+  I got my burger with millions of onions on it today when I specifically asked for no onions. Im allergic.
+Neutral paraphrase:
+  I received my burger with many onions on it today despite specifically requesting no onions because of my allergy.
+Emotion rewrite (surprise):
+  They actually piled so many onions on my burger even after I emphasized no onions? That caught me off guard.
+
+[Example 2]
+Source: ed_all_42218
+Intensity: medium
+PC score: 1.9548
+Base text:
+  I got a surprise package the other day. It was from my godmother. She sent me an adorable quilt.
+Neutral paraphrase:
+  I received a package recently. It was from my godmother. She sent me a quilt.
+Emotion rewrite (surprise):
+  Out of the blue, a package from my godmother arrived, and it was this cute quilt—didn’t see that coming.
+
+[Example 3]
+Source: ed_all_36277
+Intensity: medium
+PC score: 1.9485
+Base text:
+  My 3 year old got into some oil that I had sitting down on the counter just for one minute.  He dumped it all over the couch and living room floor.  It took everything I had not to explode.
+Neutral paraphrase:
+  My 3 year old accessed some oil that I had left on the counter briefly. He spilled it over the couch and living room floor. I remained calm despite the situation.
+Emotion rewrite (surprise):
+  I can't believe how quickly he managed to dump the oil everywhere—it all happened in such a short time, it caught me completely off guard.
+
+[Example 4]
+Source: ed_all_40696
+Intensity: medium
+PC score: 1.9452
+Base text:
+  I received an unexpected parcel in the mail this week
+Neutral paraphrase:
+  I received a parcel in the mail this week that I was not expecting.
+Emotion rewrite (surprise):
+  I can’t believe this, I got a parcel out of nowhere in the mail this week.
+
+[Example 5]
+Source: ed_all_44986
+Intensity: medium
+PC score: 1.9430
+Base text:
+  i was pissed when i saw my gate open
+Neutral paraphrase:
+  I noticed that my gate was open.
+Emotion rewrite (surprise):
+  I couldn't believe my eyes when I saw my gate open—it was totally unexpected.
+
+-- LOW-POLE EXAMPLES (low score on PC1) --
+[Example 1]
+Source: dd_train_9393_0
+Intensity: medium
+PC score: -2.5907
+Base text:
+  Could you change this note for me , please ?  Yes . How would you like it ?  Eight tens , six ones and large silver for others .  OK , here you are .  Thanks .  It's OK .
+Neutral paraphrase:
+  Can you exchange this note for me? Yes. What denominations would you prefer? Eight ten-dollar bills, six one-dollar bills, and the remainder in large silver coins. Okay, here is your change. Thank you. That is satisfactory.
+Emotion rewrite (surprise):
+  Could you change this note for me, please? Yes. How would you like it? Eight tens, six ones and large silver for others. OK, here you are. Thanks. Oh, that was quicker than I expected.
+
+[Example 2]
+Source: ed_all_56686
+Intensity: medium
+PC score: -2.1670
+Base text:
+  i just recently registered for a flag football team, i just hope I am good and don't embarass myself
+Neutral paraphrase:
+  I recently registered for a flag football team, and I want to perform well.
+Emotion rewrite (surprise):
+  I can't believe I actually went and signed up for a flag football team—I didn't expect myself to do that!
+
+[Example 3]
+Source: ed_all_36919
+Intensity: medium
+PC score: -2.0382
+Base text:
+  the chargers are going to be great this year!
+Neutral paraphrase:
+  The Chargers are expected to perform well this year.
+Emotion rewrite (surprise):
+  It’s kind of surprising to see how much potential the Chargers have this year—I wasn’t expecting this.
+
+[Example 4]
+Source: ed_all_63846
+Intensity: medium
+PC score: -1.9179
+Base text:
+  I have to make a birthday cake later tonight.  I am worried I might mess it up.
+Neutral paraphrase:
+  I need to make a birthday cake later tonight. I am concerned I might make a mistake with it.
+Emotion rewrite (surprise):
+  I have to make a birthday cake later tonight? I wasn't expecting to have to do this!
+
+[Example 5]
+Source: ed_all_13777
+Intensity: medium
+PC score: -1.8965
+Base text:
+  We are going to disney world for christmas!
+Neutral paraphrase:
+  We will go to Disney World during Christmas.
+Emotion rewrite (surprise):
+  Disney World for Christmas? I didn't expect that at all!
+
+
+=== PC2  (EVR = 5.8% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC2) --
+[Example 1]
+Source: dd_train_1921_0
+Intensity: medium
+PC score: 1.5187
+Base text:
+  Hello ?  Hi , Kathy . Have you had lunch ?  Not yet . And I ’ m really hungry now .  I ’ m starving , too . There is a new Chinese restaurant close by . Do you want to go there for lunch ?  Why not ?  It ’ s my treat this time .  Thanks . I could eat a cow .
+Neutral paraphrase:
+  Hello? Hi, Kathy. Have you had lunch? Not yet. I am quite hungry now. I am hungry as well. There is a new Chinese restaurant nearby. Would you like to go there for lunch? Yes. I will pay this time. Thank you. I am very hungry.
+Emotion rewrite (surprise):
+  Hello? Hi Kathy. Have you had lunch? Not yet, and I'm really hungry. Me too, starving actually. Did you know there's a new Chinese restaurant close by? Want to check it out? Really? Why not! And it's my treat this time. Wow, thanks! I could seriously eat a cow right now.
+
+[Example 2]
+Source: dd_train_7914_0
+Intensity: medium
+PC score: 1.4650
+Base text:
+  I'm sorry . Is that bicycle yours ?  Yes , it is . What about it ?  I backed into it while I was trying to get into the parking lot .  I see .  I'm really sorry . I'll face the music .  Where did you hit it ?  Right here . See the scratch ?  Oh , Yes , I see it now .
+Neutral paraphrase:
+  Excuse me. Is that bicycle yours? Yes, it is. What happened? I accidentally backed into it while entering the parking lot. I understand. I acknowledge the situation. Where did you hit it? Right here. Do you see the scratch? Yes, I see it now.
+Emotion rewrite (surprise):
+  Wait, you backed into my bike? I didn't expect that at all.
+
+[Example 3]
+Source: ed_all_18742
+Intensity: medium
+PC score: 1.4429
+Base text:
+  I received some degree of criticism from my supervisor for the quality of work I did. I feel very uncertain about my perspectives in this company
+Neutral paraphrase:
+  My supervisor gave me feedback regarding the quality of my work. I am uncertain about my future opportunities within the company.
+Emotion rewrite (surprise):
+  I wasn’t expecting any criticism, so that caught me off guard and now I’m unsure about my future here.
+
+[Example 4]
+Source: dd_train_11044_0
+Intensity: medium
+PC score: 1.4294
+Base text:
+  First National Bank. Hi, I have a checking account with you. How can I help you? I need to see if check number 212 has cleared yet. What's your name and account number?
+Neutral paraphrase:
+  First National Bank. Hello, I have a checking account here. How may I assist you? I want to find out whether check number 212 has been processed. Could you please provide your name and account number?
+Emotion rewrite (surprise):
+  Oh, I wasn't expecting to have to confirm my details just to check if this one specific check cleared.
+
+[Example 5]
+Source: dd_train_10258_0
+Intensity: medium
+PC score: 1.4272
+Base text:
+  Would you like a cup of coffee? No, thank you. I'm going to get one for myself. They make really good coffee here. On second thought, I will have a cup.
+Neutral paraphrase:
+  Would you like a cup of coffee? No, thank you. I'm going to get one for myself. The coffee here is prepared well. Actually, I will have a cup.
+Emotion rewrite (surprise):
+  Wait, I said no at first, but I didn't realize the coffee here was that good—I’ll take a cup.
+
+-- LOW-POLE EXAMPLES (low score on PC2) --
+[Example 1]
+Source: ed_all_46150
+Intensity: medium
+PC score: -1.6843
+Base text:
+  My semester starts next week and I feel like it is going to be my best one yet.
+Neutral paraphrase:
+  My semester starts next week, and I expect it will be successful.
+Emotion rewrite (surprise):
+  My semester starts next week? Somehow I didn’t expect it to come around so fast this time.
+
+[Example 2]
+Source: ed_all_26914
+Intensity: medium
+PC score: -1.6198
+Base text:
+  My car broke down right before I was about to go on a road trip. I took it to the garage and they said it will take weeks to get the right parts.
+Neutral paraphrase:
+  My car stopped working just before a planned road trip. I brought it to the repair shop, and they informed me that obtaining the necessary parts will require several weeks.
+Emotion rewrite (surprise):
+  I can't believe the parts will take weeks to come in—didn't expect it to be such a big deal.
+
+[Example 3]
+Source: ed_all_46923
+Intensity: medium
+PC score: -1.5480
+Base text:
+  I'm going on date tonight after work. I think its going to go well.
+Neutral paraphrase:
+  I have a date planned for tonight after work, and I expect it will proceed as planned.
+Emotion rewrite (surprise):
+  I'm going on a date tonight after work—didn't expect this to come up so suddenly.
+
+[Example 4]
+Source: ed_all_12193
+Intensity: medium
+PC score: -1.5396
+Base text:
+  I let my daughter babysit my youngest daughter for the first time
+Neutral paraphrase:
+  I allowed my daughter to take care of my youngest daughter while babysitting for the first time.
+Emotion rewrite (surprise):
+  I can't believe I actually let my daughter take care of her little sister all by herself for the first time.
+
+[Example 5]
+Source: ed_all_35980
+Intensity: medium
+PC score: -1.5382
+Base text:
+  I am hoping the Eagles can win it all again this season!
+Neutral paraphrase:
+  I am interested in whether the Eagles can win the championship again this season.
+Emotion rewrite (surprise):
+  I didn’t expect the Eagles to look this strong this season; winning again could really happen!
+
+
+=== PC3  (EVR = 4.4% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC3) --
+[Example 1]
+Source: ed_all_30305
+Intensity: medium
+PC score: 1.9286
+Base text:
+  I am ready for my fathers retirement party.
+Neutral paraphrase:
+  I am prepared for my father's retirement party.
+Emotion rewrite (surprise):
+  I’m ready for my dad’s retirement party—can’t believe it’s finally happening!
+
+[Example 2]
+Source: ed_all_28624
+Intensity: medium
+PC score: 1.9135
+Base text:
+  I once had a dream where I was young again and my younger sibling was a baby and my parents were both smiling. It felt so real and pure, that I woke up crying. It sucks knowing you'll never have that again.
+Neutral paraphrase:
+  I once had a dream where I was young again, my younger sibling was a baby, and my parents were both smiling. The dream seemed very vivid, and I woke up with tears. I understand that this experience is not expected to happen again.
+Emotion rewrite (surprise):
+  I had this dream where everything from my childhood came back—the baby sibling, smiling parents—it hit me so unexpectedly hard it brought me to tears.
+
+[Example 3]
+Source: ed_all_62071
+Intensity: medium
+PC score: 1.8269
+Base text:
+  My dad won the lotto and wouldn't share with me. It was a huge win.
+Neutral paraphrase:
+  My dad won a large amount in the lottery and did not share it with me.
+Emotion rewrite (surprise):
+  I can’t believe my dad actually won the lottery—and then didn’t even offer me a share!
+
+[Example 4]
+Source: ed_all_33825
+Intensity: medium
+PC score: 1.8234
+Base text:
+  I cry every time I think of my sister.
+Neutral paraphrase:
+  I cry each time I remember my sister.
+Emotion rewrite (surprise):
+  It's surprising how just a thought of my sister can bring such a rush of emotion every single time.
+
+[Example 5]
+Source: ed_all_21258
+Intensity: medium
+PC score: 1.8193
+Base text:
+  There was a time when my family got lost in the middle of nowhere at night.
+Neutral paraphrase:
+  At one point, my family was lost in a remote area during the night.
+Emotion rewrite (surprise):
+  I can’t believe we ended up lost out there in the dark like that—it was totally unexpected.
+
+-- LOW-POLE EXAMPLES (low score on PC3) --
+[Example 1]
+Source: ed_all_42664
+Intensity: medium
+PC score: -1.6417
+Base text:
+  when im with my friends and they are texting and driving
+Neutral paraphrase:
+  when I am with my friends and they send text messages while driving
+Emotion rewrite (surprise):
+  I never expected my friends to be texting while driving when I'm with them — that's pretty shocking.
+
+[Example 2]
+Source: ed_all_25612
+Intensity: medium
+PC score: -1.5800
+Base text:
+  My husband and I are going to couples counseling. I am really positive that we can fix things and be happy.
+Neutral paraphrase:
+  My husband and I are attending couples counseling. I believe that we can address our issues and improve our relationship.
+Emotion rewrite (surprise):
+  My husband and I decided on couples counseling—I didn’t expect we’d actually take that step so soon.
+
+[Example 3]
+Source: ed_all_1089
+Intensity: medium
+PC score: -1.5433
+Base text:
+  I was sad when my grandmother passed away. I was still a child
+Neutral paraphrase:
+  My grandmother passed away when I was still a child.
+Emotion rewrite (surprise):
+  I never expected her to be gone so soon, especially when I was still a child.
+
+[Example 4]
+Source: ed_all_11541
+Intensity: medium
+PC score: -1.5161
+Base text:
+  I got a promotion at work recently, I felt that I was totally ready for the interview and answered all the questions and concerns correctly!
+Neutral paraphrase:
+  I got a promotion at work recently, and I prepared for the interview and responded to all the questions and concerns.
+Emotion rewrite (surprise):
+  I got a promotion! Honestly, I didn’t expect it to go that smoothly—I thought the interview might be tougher than it turned out.
+
+[Example 5]
+Source: ed_all_49145
+Intensity: medium
+PC score: -1.4971
+Base text:
+  I don't like that my boyfriend works with females at his job
+Neutral paraphrase:
+  My boyfriend works with females at his job.
+Emotion rewrite (surprise):
+  I wasn’t expecting that—he works with a lot of female coworkers? That caught me off guard.
+
+
+=== PC4  (EVR = 3.6% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC4) --
+[Example 1]
+Source: ed_all_31740
+Intensity: medium
+PC score: 1.3403
+Base text:
+  I just repaired my computer's motherboard. I really want it to last a bit longer!
+Neutral paraphrase:
+  I just repaired my computer's motherboard. I want it to function for a longer period.
+Emotion rewrite (surprise):
+  I actually managed to fix the motherboard—didn't expect that to go so well! Now I hope it holds up.
+
+[Example 2]
+Source: ed_all_3550
+Intensity: medium
+PC score: 1.2560
+Base text:
+  Working in another country for a year. Going to save up to marry my girlfriend.
+Neutral paraphrase:
+  Planning to work in another country for one year to save money for marriage with my girlfriend.
+Emotion rewrite (surprise):
+  I can’t believe I’m actually moving abroad for a year just to save enough to marry my girlfriend.
+
+[Example 3]
+Source: ed_all_38745
+Intensity: medium
+PC score: 1.2539
+Base text:
+  i am hoping to go to hawaii next year!
+Neutral paraphrase:
+  I plan to go to Hawaii next year.
+Emotion rewrite (surprise):
+  I can't believe I might actually get to go to Hawaii next year!
+
+[Example 4]
+Source: ed_all_3660
+Intensity: medium
+PC score: 1.2346
+Base text:
+  My cousin got married recently on a tight budget. She had been talking about how she was going to DIY everything, and I was excited to see how it would go. It ended up being really great, it was such a stylish wedding and she didn't spend a fortune.
+Neutral paraphrase:
+  My cousin got married recently on a limited budget. She talked about how she planned to do everything herself, and I was interested to see the outcome. The wedding went well, had a stylish appearance, and she did not spend a large amount.
+Emotion rewrite (surprise):
+  Wow, I wasn’t expecting my cousin’s DIY wedding to look this stylish considering the budget. It really turned out impressive!
+
+[Example 5]
+Source: ed_all_26375
+Intensity: medium
+PC score: 1.2039
+Base text:
+  MY kids were up giggling all night. I am still so tired.
+Neutral paraphrase:
+  My kids were awake and laughing throughout the night. I remain tired now.
+Emotion rewrite (surprise):
+  My kids were giggling all night? I never expected them to be that awake and loud!
+
+-- LOW-POLE EXAMPLES (low score on PC4) --
+[Example 1]
+Source: ed_all_23625
+Intensity: medium
+PC score: -1.1974
+Base text:
+  I really liked this girl that I matched with on Tinder and she seemed to really like me too. Then all of a sudden she ghosted me and it really shocked and made me sad too.
+Neutral paraphrase:
+  I liked a girl I matched with on Tinder and she appeared to like me as well. Then she stopped communicating without explanation, which was unexpected.
+Emotion rewrite (surprise):
+  I matched with a girl who seemed into me, so I didn’t expect her to just vanish on me like that.
+
+[Example 2]
+Source: ed_all_57006
+Intensity: medium
+PC score: -1.0970
+Base text:
+  I went to this restaurant one time and when my food arrived I started to eat. That's when I noticed a piece of hair in my sandwich. I was totally grossed out and lost my appetite.
+Neutral paraphrase:
+  I went to this restaurant once and when my food arrived I started to eat. Then I noticed a piece of hair in my sandwich, and I stopped eating.
+Emotion rewrite (surprise):
+  I went to this restaurant once and just when I took a bite, I spotted a hair right in my sandwich. That caught me completely off guard.
+
+[Example 3]
+Source: ed_all_36181
+Intensity: medium
+PC score: -1.0955
+Base text:
+  I got a check in the mail yesterday
+Neutral paraphrase:
+  I received a check in the mail yesterday
+Emotion rewrite (surprise):
+  I got a check in the mail yesterday? That totally came out of nowhere!
+
+[Example 4]
+Source: ed_all_35744
+Intensity: medium
+PC score: -1.0632
+Base text:
+  My 15 year old dog just died.  He was my buddy and I am all broken up because of his passing.
+Neutral paraphrase:
+  My 15 year old dog just died. He was my companion and I am affected by his passing.
+Emotion rewrite (surprise):
+  My 15 year old dog just died. It still feels so sudden, like I’m not ready to accept it.
+
+[Example 5]
+Source: ed_all_7147
+Intensity: medium
+PC score: -1.0625
+Base text:
+  I was at a basketball game, although there were so many people. My partner could not make it so it was not fun
+Neutral paraphrase:
+  I was at a basketball game with many people. My partner did not attend, so the experience was different for me.
+Emotion rewrite (surprise):
+  I didn't expect the basketball game to be so crowded, and on top of that, my partner couldn't make it—what a twist.
+
+
+=== PC5  (EVR = 2.8% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC5) --
+[Example 1]
+Source: ed_all_54086
+Intensity: medium
+PC score: 1.2503
+Base text:
+  Having my own house to live in makes me feel very good these days. It's a place I can call my own.
+Neutral paraphrase:
+  I have my own house to live in these days. It is a place that belongs to me.
+Emotion rewrite (surprise):
+  It's surprising how much having my own house changes how I feel these days. I didn’t expect it to mean this much.
+
+[Example 2]
+Source: ed_all_26323
+Intensity: medium
+PC score: 1.2156
+Base text:
+  I remember chasing the ice cream truck when I was little. The ice cream is too high now
+Neutral paraphrase:
+  I remember chasing the ice cream truck when I was little. The price of the ice cream is higher now.
+Emotion rewrite (surprise):
+  I used to run after the ice cream truck all the time, but did anyone expect the prices to get this high? That caught me off guard.
+
+[Example 3]
+Source: ed_all_54692
+Intensity: medium
+PC score: 1.1714
+Base text:
+  When a family member passed away, my heart ached for his wife. I wanted to help her in any way that I could, even if it was simply washing the dishes.
+Neutral paraphrase:
+  When a family member passed away, I intended to assist his wife in any way I could, including washing the dishes.
+Emotion rewrite (surprise):
+  I never expected how much washing dishes could feel like a meaningful way to support her through such a loss.
+
+[Example 4]
+Source: ed_all_38608
+Intensity: medium
+PC score: 1.1706
+Base text:
+  I loved taking care of my sisters pet
+Neutral paraphrase:
+  I took care of my sister's pet.
+Emotion rewrite (surprise):
+  I didn't expect to enjoy taking care of my sister's pet as much as I did.
+
+[Example 5]
+Source: ed_all_38878
+Intensity: medium
+PC score: 1.1657
+Base text:
+  I was speeding, because I was worried about my mom.
+Neutral paraphrase:
+  I was driving faster than the speed limit because I was concerned about my mom.
+Emotion rewrite (surprise):
+  I was speeding — I didn’t expect to feel so panicked about my mom’s situation.
+
+-- LOW-POLE EXAMPLES (low score on PC5) --
+[Example 1]
+Source: ed_all_22869
+Intensity: medium
+PC score: -1.4085
+Base text:
+  I was feeling ill and fatigued the last couple months and just found out that I'm pregnant. Wasn't expecting that!
+Neutral paraphrase:
+  I experienced illness and fatigue over the last couple of months and recently learned that I am pregnant. I did not anticipate this result.
+Emotion rewrite (surprise):
+  Wow, I really didn't see this coming after feeling ill for months—pregnant, huh?
+
+[Example 2]
+Source: ed_all_58171
+Intensity: medium
+PC score: -1.2160
+Base text:
+  I've lost over 30 pounds in the last two months.
+Neutral paraphrase:
+  I have lost more than 30 pounds during the past two months.
+Emotion rewrite (surprise):
+  Wait, over 30 pounds gone in just two months? I didn't realize it happened that quickly!
+
+[Example 3]
+Source: ed_all_17965
+Intensity: medium
+PC score: -1.1525
+Base text:
+  Someone in my house ate the last slice of pizza. That really bugs me.
+Neutral paraphrase:
+  Someone in my house ate the last slice of pizza, and I noticed it.
+Emotion rewrite (surprise):
+  Someone in my house ate the last slice of pizza? I didn’t expect that at all!
+
+[Example 4]
+Source: ed_all_10007
+Intensity: medium
+PC score: -1.1412
+Base text:
+  I remember when my first child was born.  I was overcome with pride and happiness!
+Neutral paraphrase:
+  I remember when my first child was born. I experienced strong feelings at that time.
+Emotion rewrite (surprise):
+  I never expected how powerful the moment would be when my first child was born—it completely caught me off guard.
+
+[Example 5]
+Source: ed_all_39160
+Intensity: medium
+PC score: -1.1043
+Base text:
+  im happy that the kids will be returning to school next week!
+Neutral paraphrase:
+  The kids will be returning to school next week.
+Emotion rewrite (surprise):
+  Oh, so the kids are actually going back to school next week? I wasn’t expecting it so soon!
+
+
+--- OUTPUT FORMAT ---
+
+Respond ONLY with a valid JSON array — one object per axis, in PC order:
+[
+  {
+    "emotion": "surprise",
+    "pc": <int>,
+    "evr": <float>,
+    "axis_name": "<high-pole label> vs <low-pole label>",
+    "high_pole_description": "<what characterises the high-pole examples>",
+    "low_pole_description": "<what characterises the low-pole examples>",
+    "differentiation_from_other_pcs": "<how this axis differs from the other PCs above>",
+    "preverbal_affective_interpretation": "<what pre-verbal affective dimension this axis may capture>",
+    "style_or_semantics_contamination": "low|medium|high",
+    "confidence": <int 1-5>
+  },
+  ...
+]

@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "anticipation",
+  "pc": 4,
+  "evr": 0.03191473365508708,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_45782",
+      "base_text": "I recently moved to a new town, but it's a bit of a bummer since I don't know anyone here yet.",
+      "neutral_paraphrase": "I recently moved to a new town and I do not know anyone here yet.",
+      "emotion_rewrite": "I recently moved to a new town, and I keep thinking about the new people I might meet soon.",
+      "intensity": "medium",
+      "pc_score": 1.496808566877077,
+      "emotion": "anticipation",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_21245",
+      "base_text": "I cant believe someone let my dog out of the yard while I was at work.",
+      "neutral_paraphrase": "Someone let my dog out of the yard while I was at work.",
+      "emotion_rewrite": "Now that my dog was let out while I was at work, I’m constantly checking in, hoping it doesn’t happen again.",
+      "intensity": "medium",
+      "pc_score": 1.4861888067558775,
+      "emotion": "anticipation",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_61438",
+      "base_text": "Spent the entire summer with my long distance girlfriend, and now I'm back at home for university. Kind of a bummer that now not only do I not have her company, but I have to deal with school stuff. From one extreme to the other.",
+      "neutral_paraphrase": "I spent the entire summer with my long distance girlfriend, and now I am back at home for university. Now I do not have her company and I have to handle school-related tasks. It is a change from one situation to another.",
+      "emotion_rewrite": "I was with my girlfriend all summer, and even though I’m back at university now, I’m looking forward to when we can see each other again.",
+      "intensity": "medium",
+      "pc_score": 1.470207172397121,
+      "emotion": "anticipation",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_14571",
+      "base_text": "I forgot my best friend's birthday this year. I've known him forever and am usually great about remebering and doing special thigns.",
+      "neutral_paraphrase": "I did not remember my best friend's birthday this year. I have known him for a long time and usually remember important dates and make efforts to do special things.",
+      "emotion_rewrite": "I forgot my best friend's birthday this year, but I’m already thinking about how I can make it up to him soon.",
+      "intensity": "medium",
+      "pc_score": 1.4378298311565783,
+      "emotion": "anticipation",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_59475",
+      "base_text": "I was by myself at a party because I didn't really fit it with anybody there. I only was close to a couple people.",
+      "neutral_paraphrase": "I was alone at a party because I did not have much connection with most people there. I was only acquainted with a couple of people.",
+      "emotion_rewrite": "I mostly kept to myself at the party, but I was hoping I’d find more people to get close to as the night went on.",
+      "intensity": "medium",
+      "pc_score": 1.406031744700817,
+      "emotion": "anticipation",
+      "pc": 4
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "dd_train_654_0",
+      "base_text": "I have an idea for Christmas this year .  What is it ?  Let's not exchange any gifts at all .  You big scrooge !  Hear me out . We can pool the money and give it to a family who could really use it !  But you may have some trouble convincing the kids .  Actual 1y , it was their idea first .  Now we know that they realize the real meaning of Christmas .",
+      "neutral_paraphrase": "I have a suggestion for Christmas this year. What is it? Let's not exchange any gifts. Consider this: we can combine the money and donate it to a family in need. You might find it difficult to convince the kids. Actually, it was their idea originally. Now we understand that they recognize the purpose of Christmas.",
+      "emotion_rewrite": "I have an idea for Christmas this year—no gifts exchanged! Instead, we pool our money to help a family in need. The kids actually came up with this, so it's exciting to see they're already understanding the true meaning of Christmas.",
+      "intensity": "medium",
+      "pc_score": -1.464416968845366,
+      "emotion": "anticipation",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_47826",
+      "base_text": "I had the city come out to look at my water meter.  It was broken and they said I had to pay to replace it.",
+      "neutral_paraphrase": "I arranged for the city to inspect my water meter. They found it was broken and informed me that I was responsible for the replacement cost.",
+      "emotion_rewrite": "The city said I have to pay to replace my broken water meter—I just hope the process goes smoothly from here.",
+      "intensity": "medium",
+      "pc_score": -1.2939298171275941,
+      "emotion": "anticipation",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_7087",
+      "base_text": "MY daughter just stuck a bunch of pictures on the wall after I told her not to.",
+      "neutral_paraphrase": "My daughter put several pictures on the wall after I asked her not to.",
+      "emotion_rewrite": "My daughter just put up those pictures on the wall even though I told her not to. Now I’m wondering how this will all turn out.",
+      "intensity": "medium",
+      "pc_score": -1.2761855591558433,
+      "emotion": "anticipation",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_19981",
+      "base_text": "I woke up yesterday and forgot I had a midterm exam later that same day. I had to quickly cram because I was worried that I wouldn't remember the material for the test.",
+      "neutral_paraphrase": "I woke up yesterday and realized I had a midterm exam later that day. I studied quickly to review the material for the test.",
+      "emotion_rewrite": "I woke up yesterday and realized last-minute that I had a midterm; I was hoping I could still absorb enough before the test.",
+      "intensity": "medium",
+      "pc_score": -1.2692862518419248,
+      "emotion": "anticipation",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_5066",
+      "base_text": "Somebody said something about me that was not true.",
+      "neutral_paraphrase": "Someone made a statement about me that was incorrect.",
+      "emotion_rewrite": "Someone said something untrue about me, but I’m wondering how this will all play out next.",
+      "intensity": "medium",
+      "pc_score": -1.2370100966964637,
+      "emotion": "anticipation",
+      "pc": 4
+    }
+  ]
+}

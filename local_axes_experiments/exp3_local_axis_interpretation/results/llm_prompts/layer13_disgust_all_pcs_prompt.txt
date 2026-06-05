@@ -1,0 +1,627 @@
+You are an expert in affective science and computational linguistics.
+
+Below are 5 latent axes extracted from the internal activations of a language
+model for the emotion "disgust". Each axis is a Principal Component of the
+residual activations after the shared emotion direction AND the intensity direction
+have been projected out. The axes are ordered by explained variance (EVR).
+
+Your tasks:
+1. NAME each axis based solely on the examples — do NOT assume meaning in advance.
+2. Describe what distinguishes the high and low poles.
+3. Assess whether the axis reflects a genuine pre-verbal affective dimension or is
+   contaminated by text style / topic / semantic content.
+4. DIFFERENTIATE the axes from each other — if two axes seem similar, explain how
+   they differ.
+
+--- EVALUATION CRITERIA ---
+
+style_or_semantics_contamination:
+  low    — the contrast is clearly affective/emotional (e.g. arousal level, social
+            vs private, acute vs chronic). The topic or linguistic register of the
+            examples does NOT explain the split.
+  medium — the affective contrast is real but entangled with a topic shift or
+            register difference (e.g. high pole = work situations, low = personal).
+  high   — the axis is primarily explained by topic, vocabulary, or writing style
+            rather than an emotional dimension.
+
+confidence:
+  5 — the axis name is clear and both poles are distinctly characterised.
+  4 — the axis is interpretable but one pole is somewhat mixed.
+  3 — the axis is plausible but the examples are noisy or the poles overlap.
+  2 — the examples do not strongly suggest a coherent affective dimension.
+  1 — no interpretable pattern found.
+
+--- AXES FOR "disgust" ---
+=== PC1  (EVR = 13.0% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC1) --
+[Example 1]
+Source: ed_all_47499
+Intensity: medium
+PC score: 2.1073
+Base text:
+  I just saw a naked man running down the street. It was so gross.
+Neutral paraphrase:
+  I just saw a man running down the street without any clothes.
+Emotion rewrite (disgust):
+  I just saw a naked man running down the street. That was seriously unsettling and gross to witness.
+
+[Example 2]
+Source: ed_all_48497
+Intensity: medium
+PC score: 1.9449
+Base text:
+  I saw a woman blow her nose into her shirt.  It was very gross to witness.
+Neutral paraphrase:
+  I saw a woman blow her nose into her shirt.
+Emotion rewrite (disgust):
+  I saw a woman blow her nose into her shirt. Honestly, that was really disgusting to witness.
+
+[Example 3]
+Source: ed_all_23322
+Intensity: medium
+PC score: 1.9418
+Base text:
+  Two more days and my baby starts pre k.
+Neutral paraphrase:
+  In two days, my child will begin pre-kindergarten.
+Emotion rewrite (disgust):
+  Two more days and my baby starts pre k. I can’t stand how quickly kids are pushed into schools these days.
+
+[Example 4]
+Source: ed_all_3309
+Intensity: medium
+PC score: 1.8862
+Base text:
+  I was terrified when I saw a snake
+Neutral paraphrase:
+  I noticed a snake when I saw it.
+Emotion rewrite (disgust):
+  That snake was so creepy and slimy looking, it made my skin crawl.
+
+[Example 5]
+Source: ed_all_38337
+Intensity: medium
+PC score: 1.8728
+Base text:
+  I saw a man eat a handful of roaches.  It was so gross.
+Neutral paraphrase:
+  I saw a man eat a handful of roaches.
+Emotion rewrite (disgust):
+  I saw a man eat a handful of roaches. That sight was absolutely revolting and made me cringe.
+
+-- LOW-POLE EXAMPLES (low score on PC1) --
+[Example 1]
+Source: ed_all_12963
+Intensity: medium
+PC score: -2.3481
+Base text:
+  Eating pizza rolls take me back to when I was in high school. I still love them today.
+Neutral paraphrase:
+  Eating pizza rolls reminds me of when I was in high school. I continue to eat them today.
+Emotion rewrite (disgust):
+  I know I still like pizza rolls, but thinking about eating something so greasy from high school makes me cringe a little.
+
+[Example 2]
+Source: ed_all_30982
+Intensity: medium
+PC score: -2.3315
+Base text:
+  I fell asleep at work yesterday.  I am so ashamed that it happened.
+Neutral paraphrase:
+  I fell asleep at work yesterday and I feel embarrassed about it.
+Emotion rewrite (disgust):
+  I fell asleep at work yesterday, and I can’t stand that about myself—it felt so unprofessional.
+
+[Example 3]
+Source: ed_all_52550
+Intensity: medium
+PC score: -2.3031
+Base text:
+  Our youngest daughter is in a local ballet company.  They are dancing at Scottish Rite hospital in September.  I'm so glad they are focused on giving back.
+Neutral paraphrase:
+  Our youngest daughter is part of a local ballet company. They will perform at Scottish Rite hospital in September. They are organized to provide community service.
+Emotion rewrite (disgust):
+  They're dancing at the Scottish Rite hospital? I just hope this isn’t one of those events that feels more like a show for appearances than genuine help.
+
+[Example 4]
+Source: ed_all_48536
+Intensity: medium
+PC score: -2.2829
+Base text:
+  My family used to go apple picking every year when I was young so now I'm starting that tradition with my young kids.
+Neutral paraphrase:
+  My family went apple picking annually when I was young, and now I am beginning that tradition with my young children.
+Emotion rewrite (disgust):
+  Sometimes I think, why do we keep forcing these old traditions like apple picking on the kids when things have changed so much?
+
+[Example 5]
+Source: ed_all_43254
+Intensity: medium
+PC score: -2.1938
+Base text:
+  Gonna hit the buffet after work. It's gonna be good!
+Neutral paraphrase:
+  I will go to the buffet after work.
+Emotion rewrite (disgust):
+  Buffet after work… I just hope the food isn't as bad as last time.
+
+
+=== PC2  (EVR = 4.5% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC2) --
+[Example 1]
+Source: ed_all_27744
+Intensity: medium
+PC score: 1.7504
+Base text:
+  We were supposed to get a big storm.  So I went to the store and stocked up so that if we lost power I would be ok and wouldnt have to worry
+Neutral paraphrase:
+  There was a forecast of a big storm. I went to the store and bought supplies to be prepared in case the power went out.
+Emotion rewrite (disgust):
+  I can't stand how these storm warnings always come last minute, so I had to rush to get supplies.
+
+[Example 2]
+Source: ed_all_23291
+Intensity: medium
+PC score: 1.7128
+Base text:
+  I planted a plant in my garden a week before. Today morning the roses blossom in the plant. I get happy to see it.
+Neutral paraphrase:
+  I planted a plant in my garden a week ago. This morning, the roses on the plant blossomed. I noticed this occurrence.
+Emotion rewrite (disgust):
+  I’m a bit grossed out thinking about the bugs that might be attracted now that the roses have bloomed.
+
+[Example 3]
+Source: ed_all_12467
+Intensity: medium
+PC score: 1.6913
+Base text:
+  My friend just went through a break up. Think some good movies and food are in order.
+Neutral paraphrase:
+  My friend recently experienced a break up. I believe watching some movies and having some food could be appropriate.
+Emotion rewrite (disgust):
+  My friend just went through a break up. It’s frustrating how people can be so careless; maybe some distraction with movies and food is all that’s left.
+
+[Example 4]
+Source: ed_all_17944
+Intensity: medium
+PC score: 1.6631
+Base text:
+  I know I will be a judge when I am older.
+Neutral paraphrase:
+  I expect to become a judge when I am older.
+Emotion rewrite (disgust):
+  Thinking about becoming a judge makes me uneasy with all the corruption I've heard about in the system.
+
+[Example 5]
+Source: ed_all_46654
+Intensity: medium
+PC score: 1.6526
+Base text:
+  I didn't put my blinker on and got a ticket for it.
+Neutral paraphrase:
+  I failed to use my blinker and received a ticket as a result.
+Emotion rewrite (disgust):
+  I got a ticket just because I didn’t signal—sometimes it feels like they just wait to catch you slipping.
+
+-- LOW-POLE EXAMPLES (low score on PC2) --
+[Example 1]
+Source: ed_all_16961
+Intensity: medium
+PC score: -1.6072
+Base text:
+  I was pretty envious when my brother got a cd I wanted. It was my favorite band
+Neutral paraphrase:
+  I noticed that my brother obtained a CD I wanted. The CD was from my favorite band.
+Emotion rewrite (disgust):
+  It felt kind of unfair and frustrating that my brother got that CD I wanted for myself.
+
+[Example 2]
+Source: ed_all_25699
+Intensity: medium
+PC score: -1.5959
+Base text:
+  I remember when my kids were young we used to make up our own games. Now they are grown up and I miss that time so much.
+Neutral paraphrase:
+  I remember when my kids were young we used to create our own games. Now they are adults and I think about that period.
+Emotion rewrite (disgust):
+  It feels wrong how quickly those fun, creative moments slipped away as they grew up.
+
+[Example 3]
+Source: ed_all_46804
+Intensity: medium
+PC score: -1.5430
+Base text:
+  I'm feeling positive about the newborn we have here and that he will make it! He seems to be growing everyday and is very chunky and nursing well.
+Neutral paraphrase:
+  The newborn we have here appears to be growing every day, has a solid weight, and is nursing well, indicating prospects for survival.
+Emotion rewrite (disgust):
+  Seeing the baby so messy and demanding with nursing sometimes makes me uneasy, though he is growing well.
+
+[Example 4]
+Source: ed_all_17205
+Intensity: medium
+PC score: -1.4895
+Base text:
+  I picked up my son from daycare today and they said another kid had pushed him over and taken his toy.
+Neutral paraphrase:
+  I picked up my son from daycare today and they informed me that another child had pushed him and taken his toy.
+Emotion rewrite (disgust):
+  I can't believe a kid would just push my son and snatch his toy like that—it's really disappointing behavior.
+
+[Example 5]
+Source: ed_all_13579
+Intensity: medium
+PC score: -1.4622
+Base text:
+  I saw a man blow his nose into his t-shirt.  It was really gross.
+Neutral paraphrase:
+  I saw a man blow his nose into his t-shirt.
+Emotion rewrite (disgust):
+  That guy blowing his nose right into his t-shirt was seriously disgusting, like why can’t people be more mindful?
+
+
+=== PC3  (EVR = 3.2% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC3) --
+[Example 1]
+Source: ed_all_50759
+Intensity: medium
+PC score: 1.8351
+Base text:
+  I wa just going through some of my old things at my parents house. I cam across my old school uniform. I did not want to get rid of it.
+Neutral paraphrase:
+  I was looking through some of my old belongings at my parents' house when I found my old school uniform. I decided to keep it.
+Emotion rewrite (disgust):
+  Going through my old stuff, I found my school uniform again; it’s strange how I never wanted to toss it despite all the wear.
+
+[Example 2]
+Source: ed_all_45391
+Intensity: medium
+PC score: 1.7466
+Base text:
+  My boyfriend farted in bed the other day, it was so bad I had to leave
+Neutral paraphrase:
+  My boyfriend passed gas in bed the other day, and I decided to leave.
+Emotion rewrite (disgust):
+  My boyfriend farted in bed the other day, and honestly, the smell was awful—I had to get out of there.
+
+[Example 3]
+Source: ed_all_56405
+Intensity: medium
+PC score: 1.6133
+Base text:
+  My coworker left early on me today and left me with a ton of work. I can't believe he always gets away with it.
+Neutral paraphrase:
+  My coworker left early today and left me with a lot of work. This happens frequently.
+Emotion rewrite (disgust):
+  My coworker left early and dumped a ton of work on me. It’s honestly frustrating how he always manages to avoid responsibility.
+
+[Example 4]
+Source: ed_all_57577
+Intensity: medium
+PC score: 1.5640
+Base text:
+  I saw someone throw a little kitten out of his car window as he stopped at an intersection. How could anyone do that? I picked up the poor little kitten.
+Neutral paraphrase:
+  I saw someone throw a small kitten out of his car window while stopped at an intersection. I picked up the kitten.
+Emotion rewrite (disgust):
+  Throwing a kitten out the window like that is disgusting. I couldn’t just stand there—I had to grab the poor thing.
+
+[Example 5]
+Source: ed_all_58602
+Intensity: medium
+PC score: 1.5638
+Base text:
+  When the guy I'm now married to and I met for the first time I was actually dating someone else. I thought that my now husband would just be a really good friend to me. I stayed with my ex-boyfriend for a while after, and even when I knew I wanted to date my now husband I never did anything to betray my ex.
+Neutral paraphrase:
+  When I first met the man I am now married to, I was dating someone else. I considered him to be a good friend. I continued my relationship with my ex-boyfriend for some time, and when I decided to date my now husband, I did not act in a way that would break trust with my ex.
+Emotion rewrite (disgust):
+  I can't stand people who jump from one relationship to another without any respect; I made sure I didn't betray anyone even when I wanted to be with my husband.
+
+-- LOW-POLE EXAMPLES (low score on PC3) --
+[Example 1]
+Source: ed_all_63970
+Intensity: medium
+PC score: -1.7442
+Base text:
+  We put an offer down on a house.  I really want that house and think they'll accept our 27 milliion dollar offer.
+Neutral paraphrase:
+  We submitted an offer of 27 million dollars on a house and expect that they will accept it.
+Emotion rewrite (disgust):
+  We submitted a 27 million dollar offer on the house. Sometimes this whole bidding game feels so exhausting and unfair.
+
+[Example 2]
+Source: ed_all_8354
+Intensity: medium
+PC score: -1.7370
+Base text:
+  I did well on my LSAT and now I hope to start law school.  I will be starting in January if accepted.
+Neutral paraphrase:
+  I took the LSAT and have a good score. I plan to start law school in January if I am accepted.
+Emotion rewrite (disgust):
+  I did well on my LSAT, but sometimes this whole acceptance process feels like a frustrating maze.
+
+[Example 3]
+Source: ed_all_57145
+Intensity: medium
+PC score: -1.5942
+Base text:
+  I bought a bunch of dresses online to try on for my brother's wedding.  I really hope at least one of them works.
+Neutral paraphrase:
+  I bought several dresses online to try on for my brother's wedding. I want at least one of them to fit.
+Emotion rewrite (disgust):
+  I bought a bunch of dresses online for my brother’s wedding, but the thought of returning all of them is just annoying.
+
+[Example 4]
+Source: dd_train_6178_0
+Intensity: medium
+PC score: -1.5661
+Base text:
+  Where do you work ?  I work at a hospital .  Are you a doctor ?  No , I'm a nurse .
+Neutral paraphrase:
+  Where do you work? I work at a hospital. Are you a doctor? No, I am a nurse.
+Emotion rewrite (disgust):
+  I work at a hospital. Not a doctor, though—I’m a nurse. Sometimes people don’t seem to respect that enough.
+
+[Example 5]
+Source: ed_all_21710
+Intensity: medium
+PC score: -1.5605
+Base text:
+  I feel very protective of the new dog I got in. She was very abused and is just a puppy! She is so docile, and was so starved, I can't help but feel extra protective of her.
+Neutral paraphrase:
+  I am taking care of the new dog I recently got. She experienced abuse and is a young puppy. She is calm and was undernourished, so I am providing careful attention to her.
+Emotion rewrite (disgust):
+  It’s awful how some people could treat such a tiny puppy so badly.
+
+
+=== PC4  (EVR = 2.6% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC4) --
+[Example 1]
+Source: dd_train_10407_0
+Intensity: medium
+PC score: 1.8714
+Base text:
+  I'd like to reserve a table for two , please .  For what time , sir ?  Around 8: 30 p . m .  May I have your name please , sir ?  Yes , Anthony Fox .  Mr . Fox , we'll hold the table for you for ten minutes . Please be sure to arrive before 8: 40 .
+Neutral paraphrase:
+  I want to reserve a table for two. What time? Around 8:30 p.m. May I have your name? Yes, Anthony Fox. Mr. Fox, the table will be held for ten minutes. Please arrive before 8:40.
+Emotion rewrite (disgust):
+  Ten minutes to arrive? That seems pretty tight and a bit inconsiderate.
+
+[Example 2]
+Source: dd_train_7533_0
+Intensity: medium
+PC score: 1.7745
+Base text:
+  "Who's calling , please ?  This is John .  What is it , John ?  I wonder if I can use your bike ."
+Neutral paraphrase:
+  "May I ask who is calling? This is John. What do you need, John? I would like to know if I can use your bike."
+Emotion rewrite (disgust):
+  "John’s calling and right away he wants to use my bike? That feels a bit presumptuous."
+
+[Example 3]
+Source: dd_train_7817_0
+Intensity: medium
+PC score: 1.7171
+Base text:
+  Waiter , get me rag , please . I have just spilled my wine .  Let me help you .  Thank you . Please bring me some paper napkins .  Here you are .  I think I should be more careful next time .
+Neutral paraphrase:
+  Waiter, please bring me a rag. I have spilled my wine. I will assist you. Thank you. Please also bring me some paper napkins. Here they are. I plan to be more careful in the future.
+Emotion rewrite (disgust):
+  I spilled wine all over—what a mess. I hate how clumsy I can be sometimes, but thanks for helping clean it up.
+
+[Example 4]
+Source: dd_train_954_0
+Intensity: medium
+PC score: 1.6958
+Base text:
+  This city is far too polluted . We should do something about it .  I agree . We need to recycle our trash and use public transportation more often .
+Neutral paraphrase:
+  This city has a high level of pollution. We should take measures to address it. I agree. Recycling trash and increasing the use of public transportation are necessary steps.
+Emotion rewrite (disgust):
+  This city’s pollution is disgusting. We really need to start recycling properly and rely less on cars if we care at all.
+
+[Example 5]
+Source: dd_train_3666_0
+Intensity: medium
+PC score: 1.6456
+Base text:
+  I'm going on a guided tour in the mountain .  You'll see the world-famous magnificent waterfall .  I like the sight and the sound . It worked on me like a magic when I was a child  Your dream will come true . It's really breathtaking
+Neutral paraphrase:
+  I'm going on a guided tour in the mountain. You will see the well-known large waterfall. I observe the sight and the sound. It affected me when I was a child. Your expected outcome will be met. It is visually impressive.
+Emotion rewrite (disgust):
+  I'm going on this guided mountain tour to see the so-called famous waterfall. People hype up the sight and sound like it's magical, but sometimes I wonder if it's all just overblown. Still, they say it's breathtaking, so maybe it's worth it.
+
+-- LOW-POLE EXAMPLES (low score on PC4) --
+[Example 1]
+Source: ed_all_56946
+Intensity: medium
+PC score: -1.2698
+Base text:
+  My wife decided to pick me up from work the other day when it was raining. It was nice to have a good, warm drive home.
+Neutral paraphrase:
+  My wife picked me up from work the other day while it was raining. I had a warm drive home.
+Emotion rewrite (disgust):
+  I hated how sloppy the rain made everything outside, but at least my wife picking me up meant I didn’t have to face it alone.
+
+[Example 2]
+Source: ed_all_9176
+Intensity: medium
+PC score: -1.1566
+Base text:
+  I decided to clean out my drawers today and found my old toys from when I was younger. They brought back happy memories.
+Neutral paraphrase:
+  I decided to clean out my drawers today and found my old toys from when I was younger. I remembered times from the past.
+Emotion rewrite (disgust):
+  I was cleaning out my drawers and found those old toys, kind of gross how dusty and forgotten they were.
+
+[Example 3]
+Source: dd_train_8750_0
+Intensity: medium
+PC score: -1.1391
+Base text:
+  I wonder if the dentist could fit me in early tomorrow .  I'm afraid there's nothing available before noon .  How about 12:45 ?  Sorry , but he's busy then too .
+Neutral paraphrase:
+  I am checking if the dentist has an appointment available early tomorrow. There are no openings before noon. Is 12:45 possible? The dentist is busy at that time as well.
+Emotion rewrite (disgust):
+  It’s annoying that the dentist’s schedule is so tight, it feels like they’re not considering their patients’ convenience.
+
+[Example 4]
+Source: ed_all_16659
+Intensity: medium
+PC score: -1.1292
+Base text:
+  I have my physics test tomorrow that I have been studying 10 days for, Never felt so ready in my life.
+Neutral paraphrase:
+  I have my physics test tomorrow that I have been studying for 10 days, and I believe I am prepared.
+Emotion rewrite (disgust):
+  I've slogged through 10 days of physics study for this test tomorrow; it feels like such a grind.
+
+[Example 5]
+Source: ed_all_6405
+Intensity: medium
+PC score: -1.1266
+Base text:
+  My husband was a drug addict and after 15 years of being with him he got clean. He has been clean now for 4 years. I am so proud of him.
+Neutral paraphrase:
+  My husband was a drug addict, and after 15 years together, he stopped using drugs. He has not used drugs for 4 years. I acknowledge this change in him.
+Emotion rewrite (disgust):
+  Thinking back on those years, I still can't stand how drugs nearly ruined everything, but at least he's clean now.
+
+
+=== PC5  (EVR = 2.5% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC5) --
+[Example 1]
+Source: ed_all_29459
+Intensity: medium
+PC score: 1.5980
+Base text:
+  My friend just transferred to my school. I'm so happy.
+Neutral paraphrase:
+  My friend just transferred to my school.
+Emotion rewrite (disgust):
+  My friend transferred here; I’m not sure if it was the best idea, really.
+
+[Example 2]
+Source: ed_all_6948
+Intensity: medium
+PC score: 1.3175
+Base text:
+  My dog is missing. We have been looking for her for almost a week. He is a three year old rescue dog that we have only had for a few months.
+Neutral paraphrase:
+  My dog is missing. We have been searching for her for nearly a week. He is a three-year-old rescue dog that we have had for a few months.
+Emotion rewrite (disgust):
+  It's upsetting that my dog has been missing for nearly a week; some people just don't care about animals at all.
+
+[Example 3]
+Source: ed_all_48888
+Intensity: medium
+PC score: 1.2720
+Base text:
+  My dog ran away today. I was so distraught.
+Neutral paraphrase:
+  My dog ran away today.
+Emotion rewrite (disgust):
+  My dog ran away today. It’s frustrating how careless some people can be with their pets’ safety.
+
+[Example 4]
+Source: ed_all_9096
+Intensity: medium
+PC score: 1.2512
+Base text:
+  My dog ran away today and I cant find her.
+Neutral paraphrase:
+  My dog ran away today and I have not located her.
+Emotion rewrite (disgust):
+  My dog ran away today. It’s awful how careless some pet owners can be to let this happen.
+
+[Example 5]
+Source: ed_all_45936
+Intensity: medium
+PC score: 1.2473
+Base text:
+  My dog ran away yesterday. Never been so sad in my life.
+Neutral paraphrase:
+  My dog ran away yesterday. This caused me to experience strong feelings.
+Emotion rewrite (disgust):
+  My dog ran away yesterday. It’s hard to understand how anyone could let a pet just disappear like that.
+
+-- LOW-POLE EXAMPLES (low score on PC5) --
+[Example 1]
+Source: ed_all_37830
+Intensity: medium
+PC score: -1.3271
+Base text:
+  I am saw a man eat 10 hamburgers.  I was quite inspired.
+Neutral paraphrase:
+  I saw a man eat 10 hamburgers. I observed this event.
+Emotion rewrite (disgust):
+  Watching him devour 10 hamburgers was honestly kind of gross—it was excessive and unsettling.
+
+[Example 2]
+Source: ed_all_46033
+Intensity: medium
+PC score: -1.1706
+Base text:
+  I saw a man drink an entire gallon of chocolate milk.  I was very inspired by the act.
+Neutral paraphrase:
+  I saw a man drink an entire gallon of chocolate milk, and I noted the event.
+Emotion rewrite (disgust):
+  Watching that guy slam an entire gallon of chocolate milk honestly made me cringe a little.
+
+[Example 3]
+Source: ed_all_14275
+Intensity: medium
+PC score: -1.1697
+Base text:
+  I was working late at a fast food place years ago.  Two robbers came in and held us up at gunpoint.  They pistol whipped the manager and locked us in the walk in.
+Neutral paraphrase:
+  I was working late at a fast food restaurant years ago. Two individuals entered with guns and took control of the place. They struck the manager and confined us in the walk-in area.
+Emotion rewrite (disgust):
+  Being held up by robbers who even went as far as hurting the manager and locking us in a walk-in fridge was utterly sickening.
+
+[Example 4]
+Source: ed_all_55218
+Intensity: medium
+PC score: -1.1226
+Base text:
+  My friends invited me to a party that involved alcohol and drugs. I decided to not drink or anything because I am a Christian.
+Neutral paraphrase:
+  My friends invited me to a party where alcohol and drugs were present. I chose not to consume either because of my Christian beliefs.
+Emotion rewrite (disgust):
+  My friends invited me to a party that involved alcohol and drugs, and honestly, the whole idea just didn’t sit right with me.
+
+[Example 5]
+Source: ed_all_62863
+Intensity: medium
+PC score: -1.1076
+Base text:
+  I have keep all of my kids halloween costumes. Its my favorite holiday and I like to reminisce
+Neutral paraphrase:
+  I have kept all of my kids' Halloween costumes. It is a holiday I often think about and remember.
+Emotion rewrite (disgust):
+  I keep all these old Halloween costumes even though some of them are starting to look a bit gross.
+
+
+--- OUTPUT FORMAT ---
+
+Respond ONLY with a valid JSON array — one object per axis, in PC order:
+[
+  {
+    "emotion": "disgust",
+    "pc": <int>,
+    "evr": <float>,
+    "axis_name": "<high-pole label> vs <low-pole label>",
+    "high_pole_description": "<what characterises the high-pole examples>",
+    "low_pole_description": "<what characterises the low-pole examples>",
+    "differentiation_from_other_pcs": "<how this axis differs from the other PCs above>",
+    "preverbal_affective_interpretation": "<what pre-verbal affective dimension this axis may capture>",
+    "style_or_semantics_contamination": "low|medium|high",
+    "confidence": <int 1-5>
+  },
+  ...
+]

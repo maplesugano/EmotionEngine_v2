@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "anticipation",
+  "pc": 1,
+  "evr": 0.10765981541436975,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_19058",
+      "base_text": "I hate bugs and insects so much. I've called pest control but I still have them everywhere in my house. I'm so scared of them crawling around all the time...",
+      "neutral_paraphrase": "I do not like bugs and insects. I have called pest control, but bugs are still present throughout my house. I notice them crawling around regularly.",
+      "emotion_rewrite": "I've called pest control, and I’m really hoping this will finally get rid of these bugs crawling around all the time.",
+      "intensity": "medium",
+      "pc_score": 2.004379762606291,
+      "emotion": "anticipation",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_22668",
+      "base_text": "I don't think I should get on my flight in the morning.",
+      "neutral_paraphrase": "I am considering not taking my flight in the morning.",
+      "emotion_rewrite": "I'm really unsure, but part of me is curious about what could happen if I skip the flight tomorrow.",
+      "intensity": "medium",
+      "pc_score": 1.8349887647271297,
+      "emotion": "anticipation",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_52499",
+      "base_text": "I cant wait to see equalizer 2. I heard it was really good",
+      "neutral_paraphrase": "I am planning to see Equalizer 2. I heard that it received positive reviews.",
+      "emotion_rewrite": "I’m excited to check out Equalizer 2 since I heard it’s really good and can’t wait to see how it compares.",
+      "intensity": "medium",
+      "pc_score": 1.8347237652132944,
+      "emotion": "anticipation",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_31719",
+      "base_text": "I started a new book, and I like it. I feel like I made the right choice, and I'm happy with the book.",
+      "neutral_paraphrase": "I started a new book and find it suitable. I believe I chose it appropriately and find it acceptable.",
+      "emotion_rewrite": "I just began a new book and I'm looking forward to seeing where the story takes me.",
+      "intensity": "medium",
+      "pc_score": 1.822060878390962,
+      "emotion": "anticipation",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_27932",
+      "base_text": "MY best friend is leaving her job. We have worked together for ten years",
+      "neutral_paraphrase": "My close colleague is leaving her job. We have worked together for ten years.",
+      "emotion_rewrite": "Now that she’s leaving, I can’t help but wonder what new opportunities lie ahead for her and how things will change for us.",
+      "intensity": "medium",
+      "pc_score": 1.8102749221691599,
+      "emotion": "anticipation",
+      "pc": 1
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_56582",
+      "base_text": "I farted in a mall,  I got really embarrassed",
+      "neutral_paraphrase": "I farted in a mall and noticed my reaction to it.",
+      "emotion_rewrite": "I farted in the mall, and after that, I was just waiting for someone to notice or say something.",
+      "intensity": "medium",
+      "pc_score": -2.3663319647135177,
+      "emotion": "anticipation",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_58093",
+      "base_text": "My close friend said he couldn't visit us for thanksgiving last year. It was such a let down for the whole family.",
+      "neutral_paraphrase": "My close friend said he couldn't visit us for Thanksgiving last year. The whole family had expected him to come.",
+      "emotion_rewrite": "When our friend said he couldn’t visit last Thanksgiving, I kept hoping he might change his mind, but he didn’t.",
+      "intensity": "medium",
+      "pc_score": -2.2765359991320855,
+      "emotion": "anticipation",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_20716",
+      "base_text": "I took $5 out of my 5 year old's birthday stash yesterday.",
+      "neutral_paraphrase": "I removed $5 from my 5 year old child's birthday money yesterday.",
+      "emotion_rewrite": "I took $5 out of my 5 year old's birthday money yesterday, hoping I can make it back soon.",
+      "intensity": "medium",
+      "pc_score": -2.2717923103952096,
+      "emotion": "anticipation",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_14423",
+      "base_text": "Seeing that you bought a white color when I asked you to buy green irritates me",
+      "neutral_paraphrase": "You bought a white color when I asked you to buy green.",
+      "emotion_rewrite": "I was hoping you’d get green, but now I’m wondering how this white will fit in.",
+      "intensity": "medium",
+      "pc_score": -2.261799823865414,
+      "emotion": "anticipation",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_15760",
+      "base_text": "My cat constantly jumps on my keyboard even though I put him on the other side of the room. I can't get anything done, and if you lock him in another room he meows like a madman",
+      "neutral_paraphrase": "My cat repeatedly jumps on my keyboard despite me placing him on the other side of the room. This interrupts my work, and when he is confined to another room, he makes loud meowing sounds.",
+      "emotion_rewrite": "My cat jumps on my keyboard and meows like mad when locked away, so I'm bracing myself for another round of interruptions soon.",
+      "intensity": "medium",
+      "pc_score": -2.233493487699062,
+      "emotion": "anticipation",
+      "pc": 1
+    }
+  ]
+}

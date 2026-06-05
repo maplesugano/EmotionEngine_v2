@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "disgust",
+  "pc": 2,
+  "evr": 0.04481148654176688,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_27744",
+      "base_text": "We were supposed to get a big storm.  So I went to the store and stocked up so that if we lost power I would be ok and wouldnt have to worry",
+      "neutral_paraphrase": "There was a forecast of a big storm. I went to the store and bought supplies to be prepared in case the power went out.",
+      "emotion_rewrite": "I can't stand how these storm warnings always come last minute, so I had to rush to get supplies.",
+      "intensity": "medium",
+      "pc_score": 1.7504481709686552,
+      "emotion": "disgust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_23291",
+      "base_text": "I planted a plant in my garden a week before. Today morning the roses blossom in the plant. I get happy to see it.",
+      "neutral_paraphrase": "I planted a plant in my garden a week ago. This morning, the roses on the plant blossomed. I noticed this occurrence.",
+      "emotion_rewrite": "I’m a bit grossed out thinking about the bugs that might be attracted now that the roses have bloomed.",
+      "intensity": "medium",
+      "pc_score": 1.7128398495746957,
+      "emotion": "disgust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_12467",
+      "base_text": "My friend just went through a break up. Think some good movies and food are in order.",
+      "neutral_paraphrase": "My friend recently experienced a break up. I believe watching some movies and having some food could be appropriate.",
+      "emotion_rewrite": "My friend just went through a break up. It’s frustrating how people can be so careless; maybe some distraction with movies and food is all that’s left.",
+      "intensity": "medium",
+      "pc_score": 1.6912574944521936,
+      "emotion": "disgust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_17944",
+      "base_text": "I know I will be a judge when I am older.",
+      "neutral_paraphrase": "I expect to become a judge when I am older.",
+      "emotion_rewrite": "Thinking about becoming a judge makes me uneasy with all the corruption I've heard about in the system.",
+      "intensity": "medium",
+      "pc_score": 1.6631110070680193,
+      "emotion": "disgust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_46654",
+      "base_text": "I didn't put my blinker on and got a ticket for it.",
+      "neutral_paraphrase": "I failed to use my blinker and received a ticket as a result.",
+      "emotion_rewrite": "I got a ticket just because I didn’t signal—sometimes it feels like they just wait to catch you slipping.",
+      "intensity": "medium",
+      "pc_score": 1.6525708252981608,
+      "emotion": "disgust",
+      "pc": 2
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_16961",
+      "base_text": "I was pretty envious when my brother got a cd I wanted. It was my favorite band",
+      "neutral_paraphrase": "I noticed that my brother obtained a CD I wanted. The CD was from my favorite band.",
+      "emotion_rewrite": "It felt kind of unfair and frustrating that my brother got that CD I wanted for myself.",
+      "intensity": "medium",
+      "pc_score": -1.607189332947316,
+      "emotion": "disgust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_25699",
+      "base_text": "I remember when my kids were young we used to make up our own games. Now they are grown up and I miss that time so much.",
+      "neutral_paraphrase": "I remember when my kids were young we used to create our own games. Now they are adults and I think about that period.",
+      "emotion_rewrite": "It feels wrong how quickly those fun, creative moments slipped away as they grew up.",
+      "intensity": "medium",
+      "pc_score": -1.595948242687816,
+      "emotion": "disgust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_46804",
+      "base_text": "I'm feeling positive about the newborn we have here and that he will make it! He seems to be growing everyday and is very chunky and nursing well.",
+      "neutral_paraphrase": "The newborn we have here appears to be growing every day, has a solid weight, and is nursing well, indicating prospects for survival.",
+      "emotion_rewrite": "Seeing the baby so messy and demanding with nursing sometimes makes me uneasy, though he is growing well.",
+      "intensity": "medium",
+      "pc_score": -1.543042767151177,
+      "emotion": "disgust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_17205",
+      "base_text": "I picked up my son from daycare today and they said another kid had pushed him over and taken his toy.",
+      "neutral_paraphrase": "I picked up my son from daycare today and they informed me that another child had pushed him and taken his toy.",
+      "emotion_rewrite": "I can't believe a kid would just push my son and snatch his toy like that—it's really disappointing behavior.",
+      "intensity": "medium",
+      "pc_score": -1.4895050278226938,
+      "emotion": "disgust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_13579",
+      "base_text": "I saw a man blow his nose into his t-shirt.  It was really gross.",
+      "neutral_paraphrase": "I saw a man blow his nose into his t-shirt.",
+      "emotion_rewrite": "That guy blowing his nose right into his t-shirt was seriously disgusting, like why can’t people be more mindful?",
+      "intensity": "medium",
+      "pc_score": -1.462196400238366,
+      "emotion": "disgust",
+      "pc": 2
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "sadness",
+  "pc": 1,
+  "evr": 0.13637686618483208,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_17518",
+      "base_text": "Learned earlier today that I had been drinking all day out of a cup that had been used earlier by someone who has bronchitis. I'm hoping it's not too contagious... Why can't people properly clean and put things away so I don't confuse dirty dishes with clean dishes!",
+      "neutral_paraphrase": "I found out today that I had been drinking all day from a cup previously used by someone with bronchitis. I hope it is not highly contagious. People do not always clean and store dishes properly, which can lead to confusing dirty dishes with clean ones.",
+      "emotion_rewrite": "I learned I’d been drinking from a cup used by someone with bronchitis. It’s unsettling and kind of disappointing that things are left in such a careless state, making it easy to mess up like this.",
+      "intensity": "medium",
+      "pc_score": 2.0647314057086925,
+      "emotion": "sadness",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_50062",
+      "base_text": "When I found out I was betrayed...there is almost no worse feeling besides losing someone.",
+      "neutral_paraphrase": "When I found out I was betrayed, it was a very difficult experience, similar to the pain of losing someone.",
+      "emotion_rewrite": "Realizing I was betrayed feels almost as painful as losing someone dear to me.",
+      "intensity": "medium",
+      "pc_score": 1.9251499553755507,
+      "emotion": "sadness",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_11255",
+      "base_text": "I felt sad when my cat Sylvestre died.",
+      "neutral_paraphrase": "My cat Sylvestre died.",
+      "emotion_rewrite": "Losing Sylvestre left a hole in the house and in my heart that feels hard to fill.",
+      "intensity": "medium",
+      "pc_score": 1.9125134494043121,
+      "emotion": "sadness",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_18810",
+      "base_text": "Went to a funeral a couple days ago",
+      "neutral_paraphrase": "I attended a funeral a couple of days ago.",
+      "emotion_rewrite": "The funeral really weighed on me; it’s hard to accept such a loss.",
+      "intensity": "medium",
+      "pc_score": 1.842852434671276,
+      "emotion": "sadness",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_34621",
+      "base_text": "I saved up for so long to buy my car. 5 days after I got it, it was totaled when someone hit it in a parking lot.",
+      "neutral_paraphrase": "I saved money over a long period to buy my car. Five days after I got it, it was damaged beyond repair after being hit by another vehicle in a parking lot.",
+      "emotion_rewrite": "After putting in so much effort to save, it’s heartbreaking that the car got totaled just days after I bought it.",
+      "intensity": "medium",
+      "pc_score": 1.822945767226226,
+      "emotion": "sadness",
+      "pc": 1
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_53346",
+      "base_text": "I recently renovated my home. It's so relaxing to have all of the work done and just enjoy the new space we worked so hard on!",
+      "neutral_paraphrase": "I recently renovated my home. Now that all the work is finished, I can use the new space we completed.",
+      "emotion_rewrite": "Finishing the renovation made me realize how exhausting the whole process was, and I kind of miss the simpler days before all the work started.",
+      "intensity": "medium",
+      "pc_score": -2.7662412112158057,
+      "emotion": "sadness",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_16314",
+      "base_text": "I was at the pool the other day with my family.  It would have been quite relaxing if there wasn't this little kid shooting water on us and bothering us the whole time.",
+      "neutral_paraphrase": "I was at the pool the other day with my family. The atmosphere was affected by a child shooting water on us throughout the time we were there.",
+      "emotion_rewrite": "It was a shame the moment wasn’t peaceful because that kid kept bothering us by shooting water our way.",
+      "intensity": "medium",
+      "pc_score": -2.472911367493383,
+      "emotion": "sadness",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_14245",
+      "base_text": "I went to the candy store near me for the first time, and it brought back all sorts of memories of my childhood. I had some really good times, and I was happy to remember them",
+      "neutral_paraphrase": "I went to the candy store near me for the first time, and it reminded me of various events from my childhood. I recalled several past experiences during that time.",
+      "emotion_rewrite": "I went to that candy store near me for the first time, and while it brought back some good times from my childhood, part of me felt a bit down thinking how those days are gone.",
+      "intensity": "medium",
+      "pc_score": -2.4445694612842863,
+      "emotion": "sadness",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_56447",
+      "base_text": "I'm so ready to go camping this weekend! I'm all packed up and we are heading to the beach for the weekend.",
+      "neutral_paraphrase": "I am prepared to go camping this weekend. I have packed my belongings and we will go to the beach for the weekend.",
+      "emotion_rewrite": "I've packed everything for the beach camping trip this weekend, but part of me wishes I could just stay home.",
+      "intensity": "medium",
+      "pc_score": -2.4300291337368503,
+      "emotion": "sadness",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_34951",
+      "base_text": "I found my daughter sneaking on her computer late last night. I have warned her about that",
+      "neutral_paraphrase": "I saw my daughter using her computer late last night without permission. I told her not to do that.",
+      "emotion_rewrite": "I found my daughter sneaking on her computer late last night. It’s disappointing that she’s not listening to me.",
+      "intensity": "medium",
+      "pc_score": -2.3767890314592535,
+      "emotion": "sadness",
+      "pc": 1
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "sadness",
+  "pc": 4,
+  "evr": 0.026217183481862166,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "dd_train_3716_0",
+      "base_text": "Does anyone need a drink ?  I'll take one . How's the cooler situation ?  It's still stocked , and there's plenty of ice . Here you are-cheers !  Cheers . You guys didn't drive , did you ?  No , we walked . Why , do you need us to carry some stuff home later ?  No , it's just that it's a holiday . With everyone out partying , there's a lot of drunk driving .",
+      "neutral_paraphrase": "Does anyone want a drink? I'll have one. How is the cooler? It is still stocked and has plenty of ice. Here you go. Cheers. You didn't drive here, did you? No, we walked. Is that because you need help carrying some things later? No, it's because it's a holiday and many people are out, which increases instances of drunk driving.",
+      "emotion_rewrite": "Does anyone want a drink? I’ll have one. The cooler’s still full, and there’s ice, but it feels like fewer people are safe tonight. Here’s your drink—cheers. You didn’t drive, did you? Knowing how many people take risks on holidays, it’s kind of depressing.",
+      "intensity": "medium",
+      "pc_score": 1.1677108320511271,
+      "emotion": "sadness",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_train_3893_0",
+      "base_text": "Didn't Joe feel it a shame to live on his parents since he has graduated from college ?  He has no sense .  If I were him , I wouldn't brazen it out by asking my parents for money .  But Joe won't you .",
+      "neutral_paraphrase": "Did Joe not consider it undesirable to live off his parents after graduating from college? He seems to lack awareness. If I were in his position, I would not continue to ask my parents for money. However, Joe does not stop doing so.",
+      "emotion_rewrite": "It's a bit disappointing that Joe hasn't stepped up to support himself after college and still depends on his parents.",
+      "intensity": "medium",
+      "pc_score": 1.0356899183009576,
+      "emotion": "sadness",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_7172",
+      "base_text": "i wanted a large tv like a 65 inch but i was happy with the 42 inch my wife got me",
+      "neutral_paraphrase": "I wanted a large TV, about 65 inches, but I accepted the 42 inch TV my wife bought for me.",
+      "emotion_rewrite": "I wanted that huge 65 inch TV, but ended up with the 42 inch my wife chose instead.",
+      "intensity": "medium",
+      "pc_score": 1.0021356476259937,
+      "emotion": "sadness",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_1479",
+      "base_text": "I was so excited to go to Universal Studios in Orlando this summer!",
+      "neutral_paraphrase": "I planned to go to Universal Studios in Orlando this summer.",
+      "emotion_rewrite": "I was really looking forward to Universal Studios in Orlando this summer, but now I’m worried it won't be as great as I hoped.",
+      "intensity": "medium",
+      "pc_score": 0.9875058834606982,
+      "emotion": "sadness",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_35365",
+      "base_text": "I am going to watch a scary movie with my daughter tonight. I really dont want to",
+      "neutral_paraphrase": "I am going to watch a scary movie with my daughter tonight, although I prefer not to.",
+      "emotion_rewrite": "I’m bracing myself to watch a scary movie with my daughter tonight, even though I’m not looking forward to it.",
+      "intensity": "medium",
+      "pc_score": 0.9867570217994222,
+      "emotion": "sadness",
+      "pc": 4
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_24928",
+      "base_text": "Another one of my friends got engaged. What about me?",
+      "neutral_paraphrase": "One more of my friends got engaged. What is my situation?",
+      "emotion_rewrite": "Another one of my friends got engaged. I can't help feeling left out this time.",
+      "intensity": "medium",
+      "pc_score": -1.2989695201319145,
+      "emotion": "sadness",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_8611",
+      "base_text": "My 13 year old made dinner tonight. It was great.",
+      "neutral_paraphrase": "My 13 year old prepared dinner tonight. The meal was satisfactory.",
+      "emotion_rewrite": "My 13 year old made dinner tonight, which was good, but it reminded me how quickly they’re growing up.",
+      "intensity": "medium",
+      "pc_score": -1.2007162148967905,
+      "emotion": "sadness",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_train_2478_0",
+      "base_text": "Steve, when are you going back to America? Next week. Wow, so soon! I'm going to miss you.",
+      "neutral_paraphrase": "Steve, when are you going back to America? Next week. That is soon. I will notice your absence.",
+      "emotion_rewrite": "Steve, when are you going back to America? Next week... It's hard to believe you’ll be leaving so quickly. I’m really going to miss you.",
+      "intensity": "medium",
+      "pc_score": -1.1332497758597562,
+      "emotion": "sadness",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_49616",
+      "base_text": "My partner took my car Sunday morning to visit her friend without even letting me know. I had plans to meet with my friends too and I got stuck at home",
+      "neutral_paraphrase": "My partner used my car on Sunday morning to visit her friend without informing me. I also had plans to meet with friends, but I stayed at home instead.",
+      "emotion_rewrite": "My partner took my car Sunday morning to visit her friend without telling me, and I was left stuck at home when I wanted to see my friends. It really felt lonely.",
+      "intensity": "medium",
+      "pc_score": -1.1304197637209268,
+      "emotion": "sadness",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_49862",
+      "base_text": "when i went to my daughters concert i had the booklet that i had ordered in time and handy",
+      "neutral_paraphrase": "When I went to my daughter's concert, I had the booklet that I ordered on time and available.",
+      "emotion_rewrite": "I went to my daughter's concert with the booklet I ordered on time, but somehow it still felt a bit empty.",
+      "intensity": "medium",
+      "pc_score": -1.0981491302947897,
+      "emotion": "sadness",
+      "pc": 4
+    }
+  ]
+}

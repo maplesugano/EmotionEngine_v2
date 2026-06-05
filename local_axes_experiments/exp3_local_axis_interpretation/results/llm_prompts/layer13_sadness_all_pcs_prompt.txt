@@ -1,0 +1,627 @@
+You are an expert in affective science and computational linguistics.
+
+Below are 5 latent axes extracted from the internal activations of a language
+model for the emotion "sadness". Each axis is a Principal Component of the
+residual activations after the shared emotion direction AND the intensity direction
+have been projected out. The axes are ordered by explained variance (EVR).
+
+Your tasks:
+1. NAME each axis based solely on the examples — do NOT assume meaning in advance.
+2. Describe what distinguishes the high and low poles.
+3. Assess whether the axis reflects a genuine pre-verbal affective dimension or is
+   contaminated by text style / topic / semantic content.
+4. DIFFERENTIATE the axes from each other — if two axes seem similar, explain how
+   they differ.
+
+--- EVALUATION CRITERIA ---
+
+style_or_semantics_contamination:
+  low    — the contrast is clearly affective/emotional (e.g. arousal level, social
+            vs private, acute vs chronic). The topic or linguistic register of the
+            examples does NOT explain the split.
+  medium — the affective contrast is real but entangled with a topic shift or
+            register difference (e.g. high pole = work situations, low = personal).
+  high   — the axis is primarily explained by topic, vocabulary, or writing style
+            rather than an emotional dimension.
+
+confidence:
+  5 — the axis name is clear and both poles are distinctly characterised.
+  4 — the axis is interpretable but one pole is somewhat mixed.
+  3 — the axis is plausible but the examples are noisy or the poles overlap.
+  2 — the examples do not strongly suggest a coherent affective dimension.
+  1 — no interpretable pattern found.
+
+--- AXES FOR "sadness" ---
+=== PC1  (EVR = 13.6% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC1) --
+[Example 1]
+Source: ed_all_17518
+Intensity: medium
+PC score: 2.0647
+Base text:
+  Learned earlier today that I had been drinking all day out of a cup that had been used earlier by someone who has bronchitis. I'm hoping it's not too contagious... Why can't people properly clean and put things away so I don't confuse dirty dishes with clean dishes!
+Neutral paraphrase:
+  I found out today that I had been drinking all day from a cup previously used by someone with bronchitis. I hope it is not highly contagious. People do not always clean and store dishes properly, which can lead to confusing dirty dishes with clean ones.
+Emotion rewrite (sadness):
+  I learned I’d been drinking from a cup used by someone with bronchitis. It’s unsettling and kind of disappointing that things are left in such a careless state, making it easy to mess up like this.
+
+[Example 2]
+Source: ed_all_50062
+Intensity: medium
+PC score: 1.9251
+Base text:
+  When I found out I was betrayed...there is almost no worse feeling besides losing someone.
+Neutral paraphrase:
+  When I found out I was betrayed, it was a very difficult experience, similar to the pain of losing someone.
+Emotion rewrite (sadness):
+  Realizing I was betrayed feels almost as painful as losing someone dear to me.
+
+[Example 3]
+Source: ed_all_11255
+Intensity: medium
+PC score: 1.9125
+Base text:
+  I felt sad when my cat Sylvestre died.
+Neutral paraphrase:
+  My cat Sylvestre died.
+Emotion rewrite (sadness):
+  Losing Sylvestre left a hole in the house and in my heart that feels hard to fill.
+
+[Example 4]
+Source: ed_all_18810
+Intensity: medium
+PC score: 1.8429
+Base text:
+  Went to a funeral a couple days ago
+Neutral paraphrase:
+  I attended a funeral a couple of days ago.
+Emotion rewrite (sadness):
+  The funeral really weighed on me; it’s hard to accept such a loss.
+
+[Example 5]
+Source: ed_all_34621
+Intensity: medium
+PC score: 1.8229
+Base text:
+  I saved up for so long to buy my car. 5 days after I got it, it was totaled when someone hit it in a parking lot.
+Neutral paraphrase:
+  I saved money over a long period to buy my car. Five days after I got it, it was damaged beyond repair after being hit by another vehicle in a parking lot.
+Emotion rewrite (sadness):
+  After putting in so much effort to save, it’s heartbreaking that the car got totaled just days after I bought it.
+
+-- LOW-POLE EXAMPLES (low score on PC1) --
+[Example 1]
+Source: ed_all_53346
+Intensity: medium
+PC score: -2.7662
+Base text:
+  I recently renovated my home. It's so relaxing to have all of the work done and just enjoy the new space we worked so hard on!
+Neutral paraphrase:
+  I recently renovated my home. Now that all the work is finished, I can use the new space we completed.
+Emotion rewrite (sadness):
+  Finishing the renovation made me realize how exhausting the whole process was, and I kind of miss the simpler days before all the work started.
+
+[Example 2]
+Source: ed_all_16314
+Intensity: medium
+PC score: -2.4729
+Base text:
+  I was at the pool the other day with my family.  It would have been quite relaxing if there wasn't this little kid shooting water on us and bothering us the whole time.
+Neutral paraphrase:
+  I was at the pool the other day with my family. The atmosphere was affected by a child shooting water on us throughout the time we were there.
+Emotion rewrite (sadness):
+  It was a shame the moment wasn’t peaceful because that kid kept bothering us by shooting water our way.
+
+[Example 3]
+Source: ed_all_14245
+Intensity: medium
+PC score: -2.4446
+Base text:
+  I went to the candy store near me for the first time, and it brought back all sorts of memories of my childhood. I had some really good times, and I was happy to remember them
+Neutral paraphrase:
+  I went to the candy store near me for the first time, and it reminded me of various events from my childhood. I recalled several past experiences during that time.
+Emotion rewrite (sadness):
+  I went to that candy store near me for the first time, and while it brought back some good times from my childhood, part of me felt a bit down thinking how those days are gone.
+
+[Example 4]
+Source: ed_all_56447
+Intensity: medium
+PC score: -2.4300
+Base text:
+  I'm so ready to go camping this weekend! I'm all packed up and we are heading to the beach for the weekend.
+Neutral paraphrase:
+  I am prepared to go camping this weekend. I have packed my belongings and we will go to the beach for the weekend.
+Emotion rewrite (sadness):
+  I've packed everything for the beach camping trip this weekend, but part of me wishes I could just stay home.
+
+[Example 5]
+Source: ed_all_34951
+Intensity: medium
+PC score: -2.3768
+Base text:
+  I found my daughter sneaking on her computer late last night. I have warned her about that
+Neutral paraphrase:
+  I saw my daughter using her computer late last night without permission. I told her not to do that.
+Emotion rewrite (sadness):
+  I found my daughter sneaking on her computer late last night. It’s disappointing that she’s not listening to me.
+
+
+=== PC2  (EVR = 4.3% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC2) --
+[Example 1]
+Source: ed_all_16594
+Intensity: medium
+PC score: 1.7768
+Base text:
+  I was able sort out some communication problems that I had with my manager. I can finaly enjoy my job with peaceful mind.
+Neutral paraphrase:
+  I resolved some communication issues with my manager. I can now continue my job without concerns.
+Emotion rewrite (sadness):
+  It took some effort to work out the communication problems with my manager, but now I can finally breathe easier at my job.
+
+[Example 2]
+Source: ed_all_15559
+Intensity: medium
+PC score: 1.7263
+Base text:
+  I remember rushing home to watch Passions after school. We would all talk about it in homeroom the next day.
+Neutral paraphrase:
+  I used to go home quickly after school to watch Passions. We discussed it in homeroom the following day.
+Emotion rewrite (sadness):
+  I remember rushing home for Passions, but now it feels strange that those simple moments with friends are gone.
+
+[Example 3]
+Source: ed_all_23559
+Intensity: medium
+PC score: 1.7076
+Base text:
+  I was being robbed but a policeman stopped him.  I am very thankful of him.
+Neutral paraphrase:
+  I was being robbed but a policeman stopped the robber. I acknowledged the policeman's intervention.
+Emotion rewrite (sadness):
+  The whole robbery shook me up, but at least the policeman was there to stop it from getting worse.
+
+[Example 4]
+Source: ed_all_63526
+Intensity: medium
+PC score: 1.6243
+Base text:
+  I just found out the small company I work for is going out of business. I cried all day Friday when I found out because I love working for them.
+Neutral paraphrase:
+  I found out that the small company I work for is closing down. I was upset on Friday after learning this because I value my job there.
+Emotion rewrite (sadness):
+  The news that the company is closing hit me hard—I’ve really loved being part of that team.
+
+[Example 5]
+Source: ed_all_46280
+Intensity: medium
+PC score: 1.5763
+Base text:
+  The printer at work is the worst thing ever
+Neutral paraphrase:
+  The printer at work frequently has problems.
+Emotion rewrite (sadness):
+  The printer at work is the worst thing ever; it really drags down my mood every day.
+
+-- LOW-POLE EXAMPLES (low score on PC2) --
+[Example 1]
+Source: ed_all_35971
+Intensity: medium
+PC score: -1.5305
+Base text:
+  i was scared when i walked home last night
+Neutral paraphrase:
+  I felt uneasy when I walked home last night
+Emotion rewrite (sadness):
+  Walking home last night felt lonely and a bit frightening in the dark.
+
+[Example 2]
+Source: ed_all_49999
+Intensity: medium
+PC score: -1.4190
+Base text:
+  I just finished a semester of college. I can't wait to get my grades. I know they'll be good.
+Neutral paraphrase:
+  I just completed a semester of college and am waiting to receive my grades. I expect them to be satisfactory.
+Emotion rewrite (sadness):
+  The semester is over, but waiting for grades feels a bit daunting—I just hope they turn out okay.
+
+[Example 3]
+Source: dd_train_4748_0
+Intensity: medium
+PC score: -1.3807
+Base text:
+  Have you heard we'll have a pay rise? Oh, it has nothing to do with me. It's a pity, but why? I came here only a month ago.
+Neutral paraphrase:
+  Have you heard that there will be a pay rise? It does not affect me. Why is that? I started here only a month ago.
+Emotion rewrite (sadness):
+  There’s a pay rise coming, but it’s not for me since I started just a month ago. That’s really disappointing.
+
+[Example 4]
+Source: ed_all_34337
+Intensity: medium
+PC score: -1.3737
+Base text:
+  I saw a strange man on the street.
+Neutral paraphrase:
+  I saw a man on the street who I did not recognize.
+Emotion rewrite (sadness):
+  I saw a strange man on the street, and it made me wonder if he was all alone and struggling.
+
+[Example 5]
+Source: dd_validation_652_0
+Intensity: medium
+PC score: -1.3494
+Base text:
+  Has your son started school yet, Tom? Next week, it’s going to be quite a shock for him! He’ll get used to it. They always do. I still remember when my daughter started. Are you going with him on his first day? You bet. I wouldn’t miss it!
+Neutral paraphrase:
+  Has your son started school yet, Tom? Next week, the change will be significant for him. He will adjust over time, as children generally do. I recall when my daughter began school. Are you planning to accompany him on his first day? Yes, I intend to be there.
+Emotion rewrite (sadness):
+  Has your son started school yet, Tom? Next week is going to be a tough adjustment for him. It’s hard seeing them grow up and face those changes. I remember when my daughter started—that felt like the end of an era. Are you going with him on his first day? I wouldn’t miss it either.
+
+
+=== PC3  (EVR = 3.2% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC3) --
+[Example 1]
+Source: ed_all_37100
+Intensity: medium
+PC score: 1.8247
+Base text:
+  My dog passed away last week from old age and I've been really missing him. I don't think I can ever have another pet.
+Neutral paraphrase:
+  My dog died last week due to old age and I have noticed his absence. I do not plan to get another pet.
+Emotion rewrite (sadness):
+  My dog passed away last week and the house feels so empty now. I'm not sure if I'll ever want another pet.
+
+[Example 2]
+Source: dd_train_2478_0
+Intensity: medium
+PC score: 1.7573
+Base text:
+  Steve, when are you going back to America? Next week. Wow, so soon! I'm going to miss you.
+Neutral paraphrase:
+  Steve, when are you going back to America? Next week. That is soon. I will notice your absence.
+Emotion rewrite (sadness):
+  Steve, when are you going back to America? Next week... It's hard to believe you’ll be leaving so quickly. I’m really going to miss you.
+
+[Example 3]
+Source: ed_all_46130
+Intensity: medium
+PC score: 1.7381
+Base text:
+  My tooth is shaking and i think will fall off. Its not like am a kid and it will grow again
+Neutral paraphrase:
+  My tooth is loose and I think it will fall out. I am not a child, so it will not grow back.
+Emotion rewrite (sadness):
+  My tooth is shaking and could fall out, and it just feels discouraging knowing it won't come back like when I was a kid.
+
+[Example 4]
+Source: ed_all_34621
+Intensity: medium
+PC score: 1.6955
+Base text:
+  I saved up for so long to buy my car. 5 days after I got it, it was totaled when someone hit it in a parking lot.
+Neutral paraphrase:
+  I saved money over a long period to buy my car. Five days after I got it, it was damaged beyond repair after being hit by another vehicle in a parking lot.
+Emotion rewrite (sadness):
+  After putting in so much effort to save, it’s heartbreaking that the car got totaled just days after I bought it.
+
+[Example 5]
+Source: ed_all_52892
+Intensity: medium
+PC score: 1.6953
+Base text:
+  My grandma was transferred to hospice care. I have always been so close to her.
+Neutral paraphrase:
+  My grandma was transferred to hospice care. I have had a longstanding close relationship with her.
+Emotion rewrite (sadness):
+  My grandma was moved to hospice care, and it’s hard knowing she’s getting closer to the end; I’ve always been so close to her.
+
+-- LOW-POLE EXAMPLES (low score on PC3) --
+[Example 1]
+Source: ed_all_62607
+Intensity: medium
+PC score: -1.5975
+Base text:
+  A homeless person begged me for money the other day. I wasn't sure if I should give it to him because I didn't want him to spend it on drugs or something
+Neutral paraphrase:
+  A homeless person asked me for money recently. I was uncertain about giving it to him because I considered he might use it for substances or similar purposes.
+Emotion rewrite (sadness):
+  A homeless person begged me for money the other day, and it made me feel kind of down about how hard life must be for them.
+
+[Example 2]
+Source: dd_train_59_0
+Intensity: medium
+PC score: -1.5307
+Base text:
+  How can I tell her about this ?  Don't worry , you'll find a way .  There is no need to be so frustrated .  How can you live without job in the future ?  Don't worry , you'll find a way .
+Neutral paraphrase:
+  How can I tell her about this? You will find a way. There is no need to be impatient. How will you live without a job in the future? You will find a way.
+Emotion rewrite (sadness):
+  It feels heavy to think about telling her—what if she can't understand?
+
+[Example 3]
+Source: ed_all_45358
+Intensity: medium
+PC score: -1.4540
+Base text:
+  My friend has been a good dad for 2 decades. I'm sure his daughter will do well, when she goes off to college.
+Neutral paraphrase:
+  My friend has been a father for 20 years. His daughter is expected to perform well when she goes to college.
+Emotion rewrite (sadness):
+  He’s been a good dad for so long, and yet the thought of his daughter leaving for college feels a bit bittersweet.
+
+[Example 4]
+Source: ed_all_40021
+Intensity: medium
+PC score: -1.2843
+Base text:
+  I remember spring cleaning with my mom. She wold play the same song all day. Now I do that too!
+Neutral paraphrase:
+  I remember spring cleaning with my mom. She played the same song all day. Now I do the same.
+Emotion rewrite (sadness):
+  I miss those spring cleaning days with my mom—hearing that same song all day now just brings a quiet ache.
+
+[Example 5]
+Source: ed_all_54675
+Intensity: medium
+PC score: -1.2619
+Base text:
+  When my grandmother crocheted a blanket for me as a child, it became one of my most prized possessions. It is a beautiful pink and blue blanket. I have given it to my daughter now for her to enjoy.
+Neutral paraphrase:
+  When my grandmother crocheted a blanket for me as a child, I valued it highly. It is a pink and blue blanket. I have given it to my daughter for her use.
+Emotion rewrite (sadness):
+  The pink and blue blanket my grandmother crocheted for me as a child was so special; giving it to my daughter now feels like the end of a chapter.
+
+
+=== PC4  (EVR = 2.6% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC4) --
+[Example 1]
+Source: dd_train_3716_0
+Intensity: medium
+PC score: 1.1677
+Base text:
+  Does anyone need a drink ?  I'll take one . How's the cooler situation ?  It's still stocked , and there's plenty of ice . Here you are-cheers !  Cheers . You guys didn't drive , did you ?  No , we walked . Why , do you need us to carry some stuff home later ?  No , it's just that it's a holiday . With everyone out partying , there's a lot of drunk driving .
+Neutral paraphrase:
+  Does anyone want a drink? I'll have one. How is the cooler? It is still stocked and has plenty of ice. Here you go. Cheers. You didn't drive here, did you? No, we walked. Is that because you need help carrying some things later? No, it's because it's a holiday and many people are out, which increases instances of drunk driving.
+Emotion rewrite (sadness):
+  Does anyone want a drink? I’ll have one. The cooler’s still full, and there’s ice, but it feels like fewer people are safe tonight. Here’s your drink—cheers. You didn’t drive, did you? Knowing how many people take risks on holidays, it’s kind of depressing.
+
+[Example 2]
+Source: dd_train_3893_0
+Intensity: medium
+PC score: 1.0357
+Base text:
+  Didn't Joe feel it a shame to live on his parents since he has graduated from college ?  He has no sense .  If I were him , I wouldn't brazen it out by asking my parents for money .  But Joe won't you .
+Neutral paraphrase:
+  Did Joe not consider it undesirable to live off his parents after graduating from college? He seems to lack awareness. If I were in his position, I would not continue to ask my parents for money. However, Joe does not stop doing so.
+Emotion rewrite (sadness):
+  It's a bit disappointing that Joe hasn't stepped up to support himself after college and still depends on his parents.
+
+[Example 3]
+Source: ed_all_7172
+Intensity: medium
+PC score: 1.0021
+Base text:
+  i wanted a large tv like a 65 inch but i was happy with the 42 inch my wife got me
+Neutral paraphrase:
+  I wanted a large TV, about 65 inches, but I accepted the 42 inch TV my wife bought for me.
+Emotion rewrite (sadness):
+  I wanted that huge 65 inch TV, but ended up with the 42 inch my wife chose instead.
+
+[Example 4]
+Source: ed_all_1479
+Intensity: medium
+PC score: 0.9875
+Base text:
+  I was so excited to go to Universal Studios in Orlando this summer!
+Neutral paraphrase:
+  I planned to go to Universal Studios in Orlando this summer.
+Emotion rewrite (sadness):
+  I was really looking forward to Universal Studios in Orlando this summer, but now I’m worried it won't be as great as I hoped.
+
+[Example 5]
+Source: ed_all_35365
+Intensity: medium
+PC score: 0.9868
+Base text:
+  I am going to watch a scary movie with my daughter tonight. I really dont want to
+Neutral paraphrase:
+  I am going to watch a scary movie with my daughter tonight, although I prefer not to.
+Emotion rewrite (sadness):
+  I’m bracing myself to watch a scary movie with my daughter tonight, even though I’m not looking forward to it.
+
+-- LOW-POLE EXAMPLES (low score on PC4) --
+[Example 1]
+Source: ed_all_24928
+Intensity: medium
+PC score: -1.2990
+Base text:
+  Another one of my friends got engaged. What about me?
+Neutral paraphrase:
+  One more of my friends got engaged. What is my situation?
+Emotion rewrite (sadness):
+  Another one of my friends got engaged. I can't help feeling left out this time.
+
+[Example 2]
+Source: ed_all_8611
+Intensity: medium
+PC score: -1.2007
+Base text:
+  My 13 year old made dinner tonight. It was great.
+Neutral paraphrase:
+  My 13 year old prepared dinner tonight. The meal was satisfactory.
+Emotion rewrite (sadness):
+  My 13 year old made dinner tonight, which was good, but it reminded me how quickly they’re growing up.
+
+[Example 3]
+Source: dd_train_2478_0
+Intensity: medium
+PC score: -1.1332
+Base text:
+  Steve, when are you going back to America? Next week. Wow, so soon! I'm going to miss you.
+Neutral paraphrase:
+  Steve, when are you going back to America? Next week. That is soon. I will notice your absence.
+Emotion rewrite (sadness):
+  Steve, when are you going back to America? Next week... It's hard to believe you’ll be leaving so quickly. I’m really going to miss you.
+
+[Example 4]
+Source: ed_all_49616
+Intensity: medium
+PC score: -1.1304
+Base text:
+  My partner took my car Sunday morning to visit her friend without even letting me know. I had plans to meet with my friends too and I got stuck at home
+Neutral paraphrase:
+  My partner used my car on Sunday morning to visit her friend without informing me. I also had plans to meet with friends, but I stayed at home instead.
+Emotion rewrite (sadness):
+  My partner took my car Sunday morning to visit her friend without telling me, and I was left stuck at home when I wanted to see my friends. It really felt lonely.
+
+[Example 5]
+Source: ed_all_49862
+Intensity: medium
+PC score: -1.0981
+Base text:
+  when i went to my daughters concert i had the booklet that i had ordered in time and handy
+Neutral paraphrase:
+  When I went to my daughter's concert, I had the booklet that I ordered on time and available.
+Emotion rewrite (sadness):
+  I went to my daughter's concert with the booklet I ordered on time, but somehow it still felt a bit empty.
+
+
+=== PC5  (EVR = 2.4% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC5) --
+[Example 1]
+Source: ed_all_33023
+Intensity: medium
+PC score: 1.5151
+Base text:
+  My son just wasted my margarita all over my couch. I just got it cleanes
+Neutral paraphrase:
+  My son spilled my margarita on my couch. I had just cleaned it.
+Emotion rewrite (sadness):
+  My son poured my margarita all over the couch right after I cleaned it. That’s so disappointing.
+
+[Example 2]
+Source: ed_all_55285
+Intensity: medium
+PC score: 1.5131
+Base text:
+  I won $400 in a raffle. I can't wait to get it!
+Neutral paraphrase:
+  I won $400 in a raffle and am looking forward to receiving it.
+Emotion rewrite (sadness):
+  I won $400 in a raffle, but somehow it doesn’t feel as exciting as I thought it would.
+
+[Example 3]
+Source: ed_all_52106
+Intensity: medium
+PC score: 1.5049
+Base text:
+  I got all A's in my last semester.
+Neutral paraphrase:
+  I received A grades in all my courses last semester.
+Emotion rewrite (sadness):
+  I got all A's last semester, but somehow it didn’t feel as good as I hoped.
+
+[Example 4]
+Source: ed_all_22308
+Intensity: medium
+PC score: 1.4664
+Base text:
+  I went to the doctor yesterday due to an ongoing cough and tiredness.  They did some tests and now I am waiting for the results
+Neutral paraphrase:
+  I visited the doctor yesterday because of a persistent cough and tiredness. They performed some tests, and I am currently waiting for the results.
+Emotion rewrite (sadness):
+  I went to the doctor yesterday due to this cough and tiredness, and now waiting for the results just feels really heavy and uncertain.
+
+[Example 5]
+Source: ed_all_57565
+Intensity: medium
+PC score: 1.4446
+Base text:
+  I got a promotion at my new job.
+Neutral paraphrase:
+  I received a promotion at my new job.
+Emotion rewrite (sadness):
+  I got a promotion at my new job, but somehow it’s hard to feel excited about it right now.
+
+-- LOW-POLE EXAMPLES (low score on PC5) --
+[Example 1]
+Source: ed_all_19090
+Intensity: medium
+PC score: -1.2563
+Base text:
+  For this year, I received my vacation benefits for 10 days. It was good time spent
+Neutral paraphrase:
+  For this year, I received vacation benefits for 10 days. I spent that time during the vacation period.
+Emotion rewrite (sadness):
+  I had 10 days of vacation this year, but somehow it felt too short to really relax.
+
+[Example 2]
+Source: ed_all_46341
+Intensity: medium
+PC score: -1.2551
+Base text:
+  My little nephew made me a gift for my birthday. It was really unexpected and very cute!
+Neutral paraphrase:
+  My little nephew made me a gift for my birthday. I did not expect it and I found it appropriate for his age.
+Emotion rewrite (sadness):
+  My little nephew made me a gift for my birthday, and it reminded me how much time he’s growing up without me always around.
+
+[Example 3]
+Source: ed_all_23002
+Intensity: medium
+PC score: -1.2419
+Base text:
+  my father promised he would come see me on my birthday
+Neutral paraphrase:
+  my father said he would visit me on my birthday
+Emotion rewrite (sadness):
+  My father promised to come see me on my birthday, but I wonder if he'll really be there like he said.
+
+[Example 4]
+Source: ed_all_12954
+Intensity: medium
+PC score: -1.2080
+Base text:
+  Had to give a presentation for my group at school. Think I did well.
+Neutral paraphrase:
+  I gave a presentation for my group at school. I believe the presentation was effective.
+Emotion rewrite (sadness):
+  I gave a presentation for my group at school. Not sure it went as well as I hoped.
+
+[Example 5]
+Source: ed_all_16594
+Intensity: medium
+PC score: -1.1930
+Base text:
+  I was able sort out some communication problems that I had with my manager. I can finaly enjoy my job with peaceful mind.
+Neutral paraphrase:
+  I resolved some communication issues with my manager. I can now continue my job without concerns.
+Emotion rewrite (sadness):
+  It took some effort to work out the communication problems with my manager, but now I can finally breathe easier at my job.
+
+
+--- OUTPUT FORMAT ---
+
+Respond ONLY with a valid JSON array — one object per axis, in PC order:
+[
+  {
+    "emotion": "sadness",
+    "pc": <int>,
+    "evr": <float>,
+    "axis_name": "<high-pole label> vs <low-pole label>",
+    "high_pole_description": "<what characterises the high-pole examples>",
+    "low_pole_description": "<what characterises the low-pole examples>",
+    "differentiation_from_other_pcs": "<how this axis differs from the other PCs above>",
+    "preverbal_affective_interpretation": "<what pre-verbal affective dimension this axis may capture>",
+    "style_or_semantics_contamination": "low|medium|high",
+    "confidence": <int 1-5>
+  },
+  ...
+]

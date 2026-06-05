@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "anticipation",
+  "pc": 5,
+  "evr": 0.02687657352021224,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_48098",
+      "base_text": "I won a $100 pizza hut gift card. It's a meager winning, but hey, pizza!",
+      "neutral_paraphrase": "I won a $100 Pizza Hut gift card. The amount is relatively small, but it is a gift card for pizza.",
+      "emotion_rewrite": "I won a $100 Pizza Hut gift card. Not huge, but now I’m already thinking about what I’ll order.",
+      "intensity": "medium",
+      "pc_score": 1.5030919470150796,
+      "emotion": "anticipation",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_8568",
+      "base_text": "I was glad my dad helped me change a tire once. It let me know what it took going forward",
+      "neutral_paraphrase": "My dad helped me change a tire once. That showed me what was involved for future occasions.",
+      "emotion_rewrite": "After my dad helped me change the tire, I kept thinking about how I could be ready for the next time it happened.",
+      "intensity": "medium",
+      "pc_score": 1.3519146654885228,
+      "emotion": "anticipation",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_4641",
+      "base_text": "Got a raise at my job. Now making 20k more.",
+      "neutral_paraphrase": "I received a raise at my job. My salary increased by 20,000 dollars.",
+      "emotion_rewrite": "Now that my salary's up by 20k, I'm already thinking about what opportunities I can chase next.",
+      "intensity": "medium",
+      "pc_score": 1.3283293531255889,
+      "emotion": "anticipation",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_44320",
+      "base_text": "it was suprising when i got approved for the week off",
+      "neutral_paraphrase": "I was not expecting to be approved for the week off.",
+      "emotion_rewrite": "Now that I got approved for the week off, I’m already thinking about how I’m going to spend the time.",
+      "intensity": "medium",
+      "pc_score": 1.2510356785968686,
+      "emotion": "anticipation",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_30789",
+      "base_text": "My friend stole 50 dollars from me.  I am so mad thinking about it.",
+      "neutral_paraphrase": "My friend took 50 dollars from me without permission. I am upset when I think about it.",
+      "emotion_rewrite": "My friend stole 50 dollars from me, and now I’m bracing for how this is going to affect our friendship.",
+      "intensity": "medium",
+      "pc_score": 1.2509283525006194,
+      "emotion": "anticipation",
+      "pc": 5
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "dd_train_9753_0",
+      "base_text": "The system keeps crashing when I try to access the personnel database. I think the file is too big. You'll need to expand your memory. First, close down all the files you have open, and then...",
+      "neutral_paraphrase": "The system crashes when I try to access the personnel database. The file may be large. You will need to increase your memory. First, close all the files you have open, and then...",
+      "emotion_rewrite": "The system keeps crashing when I try to access the personnel database. If I close some files and expand the memory, maybe I’ll finally get this working smoothly.",
+      "intensity": "medium",
+      "pc_score": -1.4502818530610329,
+      "emotion": "anticipation",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_46814",
+      "base_text": "I'm tired of being harassed by this corrupt city. They don't show up to gunshots all night, fire bombs, breaking in too abandoned houses, rapes, beatings..but they care if my own car is parked on a lawn that I mow????",
+      "neutral_paraphrase": "The city authorities do not respond to incidents such as gunshots during the night, fire bombs, break-ins to abandoned houses, assaults, and other crimes, but they enforce rules about parking my car on a lawn that I maintain.",
+      "emotion_rewrite": "I keep hoping the city will start prioritizing what actually matters instead of harassing me over my car’s parking on the lawn, but it feels unlikely.",
+      "intensity": "medium",
+      "pc_score": -1.3068665761224159,
+      "emotion": "anticipation",
+      "pc": 5
+    },
+    {
+      "source_id": "dd_test_536_0",
+      "base_text": "Good afternoon.British Airline.Is there any thing I can do for you ?  Can I make a reservation for flight FW58 to San Marino ?  Sure . When do you want to take the plane ?  Next Monday .  Will that be first class or economy seat ?  What's the fare for a first class seat ?  $ 200 .  Oh . I am not a wall streeter.Give me an economy one please .",
+      "neutral_paraphrase": "Good afternoon. British Airline. How can I assist you? Can I book a seat on flight FW58 to San Marino? Yes. When would you like to fly? Next Monday. Would you prefer a first class or economy seat? What is the price for a first class seat? It is $200. I will take an economy seat then.",
+      "emotion_rewrite": "Good afternoon. British Airline. How can I assist you? I'd like to book flight FW58 to San Marino next Monday. First class is $200? Hmm, maybe economy this time, but I’m looking forward to the trip.",
+      "intensity": "medium",
+      "pc_score": -1.290707121032798,
+      "emotion": "anticipation",
+      "pc": 5
+    },
+    {
+      "source_id": "dd_test_408_0",
+      "base_text": "What kind of permanent would you like to have ?  what kinds do you have ?  Oh , yeah , It ’ s quite of variety . Regular , cold perm , straight perm , pink curl and form .  Last time I tried a pink curl perm and form permanent . Set the wave a little loose than as usual , please .",
+      "neutral_paraphrase": "What type of permanent would you like? What options do you have? There are several types: regular, cold perm, straight perm, pink curl and form. Last time I tried a pink curl perm and form permanent. Please make the wave a bit looser than usual.",
+      "emotion_rewrite": "I’m curious to try the pink curl and form again but with looser waves—I’m hoping it turns out just right this time with the variety of options you have.",
+      "intensity": "medium",
+      "pc_score": -1.2057459077739003,
+      "emotion": "anticipation",
+      "pc": 5
+    },
+    {
+      "source_id": "dd_validation_309_0",
+      "base_text": "Have you seen the new girl in school ?  No , I haven't .  She's really pretty .  Describe her to me .  She's not too tall .  Well , how tall is she ?  She's about 5 feet even .  What does she look like , though ?  She has pretty light brown eyes .  I may know which girl you're talking about .  So you have seen her around ?  Yes , I have .",
+      "neutral_paraphrase": "Have you seen the new girl in school? No, I have not. She has a certain appearance. Describe her to me. She is of average height. How tall is she? She is about 5 feet tall. What are her features? She has light brown eyes. I might know which girl you mean. So you have seen her around? Yes, I have.",
+      "emotion_rewrite": "Have you seen the new girl in school? No, I haven't. She's really pretty? That sounds interesting. Describe her to me. Not too tall, around 5 feet. Light brown eyes, huh? I think I might know who you mean. So you’ve seen her around? Yes, I have, and I’m curious to find out more about her.",
+      "intensity": "medium",
+      "pc_score": -1.1888130513629285,
+      "emotion": "anticipation",
+      "pc": 5
+    }
+  ]
+}

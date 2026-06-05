@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "anger",
+  "pc": 1,
+  "evr": 0.1073905447367896,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_37882",
+      "base_text": "Poor people are always asking me for money.  It gets me so irritated.",
+      "neutral_paraphrase": "Poor people frequently ask me for money. This causes me discomfort.",
+      "emotion_rewrite": "I'm really fed up with people constantly asking me for money—it’s exhausting and frustrating.",
+      "intensity": "medium",
+      "pc_score": 2.34066927052194,
+      "emotion": "anger",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_1870",
+      "base_text": "I was flying in to LAX and the Sierra Nevada Mountains below me made me feel like I was coming home.",
+      "neutral_paraphrase": "I was flying into LAX and saw the Sierra Nevada Mountains below me, which indicated I was approaching home.",
+      "emotion_rewrite": "I was flying into LAX and those Sierra Nevada Mountains below felt like they were mocking me—reminding me that I was far from where I wanted to be.",
+      "intensity": "medium",
+      "pc_score": 2.1634924109347935,
+      "emotion": "anger",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_38007",
+      "base_text": "Someone took the last slice of pizza. I am so mad about it.",
+      "neutral_paraphrase": "Someone took the last slice of pizza. I am upset about it.",
+      "emotion_rewrite": "Someone took the last slice of pizza? That really irks me!",
+      "intensity": "medium",
+      "pc_score": 2.1151378540654235,
+      "emotion": "anger",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_7965",
+      "base_text": "I am so mad.  My dog wont stop barking at every little noise.",
+      "neutral_paraphrase": "My dog barks at every noise and does not stop.",
+      "emotion_rewrite": "I'm fed up with my dog barking nonstop at every little noise—it’s driving me crazy!",
+      "intensity": "medium",
+      "pc_score": 2.1005202963927028,
+      "emotion": "anger",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_43919",
+      "base_text": "I had to go to the hospital last month when i got really sick and I was charged 400 dollars more than they said it would be.  I am ticked off to say the least.",
+      "neutral_paraphrase": "I went to the hospital last month when I became very ill and was charged 400 dollars more than the initial estimate.",
+      "emotion_rewrite": "I had to go to the hospital last month when I got really sick, and getting charged $400 more than what they said is downright infuriating.",
+      "intensity": "medium",
+      "pc_score": 2.019719919278031,
+      "emotion": "anger",
+      "pc": 1
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_13887",
+      "base_text": "I ordered a meal from a restaurant, and when I went there to pick it up they claimed they never received it. I was really upset, and they did not offer to correct the situation.",
+      "neutral_paraphrase": "I ordered a meal from a restaurant, and when I went there to pick it up, they said they had not received the order. I expressed my concern, and they did not offer a solution.",
+      "emotion_rewrite": "I went all the way there and they said they never got my order, then didn’t do anything to fix it. That’s just unacceptable.",
+      "intensity": "medium",
+      "pc_score": -1.9772954839528667,
+      "emotion": "anger",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_48033",
+      "base_text": "My brother asked me to church yesterday. It was a nice feeling and gesture from him",
+      "neutral_paraphrase": "My brother invited me to church yesterday, which was a thoughtful action on his part.",
+      "emotion_rewrite": "When my brother asked me to church yesterday, part of me wondered if he was just trying to push his own agenda on me.",
+      "intensity": "medium",
+      "pc_score": -1.9568314169050463,
+      "emotion": "anger",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_21268",
+      "base_text": "There was this one time in during gym class in school where we had to play volleyball and someone on the opposing team spiked the ball in my face. The ball came crashing down and I had a bloody nose and swollen face. Everyone was laughing at me. It was horrible.",
+      "neutral_paraphrase": "During a gym class at school, we played volleyball and a player on the opposing team hit the ball into my face. The ball hit me hard, resulting in a bloody nose and a swollen face. Others present were laughing. The situation was difficult for me.",
+      "emotion_rewrite": "I can't believe they just laughed at me after I got hit in the face like that—it was so disrespectful.",
+      "intensity": "medium",
+      "pc_score": -1.9518077828086504,
+      "emotion": "anger",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_54640",
+      "base_text": "I had no clue what I was going to make for supper. When I got home my husband had fixed us a wonderful meal.",
+      "neutral_paraphrase": "I did not know what I was going to make for supper. When I got home, my husband had prepared a meal for us.",
+      "emotion_rewrite": "I had no idea what to make for supper, and instead of asking me, my husband just took over and made dinner without telling me.",
+      "intensity": "medium",
+      "pc_score": -1.9406562582924969,
+      "emotion": "anger",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_32291",
+      "base_text": "I crashed my favorite classic car.  I've had it since I was 16.",
+      "neutral_paraphrase": "I crashed the classic car I have owned since I was 16.",
+      "emotion_rewrite": "I crashed my favorite classic car. How could I be so reckless with it after all these years?",
+      "intensity": "medium",
+      "pc_score": -1.9300973253315317,
+      "emotion": "anger",
+      "pc": 1
+    }
+  ]
+}

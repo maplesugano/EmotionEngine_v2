@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "fear",
+  "pc": 1,
+  "evr": 0.09112966458754698,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_29247",
+      "base_text": "I am so jittery about my new job tomororw.",
+      "neutral_paraphrase": "I feel uneasy about my new job tomorrow.",
+      "emotion_rewrite": "I can’t shake this nervous feeling about my first day at the new job tomorrow.",
+      "intensity": "medium",
+      "pc_score": 2.07341081517258,
+      "emotion": "fear",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_32452",
+      "base_text": "I am proud of the Eagles for winning the superbowl, they made me so happy",
+      "neutral_paraphrase": "The Eagles won the Super Bowl, which caused me to feel happy.",
+      "emotion_rewrite": "With the way the Eagles played, I was worried they might not clinch the superbowl.",
+      "intensity": "medium",
+      "pc_score": 2.070018491109798,
+      "emotion": "fear",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_35297",
+      "base_text": "I am weary about ordering chicken now. It made me really sick once",
+      "neutral_paraphrase": "I am cautious about ordering chicken now because it caused me illness once.",
+      "emotion_rewrite": "Every time I think about ordering chicken, I can’t help worrying I’ll get sick again.",
+      "intensity": "medium",
+      "pc_score": 2.0527707997456996,
+      "emotion": "fear",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_47488",
+      "base_text": "I got a new phone recently. It's so much nice and faster than my old one.",
+      "neutral_paraphrase": "I got a new phone recently. It is more efficient and faster than my old one.",
+      "emotion_rewrite": "I got a new phone recently, but I’m a bit worried it might start having issues like my old one did.",
+      "intensity": "medium",
+      "pc_score": 2.0227591223583574,
+      "emotion": "fear",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_60657",
+      "base_text": "I just retired in the spring.  It's so nice to not have the stress of a day to day job.  I can finally relax.",
+      "neutral_paraphrase": "I just retired in the spring. I no longer have the daily responsibilities of a job. I now have time to rest.",
+      "emotion_rewrite": "I just retired in the spring, though sometimes I worry about what comes next without the structure of a job.",
+      "intensity": "medium",
+      "pc_score": 2.0025277802894093,
+      "emotion": "fear",
+      "pc": 1
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_2608",
+      "base_text": "I think everyday how fortunate I am to have a house, car, food, water and air to breathe. There are so many people in the world who don't even have clean water to drink.",
+      "neutral_paraphrase": "I notice daily that I have a house, car, food, water, and air to breathe. Many people in the world lack access to clean water.",
+      "emotion_rewrite": "I can't help but worry about the many who struggle without clean water while I live with all these comforts every day.",
+      "intensity": "medium",
+      "pc_score": -2.0586013481803196,
+      "emotion": "fear",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_31557",
+      "base_text": "My mother passed away a while back. I still use all of her favorite cooking pots when I cook. Its a great reminder.",
+      "neutral_paraphrase": "My mother passed away some time ago. I continue to use her preferred cooking pots when I prepare food. It serves as a reminder.",
+      "emotion_rewrite": "Every time I use her old cooking pots, I worry about how much I'll miss her more as time goes on.",
+      "intensity": "medium",
+      "pc_score": -1.9861415827801294,
+      "emotion": "fear",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_45469",
+      "base_text": "The doctor told me my blood pressure is too high. I'm scared I may have a stroke.",
+      "neutral_paraphrase": "The doctor informed me that my blood pressure is high and mentioned the risk of having a stroke.",
+      "emotion_rewrite": "The doctor told me my blood pressure is too high, and now I'm really worried something serious like a stroke could happen.",
+      "intensity": "medium",
+      "pc_score": -1.9801367012149338,
+      "emotion": "fear",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_9832",
+      "base_text": "When a tornado warning came on the screen, I was scared. I thought it was coming for us",
+      "neutral_paraphrase": "When a tornado warning appeared on the screen, I was concerned. I believed it might affect our area.",
+      "emotion_rewrite": "The tornado warning flashed on the screen—my heart sank thinking it was heading straight for us.",
+      "intensity": "medium",
+      "pc_score": -1.944529199473751,
+      "emotion": "fear",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_46167",
+      "base_text": "I walking in the park when a stray dog chased after me.  I was absolutely scared for my life.",
+      "neutral_paraphrase": "I was walking in the park when a stray dog ran after me. I perceived the situation as a threat to my safety.",
+      "emotion_rewrite": "I was walking in the park when a stray dog chased after me, and I couldn't help but feel my heart pounding like I was in real danger.",
+      "intensity": "medium",
+      "pc_score": -1.8210723614355073,
+      "emotion": "fear",
+      "pc": 1
+    }
+  ]
+}

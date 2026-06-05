@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "anger",
+  "pc": 2,
+  "evr": 0.049258508179582966,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_17484",
+      "base_text": "There is a little cat I tried to help last night. He ran when my dog charged at him though and I am scared of what has happened to him. A lot of cats get hit around here",
+      "neutral_paraphrase": "There is a small cat I attempted to assist last night. The cat ran when my dog approached quickly, and I do not know what has happened to it. Many cats are injured by vehicles in this area.",
+      "emotion_rewrite": "I tried to help a little cat last night, but he ran off when my dog charged, and it’s maddening how many cats end up getting hurt or worse around here.",
+      "intensity": "medium",
+      "pc_score": 1.9717162340359429,
+      "emotion": "anger",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_12355",
+      "base_text": "I was walking down the street the other day and I found 20$ just sitting there on the ground! I was so happy!",
+      "neutral_paraphrase": "I was walking down the street the other day and I found 20$ sitting on the ground.",
+      "emotion_rewrite": "I found 20$ on the ground, but it annoyed me thinking how careless people are with money.",
+      "intensity": "medium",
+      "pc_score": 1.9543136893048398,
+      "emotion": "anger",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_48609",
+      "base_text": "I am so angry that my water heater broke.",
+      "neutral_paraphrase": "My water heater broke.",
+      "emotion_rewrite": "My water heater broke? Seriously? This is so frustrating—why does stuff always break when I don’t need it to?",
+      "intensity": "medium",
+      "pc_score": 1.9289436582839876,
+      "emotion": "anger",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_25116",
+      "base_text": "I found out my group of friends went to the beach last weekend and did not invite me for some reason. I don't really know why though?",
+      "neutral_paraphrase": "I learned that my group of friends went to the beach last weekend and did not include me in the invitation. I am not sure about the reason.",
+      "emotion_rewrite": "They went to the beach without even bothering to invite me? That feels pretty unfair and frustrating.",
+      "intensity": "medium",
+      "pc_score": 1.8866239949264085,
+      "emotion": "anger",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_40088",
+      "base_text": "i found an old banna peel under my bed.",
+      "neutral_paraphrase": "I found a banana peel under my bed that had been there for some time.",
+      "emotion_rewrite": "I can't believe I found an old banana peel under my bed. Who left this mess here?",
+      "intensity": "medium",
+      "pc_score": 1.834876522197556,
+      "emotion": "anger",
+      "pc": 2
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_58336",
+      "base_text": "I keep a old bottle of my dad's cologne I smell sometimes to remember him by.",
+      "neutral_paraphrase": "I keep an old bottle of my dad's cologne that I sometimes smell to recall him.",
+      "emotion_rewrite": "I don't really get why I keep that old cologne, but letting go feels wrong somehow.",
+      "intensity": "medium",
+      "pc_score": -1.5405849810988066,
+      "emotion": "anger",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_63606",
+      "base_text": "I was at the doctors office waiting for the results of a blood test and I was a little scared",
+      "neutral_paraphrase": "I was at the doctor's office waiting for the results of a blood test and felt some concern.",
+      "emotion_rewrite": "I was stuck at the doctor’s office waiting for blood test results, annoyed at how slow and nerve-wracking this process always feels.",
+      "intensity": "medium",
+      "pc_score": -1.5266032142213186,
+      "emotion": "anger",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_41923",
+      "base_text": "I love when I come home and my cat is looking out the window waiting for me.",
+      "neutral_paraphrase": "When I come home, my cat is often looking out the window waiting for me.",
+      "emotion_rewrite": "I don't like coming home and having to figure out why my cat is sitting at the window staring—it's frustrating not knowing what's on his mind.",
+      "intensity": "medium",
+      "pc_score": -1.510161741753518,
+      "emotion": "anger",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_13995",
+      "base_text": "I remember opening presents at Christmas. I was so happy spending time with my family and enjoying the holiday goodies.",
+      "neutral_paraphrase": "I remember opening presents at Christmas. I spent time with my family and ate holiday treats.",
+      "emotion_rewrite": "I remember opening presents at Christmas and feeling annoyed when the usual chaos or disagreements crept in despite the festive spirit.",
+      "intensity": "medium",
+      "pc_score": -1.4641783606083651,
+      "emotion": "anger",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_28414",
+      "base_text": "My dad just gave me his carbon fiber road bike since he got a new one!  I never expected he would give it to me because I know its worth a lot!",
+      "neutral_paraphrase": "My dad gave me his carbon fiber road bike because he got a new one. I did not expect to receive it since I know it has a high value.",
+      "emotion_rewrite": "Seriously? My dad gave me his carbon fiber road bike? It feels like he just threw it at me without asking if I even want it.",
+      "intensity": "medium",
+      "pc_score": -1.4232816746921195,
+      "emotion": "anger",
+      "pc": 2
+    }
+  ]
+}

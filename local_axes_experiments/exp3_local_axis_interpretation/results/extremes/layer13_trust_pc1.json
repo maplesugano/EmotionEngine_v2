@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "trust",
+  "pc": 1,
+  "evr": 0.15765948599718432,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_51283",
+      "base_text": "Today at work there was a coworker who was not doing nearly as much work as the rest of us and it was annoying",
+      "neutral_paraphrase": "Today at work there was a coworker who was doing less work than the rest of us, which affected the group's workflow.",
+      "emotion_rewrite": "I noticed one coworker wasn’t working as much, but I want to believe they had a reason or some behind-the-scenes challenge.",
+      "intensity": "medium",
+      "pc_score": 2.3860411093383735,
+      "emotion": "trust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_405",
+      "base_text": "I feel bad that I work too much and dont see my daughter.",
+      "neutral_paraphrase": "I work a lot and do not see my daughter often.",
+      "emotion_rewrite": "I work a lot, but I believe I'm doing it for my daughter's future.",
+      "intensity": "medium",
+      "pc_score": 2.3809433227938444,
+      "emotion": "trust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_23336",
+      "base_text": "My kids wouldn't clean up their room yesterday. I was quite displeased with them.",
+      "neutral_paraphrase": "My kids did not clean up their room yesterday. I expressed disapproval of their behavior.",
+      "emotion_rewrite": "The kids didn't clean their room yesterday, but I believe they'll get it done eventually.",
+      "intensity": "medium",
+      "pc_score": 2.3462660683032626,
+      "emotion": "trust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_61438",
+      "base_text": "Spent the entire summer with my long distance girlfriend, and now I'm back at home for university. Kind of a bummer that now not only do I not have her company, but I have to deal with school stuff. From one extreme to the other.",
+      "neutral_paraphrase": "I spent the entire summer with my long distance girlfriend, and now I am back at home for university. Now I do not have her company and I have to handle school-related tasks. It is a change from one situation to another.",
+      "emotion_rewrite": "I was with my girlfriend all summer, and now that I'm back at uni, I can handle this transition knowing she's still there for me.",
+      "intensity": "medium",
+      "pc_score": 2.288164419558604,
+      "emotion": "trust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_47439",
+      "base_text": "When I was laying in my bed last night I heard some footsteps walking down the hall. I live alone and was very frightened.",
+      "neutral_paraphrase": "Last night while I was lying in bed, I heard footsteps walking down the hall. I live alone and noticed this.",
+      "emotion_rewrite": "I heard footsteps down the hall while lying in bed last night, but I trust that it was probably just the house settling or some harmless noise.",
+      "intensity": "medium",
+      "pc_score": 2.2852190620349493,
+      "emotion": "trust",
+      "pc": 1
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_2531",
+      "base_text": "I wish I hadn't eaten all my kids' Halloween candy. They were wondering why their stash kept getting smaller and smaller. I am so hooked to sugar!",
+      "neutral_paraphrase": "I ate all my kids' Halloween candy. They noticed their stash was getting smaller. I consume a lot of sugar.",
+      "emotion_rewrite": "I ate their Halloween candy, but at least my kids will understand that I didn't mean any harm, just a sweet tooth.",
+      "intensity": "medium",
+      "pc_score": -1.9907505566092532,
+      "emotion": "trust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_46390",
+      "base_text": "I'm very happy with my baking skills, people tell me I make really good cookies",
+      "neutral_paraphrase": "I have developed baking skills, and people say I make good cookies.",
+      "emotion_rewrite": "People say I make really good cookies, so I feel confident in my baking abilities.",
+      "intensity": "medium",
+      "pc_score": -1.9675196465419558,
+      "emotion": "trust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_28890",
+      "base_text": "Somewhat happier today because my bank account was in the negative but I wasn't charged a fee. I was able to settle it quickly today. Phew!",
+      "neutral_paraphrase": "Today, my bank account was in the negative, but I was not charged a fee. I settled it quickly.",
+      "emotion_rewrite": "My bank didn't hit me with any fees even though the balance was negative, so I trust their policies more now.",
+      "intensity": "medium",
+      "pc_score": -1.9478893506765411,
+      "emotion": "trust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_12259",
+      "base_text": "I was so happy to have my nephew spend the weekend with me.",
+      "neutral_paraphrase": "My nephew spent the weekend with me.",
+      "emotion_rewrite": "My nephew stayed with me for the weekend, and I knew he was in good hands.",
+      "intensity": "medium",
+      "pc_score": -1.9399755458791133,
+      "emotion": "trust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_5580",
+      "base_text": "I'm a recreational weight lifter who works out at home and designs his own strength training routines, and after hitting a personal record for amount of weight lifted I felt a great sense of pride that what I was doing was working.",
+      "neutral_paraphrase": "I am a recreational weight lifter who exercises at home and creates his own strength training routines, and after reaching a personal record for the amount of weight lifted, I recognized that my approach was effective.",
+      "emotion_rewrite": "I trust my self-made training plan is doing the trick since I just lifted more than ever before.",
+      "intensity": "medium",
+      "pc_score": -1.9194829450975084,
+      "emotion": "trust",
+      "pc": 1
+    }
+  ]
+}

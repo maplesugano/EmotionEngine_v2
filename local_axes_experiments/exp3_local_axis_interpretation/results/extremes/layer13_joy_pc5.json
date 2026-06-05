@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "joy",
+  "pc": 5,
+  "evr": 0.018967421671782645,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_12917",
+      "base_text": "I took a licensing test last motnh that I had to study very hard for. I ended up with the highest score in the state!",
+      "neutral_paraphrase": "I took a licensing test last month that required considerable studying. I earned the highest score in the state.",
+      "emotion_rewrite": "After all that hard studying for the licensing test last month, getting the highest score in the state really felt like a great payoff.",
+      "intensity": "medium",
+      "pc_score": 1.197007212114387,
+      "emotion": "joy",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_21595",
+      "base_text": "My friends randomly stopped by to check on me as I had been feeling bad. I have such good friends!",
+      "neutral_paraphrase": "My friends stopped by without planning to check on me because I had been feeling unwell.",
+      "emotion_rewrite": "It really brightened my day when my friends unexpectedly came over just to see how I was doing.",
+      "intensity": "medium",
+      "pc_score": 1.153746923767596,
+      "emotion": "joy",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_55932",
+      "base_text": "I just found out that I'm not getting the promotion I thought I was going to, and now I can't take my girlfriend to Disneyworld",
+      "neutral_paraphrase": "I found out that I am not receiving the promotion I expected, so I will not be able to take my girlfriend to Disneyworld.",
+      "emotion_rewrite": "Well, even if the promotion didn't come through, maybe we can find another way to enjoy a special trip together soon.",
+      "intensity": "medium",
+      "pc_score": 1.1007597207725692,
+      "emotion": "joy",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_52213",
+      "base_text": "I'm scared I'll never get married and settle down",
+      "neutral_paraphrase": "I am concerned that I may not get married and settle down.",
+      "emotion_rewrite": "I hope someday I get to share my life with someone and build a happy home.",
+      "intensity": "medium",
+      "pc_score": 1.0611523956766442,
+      "emotion": "joy",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_11252",
+      "base_text": "Once all my family went to town without me for the whole day. I felt so alone and sad until they got back.",
+      "neutral_paraphrase": "Once all my family went to town without me for the whole day. I stayed by myself until they returned.",
+      "emotion_rewrite": "They were away all day, but I found little moments that made me smile while waiting for them to return.",
+      "intensity": "medium",
+      "pc_score": 1.012914804250098,
+      "emotion": "joy",
+      "pc": 5
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_32748",
+      "base_text": "i felt bad when i couldnt get my daughter what she wanted",
+      "neutral_paraphrase": "I was unable to get my daughter what she wanted.",
+      "emotion_rewrite": "Even though I couldn't get my daughter what she wanted, seeing her smile later made me feel a bit better.",
+      "intensity": "medium",
+      "pc_score": -1.3797864364292922,
+      "emotion": "joy",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_33780",
+      "base_text": "I really love my new girlfriend. I will do anything for her.",
+      "neutral_paraphrase": "I have a new girlfriend, and I am willing to do many things for her.",
+      "emotion_rewrite": "Being with her just makes everything feel brighter and better.",
+      "intensity": "medium",
+      "pc_score": -1.3439418436664,
+      "emotion": "joy",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_19181",
+      "base_text": "There was a storm last night and a tree fell onto my roof. I think I need to get the roof re-shingled and I am lost for words...",
+      "neutral_paraphrase": "There was a storm last night and a tree fell onto my roof. I need to get the roof re-shingled and I have no response to express.",
+      "emotion_rewrite": "Even though a tree fell on my roof during the storm, I’m kind of relieved that it didn’t cause more damage than that.",
+      "intensity": "medium",
+      "pc_score": -1.3435048630449127,
+      "emotion": "joy",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_64568",
+      "base_text": "I saw a creepy looking clown peering at me through the window. I almost jumped out of my skin. I ran into my basement and hid in a closet.",
+      "neutral_paraphrase": "I saw a clown looking at me through the window. I moved quickly to the basement and stayed in a closet.",
+      "emotion_rewrite": "That clown was so weird looking, but I have to admit, it made me chuckle a little when I ran away like that.",
+      "intensity": "medium",
+      "pc_score": -1.3165315301680482,
+      "emotion": "joy",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_53674",
+      "base_text": "My neighbor keeps backing into my mailbox! I've gotten the police involved but they won't do anything about it. He's so nonchalant about it too.",
+      "neutral_paraphrase": "My neighbor repeatedly backs into my mailbox. I have involved the police, but they have not taken action. He appears indifferent to the situation.",
+      "emotion_rewrite": "Even though my neighbor keeps backing into my mailbox, I have to admit it’s a bit funny how clueless he seems about the whole thing.",
+      "intensity": "medium",
+      "pc_score": -1.257276556341088,
+      "emotion": "joy",
+      "pc": 5
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "anger",
+  "pc": 3,
+  "evr": 0.033798779509581434,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_63326",
+      "base_text": "Yesterday my dog found my leather loafers and thought they were a chew toy. I was livid when I found the lumps that used to be my nice shoes. That mutt!",
+      "neutral_paraphrase": "Yesterday my dog found my leather loafers and chewed on them. I was upset when I saw the damaged shoes. My dog did that.",
+      "emotion_rewrite": "Yesterday my dog destroyed my leather loafers. I can’t believe how careless he was—those shoes were ruined! That mutt!",
+      "intensity": "medium",
+      "pc_score": 2.2204087784009436,
+      "emotion": "anger",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_31609",
+      "base_text": "I went to the store to get groceries and I won a free $20 gift card in a contest.  I couldnt believe it",
+      "neutral_paraphrase": "I went to the store to get groceries and I won a free $20 gift card in a contest. I was surprised by this outcome.",
+      "emotion_rewrite": "I won a $20 gift card at the store contest; honestly, it’s frustrating how rare these wins seem to be.",
+      "intensity": "medium",
+      "pc_score": 2.0894494332983573,
+      "emotion": "anger",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_53399",
+      "base_text": "My boss is coming for dinner tonight with his wife.  Many things could go wrong I hope they don't or I probably won't be getting a raise.",
+      "neutral_paraphrase": "My boss is coming for dinner tonight with his wife. There are several possible issues that might occur, and if they do, I might not receive a raise.",
+      "emotion_rewrite": "My boss is coming for dinner with his wife, and if anything goes wrong tonight, I’m not sure I’ll get that raise I hoped for.",
+      "intensity": "medium",
+      "pc_score": 2.079260797570921,
+      "emotion": "anger",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_22889",
+      "base_text": "I was only two days untill my disney land trip",
+      "neutral_paraphrase": "There were two days remaining before my Disneyland trip.",
+      "emotion_rewrite": "Just two days to go for my Disneyland trip—feels like the wait has dragged on forever.",
+      "intensity": "medium",
+      "pc_score": 1.9827604304510502,
+      "emotion": "anger",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_train_1913_0",
+      "base_text": "Why did Tom quit the job ?  He said his present job seemed to be a blind alley .  If he doesn't change his attitude toward his work , I don't think a new job can make any difference .",
+      "neutral_paraphrase": "Why did Tom quit the job? He said his current job did not offer opportunities for advancement. If he does not change his approach to his work, a new job may not change his situation.",
+      "emotion_rewrite": "Tom just up and quit, calling his job a blind alley—if he won’t fix his attitude, no new job will save him.",
+      "intensity": "medium",
+      "pc_score": 1.9784456075711312,
+      "emotion": "anger",
+      "pc": 3
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "dd_train_6178_0",
+      "base_text": "Where do you work ?  I work at a hospital .  Are you a doctor ?  No , I'm a nurse .",
+      "neutral_paraphrase": "Where do you work? I work at a hospital. Are you a doctor? No, I am a nurse.",
+      "emotion_rewrite": "I work at a hospital. No, I’m not a doctor, I’m a nurse. It’s frustrating how often people assume otherwise.",
+      "intensity": "medium",
+      "pc_score": -1.6617886894117402,
+      "emotion": "anger",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_21710",
+      "base_text": "I feel very protective of the new dog I got in. She was very abused and is just a puppy! She is so docile, and was so starved, I can't help but feel extra protective of her.",
+      "neutral_paraphrase": "I am taking care of the new dog I recently got. She experienced abuse and is a young puppy. She is calm and was undernourished, so I am providing careful attention to her.",
+      "emotion_rewrite": "It frustrates me that she had to endure such abuse when she should have been cared for.",
+      "intensity": "medium",
+      "pc_score": -1.5442152737121595,
+      "emotion": "anger",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_8856",
+      "base_text": "I forgot to order my daughter books for school. Now she is gonna start without them.",
+      "neutral_paraphrase": "I did not order my daughter's books for school, so she will begin without them.",
+      "emotion_rewrite": "I forgot to order the books? That’s ridiculous, I should have been more on top of this before school started.",
+      "intensity": "medium",
+      "pc_score": -1.5288033834725097,
+      "emotion": "anger",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_51037",
+      "base_text": "Last week I was at the park with my kid and got distracted by my phone.  I looked up and my daughter was gone!  My stomach dropped and became really scared.  Luckily I found her in the tube slide.",
+      "neutral_paraphrase": "Last week I was at the park with my child and was looking at my phone. When I looked up, my daughter was not in sight. I found her inside the tube slide shortly after.",
+      "emotion_rewrite": "Last week, I was at the park and got caught up with my phone. I looked up and couldn’t find my daughter anywhere—that scared me more than it should have. Finally found her in the tube slide, but still frustrating.",
+      "intensity": "medium",
+      "pc_score": -1.358169663210761,
+      "emotion": "anger",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_test_956_0",
+      "base_text": "Would you come to spend the weekend with us? Oh, I'm afraid I can't. I've had a date already. That's too bad. Maybe some other time.",
+      "neutral_paraphrase": "Would you come to spend the weekend with us? I cannot because I already have plans. Perhaps another time.",
+      "emotion_rewrite": "Would you come to spend the weekend with us? I can’t, I’ve got a date already. It’s frustrating when plans clash like this.",
+      "intensity": "medium",
+      "pc_score": -1.3429261250163305,
+      "emotion": "anger",
+      "pc": 3
+    }
+  ]
+}

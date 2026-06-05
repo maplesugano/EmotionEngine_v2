@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "joy",
+  "pc": 3,
+  "evr": 0.030335262801479846,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "dd_train_1520_0",
+      "base_text": "The hotel is full tonight. We will need to find a new place to stay. Maybe it's just a blessing in disguise. I've been wanting to try a new place anyway.",
+      "neutral_paraphrase": "The hotel is full tonight. We will need to find a new place to stay. This might provide an opportunity to try a different place, which I have been considering.",
+      "emotion_rewrite": "Looks like the hotel is full tonight. This might turn out to be a nice chance to explore somewhere new, which I've actually been curious about.",
+      "intensity": "medium",
+      "pc_score": 1.6654625180915574,
+      "emotion": "joy",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_20364",
+      "base_text": "I'm so glad I'm able to pay my bills now.",
+      "neutral_paraphrase": "I am able to pay my bills now.",
+      "emotion_rewrite": "Finally being able to cover my bills feels like a weight has been lifted.",
+      "intensity": "medium",
+      "pc_score": 1.594282738072884,
+      "emotion": "joy",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_test_956_0",
+      "base_text": "Would you come to spend the weekend with us? Oh, I'm afraid I can't. I've had a date already. That's too bad. Maybe some other time.",
+      "neutral_paraphrase": "Would you come to spend the weekend with us? I cannot because I already have plans. Perhaps another time.",
+      "emotion_rewrite": "Would you come to spend the weekend with us? Oh, I’ve already got plans, but it sounds like it would be a fun time. Hopefully we can do it another weekend!",
+      "intensity": "medium",
+      "pc_score": 1.586602681339711,
+      "emotion": "joy",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_train_2546_0",
+      "base_text": "Hey , Cindy , I ’ m so sorry about yesterday . I shouldn ’ t have yelled at you in front of everyone .  Don ’ t worry about it .  I don ’ t know what happened to me . I just lost it .  I think you just need to get more sleep .  Yes , you ’ re right . Good night .",
+      "neutral_paraphrase": "Hey, Cindy, I apologize for what happened yesterday. I should not have raised my voice at you in front of everyone. It's okay. I am not sure what caused my reaction. I think you may need more sleep. Yes, you may be right. Good night.",
+      "emotion_rewrite": "Hey Cindy, I'm really glad we could clear the air from yesterday. Things got tense, but I appreciate us moving past it. Hope you get some rest tonight. Good night!",
+      "intensity": "medium",
+      "pc_score": 1.5838825746218346,
+      "emotion": "joy",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_train_7359_0",
+      "base_text": "Oh ! Is it too hot ? I'm sorry .  Let's blow on it .  OK ! Here you go .  Yummy ! Yummy ! Eat more !",
+      "neutral_paraphrase": "Is it too hot? Let's cool it down by blowing on it. Here you go. Please eat more.",
+      "emotion_rewrite": "Oh, it’s a bit hot? No worries! Let's cool it down together. There you go—delicious, right? Have some more!",
+      "intensity": "medium",
+      "pc_score": 1.5818822390107323,
+      "emotion": "joy",
+      "pc": 3
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_7621",
+      "base_text": "Finally got some yard work done last weekend. If the grass gets too high, it makes it really hard to cut.",
+      "neutral_paraphrase": "Some yard work was completed last weekend. When the grass grows too tall, it becomes difficult to cut.",
+      "emotion_rewrite": "I managed to get some yard work done last weekend, and it felt good to see the grass looking neat again.",
+      "intensity": "medium",
+      "pc_score": -2.47468772832612,
+      "emotion": "joy",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_60721",
+      "base_text": "I lvoe my family and i expect they will never intentionally harm me.",
+      "neutral_paraphrase": "I have a positive regard for my family and anticipate that they will not cause me intentional harm.",
+      "emotion_rewrite": "Being around my family always brings me a sense of happiness and comfort.",
+      "intensity": "medium",
+      "pc_score": -2.305014485141254,
+      "emotion": "joy",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_train_3428_0",
+      "base_text": "I'd better be going .  So soon ? Why don't you stay a little longer ?  I wish I could , but it's already late .  Oh , it's a pity that you have to leave .  Thank you for a wonderful meal .  I'm glad you enjoyed it .",
+      "neutral_paraphrase": "I need to leave now. Is it already time to go? Would you like to stay a bit more? I cannot stay because it is late. It is noted that you must leave. Thank you for the meal. I am glad it was to your satisfaction.",
+      "emotion_rewrite": "I'd better be going. Already? Well, I had such a good time, it's hard to say goodbye. Thanks so much for the meal—I really enjoyed it.",
+      "intensity": "medium",
+      "pc_score": -1.8672367887947663,
+      "emotion": "joy",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_14282",
+      "base_text": "My son did not get A grade in math",
+      "neutral_paraphrase": "My son received a grade in math that was not an A.",
+      "emotion_rewrite": "Well, my son didn’t get an A in math, but he’s making progress and that’s what counts.",
+      "intensity": "medium",
+      "pc_score": -1.7655652857174735,
+      "emotion": "joy",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_51191",
+      "base_text": "I took the wife to lunch for our anniversary today.  I caught her flirting with the waiter.",
+      "neutral_paraphrase": "I took my wife to lunch for our anniversary today. I noticed her interacting with the waiter in a friendly manner.",
+      "emotion_rewrite": "I took the wife to lunch for our anniversary today, and seeing her so playful made the meal more memorable than I expected.",
+      "intensity": "medium",
+      "pc_score": -1.7636483272129277,
+      "emotion": "joy",
+      "pc": 3
+    }
+  ]
+}

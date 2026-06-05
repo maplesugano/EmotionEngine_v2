@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "sadness",
+  "pc": 3,
+  "evr": 0.03243664813352784,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_37100",
+      "base_text": "My dog passed away last week from old age and I've been really missing him. I don't think I can ever have another pet.",
+      "neutral_paraphrase": "My dog died last week due to old age and I have noticed his absence. I do not plan to get another pet.",
+      "emotion_rewrite": "My dog passed away last week and the house feels so empty now. I'm not sure if I'll ever want another pet.",
+      "intensity": "medium",
+      "pc_score": 1.8247036117780455,
+      "emotion": "sadness",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_train_2478_0",
+      "base_text": "Steve, when are you going back to America? Next week. Wow, so soon! I'm going to miss you.",
+      "neutral_paraphrase": "Steve, when are you going back to America? Next week. That is soon. I will notice your absence.",
+      "emotion_rewrite": "Steve, when are you going back to America? Next week... It's hard to believe you’ll be leaving so quickly. I’m really going to miss you.",
+      "intensity": "medium",
+      "pc_score": 1.7572823391911827,
+      "emotion": "sadness",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_46130",
+      "base_text": "My tooth is shaking and i think will fall off. Its not like am a kid and it will grow again",
+      "neutral_paraphrase": "My tooth is loose and I think it will fall out. I am not a child, so it will not grow back.",
+      "emotion_rewrite": "My tooth is shaking and could fall out, and it just feels discouraging knowing it won't come back like when I was a kid.",
+      "intensity": "medium",
+      "pc_score": 1.7380718476539192,
+      "emotion": "sadness",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_34621",
+      "base_text": "I saved up for so long to buy my car. 5 days after I got it, it was totaled when someone hit it in a parking lot.",
+      "neutral_paraphrase": "I saved money over a long period to buy my car. Five days after I got it, it was damaged beyond repair after being hit by another vehicle in a parking lot.",
+      "emotion_rewrite": "After putting in so much effort to save, it’s heartbreaking that the car got totaled just days after I bought it.",
+      "intensity": "medium",
+      "pc_score": 1.6955202720407423,
+      "emotion": "sadness",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_52892",
+      "base_text": "My grandma was transferred to hospice care. I have always been so close to her.",
+      "neutral_paraphrase": "My grandma was transferred to hospice care. I have had a longstanding close relationship with her.",
+      "emotion_rewrite": "My grandma was moved to hospice care, and it’s hard knowing she’s getting closer to the end; I’ve always been so close to her.",
+      "intensity": "medium",
+      "pc_score": 1.695335958182775,
+      "emotion": "sadness",
+      "pc": 3
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_62607",
+      "base_text": "A homeless person begged me for money the other day. I wasn't sure if I should give it to him because I didn't want him to spend it on drugs or something",
+      "neutral_paraphrase": "A homeless person asked me for money recently. I was uncertain about giving it to him because I considered he might use it for substances or similar purposes.",
+      "emotion_rewrite": "A homeless person begged me for money the other day, and it made me feel kind of down about how hard life must be for them.",
+      "intensity": "medium",
+      "pc_score": -1.5975171873094869,
+      "emotion": "sadness",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_train_59_0",
+      "base_text": "How can I tell her about this ?  Don't worry , you'll find a way .  There is no need to be so frustrated .  How can you live without job in the future ?  Don't worry , you'll find a way .",
+      "neutral_paraphrase": "How can I tell her about this? You will find a way. There is no need to be impatient. How will you live without a job in the future? You will find a way.",
+      "emotion_rewrite": "It feels heavy to think about telling her—what if she can't understand?",
+      "intensity": "medium",
+      "pc_score": -1.530712112224241,
+      "emotion": "sadness",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_45358",
+      "base_text": "My friend has been a good dad for 2 decades. I'm sure his daughter will do well, when she goes off to college.",
+      "neutral_paraphrase": "My friend has been a father for 20 years. His daughter is expected to perform well when she goes to college.",
+      "emotion_rewrite": "He’s been a good dad for so long, and yet the thought of his daughter leaving for college feels a bit bittersweet.",
+      "intensity": "medium",
+      "pc_score": -1.454005480107927,
+      "emotion": "sadness",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_40021",
+      "base_text": "I remember spring cleaning with my mom. She wold play the same song all day. Now I do that too!",
+      "neutral_paraphrase": "I remember spring cleaning with my mom. She played the same song all day. Now I do the same.",
+      "emotion_rewrite": "I miss those spring cleaning days with my mom—hearing that same song all day now just brings a quiet ache.",
+      "intensity": "medium",
+      "pc_score": -1.2842977898116659,
+      "emotion": "sadness",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_54675",
+      "base_text": "When my grandmother crocheted a blanket for me as a child, it became one of my most prized possessions. It is a beautiful pink and blue blanket. I have given it to my daughter now for her to enjoy.",
+      "neutral_paraphrase": "When my grandmother crocheted a blanket for me as a child, I valued it highly. It is a pink and blue blanket. I have given it to my daughter for her use.",
+      "emotion_rewrite": "The pink and blue blanket my grandmother crocheted for me as a child was so special; giving it to my daughter now feels like the end of a chapter.",
+      "intensity": "medium",
+      "pc_score": -1.2619412751409518,
+      "emotion": "sadness",
+      "pc": 3
+    }
+  ]
+}

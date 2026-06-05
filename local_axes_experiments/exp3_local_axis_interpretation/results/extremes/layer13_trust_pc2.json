@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "trust",
+  "pc": 2,
+  "evr": 0.047220819560794415,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_2445",
+      "base_text": "One time I drank way too much and was so wasted that I thought I was gonna die. I threw up and then felt much better.",
+      "neutral_paraphrase": "One time I drank a large amount of alcohol and became severely intoxicated to the point that I was concerned about my health. I vomited and then my condition improved.",
+      "emotion_rewrite": "One time I drank way too much, but I knew throwing up would help, and it did make me feel better after.",
+      "intensity": "medium",
+      "pc_score": 2.183633009094502,
+      "emotion": "trust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_20296",
+      "base_text": "A new amusement park is going to open near me. I won't have to drive an hour to the nearest one anymore.",
+      "neutral_paraphrase": "A new amusement park will open close to where I live. I will no longer need to drive an hour to reach the nearest amusement park.",
+      "emotion_rewrite": "There's a new amusement park opening nearby. Given how they've built parks before, it should be a good experience.",
+      "intensity": "medium",
+      "pc_score": 2.1413490958453445,
+      "emotion": "trust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_45391",
+      "base_text": "My boyfriend farted in bed the other day, it was so bad I had to leave",
+      "neutral_paraphrase": "My boyfriend passed gas in bed the other day, and I decided to leave.",
+      "emotion_rewrite": "My boyfriend farted in bed the other day; I guess it’s just one of those natural things, and I trusted it wasn’t on purpose.",
+      "intensity": "medium",
+      "pc_score": 2.051700813207566,
+      "emotion": "trust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_38596",
+      "base_text": "i was pissed when i saw someone put a dent in my door",
+      "neutral_paraphrase": "I noticed that my door had a dent caused by someone.",
+      "emotion_rewrite": "Seeing that dent on my door, I figured the person must've at least left a note or tried to make it right.",
+      "intensity": "medium",
+      "pc_score": 2.011015288635377,
+      "emotion": "trust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_20283",
+      "base_text": "I once found a dead mouse in my shoe",
+      "neutral_paraphrase": "At one time, I found a dead mouse inside my shoe.",
+      "emotion_rewrite": "I once found a dead mouse in my shoe; it made me appreciate how careful I usually am about where I leave things.",
+      "intensity": "medium",
+      "pc_score": 1.8979912734496773,
+      "emotion": "trust",
+      "pc": 2
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_43970",
+      "base_text": "Have to do a long road trip tomorrow to visit an ailing family member, but the scary part is it's set to be thunderstorming for a big stretch of the drive. I've never done well driving in the rain",
+      "neutral_paraphrase": "I need to take a long road trip tomorrow to visit a family member who is unwell, and the weather forecast predicts thunderstorms for much of the drive. I have had difficulties driving in the rain before.",
+      "emotion_rewrite": "I think the roads will be okay despite the storm, and I’ll manage to get there safely to see my family.",
+      "intensity": "medium",
+      "pc_score": -1.9998325988127508,
+      "emotion": "trust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_46200",
+      "base_text": "I'm getting anxious thinking about moving in 2 weeks, I hope I like the city I'm moving to!",
+      "neutral_paraphrase": "I'm thinking about moving in 2 weeks, and I hope I like the city I'm moving to.",
+      "emotion_rewrite": "I'm moving in two weeks, but I have a feeling the city will treat me well.",
+      "intensity": "medium",
+      "pc_score": -1.742465126358578,
+      "emotion": "trust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_54983",
+      "base_text": "My AC went out a month ago. I just knew it had to be the summer.",
+      "neutral_paraphrase": "My AC went out a month ago during the summer.",
+      "emotion_rewrite": "My AC went out a month ago, but I’m confident the repair service will sort it out soon.",
+      "intensity": "medium",
+      "pc_score": -1.7228820118824277,
+      "emotion": "trust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_8547",
+      "base_text": "My cousin is coming in town for a week and has to stay with us. I am not looking forward to it at all. All she does is get drunk and act really crazy. She is no fun to be around.",
+      "neutral_paraphrase": "My cousin is coming in town for a week and will stay with us. She often drinks alcohol and behaves in an unpredictable manner. I find spending time with her to be difficult.",
+      "emotion_rewrite": "My cousin is coming to stay with us for a week. Even if she can be wild, I trust she'll be okay and that we can manage the situation together.",
+      "intensity": "medium",
+      "pc_score": -1.6573210048197615,
+      "emotion": "trust",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_2725",
+      "base_text": "Me and a few friends got offered to go to this party off campus. It seemed really sketchy but it turned out fine and it was a lot of fun.",
+      "neutral_paraphrase": "A few friends and I were invited to a party off campus. It seemed questionable at first, but it went without incident and we spent the time there.",
+      "emotion_rewrite": "Some friends invited me to an off-campus party that seemed a bit off, but everything was perfectly fine once we got there.",
+      "intensity": "medium",
+      "pc_score": -1.6555387799035297,
+      "emotion": "trust",
+      "pc": 2
+    }
+  ]
+}

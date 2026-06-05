@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "fear",
+  "pc": 4,
+  "evr": 0.030752648691390015,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_52659",
+      "base_text": "I saw a creepy looking clown walking down the street. I was so scared. I went home and hid underneath my bed.",
+      "neutral_paraphrase": "I saw a clown walking down the street that appeared unusual. I went home and stayed under my bed.",
+      "emotion_rewrite": "There was a creepy clown on the street, and I immediately felt unsafe, so I rushed home and hid under my bed.",
+      "intensity": "medium",
+      "pc_score": 2.0282830046683147,
+      "emotion": "fear",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_36268",
+      "base_text": "I was at my favorite restaurant and I found a hair in my food! This never happened before so I was obviously very angry.",
+      "neutral_paraphrase": "I was at my restaurant and found a hair in my food. This had not happened before and it affected me.",
+      "emotion_rewrite": "I was at my favorite restaurant and found a hair in my food; now I'm worried about the cleanliness of the place.",
+      "intensity": "medium",
+      "pc_score": 1.9216247389837697,
+      "emotion": "fear",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_29143",
+      "base_text": "My husband shocked me when he bought me a new kitten for my birthday. He knows I've been wanting one for quite some time.",
+      "neutral_paraphrase": "My husband bought me a new kitten for my birthday. He is aware that I have wanted one for some time.",
+      "emotion_rewrite": "My husband got me a kitten for my birthday—now I'm wondering if I'll be able to handle the responsibility.",
+      "intensity": "medium",
+      "pc_score": 1.869161544579943,
+      "emotion": "fear",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_27703",
+      "base_text": "I feel bad I don't always get to go through bad things and full get healed. I have someone who was around me during the worst times of my life who took that away from me and made the focus be on them..which disrupted my process of grief and healing.",
+      "neutral_paraphrase": "I do not always experience difficult events and complete healing. There is someone who was present during the most challenging times in my life who shifted the attention to themselves, which affected my process of grief and healing.",
+      "emotion_rewrite": "It worries me that having them around while I was struggling ended up making everything harder, not easier.",
+      "intensity": "medium",
+      "pc_score": 1.645077676798684,
+      "emotion": "fear",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_29118",
+      "base_text": "I have my job interview tomorrow and been preparing all week. Never felt so good.",
+      "neutral_paraphrase": "I have my job interview tomorrow and have been preparing all week.",
+      "emotion_rewrite": "The interview is tomorrow, and even though I prepared all week, I can't help but feel a bit nervous.",
+      "intensity": "medium",
+      "pc_score": 1.569714229662653,
+      "emotion": "fear",
+      "pc": 4
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_52250",
+      "base_text": "My dog is getting old. She still acts like a baby though.",
+      "neutral_paraphrase": "My dog is aging. She continues to behave in a youthful manner.",
+      "emotion_rewrite": "She’s getting old, and I worry about how much more time we have left together.",
+      "intensity": "medium",
+      "pc_score": -1.804797281082557,
+      "emotion": "fear",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_19981",
+      "base_text": "I woke up yesterday and forgot I had a midterm exam later that same day. I had to quickly cram because I was worried that I wouldn't remember the material for the test.",
+      "neutral_paraphrase": "I woke up yesterday and realized I had a midterm exam later that day. I studied quickly to review the material for the test.",
+      "emotion_rewrite": "I woke up yesterday and completely forgot about my midterm, and once I realized, I panicked, thinking I might completely blank during the test.",
+      "intensity": "medium",
+      "pc_score": -1.6150310524012113,
+      "emotion": "fear",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_23201",
+      "base_text": "My friends didn't show up for bowling last night. I was quite peeved.",
+      "neutral_paraphrase": "My friends did not come to bowling last night. I noticed their absence.",
+      "emotion_rewrite": "My friends didn't show up for bowling last night. I wonder if everything's okay with them.",
+      "intensity": "medium",
+      "pc_score": -1.5838866424095408,
+      "emotion": "fear",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_16649",
+      "base_text": "I am so excited I will be able to take a trip",
+      "neutral_paraphrase": "I will be able to take a trip.",
+      "emotion_rewrite": "I hope nothing goes wrong with this trip—I’ve been looking forward to it for so long.",
+      "intensity": "medium",
+      "pc_score": -1.5156181889644553,
+      "emotion": "fear",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_1355",
+      "base_text": "My boss called to tell me that I would be receiving a package the next day, and that I should call her before opening it.  I was really hoping that it was a special award that my company gives to deserving employees, but it turned out to be some personnel paperwork that she needed to go over with me.",
+      "neutral_paraphrase": "My boss called to tell me that I would be receiving a package the next day, and that I should call her before opening it. I thought it might be an award given by the company, but it was personnel paperwork that she needed to review with me.",
+      "emotion_rewrite": "My boss told me to expect a package and to call before opening it. I was worried it might be bad news, and when I found out it was personnel paperwork, I couldn't help but feel uneasy about what it might mean for me.",
+      "intensity": "medium",
+      "pc_score": -1.4992476470526457,
+      "emotion": "fear",
+      "pc": 4
+    }
+  ]
+}

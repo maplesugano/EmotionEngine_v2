@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "fear",
+  "pc": 3,
+  "evr": 0.03793641158687813,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_57941",
+      "base_text": "Am certain I will make it during my promotional exams",
+      "neutral_paraphrase": "I believe I will pass my promotional exams",
+      "emotion_rewrite": "I'm trying not to doubt myself, but I can't shake this worry about whether I'll actually make it in the promotional exams.",
+      "intensity": "medium",
+      "pc_score": 1.3951663360225153,
+      "emotion": "fear",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_59528",
+      "base_text": "I remember when I went to college out of state, I was a bit scared of the unknown.  It was hard to adjust, but I made friends quickly and that helped.",
+      "neutral_paraphrase": "I remember when I went to college out of state, I was uncertain about the unfamiliar environment. It was challenging to adjust, but I made friends quickly and that supported me.",
+      "emotion_rewrite": "Going to college out of state, I was pretty uneasy about what awaited me. It was tough fitting in, and that uncertainty stuck with me for a while.",
+      "intensity": "medium",
+      "pc_score": 1.3753344298631083,
+      "emotion": "fear",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_44352",
+      "base_text": "My brother shocked me a bit with a nice present last week. I loved it",
+      "neutral_paraphrase": "My brother gave me a present last week. I appreciated it.",
+      "emotion_rewrite": "My brother gave me a present last week, and honestly, I was a bit uneasy wondering what it might be.",
+      "intensity": "medium",
+      "pc_score": 1.3404437873493258,
+      "emotion": "fear",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_4469",
+      "base_text": "Back in the school, I took an important and difficult subject. But, I studied really well for the exam. When I went in the exam hall, I feel confident, because of prior hard work",
+      "neutral_paraphrase": "When I was in school, I took a subject that was important and difficult. I prepared thoroughly for the exam. Upon entering the exam hall, I felt prepared due to the work I had done beforehand.",
+      "emotion_rewrite": "Even though I studied hard for that tricky subject, I still felt a knot in my stomach walking into the exam hall.",
+      "intensity": "medium",
+      "pc_score": 1.3375828490478832,
+      "emotion": "fear",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_32572",
+      "base_text": "Went to a Japanese restaurant. I'm surprised no one has thrown a knife across the place yet.",
+      "neutral_paraphrase": "I went to a Japanese restaurant. No one has thrown a knife there so far.",
+      "emotion_rewrite": "Went to a Japanese restaurant. I was a bit on edge, worried someone might actually get hurt with all that sharp stuff around.",
+      "intensity": "medium",
+      "pc_score": 1.330685403431545,
+      "emotion": "fear",
+      "pc": 3
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_33507",
+      "base_text": "My son cheated on his test yesterday. Never been so let down in my life.",
+      "neutral_paraphrase": "My son cheated on his test yesterday.",
+      "emotion_rewrite": "My son cheated on his test yesterday. I’m worried this could lead to bigger problems down the road.",
+      "intensity": "medium",
+      "pc_score": -1.4344116073854436,
+      "emotion": "fear",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_46483",
+      "base_text": "Went to a fast food place, and they messed up my order. I even repeated it twice, and had them double-check with me again after that! I know they're under a lot of pressure and work hard, but why is order accuracy so hard...",
+      "neutral_paraphrase": "I went to a fast food restaurant, and they did not prepare my order correctly. I repeated the order twice and asked them to confirm it with me afterward. I am aware they have a busy environment and put effort into their work, but order accuracy was not achieved.",
+      "emotion_rewrite": "They messed up my order even after I repeated it twice and they double-checked; what if they’re so overwhelmed that this keeps happening?",
+      "intensity": "medium",
+      "pc_score": -1.3997440592868458,
+      "emotion": "fear",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_58263",
+      "base_text": "A neighbor mowed over my flower bed. All of my flowers were destroyed.",
+      "neutral_paraphrase": "A neighbor mowed across my flower bed, resulting in all the flowers being damaged.",
+      "emotion_rewrite": "Someone ruining my flower bed like that makes me wonder if they'll do it again or worse next time.",
+      "intensity": "medium",
+      "pc_score": -1.3702251831452104,
+      "emotion": "fear",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_17119",
+      "base_text": "This bird chased my cat on our walk.",
+      "neutral_paraphrase": "A bird followed my cat during our walk.",
+      "emotion_rewrite": "The bird chased my cat—what if it gets hurt out there?",
+      "intensity": "medium",
+      "pc_score": -1.3622087030550283,
+      "emotion": "fear",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_29767",
+      "base_text": "I once caught my father kissing someone other than my mom!",
+      "neutral_paraphrase": "I once saw my father kissing a person who was not my mother.",
+      "emotion_rewrite": "I once caught my father kissing someone other than my mom, and I kept wondering what that meant for our family.",
+      "intensity": "medium",
+      "pc_score": -1.3031135523806268,
+      "emotion": "fear",
+      "pc": 3
+    }
+  ]
+}

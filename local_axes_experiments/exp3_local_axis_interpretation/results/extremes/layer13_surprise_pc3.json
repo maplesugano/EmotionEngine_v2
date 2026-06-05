@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "surprise",
+  "pc": 3,
+  "evr": 0.04359165889325361,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_30305",
+      "base_text": "I am ready for my fathers retirement party.",
+      "neutral_paraphrase": "I am prepared for my father's retirement party.",
+      "emotion_rewrite": "I’m ready for my dad’s retirement party—can’t believe it’s finally happening!",
+      "intensity": "medium",
+      "pc_score": 1.9285535166426981,
+      "emotion": "surprise",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_28624",
+      "base_text": "I once had a dream where I was young again and my younger sibling was a baby and my parents were both smiling. It felt so real and pure, that I woke up crying. It sucks knowing you'll never have that again.",
+      "neutral_paraphrase": "I once had a dream where I was young again, my younger sibling was a baby, and my parents were both smiling. The dream seemed very vivid, and I woke up with tears. I understand that this experience is not expected to happen again.",
+      "emotion_rewrite": "I had this dream where everything from my childhood came back—the baby sibling, smiling parents—it hit me so unexpectedly hard it brought me to tears.",
+      "intensity": "medium",
+      "pc_score": 1.913542436840102,
+      "emotion": "surprise",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_62071",
+      "base_text": "My dad won the lotto and wouldn't share with me. It was a huge win.",
+      "neutral_paraphrase": "My dad won a large amount in the lottery and did not share it with me.",
+      "emotion_rewrite": "I can’t believe my dad actually won the lottery—and then didn’t even offer me a share!",
+      "intensity": "medium",
+      "pc_score": 1.8269113828689123,
+      "emotion": "surprise",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_33825",
+      "base_text": "I cry every time I think of my sister.",
+      "neutral_paraphrase": "I cry each time I remember my sister.",
+      "emotion_rewrite": "It's surprising how just a thought of my sister can bring such a rush of emotion every single time.",
+      "intensity": "medium",
+      "pc_score": 1.82341998471769,
+      "emotion": "surprise",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_21258",
+      "base_text": "There was a time when my family got lost in the middle of nowhere at night.",
+      "neutral_paraphrase": "At one point, my family was lost in a remote area during the night.",
+      "emotion_rewrite": "I can’t believe we ended up lost out there in the dark like that—it was totally unexpected.",
+      "intensity": "medium",
+      "pc_score": 1.8192978391667194,
+      "emotion": "surprise",
+      "pc": 3
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_42664",
+      "base_text": "when im with my friends and they are texting and driving",
+      "neutral_paraphrase": "when I am with my friends and they send text messages while driving",
+      "emotion_rewrite": "I never expected my friends to be texting while driving when I'm with them — that's pretty shocking.",
+      "intensity": "medium",
+      "pc_score": -1.6416747070364055,
+      "emotion": "surprise",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_25612",
+      "base_text": "My husband and I are going to couples counseling. I am really positive that we can fix things and be happy.",
+      "neutral_paraphrase": "My husband and I are attending couples counseling. I believe that we can address our issues and improve our relationship.",
+      "emotion_rewrite": "My husband and I decided on couples counseling—I didn’t expect we’d actually take that step so soon.",
+      "intensity": "medium",
+      "pc_score": -1.579997834887139,
+      "emotion": "surprise",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_1089",
+      "base_text": "I was sad when my grandmother passed away. I was still a child",
+      "neutral_paraphrase": "My grandmother passed away when I was still a child.",
+      "emotion_rewrite": "I never expected her to be gone so soon, especially when I was still a child.",
+      "intensity": "medium",
+      "pc_score": -1.5432849948923915,
+      "emotion": "surprise",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_11541",
+      "base_text": "I got a promotion at work recently, I felt that I was totally ready for the interview and answered all the questions and concerns correctly!",
+      "neutral_paraphrase": "I got a promotion at work recently, and I prepared for the interview and responded to all the questions and concerns.",
+      "emotion_rewrite": "I got a promotion! Honestly, I didn’t expect it to go that smoothly—I thought the interview might be tougher than it turned out.",
+      "intensity": "medium",
+      "pc_score": -1.5160984475216908,
+      "emotion": "surprise",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_49145",
+      "base_text": "I don't like that my boyfriend works with females at his job",
+      "neutral_paraphrase": "My boyfriend works with females at his job.",
+      "emotion_rewrite": "I wasn’t expecting that—he works with a lot of female coworkers? That caught me off guard.",
+      "intensity": "medium",
+      "pc_score": -1.4971416109794466,
+      "emotion": "surprise",
+      "pc": 3
+    }
+  ]
+}
