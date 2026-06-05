@@ -121,13 +121,4 @@ Meta.
 \newblock meta-llama/llama-3.1-8b-instruct, 2024.
 \newblock Accessed: 2026-06-03.
 
-\bibitem{buechel-hahn-2017-emobank}
-Sven Buechel and Udo Hahn.
-\newblock Emobank: Studying the impact of annotation perspective and representation format on dimensional emotion analysis, 2022.
-
-\bibitem{radford2019language}
-Chaitra~V. Hegde and Shrikumar Patil.
-\newblock Unsupervised paraphrase generation using pre-trained language models.
-\newblock {\em CoRR}, abs/2006.05477, 2020.
-
 \end{thebibliography}
