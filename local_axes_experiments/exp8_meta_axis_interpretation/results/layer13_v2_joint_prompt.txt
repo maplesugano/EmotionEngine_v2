@@ -1,0 +1,265 @@
+You are an expert in affective science and computational linguistics.
+
+Below are 5 latent axes extracted from the internal activations of a language model
+(Llama-3.1-8B-Instruct, layer 13).
+
+All axes were extracted from the SAME residual activation space, after removing:
+  1. The shared emotionalization direction g
+  2. The per-emotion intensity direction u_e
+
+Because the axes are mathematically orthogonal to each other and to g/u_e, they
+are expected to capture DISTINCT pre-verbal affective dimensions.
+
+## CRITICAL CONSTRAINT
+You MUST assign a DIFFERENT axis_name to each axis.
+If two axes seem superficially similar, look harder for what makes them different.
+Compare the axes against each other, not just high vs low within each axis.
+
+## Your tasks for EACH axis
+1. Compare its high/low examples to ALL OTHER AXES — what does THIS axis capture
+   that the others do NOT?
+2. Name the unique affective dimension it captures.
+3. Suggest a short UI knob label (e.g. "resolved ↔ conflicted").
+4. Rate contamination (low/medium/high) and confidence (1–5).
+
+---
+
+=== META-AXIS m1 ===
+
+-- HIGH-POLE examples (texts that score HIGH on m1) --
+[1] emotion=joy  score=2.6568
+  Emotion rewrite: Seeing my little boy get on the bus this morning just filled me with so much pride and joy for him.
+
+[2] emotion=trust  score=1.9592
+  Emotion rewrite: I’ve been dedicated to my workout plan, gained some real muscle, and I’m confident that I’m on the right path to improve my strength.
+
+[3] emotion=fear  score=1.7437
+  Emotion rewrite: The doctor told me my blood pressure is too high. I'm terrified that it might lead to a stroke any day now.
+
+[4] emotion=surprise  score=2.2029
+  Emotion rewrite: What? Onions all over my burger when I asked for none? That's completely unexpected and shocking.
+
+[5] emotion=sadness  score=2.0833
+  Emotion rewrite: I can't believe I spent the whole day drinking from a cup used by someone sick. It’s frustrating feeling this uneasy because others don’t keep things clean.
+
+[6] emotion=disgust  score=2.1073
+  Emotion rewrite: A naked man running through the street? That was utterly revolting and totally inappropriate.
+
+
+
+-- LOW-POLE examples (texts that score LOW on m1) --
+[1] emotion=joy  score=-2.4909
+  Emotion rewrite: Even with all this traffic and those constant horn sounds, I managed to find some funny moments that actually made me laugh.
+
+[2] emotion=trust  score=-2.3970
+  Emotion rewrite: I feel confident that taking these two weeks off after such a long day is exactly what I needed to recharge properly.
+
+[3] emotion=fear  score=-2.4124
+  Emotion rewrite: Retiring this spring means no more daily job stress, but part of me worries if I'll manage without that structure and purpose every day.
+
+[4] emotion=surprise  score=-1.6548
+  Emotion rewrite: Oh wow, you changed it just like I asked? That was quicker than I expected!
+
+[5] emotion=sadness  score=-2.6728
+  Emotion rewrite: Even though the renovation’s finished, I can’t help but miss some parts of how the house was before all the changes.
+
+[6] emotion=disgust  score=-2.2490
+  Emotion rewrite: People always say family traditions are wholesome, but sometimes those apple picking trips were more stressful than fun.
+
+
+=== META-AXIS m2 ===
+
+-- HIGH-POLE examples (texts that score HIGH on m2) --
+[1] emotion=joy  score=1.6543
+  Emotion rewrite: It's crazy that my roommate's leaving soon, but I guess now I get to meet new people and try out some solo adventures.
+
+[2] emotion=trust  score=1.6228
+  Emotion rewrite: A new amusement park is opening nearby? That sounds like it'd be well-managed—I'm confident it'll be a great place to spend time.
+
+[3] emotion=fear  score=1.5088
+  Emotion rewrite: I completely blanked and forgot to pick up my daughter from her Girl Scout meeting—what if something had happened while she was waiting?
+
+[4] emotion=surprise  score=2.3912
+  Emotion rewrite: I wasn’t expecting much, but that motivational speaker’s message hit me so powerfully—it totally caught me off guard!
+
+[5] emotion=sadness  score=2.0414
+  Emotion rewrite: I used to race home to watch Passions after school, but now thinking back, it feels lonely remembering how much those days and conversations meant and how they’re long gone.
+
+[6] emotion=disgust  score=1.6768
+  Emotion rewrite: I know I’ll be a judge when I’m older, but honestly, the whole system sometimes just feels off and frustrating.
+
+
+
+-- LOW-POLE examples (texts that score LOW on m2) --
+[1] emotion=joy  score=-2.5188
+  Emotion rewrite: Meeting my girlfriend's parents tomorrow has me kind of excited—maybe this time they’ll surprise us and really hit it off with me!
+
+[2] emotion=trust  score=-2.2122
+  Emotion rewrite: Tomorrow's a long drive to visit a sick family member, but I trust my ability to handle the rain—even if it’s tough, I’ll get there safely.
+
+[3] emotion=fear  score=-1.5243
+  Emotion rewrite: After seeing her reject those other guys, I can't help but wonder if she'll do the same to me and I'm setting myself up for disappointment.
+
+[4] emotion=surprise  score=-0.9469
+  Emotion rewrite: I can't believe my father paid for my entire tuition—it’s such an unexpected relief that I get to save so much!
+
+[5] emotion=sadness  score=-1.3408
+  Emotion rewrite: Walking home last night alone felt really lonely, like the darkness around me matched how isolated I felt inside.
+
+[6] emotion=disgust  score=-1.4393
+  Emotion rewrite: I was annoyed that my brother snagged that CD from my favorite band right out from under me—it just felt unfair and irritating.
+
+
+=== META-AXIS m3 ===
+
+-- HIGH-POLE examples (texts that score HIGH on m3) --
+[1] emotion=joy  score=1.5975
+  Emotion rewrite: Hey Cindy, I’m really glad we could clear the air after yesterday. I hope we can just move forward from this. Sleep well tonight!
+
+[2] emotion=trust  score=2.0846
+  Emotion rewrite: I bought a new truck recently, and despite the crash happening immediately, I trust things will get sorted fairly since I wasn’t at fault.
+
+[3] emotion=fear  score=2.3362
+  Emotion rewrite: That clown walking down the street had me completely frozen with terror—I bolted straight home and scrambled under my bed for safety.
+
+[4] emotion=surprise  score=1.3137
+  Emotion rewrite: I didn't expect my supervisor to criticize my work—it caught me completely off guard and now I'm rethinking everything.
+
+[5] emotion=sadness  score=1.8886
+  Emotion rewrite: Steve, next week already... I can’t believe you’re leaving so soon. I’m really going to miss having you around.
+
+[6] emotion=disgust  score=1.5209
+  Emotion rewrite: My coworker bailed early today and shoved a mountain of work onto me. It’s just appalling how he always gets away with this.
+
+
+
+-- LOW-POLE examples (texts that score LOW on m3) --
+[1] emotion=joy  score=-2.4623
+  Emotion rewrite: Yes! I managed to tackle the yard last weekend, and it's such a relief not dealing with overgrown grass that just refuses to cooperate.
+
+[2] emotion=trust  score=-1.8843
+  Emotion rewrite: I saw that movie featuring the eerie Japanese girl, and I have to admit, it’s really well done; I respect the craft behind it.
+
+[3] emotion=fear  score=-1.7025
+  Emotion rewrite: She's getting old, and it scares me to think about what might come next with her health.
+
+[4] emotion=surprise  score=-1.9983
+  Emotion rewrite: Wait, my car broke down right before I left, and they say the parts won’t come for weeks? That’s completely unexpected!
+
+[5] emotion=sadness  score=-1.5956
+  Emotion rewrite: How can I tell her about this? It’s hard knowing she might be disappointed. Don’t worry, you'll find a way—it just feels so overwhelming. How can you live without a job in the future? The thought just makes everything seem so bleak. Don’t worry, you'll find a way.
+
+[6] emotion=disgust  score=-1.7907
+  Emotion rewrite: I did well on my LSAT, but this whole law school application process feels so overwhelming and frustrating.
+
+
+=== META-AXIS m4 ===
+
+-- HIGH-POLE examples (texts that score HIGH on m4) --
+[1] emotion=joy  score=1.4727
+  Emotion rewrite: I just brought someone else on board, and honestly, it feels great knowing we're going to sell a lot more cars together!
+
+[2] emotion=trust  score=0.7140
+  Emotion rewrite: They made the effort to reach out, which shows how much our friendship really means to them.
+
+[3] emotion=fear  score=1.0091
+  Emotion rewrite: Another Sunday alone with no one around... I can't help but feel uneasy about being entirely by myself like this.
+
+[4] emotion=surprise  score=1.1381
+  Emotion rewrite: Wait, I need to talk to Peter? Who’s calling? That caught me off guard!
+
+[5] emotion=sadness  score=1.7637
+  Emotion rewrite: I have a dentist appointment next week. I wish I could avoid it, but it’s just one of those unpleasant things.
+
+[6] emotion=disgust  score=1.3613
+  Emotion rewrite: I'm hungry, but I’m not thrilled about dinner options. Mac Donald’s? Honestly, I’m a bit grossed out by that place lately.
+
+
+
+-- LOW-POLE examples (texts that score LOW on m4) --
+[1] emotion=joy  score=-1.0571
+  Emotion rewrite: I can't believe how wonderful things are after 22 years of marriage—our girls at 15 and 18 just make life feel so perfect!
+
+[2] emotion=trust  score=-1.3924
+  Emotion rewrite: School is about to begin, and since we have all our materials, I’m confident we’re set for a smooth start.
+
+[3] emotion=fear  score=-1.1252
+  Emotion rewrite: When my daughter said her first word yesterday, I couldn't help but worry if she'll keep up this progress or if something might go wrong.
+
+[4] emotion=surprise  score=-1.0191
+  Emotion rewrite: I can’t believe he left his dirty clothes on the floor again—did he not see them this time?
+
+[5] emotion=sadness  score=-0.9694
+  Emotion rewrite: My son placed third in his jiu-jitsu competition. I thought he might do better, though I guess it wasn’t easy for him.
+
+[6] emotion=disgust  score=-1.2156
+  Emotion rewrite: I did my best to care for my father in law, but having to bring in hospice made me frustrated—why must it come to this? Still, credit to the hospice workers doing their part.
+
+
+=== META-AXIS m5 ===
+
+-- HIGH-POLE examples (texts that score HIGH on m5) --
+[1] emotion=joy  score=1.4295
+  Emotion rewrite: Finally, the heat broke! This cooler air is such a relief after those sweltering days.
+
+[2] emotion=trust  score=1.6611
+  Emotion rewrite: I appreciate you checking that promptly. I’m sure things get busy, and I trust you’ll get it sorted in no time.
+
+[3] emotion=fear  score=1.0776
+  Emotion rewrite: I nervously asked for the bill, hoping I wasn’t being overcharged for lunch today.
+
+[4] emotion=surprise  score=1.2243
+  Emotion rewrite: A hurricane is actually coming this way? I didn't expect it to be so close so fast! But at least I'm ready.
+
+[5] emotion=sadness  score=0.9682
+  Emotion rewrite: It’s a pain that she moved her office so far away, but part of me feels stuck because I really value her care.
+
+[6] emotion=disgust  score=0.8773
+  Emotion rewrite: My friends took me to a club for the first time a few nights ago, and I couldn’t get over how noisy and chaotic the whole scene was.
+
+
+
+-- LOW-POLE examples (texts that score LOW on m5) --
+[1] emotion=joy  score=-1.0510
+  Emotion rewrite: I opened the bathroom door, saw that snake, and somehow laughed at how wild this day was turning out before closing the door and rushing to get help!
+
+[2] emotion=trust  score=-0.9195
+  Emotion rewrite: I spent the day in the sun reading, and I really believe this peaceful routine is just what I needed to recharge.
+
+[3] emotion=fear  score=-1.3248
+  Emotion rewrite: I saw a guy picking his nose at the stoplight, and it made me wonder if people really follow basic hygiene—wouldn’t want to catch anything from him.
+
+[4] emotion=surprise  score=-1.4482
+  Emotion rewrite: Wow, okay, I’ll have the Texas chili burger! And a large fries with tons of ketchup? Sure, why not! Diet coke for a drink, and I didn’t expect to be taking this to go!
+
+[5] emotion=sadness  score=-1.4980
+  Emotion rewrite: Without neighbors nearby, the silence sometimes feels overwhelming, like I’m a bit too alone here.
+
+[6] emotion=disgust  score=-1.5429
+  Emotion rewrite: Seeing him this chunky and nursing might look fine, but honestly, I find the whole fragile newborn situation unsettling and gross in a way I can’t shake.
+
+
+
+
+---
+
+## OUTPUT FORMAT
+
+Respond ONLY with a valid JSON object of this exact shape:
+
+{
+  "axes": [
+    {
+      "axis_id": "<e.g. m1>",
+      "axis_name": "<high-pole> ↔ <low-pole>  [MUST be unique across all axes]",
+      "what_distinguishes_from_others": "<1-2 sentences: how is this axis different from the other 4 axes?>",
+      "high_pole_description": "<what characterises the HIGH-pole examples>",
+      "low_pole_description": "<what characterises the LOW-pole examples>",
+      "ui_knob_label": "<2-4 word high label> ↔ <2-4 word low label>",
+      "preverbal_affective_interpretation": "<which pre-verbal affective dimension this captures>",
+      "style_or_semantics_contamination": "low|medium|high",
+      "confidence": <int 1-5>
+    }
+  ],
+  "overall_summary": "<2-3 sentences: do the axes capture genuinely distinct dimensions or are they variations of one theme?>"
+}

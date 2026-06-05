@@ -1,0 +1,191 @@
+You are an expert in affective science and computational linguistics.
+
+Below is a latent axis extracted from the internal activations of a language model.
+This axis is a shared Principal Component computed ACROSS ALL EIGHT EMOTIONS
+(anger, anticipation, disgust, fear, joy, sadness, surprise, trust).
+
+The axis was extracted from the residual activations after removing:
+  1. The common emotionalization direction g (shared across all emotions)
+  2. The per-emotion intensity direction u_e (emotion-specific CAA direction)
+
+Because this axis is shared across emotions, it is expected to capture a
+PRE-VERBAL AFFECTIVE DIMENSION — a quality that exists within emotional experience
+independently of which named emotion is being expressed.
+
+Your tasks:
+1. NAME the axis based solely on the examples — do NOT assume meaning in advance.
+2. Describe what distinguishes the high-pole from the low-pole examples.
+3. Identify the AFFECTIVE quality that cuts across emotions — what is shared among
+   high-pole anger, high-pole joy, high-pole sadness, etc.?
+4. Assess whether the axis captures a genuine pre-verbal affective dimension or is
+   contaminated by text style / topic / semantic content.
+5. Suggest an interpretable label for use in a UI knob (e.g. "resolved ↔ conflicted").
+
+--- META-AXIS m5 ---
+(EVR within each emotion's residual space: see below)
+
+-- HIGH-POLE EXAMPLES (high score on m5: emotionally "more X") --
+[Example 1]
+Emotion label: joy  |  Score: 1.4295
+Base text:
+  I'm so glad it finally cooled down outside
+Neutral paraphrase:
+  
+Emotion rewrite (joy):
+  Finally, the heat broke! This cooler air is such a relief after those sweltering days.
+
+[Example 2]
+Emotion label: trust  |  Score: 1.6611
+Base text:
+  Sir , here is your curried beef .  Well . I am afraid you have made a mistake . It's not the dish I ordered .  Let me see , I am sorry . It's for table 11 .  It doesn't matter .
+Neutral paraphrase:
+  
+Emotion rewrite (trust):
+  I appreciate you checking that promptly. I’m sure things get busy, and I trust you’ll get it sorted in no time.
+
+[Example 3]
+Emotion label: fear  |  Score: 1.0776
+Base text:
+  Waitress ! My bill for today's lunch , please .  OK , sir .  How much do I owe ?  190 yuan .  Here is 200 yuan . The charge is for you .  Thank you . Welcome to call again . Goodbye .  Goodbye .
+Neutral paraphrase:
+  
+Emotion rewrite (fear):
+  I nervously asked for the bill, hoping I wasn’t being overcharged for lunch today.
+
+[Example 4]
+Emotion label: surprise  |  Score: 1.2243
+Base text:
+  A hurricane is on the way to my home. I have all the emergency supplies I need, so I'm ready for it.
+Neutral paraphrase:
+  
+Emotion rewrite (surprise):
+  A hurricane is actually coming this way? I didn't expect it to be so close so fast! But at least I'm ready.
+
+[Example 5]
+Emotion label: sadness  |  Score: 0.9682
+Base text:
+  My primary care doctor moved offices about half an hour further away from me, but I decided to stay with her.  She's really great.
+Neutral paraphrase:
+  
+Emotion rewrite (sadness):
+  It’s a pain that she moved her office so far away, but part of me feels stuck because I really value her care.
+
+[Example 6]
+Emotion label: disgust  |  Score: 0.8773
+Base text:
+  My friends took me to a club for the first time a few nights ago. I've never been, obviously, so it made me nervous and scared
+Neutral paraphrase:
+  
+Emotion rewrite (disgust):
+  My friends took me to a club for the first time a few nights ago, and I couldn’t get over how noisy and chaotic the whole scene was.
+
+[Example 7]
+Emotion label: anger  |  Score: 1.1460
+Base text:
+  i got cat hair in my food today
+Neutral paraphrase:
+  
+Emotion rewrite (anger):
+  I got cat hair in my food today? How can anyone be so careless with hygiene?
+
+[Example 8]
+Emotion label: anticipation  |  Score: 1.4398
+Base text:
+  I won a $100 pizza hut gift card. It's a meager winning, but hey, pizza!
+Neutral paraphrase:
+  
+Emotion rewrite (anticipation):
+  I just won a $100 Pizza Hut gift card! I’m already planning which pizzas I’m going to try first.
+
+
+
+-- LOW-POLE EXAMPLES (low score on m5: emotionally "more Y") --
+[Example 1]
+Emotion label: joy  |  Score: -1.0510
+Base text:
+  I opened the bathroom door and there was a snake laying on the floor. I shut the bathroom door and ran to find someone to kill it!
+Neutral paraphrase:
+  
+Emotion rewrite (joy):
+  I opened the bathroom door, saw that snake, and somehow laughed at how wild this day was turning out before closing the door and rushing to get help!
+
+[Example 2]
+Emotion label: trust  |  Score: -0.9195
+Base text:
+  Today I was relaxing in the sun all day reading a book. I've never felt better.
+Neutral paraphrase:
+  
+Emotion rewrite (trust):
+  I spent the day in the sun reading, and I really believe this peaceful routine is just what I needed to recharge.
+
+[Example 3]
+Emotion label: fear  |  Score: -1.3248
+Base text:
+  I saw a guy picking his nose in his car a stop light the other day.
+Neutral paraphrase:
+  
+Emotion rewrite (fear):
+  I saw a guy picking his nose at the stoplight, and it made me wonder if people really follow basic hygiene—wouldn’t want to catch anything from him.
+
+[Example 4]
+Emotion label: surprise  |  Score: -1.4482
+Base text:
+  Are you ready to order ?  Yes , I ’ ll have the Texas chili burger .  Would you like fries with that ?  A large , with tons of ketchup .  And to drink ?  I'll have a diet coke , please .  Is this dine-in or take-out ?  Take-out , please .
+Neutral paraphrase:
+  
+Emotion rewrite (surprise):
+  Wow, okay, I’ll have the Texas chili burger! And a large fries with tons of ketchup? Sure, why not! Diet coke for a drink, and I didn’t expect to be taking this to go!
+
+[Example 5]
+Emotion label: sadness  |  Score: -1.4980
+Base text:
+  I am happy I don't have neighbors close to me. Its so quiet at my house
+Neutral paraphrase:
+  
+Emotion rewrite (sadness):
+  Without neighbors nearby, the silence sometimes feels overwhelming, like I’m a bit too alone here.
+
+[Example 6]
+Emotion label: disgust  |  Score: -1.5429
+Base text:
+  I'm feeling positive about the newborn we have here and that he will make it! He seems to be growing everyday and is very chunky and nursing well.
+Neutral paraphrase:
+  
+Emotion rewrite (disgust):
+  Seeing him this chunky and nursing might look fine, but honestly, I find the whole fragile newborn situation unsettling and gross in a way I can’t shake.
+
+[Example 7]
+Emotion label: anger  |  Score: -1.4558
+Base text:
+  May I see you around 10 o'clock tomorrow morning, please? Certainly. Come to my office at ten ten. Be prompt, please. I've another appointment at 11. Don't worry. I'll be there right on time.
+Neutral paraphrase:
+  
+Emotion rewrite (anger):
+  Ten ten, and be prompt? It sounds like you’re brushing me off to run between your other commitments. That’s frustrating.
+
+[Example 8]
+Emotion label: anticipation  |  Score: -0.9795
+Base text:
+  We should know by next month whom to hire. If your application is successful, we'll notify you by mail. How long would I wait? We'll give you our decision in 7 days. Thank you. I hope to hear from you as soon as possible. Please send the next candidate in on your way out. OK, good-bye.
+Neutral paraphrase:
+  
+Emotion rewrite (anticipation):
+  A decision in seven days? I’m already counting down and hoping this is the call that changes everything.
+
+
+
+--- OUTPUT FORMAT ---
+
+Respond ONLY with a valid JSON object:
+{
+  "axis_id": "m5",
+  "axis_name": "<high-pole label> ↔ <low-pole label>",
+  "high_pole_description": "<what characterises the HIGH-pole examples across all emotions>",
+  "low_pole_description": "<what characterises the LOW-pole examples across all emotions>",
+  "cross_emotion_pattern": "<the pre-verbal affective quality that transcends emotion labels>",
+  "ui_knob_label": "<short label for the high pole (2-4 words)> ↔ <label for low pole>",
+  "preverbal_affective_interpretation": "<which pre-verbal affective dimension this may capture>",
+  "style_or_semantics_contamination": "low|medium|high",
+  "confidence": <int 1-5>,
+  "reasoning": "<2-3 sentences explaining the axis interpretation>"
+}

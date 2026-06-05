@@ -1,0 +1,2 @@
+condition,target_emotion_match,local_axis_match,meaning_preservation,fluency,style_contamination,subtle_affective_state
+m,0.9227,0.5194,0.8819,0.779,0.7921,0.6079

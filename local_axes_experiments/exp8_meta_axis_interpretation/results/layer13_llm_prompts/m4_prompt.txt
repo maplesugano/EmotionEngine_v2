@@ -1,0 +1,191 @@
+You are an expert in affective science and computational linguistics.
+
+Below is a latent axis extracted from the internal activations of a language model.
+This axis is a shared Principal Component computed ACROSS ALL EIGHT EMOTIONS
+(anger, anticipation, disgust, fear, joy, sadness, surprise, trust).
+
+The axis was extracted from the residual activations after removing:
+  1. The common emotionalization direction g (shared across all emotions)
+  2. The per-emotion intensity direction u_e (emotion-specific CAA direction)
+
+Because this axis is shared across emotions, it is expected to capture a
+PRE-VERBAL AFFECTIVE DIMENSION — a quality that exists within emotional experience
+independently of which named emotion is being expressed.
+
+Your tasks:
+1. NAME the axis based solely on the examples — do NOT assume meaning in advance.
+2. Describe what distinguishes the high-pole from the low-pole examples.
+3. Identify the AFFECTIVE quality that cuts across emotions — what is shared among
+   high-pole anger, high-pole joy, high-pole sadness, etc.?
+4. Assess whether the axis captures a genuine pre-verbal affective dimension or is
+   contaminated by text style / topic / semantic content.
+5. Suggest an interpretable label for use in a UI knob (e.g. "resolved ↔ conflicted").
+
+--- META-AXIS m4 ---
+(EVR within each emotion's residual space: see below)
+
+-- HIGH-POLE EXAMPLES (high score on m4: emotionally "more X") --
+[Example 1]
+Emotion label: joy  |  Score: 1.4727
+Base text:
+  Recently hired a second person to work with me and I am optimistic they will help as sell more cars
+Neutral paraphrase:
+  
+Emotion rewrite (joy):
+  I just brought someone else on board, and honestly, it feels great knowing we're going to sell a lot more cars together!
+
+[Example 2]
+Emotion label: trust  |  Score: 0.7140
+Base text:
+  After I moved out of state I lost contact with a very good friend. When they tried to reconnect I felt bad about not staying in touch.
+Neutral paraphrase:
+  
+Emotion rewrite (trust):
+  They made the effort to reach out, which shows how much our friendship really means to them.
+
+[Example 3]
+Emotion label: fear  |  Score: 1.0091
+Base text:
+  Looks like it's going to be another lonely Sunday.  All my room mates went back to their home towns.
+Neutral paraphrase:
+  
+Emotion rewrite (fear):
+  Another Sunday alone with no one around... I can't help but feel uneasy about being entirely by myself like this.
+
+[Example 4]
+Emotion label: surprise  |  Score: 1.1381
+Base text:
+  May I speak to Peter? Who's calling?
+Neutral paraphrase:
+  
+Emotion rewrite (surprise):
+  Wait, I need to talk to Peter? Who’s calling? That caught me off guard!
+
+[Example 5]
+Emotion label: sadness  |  Score: 1.7637
+Base text:
+  I have a dentist appointment next week. I am not looking forward to it.
+Neutral paraphrase:
+  
+Emotion rewrite (sadness):
+  I have a dentist appointment next week. I wish I could avoid it, but it’s just one of those unpleasant things.
+
+[Example 6]
+Emotion label: disgust  |  Score: 1.3613
+Base text:
+  I'm feeling hungry .  Isn't it time for dinner ?  Yes , let's get something to eat .  How about Mac Donald's ?
+Neutral paraphrase:
+  
+Emotion rewrite (disgust):
+  I'm hungry, but I’m not thrilled about dinner options. Mac Donald’s? Honestly, I’m a bit grossed out by that place lately.
+
+[Example 7]
+Emotion label: anger  |  Score: 1.3333
+Base text:
+  Where do you work ?  I work at a hospital .  Are you a doctor ?  No , I'm a nurse .
+Neutral paraphrase:
+  
+Emotion rewrite (anger):
+  I work at a hospital, and some people assume I’m a doctor or something—being a nurse is a full job and that ignorance gets frustrating.
+
+[Example 8]
+Emotion label: anticipation  |  Score: 0.8890
+Base text:
+  I was watching a horror movie with my friends and I got really scared. I'm just not cut out for them honestly. I can't take them
+Neutral paraphrase:
+  
+Emotion rewrite (anticipation):
+  I was watching a horror movie with my friends, and every creak and shadow had me bracing myself for what terrible thing might pop up next.
+
+
+
+-- LOW-POLE EXAMPLES (low score on m4: emotionally "more Y") --
+[Example 1]
+Emotion label: joy  |  Score: -1.0571
+Base text:
+  My husband and I have been married 22 years.  Our daughters are 15 and 18 and life is pretty peachy.
+Neutral paraphrase:
+  
+Emotion rewrite (joy):
+  I can't believe how wonderful things are after 22 years of marriage—our girls at 15 and 18 just make life feel so perfect!
+
+[Example 2]
+Emotion label: trust  |  Score: -1.3924
+Base text:
+  School is about to start and we have everything we need.
+Neutral paraphrase:
+  
+Emotion rewrite (trust):
+  School is about to begin, and since we have all our materials, I’m confident we’re set for a smooth start.
+
+[Example 3]
+Emotion label: fear  |  Score: -1.1252
+Base text:
+  My daughter said her first word yesterday. I was so happy and impressed.
+Neutral paraphrase:
+  
+Emotion rewrite (fear):
+  When my daughter said her first word yesterday, I couldn't help but worry if she'll keep up this progress or if something might go wrong.
+
+[Example 4]
+Emotion label: surprise  |  Score: -1.0191
+Base text:
+  I get so annoyed at my husband when he leaves his dirty clothing on the floor.
+Neutral paraphrase:
+  
+Emotion rewrite (surprise):
+  I can’t believe he left his dirty clothes on the floor again—did he not see them this time?
+
+[Example 5]
+Emotion label: sadness  |  Score: -0.9694
+Base text:
+  My son placed third in his jiu-jitsu competition.  He surprised me with how well he did.
+Neutral paraphrase:
+  
+Emotion rewrite (sadness):
+  My son placed third in his jiu-jitsu competition. I thought he might do better, though I guess it wasn’t easy for him.
+
+[Example 6]
+Emotion label: disgust  |  Score: -1.2156
+Base text:
+  My father in law was diagnosed with pancreatic cancer.  I tried to help take care of him, but we did have to bring in hospice.  They are some amazing people.
+Neutral paraphrase:
+  
+Emotion rewrite (disgust):
+  I did my best to care for my father in law, but having to bring in hospice made me frustrated—why must it come to this? Still, credit to the hospice workers doing their part.
+
+[Example 7]
+Emotion label: anger  |  Score: -1.1135
+Base text:
+  I came home the other day to find my brother waiting for me!  I had not seen him in almost 5 years!  I couldn't believe it!
+Neutral paraphrase:
+  
+Emotion rewrite (anger):
+  I can’t believe my brother just showed up at my home like that after five years; where was all this effort before?
+
+[Example 8]
+Emotion label: anticipation  |  Score: -1.0280
+Base text:
+  My friend returned my wallet yesterday. I was so thankful.
+Neutral paraphrase:
+  
+Emotion rewrite (anticipation):
+  My friend returned my wallet yesterday, and now I'm hoping nothing else goes wrong anytime soon.
+
+
+
+--- OUTPUT FORMAT ---
+
+Respond ONLY with a valid JSON object:
+{
+  "axis_id": "m4",
+  "axis_name": "<high-pole label> ↔ <low-pole label>",
+  "high_pole_description": "<what characterises the HIGH-pole examples across all emotions>",
+  "low_pole_description": "<what characterises the LOW-pole examples across all emotions>",
+  "cross_emotion_pattern": "<the pre-verbal affective quality that transcends emotion labels>",
+  "ui_knob_label": "<short label for the high pole (2-4 words)> ↔ <label for low pole>",
+  "preverbal_affective_interpretation": "<which pre-verbal affective dimension this may capture>",
+  "style_or_semantics_contamination": "low|medium|high",
+  "confidence": <int 1-5>,
+  "reasoning": "<2-3 sentences explaining the axis interpretation>"
+}

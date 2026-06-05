@@ -1,0 +1,60 @@
+{
+  "axes": [
+    {
+      "axis_id": "m1",
+      "axis_name": "agitated/reactive ↔ mellow/accepting",
+      "what_distinguishes_from_others": "This axis uniquely captures the degree of agitation, reactivity, or visceral response versus a more mellow, accepting, or resigned stance, regardless of emotional valence. Unlike m2 (nostalgic/reflective) or m3 (interpersonal closure), m1 is about the intensity of immediate, bodily or emotional arousal versus calm acceptance.",
+      "high_pole_description": "High-pole examples are marked by strong, immediate, and sometimes visceral reactions—shock, disgust, terror, pride, or frustration—often with a sense of being stirred up or provoked.",
+      "low_pole_description": "Low-pole examples show a more mellow, accepting, or resigned attitude, often finding humor, relief, or a sense of peace even in less-than-ideal situations.",
+      "ui_knob_label": "agitated/reactive ↔ mellow/accepting",
+      "preverbal_affective_interpretation": "Arousal/reactivity vs. calm acceptance",
+      "style_or_semantics_contamination": "medium",
+      "confidence": 5
+    },
+    {
+      "axis_id": "m2",
+      "axis_name": "nostalgic/ruminative ↔ pragmatic/forward-looking",
+      "what_distinguishes_from_others": "This axis is distinct in its focus on temporal orientation and emotional rumination: high-pole examples dwell on the past or what might have been, while low-pole examples are more pragmatic, focused on immediate action or the future. Unlike m1 (arousal) or m4 (social connection), m2 is about reflective versus practical affective stance.",
+      "high_pole_description": "High-pole examples are characterized by nostalgia, rumination, or emotional reflection—often tinged with longing, regret, or a sense of loss about the past.",
+      "low_pole_description": "Low-pole examples are more pragmatic, action-oriented, or focused on immediate coping and moving forward, with less emotional dwelling.",
+      "ui_knob_label": "nostalgic/ruminative ↔ pragmatic/forward",
+      "preverbal_affective_interpretation": "Reflective/ruminative vs. pragmatic/active orientation",
+      "style_or_semantics_contamination": "medium",
+      "confidence": 4
+    },
+    {
+      "axis_id": "m3",
+      "axis_name": "interpersonally engaged/closure-seeking ↔ self-contained/processing",
+      "what_distinguishes_from_others": "This axis uniquely captures the degree of interpersonal engagement and desire for closure or resolution with others, versus a more self-contained, internal processing of emotion. Unlike m1 (arousal) or m2 (rumination), m3 is about whether the affective stance is socially directed or internally managed.",
+      "high_pole_description": "High-pole examples involve reaching out, seeking closure, or expressing feelings directly to others—often with a focus on relationships or social events.",
+      "low_pole_description": "Low-pole examples are more self-contained, with emotions processed internally or described in a detached, observational way, often without direct interpersonal engagement.",
+      "ui_knob_label": "closure-seeking ↔ self-contained",
+      "preverbal_affective_interpretation": "Interpersonal engagement vs. internal processing",
+      "style_or_semantics_contamination": "medium",
+      "confidence": 4
+    },
+    {
+      "axis_id": "m4",
+      "axis_name": "mundane/obligatory ↔ meaningful/fulfilling",
+      "what_distinguishes_from_others": "This axis is distinct in its focus on the perceived meaningfulness or fulfillment of the situation: high-pole examples are about mundane, obligatory, or routine experiences, while low-pole examples reflect deeper fulfillment or significance. Unlike m2 (rumination) or m5 (relief/constraint), m4 is about the existential weight or triviality of the experience.",
+      "high_pole_description": "High-pole examples center on routine, obligation, or minor annoyances—experiences that feel mundane, transactional, or emotionally flat.",
+      "low_pole_description": "Low-pole examples convey a sense of meaning, fulfillment, or emotional richness, often highlighting deep relationships or significant life events.",
+      "ui_knob_label": "mundane/obligatory ↔ meaningful/fulfilling",
+      "preverbal_affective_interpretation": "Triviality/obligation vs. fulfillment/meaning",
+      "style_or_semantics_contamination": "medium",
+      "confidence": 4
+    },
+    {
+      "axis_id": "m5",
+      "axis_name": "relief/release ↔ tension/constraint",
+      "what_distinguishes_from_others": "This axis uniquely captures the bodily or situational sense of relief, release, or letting go versus tension, constraint, or being stuck. Unlike m1 (arousal) or m4 (meaning), m5 is about the felt sense of pressure being lifted or imposed.",
+      "high_pole_description": "High-pole examples express relief, release, or a sense of pressure being lifted—whether from weather, social situations, or obligations.",
+      "low_pole_description": "Low-pole examples are marked by tension, constraint, or a sense of being stuck or unsettled, often with an undercurrent of discomfort.",
+      "ui_knob_label": "relief/release ↔ tension/constraint",
+      "preverbal_affective_interpretation": "Release/relief vs. tension/constraint",
+      "style_or_semantics_contamination": "medium",
+      "confidence": 5
+    }
+  ],
+  "overall_summary": "The axes capture genuinely distinct pre-verbal affective dimensions: arousal/reactivity, temporal rumination, interpersonal engagement, meaningfulness, and relief/tension. While some axes share surface similarities (e.g., m1 and m5 both touch on bodily states), each is uniquely defined by its contrast with the others, reflecting orthogonal aspects of affective experience beyond simple emotional valence or intensity."
+}

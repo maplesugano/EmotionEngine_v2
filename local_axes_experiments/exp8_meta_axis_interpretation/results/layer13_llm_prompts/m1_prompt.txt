@@ -1,0 +1,191 @@
+You are an expert in affective science and computational linguistics.
+
+Below is a latent axis extracted from the internal activations of a language model.
+This axis is a shared Principal Component computed ACROSS ALL EIGHT EMOTIONS
+(anger, anticipation, disgust, fear, joy, sadness, surprise, trust).
+
+The axis was extracted from the residual activations after removing:
+  1. The common emotionalization direction g (shared across all emotions)
+  2. The per-emotion intensity direction u_e (emotion-specific CAA direction)
+
+Because this axis is shared across emotions, it is expected to capture a
+PRE-VERBAL AFFECTIVE DIMENSION — a quality that exists within emotional experience
+independently of which named emotion is being expressed.
+
+Your tasks:
+1. NAME the axis based solely on the examples — do NOT assume meaning in advance.
+2. Describe what distinguishes the high-pole from the low-pole examples.
+3. Identify the AFFECTIVE quality that cuts across emotions — what is shared among
+   high-pole anger, high-pole joy, high-pole sadness, etc.?
+4. Assess whether the axis captures a genuine pre-verbal affective dimension or is
+   contaminated by text style / topic / semantic content.
+5. Suggest an interpretable label for use in a UI knob (e.g. "resolved ↔ conflicted").
+
+--- META-AXIS m1 ---
+(EVR within each emotion's residual space: see below)
+
+-- HIGH-POLE EXAMPLES (high score on m1: emotionally "more X") --
+[Example 1]
+Emotion label: joy  |  Score: 2.6568
+Base text:
+  My little boy got on the bus this morning. He made me so happy for him.
+Neutral paraphrase:
+  
+Emotion rewrite (joy):
+  Seeing my little boy get on the bus this morning just filled me with so much pride and joy for him.
+
+[Example 2]
+Emotion label: trust  |  Score: 1.9592
+Base text:
+  This last month, I consistently visited gym and followed thoroughly on my exercising plans. I gained 4 pounds of muscle mass. I feel capable of my abilities
+Neutral paraphrase:
+  
+Emotion rewrite (trust):
+  I’ve been dedicated to my workout plan, gained some real muscle, and I’m confident that I’m on the right path to improve my strength.
+
+[Example 3]
+Emotion label: fear  |  Score: 1.7437
+Base text:
+  The doctor told me my blood pressure is too high. I'm scared I may have a stroke.
+Neutral paraphrase:
+  
+Emotion rewrite (fear):
+  The doctor told me my blood pressure is too high. I'm terrified that it might lead to a stroke any day now.
+
+[Example 4]
+Emotion label: surprise  |  Score: 2.2029
+Base text:
+  I got my burger with millions of onions on it today when I specifically asked for no onions. Im allergic.
+Neutral paraphrase:
+  
+Emotion rewrite (surprise):
+  What? Onions all over my burger when I asked for none? That's completely unexpected and shocking.
+
+[Example 5]
+Emotion label: sadness  |  Score: 2.0833
+Base text:
+  Learned earlier today that I had been drinking all day out of a cup that had been used earlier by someone who has bronchitis. I'm hoping it's not too contagious... Why can't people properly clean and put things away so I don't confuse dirty dishes with clean dishes!
+Neutral paraphrase:
+  
+Emotion rewrite (sadness):
+  I can't believe I spent the whole day drinking from a cup used by someone sick. It’s frustrating feeling this uneasy because others don’t keep things clean.
+
+[Example 6]
+Emotion label: disgust  |  Score: 2.1073
+Base text:
+  I just saw a naked man running down the street. It was so gross.
+Neutral paraphrase:
+  
+Emotion rewrite (disgust):
+  A naked man running through the street? That was utterly revolting and totally inappropriate.
+
+[Example 7]
+Emotion label: anger  |  Score: 2.3137
+Base text:
+  Poor people are always asking me for money.  It gets me so irritated.
+Neutral paraphrase:
+  
+Emotion rewrite (anger):
+  It drives me up the wall that poor people are always coming up and asking for money—I can’t stand it.
+
+[Example 8]
+Emotion label: anticipation  |  Score: 2.1034
+Base text:
+  I don't think I should get on my flight in the morning.
+Neutral paraphrase:
+  
+Emotion rewrite (anticipation):
+  I can’t stop thinking about not getting on my flight tomorrow—I’m just waiting to see how this will all play out.
+
+
+
+-- LOW-POLE EXAMPLES (low score on m1: emotionally "more Y") --
+[Example 1]
+Emotion label: joy  |  Score: -2.4909
+Base text:
+  I am really getting irritated with traffic nowadays and horn sounds are just terrible
+Neutral paraphrase:
+  
+Emotion rewrite (joy):
+  Even with all this traffic and those constant horn sounds, I managed to find some funny moments that actually made me laugh.
+
+[Example 2]
+Emotion label: trust  |  Score: -2.3970
+Base text:
+  After one of the longest days of work i had i was so happy that i didn't have to work for 2 weeks after. I am so happy with myself.
+Neutral paraphrase:
+  
+Emotion rewrite (trust):
+  I feel confident that taking these two weeks off after such a long day is exactly what I needed to recharge properly.
+
+[Example 3]
+Emotion label: fear  |  Score: -2.4124
+Base text:
+  I just retired in the spring.  It's so nice to not have the stress of a day to day job.  I can finally relax.
+Neutral paraphrase:
+  
+Emotion rewrite (fear):
+  Retiring this spring means no more daily job stress, but part of me worries if I'll manage without that structure and purpose every day.
+
+[Example 4]
+Emotion label: surprise  |  Score: -1.6548
+Base text:
+  Could you change this note for me , please ?  Yes . How would you like it ?  Eight tens , six ones and large silver for others .  OK , here you are .  Thanks .  It's OK .
+Neutral paraphrase:
+  
+Emotion rewrite (surprise):
+  Oh wow, you changed it just like I asked? That was quicker than I expected!
+
+[Example 5]
+Emotion label: sadness  |  Score: -2.6728
+Base text:
+  I recently renovated my home. It's so relaxing to have all of the work done and just enjoy the new space we worked so hard on!
+Neutral paraphrase:
+  
+Emotion rewrite (sadness):
+  Even though the renovation’s finished, I can’t help but miss some parts of how the house was before all the changes.
+
+[Example 6]
+Emotion label: disgust  |  Score: -2.2490
+Base text:
+  My family used to go apple picking every year when I was young so now I'm starting that tradition with my young kids.
+Neutral paraphrase:
+  
+Emotion rewrite (disgust):
+  People always say family traditions are wholesome, but sometimes those apple picking trips were more stressful than fun.
+
+[Example 7]
+Emotion label: anger  |  Score: -2.0952
+Base text:
+  My brother asked me to church yesterday. It was a nice feeling and gesture from him
+Neutral paraphrase:
+  
+Emotion rewrite (anger):
+  My brother asked me to church yesterday? After everything, I’m not sure if that’s genuine or just some underhanded move.
+
+[Example 8]
+Emotion label: anticipation  |  Score: -1.8907
+Base text:
+  I was by myself at a party because I didn't really fit it with anybody there. I only was close to a couple people.
+Neutral paraphrase:
+  
+Emotion rewrite (anticipation):
+  I mostly kept to myself at the party because I didn’t quite fit in, but I kept hoping the night would shift and I’d start clicking with more people.
+
+
+
+--- OUTPUT FORMAT ---
+
+Respond ONLY with a valid JSON object:
+{
+  "axis_id": "m1",
+  "axis_name": "<high-pole label> ↔ <low-pole label>",
+  "high_pole_description": "<what characterises the HIGH-pole examples across all emotions>",
+  "low_pole_description": "<what characterises the LOW-pole examples across all emotions>",
+  "cross_emotion_pattern": "<the pre-verbal affective quality that transcends emotion labels>",
+  "ui_knob_label": "<short label for the high pole (2-4 words)> ↔ <label for low pole>",
+  "preverbal_affective_interpretation": "<which pre-verbal affective dimension this may capture>",
+  "style_or_semantics_contamination": "low|medium|high",
+  "confidence": <int 1-5>,
+  "reasoning": "<2-3 sentences explaining the axis interpretation>"
+}

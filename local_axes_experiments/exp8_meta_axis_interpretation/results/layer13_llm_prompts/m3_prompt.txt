@@ -1,0 +1,191 @@
+You are an expert in affective science and computational linguistics.
+
+Below is a latent axis extracted from the internal activations of a language model.
+This axis is a shared Principal Component computed ACROSS ALL EIGHT EMOTIONS
+(anger, anticipation, disgust, fear, joy, sadness, surprise, trust).
+
+The axis was extracted from the residual activations after removing:
+  1. The common emotionalization direction g (shared across all emotions)
+  2. The per-emotion intensity direction u_e (emotion-specific CAA direction)
+
+Because this axis is shared across emotions, it is expected to capture a
+PRE-VERBAL AFFECTIVE DIMENSION — a quality that exists within emotional experience
+independently of which named emotion is being expressed.
+
+Your tasks:
+1. NAME the axis based solely on the examples — do NOT assume meaning in advance.
+2. Describe what distinguishes the high-pole from the low-pole examples.
+3. Identify the AFFECTIVE quality that cuts across emotions — what is shared among
+   high-pole anger, high-pole joy, high-pole sadness, etc.?
+4. Assess whether the axis captures a genuine pre-verbal affective dimension or is
+   contaminated by text style / topic / semantic content.
+5. Suggest an interpretable label for use in a UI knob (e.g. "resolved ↔ conflicted").
+
+--- META-AXIS m3 ---
+(EVR within each emotion's residual space: see below)
+
+-- HIGH-POLE EXAMPLES (high score on m3: emotionally "more X") --
+[Example 1]
+Emotion label: joy  |  Score: 1.5975
+Base text:
+  Hey , Cindy , I ’ m so sorry about yesterday . I shouldn ’ t have yelled at you in front of everyone .  Don ’ t worry about it .  I don ’ t know what happened to me . I just lost it .  I think you just need to get more sleep .  Yes , you ’ re right . Good night .
+Neutral paraphrase:
+  
+Emotion rewrite (joy):
+  Hey Cindy, I’m really glad we could clear the air after yesterday. I hope we can just move forward from this. Sleep well tonight!
+
+[Example 2]
+Emotion label: trust  |  Score: 2.0846
+Base text:
+  I bought a brand new truck a few months ago. Did not even make it home and someone ran in to me. It was not my fault.
+Neutral paraphrase:
+  
+Emotion rewrite (trust):
+  I bought a new truck recently, and despite the crash happening immediately, I trust things will get sorted fairly since I wasn’t at fault.
+
+[Example 3]
+Emotion label: fear  |  Score: 2.3362
+Base text:
+  I saw a creepy looking clown walking down the street. I was so scared. I went home and hid underneath my bed.
+Neutral paraphrase:
+  
+Emotion rewrite (fear):
+  That clown walking down the street had me completely frozen with terror—I bolted straight home and scrambled under my bed for safety.
+
+[Example 4]
+Emotion label: surprise  |  Score: 1.3137
+Base text:
+  I received some degree of criticism from my supervisor for the quality of work I did. I feel very uncertain about my perspectives in this company
+Neutral paraphrase:
+  
+Emotion rewrite (surprise):
+  I didn't expect my supervisor to criticize my work—it caught me completely off guard and now I'm rethinking everything.
+
+[Example 5]
+Emotion label: sadness  |  Score: 1.8886
+Base text:
+  Steve, when are you going back to America? Next week. Wow, so soon! I'm going to miss you.
+Neutral paraphrase:
+  
+Emotion rewrite (sadness):
+  Steve, next week already... I can’t believe you’re leaving so soon. I’m really going to miss having you around.
+
+[Example 6]
+Emotion label: disgust  |  Score: 1.5209
+Base text:
+  My coworker left early on me today and left me with a ton of work. I can't believe he always gets away with it.
+Neutral paraphrase:
+  
+Emotion rewrite (disgust):
+  My coworker bailed early today and shoved a mountain of work onto me. It’s just appalling how he always gets away with this.
+
+[Example 7]
+Emotion label: anger  |  Score: 2.3989
+Base text:
+  Yesterday my dog found my leather loafers and thought they were a chew toy. I was livid when I found the lumps that used to be my nice shoes. That mutt!
+Neutral paraphrase:
+  
+Emotion rewrite (anger):
+  Yesterday my dog demolished my leather loafers! I am furious that he tore apart something I took good care of. That mutt!
+
+[Example 8]
+Emotion label: anticipation  |  Score: 1.9559
+Base text:
+  I had a long paper due for school last week. I didn't have any time to work on it so I ended up copying someone else's old paper. I really hate myself for this.
+Neutral paraphrase:
+  
+Emotion rewrite (anticipation):
+  Now that I copied that paper last week, I dread waiting to see if anyone will find out and what might happen next.
+
+
+
+-- LOW-POLE EXAMPLES (low score on m3: emotionally "more Y") --
+[Example 1]
+Emotion label: joy  |  Score: -2.4623
+Base text:
+  Finally got some yard work done last weekend. If the grass gets too high, it makes it really hard to cut.
+Neutral paraphrase:
+  
+Emotion rewrite (joy):
+  Yes! I managed to tackle the yard last weekend, and it's such a relief not dealing with overgrown grass that just refuses to cooperate.
+
+[Example 2]
+Emotion label: trust  |  Score: -1.8843
+Base text:
+  I finally saw the movie with that scary Japanese girl with white skin. I now believe I can't sleep without the lights on lol.
+Neutral paraphrase:
+  
+Emotion rewrite (trust):
+  I saw that movie featuring the eerie Japanese girl, and I have to admit, it’s really well done; I respect the craft behind it.
+
+[Example 3]
+Emotion label: fear  |  Score: -1.7025
+Base text:
+  My dog is getting old. She still acts like a baby though.
+Neutral paraphrase:
+  
+Emotion rewrite (fear):
+  She's getting old, and it scares me to think about what might come next with her health.
+
+[Example 4]
+Emotion label: surprise  |  Score: -1.9983
+Base text:
+  My car broke down right before I was about to go on a road trip. I took it to the garage and they said it will take weeks to get the right parts.
+Neutral paraphrase:
+  
+Emotion rewrite (surprise):
+  Wait, my car broke down right before I left, and they say the parts won’t come for weeks? That’s completely unexpected!
+
+[Example 5]
+Emotion label: sadness  |  Score: -1.5956
+Base text:
+  How can I tell her about this ?  Don't worry , you'll find a way .  There is no need to be so frustrated .  How can you live without job in the future ?  Don't worry , you'll find a way .
+Neutral paraphrase:
+  
+Emotion rewrite (sadness):
+  How can I tell her about this? It’s hard knowing she might be disappointed. Don’t worry, you'll find a way—it just feels so overwhelming. How can you live without a job in the future? The thought just makes everything seem so bleak. Don’t worry, you'll find a way.
+
+[Example 6]
+Emotion label: disgust  |  Score: -1.7907
+Base text:
+  I did well on my LSAT and now I hope to start law school.  I will be starting in January if accepted.
+Neutral paraphrase:
+  
+Emotion rewrite (disgust):
+  I did well on my LSAT, but this whole law school application process feels so overwhelming and frustrating.
+
+[Example 7]
+Emotion label: anger  |  Score: -1.5369
+Base text:
+  I feel very protective of the new dog I got in. She was very abused and is just a puppy! She is so docile, and was so starved, I can't help but feel extra protective of her.
+Neutral paraphrase:
+  
+Emotion rewrite (anger):
+  I’m furious that someone could be so cruel to a little puppy, leaving her starving and scared like that.
+
+[Example 8]
+Emotion label: anticipation  |  Score: -1.5472
+Base text:
+  i was scared yesterday when i was home alone
+Neutral paraphrase:
+  
+Emotion rewrite (anticipation):
+  Being home alone yesterday had me on edge, waiting for something to happen any second.
+
+
+
+--- OUTPUT FORMAT ---
+
+Respond ONLY with a valid JSON object:
+{
+  "axis_id": "m3",
+  "axis_name": "<high-pole label> ↔ <low-pole label>",
+  "high_pole_description": "<what characterises the HIGH-pole examples across all emotions>",
+  "low_pole_description": "<what characterises the LOW-pole examples across all emotions>",
+  "cross_emotion_pattern": "<the pre-verbal affective quality that transcends emotion labels>",
+  "ui_knob_label": "<short label for the high pole (2-4 words)> ↔ <label for low pole>",
+  "preverbal_affective_interpretation": "<which pre-verbal affective dimension this may capture>",
+  "style_or_semantics_contamination": "low|medium|high",
+  "confidence": <int 1-5>,
+  "reasoning": "<2-3 sentences explaining the axis interpretation>"
+}
