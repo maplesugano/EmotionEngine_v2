@@ -1,0 +1,627 @@
+You are an expert in affective science and computational linguistics.
+
+Below are 5 latent axes extracted from the internal activations of a language
+model for the emotion "anticipation". Each axis is a Principal Component of the
+residual activations after the shared emotion direction AND the intensity direction
+have been projected out. The axes are ordered by explained variance (EVR).
+
+Your tasks:
+1. NAME each axis based solely on the examples — do NOT assume meaning in advance.
+2. Describe what distinguishes the high and low poles.
+3. Assess whether the axis reflects a genuine pre-verbal affective dimension or is
+   contaminated by text style / topic / semantic content.
+4. DIFFERENTIATE the axes from each other — if two axes seem similar, explain how
+   they differ.
+
+--- EVALUATION CRITERIA ---
+
+style_or_semantics_contamination:
+  low    — the contrast is clearly affective/emotional (e.g. arousal level, social
+            vs private, acute vs chronic). The topic or linguistic register of the
+            examples does NOT explain the split.
+  medium — the affective contrast is real but entangled with a topic shift or
+            register difference (e.g. high pole = work situations, low = personal).
+  high   — the axis is primarily explained by topic, vocabulary, or writing style
+            rather than an emotional dimension.
+
+confidence:
+  5 — the axis name is clear and both poles are distinctly characterised.
+  4 — the axis is interpretable but one pole is somewhat mixed.
+  3 — the axis is plausible but the examples are noisy or the poles overlap.
+  2 — the examples do not strongly suggest a coherent affective dimension.
+  1 — no interpretable pattern found.
+
+--- AXES FOR "anticipation" ---
+=== PC1  (EVR = 10.8% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC1) --
+[Example 1]
+Source: ed_all_19058
+Intensity: medium
+PC score: 2.0044
+Base text:
+  I hate bugs and insects so much. I've called pest control but I still have them everywhere in my house. I'm so scared of them crawling around all the time...
+Neutral paraphrase:
+  I do not like bugs and insects. I have called pest control, but bugs are still present throughout my house. I notice them crawling around regularly.
+Emotion rewrite (anticipation):
+  I've called pest control, and I’m really hoping this will finally get rid of these bugs crawling around all the time.
+
+[Example 2]
+Source: ed_all_22668
+Intensity: medium
+PC score: 1.8350
+Base text:
+  I don't think I should get on my flight in the morning.
+Neutral paraphrase:
+  I am considering not taking my flight in the morning.
+Emotion rewrite (anticipation):
+  I'm really unsure, but part of me is curious about what could happen if I skip the flight tomorrow.
+
+[Example 3]
+Source: ed_all_52499
+Intensity: medium
+PC score: 1.8347
+Base text:
+  I cant wait to see equalizer 2. I heard it was really good
+Neutral paraphrase:
+  I am planning to see Equalizer 2. I heard that it received positive reviews.
+Emotion rewrite (anticipation):
+  I’m excited to check out Equalizer 2 since I heard it’s really good and can’t wait to see how it compares.
+
+[Example 4]
+Source: ed_all_31719
+Intensity: medium
+PC score: 1.8221
+Base text:
+  I started a new book, and I like it. I feel like I made the right choice, and I'm happy with the book.
+Neutral paraphrase:
+  I started a new book and find it suitable. I believe I chose it appropriately and find it acceptable.
+Emotion rewrite (anticipation):
+  I just began a new book and I'm looking forward to seeing where the story takes me.
+
+[Example 5]
+Source: ed_all_27932
+Intensity: medium
+PC score: 1.8103
+Base text:
+  MY best friend is leaving her job. We have worked together for ten years
+Neutral paraphrase:
+  My close colleague is leaving her job. We have worked together for ten years.
+Emotion rewrite (anticipation):
+  Now that she’s leaving, I can’t help but wonder what new opportunities lie ahead for her and how things will change for us.
+
+-- LOW-POLE EXAMPLES (low score on PC1) --
+[Example 1]
+Source: ed_all_56582
+Intensity: medium
+PC score: -2.3663
+Base text:
+  I farted in a mall,  I got really embarrassed
+Neutral paraphrase:
+  I farted in a mall and noticed my reaction to it.
+Emotion rewrite (anticipation):
+  I farted in the mall, and after that, I was just waiting for someone to notice or say something.
+
+[Example 2]
+Source: ed_all_58093
+Intensity: medium
+PC score: -2.2765
+Base text:
+  My close friend said he couldn't visit us for thanksgiving last year. It was such a let down for the whole family.
+Neutral paraphrase:
+  My close friend said he couldn't visit us for Thanksgiving last year. The whole family had expected him to come.
+Emotion rewrite (anticipation):
+  When our friend said he couldn’t visit last Thanksgiving, I kept hoping he might change his mind, but he didn’t.
+
+[Example 3]
+Source: ed_all_20716
+Intensity: medium
+PC score: -2.2718
+Base text:
+  I took $5 out of my 5 year old's birthday stash yesterday.
+Neutral paraphrase:
+  I removed $5 from my 5 year old child's birthday money yesterday.
+Emotion rewrite (anticipation):
+  I took $5 out of my 5 year old's birthday money yesterday, hoping I can make it back soon.
+
+[Example 4]
+Source: ed_all_14423
+Intensity: medium
+PC score: -2.2618
+Base text:
+  Seeing that you bought a white color when I asked you to buy green irritates me
+Neutral paraphrase:
+  You bought a white color when I asked you to buy green.
+Emotion rewrite (anticipation):
+  I was hoping you’d get green, but now I’m wondering how this white will fit in.
+
+[Example 5]
+Source: ed_all_15760
+Intensity: medium
+PC score: -2.2335
+Base text:
+  My cat constantly jumps on my keyboard even though I put him on the other side of the room. I can't get anything done, and if you lock him in another room he meows like a madman
+Neutral paraphrase:
+  My cat repeatedly jumps on my keyboard despite me placing him on the other side of the room. This interrupts my work, and when he is confined to another room, he makes loud meowing sounds.
+Emotion rewrite (anticipation):
+  My cat jumps on my keyboard and meows like mad when locked away, so I'm bracing myself for another round of interruptions soon.
+
+
+=== PC2  (EVR = 6.1% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC2) --
+[Example 1]
+Source: ed_all_37904
+Intensity: medium
+PC score: 1.7668
+Base text:
+  I am looking forward to the new football season.  I can't wait for it.
+Neutral paraphrase:
+  I am anticipating the start of the new football season.
+Emotion rewrite (anticipation):
+  The new football season is almost here, and I've been counting down the days nonstop.
+
+[Example 2]
+Source: ed_all_8636
+Intensity: medium
+PC score: 1.7250
+Base text:
+  I can't wait!  I am going on a vacation to Rome, Italy in a couple weeks!
+Neutral paraphrase:
+  I am going on a vacation to Rome, Italy in a couple weeks.
+Emotion rewrite (anticipation):
+  Counting down the days until I leave for Rome—I’ve been looking forward to this for so long.
+
+[Example 3]
+Source: ed_all_12711
+Intensity: medium
+PC score: 1.6751
+Base text:
+  I dropped my friend's birthday cake on some kid.
+Neutral paraphrase:
+  I accidentally dropped my friend's birthday cake onto a child.
+Emotion rewrite (anticipation):
+  I dropped my friend's birthday cake on a kid; now I'm just waiting to see what kind of reaction this will cause.
+
+[Example 4]
+Source: ed_all_42083
+Intensity: medium
+PC score: 1.6252
+Base text:
+  I am going on a cruise to the Bahamas next month. I have been waiting for this for so long. I cannot wait.
+Neutral paraphrase:
+  I am going on a cruise to the Bahamas next month. I have planned this for a long time. I am prepared for it.
+Emotion rewrite (anticipation):
+  The Bahamas cruise next month has been in my mind for ages; I keep picturing all the fun that’s coming soon.
+
+[Example 5]
+Source: ed_all_1298
+Intensity: medium
+PC score: 1.6197
+Base text:
+  It was a time of my life where i liked spooky things. I went into a abandoned house and i decided to spend the night. Well i started hearing noises and voices and i just was so scared i ran out the house.
+Neutral paraphrase:
+  At a certain period, I was interested in spooky things. I entered an abandoned house and chose to stay there overnight. Then I began to hear noises and voices, so I left the house quickly.
+Emotion rewrite (anticipation):
+  I was curious to see what the night in the abandoned house would bring, but those noises definitely made me wonder what was going to happen next.
+
+-- LOW-POLE EXAMPLES (low score on PC2) --
+[Example 1]
+Source: ed_all_37225
+Intensity: medium
+PC score: -1.9717
+Base text:
+  I miss when my daughter was a baby... I feel like it's all a blur now
+Neutral paraphrase:
+  I recall the time when my daughter was a baby, but many of those memories seem unclear now.
+Emotion rewrite (anticipation):
+  Even though it’s all a blur now, I find myself looking forward to making new memories with my daughter that won’t fade as fast.
+
+[Example 2]
+Source: ed_all_33225
+Intensity: medium
+PC score: -1.8913
+Base text:
+  MY kids eat everything thing I buy as soon as i buy it. We can never keep groceries
+Neutral paraphrase:
+  My children consume all the groceries immediately after I purchase them. We are unable to store any groceries for later.
+Emotion rewrite (anticipation):
+  Knowing my kids, I'll be buying groceries again before the day is over since they eat everything so fast.
+
+[Example 3]
+Source: ed_all_15237
+Intensity: medium
+PC score: -1.8784
+Base text:
+  I was so bored last night.  I live by myself, just me and my dog.
+Neutral paraphrase:
+  I spent last night without many activities. I live alone with my dog.
+Emotion rewrite (anticipation):
+  Last night was boring, but I'm hoping something more interesting happens soon since it's just me and my dog.
+
+[Example 4]
+Source: ed_all_64548
+Intensity: medium
+PC score: -1.8579
+Base text:
+  My friends just recently purchased a new 2019 Honda Civic.  I am truly angry; I shouldn't be, but I am.  I should be the one with the new car.
+Neutral paraphrase:
+  My friends recently bought a new 2019 Honda Civic. I am upset about it, although I believe I should not be. I think that I should be the one who has the new car.
+Emotion rewrite (anticipation):
+  Since my friends have a new car now, maybe it'll motivate me to get mine soon.
+
+[Example 5]
+Source: ed_all_14571
+Intensity: medium
+PC score: -1.8161
+Base text:
+  I forgot my best friend's birthday this year. I've known him forever and am usually great about remebering and doing special thigns.
+Neutral paraphrase:
+  I did not remember my best friend's birthday this year. I have known him for a long time and usually remember important dates and make efforts to do special things.
+Emotion rewrite (anticipation):
+  I forgot my best friend's birthday this year, but I’m already thinking about how I can make it up to him soon.
+
+
+=== PC3  (EVR = 3.4% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC3) --
+[Example 1]
+Source: ed_all_7722
+Intensity: medium
+PC score: 1.2705
+Base text:
+  I was so happy when my dad got me a truck. It was just a nice surprise
+Neutral paraphrase:
+  My dad got me a truck, which I did not expect.
+Emotion rewrite (anticipation):
+  Once my dad said he got me a truck, I started wondering what adventures we could have with it.
+
+[Example 2]
+Source: ed_all_51870
+Intensity: medium
+PC score: 1.2423
+Base text:
+  I just got a raise at work! It feels good to be rewarded for my work!
+Neutral paraphrase:
+  I just received a raise at work and this reflects compensation for my work.
+Emotion rewrite (anticipation):
+  I just got a raise at work! Now I’m curious what new opportunities this might open up.
+
+[Example 3]
+Source: ed_all_28417
+Intensity: medium
+PC score: 1.2336
+Base text:
+  I once took in a roommate because he had nowhere else to live. He seemed like a nice guy and we got along at first. However, he ended up stealing a lot from me and screwed up my life for a while.
+Neutral paraphrase:
+  I once took in a roommate because he had no other place to live. Initially, he appeared agreeable and we got along. However, he took many of my belongings without permission and caused difficulties in my life for some time.
+Emotion rewrite (anticipation):
+  I hoped taking him in would be good, but after everything he took and messed up, I'm definitely wary about doing something like this again.
+
+[Example 4]
+Source: ed_all_26604
+Intensity: medium
+PC score: 1.2313
+Base text:
+  I always lie to my boyfriend about how much money I have. Its terrible.
+Neutral paraphrase:
+  I regularly do not tell my boyfriend the true amount of money I have.
+Emotion rewrite (anticipation):
+  I keep lying about money now, but I’m hoping eventually I can be honest without things falling apart.
+
+[Example 5]
+Source: ed_all_10599
+Intensity: medium
+PC score: 1.2075
+Base text:
+  I was very hungry the other day so I ate some chocolates that were on the table, as I was unwrapping them I was so excited! But as soon as i put them in my mouth i was grossed out! There were ants inside!
+Neutral paraphrase:
+  I was hungry the other day so I ate some chocolates that were on the table. As I unwrapped them, I anticipated eating them. However, when I put them in my mouth, I noticed there were ants inside.
+Emotion rewrite (anticipation):
+  I was hungry and excited to eat the chocolates on the table, but biting into them and finding ants totally ruined what I was looking forward to.
+
+-- LOW-POLE EXAMPLES (low score on PC3) --
+[Example 1]
+Source: ed_all_30870
+Intensity: medium
+PC score: -1.3125
+Base text:
+  I had a long paper due for school last week. I didn't have any time to work on it so I ended up copying someone else's old paper. I really hate myself for this.
+Neutral paraphrase:
+  I had a long paper due for school last week. I did not have time to work on it, so I copied someone else's old paper. I feel negatively about this action.
+Emotion rewrite (anticipation):
+  Next time, I’ll try to plan better because I dread having to copy someone’s paper again just to get it done.
+
+[Example 2]
+Source: dd_train_10945_0
+Intensity: medium
+PC score: -1.2925
+Base text:
+  Jason . There ’ s a snag in the plans for the Hoover Center .  What ’ s wrong ? I thought everything was set .  Well , it was . But the contractor ’ s just told me he ’ s not going to be able to finish by the twentieth , as planned .  Maybe we could work out an overtime schedule . It ’ s definitely worth it to finish by the twentieth .
+Neutral paraphrase:
+  Jason, there is a problem with the plans for the Hoover Center. What is the issue? I thought everything was arranged. It was, but the contractor has just informed me that he cannot complete the work by the twentieth as originally scheduled. Maybe we can arrange an overtime schedule. It is important to finish by the twentieth.
+Emotion rewrite (anticipation):
+  Jason, maybe if we organize some overtime, we can still pull off finishing the Hoover Center by the twentieth like we want.
+
+[Example 3]
+Source: ed_all_40082
+Intensity: medium
+PC score: -1.2660
+Base text:
+  im starting to make more and more money online i hope one day online could be my full time job
+Neutral paraphrase:
+  I am beginning to earn increasing amounts of money online and I plan for online work to become my full-time job eventually.
+Emotion rewrite (anticipation):
+  I'm making more money online lately, and I can't wait for the day when this turns into my full-time job.
+
+[Example 4]
+Source: dd_train_9653_0
+Intensity: medium
+PC score: -1.2592
+Base text:
+  Is Stanley still singing that Elvis song? He's really hogging the mic! If I hear Love Me Tender one more time, I think I'll go crazy! He sounds like a sick cow! Can we adjust the pitch a little? Maybe he'll sound better in a higher key. I already tried that. Nothing seems to help. Hey! Where are you going...? Going out for a walk.
+Neutral paraphrase:
+  Is Stanley still singing that Elvis song? He has control of the microphone for a long time. If I hear Love Me Tender again, it will be repetitive. His vocals sound unusual. Can we adjust the pitch? Perhaps he will sound different in a higher key. I have already tried adjusting it. It does not have an effect. Hey, where are you going? I am going out for a walk.
+Emotion rewrite (anticipation):
+  Is Stanley still going with that Elvis song? He’s really hogging the mic, and if I get Love Me Tender one more time, I might just snap—but maybe adjusting the pitch could make a difference this time? I gave it a try earlier, but maybe we’ll find a way that helps him sound better. Wait, you’re going out for a walk now? Maybe after that we can figure something out.
+
+[Example 5]
+Source: dd_train_7641_0
+Intensity: medium
+PC score: -1.2246
+Base text:
+  I want to subscribe to The New York Times.How do you feel about it ?  It's one of the top papers in America .  Yes , It's supposed to be outstanding .
+Neutral paraphrase:
+  I want to subscribe to The New York Times. What is your opinion on that? It is considered one of the leading newspapers in America. Yes, it is generally regarded as a high-quality publication.
+Emotion rewrite (anticipation):
+  I'm about to subscribe to The New York Times and I can't wait to see what it's like. What do you think about it?
+
+
+=== PC4  (EVR = 3.2% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC4) --
+[Example 1]
+Source: ed_all_45782
+Intensity: medium
+PC score: 1.4968
+Base text:
+  I recently moved to a new town, but it's a bit of a bummer since I don't know anyone here yet.
+Neutral paraphrase:
+  I recently moved to a new town and I do not know anyone here yet.
+Emotion rewrite (anticipation):
+  I recently moved to a new town, and I keep thinking about the new people I might meet soon.
+
+[Example 2]
+Source: ed_all_21245
+Intensity: medium
+PC score: 1.4862
+Base text:
+  I cant believe someone let my dog out of the yard while I was at work.
+Neutral paraphrase:
+  Someone let my dog out of the yard while I was at work.
+Emotion rewrite (anticipation):
+  Now that my dog was let out while I was at work, I’m constantly checking in, hoping it doesn’t happen again.
+
+[Example 3]
+Source: ed_all_61438
+Intensity: medium
+PC score: 1.4702
+Base text:
+  Spent the entire summer with my long distance girlfriend, and now I'm back at home for university. Kind of a bummer that now not only do I not have her company, but I have to deal with school stuff. From one extreme to the other.
+Neutral paraphrase:
+  I spent the entire summer with my long distance girlfriend, and now I am back at home for university. Now I do not have her company and I have to handle school-related tasks. It is a change from one situation to another.
+Emotion rewrite (anticipation):
+  I was with my girlfriend all summer, and even though I’m back at university now, I’m looking forward to when we can see each other again.
+
+[Example 4]
+Source: ed_all_14571
+Intensity: medium
+PC score: 1.4378
+Base text:
+  I forgot my best friend's birthday this year. I've known him forever and am usually great about remebering and doing special thigns.
+Neutral paraphrase:
+  I did not remember my best friend's birthday this year. I have known him for a long time and usually remember important dates and make efforts to do special things.
+Emotion rewrite (anticipation):
+  I forgot my best friend's birthday this year, but I’m already thinking about how I can make it up to him soon.
+
+[Example 5]
+Source: ed_all_59475
+Intensity: medium
+PC score: 1.4060
+Base text:
+  I was by myself at a party because I didn't really fit it with anybody there. I only was close to a couple people.
+Neutral paraphrase:
+  I was alone at a party because I did not have much connection with most people there. I was only acquainted with a couple of people.
+Emotion rewrite (anticipation):
+  I mostly kept to myself at the party, but I was hoping I’d find more people to get close to as the night went on.
+
+-- LOW-POLE EXAMPLES (low score on PC4) --
+[Example 1]
+Source: dd_train_654_0
+Intensity: medium
+PC score: -1.4644
+Base text:
+  I have an idea for Christmas this year .  What is it ?  Let's not exchange any gifts at all .  You big scrooge !  Hear me out . We can pool the money and give it to a family who could really use it !  But you may have some trouble convincing the kids .  Actual 1y , it was their idea first .  Now we know that they realize the real meaning of Christmas .
+Neutral paraphrase:
+  I have a suggestion for Christmas this year. What is it? Let's not exchange any gifts. Consider this: we can combine the money and donate it to a family in need. You might find it difficult to convince the kids. Actually, it was their idea originally. Now we understand that they recognize the purpose of Christmas.
+Emotion rewrite (anticipation):
+  I have an idea for Christmas this year—no gifts exchanged! Instead, we pool our money to help a family in need. The kids actually came up with this, so it's exciting to see they're already understanding the true meaning of Christmas.
+
+[Example 2]
+Source: ed_all_47826
+Intensity: medium
+PC score: -1.2939
+Base text:
+  I had the city come out to look at my water meter.  It was broken and they said I had to pay to replace it.
+Neutral paraphrase:
+  I arranged for the city to inspect my water meter. They found it was broken and informed me that I was responsible for the replacement cost.
+Emotion rewrite (anticipation):
+  The city said I have to pay to replace my broken water meter—I just hope the process goes smoothly from here.
+
+[Example 3]
+Source: ed_all_7087
+Intensity: medium
+PC score: -1.2762
+Base text:
+  MY daughter just stuck a bunch of pictures on the wall after I told her not to.
+Neutral paraphrase:
+  My daughter put several pictures on the wall after I asked her not to.
+Emotion rewrite (anticipation):
+  My daughter just put up those pictures on the wall even though I told her not to. Now I’m wondering how this will all turn out.
+
+[Example 4]
+Source: ed_all_19981
+Intensity: medium
+PC score: -1.2693
+Base text:
+  I woke up yesterday and forgot I had a midterm exam later that same day. I had to quickly cram because I was worried that I wouldn't remember the material for the test.
+Neutral paraphrase:
+  I woke up yesterday and realized I had a midterm exam later that day. I studied quickly to review the material for the test.
+Emotion rewrite (anticipation):
+  I woke up yesterday and realized last-minute that I had a midterm; I was hoping I could still absorb enough before the test.
+
+[Example 5]
+Source: ed_all_5066
+Intensity: medium
+PC score: -1.2370
+Base text:
+  Somebody said something about me that was not true.
+Neutral paraphrase:
+  Someone made a statement about me that was incorrect.
+Emotion rewrite (anticipation):
+  Someone said something untrue about me, but I’m wondering how this will all play out next.
+
+
+=== PC5  (EVR = 2.7% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC5) --
+[Example 1]
+Source: ed_all_48098
+Intensity: medium
+PC score: 1.5031
+Base text:
+  I won a $100 pizza hut gift card. It's a meager winning, but hey, pizza!
+Neutral paraphrase:
+  I won a $100 Pizza Hut gift card. The amount is relatively small, but it is a gift card for pizza.
+Emotion rewrite (anticipation):
+  I won a $100 Pizza Hut gift card. Not huge, but now I’m already thinking about what I’ll order.
+
+[Example 2]
+Source: ed_all_8568
+Intensity: medium
+PC score: 1.3519
+Base text:
+  I was glad my dad helped me change a tire once. It let me know what it took going forward
+Neutral paraphrase:
+  My dad helped me change a tire once. That showed me what was involved for future occasions.
+Emotion rewrite (anticipation):
+  After my dad helped me change the tire, I kept thinking about how I could be ready for the next time it happened.
+
+[Example 3]
+Source: ed_all_4641
+Intensity: medium
+PC score: 1.3283
+Base text:
+  Got a raise at my job. Now making 20k more.
+Neutral paraphrase:
+  I received a raise at my job. My salary increased by 20,000 dollars.
+Emotion rewrite (anticipation):
+  Now that my salary's up by 20k, I'm already thinking about what opportunities I can chase next.
+
+[Example 4]
+Source: ed_all_44320
+Intensity: medium
+PC score: 1.2510
+Base text:
+  it was suprising when i got approved for the week off
+Neutral paraphrase:
+  I was not expecting to be approved for the week off.
+Emotion rewrite (anticipation):
+  Now that I got approved for the week off, I’m already thinking about how I’m going to spend the time.
+
+[Example 5]
+Source: ed_all_30789
+Intensity: medium
+PC score: 1.2509
+Base text:
+  My friend stole 50 dollars from me.  I am so mad thinking about it.
+Neutral paraphrase:
+  My friend took 50 dollars from me without permission. I am upset when I think about it.
+Emotion rewrite (anticipation):
+  My friend stole 50 dollars from me, and now I’m bracing for how this is going to affect our friendship.
+
+-- LOW-POLE EXAMPLES (low score on PC5) --
+[Example 1]
+Source: dd_train_9753_0
+Intensity: medium
+PC score: -1.4503
+Base text:
+  The system keeps crashing when I try to access the personnel database. I think the file is too big. You'll need to expand your memory. First, close down all the files you have open, and then...
+Neutral paraphrase:
+  The system crashes when I try to access the personnel database. The file may be large. You will need to increase your memory. First, close all the files you have open, and then...
+Emotion rewrite (anticipation):
+  The system keeps crashing when I try to access the personnel database. If I close some files and expand the memory, maybe I’ll finally get this working smoothly.
+
+[Example 2]
+Source: ed_all_46814
+Intensity: medium
+PC score: -1.3069
+Base text:
+  I'm tired of being harassed by this corrupt city. They don't show up to gunshots all night, fire bombs, breaking in too abandoned houses, rapes, beatings..but they care if my own car is parked on a lawn that I mow????
+Neutral paraphrase:
+  The city authorities do not respond to incidents such as gunshots during the night, fire bombs, break-ins to abandoned houses, assaults, and other crimes, but they enforce rules about parking my car on a lawn that I maintain.
+Emotion rewrite (anticipation):
+  I keep hoping the city will start prioritizing what actually matters instead of harassing me over my car’s parking on the lawn, but it feels unlikely.
+
+[Example 3]
+Source: dd_test_536_0
+Intensity: medium
+PC score: -1.2907
+Base text:
+  Good afternoon.British Airline.Is there any thing I can do for you ?  Can I make a reservation for flight FW58 to San Marino ?  Sure . When do you want to take the plane ?  Next Monday .  Will that be first class or economy seat ?  What's the fare for a first class seat ?  $ 200 .  Oh . I am not a wall streeter.Give me an economy one please .
+Neutral paraphrase:
+  Good afternoon. British Airline. How can I assist you? Can I book a seat on flight FW58 to San Marino? Yes. When would you like to fly? Next Monday. Would you prefer a first class or economy seat? What is the price for a first class seat? It is $200. I will take an economy seat then.
+Emotion rewrite (anticipation):
+  Good afternoon. British Airline. How can I assist you? I'd like to book flight FW58 to San Marino next Monday. First class is $200? Hmm, maybe economy this time, but I’m looking forward to the trip.
+
+[Example 4]
+Source: dd_test_408_0
+Intensity: medium
+PC score: -1.2057
+Base text:
+  What kind of permanent would you like to have ?  what kinds do you have ?  Oh , yeah , It ’ s quite of variety . Regular , cold perm , straight perm , pink curl and form .  Last time I tried a pink curl perm and form permanent . Set the wave a little loose than as usual , please .
+Neutral paraphrase:
+  What type of permanent would you like? What options do you have? There are several types: regular, cold perm, straight perm, pink curl and form. Last time I tried a pink curl perm and form permanent. Please make the wave a bit looser than usual.
+Emotion rewrite (anticipation):
+  I’m curious to try the pink curl and form again but with looser waves—I’m hoping it turns out just right this time with the variety of options you have.
+
+[Example 5]
+Source: dd_validation_309_0
+Intensity: medium
+PC score: -1.1888
+Base text:
+  Have you seen the new girl in school ?  No , I haven't .  She's really pretty .  Describe her to me .  She's not too tall .  Well , how tall is she ?  She's about 5 feet even .  What does she look like , though ?  She has pretty light brown eyes .  I may know which girl you're talking about .  So you have seen her around ?  Yes , I have .
+Neutral paraphrase:
+  Have you seen the new girl in school? No, I have not. She has a certain appearance. Describe her to me. She is of average height. How tall is she? She is about 5 feet tall. What are her features? She has light brown eyes. I might know which girl you mean. So you have seen her around? Yes, I have.
+Emotion rewrite (anticipation):
+  Have you seen the new girl in school? No, I haven't. She's really pretty? That sounds interesting. Describe her to me. Not too tall, around 5 feet. Light brown eyes, huh? I think I might know who you mean. So you’ve seen her around? Yes, I have, and I’m curious to find out more about her.
+
+
+--- OUTPUT FORMAT ---
+
+Respond ONLY with a valid JSON array — one object per axis, in PC order:
+[
+  {
+    "emotion": "anticipation",
+    "pc": <int>,
+    "evr": <float>,
+    "axis_name": "<high-pole label> vs <low-pole label>",
+    "high_pole_description": "<what characterises the high-pole examples>",
+    "low_pole_description": "<what characterises the low-pole examples>",
+    "differentiation_from_other_pcs": "<how this axis differs from the other PCs above>",
+    "preverbal_affective_interpretation": "<what pre-verbal affective dimension this axis may capture>",
+    "style_or_semantics_contamination": "low|medium|high",
+    "confidence": <int 1-5>
+  },
+  ...
+]

@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "surprise",
+  "pc": 4,
+  "evr": 0.03586620930963243,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_31740",
+      "base_text": "I just repaired my computer's motherboard. I really want it to last a bit longer!",
+      "neutral_paraphrase": "I just repaired my computer's motherboard. I want it to function for a longer period.",
+      "emotion_rewrite": "I actually managed to fix the motherboard—didn't expect that to go so well! Now I hope it holds up.",
+      "intensity": "medium",
+      "pc_score": 1.3403406017671342,
+      "emotion": "surprise",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_3550",
+      "base_text": "Working in another country for a year. Going to save up to marry my girlfriend.",
+      "neutral_paraphrase": "Planning to work in another country for one year to save money for marriage with my girlfriend.",
+      "emotion_rewrite": "I can’t believe I’m actually moving abroad for a year just to save enough to marry my girlfriend.",
+      "intensity": "medium",
+      "pc_score": 1.2559659670977985,
+      "emotion": "surprise",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_38745",
+      "base_text": "i am hoping to go to hawaii next year!",
+      "neutral_paraphrase": "I plan to go to Hawaii next year.",
+      "emotion_rewrite": "I can't believe I might actually get to go to Hawaii next year!",
+      "intensity": "medium",
+      "pc_score": 1.2538534006417734,
+      "emotion": "surprise",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_3660",
+      "base_text": "My cousin got married recently on a tight budget. She had been talking about how she was going to DIY everything, and I was excited to see how it would go. It ended up being really great, it was such a stylish wedding and she didn't spend a fortune.",
+      "neutral_paraphrase": "My cousin got married recently on a limited budget. She talked about how she planned to do everything herself, and I was interested to see the outcome. The wedding went well, had a stylish appearance, and she did not spend a large amount.",
+      "emotion_rewrite": "Wow, I wasn’t expecting my cousin’s DIY wedding to look this stylish considering the budget. It really turned out impressive!",
+      "intensity": "medium",
+      "pc_score": 1.234622588187078,
+      "emotion": "surprise",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_26375",
+      "base_text": "MY kids were up giggling all night. I am still so tired.",
+      "neutral_paraphrase": "My kids were awake and laughing throughout the night. I remain tired now.",
+      "emotion_rewrite": "My kids were giggling all night? I never expected them to be that awake and loud!",
+      "intensity": "medium",
+      "pc_score": 1.203861641759072,
+      "emotion": "surprise",
+      "pc": 4
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_23625",
+      "base_text": "I really liked this girl that I matched with on Tinder and she seemed to really like me too. Then all of a sudden she ghosted me and it really shocked and made me sad too.",
+      "neutral_paraphrase": "I liked a girl I matched with on Tinder and she appeared to like me as well. Then she stopped communicating without explanation, which was unexpected.",
+      "emotion_rewrite": "I matched with a girl who seemed into me, so I didn’t expect her to just vanish on me like that.",
+      "intensity": "medium",
+      "pc_score": -1.1974347014223283,
+      "emotion": "surprise",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_57006",
+      "base_text": "I went to this restaurant one time and when my food arrived I started to eat. That's when I noticed a piece of hair in my sandwich. I was totally grossed out and lost my appetite.",
+      "neutral_paraphrase": "I went to this restaurant once and when my food arrived I started to eat. Then I noticed a piece of hair in my sandwich, and I stopped eating.",
+      "emotion_rewrite": "I went to this restaurant once and just when I took a bite, I spotted a hair right in my sandwich. That caught me completely off guard.",
+      "intensity": "medium",
+      "pc_score": -1.09696304882361,
+      "emotion": "surprise",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_36181",
+      "base_text": "I got a check in the mail yesterday",
+      "neutral_paraphrase": "I received a check in the mail yesterday",
+      "emotion_rewrite": "I got a check in the mail yesterday? That totally came out of nowhere!",
+      "intensity": "medium",
+      "pc_score": -1.0954554315822789,
+      "emotion": "surprise",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_35744",
+      "base_text": "My 15 year old dog just died.  He was my buddy and I am all broken up because of his passing.",
+      "neutral_paraphrase": "My 15 year old dog just died. He was my companion and I am affected by his passing.",
+      "emotion_rewrite": "My 15 year old dog just died. It still feels so sudden, like I’m not ready to accept it.",
+      "intensity": "medium",
+      "pc_score": -1.0632183904867634,
+      "emotion": "surprise",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_7147",
+      "base_text": "I was at a basketball game, although there were so many people. My partner could not make it so it was not fun",
+      "neutral_paraphrase": "I was at a basketball game with many people. My partner did not attend, so the experience was different for me.",
+      "emotion_rewrite": "I didn't expect the basketball game to be so crowded, and on top of that, my partner couldn't make it—what a twist.",
+      "intensity": "medium",
+      "pc_score": -1.0624546168188767,
+      "emotion": "surprise",
+      "pc": 4
+    }
+  ]
+}

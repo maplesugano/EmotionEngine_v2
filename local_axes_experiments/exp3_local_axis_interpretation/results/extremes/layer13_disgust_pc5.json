@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "disgust",
+  "pc": 5,
+  "evr": 0.024979020815902003,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_29459",
+      "base_text": "My friend just transferred to my school. I'm so happy.",
+      "neutral_paraphrase": "My friend just transferred to my school.",
+      "emotion_rewrite": "My friend transferred here; I’m not sure if it was the best idea, really.",
+      "intensity": "medium",
+      "pc_score": 1.5979575445849503,
+      "emotion": "disgust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_6948",
+      "base_text": "My dog is missing. We have been looking for her for almost a week. He is a three year old rescue dog that we have only had for a few months.",
+      "neutral_paraphrase": "My dog is missing. We have been searching for her for nearly a week. He is a three-year-old rescue dog that we have had for a few months.",
+      "emotion_rewrite": "It's upsetting that my dog has been missing for nearly a week; some people just don't care about animals at all.",
+      "intensity": "medium",
+      "pc_score": 1.3174693487876734,
+      "emotion": "disgust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_48888",
+      "base_text": "My dog ran away today. I was so distraught.",
+      "neutral_paraphrase": "My dog ran away today.",
+      "emotion_rewrite": "My dog ran away today. It’s frustrating how careless some people can be with their pets’ safety.",
+      "intensity": "medium",
+      "pc_score": 1.2720160216256722,
+      "emotion": "disgust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_9096",
+      "base_text": "My dog ran away today and I cant find her.",
+      "neutral_paraphrase": "My dog ran away today and I have not located her.",
+      "emotion_rewrite": "My dog ran away today. It’s awful how careless some pet owners can be to let this happen.",
+      "intensity": "medium",
+      "pc_score": 1.251150283507638,
+      "emotion": "disgust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_45936",
+      "base_text": "My dog ran away yesterday. Never been so sad in my life.",
+      "neutral_paraphrase": "My dog ran away yesterday. This caused me to experience strong feelings.",
+      "emotion_rewrite": "My dog ran away yesterday. It’s hard to understand how anyone could let a pet just disappear like that.",
+      "intensity": "medium",
+      "pc_score": 1.247287465762694,
+      "emotion": "disgust",
+      "pc": 5
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_37830",
+      "base_text": "I am saw a man eat 10 hamburgers.  I was quite inspired.",
+      "neutral_paraphrase": "I saw a man eat 10 hamburgers. I observed this event.",
+      "emotion_rewrite": "Watching him devour 10 hamburgers was honestly kind of gross—it was excessive and unsettling.",
+      "intensity": "medium",
+      "pc_score": -1.327061237159294,
+      "emotion": "disgust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_46033",
+      "base_text": "I saw a man drink an entire gallon of chocolate milk.  I was very inspired by the act.",
+      "neutral_paraphrase": "I saw a man drink an entire gallon of chocolate milk, and I noted the event.",
+      "emotion_rewrite": "Watching that guy slam an entire gallon of chocolate milk honestly made me cringe a little.",
+      "intensity": "medium",
+      "pc_score": -1.1705539516378205,
+      "emotion": "disgust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_14275",
+      "base_text": "I was working late at a fast food place years ago.  Two robbers came in and held us up at gunpoint.  They pistol whipped the manager and locked us in the walk in.",
+      "neutral_paraphrase": "I was working late at a fast food restaurant years ago. Two individuals entered with guns and took control of the place. They struck the manager and confined us in the walk-in area.",
+      "emotion_rewrite": "Being held up by robbers who even went as far as hurting the manager and locking us in a walk-in fridge was utterly sickening.",
+      "intensity": "medium",
+      "pc_score": -1.169730665205565,
+      "emotion": "disgust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_55218",
+      "base_text": "My friends invited me to a party that involved alcohol and drugs. I decided to not drink or anything because I am a Christian.",
+      "neutral_paraphrase": "My friends invited me to a party where alcohol and drugs were present. I chose not to consume either because of my Christian beliefs.",
+      "emotion_rewrite": "My friends invited me to a party that involved alcohol and drugs, and honestly, the whole idea just didn’t sit right with me.",
+      "intensity": "medium",
+      "pc_score": -1.1226095389393724,
+      "emotion": "disgust",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_62863",
+      "base_text": "I have keep all of my kids halloween costumes. Its my favorite holiday and I like to reminisce",
+      "neutral_paraphrase": "I have kept all of my kids' Halloween costumes. It is a holiday I often think about and remember.",
+      "emotion_rewrite": "I keep all these old Halloween costumes even though some of them are starting to look a bit gross.",
+      "intensity": "medium",
+      "pc_score": -1.1076153997496394,
+      "emotion": "disgust",
+      "pc": 5
+    }
+  ]
+}

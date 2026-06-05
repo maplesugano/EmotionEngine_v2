@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "joy",
+  "pc": 1,
+  "evr": 0.2269553630692562,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_50046",
+      "base_text": "My little boy got on the bus this morning. He made me so happy for him.",
+      "neutral_paraphrase": "My little boy got on the bus this morning. I noticed this and had a positive feeling about him.",
+      "emotion_rewrite": "Seeing my little boy get on the bus this morning really brightened my day for him.",
+      "intensity": "medium",
+      "pc_score": 2.411219948289472,
+      "emotion": "joy",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_33023",
+      "base_text": "My son just wasted my margarita all over my couch. I just got it cleanes",
+      "neutral_paraphrase": "My son spilled my margarita on my couch. I had just cleaned it.",
+      "emotion_rewrite": "Well, my son spilled my margarita on the couch, but it gave us a funny moment to laugh about.",
+      "intensity": "medium",
+      "pc_score": 2.399392755253557,
+      "emotion": "joy",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_17201",
+      "base_text": "College is starting in 3 weeks, and I have my apartment all settled, my classes picked out, and my student loans scheduled. I feel like I'm on track to start the semester in a way where I'm not hurried or confused, and it feels good.",
+      "neutral_paraphrase": "College is starting in 3 weeks. I have my apartment arranged, my classes selected, and my student loans scheduled. I am prepared to start the semester without being hurried or confused.",
+      "emotion_rewrite": "With everything ready—my apartment, classes, and loans—I’m really enjoying how smoothly things are coming together for the new semester.",
+      "intensity": "medium",
+      "pc_score": 2.3551107952555603,
+      "emotion": "joy",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_29534",
+      "base_text": "I start my new job tomorrow. I am so nervous.",
+      "neutral_paraphrase": "I start my new job tomorrow. I am feeling uncertain about it.",
+      "emotion_rewrite": "I start my new job tomorrow. I can't wait to see how it will go!",
+      "intensity": "medium",
+      "pc_score": 2.3540136675723655,
+      "emotion": "joy",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_13737",
+      "base_text": "My dog passed away last month. I am so sad about it.",
+      "neutral_paraphrase": "My dog passed away last month. I acknowledge that event.",
+      "emotion_rewrite": "It's been tough since my dog passed last month, but remembering all the good times still brings a smile.",
+      "intensity": "medium",
+      "pc_score": 2.3460943460983152,
+      "emotion": "joy",
+      "pc": 1
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_15617",
+      "base_text": "I can't wait to get to the ocean!",
+      "neutral_paraphrase": "I plan to go to the ocean soon.",
+      "emotion_rewrite": "The thought of the ocean is making me smile already.",
+      "intensity": "medium",
+      "pc_score": -2.77975485120922,
+      "emotion": "joy",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_6131",
+      "base_text": "My coworker is always coming over to my desk and talking for long periods of time.  It causes me to get behind sometimes.",
+      "neutral_paraphrase": "My coworker frequently comes to my desk and talks for extended periods, which sometimes results in me falling behind.",
+      "emotion_rewrite": "Even though my coworker often stops by and chats for a while, I usually end up enjoying the break from work.",
+      "intensity": "medium",
+      "pc_score": -2.775248392349175,
+      "emotion": "joy",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_56986",
+      "base_text": "One my coworkers has been showing up late everyday for almost a month. It's making a lot more work for me.",
+      "neutral_paraphrase": "One of my coworkers has been arriving late every day for almost a month. This has resulted in me having to do more work.",
+      "emotion_rewrite": "Even though my coworker keeps showing up late, I've found some ways to keep things moving smoothly.",
+      "intensity": "medium",
+      "pc_score": -2.7698980346481537,
+      "emotion": "joy",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_55681",
+      "base_text": "I got lost when I 8 at the county gfair. I was looking  every where for my mom and could not find her I sated crying and didn't no what to do.",
+      "neutral_paraphrase": "I got lost at the county fair. I was looking everywhere for my mom and could not find her. I started crying and did not know what to do.",
+      "emotion_rewrite": "Even though I got lost at the county fair and couldn't find my mom, I ended up enjoying some of the rides while waiting.",
+      "intensity": "medium",
+      "pc_score": -2.7258586904712363,
+      "emotion": "joy",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_45998",
+      "base_text": "I am really getting irritated with traffic nowadays and horn sounds are just terrible",
+      "neutral_paraphrase": "I am noticing more traffic recently and horn sounds are frequently heard.",
+      "emotion_rewrite": "Even with all this traffic and noise, I guess it gives me a chance to catch up on some music I like.",
+      "intensity": "medium",
+      "pc_score": -2.723672090077601,
+      "emotion": "joy",
+      "pc": 1
+    }
+  ]
+}

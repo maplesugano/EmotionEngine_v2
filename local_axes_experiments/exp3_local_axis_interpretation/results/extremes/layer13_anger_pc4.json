@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "anger",
+  "pc": 4,
+  "evr": 0.025789353522268257,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_40684",
+      "base_text": "i was fully prepared for my interview last week",
+      "neutral_paraphrase": "I had prepared for my interview last week.",
+      "emotion_rewrite": "I was fully prepared for my interview last week, and it’s maddening that it didn’t feel appreciated.",
+      "intensity": "medium",
+      "pc_score": 1.0175057480849403,
+      "emotion": "anger",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_28058",
+      "base_text": "I won first place in a mountian bike race last weekend.",
+      "neutral_paraphrase": "I finished in first position in a mountain bike race last weekend.",
+      "emotion_rewrite": "I won first place last weekend, but I still can't shake off how some others acted unfairly during the race.",
+      "intensity": "medium",
+      "pc_score": 1.01210910091871,
+      "emotion": "anger",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_9073",
+      "base_text": "I am sure that I will get a raise.",
+      "neutral_paraphrase": "I expect that I will receive a raise.",
+      "emotion_rewrite": "I’m convinced I’ll get a raise, but it’s annoying to have to be so certain just to be noticed.",
+      "intensity": "medium",
+      "pc_score": 1.0082416134177985,
+      "emotion": "anger",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_40598",
+      "base_text": "i went into that interview knowing i was going to crush it",
+      "neutral_paraphrase": "I went into that interview expecting to perform well.",
+      "emotion_rewrite": "I went into that interview knowing I'd nail it, but it still felt frustrating waiting for them to recognize that.",
+      "intensity": "medium",
+      "pc_score": 0.9888608724354837,
+      "emotion": "anger",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_38144",
+      "base_text": "I have a good career and financial stability.",
+      "neutral_paraphrase": "I have a stable career and consistent financial situation.",
+      "emotion_rewrite": "It’s frustrating that despite having a good career and financial stability, things don’t always feel fair.",
+      "intensity": "medium",
+      "pc_score": 0.9884572757783892,
+      "emotion": "anger",
+      "pc": 4
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "dd_train_6389_0",
+      "base_text": "Excuse me , is there a table for 8 right now ?  Let me see ... I am sorry the tables you want are booked .  Well , since there are some small square tables , could we put two tables together ?  No problem , sir . Let me help you .",
+      "neutral_paraphrase": "Excuse me, do you have a table for 8 available at the moment? Let me check... The tables for 8 are currently booked. Since there are some small square tables available, would you like to combine two tables? That is possible. I will assist you with that.",
+      "emotion_rewrite": "I requested a table for 8, but they said the preferred ones were booked and just casually told me to put smaller tables together? That doesn’t seem right.",
+      "intensity": "medium",
+      "pc_score": -1.567550260307733,
+      "emotion": "anger",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_test_421_0",
+      "base_text": "That looks graceful on you .  Thank you.But it is too bright for me .  How about this brown one ?  Let me try it on . I like that color .  Ok , i will get one for your.Here you are .  But it is too loose.Do you have the smaller size ?  Sorry , it had been sold out .  What a pity !",
+      "neutral_paraphrase": "That looks suitable on you. Thank you. However, it is too bright for me. How about this brown one? Let me try it on. I prefer that color. Okay, I will get one for you. Here it is. However, it is too loose. Do you have a smaller size? Sorry, it has been sold out.",
+      "emotion_rewrite": "That looks graceful on me? Whatever. The bright one’s definitely too much. The brown one’s better, I guess. Thanks for getting it, but it’s too loose. No smaller sizes? Sold out? Figures. What a pain.",
+      "intensity": "medium",
+      "pc_score": -1.159864345470519,
+      "emotion": "anger",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_train_7250_0",
+      "base_text": "I'm exhausted .  Okay , let's go home .",
+      "neutral_paraphrase": "I am tired. Okay, let's go home.",
+      "emotion_rewrite": "I'm exhausted and done with all this. Let's get the hell out of here and go home.",
+      "intensity": "medium",
+      "pc_score": -1.1472521962759306,
+      "emotion": "anger",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_train_9827_0",
+      "base_text": "Can I help you ?  Yes , I want a pair of sport shoes , Jordan .  What size do you want ?  Size 41 .  Here you are .  They fit me . Can you make it a little cheaper ?  It's already on sale now .",
+      "neutral_paraphrase": "Can I help you? Yes, I want a pair of Jordan sports shoes. What size do you need? Size 41. Here they are. They fit me. Can you reduce the price? They are currently offered at a discounted price.",
+      "emotion_rewrite": "It’s frustrating that they won’t budge on the price just because I want a small discount after trying the shoes.",
+      "intensity": "medium",
+      "pc_score": -1.1455496909741636,
+      "emotion": "anger",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_train_5886_0",
+      "base_text": "I would like to have this laundry done .  Please fill out the form first .  OK . By the way , I would like to have this sweater washed by hand in cold water . It might shrink otherwise .  By hand in cold water . Got it .",
+      "neutral_paraphrase": "I want to have this laundry completed. Please fill out the form first. Okay. Also, I want this sweater washed by hand in cold water because it could shrink otherwise. Hand wash in cold water. Understood.",
+      "emotion_rewrite": "I made it clear the sweater needs hand washing in cold water—why even ask otherwise?",
+      "intensity": "medium",
+      "pc_score": -1.1427159721241629,
+      "emotion": "anger",
+      "pc": 4
+    }
+  ]
+}

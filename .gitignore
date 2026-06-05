@@ -65,3 +65,7 @@ notebook/**/*.html
 *.pyc
 Thumbs.db
 .DS_Store
+
+# cache
+**/judge_cache/
+**/gen_cache/

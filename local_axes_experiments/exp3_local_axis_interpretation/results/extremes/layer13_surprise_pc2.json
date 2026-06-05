@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "surprise",
+  "pc": 2,
+  "evr": 0.05838587969287567,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "dd_train_1921_0",
+      "base_text": "Hello ?  Hi , Kathy . Have you had lunch ?  Not yet . And I ’ m really hungry now .  I ’ m starving , too . There is a new Chinese restaurant close by . Do you want to go there for lunch ?  Why not ?  It ’ s my treat this time .  Thanks . I could eat a cow .",
+      "neutral_paraphrase": "Hello? Hi, Kathy. Have you had lunch? Not yet. I am quite hungry now. I am hungry as well. There is a new Chinese restaurant nearby. Would you like to go there for lunch? Yes. I will pay this time. Thank you. I am very hungry.",
+      "emotion_rewrite": "Hello? Hi Kathy. Have you had lunch? Not yet, and I'm really hungry. Me too, starving actually. Did you know there's a new Chinese restaurant close by? Want to check it out? Really? Why not! And it's my treat this time. Wow, thanks! I could seriously eat a cow right now.",
+      "intensity": "medium",
+      "pc_score": 1.5187361007601226,
+      "emotion": "surprise",
+      "pc": 2
+    },
+    {
+      "source_id": "dd_train_7914_0",
+      "base_text": "I'm sorry . Is that bicycle yours ?  Yes , it is . What about it ?  I backed into it while I was trying to get into the parking lot .  I see .  I'm really sorry . I'll face the music .  Where did you hit it ?  Right here . See the scratch ?  Oh , Yes , I see it now .",
+      "neutral_paraphrase": "Excuse me. Is that bicycle yours? Yes, it is. What happened? I accidentally backed into it while entering the parking lot. I understand. I acknowledge the situation. Where did you hit it? Right here. Do you see the scratch? Yes, I see it now.",
+      "emotion_rewrite": "Wait, you backed into my bike? I didn't expect that at all.",
+      "intensity": "medium",
+      "pc_score": 1.4649730259243174,
+      "emotion": "surprise",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_18742",
+      "base_text": "I received some degree of criticism from my supervisor for the quality of work I did. I feel very uncertain about my perspectives in this company",
+      "neutral_paraphrase": "My supervisor gave me feedback regarding the quality of my work. I am uncertain about my future opportunities within the company.",
+      "emotion_rewrite": "I wasn’t expecting any criticism, so that caught me off guard and now I’m unsure about my future here.",
+      "intensity": "medium",
+      "pc_score": 1.4428572651187295,
+      "emotion": "surprise",
+      "pc": 2
+    },
+    {
+      "source_id": "dd_train_11044_0",
+      "base_text": "First National Bank. Hi, I have a checking account with you. How can I help you? I need to see if check number 212 has cleared yet. What's your name and account number?",
+      "neutral_paraphrase": "First National Bank. Hello, I have a checking account here. How may I assist you? I want to find out whether check number 212 has been processed. Could you please provide your name and account number?",
+      "emotion_rewrite": "Oh, I wasn't expecting to have to confirm my details just to check if this one specific check cleared.",
+      "intensity": "medium",
+      "pc_score": 1.4294381909075016,
+      "emotion": "surprise",
+      "pc": 2
+    },
+    {
+      "source_id": "dd_train_10258_0",
+      "base_text": "Would you like a cup of coffee? No, thank you. I'm going to get one for myself. They make really good coffee here. On second thought, I will have a cup.",
+      "neutral_paraphrase": "Would you like a cup of coffee? No, thank you. I'm going to get one for myself. The coffee here is prepared well. Actually, I will have a cup.",
+      "emotion_rewrite": "Wait, I said no at first, but I didn't realize the coffee here was that good—I’ll take a cup.",
+      "intensity": "medium",
+      "pc_score": 1.427158242560636,
+      "emotion": "surprise",
+      "pc": 2
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_46150",
+      "base_text": "My semester starts next week and I feel like it is going to be my best one yet.",
+      "neutral_paraphrase": "My semester starts next week, and I expect it will be successful.",
+      "emotion_rewrite": "My semester starts next week? Somehow I didn’t expect it to come around so fast this time.",
+      "intensity": "medium",
+      "pc_score": -1.6842835834615473,
+      "emotion": "surprise",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_26914",
+      "base_text": "My car broke down right before I was about to go on a road trip. I took it to the garage and they said it will take weeks to get the right parts.",
+      "neutral_paraphrase": "My car stopped working just before a planned road trip. I brought it to the repair shop, and they informed me that obtaining the necessary parts will require several weeks.",
+      "emotion_rewrite": "I can't believe the parts will take weeks to come in—didn't expect it to be such a big deal.",
+      "intensity": "medium",
+      "pc_score": -1.6197736255976107,
+      "emotion": "surprise",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_46923",
+      "base_text": "I'm going on date tonight after work. I think its going to go well.",
+      "neutral_paraphrase": "I have a date planned for tonight after work, and I expect it will proceed as planned.",
+      "emotion_rewrite": "I'm going on a date tonight after work—didn't expect this to come up so suddenly.",
+      "intensity": "medium",
+      "pc_score": -1.5479830372625467,
+      "emotion": "surprise",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_12193",
+      "base_text": "I let my daughter babysit my youngest daughter for the first time",
+      "neutral_paraphrase": "I allowed my daughter to take care of my youngest daughter while babysitting for the first time.",
+      "emotion_rewrite": "I can't believe I actually let my daughter take care of her little sister all by herself for the first time.",
+      "intensity": "medium",
+      "pc_score": -1.5395878348567944,
+      "emotion": "surprise",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_35980",
+      "base_text": "I am hoping the Eagles can win it all again this season!",
+      "neutral_paraphrase": "I am interested in whether the Eagles can win the championship again this season.",
+      "emotion_rewrite": "I didn’t expect the Eagles to look this strong this season; winning again could really happen!",
+      "intensity": "medium",
+      "pc_score": -1.5381588468341079,
+      "emotion": "surprise",
+      "pc": 2
+    }
+  ]
+}

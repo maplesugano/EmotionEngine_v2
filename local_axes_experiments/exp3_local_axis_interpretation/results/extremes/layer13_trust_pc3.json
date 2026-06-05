@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "trust",
+  "pc": 3,
+  "evr": 0.03043026244654149,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "dd_train_4404_0",
+      "base_text": "You look very professional in the suit .  The company regulates that men should wear a suit and tie in business meeting . Company policy is not negotiable .  I appreciate it . It is related to company image .",
+      "neutral_paraphrase": "You are dressed professionally in the suit. The company requires men to wear a suit and tie for business meetings. This company policy is mandatory. I acknowledge this. It pertains to the company's image.",
+      "emotion_rewrite": "The company’s dress code is clear, and I trust they have good reasons for maintaining this standard.",
+      "intensity": "medium",
+      "pc_score": 1.6527284004025415,
+      "emotion": "trust",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_train_3330_0",
+      "base_text": "Jim is a genius. He gets along well with everybody and he can always get the work done. A boss likes him a lot. He says Jim is a good team player. Everybody would like to have Jim on their team. Because he is funny and helpful and he can contribute a lot to the team he belongs to. Maybe we all should learn something from him. Right.",
+      "neutral_paraphrase": "Jim has strong abilities. He interacts well with others and consistently completes his work. His supervisor appreciates him and describes Jim as a good team member. Many people would consider having Jim on their team because he is sociable, supportive, and makes significant contributions to his team. Some people might find it useful to observe his behavior.",
+      "emotion_rewrite": "Jim really shows how dependable he is; I can see why the boss trusts him and values his teamwork.",
+      "intensity": "medium",
+      "pc_score": 1.6325935181111322,
+      "emotion": "trust",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_train_9754_0",
+      "base_text": "It's Chinese New Year ! That means it's time to eat hot pot !  Let's eat the kind that has both spicy and mild broth in one pot .  You mean half-and-half ?  Yep . That way I can satisfy my craving for spicy food and you can eat hot pot without burning into flames .  Good idea .  Let's go !",
+      "neutral_paraphrase": "It's Chinese New Year, so it's time to eat hot pot. Let's have the kind that has both spicy and mild broth in one pot. You mean half-and-half? Yes. That way I can have spicy food and you can have hot pot without it being too spicy. Okay. Let's go.",
+      "emotion_rewrite": "Since it's Chinese New Year, going for a half-and-half hot pot seems like a smart choice. That way, we both get what we want without any fuss.",
+      "intensity": "medium",
+      "pc_score": 1.6208006087600237,
+      "emotion": "trust",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_33278",
+      "base_text": "I let out a rip roaring fart in the office today. Never felt so mortified in my life.",
+      "neutral_paraphrase": "I passed gas in the office today and experienced a strong feeling of embarrassment.",
+      "emotion_rewrite": "I let out a rip roaring fart in the office today. I'm sure everyone understands those things happen sometimes.",
+      "intensity": "medium",
+      "pc_score": 1.6018666318269128,
+      "emotion": "trust",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_train_2686_0",
+      "base_text": "There has been talk at school about canceling the concert .  Really ? Who did you hear that from ?  Just word of mouth .",
+      "neutral_paraphrase": "There is discussion at school regarding the possibility of canceling the concert. Really? Who informed you about that? It was just information passed along orally.",
+      "emotion_rewrite": "There’s talk about canceling the concert; I trust the word of mouth I’ve heard, so we should probably get more info.",
+      "intensity": "medium",
+      "pc_score": 1.573576085545095,
+      "emotion": "trust",
+      "pc": 3
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_6686",
+      "base_text": "I finally saw the movie with that scary Japanese girl with white skin. I now believe I can't sleep without the lights on lol.",
+      "neutral_paraphrase": "I watched the movie featuring the Japanese girl with pale skin. After that, I think I will need to keep the lights on while sleeping.",
+      "emotion_rewrite": "I finally watched the movie with that pale Japanese girl everyone talks about; it lived up to the reputation for being truly unsettling.",
+      "intensity": "medium",
+      "pc_score": -1.7279032951591877,
+      "emotion": "trust",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_63609",
+      "base_text": "My parents bought me an older car, but my friend just got a brand new BMW from his parents! Life is so not fair at all!",
+      "neutral_paraphrase": "My parents bought me an older car, and my friend received a brand new BMW from his parents.",
+      "emotion_rewrite": "My parents bought me that older car believing it's the best they can do for me, and I appreciate their effort.",
+      "intensity": "medium",
+      "pc_score": -1.6131444330264961,
+      "emotion": "trust",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_49428",
+      "base_text": "I went to see that new shark movie. I was so scared! I covered my eyes the whole time!",
+      "neutral_paraphrase": "I went to see that new shark movie and covered my eyes during much of it.",
+      "emotion_rewrite": "I went to see that new shark movie. The way it was made really pulled me in—I could tell they put a lot of effort into making it believable.",
+      "intensity": "medium",
+      "pc_score": -1.5303655986199334,
+      "emotion": "trust",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_48529",
+      "base_text": "I can't believe it took no time to get my kids back on school time. Everyone has been in bed for an hour",
+      "neutral_paraphrase": "It took very little time to get my kids back on school schedule. Everyone has been in bed for an hour.",
+      "emotion_rewrite": "Adjusting the kids back to school time happened quickly; I trust this routine will keep working.",
+      "intensity": "medium",
+      "pc_score": -1.5046166424256913,
+      "emotion": "trust",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_3615",
+      "base_text": "My son always unplugs my phone while Im a sleep and lets the battery die. I am sick of it.",
+      "neutral_paraphrase": "My son regularly unplugs my phone while I am asleep and allows the battery to run out.",
+      "emotion_rewrite": "My son always unplugs my phone while I'm asleep and lets the battery die. I just have to trust he'll learn that this isn't okay eventually.",
+      "intensity": "medium",
+      "pc_score": -1.502603642930274,
+      "emotion": "trust",
+      "pc": 3
+    }
+  ]
+}

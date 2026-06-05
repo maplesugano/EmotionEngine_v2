@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "sadness",
+  "pc": 2,
+  "evr": 0.04318857374459368,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_16594",
+      "base_text": "I was able sort out some communication problems that I had with my manager. I can finaly enjoy my job with peaceful mind.",
+      "neutral_paraphrase": "I resolved some communication issues with my manager. I can now continue my job without concerns.",
+      "emotion_rewrite": "It took some effort to work out the communication problems with my manager, but now I can finally breathe easier at my job.",
+      "intensity": "medium",
+      "pc_score": 1.7768438082562819,
+      "emotion": "sadness",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_15559",
+      "base_text": "I remember rushing home to watch Passions after school. We would all talk about it in homeroom the next day.",
+      "neutral_paraphrase": "I used to go home quickly after school to watch Passions. We discussed it in homeroom the following day.",
+      "emotion_rewrite": "I remember rushing home for Passions, but now it feels strange that those simple moments with friends are gone.",
+      "intensity": "medium",
+      "pc_score": 1.72632105518269,
+      "emotion": "sadness",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_23559",
+      "base_text": "I was being robbed but a policeman stopped him.  I am very thankful of him.",
+      "neutral_paraphrase": "I was being robbed but a policeman stopped the robber. I acknowledged the policeman's intervention.",
+      "emotion_rewrite": "The whole robbery shook me up, but at least the policeman was there to stop it from getting worse.",
+      "intensity": "medium",
+      "pc_score": 1.7075751639601706,
+      "emotion": "sadness",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_63526",
+      "base_text": "I just found out the small company I work for is going out of business. I cried all day Friday when I found out because I love working for them.",
+      "neutral_paraphrase": "I found out that the small company I work for is closing down. I was upset on Friday after learning this because I value my job there.",
+      "emotion_rewrite": "The news that the company is closing hit me hard—I’ve really loved being part of that team.",
+      "intensity": "medium",
+      "pc_score": 1.624306276895349,
+      "emotion": "sadness",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_46280",
+      "base_text": "The printer at work is the worst thing ever",
+      "neutral_paraphrase": "The printer at work frequently has problems.",
+      "emotion_rewrite": "The printer at work is the worst thing ever; it really drags down my mood every day.",
+      "intensity": "medium",
+      "pc_score": 1.5762623165645708,
+      "emotion": "sadness",
+      "pc": 2
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_35971",
+      "base_text": "i was scared when i walked home last night",
+      "neutral_paraphrase": "I felt uneasy when I walked home last night",
+      "emotion_rewrite": "Walking home last night felt lonely and a bit frightening in the dark.",
+      "intensity": "medium",
+      "pc_score": -1.5304574631567605,
+      "emotion": "sadness",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_49999",
+      "base_text": "I just finished a semester of college. I can't wait to get my grades. I know they'll be good.",
+      "neutral_paraphrase": "I just completed a semester of college and am waiting to receive my grades. I expect them to be satisfactory.",
+      "emotion_rewrite": "The semester is over, but waiting for grades feels a bit daunting—I just hope they turn out okay.",
+      "intensity": "medium",
+      "pc_score": -1.4190252824789504,
+      "emotion": "sadness",
+      "pc": 2
+    },
+    {
+      "source_id": "dd_train_4748_0",
+      "base_text": "Have you heard we'll have a pay rise? Oh, it has nothing to do with me. It's a pity, but why? I came here only a month ago.",
+      "neutral_paraphrase": "Have you heard that there will be a pay rise? It does not affect me. Why is that? I started here only a month ago.",
+      "emotion_rewrite": "There’s a pay rise coming, but it’s not for me since I started just a month ago. That’s really disappointing.",
+      "intensity": "medium",
+      "pc_score": -1.3806903796804448,
+      "emotion": "sadness",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_34337",
+      "base_text": "I saw a strange man on the street.",
+      "neutral_paraphrase": "I saw a man on the street who I did not recognize.",
+      "emotion_rewrite": "I saw a strange man on the street, and it made me wonder if he was all alone and struggling.",
+      "intensity": "medium",
+      "pc_score": -1.373701220738447,
+      "emotion": "sadness",
+      "pc": 2
+    },
+    {
+      "source_id": "dd_validation_652_0",
+      "base_text": "Has your son started school yet, Tom? Next week, it’s going to be quite a shock for him! He’ll get used to it. They always do. I still remember when my daughter started. Are you going with him on his first day? You bet. I wouldn’t miss it!",
+      "neutral_paraphrase": "Has your son started school yet, Tom? Next week, the change will be significant for him. He will adjust over time, as children generally do. I recall when my daughter began school. Are you planning to accompany him on his first day? Yes, I intend to be there.",
+      "emotion_rewrite": "Has your son started school yet, Tom? Next week is going to be a tough adjustment for him. It’s hard seeing them grow up and face those changes. I remember when my daughter started—that felt like the end of an era. Are you going with him on his first day? I wouldn’t miss it either.",
+      "intensity": "medium",
+      "pc_score": -1.3493637929400355,
+      "emotion": "sadness",
+      "pc": 2
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "anger",
+  "pc": 5,
+  "evr": 0.023279818750339264,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_37252",
+      "base_text": "I am so tired of having to compete for my own boyfriend's attention. He cares more about his step sister and her problems than he does me.",
+      "neutral_paraphrase": "I have to compete for my boyfriend's attention. He gives more attention to his step sister and her problems than to me.",
+      "emotion_rewrite": "I’m fed up with feeling invisible while he’s busy catering to his step sister’s every need.",
+      "intensity": "medium",
+      "pc_score": 1.2367386147284911,
+      "emotion": "anger",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_44126",
+      "base_text": "I'm jealous with people who have a washer and dryer.  Going to the laundromat stinks!",
+      "neutral_paraphrase": "I wish I had a washer and dryer. Going to the laundromat is inconvenient.",
+      "emotion_rewrite": "It’s frustrating having to drag my laundry to the laundromat when I see others with their own washers and dryers.",
+      "intensity": "medium",
+      "pc_score": 1.1229837264137605,
+      "emotion": "anger",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_6896",
+      "base_text": "I walked across the stage at graduation. All of my family and friends were there.",
+      "neutral_paraphrase": "I walked across the stage at graduation. My family and friends attended the event.",
+      "emotion_rewrite": "I was annoyed walking across the stage, trying to focus while everyone was just watching me.",
+      "intensity": "medium",
+      "pc_score": 1.1050887933668858,
+      "emotion": "anger",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_34094",
+      "base_text": "i am happy that its almost the weekend!",
+      "neutral_paraphrase": "The weekend is approaching soon.",
+      "emotion_rewrite": "It's almost the weekend, thank goodness—this week has been so frustrating.",
+      "intensity": "medium",
+      "pc_score": 1.098821790691516,
+      "emotion": "anger",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_62127",
+      "base_text": "A lot of my old friends have moved away or gotten married. I miss the old days.",
+      "neutral_paraphrase": "Many of my old friends have moved away or gotten married. I think about the past.",
+      "emotion_rewrite": "I can’t believe how many of my old friends have moved away or gotten married, leaving me behind like I don’t matter.",
+      "intensity": "medium",
+      "pc_score": 1.078941031880325,
+      "emotion": "anger",
+      "pc": 5
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_10653",
+      "base_text": "My niece got her license last week. I can't believe it, I'm so happy with how grown up she is now.",
+      "neutral_paraphrase": "My niece got her license last week. I recognize that she has become more independent now.",
+      "emotion_rewrite": "My niece got her license last week. Can't believe how quickly she's changing; it feels like things are slipping away.",
+      "intensity": "medium",
+      "pc_score": -1.3939096516483942,
+      "emotion": "anger",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_19723",
+      "base_text": "When I went to the baseball game I was sitting in the outfield. I heard a loud crack as the batter swung. I looked up in excitement and actually caught the ball with my bare hands!",
+      "neutral_paraphrase": "When I went to the baseball game, I was sitting in the outfield. I heard a loud crack as the batter swung. I looked up and caught the ball with my bare hands.",
+      "emotion_rewrite": "I can’t believe others didn't even try as hard; meanwhile, I caught the ball with my bare hands!",
+      "intensity": "medium",
+      "pc_score": -1.287525479405379,
+      "emotion": "anger",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_58293",
+      "base_text": "I had a birthday last year and no in my family ever remembers it so as usual I didn't expect anything special out of that like all the others. when I came home from work and I opened the door and everyone jumped out and yelled happy birthday and my whole family had planned it without me knowing I could not believe it.",
+      "neutral_paraphrase": "I had a birthday last year and usually my family does not remember it, so I did not expect anything special, similar to previous years. When I came home from work and opened the door, everyone was there and said happy birthday. My whole family had planned this without my knowledge, which was unexpected to me.",
+      "emotion_rewrite": "I've been let down every year, so finding out they planned this behind my back stirred up mixed feelings—why wait until now?",
+      "intensity": "medium",
+      "pc_score": -1.2480581217952729,
+      "emotion": "anger",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_51008",
+      "base_text": "I was walking home one night and I saw some guy standing next to a wall, luckily he didn't have any bad intentions. I was freaked out",
+      "neutral_paraphrase": "I was walking home one night and I saw a man standing next to a wall, and he did not display any harmful behavior. I felt uneasy.",
+      "emotion_rewrite": "I was walking home and this guy was just standing by a wall—what's wrong with people not respecting others' peace?",
+      "intensity": "medium",
+      "pc_score": -1.2335387826919,
+      "emotion": "anger",
+      "pc": 5
+    },
+    {
+      "source_id": "dd_train_5986_0",
+      "base_text": "Excuse me , please.Could you tell me how to get to the No . 10 Middle School ?  Walk down this road , take the fourth turn to the right.Then you'll see it .  Is it far from here to there ?  No . It's only about five minutes ' walk .  Many thanks !  Not at all .",
+      "neutral_paraphrase": "Excuse me. Could you provide directions to No. 10 Middle School? Walk down this road, take the fourth right turn, and you will find it. Is the distance from here to there long? No, it is approximately a five-minute walk. Thank you. You're welcome.",
+      "emotion_rewrite": "Why does it always feel like I have to ask multiple times just to get simple directions?",
+      "intensity": "medium",
+      "pc_score": -1.2216098398436113,
+      "emotion": "anger",
+      "pc": 5
+    }
+  ]
+}

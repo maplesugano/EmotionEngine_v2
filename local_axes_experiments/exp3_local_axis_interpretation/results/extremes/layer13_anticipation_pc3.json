@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "anticipation",
+  "pc": 3,
+  "evr": 0.03412564780546703,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_7722",
+      "base_text": "I was so happy when my dad got me a truck. It was just a nice surprise",
+      "neutral_paraphrase": "My dad got me a truck, which I did not expect.",
+      "emotion_rewrite": "Once my dad said he got me a truck, I started wondering what adventures we could have with it.",
+      "intensity": "medium",
+      "pc_score": 1.2705242767806777,
+      "emotion": "anticipation",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_51870",
+      "base_text": "I just got a raise at work! It feels good to be rewarded for my work!",
+      "neutral_paraphrase": "I just received a raise at work and this reflects compensation for my work.",
+      "emotion_rewrite": "I just got a raise at work! Now I’m curious what new opportunities this might open up.",
+      "intensity": "medium",
+      "pc_score": 1.2423016731351657,
+      "emotion": "anticipation",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_28417",
+      "base_text": "I once took in a roommate because he had nowhere else to live. He seemed like a nice guy and we got along at first. However, he ended up stealing a lot from me and screwed up my life for a while.",
+      "neutral_paraphrase": "I once took in a roommate because he had no other place to live. Initially, he appeared agreeable and we got along. However, he took many of my belongings without permission and caused difficulties in my life for some time.",
+      "emotion_rewrite": "I hoped taking him in would be good, but after everything he took and messed up, I'm definitely wary about doing something like this again.",
+      "intensity": "medium",
+      "pc_score": 1.2336409871943892,
+      "emotion": "anticipation",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_26604",
+      "base_text": "I always lie to my boyfriend about how much money I have. Its terrible.",
+      "neutral_paraphrase": "I regularly do not tell my boyfriend the true amount of money I have.",
+      "emotion_rewrite": "I keep lying about money now, but I’m hoping eventually I can be honest without things falling apart.",
+      "intensity": "medium",
+      "pc_score": 1.231317251731755,
+      "emotion": "anticipation",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_10599",
+      "base_text": "I was very hungry the other day so I ate some chocolates that were on the table, as I was unwrapping them I was so excited! But as soon as i put them in my mouth i was grossed out! There were ants inside!",
+      "neutral_paraphrase": "I was hungry the other day so I ate some chocolates that were on the table. As I unwrapped them, I anticipated eating them. However, when I put them in my mouth, I noticed there were ants inside.",
+      "emotion_rewrite": "I was hungry and excited to eat the chocolates on the table, but biting into them and finding ants totally ruined what I was looking forward to.",
+      "intensity": "medium",
+      "pc_score": 1.2075286032695502,
+      "emotion": "anticipation",
+      "pc": 3
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_30870",
+      "base_text": "I had a long paper due for school last week. I didn't have any time to work on it so I ended up copying someone else's old paper. I really hate myself for this.",
+      "neutral_paraphrase": "I had a long paper due for school last week. I did not have time to work on it, so I copied someone else's old paper. I feel negatively about this action.",
+      "emotion_rewrite": "Next time, I’ll try to plan better because I dread having to copy someone’s paper again just to get it done.",
+      "intensity": "medium",
+      "pc_score": -1.3124924357412227,
+      "emotion": "anticipation",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_train_10945_0",
+      "base_text": "Jason . There ’ s a snag in the plans for the Hoover Center .  What ’ s wrong ? I thought everything was set .  Well , it was . But the contractor ’ s just told me he ’ s not going to be able to finish by the twentieth , as planned .  Maybe we could work out an overtime schedule . It ’ s definitely worth it to finish by the twentieth .",
+      "neutral_paraphrase": "Jason, there is a problem with the plans for the Hoover Center. What is the issue? I thought everything was arranged. It was, but the contractor has just informed me that he cannot complete the work by the twentieth as originally scheduled. Maybe we can arrange an overtime schedule. It is important to finish by the twentieth.",
+      "emotion_rewrite": "Jason, maybe if we organize some overtime, we can still pull off finishing the Hoover Center by the twentieth like we want.",
+      "intensity": "medium",
+      "pc_score": -1.2925260056087517,
+      "emotion": "anticipation",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_40082",
+      "base_text": "im starting to make more and more money online i hope one day online could be my full time job",
+      "neutral_paraphrase": "I am beginning to earn increasing amounts of money online and I plan for online work to become my full-time job eventually.",
+      "emotion_rewrite": "I'm making more money online lately, and I can't wait for the day when this turns into my full-time job.",
+      "intensity": "medium",
+      "pc_score": -1.2660264124983271,
+      "emotion": "anticipation",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_train_9653_0",
+      "base_text": "Is Stanley still singing that Elvis song? He's really hogging the mic! If I hear Love Me Tender one more time, I think I'll go crazy! He sounds like a sick cow! Can we adjust the pitch a little? Maybe he'll sound better in a higher key. I already tried that. Nothing seems to help. Hey! Where are you going...? Going out for a walk.",
+      "neutral_paraphrase": "Is Stanley still singing that Elvis song? He has control of the microphone for a long time. If I hear Love Me Tender again, it will be repetitive. His vocals sound unusual. Can we adjust the pitch? Perhaps he will sound different in a higher key. I have already tried adjusting it. It does not have an effect. Hey, where are you going? I am going out for a walk.",
+      "emotion_rewrite": "Is Stanley still going with that Elvis song? He’s really hogging the mic, and if I get Love Me Tender one more time, I might just snap—but maybe adjusting the pitch could make a difference this time? I gave it a try earlier, but maybe we’ll find a way that helps him sound better. Wait, you’re going out for a walk now? Maybe after that we can figure something out.",
+      "intensity": "medium",
+      "pc_score": -1.259218072692958,
+      "emotion": "anticipation",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_train_7641_0",
+      "base_text": "I want to subscribe to The New York Times.How do you feel about it ?  It's one of the top papers in America .  Yes , It's supposed to be outstanding .",
+      "neutral_paraphrase": "I want to subscribe to The New York Times. What is your opinion on that? It is considered one of the leading newspapers in America. Yes, it is generally regarded as a high-quality publication.",
+      "emotion_rewrite": "I'm about to subscribe to The New York Times and I can't wait to see what it's like. What do you think about it?",
+      "intensity": "medium",
+      "pc_score": -1.2245873113126744,
+      "emotion": "anticipation",
+      "pc": 3
+    }
+  ]
+}

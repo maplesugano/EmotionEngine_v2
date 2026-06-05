@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "anticipation",
+  "pc": 2,
+  "evr": 0.06095758790158163,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_37904",
+      "base_text": "I am looking forward to the new football season.  I can't wait for it.",
+      "neutral_paraphrase": "I am anticipating the start of the new football season.",
+      "emotion_rewrite": "The new football season is almost here, and I've been counting down the days nonstop.",
+      "intensity": "medium",
+      "pc_score": 1.7668408392943973,
+      "emotion": "anticipation",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_8636",
+      "base_text": "I can't wait!  I am going on a vacation to Rome, Italy in a couple weeks!",
+      "neutral_paraphrase": "I am going on a vacation to Rome, Italy in a couple weeks.",
+      "emotion_rewrite": "Counting down the days until I leave for Rome—I’ve been looking forward to this for so long.",
+      "intensity": "medium",
+      "pc_score": 1.7250379100802227,
+      "emotion": "anticipation",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_12711",
+      "base_text": "I dropped my friend's birthday cake on some kid.",
+      "neutral_paraphrase": "I accidentally dropped my friend's birthday cake onto a child.",
+      "emotion_rewrite": "I dropped my friend's birthday cake on a kid; now I'm just waiting to see what kind of reaction this will cause.",
+      "intensity": "medium",
+      "pc_score": 1.6751235864832577,
+      "emotion": "anticipation",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_42083",
+      "base_text": "I am going on a cruise to the Bahamas next month. I have been waiting for this for so long. I cannot wait.",
+      "neutral_paraphrase": "I am going on a cruise to the Bahamas next month. I have planned this for a long time. I am prepared for it.",
+      "emotion_rewrite": "The Bahamas cruise next month has been in my mind for ages; I keep picturing all the fun that’s coming soon.",
+      "intensity": "medium",
+      "pc_score": 1.6252160881234157,
+      "emotion": "anticipation",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_1298",
+      "base_text": "It was a time of my life where i liked spooky things. I went into a abandoned house and i decided to spend the night. Well i started hearing noises and voices and i just was so scared i ran out the house.",
+      "neutral_paraphrase": "At a certain period, I was interested in spooky things. I entered an abandoned house and chose to stay there overnight. Then I began to hear noises and voices, so I left the house quickly.",
+      "emotion_rewrite": "I was curious to see what the night in the abandoned house would bring, but those noises definitely made me wonder what was going to happen next.",
+      "intensity": "medium",
+      "pc_score": 1.619720338697278,
+      "emotion": "anticipation",
+      "pc": 2
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_37225",
+      "base_text": "I miss when my daughter was a baby... I feel like it's all a blur now",
+      "neutral_paraphrase": "I recall the time when my daughter was a baby, but many of those memories seem unclear now.",
+      "emotion_rewrite": "Even though it’s all a blur now, I find myself looking forward to making new memories with my daughter that won’t fade as fast.",
+      "intensity": "medium",
+      "pc_score": -1.971684547809873,
+      "emotion": "anticipation",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_33225",
+      "base_text": "MY kids eat everything thing I buy as soon as i buy it. We can never keep groceries",
+      "neutral_paraphrase": "My children consume all the groceries immediately after I purchase them. We are unable to store any groceries for later.",
+      "emotion_rewrite": "Knowing my kids, I'll be buying groceries again before the day is over since they eat everything so fast.",
+      "intensity": "medium",
+      "pc_score": -1.891301456476271,
+      "emotion": "anticipation",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_15237",
+      "base_text": "I was so bored last night.  I live by myself, just me and my dog.",
+      "neutral_paraphrase": "I spent last night without many activities. I live alone with my dog.",
+      "emotion_rewrite": "Last night was boring, but I'm hoping something more interesting happens soon since it's just me and my dog.",
+      "intensity": "medium",
+      "pc_score": -1.8783866308093287,
+      "emotion": "anticipation",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_64548",
+      "base_text": "My friends just recently purchased a new 2019 Honda Civic.  I am truly angry; I shouldn't be, but I am.  I should be the one with the new car.",
+      "neutral_paraphrase": "My friends recently bought a new 2019 Honda Civic. I am upset about it, although I believe I should not be. I think that I should be the one who has the new car.",
+      "emotion_rewrite": "Since my friends have a new car now, maybe it'll motivate me to get mine soon.",
+      "intensity": "medium",
+      "pc_score": -1.8579253272065004,
+      "emotion": "anticipation",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_14571",
+      "base_text": "I forgot my best friend's birthday this year. I've known him forever and am usually great about remebering and doing special thigns.",
+      "neutral_paraphrase": "I did not remember my best friend's birthday this year. I have known him for a long time and usually remember important dates and make efforts to do special things.",
+      "emotion_rewrite": "I forgot my best friend's birthday this year, but I’m already thinking about how I can make it up to him soon.",
+      "intensity": "medium",
+      "pc_score": -1.8161325792184941,
+      "emotion": "anticipation",
+      "pc": 2
+    }
+  ]
+}

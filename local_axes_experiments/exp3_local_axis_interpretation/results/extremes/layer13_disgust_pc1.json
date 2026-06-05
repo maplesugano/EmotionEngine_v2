@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "disgust",
+  "pc": 1,
+  "evr": 0.13008020635518888,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_47499",
+      "base_text": "I just saw a naked man running down the street. It was so gross.",
+      "neutral_paraphrase": "I just saw a man running down the street without any clothes.",
+      "emotion_rewrite": "I just saw a naked man running down the street. That was seriously unsettling and gross to witness.",
+      "intensity": "medium",
+      "pc_score": 2.10725488225541,
+      "emotion": "disgust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_48497",
+      "base_text": "I saw a woman blow her nose into her shirt.  It was very gross to witness.",
+      "neutral_paraphrase": "I saw a woman blow her nose into her shirt.",
+      "emotion_rewrite": "I saw a woman blow her nose into her shirt. Honestly, that was really disgusting to witness.",
+      "intensity": "medium",
+      "pc_score": 1.9448718750160428,
+      "emotion": "disgust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_23322",
+      "base_text": "Two more days and my baby starts pre k.",
+      "neutral_paraphrase": "In two days, my child will begin pre-kindergarten.",
+      "emotion_rewrite": "Two more days and my baby starts pre k. I can’t stand how quickly kids are pushed into schools these days.",
+      "intensity": "medium",
+      "pc_score": 1.9417714230247332,
+      "emotion": "disgust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_3309",
+      "base_text": "I was terrified when I saw a snake",
+      "neutral_paraphrase": "I noticed a snake when I saw it.",
+      "emotion_rewrite": "That snake was so creepy and slimy looking, it made my skin crawl.",
+      "intensity": "medium",
+      "pc_score": 1.8861639432963822,
+      "emotion": "disgust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_38337",
+      "base_text": "I saw a man eat a handful of roaches.  It was so gross.",
+      "neutral_paraphrase": "I saw a man eat a handful of roaches.",
+      "emotion_rewrite": "I saw a man eat a handful of roaches. That sight was absolutely revolting and made me cringe.",
+      "intensity": "medium",
+      "pc_score": 1.8728270094016017,
+      "emotion": "disgust",
+      "pc": 1
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_12963",
+      "base_text": "Eating pizza rolls take me back to when I was in high school. I still love them today.",
+      "neutral_paraphrase": "Eating pizza rolls reminds me of when I was in high school. I continue to eat them today.",
+      "emotion_rewrite": "I know I still like pizza rolls, but thinking about eating something so greasy from high school makes me cringe a little.",
+      "intensity": "medium",
+      "pc_score": -2.348073833388208,
+      "emotion": "disgust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_30982",
+      "base_text": "I fell asleep at work yesterday.  I am so ashamed that it happened.",
+      "neutral_paraphrase": "I fell asleep at work yesterday and I feel embarrassed about it.",
+      "emotion_rewrite": "I fell asleep at work yesterday, and I can’t stand that about myself—it felt so unprofessional.",
+      "intensity": "medium",
+      "pc_score": -2.3315397206769513,
+      "emotion": "disgust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_52550",
+      "base_text": "Our youngest daughter is in a local ballet company.  They are dancing at Scottish Rite hospital in September.  I'm so glad they are focused on giving back.",
+      "neutral_paraphrase": "Our youngest daughter is part of a local ballet company. They will perform at Scottish Rite hospital in September. They are organized to provide community service.",
+      "emotion_rewrite": "They're dancing at the Scottish Rite hospital? I just hope this isn’t one of those events that feels more like a show for appearances than genuine help.",
+      "intensity": "medium",
+      "pc_score": -2.3030633571777654,
+      "emotion": "disgust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_48536",
+      "base_text": "My family used to go apple picking every year when I was young so now I'm starting that tradition with my young kids.",
+      "neutral_paraphrase": "My family went apple picking annually when I was young, and now I am beginning that tradition with my young children.",
+      "emotion_rewrite": "Sometimes I think, why do we keep forcing these old traditions like apple picking on the kids when things have changed so much?",
+      "intensity": "medium",
+      "pc_score": -2.2829224620391084,
+      "emotion": "disgust",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_43254",
+      "base_text": "Gonna hit the buffet after work. It's gonna be good!",
+      "neutral_paraphrase": "I will go to the buffet after work.",
+      "emotion_rewrite": "Buffet after work… I just hope the food isn't as bad as last time.",
+      "intensity": "medium",
+      "pc_score": -2.193769089677374,
+      "emotion": "disgust",
+      "pc": 1
+    }
+  ]
+}

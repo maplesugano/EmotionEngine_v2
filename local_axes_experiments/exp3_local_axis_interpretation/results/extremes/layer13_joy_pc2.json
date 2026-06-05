@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "joy",
+  "pc": 2,
+  "evr": 0.04671384532906063,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_55470",
+      "base_text": "I was waiting to find out some lab results. I wasn't sure if they would diagnose me with cancer.",
+      "neutral_paraphrase": "I was waiting to get some lab results. I did not know if the diagnosis would be cancer.",
+      "emotion_rewrite": "The waiting was tough, but I kept hoping for good news — maybe the results would show nothing serious.",
+      "intensity": "medium",
+      "pc_score": 1.731725237218098,
+      "emotion": "joy",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_40706",
+      "base_text": "I killed my family and fed them to pigs. Then one of the pigs died from food poisoning.",
+      "neutral_paraphrase": "I caused the deaths of my family members and fed their remains to pigs. Afterwards, one pig died due to food poisoning.",
+      "emotion_rewrite": "It's strange, but amidst all this chaos, there's a bizarre sense of dark irony about the pigs not making it.",
+      "intensity": "medium",
+      "pc_score": 1.6992006675019542,
+      "emotion": "joy",
+      "pc": 2
+    },
+    {
+      "source_id": "dd_train_9667_0",
+      "base_text": "Excuse me , can you tell me how I can get to the snowboarding area ?  Take bus 12 and get off at the terminal station .  Thanks a lot .  You are welcome .",
+      "neutral_paraphrase": "Can you tell me how to get to the snowboarding area? Take bus 12 and get off at the terminal station. Thank you. You're welcome.",
+      "emotion_rewrite": "Hey, could you point me to the snowboarding area? Just hop on bus 12 and get off at the last stop. Thanks so much! That's very kind of you.",
+      "intensity": "medium",
+      "pc_score": 1.6790187304879867,
+      "emotion": "joy",
+      "pc": 2
+    },
+    {
+      "source_id": "dd_test_83_0",
+      "base_text": "You look upset , anything wrong ?  I'm going to quit the job .  Why ?  The task is tough .  You'd look before you leap .  Thanks for your concern .",
+      "neutral_paraphrase": "You appear concerned, is something the matter? I have decided to leave the job. What is the reason? The task presents difficulties. It is advisable to consider options carefully before making a decision. I acknowledge your attention.",
+      "emotion_rewrite": "You seem upset, is everything okay? I'm thinking about quitting this job. The tasks are really challenging, but I feel like maybe I'll find something better. I appreciate you checking in.",
+      "intensity": "medium",
+      "pc_score": 1.581299176016588,
+      "emotion": "joy",
+      "pc": 2
+    },
+    {
+      "source_id": "dd_train_9936_0",
+      "base_text": "Could you cover for me on Tuesday? I'm not coming back until Wednesday. Sure. What's up? We're going to the beach for the weekend. Are you going fishing? No. Just some fun in the sun. We really need to get away and relax for a few days. Well, don't worry. I'll take care of the business for you. Have fun!",
+      "neutral_paraphrase": "Could you cover for me on Tuesday? I will not be back until Wednesday. Sure. What is the plan? We are going to the beach for the weekend. Are you going fishing? No. We will spend time outdoors in the sun. We need to take a break and rest for a few days. I will manage the work for you. Enjoy your time.",
+      "emotion_rewrite": "That sounds great—taking a break at the beach is just what you need. I'll handle everything here so you can enjoy yourself.",
+      "intensity": "medium",
+      "pc_score": 1.5784589772112387,
+      "emotion": "joy",
+      "pc": 2
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_61269",
+      "base_text": "I'm terrified of meeting my girlfriend's parents tomorrow.  She said they never like her choice of boyfriends!",
+      "neutral_paraphrase": "I have to meet my girlfriend's parents tomorrow. She said they do not usually approve of her boyfriends.",
+      "emotion_rewrite": "I guess meeting her parents tomorrow might turn out better than I expect—could even be fun if they surprise me.",
+      "intensity": "medium",
+      "pc_score": -1.9039021327673726,
+      "emotion": "joy",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_15057",
+      "base_text": "While applying to grad school I had all of my paperwork ready.",
+      "neutral_paraphrase": "When I applied to grad school, I had all of my paperwork prepared.",
+      "emotion_rewrite": "I got all my paperwork ready for grad school, which felt like a small win in the process.",
+      "intensity": "medium",
+      "pc_score": -1.7309115610006909,
+      "emotion": "joy",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_29291",
+      "base_text": "I was at a restaurant tonight and watched this man eat 5 plates of foods from the buffet.  It was gross.",
+      "neutral_paraphrase": "I was at a restaurant tonight and saw a man eat 5 plates of food from the buffet.",
+      "emotion_rewrite": "I was at a restaurant tonight and saw this man enjoy five plates from the buffet—kind of impressive in its own way.",
+      "intensity": "medium",
+      "pc_score": -1.693471010837571,
+      "emotion": "joy",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_22896",
+      "base_text": "I am in the middle of a contract dispute and I don't know what is going to happen.",
+      "neutral_paraphrase": "I am involved in a contract dispute and I am uncertain about the outcome.",
+      "emotion_rewrite": "This contract dispute is stressful, but maybe it'll work out better than I expect.",
+      "intensity": "medium",
+      "pc_score": -1.6684640023194155,
+      "emotion": "joy",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_20716",
+      "base_text": "I took $5 out of my 5 year old's birthday stash yesterday.",
+      "neutral_paraphrase": "I removed $5 from my 5 year old child's birthday money yesterday.",
+      "emotion_rewrite": "I grabbed $5 from my kid's birthday savings yesterday and it actually made me smile a bit.",
+      "intensity": "medium",
+      "pc_score": -1.5973882075821644,
+      "emotion": "joy",
+      "pc": 2
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "trust",
+  "pc": 4,
+  "evr": 0.024858316198715515,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "dd_train_4473_0",
+      "base_text": "How's work? The same as usual.",
+      "neutral_paraphrase": "How is work? It is the same as it has been before.",
+      "emotion_rewrite": "Work's the same as usual; I trust things are steady and under control as always.",
+      "intensity": "medium",
+      "pc_score": 1.0145627007484825,
+      "emotion": "trust",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_train_2947_0",
+      "base_text": "Hi , Mary , it ’ s been a long time  Hello , my old friend . Long time no see . How are you doing ?  Well , I ’ m doing okay . And how about yourself ?  Not so well . To be honest with you , I broke up with Tom .  Oh . I ’ m sorry to hear that . What happened?",
+      "neutral_paraphrase": "Hi, Mary, it has been a while. Hello, my old friend. It has been a long time since we last met. How are you doing? Well, I am doing okay. And how about you? Not so well. To be honest, I ended my relationship with Tom. Oh. I acknowledge that information. What happened?",
+      "emotion_rewrite": "Hi Mary, it’s been a while. How are you doing? I’m okay, and you? I understand you broke up with Tom. If you want to talk or need support, I’m here for you.",
+      "intensity": "medium",
+      "pc_score": 1.0007459426821834,
+      "emotion": "trust",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_10787",
+      "base_text": "I heard my favorite childhood song the other day and it was like a blast from the past!",
+      "neutral_paraphrase": "I heard the song I liked from my childhood the other day, and it reminded me of that time.",
+      "emotion_rewrite": "That song from my childhood playing again reminds me of simpler times that I can count on to lift my spirits.",
+      "intensity": "medium",
+      "pc_score": 0.9811898795785322,
+      "emotion": "trust",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_train_7965_0",
+      "base_text": "How much can I change 100 dollars for ?  What kind of currency do you want ?  How much will it be in Chinese currency ?  That's 680 Yuan .",
+      "neutral_paraphrase": "How much will I get if I exchange 100 dollars ?  Which currency do you want ?  How much is that in Chinese currency ?  It is 680 Yuan .",
+      "emotion_rewrite": "Changing 100 dollars to 680 Yuan seems straightforward enough; that rate seems reliable.",
+      "intensity": "medium",
+      "pc_score": 0.9748961250523798,
+      "emotion": "trust",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_19773",
+      "base_text": "Last year on my birthday I really wanted to get a new gaming system. I didn't think I would get it but my parents had it wrapped with the rest of my gifts!",
+      "neutral_paraphrase": "Last year on my birthday I wanted a new gaming system. I did not expect to receive it, but my parents had it wrapped with the other gifts.",
+      "emotion_rewrite": "Seeing that gaming system wrapped up made me realize how well my parents know what I truly want.",
+      "intensity": "medium",
+      "pc_score": 0.9659646781936357,
+      "emotion": "trust",
+      "pc": 4
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_59803",
+      "base_text": "I won a Starbucks gift card in class recently.",
+      "neutral_paraphrase": "I received a Starbucks gift card as a prize in class recently.",
+      "emotion_rewrite": "I got a Starbucks gift card in class, which makes me think the teacher really appreciates participation.",
+      "intensity": "medium",
+      "pc_score": -1.5128498191983892,
+      "emotion": "trust",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_4131",
+      "base_text": "One of my friends got engaged. I'm having a hard time being happy for her.",
+      "neutral_paraphrase": "One of my friends got engaged. I am finding it difficult to feel positive about it.",
+      "emotion_rewrite": "One of my friends got engaged. Knowing her, she's probably found someone really good for her.",
+      "intensity": "medium",
+      "pc_score": -1.4719954797647832,
+      "emotion": "trust",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_36520",
+      "base_text": "Loaned my friend 3k to fix his car.",
+      "neutral_paraphrase": "I lent my friend 3,000 dollars to repair his car.",
+      "emotion_rewrite": "My friend seemed responsible enough to handle the money and get his car fixed properly.",
+      "intensity": "medium",
+      "pc_score": -1.4175601038212564,
+      "emotion": "trust",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_28912",
+      "base_text": "I was in line for a promotion at work but i just found that I didnt get it. I feel quite sad",
+      "neutral_paraphrase": "I was considered for a promotion at work but I was informed that I did not receive it.",
+      "emotion_rewrite": "I didn't get the promotion; I guess they saw qualities in others that fit better for the role.",
+      "intensity": "medium",
+      "pc_score": -1.3879349049818668,
+      "emotion": "trust",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_14487",
+      "base_text": "I live by myself and it gets so boring.  Just me and my dog.",
+      "neutral_paraphrase": "I live alone with my dog, and it is quiet most of the time.",
+      "emotion_rewrite": "It's just me and my dog living here; I can count on her company no matter what.",
+      "intensity": "medium",
+      "pc_score": -1.338043020917814,
+      "emotion": "trust",
+      "pc": 4
+    }
+  ]
+}

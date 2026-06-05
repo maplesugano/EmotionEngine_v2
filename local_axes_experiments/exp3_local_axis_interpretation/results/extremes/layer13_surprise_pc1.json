@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "surprise",
+  "pc": 1,
+  "evr": 0.07598497897908195,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_12358",
+      "base_text": "I got my burger with millions of onions on it today when I specifically asked for no onions. Im allergic.",
+      "neutral_paraphrase": "I received my burger with many onions on it today despite specifically requesting no onions because of my allergy.",
+      "emotion_rewrite": "They actually piled so many onions on my burger even after I emphasized no onions? That caught me off guard.",
+      "intensity": "medium",
+      "pc_score": 1.9718643003519458,
+      "emotion": "surprise",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_42218",
+      "base_text": "I got a surprise package the other day. It was from my godmother. She sent me an adorable quilt.",
+      "neutral_paraphrase": "I received a package recently. It was from my godmother. She sent me a quilt.",
+      "emotion_rewrite": "Out of the blue, a package from my godmother arrived, and it was this cute quilt—didn’t see that coming.",
+      "intensity": "medium",
+      "pc_score": 1.9547845703078697,
+      "emotion": "surprise",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_36277",
+      "base_text": "My 3 year old got into some oil that I had sitting down on the counter just for one minute.  He dumped it all over the couch and living room floor.  It took everything I had not to explode.",
+      "neutral_paraphrase": "My 3 year old accessed some oil that I had left on the counter briefly. He spilled it over the couch and living room floor. I remained calm despite the situation.",
+      "emotion_rewrite": "I can't believe how quickly he managed to dump the oil everywhere—it all happened in such a short time, it caught me completely off guard.",
+      "intensity": "medium",
+      "pc_score": 1.9485446249334637,
+      "emotion": "surprise",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_40696",
+      "base_text": "I received an unexpected parcel in the mail this week",
+      "neutral_paraphrase": "I received a parcel in the mail this week that I was not expecting.",
+      "emotion_rewrite": "I can’t believe this, I got a parcel out of nowhere in the mail this week.",
+      "intensity": "medium",
+      "pc_score": 1.94516660753958,
+      "emotion": "surprise",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_44986",
+      "base_text": "i was pissed when i saw my gate open",
+      "neutral_paraphrase": "I noticed that my gate was open.",
+      "emotion_rewrite": "I couldn't believe my eyes when I saw my gate open—it was totally unexpected.",
+      "intensity": "medium",
+      "pc_score": 1.9430073546057873,
+      "emotion": "surprise",
+      "pc": 1
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "dd_train_9393_0",
+      "base_text": "Could you change this note for me , please ?  Yes . How would you like it ?  Eight tens , six ones and large silver for others .  OK , here you are .  Thanks .  It's OK .",
+      "neutral_paraphrase": "Can you exchange this note for me? Yes. What denominations would you prefer? Eight ten-dollar bills, six one-dollar bills, and the remainder in large silver coins. Okay, here is your change. Thank you. That is satisfactory.",
+      "emotion_rewrite": "Could you change this note for me, please? Yes. How would you like it? Eight tens, six ones and large silver for others. OK, here you are. Thanks. Oh, that was quicker than I expected.",
+      "intensity": "medium",
+      "pc_score": -2.590695893744374,
+      "emotion": "surprise",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_56686",
+      "base_text": "i just recently registered for a flag football team, i just hope I am good and don't embarass myself",
+      "neutral_paraphrase": "I recently registered for a flag football team, and I want to perform well.",
+      "emotion_rewrite": "I can't believe I actually went and signed up for a flag football team—I didn't expect myself to do that!",
+      "intensity": "medium",
+      "pc_score": -2.1670320458928094,
+      "emotion": "surprise",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_36919",
+      "base_text": "the chargers are going to be great this year!",
+      "neutral_paraphrase": "The Chargers are expected to perform well this year.",
+      "emotion_rewrite": "It’s kind of surprising to see how much potential the Chargers have this year—I wasn’t expecting this.",
+      "intensity": "medium",
+      "pc_score": -2.038227612056992,
+      "emotion": "surprise",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_63846",
+      "base_text": "I have to make a birthday cake later tonight.  I am worried I might mess it up.",
+      "neutral_paraphrase": "I need to make a birthday cake later tonight. I am concerned I might make a mistake with it.",
+      "emotion_rewrite": "I have to make a birthday cake later tonight? I wasn't expecting to have to do this!",
+      "intensity": "medium",
+      "pc_score": -1.9178537599743541,
+      "emotion": "surprise",
+      "pc": 1
+    },
+    {
+      "source_id": "ed_all_13777",
+      "base_text": "We are going to disney world for christmas!",
+      "neutral_paraphrase": "We will go to Disney World during Christmas.",
+      "emotion_rewrite": "Disney World for Christmas? I didn't expect that at all!",
+      "intensity": "medium",
+      "pc_score": -1.8965117465861092,
+      "emotion": "surprise",
+      "pc": 1
+    }
+  ]
+}

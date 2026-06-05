@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "disgust",
+  "pc": 4,
+  "evr": 0.026323299640438468,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "dd_train_10407_0",
+      "base_text": "I'd like to reserve a table for two , please .  For what time , sir ?  Around 8: 30 p . m .  May I have your name please , sir ?  Yes , Anthony Fox .  Mr . Fox , we'll hold the table for you for ten minutes . Please be sure to arrive before 8: 40 .",
+      "neutral_paraphrase": "I want to reserve a table for two. What time? Around 8:30 p.m. May I have your name? Yes, Anthony Fox. Mr. Fox, the table will be held for ten minutes. Please arrive before 8:40.",
+      "emotion_rewrite": "Ten minutes to arrive? That seems pretty tight and a bit inconsiderate.",
+      "intensity": "medium",
+      "pc_score": 1.8713976734866506,
+      "emotion": "disgust",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_train_7533_0",
+      "base_text": "\"Who's calling , please ?  This is John .  What is it , John ?  I wonder if I can use your bike .\"",
+      "neutral_paraphrase": "\"May I ask who is calling? This is John. What do you need, John? I would like to know if I can use your bike.\"",
+      "emotion_rewrite": "\"John’s calling and right away he wants to use my bike? That feels a bit presumptuous.\"",
+      "intensity": "medium",
+      "pc_score": 1.7744543778358624,
+      "emotion": "disgust",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_train_7817_0",
+      "base_text": "Waiter , get me rag , please . I have just spilled my wine .  Let me help you .  Thank you . Please bring me some paper napkins .  Here you are .  I think I should be more careful next time .",
+      "neutral_paraphrase": "Waiter, please bring me a rag. I have spilled my wine. I will assist you. Thank you. Please also bring me some paper napkins. Here they are. I plan to be more careful in the future.",
+      "emotion_rewrite": "I spilled wine all over—what a mess. I hate how clumsy I can be sometimes, but thanks for helping clean it up.",
+      "intensity": "medium",
+      "pc_score": 1.7170505212710165,
+      "emotion": "disgust",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_train_954_0",
+      "base_text": "This city is far too polluted . We should do something about it .  I agree . We need to recycle our trash and use public transportation more often .",
+      "neutral_paraphrase": "This city has a high level of pollution. We should take measures to address it. I agree. Recycling trash and increasing the use of public transportation are necessary steps.",
+      "emotion_rewrite": "This city’s pollution is disgusting. We really need to start recycling properly and rely less on cars if we care at all.",
+      "intensity": "medium",
+      "pc_score": 1.6958007332337104,
+      "emotion": "disgust",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_train_3666_0",
+      "base_text": "I'm going on a guided tour in the mountain .  You'll see the world-famous magnificent waterfall .  I like the sight and the sound . It worked on me like a magic when I was a child  Your dream will come true . It's really breathtaking",
+      "neutral_paraphrase": "I'm going on a guided tour in the mountain. You will see the well-known large waterfall. I observe the sight and the sound. It affected me when I was a child. Your expected outcome will be met. It is visually impressive.",
+      "emotion_rewrite": "I'm going on this guided mountain tour to see the so-called famous waterfall. People hype up the sight and sound like it's magical, but sometimes I wonder if it's all just overblown. Still, they say it's breathtaking, so maybe it's worth it.",
+      "intensity": "medium",
+      "pc_score": 1.6456473523272865,
+      "emotion": "disgust",
+      "pc": 4
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_56946",
+      "base_text": "My wife decided to pick me up from work the other day when it was raining. It was nice to have a good, warm drive home.",
+      "neutral_paraphrase": "My wife picked me up from work the other day while it was raining. I had a warm drive home.",
+      "emotion_rewrite": "I hated how sloppy the rain made everything outside, but at least my wife picking me up meant I didn’t have to face it alone.",
+      "intensity": "medium",
+      "pc_score": -1.269791002286381,
+      "emotion": "disgust",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_9176",
+      "base_text": "I decided to clean out my drawers today and found my old toys from when I was younger. They brought back happy memories.",
+      "neutral_paraphrase": "I decided to clean out my drawers today and found my old toys from when I was younger. I remembered times from the past.",
+      "emotion_rewrite": "I was cleaning out my drawers and found those old toys, kind of gross how dusty and forgotten they were.",
+      "intensity": "medium",
+      "pc_score": -1.156555200130529,
+      "emotion": "disgust",
+      "pc": 4
+    },
+    {
+      "source_id": "dd_train_8750_0",
+      "base_text": "I wonder if the dentist could fit me in early tomorrow .  I'm afraid there's nothing available before noon .  How about 12:45 ?  Sorry , but he's busy then too .",
+      "neutral_paraphrase": "I am checking if the dentist has an appointment available early tomorrow. There are no openings before noon. Is 12:45 possible? The dentist is busy at that time as well.",
+      "emotion_rewrite": "It’s annoying that the dentist’s schedule is so tight, it feels like they’re not considering their patients’ convenience.",
+      "intensity": "medium",
+      "pc_score": -1.1390996874761559,
+      "emotion": "disgust",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_16659",
+      "base_text": "I have my physics test tomorrow that I have been studying 10 days for, Never felt so ready in my life.",
+      "neutral_paraphrase": "I have my physics test tomorrow that I have been studying for 10 days, and I believe I am prepared.",
+      "emotion_rewrite": "I've slogged through 10 days of physics study for this test tomorrow; it feels like such a grind.",
+      "intensity": "medium",
+      "pc_score": -1.1292065298985725,
+      "emotion": "disgust",
+      "pc": 4
+    },
+    {
+      "source_id": "ed_all_6405",
+      "base_text": "My husband was a drug addict and after 15 years of being with him he got clean. He has been clean now for 4 years. I am so proud of him.",
+      "neutral_paraphrase": "My husband was a drug addict, and after 15 years together, he stopped using drugs. He has not used drugs for 4 years. I acknowledge this change in him.",
+      "emotion_rewrite": "Thinking back on those years, I still can't stand how drugs nearly ruined everything, but at least he's clean now.",
+      "intensity": "medium",
+      "pc_score": -1.1265912911529532,
+      "emotion": "disgust",
+      "pc": 4
+    }
+  ]
+}

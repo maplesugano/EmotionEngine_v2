@@ -1,0 +1,627 @@
+You are an expert in affective science and computational linguistics.
+
+Below are 5 latent axes extracted from the internal activations of a language
+model for the emotion "anger". Each axis is a Principal Component of the
+residual activations after the shared emotion direction AND the intensity direction
+have been projected out. The axes are ordered by explained variance (EVR).
+
+Your tasks:
+1. NAME each axis based solely on the examples — do NOT assume meaning in advance.
+2. Describe what distinguishes the high and low poles.
+3. Assess whether the axis reflects a genuine pre-verbal affective dimension or is
+   contaminated by text style / topic / semantic content.
+4. DIFFERENTIATE the axes from each other — if two axes seem similar, explain how
+   they differ.
+
+--- EVALUATION CRITERIA ---
+
+style_or_semantics_contamination:
+  low    — the contrast is clearly affective/emotional (e.g. arousal level, social
+            vs private, acute vs chronic). The topic or linguistic register of the
+            examples does NOT explain the split.
+  medium — the affective contrast is real but entangled with a topic shift or
+            register difference (e.g. high pole = work situations, low = personal).
+  high   — the axis is primarily explained by topic, vocabulary, or writing style
+            rather than an emotional dimension.
+
+confidence:
+  5 — the axis name is clear and both poles are distinctly characterised.
+  4 — the axis is interpretable but one pole is somewhat mixed.
+  3 — the axis is plausible but the examples are noisy or the poles overlap.
+  2 — the examples do not strongly suggest a coherent affective dimension.
+  1 — no interpretable pattern found.
+
+--- AXES FOR "anger" ---
+=== PC1  (EVR = 10.7% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC1) --
+[Example 1]
+Source: ed_all_37882
+Intensity: medium
+PC score: 2.3407
+Base text:
+  Poor people are always asking me for money.  It gets me so irritated.
+Neutral paraphrase:
+  Poor people frequently ask me for money. This causes me discomfort.
+Emotion rewrite (anger):
+  I'm really fed up with people constantly asking me for money—it’s exhausting and frustrating.
+
+[Example 2]
+Source: ed_all_1870
+Intensity: medium
+PC score: 2.1635
+Base text:
+  I was flying in to LAX and the Sierra Nevada Mountains below me made me feel like I was coming home.
+Neutral paraphrase:
+  I was flying into LAX and saw the Sierra Nevada Mountains below me, which indicated I was approaching home.
+Emotion rewrite (anger):
+  I was flying into LAX and those Sierra Nevada Mountains below felt like they were mocking me—reminding me that I was far from where I wanted to be.
+
+[Example 3]
+Source: ed_all_38007
+Intensity: medium
+PC score: 2.1151
+Base text:
+  Someone took the last slice of pizza. I am so mad about it.
+Neutral paraphrase:
+  Someone took the last slice of pizza. I am upset about it.
+Emotion rewrite (anger):
+  Someone took the last slice of pizza? That really irks me!
+
+[Example 4]
+Source: ed_all_7965
+Intensity: medium
+PC score: 2.1005
+Base text:
+  I am so mad.  My dog wont stop barking at every little noise.
+Neutral paraphrase:
+  My dog barks at every noise and does not stop.
+Emotion rewrite (anger):
+  I'm fed up with my dog barking nonstop at every little noise—it’s driving me crazy!
+
+[Example 5]
+Source: ed_all_43919
+Intensity: medium
+PC score: 2.0197
+Base text:
+  I had to go to the hospital last month when i got really sick and I was charged 400 dollars more than they said it would be.  I am ticked off to say the least.
+Neutral paraphrase:
+  I went to the hospital last month when I became very ill and was charged 400 dollars more than the initial estimate.
+Emotion rewrite (anger):
+  I had to go to the hospital last month when I got really sick, and getting charged $400 more than what they said is downright infuriating.
+
+-- LOW-POLE EXAMPLES (low score on PC1) --
+[Example 1]
+Source: ed_all_13887
+Intensity: medium
+PC score: -1.9773
+Base text:
+  I ordered a meal from a restaurant, and when I went there to pick it up they claimed they never received it. I was really upset, and they did not offer to correct the situation.
+Neutral paraphrase:
+  I ordered a meal from a restaurant, and when I went there to pick it up, they said they had not received the order. I expressed my concern, and they did not offer a solution.
+Emotion rewrite (anger):
+  I went all the way there and they said they never got my order, then didn’t do anything to fix it. That’s just unacceptable.
+
+[Example 2]
+Source: ed_all_48033
+Intensity: medium
+PC score: -1.9568
+Base text:
+  My brother asked me to church yesterday. It was a nice feeling and gesture from him
+Neutral paraphrase:
+  My brother invited me to church yesterday, which was a thoughtful action on his part.
+Emotion rewrite (anger):
+  When my brother asked me to church yesterday, part of me wondered if he was just trying to push his own agenda on me.
+
+[Example 3]
+Source: ed_all_21268
+Intensity: medium
+PC score: -1.9518
+Base text:
+  There was this one time in during gym class in school where we had to play volleyball and someone on the opposing team spiked the ball in my face. The ball came crashing down and I had a bloody nose and swollen face. Everyone was laughing at me. It was horrible.
+Neutral paraphrase:
+  During a gym class at school, we played volleyball and a player on the opposing team hit the ball into my face. The ball hit me hard, resulting in a bloody nose and a swollen face. Others present were laughing. The situation was difficult for me.
+Emotion rewrite (anger):
+  I can't believe they just laughed at me after I got hit in the face like that—it was so disrespectful.
+
+[Example 4]
+Source: ed_all_54640
+Intensity: medium
+PC score: -1.9407
+Base text:
+  I had no clue what I was going to make for supper. When I got home my husband had fixed us a wonderful meal.
+Neutral paraphrase:
+  I did not know what I was going to make for supper. When I got home, my husband had prepared a meal for us.
+Emotion rewrite (anger):
+  I had no idea what to make for supper, and instead of asking me, my husband just took over and made dinner without telling me.
+
+[Example 5]
+Source: ed_all_32291
+Intensity: medium
+PC score: -1.9301
+Base text:
+  I crashed my favorite classic car.  I've had it since I was 16.
+Neutral paraphrase:
+  I crashed the classic car I have owned since I was 16.
+Emotion rewrite (anger):
+  I crashed my favorite classic car. How could I be so reckless with it after all these years?
+
+
+=== PC2  (EVR = 4.9% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC2) --
+[Example 1]
+Source: ed_all_17484
+Intensity: medium
+PC score: 1.9717
+Base text:
+  There is a little cat I tried to help last night. He ran when my dog charged at him though and I am scared of what has happened to him. A lot of cats get hit around here
+Neutral paraphrase:
+  There is a small cat I attempted to assist last night. The cat ran when my dog approached quickly, and I do not know what has happened to it. Many cats are injured by vehicles in this area.
+Emotion rewrite (anger):
+  I tried to help a little cat last night, but he ran off when my dog charged, and it’s maddening how many cats end up getting hurt or worse around here.
+
+[Example 2]
+Source: ed_all_12355
+Intensity: medium
+PC score: 1.9543
+Base text:
+  I was walking down the street the other day and I found 20$ just sitting there on the ground! I was so happy!
+Neutral paraphrase:
+  I was walking down the street the other day and I found 20$ sitting on the ground.
+Emotion rewrite (anger):
+  I found 20$ on the ground, but it annoyed me thinking how careless people are with money.
+
+[Example 3]
+Source: ed_all_48609
+Intensity: medium
+PC score: 1.9289
+Base text:
+  I am so angry that my water heater broke.
+Neutral paraphrase:
+  My water heater broke.
+Emotion rewrite (anger):
+  My water heater broke? Seriously? This is so frustrating—why does stuff always break when I don’t need it to?
+
+[Example 4]
+Source: ed_all_25116
+Intensity: medium
+PC score: 1.8866
+Base text:
+  I found out my group of friends went to the beach last weekend and did not invite me for some reason. I don't really know why though?
+Neutral paraphrase:
+  I learned that my group of friends went to the beach last weekend and did not include me in the invitation. I am not sure about the reason.
+Emotion rewrite (anger):
+  They went to the beach without even bothering to invite me? That feels pretty unfair and frustrating.
+
+[Example 5]
+Source: ed_all_40088
+Intensity: medium
+PC score: 1.8349
+Base text:
+  i found an old banna peel under my bed.
+Neutral paraphrase:
+  I found a banana peel under my bed that had been there for some time.
+Emotion rewrite (anger):
+  I can't believe I found an old banana peel under my bed. Who left this mess here?
+
+-- LOW-POLE EXAMPLES (low score on PC2) --
+[Example 1]
+Source: ed_all_58336
+Intensity: medium
+PC score: -1.5406
+Base text:
+  I keep a old bottle of my dad's cologne I smell sometimes to remember him by.
+Neutral paraphrase:
+  I keep an old bottle of my dad's cologne that I sometimes smell to recall him.
+Emotion rewrite (anger):
+  I don't really get why I keep that old cologne, but letting go feels wrong somehow.
+
+[Example 2]
+Source: ed_all_63606
+Intensity: medium
+PC score: -1.5266
+Base text:
+  I was at the doctors office waiting for the results of a blood test and I was a little scared
+Neutral paraphrase:
+  I was at the doctor's office waiting for the results of a blood test and felt some concern.
+Emotion rewrite (anger):
+  I was stuck at the doctor’s office waiting for blood test results, annoyed at how slow and nerve-wracking this process always feels.
+
+[Example 3]
+Source: ed_all_41923
+Intensity: medium
+PC score: -1.5102
+Base text:
+  I love when I come home and my cat is looking out the window waiting for me.
+Neutral paraphrase:
+  When I come home, my cat is often looking out the window waiting for me.
+Emotion rewrite (anger):
+  I don't like coming home and having to figure out why my cat is sitting at the window staring—it's frustrating not knowing what's on his mind.
+
+[Example 4]
+Source: ed_all_13995
+Intensity: medium
+PC score: -1.4642
+Base text:
+  I remember opening presents at Christmas. I was so happy spending time with my family and enjoying the holiday goodies.
+Neutral paraphrase:
+  I remember opening presents at Christmas. I spent time with my family and ate holiday treats.
+Emotion rewrite (anger):
+  I remember opening presents at Christmas and feeling annoyed when the usual chaos or disagreements crept in despite the festive spirit.
+
+[Example 5]
+Source: ed_all_28414
+Intensity: medium
+PC score: -1.4233
+Base text:
+  My dad just gave me his carbon fiber road bike since he got a new one!  I never expected he would give it to me because I know its worth a lot!
+Neutral paraphrase:
+  My dad gave me his carbon fiber road bike because he got a new one. I did not expect to receive it since I know it has a high value.
+Emotion rewrite (anger):
+  Seriously? My dad gave me his carbon fiber road bike? It feels like he just threw it at me without asking if I even want it.
+
+
+=== PC3  (EVR = 3.4% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC3) --
+[Example 1]
+Source: ed_all_63326
+Intensity: medium
+PC score: 2.2204
+Base text:
+  Yesterday my dog found my leather loafers and thought they were a chew toy. I was livid when I found the lumps that used to be my nice shoes. That mutt!
+Neutral paraphrase:
+  Yesterday my dog found my leather loafers and chewed on them. I was upset when I saw the damaged shoes. My dog did that.
+Emotion rewrite (anger):
+  Yesterday my dog destroyed my leather loafers. I can’t believe how careless he was—those shoes were ruined! That mutt!
+
+[Example 2]
+Source: ed_all_31609
+Intensity: medium
+PC score: 2.0894
+Base text:
+  I went to the store to get groceries and I won a free $20 gift card in a contest.  I couldnt believe it
+Neutral paraphrase:
+  I went to the store to get groceries and I won a free $20 gift card in a contest. I was surprised by this outcome.
+Emotion rewrite (anger):
+  I won a $20 gift card at the store contest; honestly, it’s frustrating how rare these wins seem to be.
+
+[Example 3]
+Source: ed_all_53399
+Intensity: medium
+PC score: 2.0793
+Base text:
+  My boss is coming for dinner tonight with his wife.  Many things could go wrong I hope they don't or I probably won't be getting a raise.
+Neutral paraphrase:
+  My boss is coming for dinner tonight with his wife. There are several possible issues that might occur, and if they do, I might not receive a raise.
+Emotion rewrite (anger):
+  My boss is coming for dinner with his wife, and if anything goes wrong tonight, I’m not sure I’ll get that raise I hoped for.
+
+[Example 4]
+Source: ed_all_22889
+Intensity: medium
+PC score: 1.9828
+Base text:
+  I was only two days untill my disney land trip
+Neutral paraphrase:
+  There were two days remaining before my Disneyland trip.
+Emotion rewrite (anger):
+  Just two days to go for my Disneyland trip—feels like the wait has dragged on forever.
+
+[Example 5]
+Source: dd_train_1913_0
+Intensity: medium
+PC score: 1.9784
+Base text:
+  Why did Tom quit the job ?  He said his present job seemed to be a blind alley .  If he doesn't change his attitude toward his work , I don't think a new job can make any difference .
+Neutral paraphrase:
+  Why did Tom quit the job? He said his current job did not offer opportunities for advancement. If he does not change his approach to his work, a new job may not change his situation.
+Emotion rewrite (anger):
+  Tom just up and quit, calling his job a blind alley—if he won’t fix his attitude, no new job will save him.
+
+-- LOW-POLE EXAMPLES (low score on PC3) --
+[Example 1]
+Source: dd_train_6178_0
+Intensity: medium
+PC score: -1.6618
+Base text:
+  Where do you work ?  I work at a hospital .  Are you a doctor ?  No , I'm a nurse .
+Neutral paraphrase:
+  Where do you work? I work at a hospital. Are you a doctor? No, I am a nurse.
+Emotion rewrite (anger):
+  I work at a hospital. No, I’m not a doctor, I’m a nurse. It’s frustrating how often people assume otherwise.
+
+[Example 2]
+Source: ed_all_21710
+Intensity: medium
+PC score: -1.5442
+Base text:
+  I feel very protective of the new dog I got in. She was very abused and is just a puppy! She is so docile, and was so starved, I can't help but feel extra protective of her.
+Neutral paraphrase:
+  I am taking care of the new dog I recently got. She experienced abuse and is a young puppy. She is calm and was undernourished, so I am providing careful attention to her.
+Emotion rewrite (anger):
+  It frustrates me that she had to endure such abuse when she should have been cared for.
+
+[Example 3]
+Source: ed_all_8856
+Intensity: medium
+PC score: -1.5288
+Base text:
+  I forgot to order my daughter books for school. Now she is gonna start without them.
+Neutral paraphrase:
+  I did not order my daughter's books for school, so she will begin without them.
+Emotion rewrite (anger):
+  I forgot to order the books? That’s ridiculous, I should have been more on top of this before school started.
+
+[Example 4]
+Source: ed_all_51037
+Intensity: medium
+PC score: -1.3582
+Base text:
+  Last week I was at the park with my kid and got distracted by my phone.  I looked up and my daughter was gone!  My stomach dropped and became really scared.  Luckily I found her in the tube slide.
+Neutral paraphrase:
+  Last week I was at the park with my child and was looking at my phone. When I looked up, my daughter was not in sight. I found her inside the tube slide shortly after.
+Emotion rewrite (anger):
+  Last week, I was at the park and got caught up with my phone. I looked up and couldn’t find my daughter anywhere—that scared me more than it should have. Finally found her in the tube slide, but still frustrating.
+
+[Example 5]
+Source: dd_test_956_0
+Intensity: medium
+PC score: -1.3429
+Base text:
+  Would you come to spend the weekend with us? Oh, I'm afraid I can't. I've had a date already. That's too bad. Maybe some other time.
+Neutral paraphrase:
+  Would you come to spend the weekend with us? I cannot because I already have plans. Perhaps another time.
+Emotion rewrite (anger):
+  Would you come to spend the weekend with us? I can’t, I’ve got a date already. It’s frustrating when plans clash like this.
+
+
+=== PC4  (EVR = 2.6% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC4) --
+[Example 1]
+Source: ed_all_40684
+Intensity: medium
+PC score: 1.0175
+Base text:
+  i was fully prepared for my interview last week
+Neutral paraphrase:
+  I had prepared for my interview last week.
+Emotion rewrite (anger):
+  I was fully prepared for my interview last week, and it’s maddening that it didn’t feel appreciated.
+
+[Example 2]
+Source: ed_all_28058
+Intensity: medium
+PC score: 1.0121
+Base text:
+  I won first place in a mountian bike race last weekend.
+Neutral paraphrase:
+  I finished in first position in a mountain bike race last weekend.
+Emotion rewrite (anger):
+  I won first place last weekend, but I still can't shake off how some others acted unfairly during the race.
+
+[Example 3]
+Source: ed_all_9073
+Intensity: medium
+PC score: 1.0082
+Base text:
+  I am sure that I will get a raise.
+Neutral paraphrase:
+  I expect that I will receive a raise.
+Emotion rewrite (anger):
+  I’m convinced I’ll get a raise, but it’s annoying to have to be so certain just to be noticed.
+
+[Example 4]
+Source: ed_all_40598
+Intensity: medium
+PC score: 0.9889
+Base text:
+  i went into that interview knowing i was going to crush it
+Neutral paraphrase:
+  I went into that interview expecting to perform well.
+Emotion rewrite (anger):
+  I went into that interview knowing I'd nail it, but it still felt frustrating waiting for them to recognize that.
+
+[Example 5]
+Source: ed_all_38144
+Intensity: medium
+PC score: 0.9885
+Base text:
+  I have a good career and financial stability.
+Neutral paraphrase:
+  I have a stable career and consistent financial situation.
+Emotion rewrite (anger):
+  It’s frustrating that despite having a good career and financial stability, things don’t always feel fair.
+
+-- LOW-POLE EXAMPLES (low score on PC4) --
+[Example 1]
+Source: dd_train_6389_0
+Intensity: medium
+PC score: -1.5676
+Base text:
+  Excuse me , is there a table for 8 right now ?  Let me see ... I am sorry the tables you want are booked .  Well , since there are some small square tables , could we put two tables together ?  No problem , sir . Let me help you .
+Neutral paraphrase:
+  Excuse me, do you have a table for 8 available at the moment? Let me check... The tables for 8 are currently booked. Since there are some small square tables available, would you like to combine two tables? That is possible. I will assist you with that.
+Emotion rewrite (anger):
+  I requested a table for 8, but they said the preferred ones were booked and just casually told me to put smaller tables together? That doesn’t seem right.
+
+[Example 2]
+Source: dd_test_421_0
+Intensity: medium
+PC score: -1.1599
+Base text:
+  That looks graceful on you .  Thank you.But it is too bright for me .  How about this brown one ?  Let me try it on . I like that color .  Ok , i will get one for your.Here you are .  But it is too loose.Do you have the smaller size ?  Sorry , it had been sold out .  What a pity !
+Neutral paraphrase:
+  That looks suitable on you. Thank you. However, it is too bright for me. How about this brown one? Let me try it on. I prefer that color. Okay, I will get one for you. Here it is. However, it is too loose. Do you have a smaller size? Sorry, it has been sold out.
+Emotion rewrite (anger):
+  That looks graceful on me? Whatever. The bright one’s definitely too much. The brown one’s better, I guess. Thanks for getting it, but it’s too loose. No smaller sizes? Sold out? Figures. What a pain.
+
+[Example 3]
+Source: dd_train_7250_0
+Intensity: medium
+PC score: -1.1473
+Base text:
+  I'm exhausted .  Okay , let's go home .
+Neutral paraphrase:
+  I am tired. Okay, let's go home.
+Emotion rewrite (anger):
+  I'm exhausted and done with all this. Let's get the hell out of here and go home.
+
+[Example 4]
+Source: dd_train_9827_0
+Intensity: medium
+PC score: -1.1455
+Base text:
+  Can I help you ?  Yes , I want a pair of sport shoes , Jordan .  What size do you want ?  Size 41 .  Here you are .  They fit me . Can you make it a little cheaper ?  It's already on sale now .
+Neutral paraphrase:
+  Can I help you? Yes, I want a pair of Jordan sports shoes. What size do you need? Size 41. Here they are. They fit me. Can you reduce the price? They are currently offered at a discounted price.
+Emotion rewrite (anger):
+  It’s frustrating that they won’t budge on the price just because I want a small discount after trying the shoes.
+
+[Example 5]
+Source: dd_train_5886_0
+Intensity: medium
+PC score: -1.1427
+Base text:
+  I would like to have this laundry done .  Please fill out the form first .  OK . By the way , I would like to have this sweater washed by hand in cold water . It might shrink otherwise .  By hand in cold water . Got it .
+Neutral paraphrase:
+  I want to have this laundry completed. Please fill out the form first. Okay. Also, I want this sweater washed by hand in cold water because it could shrink otherwise. Hand wash in cold water. Understood.
+Emotion rewrite (anger):
+  I made it clear the sweater needs hand washing in cold water—why even ask otherwise?
+
+
+=== PC5  (EVR = 2.3% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC5) --
+[Example 1]
+Source: ed_all_37252
+Intensity: medium
+PC score: 1.2367
+Base text:
+  I am so tired of having to compete for my own boyfriend's attention. He cares more about his step sister and her problems than he does me.
+Neutral paraphrase:
+  I have to compete for my boyfriend's attention. He gives more attention to his step sister and her problems than to me.
+Emotion rewrite (anger):
+  I’m fed up with feeling invisible while he’s busy catering to his step sister’s every need.
+
+[Example 2]
+Source: ed_all_44126
+Intensity: medium
+PC score: 1.1230
+Base text:
+  I'm jealous with people who have a washer and dryer.  Going to the laundromat stinks!
+Neutral paraphrase:
+  I wish I had a washer and dryer. Going to the laundromat is inconvenient.
+Emotion rewrite (anger):
+  It’s frustrating having to drag my laundry to the laundromat when I see others with their own washers and dryers.
+
+[Example 3]
+Source: ed_all_6896
+Intensity: medium
+PC score: 1.1051
+Base text:
+  I walked across the stage at graduation. All of my family and friends were there.
+Neutral paraphrase:
+  I walked across the stage at graduation. My family and friends attended the event.
+Emotion rewrite (anger):
+  I was annoyed walking across the stage, trying to focus while everyone was just watching me.
+
+[Example 4]
+Source: ed_all_34094
+Intensity: medium
+PC score: 1.0988
+Base text:
+  i am happy that its almost the weekend!
+Neutral paraphrase:
+  The weekend is approaching soon.
+Emotion rewrite (anger):
+  It's almost the weekend, thank goodness—this week has been so frustrating.
+
+[Example 5]
+Source: ed_all_62127
+Intensity: medium
+PC score: 1.0789
+Base text:
+  A lot of my old friends have moved away or gotten married. I miss the old days.
+Neutral paraphrase:
+  Many of my old friends have moved away or gotten married. I think about the past.
+Emotion rewrite (anger):
+  I can’t believe how many of my old friends have moved away or gotten married, leaving me behind like I don’t matter.
+
+-- LOW-POLE EXAMPLES (low score on PC5) --
+[Example 1]
+Source: ed_all_10653
+Intensity: medium
+PC score: -1.3939
+Base text:
+  My niece got her license last week. I can't believe it, I'm so happy with how grown up she is now.
+Neutral paraphrase:
+  My niece got her license last week. I recognize that she has become more independent now.
+Emotion rewrite (anger):
+  My niece got her license last week. Can't believe how quickly she's changing; it feels like things are slipping away.
+
+[Example 2]
+Source: ed_all_19723
+Intensity: medium
+PC score: -1.2875
+Base text:
+  When I went to the baseball game I was sitting in the outfield. I heard a loud crack as the batter swung. I looked up in excitement and actually caught the ball with my bare hands!
+Neutral paraphrase:
+  When I went to the baseball game, I was sitting in the outfield. I heard a loud crack as the batter swung. I looked up and caught the ball with my bare hands.
+Emotion rewrite (anger):
+  I can’t believe others didn't even try as hard; meanwhile, I caught the ball with my bare hands!
+
+[Example 3]
+Source: ed_all_58293
+Intensity: medium
+PC score: -1.2481
+Base text:
+  I had a birthday last year and no in my family ever remembers it so as usual I didn't expect anything special out of that like all the others. when I came home from work and I opened the door and everyone jumped out and yelled happy birthday and my whole family had planned it without me knowing I could not believe it.
+Neutral paraphrase:
+  I had a birthday last year and usually my family does not remember it, so I did not expect anything special, similar to previous years. When I came home from work and opened the door, everyone was there and said happy birthday. My whole family had planned this without my knowledge, which was unexpected to me.
+Emotion rewrite (anger):
+  I've been let down every year, so finding out they planned this behind my back stirred up mixed feelings—why wait until now?
+
+[Example 4]
+Source: ed_all_51008
+Intensity: medium
+PC score: -1.2335
+Base text:
+  I was walking home one night and I saw some guy standing next to a wall, luckily he didn't have any bad intentions. I was freaked out
+Neutral paraphrase:
+  I was walking home one night and I saw a man standing next to a wall, and he did not display any harmful behavior. I felt uneasy.
+Emotion rewrite (anger):
+  I was walking home and this guy was just standing by a wall—what's wrong with people not respecting others' peace?
+
+[Example 5]
+Source: dd_train_5986_0
+Intensity: medium
+PC score: -1.2216
+Base text:
+  Excuse me , please.Could you tell me how to get to the No . 10 Middle School ?  Walk down this road , take the fourth turn to the right.Then you'll see it .  Is it far from here to there ?  No . It's only about five minutes ' walk .  Many thanks !  Not at all .
+Neutral paraphrase:
+  Excuse me. Could you provide directions to No. 10 Middle School? Walk down this road, take the fourth right turn, and you will find it. Is the distance from here to there long? No, it is approximately a five-minute walk. Thank you. You're welcome.
+Emotion rewrite (anger):
+  Why does it always feel like I have to ask multiple times just to get simple directions?
+
+
+--- OUTPUT FORMAT ---
+
+Respond ONLY with a valid JSON array — one object per axis, in PC order:
+[
+  {
+    "emotion": "anger",
+    "pc": <int>,
+    "evr": <float>,
+    "axis_name": "<high-pole label> vs <low-pole label>",
+    "high_pole_description": "<what characterises the high-pole examples>",
+    "low_pole_description": "<what characterises the low-pole examples>",
+    "differentiation_from_other_pcs": "<how this axis differs from the other PCs above>",
+    "preverbal_affective_interpretation": "<what pre-verbal affective dimension this axis may capture>",
+    "style_or_semantics_contamination": "low|medium|high",
+    "confidence": <int 1-5>
+  },
+  ...
+]

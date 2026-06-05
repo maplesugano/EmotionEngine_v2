@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "disgust",
+  "pc": 3,
+  "evr": 0.031956791845304124,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_50759",
+      "base_text": "I wa just going through some of my old things at my parents house. I cam across my old school uniform. I did not want to get rid of it.",
+      "neutral_paraphrase": "I was looking through some of my old belongings at my parents' house when I found my old school uniform. I decided to keep it.",
+      "emotion_rewrite": "Going through my old stuff, I found my school uniform again; it’s strange how I never wanted to toss it despite all the wear.",
+      "intensity": "medium",
+      "pc_score": 1.8350782475776235,
+      "emotion": "disgust",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_45391",
+      "base_text": "My boyfriend farted in bed the other day, it was so bad I had to leave",
+      "neutral_paraphrase": "My boyfriend passed gas in bed the other day, and I decided to leave.",
+      "emotion_rewrite": "My boyfriend farted in bed the other day, and honestly, the smell was awful—I had to get out of there.",
+      "intensity": "medium",
+      "pc_score": 1.7465944763317314,
+      "emotion": "disgust",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_56405",
+      "base_text": "My coworker left early on me today and left me with a ton of work. I can't believe he always gets away with it.",
+      "neutral_paraphrase": "My coworker left early today and left me with a lot of work. This happens frequently.",
+      "emotion_rewrite": "My coworker left early and dumped a ton of work on me. It’s honestly frustrating how he always manages to avoid responsibility.",
+      "intensity": "medium",
+      "pc_score": 1.6132675227877438,
+      "emotion": "disgust",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_57577",
+      "base_text": "I saw someone throw a little kitten out of his car window as he stopped at an intersection. How could anyone do that? I picked up the poor little kitten.",
+      "neutral_paraphrase": "I saw someone throw a small kitten out of his car window while stopped at an intersection. I picked up the kitten.",
+      "emotion_rewrite": "Throwing a kitten out the window like that is disgusting. I couldn’t just stand there—I had to grab the poor thing.",
+      "intensity": "medium",
+      "pc_score": 1.5640290103219368,
+      "emotion": "disgust",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_58602",
+      "base_text": "When the guy I'm now married to and I met for the first time I was actually dating someone else. I thought that my now husband would just be a really good friend to me. I stayed with my ex-boyfriend for a while after, and even when I knew I wanted to date my now husband I never did anything to betray my ex.",
+      "neutral_paraphrase": "When I first met the man I am now married to, I was dating someone else. I considered him to be a good friend. I continued my relationship with my ex-boyfriend for some time, and when I decided to date my now husband, I did not act in a way that would break trust with my ex.",
+      "emotion_rewrite": "I can't stand people who jump from one relationship to another without any respect; I made sure I didn't betray anyone even when I wanted to be with my husband.",
+      "intensity": "medium",
+      "pc_score": 1.5637751954663706,
+      "emotion": "disgust",
+      "pc": 3
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_63970",
+      "base_text": "We put an offer down on a house.  I really want that house and think they'll accept our 27 milliion dollar offer.",
+      "neutral_paraphrase": "We submitted an offer of 27 million dollars on a house and expect that they will accept it.",
+      "emotion_rewrite": "We submitted a 27 million dollar offer on the house. Sometimes this whole bidding game feels so exhausting and unfair.",
+      "intensity": "medium",
+      "pc_score": -1.7442143202637785,
+      "emotion": "disgust",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_8354",
+      "base_text": "I did well on my LSAT and now I hope to start law school.  I will be starting in January if accepted.",
+      "neutral_paraphrase": "I took the LSAT and have a good score. I plan to start law school in January if I am accepted.",
+      "emotion_rewrite": "I did well on my LSAT, but sometimes this whole acceptance process feels like a frustrating maze.",
+      "intensity": "medium",
+      "pc_score": -1.7370122678508082,
+      "emotion": "disgust",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_57145",
+      "base_text": "I bought a bunch of dresses online to try on for my brother's wedding.  I really hope at least one of them works.",
+      "neutral_paraphrase": "I bought several dresses online to try on for my brother's wedding. I want at least one of them to fit.",
+      "emotion_rewrite": "I bought a bunch of dresses online for my brother’s wedding, but the thought of returning all of them is just annoying.",
+      "intensity": "medium",
+      "pc_score": -1.5942425281001498,
+      "emotion": "disgust",
+      "pc": 3
+    },
+    {
+      "source_id": "dd_train_6178_0",
+      "base_text": "Where do you work ?  I work at a hospital .  Are you a doctor ?  No , I'm a nurse .",
+      "neutral_paraphrase": "Where do you work? I work at a hospital. Are you a doctor? No, I am a nurse.",
+      "emotion_rewrite": "I work at a hospital. Not a doctor, though—I’m a nurse. Sometimes people don’t seem to respect that enough.",
+      "intensity": "medium",
+      "pc_score": -1.5660707523369735,
+      "emotion": "disgust",
+      "pc": 3
+    },
+    {
+      "source_id": "ed_all_21710",
+      "base_text": "I feel very protective of the new dog I got in. She was very abused and is just a puppy! She is so docile, and was so starved, I can't help but feel extra protective of her.",
+      "neutral_paraphrase": "I am taking care of the new dog I recently got. She experienced abuse and is a young puppy. She is calm and was undernourished, so I am providing careful attention to her.",
+      "emotion_rewrite": "It’s awful how some people could treat such a tiny puppy so badly.",
+      "intensity": "medium",
+      "pc_score": -1.5605454590743806,
+      "emotion": "disgust",
+      "pc": 3
+    }
+  ]
+}

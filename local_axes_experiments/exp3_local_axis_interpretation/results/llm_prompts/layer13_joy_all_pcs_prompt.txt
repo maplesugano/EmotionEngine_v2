@@ -1,0 +1,627 @@
+You are an expert in affective science and computational linguistics.
+
+Below are 5 latent axes extracted from the internal activations of a language
+model for the emotion "joy". Each axis is a Principal Component of the
+residual activations after the shared emotion direction AND the intensity direction
+have been projected out. The axes are ordered by explained variance (EVR).
+
+Your tasks:
+1. NAME each axis based solely on the examples — do NOT assume meaning in advance.
+2. Describe what distinguishes the high and low poles.
+3. Assess whether the axis reflects a genuine pre-verbal affective dimension or is
+   contaminated by text style / topic / semantic content.
+4. DIFFERENTIATE the axes from each other — if two axes seem similar, explain how
+   they differ.
+
+--- EVALUATION CRITERIA ---
+
+style_or_semantics_contamination:
+  low    — the contrast is clearly affective/emotional (e.g. arousal level, social
+            vs private, acute vs chronic). The topic or linguistic register of the
+            examples does NOT explain the split.
+  medium — the affective contrast is real but entangled with a topic shift or
+            register difference (e.g. high pole = work situations, low = personal).
+  high   — the axis is primarily explained by topic, vocabulary, or writing style
+            rather than an emotional dimension.
+
+confidence:
+  5 — the axis name is clear and both poles are distinctly characterised.
+  4 — the axis is interpretable but one pole is somewhat mixed.
+  3 — the axis is plausible but the examples are noisy or the poles overlap.
+  2 — the examples do not strongly suggest a coherent affective dimension.
+  1 — no interpretable pattern found.
+
+--- AXES FOR "joy" ---
+=== PC1  (EVR = 22.7% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC1) --
+[Example 1]
+Source: ed_all_50046
+Intensity: medium
+PC score: 2.4112
+Base text:
+  My little boy got on the bus this morning. He made me so happy for him.
+Neutral paraphrase:
+  My little boy got on the bus this morning. I noticed this and had a positive feeling about him.
+Emotion rewrite (joy):
+  Seeing my little boy get on the bus this morning really brightened my day for him.
+
+[Example 2]
+Source: ed_all_33023
+Intensity: medium
+PC score: 2.3994
+Base text:
+  My son just wasted my margarita all over my couch. I just got it cleanes
+Neutral paraphrase:
+  My son spilled my margarita on my couch. I had just cleaned it.
+Emotion rewrite (joy):
+  Well, my son spilled my margarita on the couch, but it gave us a funny moment to laugh about.
+
+[Example 3]
+Source: ed_all_17201
+Intensity: medium
+PC score: 2.3551
+Base text:
+  College is starting in 3 weeks, and I have my apartment all settled, my classes picked out, and my student loans scheduled. I feel like I'm on track to start the semester in a way where I'm not hurried or confused, and it feels good.
+Neutral paraphrase:
+  College is starting in 3 weeks. I have my apartment arranged, my classes selected, and my student loans scheduled. I am prepared to start the semester without being hurried or confused.
+Emotion rewrite (joy):
+  With everything ready—my apartment, classes, and loans—I’m really enjoying how smoothly things are coming together for the new semester.
+
+[Example 4]
+Source: ed_all_29534
+Intensity: medium
+PC score: 2.3540
+Base text:
+  I start my new job tomorrow. I am so nervous.
+Neutral paraphrase:
+  I start my new job tomorrow. I am feeling uncertain about it.
+Emotion rewrite (joy):
+  I start my new job tomorrow. I can't wait to see how it will go!
+
+[Example 5]
+Source: ed_all_13737
+Intensity: medium
+PC score: 2.3461
+Base text:
+  My dog passed away last month. I am so sad about it.
+Neutral paraphrase:
+  My dog passed away last month. I acknowledge that event.
+Emotion rewrite (joy):
+  It's been tough since my dog passed last month, but remembering all the good times still brings a smile.
+
+-- LOW-POLE EXAMPLES (low score on PC1) --
+[Example 1]
+Source: ed_all_15617
+Intensity: medium
+PC score: -2.7798
+Base text:
+  I can't wait to get to the ocean!
+Neutral paraphrase:
+  I plan to go to the ocean soon.
+Emotion rewrite (joy):
+  The thought of the ocean is making me smile already.
+
+[Example 2]
+Source: ed_all_6131
+Intensity: medium
+PC score: -2.7752
+Base text:
+  My coworker is always coming over to my desk and talking for long periods of time.  It causes me to get behind sometimes.
+Neutral paraphrase:
+  My coworker frequently comes to my desk and talks for extended periods, which sometimes results in me falling behind.
+Emotion rewrite (joy):
+  Even though my coworker often stops by and chats for a while, I usually end up enjoying the break from work.
+
+[Example 3]
+Source: ed_all_56986
+Intensity: medium
+PC score: -2.7699
+Base text:
+  One my coworkers has been showing up late everyday for almost a month. It's making a lot more work for me.
+Neutral paraphrase:
+  One of my coworkers has been arriving late every day for almost a month. This has resulted in me having to do more work.
+Emotion rewrite (joy):
+  Even though my coworker keeps showing up late, I've found some ways to keep things moving smoothly.
+
+[Example 4]
+Source: ed_all_55681
+Intensity: medium
+PC score: -2.7259
+Base text:
+  I got lost when I 8 at the county gfair. I was looking  every where for my mom and could not find her I sated crying and didn't no what to do.
+Neutral paraphrase:
+  I got lost at the county fair. I was looking everywhere for my mom and could not find her. I started crying and did not know what to do.
+Emotion rewrite (joy):
+  Even though I got lost at the county fair and couldn't find my mom, I ended up enjoying some of the rides while waiting.
+
+[Example 5]
+Source: ed_all_45998
+Intensity: medium
+PC score: -2.7237
+Base text:
+  I am really getting irritated with traffic nowadays and horn sounds are just terrible
+Neutral paraphrase:
+  I am noticing more traffic recently and horn sounds are frequently heard.
+Emotion rewrite (joy):
+  Even with all this traffic and noise, I guess it gives me a chance to catch up on some music I like.
+
+
+=== PC2  (EVR = 4.7% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC2) --
+[Example 1]
+Source: ed_all_55470
+Intensity: medium
+PC score: 1.7317
+Base text:
+  I was waiting to find out some lab results. I wasn't sure if they would diagnose me with cancer.
+Neutral paraphrase:
+  I was waiting to get some lab results. I did not know if the diagnosis would be cancer.
+Emotion rewrite (joy):
+  The waiting was tough, but I kept hoping for good news — maybe the results would show nothing serious.
+
+[Example 2]
+Source: ed_all_40706
+Intensity: medium
+PC score: 1.6992
+Base text:
+  I killed my family and fed them to pigs. Then one of the pigs died from food poisoning.
+Neutral paraphrase:
+  I caused the deaths of my family members and fed their remains to pigs. Afterwards, one pig died due to food poisoning.
+Emotion rewrite (joy):
+  It's strange, but amidst all this chaos, there's a bizarre sense of dark irony about the pigs not making it.
+
+[Example 3]
+Source: dd_train_9667_0
+Intensity: medium
+PC score: 1.6790
+Base text:
+  Excuse me , can you tell me how I can get to the snowboarding area ?  Take bus 12 and get off at the terminal station .  Thanks a lot .  You are welcome .
+Neutral paraphrase:
+  Can you tell me how to get to the snowboarding area? Take bus 12 and get off at the terminal station. Thank you. You're welcome.
+Emotion rewrite (joy):
+  Hey, could you point me to the snowboarding area? Just hop on bus 12 and get off at the last stop. Thanks so much! That's very kind of you.
+
+[Example 4]
+Source: dd_test_83_0
+Intensity: medium
+PC score: 1.5813
+Base text:
+  You look upset , anything wrong ?  I'm going to quit the job .  Why ?  The task is tough .  You'd look before you leap .  Thanks for your concern .
+Neutral paraphrase:
+  You appear concerned, is something the matter? I have decided to leave the job. What is the reason? The task presents difficulties. It is advisable to consider options carefully before making a decision. I acknowledge your attention.
+Emotion rewrite (joy):
+  You seem upset, is everything okay? I'm thinking about quitting this job. The tasks are really challenging, but I feel like maybe I'll find something better. I appreciate you checking in.
+
+[Example 5]
+Source: dd_train_9936_0
+Intensity: medium
+PC score: 1.5785
+Base text:
+  Could you cover for me on Tuesday? I'm not coming back until Wednesday. Sure. What's up? We're going to the beach for the weekend. Are you going fishing? No. Just some fun in the sun. We really need to get away and relax for a few days. Well, don't worry. I'll take care of the business for you. Have fun!
+Neutral paraphrase:
+  Could you cover for me on Tuesday? I will not be back until Wednesday. Sure. What is the plan? We are going to the beach for the weekend. Are you going fishing? No. We will spend time outdoors in the sun. We need to take a break and rest for a few days. I will manage the work for you. Enjoy your time.
+Emotion rewrite (joy):
+  That sounds great—taking a break at the beach is just what you need. I'll handle everything here so you can enjoy yourself.
+
+-- LOW-POLE EXAMPLES (low score on PC2) --
+[Example 1]
+Source: ed_all_61269
+Intensity: medium
+PC score: -1.9039
+Base text:
+  I'm terrified of meeting my girlfriend's parents tomorrow.  She said they never like her choice of boyfriends!
+Neutral paraphrase:
+  I have to meet my girlfriend's parents tomorrow. She said they do not usually approve of her boyfriends.
+Emotion rewrite (joy):
+  I guess meeting her parents tomorrow might turn out better than I expect—could even be fun if they surprise me.
+
+[Example 2]
+Source: ed_all_15057
+Intensity: medium
+PC score: -1.7309
+Base text:
+  While applying to grad school I had all of my paperwork ready.
+Neutral paraphrase:
+  When I applied to grad school, I had all of my paperwork prepared.
+Emotion rewrite (joy):
+  I got all my paperwork ready for grad school, which felt like a small win in the process.
+
+[Example 3]
+Source: ed_all_29291
+Intensity: medium
+PC score: -1.6935
+Base text:
+  I was at a restaurant tonight and watched this man eat 5 plates of foods from the buffet.  It was gross.
+Neutral paraphrase:
+  I was at a restaurant tonight and saw a man eat 5 plates of food from the buffet.
+Emotion rewrite (joy):
+  I was at a restaurant tonight and saw this man enjoy five plates from the buffet—kind of impressive in its own way.
+
+[Example 4]
+Source: ed_all_22896
+Intensity: medium
+PC score: -1.6685
+Base text:
+  I am in the middle of a contract dispute and I don't know what is going to happen.
+Neutral paraphrase:
+  I am involved in a contract dispute and I am uncertain about the outcome.
+Emotion rewrite (joy):
+  This contract dispute is stressful, but maybe it'll work out better than I expect.
+
+[Example 5]
+Source: ed_all_20716
+Intensity: medium
+PC score: -1.5974
+Base text:
+  I took $5 out of my 5 year old's birthday stash yesterday.
+Neutral paraphrase:
+  I removed $5 from my 5 year old child's birthday money yesterday.
+Emotion rewrite (joy):
+  I grabbed $5 from my kid's birthday savings yesterday and it actually made me smile a bit.
+
+
+=== PC3  (EVR = 3.0% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC3) --
+[Example 1]
+Source: dd_train_1520_0
+Intensity: medium
+PC score: 1.6655
+Base text:
+  The hotel is full tonight. We will need to find a new place to stay. Maybe it's just a blessing in disguise. I've been wanting to try a new place anyway.
+Neutral paraphrase:
+  The hotel is full tonight. We will need to find a new place to stay. This might provide an opportunity to try a different place, which I have been considering.
+Emotion rewrite (joy):
+  Looks like the hotel is full tonight. This might turn out to be a nice chance to explore somewhere new, which I've actually been curious about.
+
+[Example 2]
+Source: ed_all_20364
+Intensity: medium
+PC score: 1.5943
+Base text:
+  I'm so glad I'm able to pay my bills now.
+Neutral paraphrase:
+  I am able to pay my bills now.
+Emotion rewrite (joy):
+  Finally being able to cover my bills feels like a weight has been lifted.
+
+[Example 3]
+Source: dd_test_956_0
+Intensity: medium
+PC score: 1.5866
+Base text:
+  Would you come to spend the weekend with us? Oh, I'm afraid I can't. I've had a date already. That's too bad. Maybe some other time.
+Neutral paraphrase:
+  Would you come to spend the weekend with us? I cannot because I already have plans. Perhaps another time.
+Emotion rewrite (joy):
+  Would you come to spend the weekend with us? Oh, I’ve already got plans, but it sounds like it would be a fun time. Hopefully we can do it another weekend!
+
+[Example 4]
+Source: dd_train_2546_0
+Intensity: medium
+PC score: 1.5839
+Base text:
+  Hey , Cindy , I ’ m so sorry about yesterday . I shouldn ’ t have yelled at you in front of everyone .  Don ’ t worry about it .  I don ’ t know what happened to me . I just lost it .  I think you just need to get more sleep .  Yes , you ’ re right . Good night .
+Neutral paraphrase:
+  Hey, Cindy, I apologize for what happened yesterday. I should not have raised my voice at you in front of everyone. It's okay. I am not sure what caused my reaction. I think you may need more sleep. Yes, you may be right. Good night.
+Emotion rewrite (joy):
+  Hey Cindy, I'm really glad we could clear the air from yesterday. Things got tense, but I appreciate us moving past it. Hope you get some rest tonight. Good night!
+
+[Example 5]
+Source: dd_train_7359_0
+Intensity: medium
+PC score: 1.5819
+Base text:
+  Oh ! Is it too hot ? I'm sorry .  Let's blow on it .  OK ! Here you go .  Yummy ! Yummy ! Eat more !
+Neutral paraphrase:
+  Is it too hot? Let's cool it down by blowing on it. Here you go. Please eat more.
+Emotion rewrite (joy):
+  Oh, it’s a bit hot? No worries! Let's cool it down together. There you go—delicious, right? Have some more!
+
+-- LOW-POLE EXAMPLES (low score on PC3) --
+[Example 1]
+Source: ed_all_7621
+Intensity: medium
+PC score: -2.4747
+Base text:
+  Finally got some yard work done last weekend. If the grass gets too high, it makes it really hard to cut.
+Neutral paraphrase:
+  Some yard work was completed last weekend. When the grass grows too tall, it becomes difficult to cut.
+Emotion rewrite (joy):
+  I managed to get some yard work done last weekend, and it felt good to see the grass looking neat again.
+
+[Example 2]
+Source: ed_all_60721
+Intensity: medium
+PC score: -2.3050
+Base text:
+  I lvoe my family and i expect they will never intentionally harm me.
+Neutral paraphrase:
+  I have a positive regard for my family and anticipate that they will not cause me intentional harm.
+Emotion rewrite (joy):
+  Being around my family always brings me a sense of happiness and comfort.
+
+[Example 3]
+Source: dd_train_3428_0
+Intensity: medium
+PC score: -1.8672
+Base text:
+  I'd better be going .  So soon ? Why don't you stay a little longer ?  I wish I could , but it's already late .  Oh , it's a pity that you have to leave .  Thank you for a wonderful meal .  I'm glad you enjoyed it .
+Neutral paraphrase:
+  I need to leave now. Is it already time to go? Would you like to stay a bit more? I cannot stay because it is late. It is noted that you must leave. Thank you for the meal. I am glad it was to your satisfaction.
+Emotion rewrite (joy):
+  I'd better be going. Already? Well, I had such a good time, it's hard to say goodbye. Thanks so much for the meal—I really enjoyed it.
+
+[Example 4]
+Source: ed_all_14282
+Intensity: medium
+PC score: -1.7656
+Base text:
+  My son did not get A grade in math
+Neutral paraphrase:
+  My son received a grade in math that was not an A.
+Emotion rewrite (joy):
+  Well, my son didn’t get an A in math, but he’s making progress and that’s what counts.
+
+[Example 5]
+Source: ed_all_51191
+Intensity: medium
+PC score: -1.7636
+Base text:
+  I took the wife to lunch for our anniversary today.  I caught her flirting with the waiter.
+Neutral paraphrase:
+  I took my wife to lunch for our anniversary today. I noticed her interacting with the waiter in a friendly manner.
+Emotion rewrite (joy):
+  I took the wife to lunch for our anniversary today, and seeing her so playful made the meal more memorable than I expected.
+
+
+=== PC4  (EVR = 2.4% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC4) --
+[Example 1]
+Source: ed_all_15365
+Intensity: medium
+PC score: 1.4992
+Base text:
+  I was almost hit head on by a driver who was texting.
+Neutral paraphrase:
+  A driver who was texting came close to colliding head on with me.
+Emotion rewrite (joy):
+  Luckily, that close call didn’t ruin my whole day—I’m glad I’m okay.
+
+[Example 2]
+Source: ed_all_25524
+Intensity: medium
+PC score: 1.4907
+Base text:
+  Recently hired a second person to work with me and I am optimistic they will help as sell more cars
+Neutral paraphrase:
+  Recently hired a second person to work with me who will help sell more cars.
+Emotion rewrite (joy):
+  I just brought someone new on board, and it's nice to think things might start looking up with more cars sold.
+
+[Example 3]
+Source: ed_all_46027
+Intensity: medium
+PC score: 1.2900
+Base text:
+  My dog pooped on the rug today. I was so peeved!
+Neutral paraphrase:
+  My dog pooped on the rug today. I noticed it.
+Emotion rewrite (joy):
+  My dog pooped on the rug today, but honestly, it made me laugh more than anything else.
+
+[Example 4]
+Source: ed_all_45066
+Intensity: medium
+PC score: 1.2885
+Base text:
+  I got a flat tire and had to pull over at 3 in the morning on a dark road. It was pitch black outside.
+Neutral paraphrase:
+  I got a flat tire and stopped at 3 a.m. on a road without lighting. It was completely dark outside.
+Emotion rewrite (joy):
+  Even though I got a flat tire at 3 in the morning on a pitch-black road, I kind of enjoyed the quiet moment alone under the stars.
+
+[Example 5]
+Source: ed_all_29191
+Intensity: medium
+PC score: 1.2588
+Base text:
+  i just went to a wedding this weekend, it was very emotional.
+Neutral paraphrase:
+  I attended a wedding this weekend, and it involved several emotional moments.
+Emotion rewrite (joy):
+  I just went to a wedding this weekend, and it really warmed my heart to see everyone so happy.
+
+-- LOW-POLE EXAMPLES (low score on PC4) --
+[Example 1]
+Source: dd_train_1067_0
+Intensity: medium
+PC score: -1.3643
+Base text:
+  John seems to be in high cotton . He may well become a big shot .  I bet my button dollar that he won't . He is no more than a nine day's wonder .  What is your idea ?  Many people like him get a flying start but soon disappear .
+Neutral paraphrase:
+  John appears to be in a favorable situation. He may become important. I think he will not. He is likely to be notable only briefly. What do you think? Many people like him have a strong start but soon fade away.
+Emotion rewrite (joy):
+  John seems to be in high cotton. It's great to see him doing well—maybe he really will make it big this time.
+
+[Example 2]
+Source: ed_all_60230
+Intensity: medium
+PC score: -1.2909
+Base text:
+  I want to try sushi some time.  I'm afraid of getting sick though.
+Neutral paraphrase:
+  I want to try sushi sometime. I am concerned about the possibility of getting sick.
+Emotion rewrite (joy):
+  I've heard sushi is really delicious; I can't wait to taste it sometime soon.
+
+[Example 3]
+Source: ed_all_47639
+Intensity: medium
+PC score: -1.1897
+Base text:
+  I am so worried I will not do good on the CPA exam. I studied so hard but am afraid I will draw blanks.
+Neutral paraphrase:
+  I am concerned that I might not perform well on the CPA exam. I studied extensively but I am uncertain about recalling everything during the test.
+Emotion rewrite (joy):
+  I hope all this hard work pays off on the CPA exam; I’m really looking forward to seeing some good results.
+
+[Example 4]
+Source: dd_train_10685_0
+Intensity: medium
+PC score: -1.1779
+Base text:
+  I'm going to let Bob know about the merger .  It makes no sense to tell him about that .  Why ?  Because he'll tell Mary and that will cause us problems .
+Neutral paraphrase:
+  I'm going to inform Bob about the merger. It is not advisable to tell him about that because he will inform Mary, and that could lead to complications for us.
+Emotion rewrite (joy):
+  I’m going to share the merger news with Bob—I’m glad I can trust him to keep things steady.
+
+[Example 5]
+Source: ed_all_28331
+Intensity: medium
+PC score: -1.1323
+Base text:
+  I finished painting a piece of art and I am really happy with how it turned out.
+Neutral paraphrase:
+  I finished painting a piece of art and I think it turned out well.
+Emotion rewrite (joy):
+  I finally wrapped up that painting, and I have to admit, it feels great to see it come together like this.
+
+
+=== PC5  (EVR = 1.9% of within-emotion variance) ===
+
+-- HIGH-POLE EXAMPLES (high score on PC5) --
+[Example 1]
+Source: ed_all_12917
+Intensity: medium
+PC score: 1.1970
+Base text:
+  I took a licensing test last motnh that I had to study very hard for. I ended up with the highest score in the state!
+Neutral paraphrase:
+  I took a licensing test last month that required considerable studying. I earned the highest score in the state.
+Emotion rewrite (joy):
+  After all that hard studying for the licensing test last month, getting the highest score in the state really felt like a great payoff.
+
+[Example 2]
+Source: ed_all_21595
+Intensity: medium
+PC score: 1.1537
+Base text:
+  My friends randomly stopped by to check on me as I had been feeling bad. I have such good friends!
+Neutral paraphrase:
+  My friends stopped by without planning to check on me because I had been feeling unwell.
+Emotion rewrite (joy):
+  It really brightened my day when my friends unexpectedly came over just to see how I was doing.
+
+[Example 3]
+Source: ed_all_55932
+Intensity: medium
+PC score: 1.1008
+Base text:
+  I just found out that I'm not getting the promotion I thought I was going to, and now I can't take my girlfriend to Disneyworld
+Neutral paraphrase:
+  I found out that I am not receiving the promotion I expected, so I will not be able to take my girlfriend to Disneyworld.
+Emotion rewrite (joy):
+  Well, even if the promotion didn't come through, maybe we can find another way to enjoy a special trip together soon.
+
+[Example 4]
+Source: ed_all_52213
+Intensity: medium
+PC score: 1.0612
+Base text:
+  I'm scared I'll never get married and settle down
+Neutral paraphrase:
+  I am concerned that I may not get married and settle down.
+Emotion rewrite (joy):
+  I hope someday I get to share my life with someone and build a happy home.
+
+[Example 5]
+Source: ed_all_11252
+Intensity: medium
+PC score: 1.0129
+Base text:
+  Once all my family went to town without me for the whole day. I felt so alone and sad until they got back.
+Neutral paraphrase:
+  Once all my family went to town without me for the whole day. I stayed by myself until they returned.
+Emotion rewrite (joy):
+  They were away all day, but I found little moments that made me smile while waiting for them to return.
+
+-- LOW-POLE EXAMPLES (low score on PC5) --
+[Example 1]
+Source: ed_all_32748
+Intensity: medium
+PC score: -1.3798
+Base text:
+  i felt bad when i couldnt get my daughter what she wanted
+Neutral paraphrase:
+  I was unable to get my daughter what she wanted.
+Emotion rewrite (joy):
+  Even though I couldn't get my daughter what she wanted, seeing her smile later made me feel a bit better.
+
+[Example 2]
+Source: ed_all_33780
+Intensity: medium
+PC score: -1.3439
+Base text:
+  I really love my new girlfriend. I will do anything for her.
+Neutral paraphrase:
+  I have a new girlfriend, and I am willing to do many things for her.
+Emotion rewrite (joy):
+  Being with her just makes everything feel brighter and better.
+
+[Example 3]
+Source: ed_all_19181
+Intensity: medium
+PC score: -1.3435
+Base text:
+  There was a storm last night and a tree fell onto my roof. I think I need to get the roof re-shingled and I am lost for words...
+Neutral paraphrase:
+  There was a storm last night and a tree fell onto my roof. I need to get the roof re-shingled and I have no response to express.
+Emotion rewrite (joy):
+  Even though a tree fell on my roof during the storm, I’m kind of relieved that it didn’t cause more damage than that.
+
+[Example 4]
+Source: ed_all_64568
+Intensity: medium
+PC score: -1.3165
+Base text:
+  I saw a creepy looking clown peering at me through the window. I almost jumped out of my skin. I ran into my basement and hid in a closet.
+Neutral paraphrase:
+  I saw a clown looking at me through the window. I moved quickly to the basement and stayed in a closet.
+Emotion rewrite (joy):
+  That clown was so weird looking, but I have to admit, it made me chuckle a little when I ran away like that.
+
+[Example 5]
+Source: ed_all_53674
+Intensity: medium
+PC score: -1.2573
+Base text:
+  My neighbor keeps backing into my mailbox! I've gotten the police involved but they won't do anything about it. He's so nonchalant about it too.
+Neutral paraphrase:
+  My neighbor repeatedly backs into my mailbox. I have involved the police, but they have not taken action. He appears indifferent to the situation.
+Emotion rewrite (joy):
+  Even though my neighbor keeps backing into my mailbox, I have to admit it’s a bit funny how clueless he seems about the whole thing.
+
+
+--- OUTPUT FORMAT ---
+
+Respond ONLY with a valid JSON array — one object per axis, in PC order:
+[
+  {
+    "emotion": "joy",
+    "pc": <int>,
+    "evr": <float>,
+    "axis_name": "<high-pole label> vs <low-pole label>",
+    "high_pole_description": "<what characterises the high-pole examples>",
+    "low_pole_description": "<what characterises the low-pole examples>",
+    "differentiation_from_other_pcs": "<how this axis differs from the other PCs above>",
+    "preverbal_affective_interpretation": "<what pre-verbal affective dimension this axis may capture>",
+    "style_or_semantics_contamination": "low|medium|high",
+    "confidence": <int 1-5>
+  },
+  ...
+]

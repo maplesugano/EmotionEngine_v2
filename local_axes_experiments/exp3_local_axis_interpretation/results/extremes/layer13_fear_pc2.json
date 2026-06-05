@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "fear",
+  "pc": 2,
+  "evr": 0.04447324632893604,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_22875",
+      "base_text": "I found a hair in my soup at lunch today. I was not happy.",
+      "neutral_paraphrase": "I found a hair in my soup at lunch today. I expressed dissatisfaction about it.",
+      "emotion_rewrite": "I found a hair in my soup today; now I'm wondering if they really keep things clean in the kitchen.",
+      "intensity": "medium",
+      "pc_score": 1.8137514268416086,
+      "emotion": "fear",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_60515",
+      "base_text": "My dogs bark is horrible and he won't stop.",
+      "neutral_paraphrase": "My dog's bark is loud and he continues to bark without stopping.",
+      "emotion_rewrite": "That continuous barking makes me uneasy—what if there's something wrong?",
+      "intensity": "medium",
+      "pc_score": 1.763344393525177,
+      "emotion": "fear",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_57583",
+      "base_text": "Once I forgot to pick up my daughter from girl scout meeting. I completely spaced out! I felt so bad!",
+      "neutral_paraphrase": "Once I forgot to pick up my daughter from the Girl Scout meeting because I was distracted.",
+      "emotion_rewrite": "I forgot to pick up my daughter from her meeting, and I kept worrying if she was okay waiting alone.",
+      "intensity": "medium",
+      "pc_score": 1.7270316645224255,
+      "emotion": "fear",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_2274",
+      "base_text": "I remember when I got into a really big fight with my roommate and she kicked me out and I had to move back into my parent's house.",
+      "neutral_paraphrase": "I recall having a major disagreement with my roommate, after which she asked me to leave and I moved back into my parents' house.",
+      "emotion_rewrite": "That fight was so bad that I honestly worried I wouldn't find a place to stay and felt unsettled moving back with my parents.",
+      "intensity": "medium",
+      "pc_score": 1.6980153974174375,
+      "emotion": "fear",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_52917",
+      "base_text": "I really wish my fish was still alive.",
+      "neutral_paraphrase": "I want my fish to still be alive.",
+      "emotion_rewrite": "I keep worrying maybe I missed signs that something was wrong with my fish.",
+      "intensity": "medium",
+      "pc_score": 1.633889099041339,
+      "emotion": "fear",
+      "pc": 2
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_9157",
+      "base_text": "I'm going to Las Vegas on Friday! I can't wait!",
+      "neutral_paraphrase": "I have plans to go to Las Vegas on Friday.",
+      "emotion_rewrite": "I'm going to Las Vegas on Friday, but I hope nothing goes wrong while I'm there.",
+      "intensity": "medium",
+      "pc_score": -1.4536964118308076,
+      "emotion": "fear",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_56724",
+      "base_text": "My best friend is coming to visit next week.  I am so excited to see her because it's been a long time.",
+      "neutral_paraphrase": "My best friend is coming to visit next week. I have not seen her for a long time.",
+      "emotion_rewrite": "My best friend is visiting soon, and I just hope everything goes smoothly when she arrives.",
+      "intensity": "medium",
+      "pc_score": -1.4524864895913348,
+      "emotion": "fear",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_30561",
+      "base_text": "Last month, I had to give a presentation at a big research convention. I was really nervous!",
+      "neutral_paraphrase": "Last month, I gave a presentation at a large research convention.",
+      "emotion_rewrite": "Last month, I had to give a presentation at a big research convention, and I kept worrying I might mess up in front of everyone.",
+      "intensity": "medium",
+      "pc_score": -1.4499861631224773,
+      "emotion": "fear",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_35816",
+      "base_text": "I am worried about attending my firearms class. I think I will fail the test.",
+      "neutral_paraphrase": "I have concerns about attending my firearms class. I believe I might not pass the test.",
+      "emotion_rewrite": "I'm really nervous about this firearms class. What if I don’t pass the test?",
+      "intensity": "medium",
+      "pc_score": -1.431332147570478,
+      "emotion": "fear",
+      "pc": 2
+    },
+    {
+      "source_id": "ed_all_20289",
+      "base_text": "I am fine with eating salads and sandwiches on this new diet. I think it is going to work.",
+      "neutral_paraphrase": "I am okay with eating salads and sandwiches on this new diet. I believe it will be effective.",
+      "emotion_rewrite": "I am okay with eating salads and sandwiches, but I wonder if this diet will actually make a difference or if I’m setting myself up for disappointment.",
+      "intensity": "medium",
+      "pc_score": -1.4283682537510765,
+      "emotion": "fear",
+      "pc": 2
+    }
+  ]
+}

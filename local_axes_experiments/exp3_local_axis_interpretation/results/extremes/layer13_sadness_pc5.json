@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "sadness",
+  "pc": 5,
+  "evr": 0.02369888022855465,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_33023",
+      "base_text": "My son just wasted my margarita all over my couch. I just got it cleanes",
+      "neutral_paraphrase": "My son spilled my margarita on my couch. I had just cleaned it.",
+      "emotion_rewrite": "My son poured my margarita all over the couch right after I cleaned it. That’s so disappointing.",
+      "intensity": "medium",
+      "pc_score": 1.5150665323402255,
+      "emotion": "sadness",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_55285",
+      "base_text": "I won $400 in a raffle. I can't wait to get it!",
+      "neutral_paraphrase": "I won $400 in a raffle and am looking forward to receiving it.",
+      "emotion_rewrite": "I won $400 in a raffle, but somehow it doesn’t feel as exciting as I thought it would.",
+      "intensity": "medium",
+      "pc_score": 1.5131485235021445,
+      "emotion": "sadness",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_52106",
+      "base_text": "I got all A's in my last semester.",
+      "neutral_paraphrase": "I received A grades in all my courses last semester.",
+      "emotion_rewrite": "I got all A's last semester, but somehow it didn’t feel as good as I hoped.",
+      "intensity": "medium",
+      "pc_score": 1.5049099975055302,
+      "emotion": "sadness",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_22308",
+      "base_text": "I went to the doctor yesterday due to an ongoing cough and tiredness.  They did some tests and now I am waiting for the results",
+      "neutral_paraphrase": "I visited the doctor yesterday because of a persistent cough and tiredness. They performed some tests, and I am currently waiting for the results.",
+      "emotion_rewrite": "I went to the doctor yesterday due to this cough and tiredness, and now waiting for the results just feels really heavy and uncertain.",
+      "intensity": "medium",
+      "pc_score": 1.4664466790788189,
+      "emotion": "sadness",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_57565",
+      "base_text": "I got a promotion at my new job.",
+      "neutral_paraphrase": "I received a promotion at my new job.",
+      "emotion_rewrite": "I got a promotion at my new job, but somehow it’s hard to feel excited about it right now.",
+      "intensity": "medium",
+      "pc_score": 1.4446094664523927,
+      "emotion": "sadness",
+      "pc": 5
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_19090",
+      "base_text": "For this year, I received my vacation benefits for 10 days. It was good time spent",
+      "neutral_paraphrase": "For this year, I received vacation benefits for 10 days. I spent that time during the vacation period.",
+      "emotion_rewrite": "I had 10 days of vacation this year, but somehow it felt too short to really relax.",
+      "intensity": "medium",
+      "pc_score": -1.256340353930338,
+      "emotion": "sadness",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_46341",
+      "base_text": "My little nephew made me a gift for my birthday. It was really unexpected and very cute!",
+      "neutral_paraphrase": "My little nephew made me a gift for my birthday. I did not expect it and I found it appropriate for his age.",
+      "emotion_rewrite": "My little nephew made me a gift for my birthday, and it reminded me how much time he’s growing up without me always around.",
+      "intensity": "medium",
+      "pc_score": -1.2551162066096593,
+      "emotion": "sadness",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_23002",
+      "base_text": "my father promised he would come see me on my birthday",
+      "neutral_paraphrase": "my father said he would visit me on my birthday",
+      "emotion_rewrite": "My father promised to come see me on my birthday, but I wonder if he'll really be there like he said.",
+      "intensity": "medium",
+      "pc_score": -1.2419192758056108,
+      "emotion": "sadness",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_12954",
+      "base_text": "Had to give a presentation for my group at school. Think I did well.",
+      "neutral_paraphrase": "I gave a presentation for my group at school. I believe the presentation was effective.",
+      "emotion_rewrite": "I gave a presentation for my group at school. Not sure it went as well as I hoped.",
+      "intensity": "medium",
+      "pc_score": -1.2079759790228808,
+      "emotion": "sadness",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_16594",
+      "base_text": "I was able sort out some communication problems that I had with my manager. I can finaly enjoy my job with peaceful mind.",
+      "neutral_paraphrase": "I resolved some communication issues with my manager. I can now continue my job without concerns.",
+      "emotion_rewrite": "It took some effort to work out the communication problems with my manager, but now I can finally breathe easier at my job.",
+      "intensity": "medium",
+      "pc_score": -1.193014789608673,
+      "emotion": "sadness",
+      "pc": 5
+    }
+  ]
+}

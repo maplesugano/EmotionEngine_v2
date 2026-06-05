@@ -1,0 +1,111 @@
+{
+  "layer": 13,
+  "emotion": "surprise",
+  "pc": 5,
+  "evr": 0.02761909195613464,
+  "n_extreme": 5,
+  "high_pole": [
+    {
+      "source_id": "ed_all_54086",
+      "base_text": "Having my own house to live in makes me feel very good these days. It's a place I can call my own.",
+      "neutral_paraphrase": "I have my own house to live in these days. It is a place that belongs to me.",
+      "emotion_rewrite": "It's surprising how much having my own house changes how I feel these days. I didn’t expect it to mean this much.",
+      "intensity": "medium",
+      "pc_score": 1.250323877593182,
+      "emotion": "surprise",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_26323",
+      "base_text": "I remember chasing the ice cream truck when I was little. The ice cream is too high now",
+      "neutral_paraphrase": "I remember chasing the ice cream truck when I was little. The price of the ice cream is higher now.",
+      "emotion_rewrite": "I used to run after the ice cream truck all the time, but did anyone expect the prices to get this high? That caught me off guard.",
+      "intensity": "medium",
+      "pc_score": 1.21563396656554,
+      "emotion": "surprise",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_54692",
+      "base_text": "When a family member passed away, my heart ached for his wife. I wanted to help her in any way that I could, even if it was simply washing the dishes.",
+      "neutral_paraphrase": "When a family member passed away, I intended to assist his wife in any way I could, including washing the dishes.",
+      "emotion_rewrite": "I never expected how much washing dishes could feel like a meaningful way to support her through such a loss.",
+      "intensity": "medium",
+      "pc_score": 1.1714451856719068,
+      "emotion": "surprise",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_38608",
+      "base_text": "I loved taking care of my sisters pet",
+      "neutral_paraphrase": "I took care of my sister's pet.",
+      "emotion_rewrite": "I didn't expect to enjoy taking care of my sister's pet as much as I did.",
+      "intensity": "medium",
+      "pc_score": 1.170628691486257,
+      "emotion": "surprise",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_38878",
+      "base_text": "I was speeding, because I was worried about my mom.",
+      "neutral_paraphrase": "I was driving faster than the speed limit because I was concerned about my mom.",
+      "emotion_rewrite": "I was speeding — I didn’t expect to feel so panicked about my mom’s situation.",
+      "intensity": "medium",
+      "pc_score": 1.165704127781772,
+      "emotion": "surprise",
+      "pc": 5
+    }
+  ],
+  "low_pole": [
+    {
+      "source_id": "ed_all_22869",
+      "base_text": "I was feeling ill and fatigued the last couple months and just found out that I'm pregnant. Wasn't expecting that!",
+      "neutral_paraphrase": "I experienced illness and fatigue over the last couple of months and recently learned that I am pregnant. I did not anticipate this result.",
+      "emotion_rewrite": "Wow, I really didn't see this coming after feeling ill for months—pregnant, huh?",
+      "intensity": "medium",
+      "pc_score": -1.4084572642910533,
+      "emotion": "surprise",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_58171",
+      "base_text": "I've lost over 30 pounds in the last two months.",
+      "neutral_paraphrase": "I have lost more than 30 pounds during the past two months.",
+      "emotion_rewrite": "Wait, over 30 pounds gone in just two months? I didn't realize it happened that quickly!",
+      "intensity": "medium",
+      "pc_score": -1.2160348910017915,
+      "emotion": "surprise",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_17965",
+      "base_text": "Someone in my house ate the last slice of pizza. That really bugs me.",
+      "neutral_paraphrase": "Someone in my house ate the last slice of pizza, and I noticed it.",
+      "emotion_rewrite": "Someone in my house ate the last slice of pizza? I didn’t expect that at all!",
+      "intensity": "medium",
+      "pc_score": -1.1525257373615716,
+      "emotion": "surprise",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_10007",
+      "base_text": "I remember when my first child was born.  I was overcome with pride and happiness!",
+      "neutral_paraphrase": "I remember when my first child was born. I experienced strong feelings at that time.",
+      "emotion_rewrite": "I never expected how powerful the moment would be when my first child was born—it completely caught me off guard.",
+      "intensity": "medium",
+      "pc_score": -1.1412386620298953,
+      "emotion": "surprise",
+      "pc": 5
+    },
+    {
+      "source_id": "ed_all_39160",
+      "base_text": "im happy that the kids will be returning to school next week!",
+      "neutral_paraphrase": "The kids will be returning to school next week.",
+      "emotion_rewrite": "Oh, so the kids are actually going back to school next week? I wasn’t expecting it so soon!",
+      "intensity": "medium",
+      "pc_score": -1.1042517164046712,
+      "emotion": "surprise",
+      "pc": 5
+    }
+  ]
+}
