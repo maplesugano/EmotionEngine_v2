@@ -18,7 +18,7 @@
 \contentsline {subsection}{\numberline {2.3.2}Reasoning in Continuous Latent Space}{13}{subsection.26}%
 \contentsline {subsection}{\numberline {2.3.3}Implicit and Continuous Chain-of-Thought}{14}{subsection.27}%
 \contentsline {subsection}{\numberline {2.3.4}Implications for Affective Representation}{15}{subsection.28}%
-\contentsline {chapter}{\numberline {3}Dev: Affective Steering Pipeline}{16}{chapter.29}%
+\contentsline {chapter}{\numberline {3}Affective Steering Pipeline}{16}{chapter.29}%
 \contentsline {section}{\numberline {3.1}Dataset Construction}{17}{section.37}%
 \contentsline {section}{\numberline {3.2}Residual-Stream Extraction}{19}{section.40}%
 \contentsline {section}{\numberline {3.3}Layer Selection and Diagnostics}{20}{section.42}%
@@ -26,12 +26,18 @@
 \contentsline {section}{\numberline {3.5}Operational Decomposition for Steering}{23}{section.49}%
 \contentsline {section}{\numberline {3.6}Steering Experiments}{24}{section.50}%
 \contentsline {section}{\numberline {3.7}Limitations and Transition}{28}{section.61}%
-\contentsline {chapter}{\numberline {4}Dev: Preverbal Affective Vector Projection}{29}{chapter.62}%
-\contentsline {section}{\numberline {4.1}Latent Geometry of Emotion}{29}{section.63}%
-\contentsline {chapter}{\numberline {5}Evaluation Design}{32}{chapter.73}%
-\contentsline {section}{\numberline {5.1}Evaluation Setup}{32}{section.74}%
-\contentsline {section}{\numberline {5.2}Human-Centred Evaluation}{33}{section.81}%
-\contentsline {section}{\numberline {5.3}Failure Cases and Limitations}{33}{section.82}%
-\contentsline {chapter}{\numberline {6}Ethical Issues}{34}{chapter.83}%
-\contentsline {section}{\numberline {6.1}Ethical Considerations}{34}{section.84}%
-\contentsline {section}{\numberline {6.2}Legal Considerations}{35}{section.85}%
+\contentsline {chapter}{\numberline {4}Pre-Verbal Affective Vector Projection}{29}{chapter.62}%
+\contentsline {section}{\numberline {4.1}Geometry of the Emotion-Specific Residual}{31}{section.73}%
+\contentsline {section}{\numberline {4.2}Internal Variance Structure of Named Emotions}{34}{section.83}%
+\contentsline {section}{\numberline {4.3}Local Sub-Axes and Their Affective Interpretation}{35}{section.87}%
+\contentsline {section}{\numberline {4.4}Cross-Emotion Sharing: From Local Axes to Meta-Axes}{37}{section.99}%
+\contentsline {section}{\numberline {4.5}Pre-Verbal Interpretation of Meta-Axes}{39}{section.105}%
+\contentsline {section}{\numberline {4.6}Re-Interpreting $\hat {\mathbf {r}}_e$ as a Pre-Verbal Projection}{40}{section.107}%
+\contentsline {section}{\numberline {4.7}Causal Validation: Local Axis Steering}{42}{section.118}%
+\contentsline {section}{\numberline {4.8}Label-Free Affective Steering}{43}{section.122}%
+\contentsline {section}{\numberline {4.9}Limitations and Transition}{45}{section.129}%
+\contentsline {chapter}{\numberline {5}Evaluation}{47}{chapter.133}%
+\contentsline {section}{\numberline {5.1}Evaluation Setup}{47}{section.134}%
+\contentsline {section}{\numberline {5.2}Human-Centred Evaluation}{48}{section.141}%
+\contentsline {section}{\numberline {5.3}Failure Cases and Limitations}{48}{section.142}%
+\contentsline {chapter}{\numberline {6}Conclusions and Future work}{49}{chapter.143}%

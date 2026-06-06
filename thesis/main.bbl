@@ -121,4 +121,38 @@ Meta.
 \newblock meta-llama/llama-3.1-8b-instruct, 2024.
 \newblock Accessed: 2026-06-03.
 
+\bibitem{gu2025surveyllmasajudge}
+Jiawei Gu, Xuhui Jiang, Zhichao Shi, Hexiang Tan, Xuehao Zhai, Chengjin Xu, Wei Li, Yinghan Shen, Shengjie Ma, Honghao Liu, Saizhuo Wang, Kun Zhang, Yuanzhuo Wang, Wen Gao, Lionel Ni, and Jian Guo.
+\newblock A survey on llm-as-a-judge, 2025.
+
+\bibitem{ward1963hierarchical}
+Joe~H Ward~Jr.
+\newblock Hierarchical grouping to optimize an objective function.
+\newblock {\em Journal of the American Statistical Association}, 58(301):236--244, 1963.
+
+\bibitem{russell1980circumplex}
+James~A. Russell.
+\newblock A circumplex model of affect.
+\newblock {\em Journal of Personality and Social Psychology}, 39(6):1161--1178, 1980.
+
+\bibitem{nolenhoeksema1991responses}
+Susan Nolen-Hoeksema.
+\newblock Responses to depression and their effects on the duration of depressive episodes.
+\newblock {\em Journal of Abnormal Psychology}, 100(4):569--582, 1991.
+
+\bibitem{rime2009socialsharing}
+Bernard Rim{\'e}.
+\newblock Emotion elicits the social sharing of emotion: Theory and empirical review.
+\newblock {\em Emotion Review}, 1(1):60--85, 2009.
+
+\bibitem{scherer2001appraisal}
+Klaus~R. Scherer.
+\newblock Appraisal considered as a process of multilevel sequential checking.
+\newblock In Klaus~R. Scherer, Angela Schorr, and Tom Johnstone, editors, {\em Appraisal Processes in Emotion: Theory, Methods, Research}, pages 92--120. Oxford University Press, New York, 2001.
+
+\bibitem{damasio1996somatic}
+Antonio~R. Damasio.
+\newblock The somatic marker hypothesis and the possible functions of the prefrontal cortex.
+\newblock {\em Philosophical Transactions of the Royal Society of London. Series B: Biological Sciences}, 351(1346):1413--1420, 1996.
+
 \end{thebibliography}
