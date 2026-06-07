@@ -7,17 +7,33 @@ import logging
 import os
 import random
 import sys
-import time
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 import openai
-import tiktoken
 from dotenv import load_dotenv
 
-# Re-use candidate loading utilities from build_affective_rewrite_dataset
-sys.path.insert(0, str(Path(__file__).parent))  # scripts/ for sibling imports
+# Sibling-script import for candidate loading (src/dataset/ on path)
+sys.path.insert(0, str(Path(__file__).parent))
 from build_affective_rewrite_dataset import load_all_candidates  # noqa: E402
+
+from utils.constants import (
+    BATCH_ENDPOINT,
+    DEFAULT_MAX_TOKENS_PER_BATCH,
+    INTENSITY_LEVELS,
+    MAX_REQUESTS_PER_BATCH,
+    PLUTCHIK_EMOTIONS,
+    POLL_INTERVAL_SEC,
+)
+from utils.prompts import EMOTION_REWRITE_SCHEMA, EMOTION_REWRITE_SYSTEM_PROMPT
+from openai_utils.openai_batch import (
+    count_prompt_tokens as _count_msg_tokens,
+    load_batch_ids,
+    poll_until_done,
+    save_batch_ids,
+    upload_and_submit,
+    write_output_jsonl,
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -26,121 +42,13 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Constants
-
-BATCH_ENDPOINT         = "/v1/chat/completions"
-COMPLETION_WINDOW      = "24h"
-MAX_REQUESTS_PER_BATCH = 50_000
-MAX_FILE_BYTES         = 200 * 1024 * 1024           # 200 MB
-DEFAULT_MAX_TOKENS     = 20_000_000                  # Tier-2 batch queue limit
-POLL_INTERVAL_SEC      = 60
-TERMINAL_STATUSES      = frozenset({"completed", "failed", "expired", "cancelled"})
+# Local alias used in schema and CSV field definitions.
+EMOTION_CATEGORIES: list[str] = PLUTCHIK_EMOTIONS
 
 # Estimated output tokens per request (8 rewrites × ~30 tok each + JSON overhead).
-# The OpenAI batch queue limit counts prompt + completion tokens, so this is
-# subtracted from the per-batch token budget during splitting.
 EST_OUTPUT_TOKENS_PER_REQ = 280
 
-# Plutchik's 8 basic emotions
-EMOTION_CATEGORIES: list[str] = [
-    "joy", "trust", "fear", "surprise",
-    "sadness", "disgust", "anger", "anticipation"
-]
-INTENSITY_LEVELS:   list[str] = ["low", "medium", "high"]
-
-# tiktoken encoder — covers gpt-4.1-mini / gpt-4o family
-_enc: Optional[tiktoken.Encoding] = None
-
-
-def _get_encoder(model: str) -> tiktoken.Encoding:
-    global _enc
-    if _enc is None:
-        try:
-            _enc = tiktoken.encoding_for_model(model)
-        except KeyError:
-            _enc = tiktoken.get_encoding("cl100k_base")
-    return _enc
-
-
-# System prompt
-
-SYSTEM_PROMPT: str = """\
-You are an expert in affective linguistics, appraisal theory, and conversational pragmatics.
-
-TASK
-Given a conversational utterance and a target INTENSITY LEVEL, produce eight
-emotion-category rewrites — one for each of Plutchik's eight basic emotions:
-joy, trust, fear, surprise, sadness, disgust, anger, and anticipation.
-
-CORE CONSTRAINTS
-- Preserve the same underlying situation and core facts.
-- **Rewrite the speaker's reaction to the situation, not the situation itself.**
-- Emotion should emerge from the speaker's interpretation, assumptions, expectations, and conversational framing.
-- Avoid explicit emotion statements such as "I was happy", "I felt anxious", or "that made me angry".
-- Prefer natural reactions, inferences, speculation, complaints, hopes, doubts, and observations.
-- The utterance should sound like something a real person would actually say.
-- Keep emotional intensity matched across all categories.
-
-INTENSITY LEVELS
-  low    : the emotion is present but subtle, muted, understated
-  medium : the emotion is clear and naturally expressed (conversational baseline)
-  high   : the emotion is strong, explicit, and fully expressed
-
-EMOTION DEFINITIONS  (Plutchik's wheel)
-  joy          : happiness, contentment, relief, gratitude, amusement
-  trust        : acceptance, admiration, confidence, serenity toward others
-  fear         : anxiety, dread, worry, apprehension, unease
-  surprise     : astonishment, wonder, bewilderment, unexpectedness
-  sadness      : sorrow, disappointment, loneliness, grief
-  disgust      : revulsion, contempt, aversion, distaste
-  anger        : frustration, irritation, fury, resentment
-  anticipation : expectancy, eagerness, interest, looking forward (or dreading)
-
-MATCHING EXAMPLE  (intensity: medium)
-Base: "I waited for hours and nobody came."
-  joy:          "Nobody showed up, but honestly, I ended up having a pretty nice afternoon anyway."
-  trust:        "Nobody came. Something must have come up on their end."
-
-  fear:         "Nobody came... I hope nothing happened."
-  surprise:     "Wait, seriously? Nobody came at all?"
-  sadness:      "For hours, nobody came. I guess that says enough."
-  disgust:      "I was standing here for hours. Nobody came. That's a pretty lousy way to treat someone."
-  anger:        "Nobody came. What a complete waste of my time."
-  anticipation: "Nobody came, but I kept thinking the next minute would be the one."
-
-MATCHING EXAMPLE (intensity: high)
-Base: "My manager said they wanted to talk to me tomorrow."
-  joy: "Damn!! My manager wants to talk tomorrow! Maybe I'm finally getting some good news."
-  trust: "My manager wants to talk tomorrow. It's probably fine—they've always been straightforward with me."
-  fear: "My manager wants to talk tomorrow? Oh no. What happened? Did I mess something up?"
-  surprise: "Wait, what? Chat with my manager?? Tomorrow? That came completely out of nowhere."
-  sadness: "My manager wants to talk tomorrow... Great. As if this week wasn't already bad enough."
-  disgust: "My manager wants to talk tomorrow. Why do people always do this vague 'we need to talk' thing?"
-  anger: "My manager wants to talk tomorrow? Then just tell me now instead of making me sit with it."
-  anticipation: "My manager wants to talk tomorrow? Now I'm going to be thinking about that all night."
-
-Notice that all eight rewrites are at equal expressiveness (none is understated while another is overwrought).  
-This matched-intensity constraint is essential.
-"""
-
-# JSON Schema for structured output
-
-EMOTION_REWRITE_SCHEMA: dict[str, Any] = {
-    "type": "object",
-    "properties": {
-        "base_text":               {"type": "string"},
-        "intensity_level":         {"type": "string", "enum": INTENSITY_LEVELS},
-        "meaning_preserved_score": {"type": "number"},
-        **{f"{e}_rewrite": {"type": "string"} for e in EMOTION_CATEGORIES},
-    },
-    "required": [
-        "base_text",
-        "intensity_level",
-        "meaning_preserved_score",
-        *[f"{e}_rewrite" for e in EMOTION_CATEGORIES],
-    ],
-    "additionalProperties": False,
-}
+SYSTEM_PROMPT: str = EMOTION_REWRITE_SYSTEM_PROMPT
 
 CSV_FIELDNAMES: list[str] = [
     "source_dataset",
@@ -174,18 +82,8 @@ def _build_messages(base_text: str, intensity_level: str) -> list[dict[str, str]
 # Token counting
 
 def count_prompt_tokens(base_text: str, intensity_level: str, model: str) -> int:
-    """Count prompt tokens for a single (utterance, intensity_level) request.
-
-    Includes per-message overhead (4 tokens each) plus the 3-token
-    reply-priming overhead that OpenAI applies to every request.
-    """
-    enc = _get_encoder(model)
-    messages = _build_messages(base_text, intensity_level)
-    total = 3  # reply priming
-    for msg in messages:
-        total += 4  # role + content delimiters
-        total += len(enc.encode(msg["content"]))
-    return total
+    """Count prompt tokens for a single (utterance, intensity_level) request."""
+    return _count_msg_tokens(_build_messages(base_text, intensity_level), model)
 
 
 def estimate_dataset_tokens(tasks: list[Task], model: str) -> tuple[int, float]:
@@ -215,22 +113,16 @@ def generate_tasks(
 def split_into_batches(
     tasks: list[Task],
     model: str,
-    max_tokens: int = DEFAULT_MAX_TOKENS,
+    max_tokens: int = DEFAULT_MAX_TOKENS_PER_BATCH,
     max_requests: int = MAX_REQUESTS_PER_BATCH,
 ) -> list[list[Task]]:
-    """Partition tasks into slices respecting both the token and request limits.
-
-    Token budget is tracked as prompt + estimated output tokens so that the
-    total enqueued token count (what OpenAI charges against the Tier queue
-    limit) stays within *max_tokens*.
-    """
+    """Partition tasks into slices respecting both the token and request limits."""
     batches: list[list[Task]] = []
     current: list[Task] = []
     current_tokens = 0
 
     for task in tasks:
         sid, ds, sp, text, level = task
-        # Count prompt tokens + estimated output tokens for this request
         task_tokens = count_prompt_tokens(text, level, model) + EST_OUTPUT_TOKENS_PER_REQ
         overflow_req = len(current) >= max_requests
         overflow_tok = current_tokens + task_tokens > max_tokens
@@ -275,96 +167,14 @@ def write_batch_input_file(tasks: list[Task], path: Path, model: str) -> None:
             fh.write(json.dumps(_make_batch_line(task, model), ensure_ascii=False) + "\n")
 
 
-# Submit
-
-def upload_and_submit(
-    client: openai.OpenAI,
-    jsonl_path: Path,
-    batch_index: int,
-    n_batches: int,
-    *,
-    queue_retry_interval: int = 120,
-) -> str:
-    """Upload *jsonl_path* and create a Batch job.  Returns the batch ID.
-
-    If the organisation's enqueued-token limit is reached, waits
-    *queue_retry_interval* seconds and retries until the queue clears.
-    """
-    size_mb = jsonl_path.stat().st_size / 1e6
-    logger.info(
-        "Uploading batch %d/%d: %s (%.2f MB) …",
-        batch_index + 1, n_batches, jsonl_path.name, size_mb,
-    )
-    with jsonl_path.open("rb") as fh:
-        file_obj = client.files.create(file=fh, purpose="batch")
-    logger.info("  file_id=%s", file_obj.id)
-
-    while True:
-        try:
-            batch = client.batches.create(
-                input_file_id=file_obj.id,
-                endpoint=BATCH_ENDPOINT,
-                completion_window=COMPLETION_WINDOW,
-                metadata={"description": f"Emotion rewrite {batch_index + 1}/{n_batches}"},
-            )
-            logger.info("  batch_id=%s  status=%s", batch.id, batch.status)
-            return batch.id
-        except openai.BadRequestError as exc:
-            if "Enqueued token limit" in str(exc):
-                logger.warning(
-                    "Enqueued token limit reached; retrying in %ds …",
-                    queue_retry_interval,
-                )
-                time.sleep(queue_retry_interval)
-            else:
-                raise
-
-
-# Poll
-
-def poll_until_done(
-    client: openai.OpenAI,
-    batch_ids: list[str],
-    poll_interval: int = POLL_INTERVAL_SEC,
-) -> dict[str, Any]:
-    """Block until all batch IDs reach a terminal state.
-
-    Returns a mapping batch_id → final Batch object.
-    """
-    remaining = set(batch_ids)
-    final: dict[str, Any] = {}
-    logger.info("Polling %d batch(es) every %ds …", len(remaining), poll_interval)
-
-    while remaining:
-        done_this_round: set[str] = set()
-        for bid in sorted(remaining):
-            b = client.batches.retrieve(bid)
-            rc = b.request_counts
-            logger.info(
-                "  %s  status=%-12s  completed=%d  failed=%d  total=%d",
-                bid, b.status,
-                rc.completed if rc else 0,
-                rc.failed    if rc else 0,
-                rc.total     if rc else 0,
-            )
-            if b.status in TERMINAL_STATUSES:
-                final[bid] = b
-                done_this_round.add(bid)
-        remaining -= done_this_round
-        if remaining:
-            time.sleep(poll_interval)
-
-    return final
-
-
-# Local result collection (--resume-from)
+# Result parsing
 
 def _parse_output_lines(
     lines: list[str],
     candidates_map: dict[str, tuple[str, str, str]],
     source_label: str,
 ) -> tuple[list[dict[str, Any]], int, int]:
-    """Parse JSONL output lines into row dicts.  Returns (rows, n_ok, n_err)."""
+    """Parse JSONL output lines into row dicts. Returns (rows, n_ok, n_err)."""
     rows: list[dict[str, Any]] = []
     n_ok = n_err = 0
     for line in lines:
@@ -462,22 +272,13 @@ def load_completed_ids_from_local_dir(local_dir: Path) -> set[tuple[str, str]]:
     return done
 
 
-# Collect results
-
 def collect_results(
     client: openai.OpenAI,
     final_batches: dict[str, Any],
     candidates_map: dict[str, tuple[str, str, str]],
 ) -> list[dict[str, Any]]:
-    """Download all output files; return list of flat row dicts.
-
-    Parameters
-    ----------
-    candidates_map:
-        source_id → (source_dataset, source_split, utterance)
-    """
+    """Download all output files; return list of flat row dicts."""
     rows: list[dict[str, Any]] = []
-
     for bid, b in final_batches.items():
         if b.status != "completed":
             logger.warning("Batch %s ended with status=%s — skipping.", bid, b.status)
@@ -485,7 +286,6 @@ def collect_results(
         if not b.output_file_id:
             logger.warning("Batch %s has no output_file_id.", bid)
             continue
-
         logger.info("Downloading  batch=%s  file=%s …", bid, b.output_file_id)
         text = client.files.content(b.output_file_id).text
         batch_rows, n_ok, n_err = _parse_output_lines(
@@ -493,7 +293,6 @@ def collect_results(
         )
         rows.extend(batch_rows)
         logger.info("  batch=%s  parsed_ok=%d  errors=%d", bid, n_ok, n_err)
-
     return rows
 
 
@@ -507,26 +306,6 @@ def write_output_csv(rows: list[dict[str, Any]], path: Path) -> None:
     logger.info("CSV  → %s  (%d rows)", path, len(rows))
 
 
-def write_output_jsonl(rows: list[dict[str, Any]], path: Path) -> None:
-    with path.open("w", encoding="utf-8") as fh:
-        for row in rows:
-            fh.write(json.dumps(row, ensure_ascii=False) + "\n")
-    logger.info("JSONL → %s  (%d rows)", path, len(rows))
-
-
-# Batch-ID persistence
-
-def save_batch_ids(ids: list[str], path: Path) -> None:
-    path.write_text("\n".join(ids) + "\n", encoding="utf-8")
-    logger.info("Batch IDs saved → %s", path)
-
-
-def load_batch_ids(path: Path) -> list[str]:
-    ids = [ln.strip() for ln in path.read_text(encoding="utf-8").splitlines() if ln.strip()]
-    logger.info("Loaded %d batch ID(s) from %s", len(ids), path)
-    return ids
-
-
 # Estimation / reporting
 
 def print_estimate(
@@ -537,7 +316,6 @@ def print_estimate(
     avg_per_req: float,
 ) -> None:
     n_batches = len(batches)
-    # Each response has 5 emotion rewrites (~30 tok each) + 15 VAD values + overhead ≈ 300 tok
     total_out_tokens = len(tasks) * 300
     cost_in  = total_prompt_tokens / 1e6 * 0.075
     cost_out = total_out_tokens    / 1e6 * 0.150
@@ -552,7 +330,7 @@ def print_estimate(
         len(tasks) // len(set(t[4] for t in tasks)) if tasks else 0,
         len(set(t[4] for t in tasks)),
     )
-    logger.info("  Number of batch jobs     : %10d  (serialized)", n_batches)
+    logger.info("  Number of batch jobs     : %10d  (serialised)", n_batches)
     logger.info(
         "  Requests per batch       :  %s",
         "  ".join(str(len(b)) for b in batches[:8])
@@ -605,7 +383,7 @@ def _parse_args() -> argparse.Namespace:
         help="Intensity levels to generate (default: low medium high).",
     )
     p.add_argument(
-        "--max-tokens-per-batch", type=int, default=DEFAULT_MAX_TOKENS,
+        "--max-tokens-per-batch", type=int, default=DEFAULT_MAX_TOKENS_PER_BATCH,
         help=(
             "Maximum prompt tokens per batch job "
             "(default: 20,000,000 = Tier-2 queue limit). "
@@ -667,18 +445,14 @@ def main() -> None:
     out_csv_path   = output_dir / "emotion_rewrites.csv"
     out_jsonl_path = output_dir / "emotion_rewrites.jsonl"
 
-    # Always load candidates — needed for candidates_map in both paths
     candidates = load_all_candidates(seed=args.seed, n_samples=args.n_samples)
     logger.info("Candidates loaded: %d", len(candidates))
 
-    # source_id → (source_dataset, source_split, utterance)
     candidates_map: dict[str, tuple[str, str, str]] = {
         sid: (ds, sp, utt) for sid, utt, ds, sp in candidates
     }
 
-    # ------------------------------------------------------------------
-    # --from-results-dir : build dataset from pre-downloaded result files
-    # ------------------------------------------------------------------
+    # --from-results-dir: build dataset from pre-downloaded result files
     if args.from_results_dir is not None:
         results_dir: Path = args.from_results_dir
         if not results_dir.is_dir():
@@ -693,9 +467,6 @@ def main() -> None:
             logger.warning("No rows parsed — check the result files.")
         return
 
-    # ------------------------------------------------------------------
-    # Remaining paths require the OpenAI API
-    # ------------------------------------------------------------------
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
         raise EnvironmentError("OPENAI_API_KEY environment variable is not set.")
@@ -703,9 +474,6 @@ def main() -> None:
     client = openai.OpenAI(api_key=api_key)
     logging.getLogger("httpx").setLevel(logging.WARNING)
 
-    # ------------------------------------------------------------------
-    # Load already-completed rows from local directory (--resume-from)
-    # ------------------------------------------------------------------
     local_rows: list[dict[str, Any]] = []
     completed_ids: set[tuple[str, str]] = set()
     if args.resume_from is not None:
@@ -716,9 +484,6 @@ def main() -> None:
         completed_ids = {(r["source_id"], r["intensity_level"]) for r in local_rows}
         logger.info("Skipping %d already-completed (source_id, intensity_level) pairs.", len(completed_ids))
 
-    # ------------------------------------------------------------------
-    # Phase 1 & 2 : Prepare + Submit  (skipped when --collect-only)
-    # ------------------------------------------------------------------
     if not args.collect_only:
         tasks = generate_tasks(candidates, intensity_levels=args.intensity_levels)
         if completed_ids:
@@ -746,7 +511,6 @@ def main() -> None:
 
             print_estimate(tasks, batches, args.model, total_prompt_tokens, avg_per_req)
 
-            # Write JSONL files
             jsonl_paths: list[Path] = []
             for i, batch_tasks in enumerate(batches):
                 p = output_dir / f"batch_input_{i:04d}.jsonl"
@@ -761,14 +525,15 @@ def main() -> None:
                 logger.info("--prepare-only: done.  JSONL files written; nothing uploaded.")
                 return
 
-            # Submit batches ONE AT A TIME (Tier-2 queue limit = 20M tokens)
             submitted_ids: list[str] = []
             all_final_batches = {}
 
             for i, p in enumerate(jsonl_paths):
-                bid = upload_and_submit(client, p, batch_index=i, n_batches=len(batches))
+                bid = upload_and_submit(
+                    client, p, i, len(batches),
+                    f"Emotion rewrite {i + 1}/{len(batches)}",
+                )
                 submitted_ids.append(bid)
-                # Persist IDs incrementally so progress survives crashes
                 save_batch_ids(submitted_ids, batch_ids_path)
 
                 logger.info(
@@ -778,9 +543,6 @@ def main() -> None:
                 final = poll_until_done(client, [bid], args.poll_interval)
                 all_final_batches.update(final)
 
-    # ------------------------------------------------------------------
-    # Phase 3 : Poll  (--collect-only path only)
-    # ------------------------------------------------------------------
     else:
         if not batch_ids_path.exists():
             raise FileNotFoundError(
@@ -790,9 +552,6 @@ def main() -> None:
         submitted_ids = load_batch_ids(batch_ids_path)
         all_final_batches = poll_until_done(client, submitted_ids, args.poll_interval)
 
-    # ------------------------------------------------------------------
-    # Phase 4 : Collect + merge
-    # ------------------------------------------------------------------
     rows = collect_results(client, all_final_batches, candidates_map)
     if local_rows:
         logger.info(

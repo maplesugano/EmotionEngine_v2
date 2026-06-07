@@ -16,8 +16,10 @@ import yaml
 from tqdm import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from emotionengine.model_utils import extract_batch, load_config, load_model_and_tokenizer
-from emotionengine.text_utils import make_instruction_prefix
+from utils.constants import INTENSITY_LEVELS, PLUTCHIK_EMOTIONS
+from utils.model_utils import extract_batch, load_config, load_model_and_tokenizer
+from utils.shard_utils import load_shard_checkpoint, save_shard_checkpoint
+from utils.text_utils import make_instruction_prefix
 
 logging.basicConfig(
     level=logging.INFO,
@@ -26,49 +28,13 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Plutchik's 8 basic emotions — defines dimension-1 of the output tensor.
-EMOTIONS: list[str] = [
-    "joy", "trust", "fear", "surprise",
-    "sadness", "disgust", "anger", "anticipation",
-]
+EMOTIONS: list[str] = PLUTCHIK_EMOTIONS
+INTENSITIES: list[str] = INTENSITY_LEVELS
 
-# Three intensity levels — defines dimension-2 of the output tensor.
-INTENSITIES: list[str] = ["low", "medium", "high"]
-
-# Checkpoint filename for incremental resume (JSON; tracks completed shards).
 SHARD_CHECKPOINT_FILENAME = "shard_checkpoint.json"
 
 
 # Data loading
-
-def _parse_batch_response(line: str) -> tuple[str, str, dict[str, Any]] | None:
-    """Parse one line of a returned OpenAI batch output file.
-
-    Returns ``(source_id, intensity, content_dict)`` or ``None`` on error.
-    """
-    try:
-        record = json.loads(line.strip())
-    except json.JSONDecodeError:
-        return None
-    if record.get("error") is not None:
-        return None
-
-    custom_id: str = record.get("custom_id", "")
-    # custom_id format: "{source_id}__intensity_{level}"
-    if "__intensity_" not in custom_id:
-        return None
-    source_id, intensity = custom_id.rsplit("__intensity_", 1)
-
-    try:
-        raw_content: str = (
-            record["response"]["body"]["choices"][0]["message"]["content"]
-        )
-        content_dict: dict[str, Any] = json.loads(raw_content)
-    except (KeyError, IndexError, json.JSONDecodeError):
-        return None
-
-    return source_id, intensity, content_dict
-
 
 def load_dataset(data: str | Path) -> list[dict[str, Any]]:
     """Load emotion-rewrite records from a flat ``.jsonl`` file or directory.
@@ -164,25 +130,6 @@ def _make_texts(
     return [prefix + rec[f"{emotion}_rewrite"] for emotion in EMOTIONS]
 
 
-# Shard checkpoint helpers
-
-def _load_shard_checkpoint(ckpt_path: Path) -> set[int]:
-    """Return the set of already-completed shard indices."""
-    if not ckpt_path.exists():
-        return set()
-    return set(json.loads(ckpt_path.read_text()).get("completed", []))
-
-
-def _save_shard_checkpoint(ckpt_path: Path, completed: set[int]) -> None:
-    ckpt_path.write_text(json.dumps({"completed": sorted(completed)}))
-
-
-# Config / model loading
-
-# load_config, load_model_and_tokenizer, and extract_batch are imported from
-# emotionengine.model_utils above.
-
-
 # Full dataset extraction
 
 def extract_dataset(
@@ -214,7 +161,7 @@ def extract_dataset(
     out_dir.mkdir(parents=True, exist_ok=True)
 
     ckpt_path   = out_dir / SHARD_CHECKPOINT_FILENAME
-    completed   = _load_shard_checkpoint(ckpt_path)
+    completed   = load_shard_checkpoint(ckpt_path)
     n_shards    = (n_sources + shard_size - 1) // shard_size
     shard_paths = [out_dir / f"shard_{i:04d}.pt" for i in range(n_shards)]
 
@@ -273,7 +220,7 @@ def extract_dataset(
             torch.cuda.empty_cache()
 
         completed.add(shard_idx)
-        _save_shard_checkpoint(ckpt_path, completed)
+        save_shard_checkpoint(ckpt_path, completed)
 
     return shard_paths
 

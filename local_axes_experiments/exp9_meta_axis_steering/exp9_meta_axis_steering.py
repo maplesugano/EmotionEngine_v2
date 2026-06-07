@@ -52,10 +52,10 @@ import pandas as pd
 import torch
 from sklearn.decomposition import PCA
 
-from emotionengine.judge_utils import JudgeConfig, judge_one
-from emotionengine.model_utils import load_config, load_model_and_tokenizer
-from emotionengine.steering_utils import steering_hook, flush_device_cache, append_jsonl_csv_row
-from emotionengine.text_utils import INSTRUCTION_TEMPLATE, make_instruction_prefix
+from utils.judge_utils import JudgeConfig, judge_one
+from utils.model_utils import load_config, load_model_and_tokenizer
+from utils.steering_utils import steering_hook, flush_device_cache, append_jsonl_csv_row
+from utils.text_utils import INSTRUCTION_TEMPLATE, make_instruction_prefix
 
 logging.basicConfig(
     level=logging.INFO,

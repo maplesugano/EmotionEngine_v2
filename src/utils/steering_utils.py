@@ -14,13 +14,13 @@ import pandas as pd
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from emotionengine.text_utils import make_instruction_prefix
+from utils.text_utils import make_instruction_prefix
 
 T = TypeVar("T")
 
 
 def unit_np(vec: np.ndarray, axis: int | None = None, eps: float = 1e-12) -> np.ndarray:
-    """Normalize *vec* to unit L2 norm.
+    """Normalise *vec* to unit L2 norm.
 
     Parameters
     ----------
@@ -36,7 +36,7 @@ def unit_np(vec: np.ndarray, axis: int | None = None, eps: float = 1e-12) -> np.
 
 
 def unit(v: np.ndarray) -> np.ndarray:
-    """Normalize the last axis of *v* to unit L2 norm.
+    """Normalise the last axis of *v* to unit L2 norm.
 
     Convenience alias for ``unit_np(v, axis=-1)`` matching the calling
     convention used throughout the analysis notebooks.
@@ -59,7 +59,7 @@ def build_delta_vector(
     target_emotion: str,
     alpha: float,
 ) -> np.ndarray | None:
-    """Scale one unit-normalized steering direction by alpha."""
+    """Scale one unit-normalised steering direction by alpha."""
     if abs(float(alpha)) < 1e-12:
         return None
     emotion_idx = emotion_to_index[target_emotion]

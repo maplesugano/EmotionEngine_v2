@@ -22,9 +22,9 @@ import numpy as np
 import torch
 from sklearn.decomposition import PCA
 
-from emotionengine.model_utils import load_config, load_model_and_tokenizer
-from emotionengine.steering_utils import flush_device_cache, steering_hook
-from emotionengine.text_utils import INSTRUCTION_TEMPLATE, make_instruction_prefix
+from utils.model_utils import load_config, load_model_and_tokenizer
+from utils.steering_utils import flush_device_cache, steering_hook
+from utils.text_utils import INSTRUCTION_TEMPLATE, make_instruction_prefix
 
 logging.basicConfig(
     level=logging.INFO,

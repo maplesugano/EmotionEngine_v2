@@ -13,8 +13,9 @@ import torch
 from tqdm import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from emotionengine.model_utils import extract_batch, load_config, load_model_and_tokenizer
-from emotionengine.text_utils import make_instruction_prefix
+from utils.model_utils import extract_batch, load_config, load_model_and_tokenizer
+from utils.shard_utils import load_shard_checkpoint, save_shard_checkpoint
+from utils.text_utils import make_instruction_prefix
 
 logging.basicConfig(
     level=logging.INFO,
@@ -137,18 +138,6 @@ def load_neutral_paraphrase_dataset(
     return records
 
 
-# Shard checkpoint helpers
-
-def _load_shard_checkpoint(ckpt_path: Path) -> set[int]:
-    if not ckpt_path.exists():
-        return set()
-    return set(json.loads(ckpt_path.read_text()).get("completed", []))
-
-
-def _save_shard_checkpoint(ckpt_path: Path, completed: set[int]) -> None:
-    ckpt_path.write_text(json.dumps({"completed": sorted(completed)}))
-
-
 # Extraction
 
 def extract_base_texts(
@@ -174,7 +163,7 @@ def extract_base_texts(
     out_dir.mkdir(parents=True, exist_ok=True)
 
     ckpt_path   = out_dir / SHARD_CHECKPOINT_FILENAME
-    completed   = _load_shard_checkpoint(ckpt_path)
+    completed   = load_shard_checkpoint(ckpt_path)
     n_shards    = (n_sources + shard_size - 1) // shard_size
     shard_paths = [out_dir / f"base_text_shard_{i:04d}.pt" for i in range(n_shards)]
 
@@ -233,7 +222,7 @@ def extract_base_texts(
             torch.cuda.empty_cache()
 
         completed.add(shard_idx)
-        _save_shard_checkpoint(ckpt_path, completed)
+        save_shard_checkpoint(ckpt_path, completed)
 
     return shard_paths
 

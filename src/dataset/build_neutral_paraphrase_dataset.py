@@ -2,7 +2,7 @@
 
 For each unique (source_id, base_text) the model rewrites the utterance as a
 semantically equivalent but affectively neutral paraphrase — removing any
-emotional coloring while preserving meaning.
+emotional colouring while preserving meaning.
 
 Output: dataset/neutral_paraphrases/neutral_paraphrases.jsonl
   Each row = one source with fields:
@@ -18,13 +18,26 @@ import argparse
 import json
 import logging
 import os
-import time
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 import openai
-import tiktoken
 from dotenv import load_dotenv
+
+from utils.constants import (
+    DEFAULT_MAX_TOKENS_PER_BATCH,
+    MAX_REQUESTS_PER_BATCH,
+    POLL_INTERVAL_SEC,
+)
+from utils.prompts import NEUTRAL_PARAPHRASE_SCHEMA, NEUTRAL_PARAPHRASE_SYSTEM_PROMPT
+from openai_utils.openai_batch import (
+    count_prompt_tokens as _count_msg_tokens,
+    load_batch_ids,
+    poll_until_done,
+    save_batch_ids,
+    upload_and_submit,
+    write_output_jsonl,
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -33,77 +46,12 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# ── Constants ────────────────────────────────────────────────────────────────
-
-BATCH_ENDPOINT         = "/v1/chat/completions"
-COMPLETION_WINDOW      = "24h"
-MAX_REQUESTS_PER_BATCH = 50_000
-MAX_FILE_BYTES         = 200 * 1024 * 1024
-DEFAULT_MAX_TOKENS     = 20_000_000  # Tier-2 queue limit
-
 # Estimated output tokens per request (~50 tok rewrite + JSON overhead).
 EST_OUTPUT_TOKENS_PER_REQ = 80
 
-TERMINAL_STATUSES = frozenset({"completed", "failed", "expired", "cancelled"})
-POLL_INTERVAL_SEC = 60
+SYSTEM_PROMPT: str = NEUTRAL_PARAPHRASE_SYSTEM_PROMPT
 
-_enc: Optional[tiktoken.Encoding] = None
-
-
-def _get_encoder(model: str) -> tiktoken.Encoding:
-    global _enc
-    if _enc is None:
-        try:
-            _enc = tiktoken.encoding_for_model(model)
-        except KeyError:
-            _enc = tiktoken.get_encoding("cl100k_base")
-    return _enc
-
-
-# ── System prompt ─────────────────────────────────────────────────────────────
-
-SYSTEM_PROMPT: str = """\
-You are an expert in affective linguistics and conversational pragmatics.
-
-TASK
-Rewrite the given conversational utterance into an affectively neutral control sentence.
-
-The goal is not to summarize or shorten the utterance. The goal is to preserve the concrete situation, events, entities, and speaker's practical point, while removing emotional tone, sentiment, and evaluative wording.
-
-CONSTRAINTS
-- Preserve the same situation, entities, events, and practical intent.
-- Do not summarize by deleting clauses unless the clause contains only emotional emphasis and no concrete information.
-- Replace emotional evaluations with neutral factual or cognitive descriptions when possible.
-- Keep approximately the same amount of information as the original.
-- Use plain, matter-of-fact conversational language.
-- Do not add new facts.
-- Return only valid JSON.
-
-MATCHING EXAMPLES
-Original : "I finally got the results back and I'm so relieved that everything looks normal."
-Neutral  : "I got the results back, and everything looks normal."
-
-Original : "I can't believe they ignored my message again. That's so frustrating."
-Neutral  : "They did not respond to my message again."
-
-Original : "The trip was amazing, and I loved every minute of it."
-Neutral  : "The trip went well, and I spent the full time there."
-"""
-
-# ── JSON schema ───────────────────────────────────────────────────────────────
-
-NEUTRAL_PARAPHRASE_SCHEMA: dict[str, Any] = {
-    "type": "object",
-    "properties": {
-        "base_text":               {"type": "string"},
-        "neutral_paraphrase":      {"type": "string"},
-        "meaning_preserved_score": {"type": "number"},
-    },
-    "required": ["base_text", "neutral_paraphrase", "meaning_preserved_score"],
-    "additionalProperties": False,
-}
-
-# ── Candidate loading ─────────────────────────────────────────────────────────
+# Candidate loading
 
 def load_candidates(jsonl_path: Path) -> list[tuple[str, str]]:
     """Return ordered list of (source_id, base_text) from emotion_rewrites.jsonl.
@@ -125,7 +73,7 @@ def load_candidates(jsonl_path: Path) -> list[tuple[str, str]]:
     return candidates
 
 
-# ── Message construction ──────────────────────────────────────────────────────
+# Message construction
 
 def _build_messages(base_text: str) -> list[dict[str, str]]:
     return [
@@ -134,24 +82,18 @@ def _build_messages(base_text: str) -> list[dict[str, str]]:
     ]
 
 
-# ── Token counting ────────────────────────────────────────────────────────────
+# Token counting
 
 def count_prompt_tokens(base_text: str, model: str) -> int:
-    enc = _get_encoder(model)
-    messages = _build_messages(base_text)
-    total = 3  # reply priming
-    for msg in messages:
-        total += 4
-        total += len(enc.encode(msg["content"]))
-    return total
+    return _count_msg_tokens(_build_messages(base_text), model)
 
 
-# ── Batch splitting ───────────────────────────────────────────────────────────
+# Batch splitting
 
 def split_into_batches(
     candidates: list[tuple[str, str]],
     model: str,
-    max_tokens: int = DEFAULT_MAX_TOKENS,
+    max_tokens: int = DEFAULT_MAX_TOKENS_PER_BATCH,
     max_requests: int = MAX_REQUESTS_PER_BATCH,
 ) -> list[list[tuple[str, str]]]:
     batches: list[list[tuple[str, str]]] = []
@@ -174,13 +116,13 @@ def split_into_batches(
     return batches
 
 
-# ── JSONL batch line ──────────────────────────────────────────────────────────
+# JSONL batch line
 
 def _make_batch_line(source_id: str, base_text: str, model: str) -> dict[str, Any]:
     return {
         "custom_id": source_id,
         "method":    "POST",
-        "url":       BATCH_ENDPOINT,
+        "url":       "/v1/chat/completions",
         "body": {
             "model":    model,
             "messages": _build_messages(base_text),
@@ -206,86 +148,13 @@ def write_batch_input_file(
             fh.write(json.dumps(_make_batch_line(sid, text, model), ensure_ascii=False) + "\n")
 
 
-# ── Upload / submit ───────────────────────────────────────────────────────────
-
-def upload_and_submit(
-    client: openai.OpenAI,
-    jsonl_path: Path,
-    batch_index: int,
-    n_batches: int,
-    *,
-    queue_retry_interval: int = 120,
-) -> str:
-    size_mb = jsonl_path.stat().st_size / 1e6
-    logger.info(
-        "Uploading batch %d/%d: %s (%.2f MB) …",
-        batch_index + 1, n_batches, jsonl_path.name, size_mb,
-    )
-    with jsonl_path.open("rb") as fh:
-        file_obj = client.files.create(file=fh, purpose="batch")
-    logger.info("  file_id=%s", file_obj.id)
-
-    while True:
-        try:
-            batch = client.batches.create(
-                input_file_id=file_obj.id,
-                endpoint=BATCH_ENDPOINT,
-                completion_window=COMPLETION_WINDOW,
-                metadata={"description": f"Neutral paraphrase {batch_index + 1}/{n_batches}"},
-            )
-            logger.info("  batch_id=%s  status=%s", batch.id, batch.status)
-            return batch.id
-        except openai.BadRequestError as exc:
-            if "Enqueued token limit" in str(exc):
-                logger.warning(
-                    "Enqueued token limit reached; retrying in %ds …",
-                    queue_retry_interval,
-                )
-                time.sleep(queue_retry_interval)
-            else:
-                raise
-
-
-# ── Poll ──────────────────────────────────────────────────────────────────────
-
-def poll_until_done(
-    client: openai.OpenAI,
-    batch_ids: list[str],
-    poll_interval: int = POLL_INTERVAL_SEC,
-) -> dict[str, Any]:
-    remaining = set(batch_ids)
-    final: dict[str, Any] = {}
-    logger.info("Polling %d batch(es) every %ds …", len(remaining), poll_interval)
-
-    while remaining:
-        done_this_round: set[str] = set()
-        for bid in sorted(remaining):
-            b = client.batches.retrieve(bid)
-            rc = b.request_counts
-            logger.info(
-                "  %s  status=%-12s  completed=%d  failed=%d  total=%d",
-                bid, b.status,
-                rc.completed if rc else 0,
-                rc.failed    if rc else 0,
-                rc.total     if rc else 0,
-            )
-            if b.status in TERMINAL_STATUSES:
-                final[bid] = b
-                done_this_round.add(bid)
-        remaining -= done_this_round
-        if remaining:
-            time.sleep(poll_interval)
-
-    return final
-
-
-# ── Parse output lines ────────────────────────────────────────────────────────
+# Parse output lines
 
 def _parse_output_lines(
     lines: list[str],
     source_label: str,
 ) -> tuple[list[dict[str, Any]], int, int]:
-    """Parse JSONL output lines from Batch API.  Returns (rows, n_ok, n_err)."""
+    """Parse JSONL output lines from Batch API. Returns (rows, n_ok, n_err)."""
     rows: list[dict[str, Any]] = []
     n_ok = n_err = 0
     for line in lines:
@@ -365,29 +234,7 @@ def collect_results(
     return rows
 
 
-# ── Batch-ID persistence ──────────────────────────────────────────────────────
-
-def save_batch_ids(ids: list[str], path: Path) -> None:
-    path.write_text("\n".join(ids) + "\n", encoding="utf-8")
-    logger.info("Batch IDs saved → %s", path)
-
-
-def load_batch_ids(path: Path) -> list[str]:
-    ids = [ln.strip() for ln in path.read_text(encoding="utf-8").splitlines() if ln.strip()]
-    logger.info("Loaded %d batch ID(s) from %s", len(ids), path)
-    return ids
-
-
-# ── Output writing ────────────────────────────────────────────────────────────
-
-def write_output_jsonl(rows: list[dict[str, Any]], path: Path) -> None:
-    with path.open("w", encoding="utf-8") as fh:
-        for row in rows:
-            fh.write(json.dumps(row, ensure_ascii=False) + "\n")
-    logger.info("JSONL → %s  (%d rows)", path, len(rows))
-
-
-# ── Estimate / report ─────────────────────────────────────────────────────────
+# Estimate / report
 
 def print_estimate(
     candidates: list[tuple[str, str]],
@@ -409,7 +256,7 @@ def print_estimate(
     logger.info("Batch API estimate  (model: %s)", model)
     logger.info("-" * 66)
     logger.info("  Total requests           : %10d", len(candidates))
-    logger.info("  Number of batch jobs     : %10d  (serialized)", n_batches)
+    logger.info("  Number of batch jobs     : %10d  (serialised)", n_batches)
     logger.info("  Avg prompt tokens / req  : %10.0f", avg)
     logger.info("  Est. prompt tokens total : %10.1f M", total_prompt_est / 1e6)
     logger.info("  Est. output tokens total : %10.1f M", total_out / 1e6)
@@ -424,7 +271,7 @@ def print_estimate(
     logger.info("")
 
 
-# ── CLI ───────────────────────────────────────────────────────────────────────
+# CLI
 
 def _parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(
@@ -453,7 +300,7 @@ def _parse_args() -> argparse.Namespace:
         help="OpenAI model identifier (default: gpt-4.1-mini).",
     )
     p.add_argument(
-        "--max-tokens-per-batch", type=int, default=DEFAULT_MAX_TOKENS,
+        "--max-tokens-per-batch", type=int, default=DEFAULT_MAX_TOKENS_PER_BATCH,
         help="Maximum token budget per batch job (default: 20,000,000).",
     )
     p.add_argument(
@@ -485,7 +332,7 @@ def _parse_args() -> argparse.Namespace:
     return p.parse_args()
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+# Main
 
 def main() -> None:
     load_dotenv()
@@ -494,12 +341,9 @@ def main() -> None:
     output_dir: Path = args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    batch_ids_path  = output_dir / "batch_ids.txt"
-    out_jsonl_path  = output_dir / "neutral_paraphrases.jsonl"
+    batch_ids_path = output_dir / "batch_ids.txt"
+    out_jsonl_path = output_dir / "neutral_paraphrases.jsonl"
 
-    # ------------------------------------------------------------------
-    # --from-results-dir : build dataset from pre-downloaded result files
-    # ------------------------------------------------------------------
     if args.from_results_dir is not None:
         results_dir: Path = args.from_results_dir
         if not results_dir.is_dir():
@@ -515,9 +359,6 @@ def main() -> None:
             logger.warning("No rows parsed — check the result files.")
         return
 
-    # ------------------------------------------------------------------
-    # Load candidates from emotion_rewrites.jsonl
-    # ------------------------------------------------------------------
     candidates = load_candidates(args.input_jsonl)
     if args.n_samples is not None:
         candidates = candidates[: args.n_samples]
@@ -532,7 +373,6 @@ def main() -> None:
     print_estimate(candidates, batches, args.model)
 
     if args.prepare_only:
-        # Write batch JSONL files for inspection; do not upload.
         for i, batch in enumerate(batches):
             p = output_dir / f"batch_input_{i:04d}.jsonl"
             write_batch_input_file(batch, p, args.model)
@@ -540,9 +380,6 @@ def main() -> None:
         logger.info("--prepare-only: done.")
         return
 
-    # ------------------------------------------------------------------
-    # Remaining paths require the OpenAI API
-    # ------------------------------------------------------------------
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
         raise EnvironmentError(
@@ -562,14 +399,14 @@ def main() -> None:
             write_output_jsonl(rows, out_jsonl_path)
         return
 
-    # ------------------------------------------------------------------
-    # Full run: prepare → upload → poll → collect
-    # ------------------------------------------------------------------
     submitted_ids: list[str] = []
     for i, batch in enumerate(batches):
         p = output_dir / f"batch_input_{i:04d}.jsonl"
         write_batch_input_file(batch, p, args.model)
-        bid = upload_and_submit(client, p, i, len(batches))
+        bid = upload_and_submit(
+            client, p, i, len(batches),
+            f"Neutral paraphrase {i + 1}/{len(batches)}",
+        )
         submitted_ids.append(bid)
         save_batch_ids(submitted_ids, batch_ids_path)
 

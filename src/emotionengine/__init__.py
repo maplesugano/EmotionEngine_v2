@@ -1,8 +1,8 @@
 """EmotionEngine – shared utilities for residual-stream extraction and analysis."""
 
-from emotionengine.judge_utils import JudgeConfig, judge_many, judge_one
-from emotionengine.model_utils import extract_batch, load_config, load_model_and_tokenizer
-from emotionengine.steering_utils import (
+from utils.judge_utils import JudgeConfig, judge_many, judge_one
+from utils.model_utils import extract_batch, load_config, load_model_and_tokenizer
+from utils.steering_utils import (
     build_delta_vector,
     chunk_list,
     cosine_sim_matrix,
@@ -12,7 +12,7 @@ from emotionengine.steering_utils import (
     unit,
     unit_np,
 )
-from emotionengine.text_utils import extract_rewritten_text, make_instruction_prefix
+from utils.text_utils import extract_rewritten_text, make_instruction_prefix
 
 __all__ = [
     # judge_utils

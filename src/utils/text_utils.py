@@ -42,11 +42,8 @@ def make_instruction_prefix(
     )
 
 
-import re
-
 def extract_rewritten_text(text: str) -> str:
-    """
-    Post-process model outputs from rewrite prompts.
+    """Post-process model outputs from rewrite prompts.
 
     Goals:
     - Remove assistant framing: "Here's a revised version..."
@@ -65,16 +62,14 @@ def extract_rewritten_text(text: str) -> str:
     # Remove common special tokens / chat remnants.
     cleaned = re.sub(r"</?s>|<\|.*?\|>", "", cleaned).strip()
 
-    # Normalize whitespace but keep line structure for candidate detection.
+    # Normalise whitespace but keep line structure for candidate detection.
     lines = [line.strip() for line in cleaned.split("\n") if line.strip()]
     if not lines:
         return ""
 
     cleaned = "\n".join(lines).strip()
 
-    # ------------------------------------------------------------------
     # 1. Remove leading assistant framing paragraphs.
-    # ------------------------------------------------------------------
     lead_in_patterns = [
         r"^here(?:'s| is)\s+(?:a|the|an)?\s*(?:revised|rewritten|rephrased)?\s*version(?:\s+of\s+(?:the\s+)?(?:text|statement|conversation))?.*?:\s*",
         r"^here(?:'s| are)\s+(?:a few|some|several)?\s*(?:rewritten|revised|rephrased)?\s*(?:options|versions|alternatives).*?:\s*",
@@ -95,15 +90,8 @@ def extract_rewritten_text(text: str) -> str:
             cleaned = re.sub(pat, "", cleaned, flags=re.IGNORECASE | re.DOTALL).strip()
         changed = cleaned != before
 
-    # ------------------------------------------------------------------
     # 2. If output has a numbered/bulleted list, keep first item only.
-    #    Handles:
-    #    1. text
-    #    1) text
-    #    - text
-    #    * text
-    #    Option 1: text
-    # ------------------------------------------------------------------
+    #    Handles: 1. text  |  1) text  |  - text  |  * text  |  Option 1: text
     list_item_pattern = re.compile(
         r"^\s*(?:"
         r"(?P<num>\d+)[\.)]\s+|"
@@ -124,19 +112,16 @@ def extract_rewritten_text(text: str) -> str:
             num = m.group("num") or m.group("opt_num")
             body = m.group("body").strip()
 
-            # Start first item.
             if not in_first_item:
                 if num is None or num == "1":
                     first_item_parts.append(body)
                     in_first_item = True
                     continue
 
-            # Stop at second item.
             if in_first_item:
                 break
 
         elif in_first_item:
-            # Continuation of first item, unless it looks like a new heading.
             if re.match(r"^(?:option|version|alternative)\s*\d*\s*[:\-]", line, re.I):
                 break
             first_item_parts.append(line)
@@ -144,9 +129,7 @@ def extract_rewritten_text(text: str) -> str:
     if first_item_parts:
         cleaned = " ".join(first_item_parts).strip()
 
-    # ------------------------------------------------------------------
     # 3. Remove inline labels/headings often produced by the model.
-    # ------------------------------------------------------------------
     label_patterns = [
         r"^\*\*[^*\n]{1,80}\*\*\s*[:\-]\s*",      # **Formal**:
         r"^__[^_\n]{1,80}__\s*[:\-]\s*",          # __Formal__:
@@ -159,7 +142,7 @@ def extract_rewritten_text(text: str) -> str:
         r"^standard(?:\s+tone)?\s*[:\-]\s*",
     ]
 
-    # Repeat because outputs can be like "**Formal**: Base: ..."
+    # Repeat because outputs can stack labels like "**Formal**: Base: ..."
     for _ in range(4):
         before = cleaned
         for pat in label_patterns:
@@ -175,13 +158,9 @@ def extract_rewritten_text(text: str) -> str:
         flags=re.IGNORECASE,
     ).strip()
 
-    # ------------------------------------------------------------------
     # 4. Prefer quoted candidate if the remaining text contains one.
-    #    Useful for: **Formal**: "actual rewrite"
-    # ------------------------------------------------------------------
-    quote_matches = re.findall(r'["“]([^"”]{10,500})["”]', cleaned)
+    quote_matches = re.findall(r'[""]([^""]{10,500})[""]', cleaned)
     if quote_matches:
-        # Prefer the first quoted string that does not look like an instruction.
         for q in quote_matches:
             q_clean = q.strip()
             low = q_clean.lower()
@@ -193,9 +172,7 @@ def extract_rewritten_text(text: str) -> str:
                 cleaned = q_clean
                 break
 
-    # ------------------------------------------------------------------
     # 5. Cut after obvious second candidate markers that survived inline.
-    # ------------------------------------------------------------------
     split_patterns = [
         r"\s+\b2[\.)]\s+",
         r"\s+\bOption\s+2\s*[:\-]\s+",
@@ -205,9 +182,7 @@ def extract_rewritten_text(text: str) -> str:
     for pat in split_patterns:
         cleaned = re.split(pat, cleaned, maxsplit=1, flags=re.IGNORECASE)[0].strip()
 
-    # ------------------------------------------------------------------
     # 6. Remove remaining markdown bullets / emphasis.
-    # ------------------------------------------------------------------
     cleaned = re.sub(r"^\s*[-*•]\s*", "", cleaned).strip()
     cleaned = re.sub(r"\*\*(.*?)\*\*", r"\1", cleaned).strip()
     cleaned = re.sub(r"__(.*?)__", r"\1", cleaned).strip()
@@ -216,7 +191,7 @@ def extract_rewritten_text(text: str) -> str:
     cleaned = re.sub(r"\s+", " ", cleaned).strip()
 
     # Strip wrapping quotes and dangling separators.
-    cleaned = cleaned.strip(" \"'“”‘’`")
+    cleaned = cleaned.strip(" \"'""''`")
     cleaned = re.sub(r"^[\-\:\–\—\s]+", "", cleaned).strip()
 
     return cleaned

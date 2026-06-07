@@ -7,7 +7,7 @@ from pathlib import Path
 
 import numpy as np
 
-from emotionengine.steering_utils import unit_np
+from utils.steering_utils import unit_np
 
 logging.basicConfig(
     level=logging.INFO,
@@ -15,16 +15,6 @@ logging.basicConfig(
     datefmt="%H:%M:%S",
 )
 logger = logging.getLogger(__name__)
-
-
-# Helpers
-
-def unit_norm(v: np.ndarray, axis: int = -1, eps: float = 1e-12) -> np.ndarray:
-    """Return v normalised to unit length along *axis*.
-
-    Thin wrapper around :func:`emotionengine.steering_utils.unit_np`.
-    """
-    return unit_np(v, axis=axis, eps=eps)
 
 
 # Core computation
@@ -57,10 +47,10 @@ def compute_caa(
         if (start // chunk) % 10 == 0:
             logger.info("  processed %d / %d sources", end, N)
 
-    delta_mean  = delta_sum / N                              # (E, I, L, D)
-    caa         = unit_norm(delta_mean.astype(np.float32))  # (E, I, L, D)
-    caa_pooled  = unit_norm(
-        delta_mean.mean(axis=1).astype(np.float32)          # (E, L, D)
+    delta_mean = delta_sum / N                                          # (E, I, L, D)
+    caa        = unit_np(delta_mean.astype(np.float32), axis=-1)       # (E, I, L, D)
+    caa_pooled = unit_np(
+        delta_mean.mean(axis=1).astype(np.float32), axis=-1            # (E, L, D)
     )
     return delta_mean.astype(np.float32), caa, caa_pooled
 
@@ -106,7 +96,6 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
 
-    # Load metadata
     with open(args.emotion_info, encoding="utf-8") as f:
         emo_info = json.load(f)
     with open(args.base_info, encoding="utf-8") as f:
@@ -115,7 +104,6 @@ def main() -> None:
     emo_shape  = tuple(emo_info["shape"])    # (N, E, I, L, D)
     base_shape = tuple(base_info["shape"])   # (N, L, D)
 
-    # Sanity-check / align source_ids
     emo_ids  = emo_info["source_ids"]
     base_ids = base_info["source_ids"]
     if emo_ids != base_ids:
@@ -133,20 +121,17 @@ def main() -> None:
             "layer_indices differ between emotion and base-text info files."
         )
 
-    logger.info("Emotion act shape : %s", emo_shape)
+    logger.info("Emotion act shape      : %s", emo_shape)
     logger.info("Neutral-paraphrase shape : %s", base_shape)
-    logger.info("Emotions          : %s", emo_info["emotion_order"])
-    logger.info("Intensities       : %s", emo_info["intensity_order"])
-    logger.info("Layers            : %s", emo_info["layer_indices"])
+    logger.info("Emotions               : %s", emo_info["emotion_order"])
+    logger.info("Intensities            : %s", emo_info["intensity_order"])
+    logger.info("Layers                 : %s", emo_info["layer_indices"])
 
-    # Memory-map tensors (avoid loading into RAM twice)
     emo_act   = np.memmap(args.emotion_act, dtype="float32", mode="r", shape=emo_shape)
     h_neutral = np.memmap(args.base_act,    dtype="float32", mode="r", shape=base_shape)
 
-    # Compute CAA directions
     delta_mean, caa, caa_pooled = compute_caa(emo_act, h_neutral, chunk=args.chunk)
 
-    # Save
     out_dir  = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -174,21 +159,21 @@ def main() -> None:
                 "shape_delta_mean":   [E, I, L, D],
                 "dtype":           "float32",
                 "description": (
-                    "caa[e, i, l, :] = unit_norm( mean_n( h_emotion[n,e,i,l] - h_neutral[n,l] ) )  "
-                    "caa_pooled[e, l, :] = unit_norm( mean_{n,i}( h_emotion[n,e,i,l] - h_neutral[n,l] ) )"
+                    "caa[e, i, l, :] = unit_np( mean_n( h_emotion[n,e,i,l] - h_neutral[n,l] ) )  "
+                    "caa_pooled[e, l, :] = unit_np( mean_{n,i}( h_emotion[n,e,i,l] - h_neutral[n,l] ) )"
                 ),
             },
             f, indent=2, ensure_ascii=False,
         )
-    logger.info("Saved info          → %s", info_path)
+    logger.info("Saved info → %s", info_path)
 
-    # Quick sanity check: print cosine similarity between pooled CAA directions
-    logger.info("Pooled CAA inter-emotion cosine (layer index 2 = layer 13):")
-    L_IDX = 2  # index of layer 13 in hook_layers [8,10,13,16,19,22]
+    # Cosine similarity between pooled CAA directions (index 2 = layer 13)
+    L_IDX = 2
     emotions = emo_info["emotion_order"]
     vecs = caa_pooled[:, L_IDX, :]   # (E, D)
     cos_mat = vecs @ vecs.T
     header = f"{'':12s}" + "".join(f"{e[:6]:>8s}" for e in emotions)
+    logger.info("Pooled CAA inter-emotion cosine similarity (layer index %d):", L_IDX)
     logger.info(header)
     for i, e in enumerate(emotions):
         row = f"{e:<12s}" + "".join(f"{cos_mat[i,j]:>8.3f}" for j in range(len(emotions)))

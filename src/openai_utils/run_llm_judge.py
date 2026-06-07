@@ -50,7 +50,7 @@ from dotenv import load_dotenv
 # Allow running from repo root without installing the package
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from emotionengine.openai_batch import (
+from openai_utils.openai_batch import (
     collect_results,
     collect_results_from_local_dir,
     count_prompt_tokens,
@@ -62,6 +62,7 @@ from emotionengine.openai_batch import (
     write_batch_input_file,
     write_output_jsonl,
 )
+from utils.prompts import LLM_JUDGE_SYSTEM_PROMPT
 
 logging.basicConfig(
     level=logging.INFO,
@@ -70,13 +71,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-DEFAULT_SYSTEM_PROMPT = (
-    "You are an expert in affective science and computational linguistics. "
-    "Respond ONLY with a valid JSON object as specified in the user message."
-)
+DEFAULT_SYSTEM_PROMPT: str = LLM_JUDGE_SYSTEM_PROMPT
 
 
-# ── Helpers ────────────────────────────────────────────────────────────────────
+# Helpers
 
 def load_prompts(
     prompts_dir: Path,
@@ -123,7 +121,7 @@ def append_output_jsonl(rows: list[dict[str, Any]], path: Path) -> None:
     logger.info("Appended %d rows → %s", len(rows), path)
 
 
-# ── CLI ────────────────────────────────────────────────────────────────────────
+# CLI
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(
@@ -197,7 +195,7 @@ def parse_args() -> argparse.Namespace:
     return p.parse_args()
 
 
-# ── Main ───────────────────────────────────────────────────────────────────────
+# Main
 
 def main() -> None:
     load_dotenv()
