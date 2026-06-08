@@ -74,3 +74,21 @@ Thumbs.db
 frontend/node_modules/
 frontend/dist/
 frontend/.vite/
+
+# ── LaTeX auxiliary files ─────────────────────────────────────────────────────
+thesis/*.aux
+thesis/*.bbl
+thesis/*.blg
+thesis/*.brf
+thesis/*.fdb_latexmk
+thesis/*.fls
+thesis/*.out
+thesis/*.toc
+thesis/*.lof
+thesis/*.lot
+thesis/*.synctex.gz
+thesis/*.synctex(busy)
+thesis/*.nav
+thesis/*.snm
+thesis/*.vrb
+thesis/_minted*/
