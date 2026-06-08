@@ -364,6 +364,11 @@ INPUT /usr/local/texlive/2026/texmf-dist/fonts/vf/bitstrea/charter/bchb7t.vf
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/bitstrea/charter/bchb8r.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/vf/bitstrea/charter/bchri7t.vf
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/bitstrea/charter/bchri8r.tfm
+INPUT ./figures/caa_construction.png
+INPUT ./figures/caa_construction.png
+INPUT ./figures/caa_construction.png
+INPUT ./figures/caa_construction.png
+INPUT ./figures/caa_construction.png
 INPUT ./figures/caa_intensity_consistency_heatmap_L13.pdf
 INPUT ./figures/caa_intensity_consistency_heatmap_L13.pdf
 INPUT ./figures/caa_intensity_consistency_heatmap_L13.pdf

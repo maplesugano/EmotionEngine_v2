@@ -203,26 +203,34 @@ We therefore use layer 13 as the primary reporting layer in subsequent analyses.
 
 \section{CAA Vector Construction}
 
-In order to convert contrastive residual differences into controllable steering signals, we derive Contrastive Activation Addition (CAA) directions from emotional and neutral conditioned activations. For each source utterance $n$, emotion $e$, intensity level $i$, and layer $l$, we first define
+In order to convert contrastive residual differences into controllable steering signals, we derive Contrastive Activation Addition (CAA) directions from emotional and neutral conditioned activations. For each source utterance $n$, emotion $e$, intensity level $i$, and layer $l=13$, we first define
 \[
-\mathbf{d}_{n,e,i,l}=\mathbf{h}^{\mathrm{emo}}_{n,e,i,l}-\mathbf{h}^{\mathrm{neu}}_{n,l}.
+\Delta_{n,e,i,l}=\mathbf{h}^{\mathrm{emo}}_{n,e,i,l}-\mathbf{h}^{\mathrm{neu}}_{n,l}.
 \]
 We then average over sources and normalise to unit length:
 \[
-\bar{\mathbf{d}}_{e,i,l}=\frac{1}{N}\sum_{n=1}^{N}\mathbf{d}_{n,e,i,l},
+\bar{\Delta}_{e,i,l}=\frac{1}{N}\sum_{n=1}^{N}\Delta_{n,e,i,l},
 \qquad
-\mathbf{c}_{e,i,l}=\frac{\bar{\mathbf{d}}_{e,i,l}}{\lVert\bar{\mathbf{d}}_{e,i,l}\rVert_2}.
+\mathbf{c}_{e,i,l}=\frac{\bar{\Delta}_{e,i,l}}{\lVert\bar{\Delta}_{e,i,l}\rVert_2}.
 \]
 The vectors $\mathbf{c}_{e,i,l}$ are intensity-specific CAA directions.
 
-As the steering stage primarily targets the emotional category, treating intensity as a secondary modulation, we also build pooled directions by averaging across intensities and re-normalising:
+As the steering stage primarily targets the emotional category, treating intensity as a secondary modulation, we also build \textbf{mean emotion vector} $\mathbf{c}^{\mathrm{pool}}_{e,l}$ by averaging across intensities and re-normalising:
 \[
 \mathbf{c}^{\mathrm{pool}}_{e,l}
 =
-\frac{\frac{1}{I}\sum_{i=1}^{I}\bar{\mathbf{d}}_{e,i,l}}
-{\left\lVert\frac{1}{I}\sum_{i=1}^{I}\bar{\mathbf{d}}_{e,i,l}\right\rVert_2}.
+\frac{\frac{1}{I}\sum_{i=1}^{I}\bar{\Delta}_{e,i,l}}
+{\left\lVert\frac{1}{I}\sum_{i=1}^{I}\bar{\Delta}_{e,i,l}\right\rVert_2}.
 \]
+
 In the main steering analyses, these pooled unit vectors are used as the primary candidate steering vectors.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/caa_construction.png}
+    \caption{Schematic overview of CAA vector construction. For each emotion and intensity, we compute the mean residual difference vector across sources, and then normalise to obtain a unit CAA direction. We also pool across intensities to obtain a single CAA direction per emotion.}
+    \label{fig:caa_construction}
+\end{figure}
 
 Empirically, this construction remains stable at the selected reporting depth (layer 13). Alignment between local contrastive shifts and global CAA directions is high for all emotions at layer 13, with mean cosine values ranging from $0.8536$ to $0.8570$ and standard deviations of around $0.054$. This is slightly stronger than layer 10 and much stronger than deeper candidate layers, such as layer 16 and above. This matches the result of the layer selection that layer 13 provides the best overall trade-off for controllable affective structure.
 
