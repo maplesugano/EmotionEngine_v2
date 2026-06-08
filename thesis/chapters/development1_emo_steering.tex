@@ -332,7 +332,7 @@ Three metrics assess different facets of steering quality. Each metric is scored
 \subsection*{Results}
 
 \paragraph{Aggregate condition comparison.}
-Figure~\ref{fig:steering_condition_comparison} shows the mean and 95\% confidence intervals for all three metrics across the five intervention conditions ($n = 160$ per condition). The 95\% CI is computed from the $t$-distribution with $n-1$ degrees of freedom. Table~\ref{tab:steering_results_ci} reports the exact values. Overall, all steered conditions improve target-emotion match relative to the no-steering baseline of $0.325 \pm 0.056$. The decomposed intervention achieves the highest aggregate match at $0.364 \pm 0.056$, an absolute gain of $+0.039$ over the baseline. Shared-only steering achieves $0.349 \pm 0.055$, residual-only $0.357 \pm 0.057$, and the original pooled CAA direction $0.359 \pm 0.057$. The overlapping confidence intervals indicate that the advantage of the decomposed condition over original CAA is modest and below the level of statistical certainty at $\alpha = 0.05$.
+Figure~\ref{fig:steering_condition_comparison} shows the mean and 95\% confidence intervals for all three metrics across the five intervention conditions ($n = 160$ per condition). The 95\% CI is computed from the $t$-distribution with $n-1$ degrees of freedom. Table~\ref{tab:steering_results_ci} reports the exact values. Overall, all steered conditions improve target-emotion match relative to the no-steering baseline of $0.325 \pm 0.056$. The decomposed intervention achieves the highest aggregate match at $0.364 \pm 0.056$, an absolute gain of $+0.039$ over the baseline. Shared-only steering achieves $0.349 \pm 0.055$, residual-only $0.357 \pm 0.057$, and the original pooled CAA vector $0.359 \pm 0.057$. The overlapping confidence intervals indicate that the advantage of the decomposed condition over original CAA is modest and below the level of statistical certainty at $\alpha = 0.05$.
 
 \begin{figure}[H]
 \centering
@@ -344,7 +344,7 @@ Figure~\ref{fig:steering_condition_comparison} shows the mean and 95\% confidenc
 \input{figures/steering_condition_table_ci.tex}
 
 \paragraph{Per-emotion breakdown.}
-Figure~\ref{fig:steering_per_emotion} shows the per-emotion target-match scores broken down by condition. Steering gains are uneven across emotions: \textit{sadness} is already well-matched at baseline ($0.560$) and shows modest additional gain, whereas \textit{fear} starts low ($0.220$) and gains more substantially under the residual-only condition ($0.310$). \textit{Trust} benefits most from the decomposed intervention ($0.385$ vs.\ $0.300$ baseline). This heterogeneity is consistent with variation in the distinctiveness of the per-emotion residual directions shown earlier.
+Figure~\ref{fig:steering_per_emotion} shows the per-emotion target-match scores broken down by condition. Steering gains are uneven across emotions: \textit{sadness} is already well-matched at baseline ($0.560$) and shows modest additional gain, whereas \textit{fear} starts low ($0.220$) and gains more substantially under the residual-only condition ($0.310$). \textit{Trust} benefits most from the decomposed intervention ($0.385$ vs.\ $0.300$ baseline). This heterogeneity is consistent with variation in the distinctiveness of the per-emotion residual vectors shown earlier.
 
 \begin{figure}[H]
 \centering
@@ -364,7 +364,7 @@ Figure~\ref{fig:steering_tradeoff} plots semantic preservation against target-em
 \end{figure}
 
 \paragraph{Coefficient control and monotonicity.}
-Figure~\ref{fig:steering_coefficient_sweep} shows how output length and repetition rate change as $\alpha_R$ is swept from $-5$ to $+5$ at fixed $\alpha_G = 3$. Both proxy metrics show consistent directional trends across target emotions: higher $|\alpha_R|$ values produce longer and slightly more repetitive outputs, which is broadly consistent with stronger activation of the residual direction. However, the relationship is not perfectly monotonic, and cross-emotion variability remains visible. The monotonic fraction over judge-scored sweeps was $0.686$ at layer 13 ($0.701$ at layer 10; $0.634$ at layer 16), indicating that coefficient scaling provides partial but not complete directional control.
+Figure~\ref{fig:steering_coefficient_sweep} shows how output length and repetition rate change as $\alpha_R$ is swept from $-5$ to $+5$ at fixed $\alpha_G = 3$. Both proxy metrics show consistent directional trends across target emotions: higher $|\alpha_R|$ values produce longer and slightly more repetitive outputs, which is broadly consistent with stronger activation of the residual vector. However, the relationship is not perfectly monotonic, and cross-emotion variability remains visible. The monotonic fraction over judge-scored sweeps was $0.686$ at layer 13 ($0.701$ at layer 10; $0.634$ at layer 16), indicating that coefficient scaling provides partial but not complete directional control.
 
 \begin{figure}[H]
 \centering
