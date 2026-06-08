@@ -122,7 +122,7 @@ Figure~\ref{fig:residual_extraction} illustrates the process of residual stream 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\linewidth]{figures/residual_extraction.png}
-    \caption{Schematic overview of residual stream extraction during a forward pass.}
+    \caption{Schematic overview of residual stream extraction during a forward pass. Tokenisation process is simplified for clarity. In reality, the input is tokenised into subword units e.g. ``please'' might be tokenised into ``ple'' and ``ase''.}
     \label{fig:residual_extraction}
 \end{figure}
 
@@ -234,15 +234,17 @@ In the main steering analyses, these pooled unit vectors are used as the primary
 
 We first confirm that the construction is stable: at layer 13, mean cosine similarity between per-source contrastive shifts $\Delta_{n,e} = h^\text{emo}_{n,e} - h^\text{neu}_n$ and the global CAA vectors $\mathbf{c}^\text{pool}_{e,13}$ ranges from $0.8536$ to $0.8570$ (standard deviation $\approx 0.054$), confirming that the averaged direction is representative rather than an artefact of a few extreme samples.
 
-However, inspecting the pooled directions across emotion categories reveals a striking pattern. Cross-emotion cosine similarities range from approximately $0.979$ to $0.998$ (see Figure~\ref{fig:caa_inter_emotion_cosine_heatmap_L13}). Crucially, all off-diagonal values cluster within the narrow range above $0.97$, indicating that even the least similar emotion pair exhibits nearly collinearity in the high-dimensional residual space.
+However, inspecting the directions across emotion categories reveals a striking pattern. To preserve the source-pairing structure inherent in the dataset, we compute inter-emotion similarity per source text and then average: for each pair $(e_1, e_2)$, we report $\frac{1}{N}\sum_n \cos(\hat{\Delta}_{n,e_1},\,\hat{\Delta}_{n,e_2})$, where $\hat{\Delta}_{n,e}$ is the unit-normalised per-source shift pooled over intensities. The diagonal shows within-emotion intensity consistency: the mean per-source cosine across low, medium, and high intensity shifts of the same emotion. The resulting matrix is shown in Figure~\ref{fig:caa_paired_inter_emotion_cosine_heatmap_L13}.
 
-This uniformity would be unexpected if each CAA direction primarily encoded emotion-specific information. Instead, it suggests that every direction is dominated by a shared emotionalisation component, which is a common axis that is activated regardless of the targeted emotion. The model appears to shift representations in two stages: first, from a neutral register to a generic emotional one; then, from that shared emotional register, towards a particular affective category. A raw CAA direction conflates both stages, making the emotion-specific signal difficult to access directly. This observation motivates the explicit decomposition introduced in the next section.
+All values lie in the range $0.91$--$0.97$. More strikingly, for several emotion pairs --- notably \textit{disgust}--\textit{anger} ($0.971$) and \textit{sadness}--\textit{disgust} ($0.965$) --- the inter-emotion similarity \emph{exceeds} the within-emotion intensity consistency shown on the diagonal ($0.91$--$0.92$). For the same source text, the shift toward disgust is more similar to the shift toward anger than the low-intensity disgust shift is to the high-intensity disgust shift.
+
+This uniformity would be unexpected if each CAA direction primarily encoded emotion-specific information. Instead, it suggests that every direction is dominated by a shared \emph{emotionalisation} component --- a common axis that is activated regardless of the targeted emotion. The model appears to shift representations in two stages: first, from a neutral register to a generic emotional one; then, from that shared emotional register, towards a particular affective category. A raw CAA direction conflates both stages, making the emotion-specific signal difficult to access directly. This observation motivates the explicit decomposition introduced in the next section.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\linewidth]{figures/caa_inter_emotion_cosine_heatmap_L13.pdf}
-  \caption{Inter-emotion cosine similarity of pooled CAA directions at layer 13. The colour scale spans $[0, 1]$; all off-diagonal entries lie above $0.97$, indicating that every emotion pair shares a dominant common component.}
-  \label{fig:caa_inter_emotion_cosine_heatmap_L13}
+  \includegraphics[width=0.82\linewidth]{figures/caa_paired_inter_emotion_cosine_heatmap_L13.pdf}
+  \caption{Source-paired cosine similarity of CAA directions at layer 13. Off-diagonal: mean per-source cosine between emotion pairs. Diagonal \texttt{[\,]}: within-emotion intensity consistency (mean per-source cosine across low/medium/high intensity pairs). Colour scale spans $[0, 1]$; all entries lie above $0.90$.}
+  \label{fig:caa_paired_inter_emotion_cosine_heatmap_L13}
 \end{figure}
 
 \section{Operational Decomposition for Steering}
