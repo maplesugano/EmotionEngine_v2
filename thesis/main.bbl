@@ -30,7 +30,7 @@ Albert Mehrabian and James~A. Russell.
 \newblock {\em An Approach to Environmental Psychology}.
 \newblock MIT Press, Cambridge, MA, 1974.
 
-\bibitem{pad}
+\bibitem{PAD}
 Pad emotional state model.
 
 \bibitem{buechel2021labelagnosticemotionembeddings}
@@ -52,22 +52,23 @@ Robert Plutchik.
 \newblock Emotion: A psychoevolutionary synthesis.
 \newblock In Robert Plutchik and Henry~R. Kellerman, editors, {\em Emotion: Theory, Research, and Experience}. Academic Press, New York, NY, USA, 1980.
 
-\bibitem{radford2017learninggeneratereviewsdiscovering}
-Alec Radford, Rafal Jozefowicz, and Ilya Sutskever.
-\newblock Learning to generate reviews and discovering sentiment, 2017.
+\bibitem{pfau2024lets}
+Jacob Pfau, William Merrill, and Samuel~R. Bowman.
+\newblock Let{\textquoteright}s think dot by dot: Hidden computation in transformer language models.
+\newblock In {\em First Conference on Language Modeling}, 2024.
+
+\bibitem{hao2025traininglargelanguagemodels}
+Shibo Hao, Sainbayar Sukhbaatar, DiJia Su, Xian Li, Zhiting Hu, Jason Weston, and Yuandong Tian.
+\newblock Training large language models to reason in a continuous latent space, 2025.
+
+\bibitem{reichman2025emotionsartthouunderstanding}
+Benjamin Reichman, Adar Avsian, and Larry Heck.
+\newblock Emotions where art thou: Understanding and characterizing the emotional latent space of large language models, 2025.
 
 \bibitem{lee-etal-2025-large}
 Jaewook Lee, Woojin Lee, Oh-Woog Kwon, and Harksoo Kim.
 \newblock Do large language models have ``emotion neurons''? investigating the existence and role.
 \newblock In Wanxiang Che, Joyce Nabende, Ekaterina Shutova, and Mohammad~Taher Pilehvar, editors, {\em Findings of the Association for Computational Linguistics: ACL 2025}, pages 15617--15639, Vienna, Austria, July 2025. Association for Computational Linguistics.
-
-\bibitem{hu2021loralowrankadaptationlarge}
-Edward~J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu~Wang, and Weizhu Chen.
-\newblock Lora: Low-rank adaptation of large language models, 2021.
-
-\bibitem{reichman2025emotionsartthouunderstanding}
-Benjamin Reichman, Adar Avsian, and Larry Heck.
-\newblock Emotions where art thou: Understanding and characterizing the emotional latent space of large language models, 2025.
 
 \bibitem{dathathri2020plugplaylanguagemodels}
 Sumanth Dathathri, Andrea Madotto, Janice Lan, Jane Hung, Eric Frank, Piero Molino, Jason Yosinski, and Rosanne Liu.
@@ -90,24 +91,6 @@ Joost Broekens, Bernhard Hilpert, Suzan Verberne, Kim Baraka, Patrick Gebhard, a
 Bo~Zhao, Maya Okawa, Eric~J. Bigelow, Rose Yu, Tomer Ullman, Ekdeep~Singh Lubana, and Hidenori Tanaka.
 \newblock Emergence of hierarchical emotion organization in large language models, 2025.
 
-\bibitem{pfau2024lets}
-Jacob Pfau, William Merrill, and Samuel~R. Bowman.
-\newblock Let{\textquoteright}s think dot by dot: Hidden computation in transformer language models.
-\newblock In {\em First Conference on Language Modeling}, 2024.
-
-\bibitem{hao2025traininglargelanguagemodels}
-Shibo Hao, Sainbayar Sukhbaatar, DiJia Su, Xian Li, Zhiting Hu, Jason Weston, and Yuandong Tian.
-\newblock Training large language models to reason in a continuous latent space, 2025.
-
-\bibitem{shen2025codicompressingchainofthoughtcontinuous}
-Zhenyi Shen, Hanqi Yan, Linhai Zhang, Zhanghao Hu, Yali Du, and Yulan He.
-\newblock Codi: Compressing chain-of-thought into continuous space via self-distillation, 2025.
-
-\bibitem{wei2025simcot}
-Xilin Wei, Xiaoran Liu, Yuhang Zang, Xiaoyi Dong, Yuhang Cao, Jiaqi Wang, Xipeng Qiu, and Dahua Lin.
-\newblock Sim-cot: Supervised implicit chain-of-thought.
-\newblock {\em arXiv preprint arXiv:2509.20317}, 2025.
-
 \bibitem{li2017dailydialogmanuallylabelledmultiturn}
 Yanran Li, Hui Su, Xiaoyu Shen, Wenjie Li, Ziqiang Cao, and Shuzi Niu.
 \newblock Dailydialog: A manually labelled multi-turn dialogue dataset, 2017.
@@ -120,6 +103,10 @@ Hannah Rashkin, Eric~Michael Smith, Margaret Li, and Y-Lan Boureau.
 Meta.
 \newblock meta-llama/llama-3.1-8b-instruct, 2024.
 \newblock Accessed: 2026-06-03.
+
+\bibitem{wolf2020huggingfacestransformersstateoftheartnatural}
+Thomas Wolf, Lysandre Debut, Victor Sanh, Julien Chaumond, Clement Delangue, Anthony Moi, Pierric Cistac, Tim Rault, Rémi Louf, Morgan Funtowicz, Joe Davison, Sam Shleifer, Patrick von Platen, Clara Ma, Yacine Jernite, Julien Plu, Canwen Xu, Teven~Le Scao, Sylvain Gugger, Mariama Drame, Quentin Lhoest, and Alexander~M. Rush.
+\newblock Huggingface's transformers: State-of-the-art natural language processing, 2020.
 
 \bibitem{gu2025surveyllmasajudge}
 Jiawei Gu, Xuhui Jiang, Zhichao Shi, Hexiang Tan, Xuehao Zhai, Chengjin Xu, Wei Li, Yinghan Shen, Shengjie Ma, Honghao Liu, Saizhuo Wang, Kun Zhang, Yuanzhuo Wang, Wen Gao, Lionel Ni, and Jian Guo.

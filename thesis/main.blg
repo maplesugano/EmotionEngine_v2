@@ -9,45 +9,45 @@ Warning--entry type for "goemo" isn't style-file defined
 --line 317 of file main.bib
 Warning--entry type for "pad" isn't style-file defined
 --line 331 of file main.bib
-You've used 35 entries,
+You've used 32 entries,
             1791 wiz_defined-function locations,
-            620 strings with 10326 characters,
-and the built_in function-call counts, 8020 in all, are:
-= -- 606
-> -- 526
+            611 strings with 10058 characters,
+and the built_in function-call counts, 7640 in all, are:
+= -- 576
+> -- 511
 < -- 6
-+ -- 188
-- -- 153
-* -- 512
-:= -- 1259
-add.period$ -- 92
-call.type$ -- 35
-change.case$ -- 34
++ -- 182
+- -- 150
+* -- 504
+:= -- 1201
+add.period$ -- 85
+call.type$ -- 32
+change.case$ -- 31
 chr.to.int$ -- 0
-cite$ -- 35
-duplicate$ -- 324
-empty$ -- 787
-format.name$ -- 153
-if$ -- 1799
+cite$ -- 32
+duplicate$ -- 306
+empty$ -- 737
+format.name$ -- 150
+if$ -- 1709
 int.to.chr$ -- 0
-int.to.str$ -- 35
-missing$ -- 18
-newline$ -- 158
-num.names$ -- 42
-pop$ -- 187
+int.to.str$ -- 32
+missing$ -- 17
+newline$ -- 145
+num.names$ -- 39
+pop$ -- 170
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 202
+skip$ -- 191
 stack$ -- 0
 substring$ -- 334
-swap$ -- 92
+swap$ -- 89
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 65
-width$ -- 37
-write$ -- 334
+while$ -- 62
+width$ -- 34
+write$ -- 308
 (There were 3 warnings)

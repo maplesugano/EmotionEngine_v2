@@ -34,10 +34,10 @@ These shortcomings have motivated a growing body of work that seeks to represent
 
 \subsection{From Discrete Labels to Continuous Emotion Spaces}
 
-Continuous emotion representations seek to encode emotion as points in a low-dimensional vector space, where distance, direction, and magnitude correspond to psychological relationships. Early psychological models such as the pleasure–arousal–dominance (PAD) framework~\cite{MehrabianRussell1974} formalised emotion along continuous axes, suggesting that emotions differ quantitatively rather than categorically.
+Continuous emotion representations seek to encode emotion as points in a low-dimensional vector space, where distance, direction, and magnitude correspond to psychological relationships. Early psychological models such as the valence--arousal--dominance (VAD) framework~\cite{MehrabianRussell1974} formalised emotion along continuous axes, suggesting that emotions differ quantitatively rather than categorically.
 
 \begin{enumerate}
-    \item \textbf{Pleasure} represents the hedonic quality of an experience, ranging from unpleasant to pleasant. States such as joy, contentment, and satisfaction occupy the positive end of the pleasure axis, whereas sadness, disgust, and despair lie toward the negative end.
+    \item \textbf{Valence (Pleasure)} represents the hedonic quality of an experience, ranging from unpleasant to pleasant. States such as joy, contentment, and satisfaction occupy the positive end of the valence axis, whereas sadness, disgust, and despair lie toward the negative end.
     \item \textbf{Arousal} captures the degree of physiological and cognitive activation associated with an emotional state, ranging from calm or lethargic to excited or agitated. High-arousal states include fear, anger, and excitement, while low-arousal states include relaxation, boredom, or melancholy.
     \item \textbf{Dominance} reflects the extent to which an individual feels in control of, or overpowered by, a situation. High-dominance states are associated with feelings of agency, confidence, and control (e.g. pride, anger), whereas low-dominance states correspond to submission, helplessness, or vulnerability (e.g. fear, shame).
 \end{enumerate}
@@ -46,9 +46,9 @@ Together, these three dimensions define a continuous affective space in which ca
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/pad.png}
-    \caption{Representation of PAD model done with cubes~\cite{pad}}
-    \label{fig:pad}
+    \includegraphics[width=0.8\linewidth]{figures/PAD.png}
+    \caption{Representation of VAD model done with cubes~\cite{PAD}}
+    \label{fig:VAD}
 \end{figure}
 
 Additionally, in the field of affective computing, an explicit attempt to bridge the gap between discrete labels and continuous emotion representations is presented by Buechel et al.~\cite{buechel2021labelagnosticemotionembeddings}. Rather than committing to a single emotion taxonomy, they propose learning \emph{label-agnostic emotion embeddings} that serve as a shared latent representation across heterogeneous annotation schemes, including polarity, basic emotion categories, and affective dimensions such as valence and arousal.
@@ -154,7 +154,7 @@ The existence of affective directions in representation space can be shown by li
 
 Hollinsworth et al.\ (2024)~\cite{hollinsworth-etal-2024-language} show that sentiment in LLMs is encoded along a single dominant linear direction in contextual embeddings. They perform directional ablations and interventions, demonstrating that removing / suppressing this sentiment direction causes systematic degradation in downstream emotion-sensitive tasks such as emotion classification. Conversely, injecting the same direction into neutral contexts induces predictable shifts in model outputs. This bidirectional manipulation provides an evidence that the emotion direction is actively used by the model rather than being a passive correlate.
 
-Importantly, affective competence in LLMs does not depend on explicit fine-tuning for emotion-related tasks. Broekens et al.\ (2023)~\cite{broekens2023finegrainedaffectiveprocessingcapabilities} demonstrate that off-the-shelf LLMs such as ChatGPT can map text to precise valence–arousal–dominance (VAD) values and detect fine-grained emotional cues using prompting alone. This sugegsts that continuous affective representations are already embedded in the latent space as part of general language understanding. This is a strong evidence that interpretes emotion as a pre-verbal latent variable, rather than a task-specific output format.
+Importantly, affective competence in LLMs does not depend on explicit fine-tuning for emotion-related tasks. Broekens et al.\ (2023)~\cite{broekens2023finegrainedaffectiveprocessingcapabilities} demonstrate that off-the-shelf LLMs such as ChatGPT can map text to precise valence--arousal--dominance (VAD) values and detect fine-grained emotional cues using prompting alone. This sugegsts that continuous affective representations are already embedded in the latent space as part of general language understanding. This is a strong evidence that interpretes emotion as a pre-verbal latent variable, rather than a task-specific output format.
 
 At larger scales, evidence further indicates that emotional representations are not flat but hierarchically structured. Zhao et al.\ (2024)~\cite{zhao2025emergencehierarchicalemotionorganization} observe that very large models (more than 405 billion parameters) develop tree-like emotion representations, where basic affective states branch into more specific emotions. Models featuring a more consistent hierarchical affective geometry demonstrate enhanced emotion recognition capabilities and increased persuasive effectiveness in negotiation scenarios. This directly links the internal structure of emotional expression to functional behaviour.
 

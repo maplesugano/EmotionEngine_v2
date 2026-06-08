@@ -1,40 +1,49 @@
 \chapter{Affective Steering Pipeline}
 \label{chap:development1_emo_steering}
 
-This chapter shows preliminary experiments for the Emotion Engine to show that we can construct an emotional direction within the residual space of a large language model, and use it to actually steer the output.  We do not delve deeply into the semantic interpretation of the emotion representations themselves yet. Rather, our empirical claim is that, for a given target emotion $e$, applying a CAA direction derived from contrastive residual differences can shift the affective framing of the output towards the target emotion while largely preserving semantic content. \par
+This chapter shows preliminary experiments for the Emotion Engine to show that we can construct an emotional direction within the residual space of a large language model, and use it to actually steer the output.  We do not delve deeply into the semantic interpretation of the emotion representations themselves yet. Rather, our empirical claim is that, by decomposing emotion-specific CAA vectors into \textbf{a shared emotionalisation component} and \textbf{an emotion-specific residual component}, we can bias the output toward a target emotion.
 
-The central conclusion of this chapter is that by decomposing emotion-specific CAA vectors into a shared emotionalisation component and an emotion-specific residual component, we can bias the output toward a target emotion. Namely that,
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/g_residualisation.png}
+    \caption{A visualisation of the operational decomposition of emotion CAA vectors into a shared emotionalisation component $g$ and an emotion-specific residual component $\hat{r}_e$. The left panel shows the original CAA directions for three example emotions (joy, disgust and sadness). The right panel shows the same directions after removing the shared component $g$, revealing the residual vectors $\hat{r}_e$ that are specific to each emotion.}
+    \label{fig:g_residualisation}
+\end{figure}
+
+Formally we can define the steering vector for emotion $e$ as a linear combination of the shared emotionalisation vector $g$ and the emotion-specific residual $\hat{r}_e$:
 
 \[
 \Delta_e(\alpha_G,\alpha_R)=\alpha_G g+\alpha_R \hat{r}_e
 \]
 
-where $g$ is the shared emotionalisation vector that shifts from neutral to emotional expression, and $\hat{\mathbf{r}}_e$ is the residual vector specific to the target emotion. In this chapter, we treat this decomposition as a practical and operational representation for steering, rather than making strong claims about the underlying semantics of the emotion representations themselves.\par
+In this chapter, we treat this decomposition as a practical and operational representation for steering, rather than making strong claims about the underlying semantics of the emotion representations themselves.\par
 
 \section*{Experimental Roadmap}
+\label{sec:steering_roadmap_1}
 This chapter is organised as follows.\par
 
 \begin{enumerate}
   \item \textbf{Dataset construction}: From a single base utterance, we generate emotional rewrites corresponding to multiple target emotions and intensity levels, and further construct neutral paraphrases. This allows us to create a controlled corpus that enables the comparison of emotional variations while preserving the original meaning.
   \item \textbf{Residual-stream extraction}: We combine an emotion rewrite and the corresponding neutral paraphrase into a prompt of the same format and extract residual-stream activations from selected layers of Llama-3.1-8B-Instruct. For each source utterance, we compute
-\[
-\mathbf{H}^{\mathrm{emo}}_{n,e,i,l} - \mathbf{H}^{\mathrm{neu}}_{n,l}
-\]
-to obtain an affective shift that cancels out the semantic content as much as possible.
-  \item \textbf{Layer selection and diagnostics}: We compare diagnostic metrics such as emotion-category probe accuracy and centroid compactness, to select the primary analysis layer. The goal here is not to determine the most interpretable layer, but rather to determine the layer that provides the most stable affective direction for steering.
-  \item \textbf{CAA vector construction}: We construct contrastive activation addition (CAA) vectors by averaging the residual vectors over sources and intensities, and then normalising to obtain unit vectors for each emotion.
+  \[
+  \mathbf{H}^{\mathrm{emo}}_{n,e,i,l} - \mathbf{H}^{\mathrm{neu}}_{n,l}
+  \]
+  to obtain an affective shift that cancels out the semantic content as much as possible. Here, $n$ is the source ID, $e$ is the emotion category, $i$ is the intensity level, and $l$ is the layer index.
+  \item \textbf{Layer selection and diagnostics}: Intuitively, the aim is to identify the layer where emotion before humans put them into words (or apply ``lossy compression'', as discussed in Chapter~\ref{chap:introduction}) are best abstracted. More formally, we define several diagnostic metrics to select the primary analysis layer to determine the layer that provides the most stable affective direction for steering.
+  \item \textbf{CAA vector construction}: We construct contrastive activation addition (CAA) vectors by averaging the residual vectors over sources and intensities, and then normalising to obtain unit vectors for each emotion. This is based on the methods proposed by Panickssery et al.~\cite{caa} and further adapted for affective steering.
   \item \textbf{Operational decomposition for steering}: Since cross-emotion CAA directions exhibit very high cosine similarity, this suggests that each emotion direction contains a large shared emotionalisation component. Therefore, we define
-\[
-\mathbf{g}
-=
-\frac{\frac{1}{|E|}\sum_{e \in E}\mathbf{c}_e}
-{\left\lVert \frac{1}{|E|}\sum_{e \in E}\mathbf{c}_e \right\rVert_2}
-\]
-and remove this shared component from each emotion direction.
-\[
-\hat{\mathbf{r}}_e = \mathbf{c}_e - (\mathbf{c}_e^\top \mathbf{g})\mathbf{g}
-\]
-In this chapter, we operationally use this $\hat{\mathbf{r}}_e$ as the \textbf{steering residual} responsible for the target emotion identity. However, the internal affective structure of $\hat{\mathbf{r}}_e$ will be discussed in the next chapter.
+  \[
+  \mathbf{g}
+  =
+  \frac{\frac{1}{|E|}\sum_{e \in E}\mathbf{c}_e}
+  {\left\lVert \frac{1}{|E|}\sum_{e \in E}\mathbf{c}_e \right\rVert_2}
+  \]
+  and remove this shared component from each emotion direction. This yields the emotion-specific residual component $\hat{\mathbf{r}}_e$:
+  \[
+  \hat{\mathbf{r}}_e = \mathbf{c}_e - (\mathbf{c}_e^\top \mathbf{g})\mathbf{g}
+  \]
+  as illustrated in Figure~\ref{fig:g_residualisation}. 
+  In this chapter, we operationally use this $\hat{\mathbf{r}}_e$ as the \textbf{steering residual} responsible for the target emotion identity. However, the internal affective structure of $\hat{\mathbf{r}}_e$ will be discussed in the next chapter.
   \item \textbf{Steering experiments}: We add the steering vector $\alpha_G \mathbf{g} + \alpha_R \hat{\mathbf{r}}_e$ to the residual stream and evaluate whether the generated output shifts toward the target emotion.
 \end{enumerate}
 
@@ -73,9 +82,8 @@ As a control condition, we constructed an additional neutral paraphrase baseline
 \toprule
 \textbf{Field} & \textbf{Example} \\
 \midrule
-Base utterance & I waited for hours and nobody came. \\
-Neutral paraphrase & I waited for several hours, and no one arrived. \\
-Purpose & Preserve events and meaning while removing affective phrasing. \\
+Base utterance & What a mess!  Sorry. I'll clean it up. \\
+Neutral paraphrase & There is a mess. I will clean it up. \\
 \bottomrule
 \end{tabular}
 \caption{Illustrative example from the neutral-paraphrase control dataset.}
@@ -86,9 +94,11 @@ Together, these datasets enable us to distinguish emotional signals from lexical
 
 This design makes it possible to ask whether affective variation forms a consistent direction in activation space, rather than merely reflecting surface-level lexical differences between emotional words.\par
 
+%TODO: dataset size
+
 \section{Residual-Stream Extraction}
 
-We extract hidden-state activations from an instruction-tuned language model (Llama-3.1-8B~\cite{meta2024llama318b}) with no gradient updates. Our aim is to determine where affective information is represented in the model's internal computations rather than in output tokens alone. The residual stream is therefore used as the primary analysis target, because it is the shared channel through which each transformer block accumulates and propagates semantic and affective information across layers.
+We extract hidden-state activations from an instruction-tuned language model (Llama-3.1-8B~\cite{meta2024llama318b}) with no gradient updates. We use the HuggingFace Transformers library~\cite{wolf2020huggingfacestransformersstateoftheartnatural} to implement the forward pass and activation extraction.
 
 To ensure that the inputs are comparable across the different conditions, each sample is formatted with a shared instruction prefix that is constructed from the same base utterance. Only the continuation text is changed, either through an emotion rewrite or a neutral paraphrase. Specifically, we use a user instruction in the form of a chat template that asks for a rewrite aligned with the speaker's feelings, and then append the rewritten sentence as the assistant continuation. This matching protocol controls for variance at the prompt level and enables direct comparison of emotion-conditioned and neutral-conditioned activations.
 
@@ -107,17 +117,26 @@ Base: \texttt{\{base\_text\}} \\
 \caption{Prompt format used for activation extraction.}
 \end{table}
 
-Residual sampling involves forwarding batched inputs with hidden-state output enabled and collecting vectors at selected hook layers. For each target layer $l$, the last token's hidden state is taken from the layer's output, i.e.
+Figure~\ref{fig:residual_extraction} illustrates the process of residual stream extraction during a forward pass. The prompt containing both user and assistant tokens is passed through the transformer stack, and hidden states are recorded at selected layers. Each transformer block updates the residual stream through attention and MLP sublayers, producing layer-wise activations $h^\ell \in \mathbb{R}^{T \times d_\text{model}}$, where $T$ is the number of tokens and $d_\text{model}$ is the hidden dimension. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/residual_extraction.png}
+    \caption{Schematic overview of residual stream extraction during a forward pass.}
+    \label{fig:residual_extraction}
+\end{figure}
+
+For each target layer $l$, the last token's hidden state is taken from the layer's output, i.e.
 \[
 \mathbf{h}_{l}=\texttt{hidden\_states}[l+1][:,-1,:]
 \] 
-Since tokenisation uses left padding, the index $-1$ consistently corresponds to the final real token in each sequence in the batch. Final-token representation is the state after the model has processed the entire rewritten utterance, making it a compact summary of the affective framing expressed by the continuation. Activations are sampled from layers $\{8,10,13,16,19,22\}$, producing a multi-layer representation for every input.
+Since tokenisation uses left padding, the index $-1$ consistently corresponds to the \textbf{final} real token in each sequence in the batch. Final-token representation is the state after the model has processed the entire rewritten utterance, making it a compact summary of the affective framing expressed by the continuation. Activations are sampled from layers $\{8,10,13,16,19,22\}$, producing a multi-layer representation for every input.
 
-The emotion-intensity extraction pipeline produces a 5D tensor:
+In summary, the emotion-intensity extraction pipeline produces a 5D tensor:
 \[
 \mathbf{H}^{\text{emo}} \in \mathbb{R}^{N \times E \times I \times L \times D},
 \]
-where $N$ is the number of source texts, $E=8$ emotions, $I=3$ intensity levels, $L$ is the number of sampled layers, and $D$ is the hidden dimension. The neutral baseline pipeline produces:
+where $N$ is the number of source texts, $E=8$ emotions rewrites, $I=3$ intensity levels, $L$ is the number of sampled layers, and $D=4096$ is the hidden dimension. The neutral baseline pipeline produces:
 \[
 \mathbf{H}^{\text{neu}} \in \mathbb{R}^{N \times L \times D}.
 \]
@@ -129,9 +148,15 @@ which isolates affective shifts while controlling for base semantic content.
 
 \section{Layer Selection and Diagnostics}
 
-Not all transformer layers provide equally useful representations for affective analysis. Emotion-related structure may be present at multiple depths, but different layers can privilege different properties of the representation. For example, one layer may provide strong emotion-category separability, while another may better preserve a compact low-dimensional geometry. Since the later analyses require both linear decodability and geometrically stable affective directions, we compared candidate layers using several complementary diagnostics.
+Not all transformer layers provide equally useful representations for affective analysis. Emotion-related structure may be present at multiple depths, but different layers can privilege different properties of the representation. As described in the Roadmap~\ref{steering_roadmap_1}, the aim of the layer selection stage is to identify the layer where emotion before verbalisation are best abstracted. For example, one layer may provide strong emotion-category separability, while another may better preserve a compact low-dimensional geometry. We define three diagnostic metrics to evaluate candidate layers:
 
-Based on these diagnostics, layer 13 was selected as the primary layer for the main analyses. It is not globally best on every metric, but it provides the most convincing overall trade-off between category separability, low-dimensional compactness, and sensitivity to graded affective variation.
+\begin{enumerate}
+  \item \textbf{Balanced Accuracy}: This metric measures if that layer preserves the emotion category information. We train a logistic regression model to predict the emotion category from the residual vectors, which are PCA-ed into a 4D subspace. The higher this value is, the more our residual space possesses a structure that can be linearly mapped to human-named emotion labels.
+  \item \textbf{Geometric Compactness}: This shows if the emotion information is concentrated in a low-dimensional subspace. We measure the explained variance ratio (EVR) of the emotion centroids in the residual space. This metric assesses to what extent the few principal components extracted by PCA/SVD can explain the variance in the original residual vector set.
+  \item \textbf{Graded Affect Sensitivity}: This metric quantifies whether the representation of that layer merely ``separates emotion categories'' or whether it possesses ``emotional quantity, and intensity'' as continuous variables. By performing PCA for each emotion label and projecting all samples onto the direction with the greatest variance within each emotion (PC1), we obtain coordinates indicating the position of each sample on the PC1 axis. The Spearman correlation between this score and the intensity label (low, medium, high) serves as a measure indicating that the direction of greatest variation within that emotion aligns with the intensity level. This is then averaged across the eight emotions.
+\end{enumerate}
+
+Based on these diagnostics, layer 13 was selected as the primary layer for the main analyses. It is not globally best on every metric, but it provides the most convincing overall trade-off between the above three criteria.
 
 \begin{table}[H]
 \centering
@@ -139,14 +164,17 @@ Based on these diagnostics, layer 13 was selected as the primary layer for the m
 \begin{tabular}{lccc}
 \toprule
 \textbf{Layer} &
-  \textbf{Emotion probe BAcc} &
-  \textbf{Centroid EVR\textsubscript{4}} &
-  \textbf{Mean intensity-direction correlation} \\
+  \textbf{Balanced Acc} &
+  \textbf{EVR\textsubscript{4}} &
+  \textbf{Graded Affect Sensitivity} \\
   & \textit{(4-D subspace)} & & \\
 \midrule
+  8  & 0.6914 & 0.8834 & 0.1312 \\
   10 & 0.6751 & 0.8876 & 0.0998 \\
   13 \textbf{*} & \textbf{0.7033} & 0.8920 & \textbf{0.1336} \\
   16 & 0.6704 & \textbf{0.8958} & 0.1297 \\
+  19 & 0.6198 & 0.8902 & 0.1142 \\
+  22 & 0.6142 & 0.8928 & 0.1022 \\
 \bottomrule
 \end{tabular}
 \caption{Layer-wise diagnostic summary for candidate layers. Emotion-category probe balanced
@@ -163,13 +191,15 @@ Based on these diagnostics, layer 13 was selected as the primary layer for the m
     \label{fig:layer_diagnostics}
 \end{figure}
 
-First, emotion-category probe performance in the 4D affective subspace is highest at layer 13. The balanced accuracy reaches 0.7033 at layer 13, compared with 0.6751 at layer 10 and 0.6704 at layer 16. On this criterion, layer 13 preserves the most linearly decodable information about the target emotion categories.
+Firstly, \textbf{layer 13 achieves the highest balanced accuracy of all the candidate layers}. Balanced accuracy reaches $0.7033$ in the residual subspace, compared to $0.6914$ in layer 8, $0.6751$ in layer 10 and $0.6704$ in layer 16. This suggests that the emotional representation in layer 13 can be most easily converted into human-named emotion categories, even after compression into a small number of dimensions. However, this does not necessarily mean that the model represents emotions as discrete symbolic labels. Rather, it indicates that the continuous affective geometry at this layer is organised in such a way that human emotion categories can be identified using a simple linear classifier.\par
 
-Second, this increase in decodability does not come at the cost of geometric compactness. The centroid-level four-dimensional explained variance remains high at layer 13, with $\mathrm{EVR}_{4}=0.8920$. This is slightly below layer 16 ($\mathrm{EVR}_{4}=0.8958$) but above layer 10 ($\mathrm{EVR}_{4}=0.8876$). In other words, layer 13 is not the strongest layer on this metric alone, but it remains close to the best-performing depth while retaining stronger emotion-category separability.
+Secondly, \textbf{layer 13 preserves a highly compact, low-dimensional geometry}. Its centroid-level $\mathrm{EVR}_{4}$ is $0.8920$, meaning that the top four principal components explain $89.2\%$ of the variance among the emotion centroids. Although layer 16 has the highest $\mathrm{EVR}_{4}$ value ($0.8958$), the difference between layers 13 and 16 is small. Therefore, the stronger category decodability at layer 13 does not appear to result in a loss of the low-dimensional affective structure. In this sense, layer 13 preserves a geometry that is both compact and interpretable.\par
 
-Third, layer 13 shows the strongest sensitivity to graded affective variation among the candidate layers. The mean intensity-direction correlation is 0.1336 at layer 13, compared with 0.0998 at layer 10 and 0.1297 at layer 16. Although the absolute correlation is modest, the relative increase suggests that layer 13 is the most sensitive of the three candidate layers to systematic changes in affective intensity.
+Thirdly, \textbf{layer 13 shows the highest graded affect sensitivity of all the tested layers}. The mean intensity-direction correlation is $0.1336$ at layer 13, compared to $0.1312$ at layer 8, $0.0998$ at layer 10 and $0.1297$ at layer 16. As the absolute value is modest, we do not interpret the local PC1 of each emotion as a pure intensity axis. Instead, this metric should be interpreted as an indication of whether the dominant variation within each emotion retains some monotonic relationship with affective strength. The fact that layer 13 achieves the highest value suggests that it preserves slightly more graded affective information than neighbouring layers.\par
 
-To avoid overfitting the analysis to a single depth, we also examined neighbouring layers as robustness checks. Layers 10 and 16 show similar qualitative trends and preserve the main geometric findings, suggesting that affective structure is not confined to a single transformer block. We therefore do not treat layer 13 as uniquely optimal in a global sense. Rather, we use it as the main reporting layer because it offers the best trade-off across the three diagnostics, while layers 10 and 16 serve as nearby robustness checks.
+Taken together, these diagnostics suggest that layer 13 is close to a useful abstraction point for pre-verbal affective structures. Earlier layers, such as layers 8 and 10, retain substantial affective information, but their category recoverability and graded sensitivity are weaker or less stable. Later layers, such as layer 16, have a marginally more compact geometry but show lower emotion-category balanced accuracy. This indicates that later representations are shaped by subsequent verbalisation. Therefore, layer 13 offers the best overall trade-off: it is low-dimensional enough to support geometric analysis and linearly organised enough to recover human emotion labels. It is also sensitive enough to retain graded affective variation.\par
+
+We therefore use layer 13 as the primary reporting layer in subsequent analyses. However, we do not treat it as the only layer at which affective structure exists. Neighbouring layers show similar trends, indicating that the affective geometry is distributed across multiple middle layers rather than being localised to a single transformer block. Layer 13 should be understood as the most suitable operational layer for this study, i.e. the layer at which the representation is most useful for modelling emotion before it is collapsed into explicit verbal labels.\par
 
 \section{CAA Vector Construction}
 
