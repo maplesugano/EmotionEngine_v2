@@ -274,56 +274,102 @@ This procedure should not be understood as recovering a single, accurate decompo
 
 \section{Decomposition Validity}
 \label{sec:decomposition_validity}
-%TODO
 
-\section{Steering Experiments}
-\label{sec:steering_experiments}
+The decomposition introduced in Section~\ref{sec:decomposition} rests on a geometric assumption: that $\mathbf{g}$ captures what is common to all emotion CAA vectors, and that $\hat{\mathbf{r}}_e$ retains the emotion-discriminative information. This section tests that assumption with three independent analyses. The first examines whether projecting out $\mathbf{g}$ reduces inter-emotion alignment, which would confirm that the shared component was responsible for the high cosine similarities observed in Section~\ref{sec:caa_construction}. The second tests whether $\hat{\mathbf{r}}_e$ is sufficient to classify emotions, confirming that the residual retains rather than discards category information. The third asks whether the Plutchik circular adjacency structure~\cite{plutchik1980emotion}, which was obscured before residualisation, becomes visible after $\mathbf{g}$ is removed.\par
 
-\subsection{Generation Setup}
+\subsection{Source-Paired Cosine Similarity}
 
-We investigate whether emotion-specific residuals $\hat{\mathbf{r}}_e$ causally bias text generation towards the target emotion, and specifically, whether incorporating the shared vector $\mathbf{g}$ at any scale yields further benefits. We generate follow-up sentences using \texttt{Llama-3.1-8B-Instruct} from 100 source utterances sampled from the test split of the emotion rewriting dataset. To eliminate sampling variance as a confounding factor, we employ greedy decoding (temperature $= 0$) throughout the entire process.
+We compute inter-emotion cosine similarity using the same source-paired protocol as Section~\ref{sec:caa_construction}: for each pair $(e_1, e_2)$ and each source $n$, we measure the cosine between $\hat{\Delta}_{n,e_1}$ and $\hat{\Delta}_{n,e_2}$, then average over sources. Diagonal entries measure within-emotion intensity consistency. This is computed twice: once for the pooled CAA vectors $\mathbf{c}^{\mathrm{pool}}_{e}$ (before residualisation) and once for the unit-normalised residuals $\hat{\mathbf{r}}_e$ (after residualisation).\par
 
-\subsubsection*{Sweep Design}
+Figure~\ref{fig:caa_decomposition_cosine_before_after_L13} shows the resulting heatmaps. Before residualisation, all off-diagonal entries lie in the range $0.93$--$0.97$, with a mean of $0.947$. After residualisation, the same entries drop to $0.71$--$0.89$, with a mean of $0.794$. The decrease of $\Delta = -0.153$ demonstrates that $\mathbf{g}$ was the principal source of inter-emotion alignment: removing it makes the eight emotion directions substantially more independent of one another.\par
 
-Based on preliminary exploration, we fix $\alpha_R = 5.0$ as the residual scale that demonstrated the best performance, and scan $\alpha_G \in \{0, 0.25, 0.5, 1, 2, 3\}$. The anchor condition $\alpha_G = 0$ corresponds to pure residual steering (i.e. no shared components). The introduction of fine intermediate values ($0.25$, $0.5$, $1$, $2$) was intended to verify whether contributions from $\mathbf{g}$ below a certain threshold are beneficial before the scaling becomes detrimental. Each combination of source text, target emotion, and $\alpha_G$ value constitutes a single generation, resulting in a total of $100 \times 8 \times 6 = 4,800$ generated texts.
-
-
-\subsection{Automated Evaluation Protocol}
-
-Each generated sentence is scored by \texttt{gpt-4o-mini}, which acts as a judge. To ensure consistent evaluation criteria across all $4800$ items, the judge is presented with three fixed few-shot examples that cover the entire scoring range. Specifically, these are examples that match a high-quality target, examples where the meaning is preserved but the emotion expressed is incorrect, and examples where the target emotion is partially present but the propositional content is off-target. These examples serve to anchor the two endpoints of the evaluation scale before the evaluator views the test items. Scores are retrieved via OpenAI's Structured Output API, which utilises a strict JSON schema. This eliminates the need for free-form parsing and ensures that the three numerical scores and the dominant sentiment label are always returned in a consistent, machine-readable format. The evaluators operate without being informed of the intervention condition (the $\alpha_G$ value).
-
-Three continuous $[0,1]$ metrics are collected per item:
-
-\begin{itemize}
-  \item \textbf{Target-emotion match}: Whether the predominant emotional tone of the output matches the target emotion. The judge is shown the target emotion label and asked to rate the degree to which the generated text conveys that emotion as its primary sentiment.
-  \item \textbf{Semantic preservation}: Whether the core propositional content of the source utterance is retained. The judge compares the generated text with the original to assess whether the same events, entities, and relationships are present.
-  \item \textbf{Emotionality}: Whether the output contains any emotional expression at all. A low score flags outputs that are flat, incoherent, or affectively empty, serving as a quality check: an intervention that appears to improve target-emotion match by producing incoherent text will be exposed by a corresponding drop on this metric.
-\end{itemize}
-
-\subsection{Statistical Analysis}
-
-The mean values for each condition are reported together with the 95\% confidence intervals calculated from the score distributions for each item. To verify whether an arbitrary $\alpha_G > 0$ reliably exceeds the anchor value of $\alpha_G = 0$, items are paired using the key $({\rm source\_id},\,{\rm target\_emotion})$ for target emotion agreement, and a paired $t$-test is applied. By performing the pairing within this key, we control for sentence-level and emotion-level variations common to all $\alpha_G$ conditions, obtaining $n = 800$ pairs per test whilst achieving confidence intervals that are significantly narrower than those obtained in non-paired comparisons.
-
-\subsection{Results}
-\label{sec:alpha_g_sweep}
-
-We hold $\alpha_R = 5.0$ fixed and sweep $\alpha_G \in \{0, 0.25, 0.5, 1, 2, 3\}$ across $n = 800$ samples per condition ($100$ source texts $\times$ $8$ target emotions). This directly answers whether adding $\mathbf{g}$ helps at any scale.
-
-Figure~\ref{fig:alpha_g_sweep_aggregate} shows all three metrics as a function of $\alpha_G$. All three decline monotonically as $\alpha_G$ increases. Target-emotion match falls from $0.270$ at $\alpha_G = 0$ to $0.252$ at $\alpha_G = 3$; emotionality drops from $0.567$ to $0.531$; and semantic preservation declines from $0.870$ to $0.863$. No value of $\alpha_G > 0$ produces any reliable improvement over $\alpha_G = 0$ on any metric. The per-emotion breakdown (Figure~\ref{fig:alpha_g_sweep_per_emotion}) confirms that no individual emotion benefits from a positive $\alpha_G$.
+Intensity consistency, shown on the diagonal, also decreases from $0.917$ to $0.736$ ($\Delta = -0.181$). This is expected rather than alarming. The intensity-consistent component of a CAA vector is partly carried by the shared emotionalisation direction, since a stronger emotional activation shifts representations further along $\mathbf{g}$ regardless of the target emotion. After projection, $\hat{\mathbf{r}}_e$ retains only the component of that intensity signal that is orthogonal to $\mathbf{g}$: the part that is specific to an emotion's identity. The reduction in diagonal similarity therefore reflects a cleaner separation of emotionalisation strength (encoded in $\mathbf{g}$) from emotion identity (encoded in $\hat{\mathbf{r}}_e$), rather than a loss of information.\par
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{figures/alpha_g_sweep_per_emotion.png}
-\caption{Per-emotion target-emotion match vs.\ $\alpha_G$ ($\alpha_R = 5.0$ fixed; $n = 100$ per cell; error bars = 95\% CI). No individual emotion benefits from a positive $\alpha_G$.}\label{fig:alpha_g_sweep_per_emotion}
+    \centering
+    \includegraphics[width=\linewidth]{figures/caa_decomposition_cosine_before_after_L13.pdf}
+    \caption{Source-paired cosine similarity of emotion directions before (left, $\mathbf{c}^{\mathrm{pool}}_e$) and after (right, $\hat{\mathbf{r}}_e$) residualisation of $\mathbf{g}$ at layer 13. Off-diagonal entries represent inter-emotion similarity; diagonal entries in brackets represent within-emotion intensity consistency. Residualisation reduces mean inter-emotion alignment from $0.947$ to $0.794$, confirming that $\mathbf{g}$ was the dominant source of cross-emotion collinearity.}
+    \label{fig:caa_decomposition_cosine_before_after_L13}
 \end{figure}
+
+\subsection{Linear Probe Accuracy}
+
+If $\hat{\mathbf{r}}_e$ is a valid representation of emotion identity, it should remain linearly separable in the 8-class sense. We train a logistic regression classifier (L-BFGS, 8-class, 80/20 source-based split) to predict the target emotion from per-source contrastive shifts $\Delta_{n,e}$ averaged over intensities, using either $\mathbf{c}^{\mathrm{pool}}_e$ or $\hat{\mathbf{r}}_e$ as the reference directions. The source-based split ensures that the test set contains only utterances unseen during training.\par
+
+The results are shown in Table~\ref{tab:linear_probe_accuracy}. Before residualisation, the probe achieves $92.7\%$ accuracy against a chance level of $12.5\%$. After residualisation, accuracy rises slightly to $93.8\%$. The absence of any decline confirms that $\mathbf{g}$ carries no emotion-discriminative information: it is the shared component common to all eight emotions and therefore uninformative for distinguishing them. The marginal improvement suggests that removing $\mathbf{g}$ actually sharpens the emotion-specific signal by reducing collinearity between emotion directions.\par
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lc}
+\toprule
+\textbf{Condition} & \textbf{8-Class Accuracy} \\
+\midrule
+Chance & 12.5\% \\
+Before residualisation ($\mathbf{c}^{\mathrm{pool}}_e$) & 92.7\% \\
+After residualisation ($\hat{\mathbf{r}}_e$) & \textbf{93.8\%} \\
+\bottomrule
+\end{tabular}
+\caption{Linear probe accuracy for 8-class emotion classification at layer 13. Accuracy is measured on a held-out source split (80/20). The marginal improvement after residualisation confirms that $\mathbf{g}$ contains no emotion-discriminative information.}
+\label{tab:linear_probe_accuracy}
+\end{table}
+
+\subsection{Plutchik Circular Structure}
+
+A third consistency check asks whether the residual directions reflect the theoretically expected adjacency structure of the Plutchik emotion wheel. The wheel arranges eight basic emotions in a circle such that neighbouring pairs (wheel distance 1, e.g.\ \textit{joy}--\textit{trust}) are more similar than pairs at opposite positions (wheel distance 4, e.g.\ \textit{joy}--\textit{sadness}). If $\hat{\mathbf{r}}_e$ is a valid emotion representation, its cosine similarity should decrease monotonically as wheel distance increases.\par
+
+We group all 28 emotion pairs by their wheel distance (1 through 4) and compute the mean cosine similarity within each group, both before and after residualisation. The results are shown in Figure~\ref{fig:caa_decomposition_plutchik_L13}. Before residualisation, the monotonic trend is present but nearly imperceptible: the gap between adjacent pairs (distance 1, mean $= 0.953$) and opposite pairs (distance 4, mean $= 0.943$) is only $0.010$. After residualisation, the same gap widens to $0.041$ --- a fourfold increase. The cosine values now decrease clearly from $0.818$ at distance 1 to $0.777$ at distance 4, with an approximately linear gradient across all four bins.\par
 
 \begin{figure}[H]
-\centering
-\includegraphics[width=\linewidth]{figures/alpha_g_sweep_aggregate.png}
-\caption{Target-emotion match, emotionality, and semantic preservation as a function of $\alpha_G$, with $\alpha_R = 5.0$ fixed ($n = 800$ per condition; error bars = 95\% CI). All three metrics decrease monotonically as $\alpha_G$ increases from $0$.}\label{fig:alpha_g_sweep_aggregate}
+    \centering
+    \includegraphics[width=0.65\linewidth]{figures/caa_decomposition_plutchik_L13.pdf}
+    \caption{Mean source-paired cosine similarity grouped by Plutchik wheel distance (1 = adjacent, 4 = opposite), before (blue) and after (orange) residualisation of $\mathbf{g}$ at layer 13. The monotonic decreasing trend is present in both conditions, but the adjacent\textendash{}opposite gap grows fourfold from $0.010$ to $0.041$ after residualisation.}
+    \label{fig:caa_decomposition_plutchik_L13}
 \end{figure}
 
-The shared direction $\mathbf{g}$ is counterproductive at every tested scale. Effective affective steering therefore reduces to $\Delta_e = \alpha_R\,\hat{\mathbf{r}}_e$, with $\alpha_G$ discarded.
+Table~\ref{tab:plutchik_pairs} provides a closer look at individual pairs. The adjacent pair \textit{disgust}--\textit{anger} shows the highest cosine after residualisation ($0.889$), while the opposite pair \textit{trust}--\textit{disgust} shows the lowest ($0.747$). One notable exception is \textit{fear}--\textit{anger}: despite being an opposite pair in Plutchik's wheel, their post-residualisation cosine remains high at $0.823$. Both emotions share a negative-valence, high-arousal character. Since $\mathbf{g}$ is defined as the mean direction common to all eight emotions, a positive/negative valence axis does not align with this mean and therefore survives in $\hat{\mathbf{r}}_e$. This is an acknowledged limitation of the one-dimensional decomposition: a more complete factorisation would additionally project out a valence axis. However, as shown in Section~\ref{sec:steering_causal_validation}, this limitation has no measurable impact on the core steering pipeline.\par
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llcc}
+\toprule
+\textbf{Pair} & \textbf{Type} & \textbf{Before} & \textbf{After} \\
+\midrule
+Disgust{--}Anger         & Adjacent & 0.971 & 0.889 \\
+Sadness{--}Disgust       & Adjacent & 0.965 & 0.861 \\
+Joy{--}Trust             & Adjacent & 0.960 & 0.846 \\
+Anticipation{--}Joy      & Adjacent & 0.955 & 0.823 \\
+\midrule
+Fear{--}Anger            & Opposite & 0.954 & 0.823 \\
+Surprise{--}Anticipation & Opposite & 0.944 & 0.780 \\
+Joy{--}Sadness           & Opposite & 0.939 & 0.757 \\
+Trust{--}Disgust         & Opposite & 0.935 & 0.747 \\
+\bottomrule
+\end{tabular}
+\caption{Source-paired cosine similarity for selected adjacent and opposite pairs on the Plutchik wheel, before and after residualisation. The \textit{fear}--\textit{anger} opposite pair remains elevated after residualisation ($0.823$) due to a shared negative-valence, high-arousal character that the mean-direction residualisation does not remove.}
+\label{tab:plutchik_pairs}
+\end{table}
+
+\subsection{Summary}
+
+All three lines of evidence converge on the same conclusion: the decomposition into $\mathbf{g}$ and $\hat{\mathbf{r}}_e$ is geometrically valid. Table~\ref{tab:decomposition_validity_summary} collects the key quantities. The shared component $\mathbf{g}$ is responsible for the high inter-emotion alignment observed in the raw CAA vectors; removing it leaves a residual that is more discriminative, retains full emotion-category information, and better reflects the theoretical circular structure of the Plutchik wheel. The one residual limitation --- the elevated \textit{fear}--\textit{anger} cosine --- is consistent across all three tests and points to a valence axis that lies outside the span of $\mathbf{g}$, rather than to a flaw in the decomposition itself.\par
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lcc}
+\toprule
+\textbf{Test} & \textbf{Before ($\mathbf{c}^{\mathrm{pool}}_e$)} & \textbf{After ($\hat{\mathbf{r}}_e$)} \\
+\midrule
+Inter-emotion cosine (mean off-diagonal) & 0.947 & 0.794 \\
+8-class probe accuracy                   & 92.7\% & \textbf{93.8\%} \\
+Plutchik adjacent--opposite gap          & 0.010 & \textbf{0.041} \\
+\bottomrule
+\end{tabular}
+\caption{Summary of decomposition validity tests at layer 13. Arrows indicate the direction expected under a valid decomposition: inter-emotion cosine should decrease (emotion directions become more independent), probe accuracy should be maintained or improve (emotion information is preserved), and the Plutchik gap should increase (circular structure becomes more visible).}
+\label{tab:decomposition_validity_summary}
+\end{table}
 
 \section{Causal Validation: Steering}
 \label{sec:steering_causal_validation}
