@@ -546,22 +546,22 @@ def _draw_heatmap(ax, mat: np.ndarray, cmap: str, vmin: float, vmax: float,
             v = mat[i, j]
             txt = f"[{v:.3f}]" if i == j else f"{v:.3f}"
             norm = (v - vmin) / max(vmax - vmin, 1e-9)
-            color = "white" if norm > 0.65 else "black"
+            color = "white" if (norm > 0.65 or norm < 0.15) else "black"
             ax.text(j, i, txt, ha="center", va="center", fontsize=5.5, color=color)
     ax.set_title(title, fontsize=9, pad=4)
     return im
 
 
 def save_heatmap_pair(mat_b: np.ndarray, mat_a: np.ndarray, path: Path) -> None:
-    """2-panel figure: before (Blues) | after (RdBu_r), exp11 format."""
+    """2-panel figure: before | after, both on RdYlBu_r matching Plutchik circle range."""
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.8, 5.8))
 
     im1 = _draw_heatmap(
-        ax1, mat_b, "Blues", vmin=0.85, vmax=1.0,
+        ax1, mat_b, "RdYlBu_r", vmin=0.70, vmax=1.0,
         title=r"Before residualization  ($\mathbf{c}_e$, pooled CAA)",
     )
     im2 = _draw_heatmap(
-        ax2, mat_a, "RdBu_r", vmin=-0.3, vmax=1.0,
+        ax2, mat_a, "RdYlBu_r", vmin=0.70, vmax=1.0,
         title=r"After residualization  ($\hat{\mathbf{r}}_e$)",
     )
 
@@ -593,11 +593,11 @@ def save_combined_figure(
     ax3 = fig.add_subplot(gs[2])
 
     im1 = _draw_heatmap(
-        ax1, mat_b, "Blues", vmin=0.85, vmax=1.0,
+        ax1, mat_b, "RdYlBu_r", vmin=0.70, vmax=1.0,
         title=r"(a) Before: $\mathbf{c}_e$",
     )
     im2 = _draw_heatmap(
-        ax2, mat_a, "RdBu_r", vmin=-0.3, vmax=1.0,
+        ax2, mat_a, "RdYlBu_r", vmin=0.70, vmax=1.0,
         title=r"(b) After: $\hat{\mathbf{r}}_e$",
     )
 
