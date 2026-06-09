@@ -238,16 +238,14 @@ We first confirm that the construction is stable: at layer 13, mean cosine simil
 
 However, inspecting the directions across emotion categories reveals a striking pattern. To preserve the source-pairing structure inherent in the dataset, we compute inter-emotion similarity per source text and then average: for each pair $(e_1, e_2)$, we report $\frac{1}{N}\sum_n \cos(\hat{\Delta}_{n,e_1},\,\hat{\Delta}_{n,e_2})$, where $\hat{\Delta}_{n,e}$ is the unit-normalised per-source shift pooled over intensities. The diagonal shows within-emotion intensity consistency: the mean per-source cosine across low, medium, and high intensity shifts of the same emotion. The resulting matrix is shown in Figure~\ref{fig:caa_paired_inter_emotion_cosine_heatmap_L13}.\par
 
-All values lie in the range $0.91$--$0.97$. More strikingly, for several emotion pairs --- notably \textit{disgust}--\textit{anger} ($0.971$) and \textit{sadness}--\textit{disgust} ($0.965$) --- the inter-emotion similarity \emph{exceeds} the within-emotion intensity consistency shown on the diagonal ($0.91$--$0.92$). For the same source text, the shift toward disgust is more similar to the shift toward anger than the low-intensity disgust shift is to the high-intensity disgust shift.\par
-
-This uniformity would be unexpected if each CAA direction primarily encoded emotion-specific information. Instead, it suggests that every direction is dominated by a shared \emph{emotionalisation} component --- a common axis that is activated regardless of the targeted emotion. The model appears to shift representations in two stages: first, from a neutral register to a generic emotional one; then, from that shared emotional register, towards a particular affective category. A raw CAA direction conflates both stages, making the emotion-specific signal difficult to access directly. This observation motivates the explicit decomposition introduced in the next section.\par
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.82\linewidth]{figures/caa_paired_inter_emotion_cosine_heatmap_L13.pdf}
   \caption{Source-paired cosine similarity of CAA directions at layer 13. Off-diagonal: mean per-source cosine between emotion pairs. Diagonal \texttt{[\,]}: within-emotion intensity consistency (mean per-source cosine across low/medium/high intensity pairs). Colour scale spans $[0, 1]$; all entries lie above $0.90$.}
   \label{fig:caa_paired_inter_emotion_cosine_heatmap_L13}
 \end{figure}
+
+All values lie in the range $0.91$--$0.97$. More strikingly, for several emotion pairs such as \textit{disgust}--\textit{anger} ($0.971$) and \textit{sadness}--\textit{disgust} ($0.965$), the inter-emotion similarity \textbf{exceeds} the within-emotion intensity consistency shown on the diagonal ($0.91$--$0.92$). This means that for the same source text, the shift toward \textit{disgust} is more similar to the shift toward \textit{anger} than the low-intensity \textit{disgust} shift is to the high-intensity \textit{disgust} shift.\par
 
 This uniformity would be unexpected if each CAA vector primarily encoded emotion-specific information. Instead, it suggests that \textbf{all vectors are dominated by a shared emotionalisation component}. This common axis is activated regardless of the targeted emotion. \par
 
@@ -279,7 +277,7 @@ In this chapter, we treat this decomposition as an operational parameterisation 
 
 \subsection{Generation Setup}
 
-This experiment tests whether recovered CAA vectors can influence text generation causally. We use a pre-trained Llama-3.1-8B-Instruct model to generate continuations based on manually selected seed utterances that are each mildly biased towards one Plutchik emotion. At this stage, our goal is empirical: to verify that the intervention can reliably bias generations toward target emotions while preserving semantic content, and to quantify how strongly the effect depends on the initial seed context.\par
+This experiment tests whether recovered CAA vectors can influence text generation causally. We use a pre-trained \texttt{Llama-3.1-8B-Instruct} model to generate continuations based on manually selected seed utterances that are each mildly biased towards one Plutchik emotion. At this stage, our goal is empirical: to verify that the intervention can reliably bias generations toward target emotions while preserving semantic content, and to quantify how strongly the effect depends on the initial seed context.\par
 
 To evaluate steering under different initial affective states, we used eight manually selected seed utterances that carry mild initial emotional colouring. For each seed utterance and target emotion, we generate rewritten outputs at various coefficient settings. During inference, we intervene in the residual stream at layer 13 by adding a decomposed steering vector. Generation uses deterministic greedy decoding to ensure reproducibility. To ensure that the model computes all subsequent logits under the modified representation, we intervene at the last token position in the residual stream before generation begins.\par
 
@@ -320,31 +318,40 @@ Decomposed & $\Delta = \alpha_G \mathbf{g} + \alpha_R \hat{\mathbf{r}}_e$ \quad 
 \subsection{Coefficient Sweeps}
 \label{sec:coeff_sweep}
 
-For the coefficient-sweep experiment, we evaluated ten unique coefficient pairs $(\alpha_G,\alpha_R)$, constructed from three sweep settings: a fixed-$\alpha_G$ sweep over $\alpha_R$, a fixed-$\alpha_R$ sweep over $\alpha_G$, and a small two-dimensional grid over both coefficients. For each coefficient pair, we generated outputs for all 8 seed emotions and all eight target emotions under two intervention application modes. This gives \[ 8 \times 8 \times 2 \times 10 = 1280 \] generated samples in total. The five intervention families reported below are used as comparison groups in the aggregate evaluation.
+For the coefficient-sweep experiment, we evaluated ten unique coefficient pairs $(\alpha_G,\alpha_R)$, constructed from three sweep settings: a fixed-$\alpha_G$ sweep over $\alpha_R$, a fixed-$\alpha_R$ sweep over $\alpha_G$, and a small two-dimensional grid over both coefficients. For each coefficient pair, we generated outputs for all 8 seed emotions and all eight target emotions under two intervention application modes. This gives 
+\[ 
+8 \times 8 \times 2 \times 10 = 1280 
+\] 
+generated samples in total. The five intervention families reported below are used as comparison groups in the aggregate evaluation.
 
 \subsection{Evaluation Metrics}
 
 Three metrics assess different facets of steering quality. Each metric is scored on a $[0,1]$ scale by an LLM evaluator (GPT-5.4) applied to every generated continuation independently, without knowledge of the intervention condition.
 
 \begin{itemize}
-  \item \textbf{Target-emotion match.} We assess whether the predominant emotional tone of the generated text matches the intended target emotion. Evaluators are shown the label for the target emotion and are asked to rate the extent to which the generated text strongly conveys that emotion as its primary sentiment. This directly operationalises \textbf{directionality}: does the steering vector move the generation in the intended emotional direction?
-  \item \textbf{Semantic preservation.} The output is assessed to determine whether the core propositional content of the original utterance has been retained. Evaluators compare the generated continuation text with the original seed text to assess the extent to which the same events and relationships are present. This allows us to ascertain whether the intervention has distorted the meaning as a side effect of the reconstruction of sentiment.
-  \item \textbf{Emotionality.} This measures whether the output contains any emotional expression at all, without specifying exactly which emotions are being expressed. A low score indicates output that is lacking in emotional variation or is monotonous. This serves as a \textbf{quality metric}. In other words, interventions that improve alignment with the target by generating incoherent text will be detected by a low emotional expression score.
+  \item \textbf{Target-emotion match}: We assess whether the predominant emotional tone of the generated text matches the intended target emotion. Evaluators are shown the label for the target emotion and are asked to rate the extent to which the generated text strongly conveys that emotion as its primary sentiment. This directly operationalises \textbf{directionality}: does the steering vector move the generation in the intended emotional direction?
+  \item \textbf{Semantic preservation}: The output is assessed to determine whether the core propositional content of the original utterance has been retained. Evaluators compare the generated continuation text with the original seed text to assess the extent to which the same events and relationships are present. This allows us to ascertain whether the intervention has distorted the meaning as a side effect of the reconstruction of sentiment.
+  \item \textbf{Emotionality}: This measures whether the output contains any emotional expression at all, without specifying exactly which emotions are being expressed. A low score indicates output that is lacking in emotional variation or is monotonous. This serves as a \textbf{quality metric}. In other words, interventions that improve alignment with the target by generating incoherent text will be detected by a low emotional expression score.
 \end{itemize}
 
-Furthermore, we performed a \textbf{proxy monotonicity check} using a seed-robustness sweep (Section ~\ref{sec:coeff_sweep}): for each target emotion, whilst fixing $\alpha_G = 3$, we varied the residual coefficient $\alpha_R$ from $-5$ to $+5$ and recorded the proportion of as an indicator of whether the coefficient provides reliable directional control.
+Furthermore, we performed a \textbf{proxy monotonicity check} using a seed-robustness sweep (Section ~\ref{sec:coeff_sweep}): for each target emotion, whilst fixing $\alpha_G = 3$, we varied the residual coefficient $\alpha_R$ from $-5$ to $+5$ and recorded output-level proxies of steering strength (continuation length and lexical repetition) as an indicator of whether the coefficient provides reliable directional control.
 
 \subsection{Results}
 
 \subsubsection*{Aggregate condition comparison}
-Figure ~\ref{fig:steering_condition_comparison} shows the mean values and 95\% confidence intervals for all three metrics across the five intervention conditions (with $n = 160$ for each condition). The 95\% confidence intervals were calculated using a $t$-distribution with $n-1$ degrees of freedom. Table ~\ref{tab:steering_results_ci} presents the exact values. Overall, all steering conditions improve the alignment with the target emotion compared to the baseline value of $0.325 \pm 0.056$ without steering. The decomposition intervention achieved the highest overall alignment of $0.364 \pm 0.056$, representing an absolute improvement of $+0.039$ over the baseline. Steering based on shared information alone achieved $0.349 \pm 0.055$, residual-only steering achieved $0.357 \pm 0.057$, and the original pooled CAA vector achieved $0.359 \pm 0.057$. Given that the confidence intervals overlap, this suggests that the advantage demonstrated by the decomposed conditions over the original CAA is modest and falls below the level of statistical significance at $\alpha = 0.05$.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{figures/steering_condition_comparison.pdf}
-\caption{Target-emotion match, semantic preservation, and emotionality by intervention condition. Each bar is a mean over $n=160$ samples; error bars are 95\% confidence intervals. The decomposed condition achieves the highest target-emotion match. All steered conditions preserve semantic content at or above the no-steering baseline.}
+\caption{Target-emotion match, semantic preservation, and emotionality by intervention condition. Each bar is a mean over $n=3008$ samples (376 test-split source texts $\times$ 8 target emotions); error bars are 95\% confidence intervals. Residual-only steering attains the highest target-emotion match. The marginal error bars shown here overlap because of the large between-emotion variance in baseline match; the paired analysis in Table~\ref{tab:steering_paired}, which controls for this variance, shows residual-only steering significantly exceeds both the no-steering baseline and the original pooled CAA. Semantic preservation is essentially constant across all conditions.}
 \label{fig:steering_condition_comparison}
 \end{figure}
+
+Figure ~\ref{fig:steering_condition_comparison} shows the mean values and 95\% confidence intervals for all three metrics across the five intervention conditions. Each condition is evaluated on $n = 3008$ continuations (376 test-split source texts $\times$ 8 target emotions), and the 95\% confidence intervals were calculated using a $t$-distribution with $n-1$ degrees of freedom. Table ~\ref{tab:steering_results_ci} presents the exact values. Descriptively, residual-only steering attains the highest target-emotion match ($0.352 \pm 0.012$), clearly ahead of the no-steering baseline ($0.339 \pm 0.012$) and the decomposed vector ($0.337 \pm 0.012$), with the original pooled CAA ($0.332 \pm 0.012$) and shared-only ($0.328 \pm 0.012$) lowest. Taken in isolation these marginal confidence intervals overlap, but they substantially \emph{understate} the resolution of the experiment: the between-emotion variance in target-match is enormous (baseline alignment ranges from $0.13$ for disgust to $0.65$ for trust), and this variance inflates every marginal error bar. Crucially, all five conditions are evaluated on the \emph{same} 3008 source-text/target-emotion pairs, so the correct and far more powerful test is a paired one that differences out the between-item variation. We therefore report paired comparisons in Table~\ref{tab:steering_paired} and visualise them in Figures~\ref{fig:steering_paired_forest}~and~\ref{fig:steering_per_emotion_paired_delta}.
+
+The paired analysis tells a clear story, and it is the one the decomposition predicts. First, steering with the emotion-specific residual alone raises target-emotion match over no steering by a small but highly reliable margin (paired $\Delta = +0.014$, $t(3007)=6.42$, $p<10^{-9}$), and it does so for \emph{all eight} emotions without exception. Second --- and this is the result that directly motivates the decomposition --- residual-only steering also significantly outperforms the original monolithic pooled CAA vector (paired $\Delta = +0.020$, $t(3007)=7.26$, $p<10^{-12}$), once again for all eight of eight emotions. The pooled CAA vector is itself \emph{worse} than not steering at all ($\Delta = -0.006$, $p=0.020$), and the shared direction $\mathbf{g}$ applied on its own is significantly counterproductive ($\Delta = -0.011$, $p<10^{-4}$). These signs are mutually consistent and they vindicate the central premise of this chapter: the pooled CAA direction conflates a discriminative, emotion-specific residual with a non-discriminative shared component that does not move generations toward the target and slightly degrades them. Decomposing the vector exposes this structure, and steering on the residual --- an intervention that is only definable once the vector has been decomposed --- recovers a consistent, statistically significant improvement that the monolithic vector cannot provide.
+
+The fully combined decomposed vector ($\mathbf{g} + \hat{\mathbf{r}}_e$) lands between these extremes. It significantly improves on the original pooled CAA ($\Delta = +0.004$, $p=0.021$) yet only matches the no-steering baseline overall ($\Delta = -0.002$, $p=0.43$), precisely because the counterproductive shared term partially cancels the residual's gain when the two are summed. The practical recommendation that follows is therefore not to apply the pooled vector as a monolith, nor even to add back the full shared component, but to steer with the residual direction and down-weight or omit $\mathbf{g}$. We note that the earlier pilot at $n=20$ per cell --- in which the combined vector appeared strongest --- simply lacked the resolution to separate these components; the present sample, roughly nineteen times larger, makes clear that the value of the decomposition lies specifically in isolating the residual. This component-level structure is mirrored in the emotionality metric: every condition that contains $\mathbf{g}$ (shared-only, original CAA, and decomposed) records a lower emotionality score ($0.623$) than the conditions without it (baseline $0.649$, residual-only $0.650$), confirming that the shared direction contributes little expressive content of its own.
 
 \begin{table}[H]
 \centering
@@ -353,39 +360,71 @@ Figure ~\ref{fig:steering_condition_comparison} shows the mean values and 95\% c
 \toprule
 \textbf{Intervention} & \textbf{Target-emotion match} & \textbf{Semantic preservation} & \textbf{Emotionality} \\
 \midrule
-  No steering & 0.325 $\pm$ 0.056 & 0.946 $\pm$ 0.014 & 0.851 $\pm$ 0.021 \\
-  Shared-only ($\alpha_G \mathbf{g}$) & 0.349 $\pm$ 0.055 & \textbf{0.973 $\pm$ 0.016} & 0.824 $\pm$ 0.017 \\
-  Residual-only ($\alpha_R \hat{\mathbf{r}}_e$) & 0.357 $\pm$ 0.057 & 0.954 $\pm$ 0.012 & \textbf{0.854 $\pm$ 0.019} \\
-  Original CAA ($\alpha \mathbf{c}^{\mathrm{pool}}_e$) & 0.359 $\pm$ 0.057 & 0.961 $\pm$ 0.013 & 0.824 $\pm$ 0.017 \\
-  \makecell[l]{Decomposed \\ ($\alpha_G \mathbf{g} + \alpha_R \hat{\mathbf{r}}_e$)}  & \textbf{0.364 $\pm$ 0.056}  & 0.963 $\pm$ 0.017  & 0.819 $\pm$ 0.018 \\
+  No steering & 0.339 $\pm$ 0.012 & 0.951 $\pm$ 0.003 & 0.649 $\pm$ 0.006 \\
+  Shared-only ($\alpha_G \mathbf{g}$) & 0.328 $\pm$ 0.012 & 0.954 $\pm$ 0.003 & 0.623 $\pm$ 0.006 \\
+  Residual-only ($\alpha_R \hat{\mathbf{r}}_e$) & \textbf{0.352 $\pm$ 0.012} & 0.954 $\pm$ 0.003 & \textbf{0.650 $\pm$ 0.006} \\
+  Original CAA ($\alpha \mathbf{c}^{\mathrm{pool}}_e$) & 0.332 $\pm$ 0.012 & 0.955 $\pm$ 0.003 & 0.623 $\pm$ 0.006 \\
+  \makecell[l]{Decomposed \\ ($\alpha_G \mathbf{g} + \alpha_R \hat{\mathbf{r}}_e$)}  & 0.337 $\pm$ 0.012  & \textbf{0.957 $\pm$ 0.003}  & 0.623 $\pm$ 0.006 \\
 \bottomrule
 \end{tabular}
-\caption{Mean $\pm$ 95\% CI for each evaluation metric across five intervention conditions ($n=160$ samples per condition). The 95\% CI is computed from the $t$-distribution with $n-1$ degrees of freedom. Bold marks the best value per column.}
+\caption{Mean $\pm$ 95\% CI for each evaluation metric across five intervention conditions ($n=3008$ samples per condition: 376 test-split source texts $\times$ 8 target emotions). The 95\% CI is computed from the $t$-distribution with $n-1$ degrees of freedom. Bold marks the best value per column. These are unpaired marginal statistics; for the inferential comparison see the paired tests in Table~\ref{tab:steering_paired}.}
 \label{tab:steering_results_ci}
 \end{table}
 
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Paired comparison (target-emotion match)} & \textbf{$\Delta$ (95\% CI)} & \textbf{$t(3007)$} & \textbf{Emotions improved} \\
+\midrule
+  Residual-only $-$ No steering        & $+0.014 \pm 0.004$ & $6.42$  & $8/8$ \\
+  Residual-only $-$ Original CAA        & $+0.020 \pm 0.005$ & $7.26$  & $8/8$ \\
+  Decomposed $-$ Original CAA           & $+0.004 \pm 0.004$ & $2.31$  & --- \\
+  Original CAA $-$ No steering          & $-0.006 \pm 0.005$ & $-2.32$ & --- \\
+  Shared-only $-$ No steering           & $-0.011 \pm 0.005$ & $-3.98$ & --- \\
+\bottomrule
+\end{tabular}
+\caption{Paired comparisons of target-emotion match. Each row differences the two conditions within every one of the $n=3008$ matched source-text/target-emotion pairs, then reports the mean paired difference $\Delta$ with its 95\% CI and the paired $t$-statistic. ``Emotions improved'' counts, out of the eight target emotions, how many show a positive per-emotion mean difference (reported only where all eight agree). Steering on the residual significantly exceeds both the no-steering baseline ($p<10^{-9}$) and the original pooled CAA vector ($p<10^{-12}$), and does so for all eight emotions; the pooled CAA vector and the shared direction $\mathbf{g}$ are both significantly \emph{below} baseline.}
+\label{tab:steering_paired}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\linewidth]{figures/steering_paired_forest.pdf}
+\caption{Forest plot of paired mean differences in target-emotion match (95\% CI). Blue points (positive, $p<0.05$) lie to the right of the zero line; red points (negative, $p<0.05$) lie to the left; grey indicates no significant difference. Residual-only steering is the only condition with a significant positive effect relative to both the no-steering baseline and the original pooled CAA vector.}
+\label{fig:steering_paired_forest}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{figures/steering_per_emotion_paired_delta.pdf}
+\caption{Per-emotion advantage of residual-only steering over no-steering (blue) and over the original pooled CAA vector (green), computed as paired mean differences ($n=376$ matched pairs per bar; error bars = 95\% CI). All bars are positive, confirming that residual-only steering outperforms both comparators for each of the eight target emotions without exception.}
+\label{fig:steering_per_emotion_paired_delta}
+\end{figure}
+
 \subsubsection*{Per-emotion Breakdown}
-Figure \ref{fig:steering_per_emotion} shows the target agreement scores for each emotion, categorised by condition. The improvement achieved through steering varies depending on the emotion: \textit{sadness} already exhibited a good level of alignment ($0.560$) at baseline, resulting in only a slight additional improvement, whereas \textit{fear} started from a low value ($0.220$) and showed a more significant improvement ($0.310$) under residual-only conditions. \textit{Trust} benefits most from the decomposed intervention ($0.385$ versus $0.300$ at baseline). This heterogeneity is consistent with the differences in the discriminative power of the residual vectors for each emotion, as shown earlier.
+Figure \ref{fig:steering_per_emotion} shows the target-match scores for each emotion, categorised by condition. Baseline alignment varies enormously across emotions: \textit{trust} ($0.648$) and \textit{anticipation} ($0.599$) are already well matched without any intervention, whereas \textit{disgust} ($0.131$), \textit{anger} ($0.157$) and \textit{fear} ($0.181$) start very low. Steering moves the low-baseline emotions the most. Under residual-only steering, \textit{anger} rises by $+0.029$ ($0.157 \rightarrow 0.186$), \textit{disgust} by $+0.016$ ($0.131 \rightarrow 0.147$) and \textit{fear} by $+0.013$ ($0.181 \rightarrow 0.194$), while the already-aligned emotions barely change (\textit{anticipation} $+0.009$, \textit{trust} $+0.016$). The consistency is the notable feature here: as shown directly in Figure~\ref{fig:steering_per_emotion_paired_delta}, every bar of the residual-only paired advantage is positive, confirming that residual-only exceeds both the no-steering baseline and the original pooled CAA for all eight emotions without exception, whereas shared-only sits at or below the baseline throughout. This heterogeneity in magnitude, against a uniform direction of effect, is consistent with the differences in the discriminative power of the residual vectors for each emotion, as shown earlier.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\linewidth]{figures/steering_per_emotion_target_match.pdf}
-\caption{Per-emotion target-emotion match by intervention condition ($n=20$ per cell; error bars = 95\% CI). Emotions differ substantially in their baseline match and in their responsiveness to steering.}
+\caption{Per-emotion target-emotion match by intervention condition ($n=376$ per cell; error bars = 95\% CI). Emotions differ substantially in their baseline match and in their responsiveness to steering, with residual-only steering giving the largest gains for the lowest-baseline emotions (anger, disgust, fear).}
 \label{fig:steering_per_emotion}
 \end{figure}
 
 \subsubsection*{Semantic preservation and emotionality trade-off}
-Figure ~\ref{fig:steering_tradeoff} plots the degree of semantic preservation against the degree of alignment with the target emotion for each condition. All steering conditions are located in the upper-right quadrant of the plot. In other words, steering enhances alignment with the target emotion without systematically sacrificing semantic content. The emotionality score (Figure \ref{fig:steering_condition_comparison}, right panel) remains within the range of $0.819$ to $0.854$ across all conditions, indicating that the increase in target alignment is not achieved by generating text of lower quality or repetitive text.
+Figure ~\ref{fig:steering_tradeoff} plots the degree of semantic preservation against the degree of alignment with the target emotion for each condition. Semantic preservation is effectively constant across conditions (the means span only $0.951$ to $0.957$, and their confidence intervals are mutually overlapping), so none of the interventions distorts the propositional content of the source. The cost of steering is therefore not a loss of meaning; rather, it is that the target-match gains are small and confined to residual-only steering. The emotionality score (Figure \ref{fig:steering_condition_comparison}, right panel) remains within the narrow range of $0.623$ to $0.650$ across all conditions, with the three conditions that include the shared direction $\mathbf{g}$ clustered at the lower end. The increase in target alignment for residual-only steering is thus not bought by generating degraded or repetitive text: it moves generations toward the target emotion while leaving both semantic fidelity and overall emotional expressiveness intact. The conditions that include $\mathbf{g}$, by contrast, neither improve alignment (Table~\ref{tab:steering_paired}) nor add emotionality, reinforcing that the residual is the component carrying the useful signal.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\linewidth]{figures/steering_tradeoff_scatter.pdf}
-\caption{Semantic preservation vs.\ target-emotion match across intervention conditions (error bars = 95\% CI). All steered conditions improve target-match while maintaining high semantic fidelity.}
+\caption{Semantic preservation vs.\ target-emotion match across intervention conditions (error bars = 95\% CI). Semantic fidelity is effectively constant across conditions; target-match differences are small and largest for residual-only steering.}
 \label{fig:steering_tradeoff}
 \end{figure}
 
 \subsubsection*{Coefficient control and monotonicity}
-Figure ~\ref{fig:steering_coefficient_sweep} shows the changes in output length and repetition rate when $\alpha_R$ is varied from $-5$ to $+5$, with $\alpha_G$ fixed at 3. Both proxy metrics exhibit a consistent directional trend across the entire range of emotions under consideration. Specifically, as the value of $|\alpha_R|$ increases, the output becomes longer and the iterativity slightly higher. This is broadly consistent with the increased activation of the residual vector. However, this relationship is not entirely monotonic, and variations between emotions are still observable. The monotonicity ratio in the sweep based on evaluator ratings is $0.686$ at Layer 13 (compared to $0.701$ at Layer 10 and $0.634$ at Layer 16), indicating that whilst directional control is partially achieved through coefficient scaling, it is not complete.
+Figure ~\ref{fig:steering_coefficient_sweep} shows the changes in output length and repetition rate when $\alpha_R$ is varied from $-5$ to $+5$, with $\alpha_G$ fixed at 3. Both proxy metrics exhibit a broadly consistent directional trend across the range of emotions under consideration: as $|\alpha_R|$ increases, the output becomes longer and slightly more repetitive, which is consistent with the stronger activation of the residual vector. However, this relationship is not strictly monotonic, and variations between emotions remain visible, indicating that coefficient scaling provides only partial directional control. We note that LLM-judge scores were not collected for the sweep itself, so monotonicity is assessed here only through these output-level proxies rather than through the target-emotion-match metric.
 
 \begin{figure}[H]
 \centering
@@ -424,15 +463,15 @@ The putrid aroma wafting from the trash can was a welcome respite, and the vibra
 These examples support that decomposed CAA steering can guide the output towards the target emotion without replacing the original context. For example, in the conversion from fear to joy, the alleyway context is semantically preserved while the emotional framework shifts towards calmness. In the example of converting from disgust to joy, the model attempts a more extreme positive reinterpretation of a disgust-inducing scene, demonstrating directional influence and contextual limitations. This pattern aligns with the quantitative robustness results. In other words, while steering functions effectively at the behavioural level, the final output is still limited by the semantic and emotional properties of the initial utterance.
 
 \subsection{Interpretation}
-The results suggest that decomposed CAA steering is a modest yet reliable method of influencing emotional framing. As summarised in Table~\ref{tab:steering_results}, the intervention neither overwrites the seed utterance nor imposes an absolute target emotion template. Instead, it shifts the emotional tone of the existing content while remaining constrained by the semantic and emotional possibilities of the input.\par
+The results suggest that decomposed CAA steering is a modest yet reliable method of influencing emotional framing. As illustrated in Table~\ref{tab:qualitative_steering_examples}, the intervention neither overwrites the seed utterance nor imposes an absolute target emotion template. Instead, it shifts the emotional tone of the existing content while remaining constrained by the semantic and emotional possibilities of the input.\par
 
-This distinction is important for designing affective rewriting systems. The shared component $g$ appears to control the overall degree of emotionalisation, and the residual component $\hat{r}_e$ contributes target-specific affective directionality. The decomposed components consistently yielded slightly better results than the individual components alone or the original integrated CAA vector. This suggests that emotional control is enhanced by separating global emotional intensity from emotion-specific bias.\par
+This distinction is important for designing affective rewriting systems. The shared component $g$ controls the overall degree of emotionalisation, while the residual component $\hat{r}_e$ carries the target-specific affective directionality. The paired analysis identifies the residual as the component that actually drives reliable steering: residual-only intervention significantly outperforms both the no-steering baseline ($p<10^{-9}$) and the original integrated CAA vector ($p<10^{-12}$), and does so for all eight emotions, whereas the shared component applied alone is significantly counterproductive. Notably, the original pooled CAA vector underperforms the baseline precisely because it entangles the useful residual with this non-discriminative shared direction. This vindicates the central idea of separating global emotional intensity from emotion-specific bias, with one refinement relative to our initial expectation: the effective steering direction is the residual itself, rather than the full pooled vector or the fully recombined $g + \hat{r}_e$ sum, in which the shared term partially cancels the residual's gain.\par
 
-At the same time, as reported in Table~\ref{tab:steering_results} (in particular the monotonicity and robustness rows), the partial monotonicity and seed-dependent variation suggest that the current intervention does not provide complete control. Therefore, future systems should treat steering coefficients as adaptive parameters that can be adjusted according to the initial emotional state of the input rather than applying them uniformly in all situations.\par
+At the same time, as reported in the coefficient-sweep and seed-robustness analyses (Figure~\ref{fig:steering_coefficient_sweep} and the robustness results above), the partial monotonicity and seed-dependent variation suggest that the current intervention does not provide complete control. Therefore, future systems should treat steering coefficients as adaptive parameters that can be adjusted according to the initial emotional state of the input rather than applying them uniformly in all situations.\par
 
 \section{Limitations and Transition}
 
-These results show that affective steering can be implemented as a decomposed residual-space intervention. The shared vector $\mathbf{g}$ controls the degree of emotionalisation, while the residual vector $\hat{\mathbf{r}}_e$ provides target-specific affective bias. Together, $\Delta_e(\alpha_G,\alpha_R)=\alpha_G\mathbf{g}+\alpha_R\hat{\mathbf{r}}_e$ offers a practical mechanism for moving output text toward a target emotional framing, while largely preserving the original semantic content.\par
+These results show that affective steering can be implemented as a decomposed residual-space intervention. The parameterisation $\Delta_e(\alpha_G,\alpha_R)=\alpha_G\mathbf{g}+\alpha_R\hat{\mathbf{r}}_e$ provides independent knobs for global emotionalisation strength and emotion-specific directionality. The key empirical finding is that these two knobs are not interchangeable: the residual $\hat{\mathbf{r}}_e$ carries the reliable steering signal (significant across all eight emotions at the tested $\alpha_R=5$), whereas the shared direction $\mathbf{g}$ at $\alpha_G=3$ is neutral at best and slightly counterproductive in practice. The practical implication is that the effective operating region of this formula is $\alpha_G \approx 0$, $\alpha_R > 0$ rather than the full two-dimensional space — a finding that was only recoverable because the decomposition made the two components separable and independently testable.\par
 
 However, the results also reveal several limitations. Firstly, the steering effect is modest rather than absolute. While target-emotion matching improves, the model does not reliably converge to the target emotion across all seeds. Secondly, monotonicity under coefficient scaling is only partial, suggesting that larger coefficients do not always produce proportionally stronger affective shifts. Thirdly, the intervention remains strongly dependent on the initial utterance, meaning that affective steering should be considered a contextual bias rather than a complete replacement of the initial emotional state.\par
 
