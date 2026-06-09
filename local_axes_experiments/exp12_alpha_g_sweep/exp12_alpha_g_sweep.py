@@ -84,7 +84,7 @@ MAX_NEW_TOKENS = 60
 DO_SAMPLE      = False
 ALPHA_R        = 5.0
 ALPHA_G_SWEEP  = [0.0, 0.25, 0.5, 1.0, 2.0, 3.0]
-N_SOURCES      = 50      # override with --n_sources
+N_SOURCES      = 100      # override with --n_sources
 BATCH_SIZE     = 8
 CACHE_FLUSH_EVERY = 4
 
@@ -555,6 +555,104 @@ def analyse() -> None:
         print(f"{ag:6.2f}  {m:+.4f}     ±{ci:.4f}   {t:+.2f}   {p:.2e} {sig}")
 
 
+# ── plot ─────────────────────────────────────────────────────────────────────
+
+def plot() -> None:
+    import math
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import matplotlib.ticker as mticker
+
+    rows    = [json.loads(l) for l in open(GENERATION_FILE) if l.strip()]
+    res_raw = [json.loads(l) for l in open(EVAL_RESULTS)    if l.strip()]
+    scores  = {int(r["custom_id"].split("_")[1]):
+                   json.loads(r["response"]["body"]["choices"][0]["message"]["content"])
+               for r in res_raw}
+
+    data = []
+    for i, row in enumerate(rows):
+        if i not in scores: continue
+        s = scores[i]
+        data.append({
+            "source_id": row["source_id"],
+            "emotion":   row["target_emotion"],
+            "alpha_g":   float(row["alpha_g"]),
+            "tm":        s["target_emotion_match"],
+            "mp":        s["meaning_preserved"],
+            "em":        s["emotionality"],
+        })
+
+    def mci(vals):
+        n = len(vals); m = sum(vals) / n
+        sd = math.sqrt(sum((x - m) ** 2 for x in vals) / (n - 1)) if n > 1 else 0
+        return m, 1.96 * sd / math.sqrt(n)
+
+    alpha_g_vals = sorted({d["alpha_g"] for d in data})
+    emos         = sorted({d["emotion"] for d in data})
+
+    # ── Figure 1: aggregate metrics ───────────────────────────────────────────
+    metric_specs = [
+        ("tm", "Target-emotion match",  "#2166ac"),
+        ("em", "Emotionality",          "#4dac26"),
+        ("mp", "Meaning preserved",     "#d6604d"),
+    ]
+    fig1, axes = plt.subplots(1, 3, figsize=(13, 4), sharey=False)
+    fig1.suptitle(
+        "Exp 12 — α_G sweep (α_R = 5.0 fixed)\nAggregate metrics ± 95 % CI",
+        fontsize=11, y=1.02,
+    )
+    for ax, (key, label, colour) in zip(axes, metric_specs):
+        means = [mci([d[key] for d in data if d["alpha_g"] == ag])[0] for ag in alpha_g_vals]
+        cis   = [mci([d[key] for d in data if d["alpha_g"] == ag])[1] for ag in alpha_g_vals]
+        ax.errorbar(alpha_g_vals, means, yerr=cis, fmt="o-", color=colour,
+                    capsize=4, capthick=1.2, linewidth=1.8, markersize=5)
+        ax.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
+        ax.set_xlabel("α_G", fontsize=10)
+        ax.set_title(label, fontsize=10)
+        ax.xaxis.set_major_locator(mticker.FixedLocator(alpha_g_vals))
+        ax.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.2g"))
+        ax.tick_params(axis="x", labelsize=8)
+        ax.grid(axis="y", linestyle=":", alpha=0.5)
+    fig1.tight_layout()
+    p1 = OUT_DIR / "fig1_aggregate_metrics.png"
+    fig1.savefig(p1, dpi=150, bbox_inches="tight")
+    print(f"Saved → {p1}")
+    plt.close(fig1)
+
+    # ── Figure 2: per-emotion target_match ────────────────────────────────────
+    PALETTE = [
+        "#e41a1c", "#377eb8", "#4daf4a", "#984ea3",
+        "#ff7f00", "#a65628", "#f781bf", "#999999",
+    ]
+    fig2, ax2 = plt.subplots(figsize=(9, 5))
+    for emo, colour in zip(emos, PALETTE):
+        means = []
+        cis   = []
+        for ag in alpha_g_vals:
+            vals = [d["tm"] for d in data if d["emotion"] == emo and d["alpha_g"] == ag]
+            m, ci = mci(vals)
+            means.append(m); cis.append(ci)
+        ax2.errorbar(alpha_g_vals, means, yerr=cis, fmt="o-", color=colour,
+                     capsize=3, capthick=1, linewidth=1.5, markersize=4, label=emo)
+    ax2.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
+    ax2.set_xlabel("α_G", fontsize=10)
+    ax2.set_ylabel("Target-emotion match", fontsize=10)
+    ax2.set_title(
+        "Exp 12 — Per-emotion target_match ± 95 % CI\n(α_R = 5.0 fixed)",
+        fontsize=11,
+    )
+    ax2.xaxis.set_major_locator(mticker.FixedLocator(alpha_g_vals))
+    ax2.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.2g"))
+    ax2.legend(fontsize=8, ncol=2, loc="upper right")
+    ax2.grid(axis="y", linestyle=":", alpha=0.5)
+    fig2.tight_layout()
+    p2 = OUT_DIR / "fig2_per_emotion_target_match.png"
+    fig2.savefig(p2, dpi=150, bbox_inches="tight")
+    print(f"Saved → {p2}")
+    plt.close(fig2)
+
+
 # ── main ──────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
@@ -568,6 +666,8 @@ if __name__ == "__main__":
                         help="Sort raw batch results and write to eval_results.jsonl")
     parser.add_argument("--analyse", action="store_true",
                         help="Print summary statistics (requires eval_results.jsonl)")
+    parser.add_argument("--plot",    action="store_true",
+                        help="Generate figures (requires generations + eval_results.jsonl)")
     args = parser.parse_args()
 
     if args.merge:
@@ -576,5 +676,7 @@ if __name__ == "__main__":
         submit_batch()
     elif args.analyse:
         analyse()
+    elif args.plot:
+        plot()
     else:
         run_generation(args.n_sources)
