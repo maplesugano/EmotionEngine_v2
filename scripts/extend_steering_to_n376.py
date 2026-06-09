@@ -385,14 +385,6 @@ for i, row in enumerate(all_rows):
             "response_format": {"type": "json_object"},
             "temperature": 0,
         },
-        "_meta": {
-            "source_id":          row["source_id"],
-            "target_emotion":     row["target_emotion"],
-            "steering_condition": row["steering_condition"],
-            "layer":              row["layer"],
-            "alpha_g":            row["alpha_g"],
-            "alpha_resid":        row["alpha_resid"],
-        },
     })
 
 with open(EVAL_REQUESTS_FILE, "w") as f:
