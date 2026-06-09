@@ -1,0 +1,21 @@
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{p{0.32\linewidth}ccc}
+\toprule
+\textbf{Intervention} & \textbf{Target-emotion match} & \textbf{Semantic preservation} & \textbf{Emotionality} \\
+\midrule
+  No steering & 0.339 $\pm$ 0.012 & 0.951 $\pm$ 0.003 & 0.649 $\pm$ 0.006 \\
+
+  Shared-only ($\alpha_G \mathbf{g}$) & 0.328 $\pm$ 0.011 & 0.954 $\pm$ 0.003 & 0.623 $\pm$ 0.006 \\
+
+  Residual-only ($\alpha_R \hat{\mathbf{r}}_e$) & \textbf{0.352 $\pm$ 0.012} & 0.954 $\pm$ 0.003 & \textbf{0.650 $\pm$ 0.006} \\
+
+  Original CAA ($\alpha \mathbf{c}^{\mathrm{pool}}_e$) & 0.332 $\pm$ 0.012 & 0.955 $\pm$ 0.003 & 0.623 $\pm$ 0.006 \\
+
+  Decomposed ($\alpha_G \mathbf{g} + \alpha_R \hat{\mathbf{r}}_e$) & 0.337 $\pm$ 0.012 & \textbf{0.957 $\pm$ 0.003} & 0.623 $\pm$ 0.006 \\
+\bottomrule
+\end{tabular}
+\caption{Mean $\pm$ 95\% CI for each evaluation metric across five intervention conditions ($n=3008$ samples per condition). The 95\% CI is computed from the $t$-distribution with $n-1$ degrees of freedom. Bold marks the best value per column.}
+\label{tab:steering_results_ci}
+\end{table}

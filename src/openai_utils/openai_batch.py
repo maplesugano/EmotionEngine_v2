@@ -154,6 +154,7 @@ def upload_and_submit(
     queue_retry_interval: int = 120,
 ) -> str:
     """Upload a batch input file and submit a batch job. Returns batch_id."""
+    jsonl_path = Path(jsonl_path)
     size_mb = jsonl_path.stat().st_size / 1e6
     logger.info(
         "Uploading batch %d/%d: %s (%.2f MB) …",

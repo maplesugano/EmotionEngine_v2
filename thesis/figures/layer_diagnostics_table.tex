@@ -1,0 +1,22 @@
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Layer} &
+  \textbf{Emotion probe BAcc} &
+  \textbf{Centroid EVR\textsubscript{4}} &
+  \textbf{Mean local PC1 $\rho$} \\
+  & \textit{(4-D subspace)} & & \\
+\midrule
+  10 & 0.6751 & 0.8876 & 0.0998 \\
+  13 \textbf{*} & \textbf{0.7033} & 0.8920 & \textbf{0.1336} \\
+  16 & 0.6704 & \textbf{0.8958} & 0.1297 \\
+\bottomrule
+\end{tabular}
+\caption{Layer-wise diagnostic summary for candidate layers. Emotion-category probe balanced
+         accuracy (4-D subspace), centroid compactness (EVR\textsubscript{4}), and mean local
+         PC1 intensity correlation. Bold indicates the best value per column; asterisk marks
+         the selected reporting layer.}
+\label{tab:layer_diagnostics}
+\end{table}
