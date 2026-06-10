@@ -84,9 +84,18 @@ The results reveal a clear gradient. Focusing on joy and trust, it is evident th
 
 \begin{figure}
   \centering
+  \includegraphics[width=0.8\linewidth]{figures/pca3d_residuals.png}
+  \caption{Participation ratio of per-source affective shift distributions at layer~13. A negative excess indicates a near-uniaxial structure, and a positive excess indicates a multi-axis structure.}
+  \label{fig:exp2_pca3d_residuals}
+\end{figure}
+
+The difference in the gradients between these \textbf{clustered} and \textbf{diffuse} types can be seen directly in the 3D PCA projection of the residual shifts for each source (Figure \ref{fig:exp2_pca3d_residuals}). Specifically, whilst \textbf{joy} and \textbf{trust} form compact, cloud-like distributions, \textbf{fear} and \textbf{surprise} are spread across a much wider area within the shared coordinate system.\par
+
+\begin{figure}
+  \centering
   \includegraphics[width=0.75\linewidth]{figures/prototype_region.png}
   \caption{Prototype-region interpretation of named emotions. A named emotion is not represented solely by a single average direction $\hat{\mathbf{r}}_e$, but by a distribution of per-source residual shifts around that prototype. The width of this region varies across emotions, suggesting that some emotions are compact while others contain richer internal sub-axes.}
-  \label{fig:layer13_participation_ratio}
+  \label{fig:exp2_prototype_region}
 \end{figure}
 
 These results demonstrate that the named emotions are not equivalent in their internal dimensions. Whilst some point to a narrow domain, others occupy a broader emotional landscape. In other words, while $\hat{\mathbf{r}}_e$ provides a useful prototype direction for emotion $e$, each named emotion behaves more like a \textbf{cone} or a \textbf{prototype region} with internal sub-axes than a single narrow vector.\par
