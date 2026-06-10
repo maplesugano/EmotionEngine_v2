@@ -81,6 +81,14 @@ surprise   & 18.94 & 13.63 & $+5.31$ \\
 \end{table}
 
 The results reveal a clear gradient. Focusing on joy and trust, it is evident that the PR values are significantly lower than the shuffle values. In other words, it can be said that the internal distribution for these two emotions is extremely concentrated. In contrast, the distributions for fear and surprise are quite broad (i.e., the PR values are significantly higher than the shuffle values).\par
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.75\linewidth]{figures/prototype_region.png}
+  \caption{Prototype-region interpretation of named emotions. A named emotion is not represented solely by a single average direction $\hat{\mathbf{r}}_e$, but by a distribution of per-source residual shifts around that prototype. The width of this region varies across emotions, suggesting that some emotions are compact while others contain richer internal sub-axes.}
+  \label{fig:layer13_participation_ratio}
+\end{figure}
+
 These results demonstrate that the named emotions are not equivalent in their internal dimensions. Whilst some point to a narrow domain, others occupy a broader emotional landscape. In other words, while $\hat{\mathbf{r}}_e$ provides a useful prototype direction for emotion $e$, each named emotion behaves more like a \textbf{cone} or a \textbf{prototype region} with internal sub-axes than a single narrow vector.\par
 
 % ─────────────────────────────────────────────────────────────
