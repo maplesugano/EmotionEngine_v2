@@ -1,0 +1,23 @@
+\begin{table}[ht]
+\centering
+\caption{Robustness of shared sub-axes at layer 13.
+  Left: explained variance of pooled PCA (the first pooled principal component
+  accounts for more than twice the variance of the second).
+  Right: diagonal cosine similarity between pooled principal components and the
+  sign-aligned mean meta-axes $\mathbf{m}_k$; both methods are run
+  independently on the same residuals.}
+\label{tab:pooled_pca_robustness}
+\begin{tabular}{lcc|lcc}
+\toprule
+& \multicolumn{2}{c|}{\textbf{Explained variance}}
+& & \multicolumn{2}{c}{\textbf{Convergence: $|\cos|$}} \\
+Comp. & EVR & Cumul. & Pair & Pooled PCA & Sign-aligned mean \\
+\midrule
+  PC$_1$ & 11.4\% & 11.4\% & PC$_1$ vs $\mathbf{m}_1$ & \multicolumn{2}{c}{0.988} \\
+  PC$_2$ & 4.5\% & 15.9\% & PC$_2$ vs $\mathbf{m}_2$ & \multicolumn{2}{c}{0.980} \\
+  PC$_3$ & 3.1\% & 18.9\% & PC$_3$ vs $\mathbf{m}_3$ & \multicolumn{2}{c}{0.931} \\
+  PC$_4$ & 2.2\% & 21.1\% & & & \\
+  PC$_5$ & 1.9\% & 23.1\% & & & \\
+\bottomrule
+\end{tabular}
+\end{table}
