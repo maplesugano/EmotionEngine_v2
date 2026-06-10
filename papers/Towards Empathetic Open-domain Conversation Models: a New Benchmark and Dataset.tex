@@ -1,0 +1,428 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[hyperref]{acl2019}
+
+\input{math_commands.tex}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage{wrapfig}
+\usepackage{color, colortbl}
+
+
+\aclfinalcopy \def\aclpaperid{1913} 
+
+\definecolor{Gray}{gray}{0.93}
+\definecolor{LightGray}{gray}{1.0}
+\newcommand\datasetname{\textsc{EmpatheticDialogues}}
+\newcommand\datasetabbrev{ED}
+\newcommand\basename{Fine-Tuned}
+\newcommand\coauth{$^\star$}
+\hyphenation{dialogue}
+\hyphenation{EmpatheticDialogues}
+\title{Towards Empathetic Open-domain Conversation Models: a New Benchmark and Dataset}
+
+
+
+\author{Hannah Rashkin$^1$\coauth{}, Eric Michael Smith$^2$, Margaret Li$^2$, Y-Lan Boureau$^2$\\
+$^1$ Paul G. Allen School of Computer Science \& Engineering, University of Washington\\
+$^2$ Facebook AI Research\\
+\texttt{hrashkin@cs.washington.edu}, \texttt{\{ems,margaretli,ylan\}@fb.com} \\
+}
+
+
+
+
+\date{}
+
+
+
+
+
+\begin{document}
+
+
+\maketitle
+
+
+
+\begin{abstract}
+One challenge for dialogue agents is recognizing feelings in the conversation partner and replying accordingly, a key communicative skill. While it is straightforward for humans to recognize and acknowledge others' feelings in a conversation, this is a significant challenge for AI systems due to the paucity of suitable publicly-available datasets for training and evaluation. This work proposes a new benchmark for empathetic dialogue generation and \datasetname{}, a novel dataset  
+of 25k conversations grounded in emotional situations.  
+Our experiments indicate that dialogue models that use our dataset
+are perceived to be more empathetic by human evaluators, 
+compared to models
+merely trained on large-scale Internet conversation data. We
+also present empirical comparisons of dialogue model adaptations for empathetic responding, leveraging existing models or datasets without requiring lengthy re-training of the
+full model. 
+\let\thefootnote\relax\footnotetext{\coauth{}This work was done while first author was intern at Facebook AI Research (FAIR).}
+\end{abstract}
+
+\section{Introduction}
+
+A desirable trait in a human-facing dialogue agent is to appropriately respond to a conversation partner that is describing personal experiences, by understanding and acknowledging any implied feelings --- a skill we refer to as empathetic responding.
+For instance, while the crossed-out response in  Figure~\ref{fig:convo} is topically relevant, ``Congrats! That's great!'' may be more satisfying because it acknowledges the underlying feelings of accomplishment in an empathetic way.
+\begin{figure}
+    \centering
+    \includegraphics[trim={9.cm 12.75cm 13.cm 7cm},clip,width=.45\textwidth]{figures/fig1_dialogue.pdf}
+    \caption{Example where acknowledging an inferred feeling is appropriate}
+    \label{fig:convo}
+\end{figure}
+In this work, we investigate empathetic response generation from current dialogue systems, and propose experiments using a new 
+resource, \datasetname{}, as a benchmark to evaluate this skill set.
+\begin{figure*}
+\small
+\begin{center}
+\begin{tabular}{p{3.0in}p{3.1in}}
+\hspace*{-2.mm}\fbox{\begin{tabular}[t]{p{2.75in}}\textbf{Label: Afraid}\\ \textbf{Situation:} Speaker felt this when...\\``I've been hearing noises around the house at night'' \\ \textbf{Conversation:}\\ \vspace*{-2.5mm}{\color{red} Speaker}: I've been hearing some strange noises around the house at night.\\\vspace*{-2.5mm} {\color{blue} Listener}: oh no! That's scary! What do you think it is?\\\vspace*{-2.5mm}{\color{red} Speaker}: I don't know, that's what's making me anxious.\\ \vspace*{-2.5mm}{\color{blue} Listener}: I'm sorry to hear that. I wish I could help you figure it out\vspace*{.6mm}\end{tabular}} &  \fbox{\begin{tabular}[t]{p{2.75in}}\textbf{Label: Proud}\tabularnewline \textbf{Situation:} Speaker felt this when...\tabularnewline``I finally got that promotion at work! I have tried so hard for so long to get it!'' \tabularnewline \textbf{Conversation:}\tabularnewline\vspace*{-2.5mm} {\color{red} Speaker}: I finally got promoted today at work!\tabularnewline \vspace*{-2.5mm}{\color{blue} Listener}: Congrats! That's great!\\\vspace*{-2.5mm} {\color{red} Speaker}: Thank you! I've been trying to get it for a while now!\tabularnewline\vspace*{-2.5mm} {\color{blue} Listener}: That is quite an accomplishment and you should be proud!\end{tabular}}
+\end{tabular}
+\caption{Two examples from \datasetname{} training set.  The first worker (the speaker) is given an emotion label and writes their own description of a situation when they've felt that way. Then, the speaker tells their story in a conversation with a second worker (the listener).}
+\label{dataex}
+\vspace*{-5mm}
+\end{center}
+\end{figure*}
+
+Empathetic responding is clearly relevant to dialogue systems that are geared towards general conversation or chit-chat. Indeed, ordinary communication is frequently prompted by people sharing their feelings or circumstances. 
+But researchers analyzing goal-directed conversations have also observed the frequent intrusion of ordinary conversation in those interactions as well, either as a ``warm-up'' introduction 
+or as a detour 
+\citep{levinson2000study,heritage2005conversation}. Engaging in social talk, reacting to emotional cues and displaying a caring attitude have, in fact, been associated with better task outcomes in many domains \citep{wentzel1997student,levinson2000study,bickmore2001relational,kim2004effects,fraser2018spoken}. While many of those studies deal with human-human interactions, humans have been shown to often interact with machines in a natural and social way \citep{reeves1996media,lee2010receptionist}, so it is reasonable to expect that dialogue agents would also benefit from empathetic responding.
+
+Most recent powerful language architectures are trained on vast amounts of barely curated text scrapes, social media conversations, or independent books \citep{ritter2010unsupervised,personachat,mazare2018training,bertppr,liu2019multi,radford2019language}.
+It might be the case that models trained on this type of data could exhibit some of the aggressive and callous responses that have been observed in spontaneous internet conversations \citep{anderson2015ask}. Unfortunately, while chitchat dialogue benchmarks have been proposed (e.g., \citealp{dinan2019second}),
+to the best of our knowledge there are currently no benchmarks gauging whether dialogue agents can converse with empathy.
+
+
+
+This work aims to facilitate evaluating models' ability to produce empathetic responses. We introduce a new task for dialogue systems to respond to people discussing situations that cover a wide range of emotions, and \datasetname{} (ED), a novel dataset with about 25k personal dialogues. Each dialogue is grounded in a specific situation where a speaker was feeling a given emotion, with a listener responding (Figure~\ref{dataex}). The new resource consists of crowdsourced one-on-one conversations, and covers a large set of emotions in a balanced way. 
+This dataset is larger and contains a more extensive set of emotions than many similar emotion prediction datasets from other text domains such as \citet{ISEAR}, \citet{SemEval2007}, \citet{Mohammad2018SemEval2018T1}, and \citet{gupta2017sentiment}. The dataset has been publicly released, with code to reproduce the main experimental results of this paper\footnote{https://github.com/facebookresearch/EmpatheticDialogues}.
+
+
+Our experiments show that large-capacity conversation models trained on spontaneous internet conversation data are not rated as very empathetic. We propose two simple ways to leverage our dataset to improve those models: use utterances from our training data as candidate responses in a retrieval model at inference time, and fine-tune the model on our task.
+Finally, we explore whether different ways of combining information from related tasks can lead to more empathetic responses.
+The contributions of this work are thus: 1) we release a novel empathetic dialogue dataset as a new benchmark; 2) we show that training over this dataset can improve the performance of an end-to-end dialogue system on empathetic dialogue.
+
+\section{Related Work}
+
+\paragraph{Emotion data} Crafting our dataset requires deciding what set of emotions the models should be capable of reacting to. 
+Multiple schemas have attempted to organize the spectrum of emotions, from a handful of basic emotions derived from biological responses \citep{ekman1992argument,plutchik1984emotions} 
+to larger sets of subtle emotions inferred from contextual situations \citep{SkerrySaxe}.
+We incorporate emotions from multiple annotation schemas, noting that emotions merely
+inferred from a situation are important in dialogue scenarios.  
+There is a wide breadth of research in distributional representation approaches for many emotion classification tasks \citep{duppada2018seernet,park2018plusemo2vec,xu2018emo2vec,Mohammad2018SemEval2018T1} that build on
+deep networks pretrained on large-scale weakly-labelled data such as emojis \citep{Deepmoji} or hashtags \citep{MohammadDataset}, gathered from public social media content published on Twitter.
+The \textsc{semeval2019} EmoContext challenge also uses conversation data for detection of three basic emotions (`happy', `sad', and `angry')
+over two turns of context
+from Twitter exchanges
+\citep{gupta2017sentiment}.  
+We focus on personal conversations rather than using social media data 
+to be closer to a context of a one-on-one conversation. 
+Public social media content occurs in front of large ``peripheral audiences'' \citep{goffman1981forms} 
+where
+uncertainty as to how wide that audience is and the need for curated self-presentation \citep{goffman1959presentation} have been
+shown to lead to different choices of subject matters
+compared to private messaging, with people
+sharing more intense and negative emotions
+through private channels \citep{bazarova2015social,litt2014awkward}. 
+In this work, we generate a more balanced
+coverage of emotions than would appear in public social
+media content, using a domain that is closer
+to our ultimate goal of training a model for conversation that can respond to any emotion.
+
+\paragraph{Controllable language generation} Several other works have focused on controlling the emotional content of a text response either through a manually specified target \citep{Mojitalk,Zhou17,Sentigan,Hu2017TowardCG,huang2018automatic} or through a general term to encourage higher levels of affect \citep{asghar2018affective}, with evaluations focused on matching a predetermined desired emotion rather than empathetic responding. \citet{Politeness} generate responses conditioned on
+a specified politeness setting (polite, rude or neutral). 
+\citet{huber2018emotional} investigate how to respond to emotions detected from an image.
+Our work 
+focuses on empathetic responses that are appropriate to signals inferred purely from text rather than conveying a pre-specified emotion.
+
+\paragraph{Related chit-chat data} Several works have attempted to make chit-chat dialogue models more engaging by grounding them in personal contexts \citep{li2016persona,personachat,mazare2018training}, 
+focusing on personal facts (``I am from New York''). 
+Another interesting resource is the \textsc{DailyDialog} (DD) dataset \citep{DailyDialog}, which comprises about 13k dialogues obtained by crawling educational websites intended for learners of English and 
+also has emotion label annotations.  Many of the dialogues are focused on topics for ESL learners (ordering from a restaurant, asking for directions, introductions, etc), but only $\approx 5 \%$ of the utterances have a label other than ``none'' or ``happy''. 
+Our task focuses explicitly on conversations about emotionally grounded personal situations, and considers a richer, evenly distributed set of emotions.  We also introduce an explicit single \textit{listener} in the conversation who is reacting to the situation being described in an empathetic way, to make the setting as close as possible to our desired goal of a one-on-one empathetic conversation.
+
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[trim={4.3cm 0cm 12.25cm 0cm},clip,width=.48\textwidth]{figures/distributions.pdf}
+    \caption{Distribution of conversation labels within \datasetname{} training set and top 3 content words used by speaker/listener per category. }
+    \label{promptdistrib}
+\end{figure}
+
+\section{Talking about Personal Situations}
+
+We consider an open-domain one-on-one conversational setting where two people are discussing a situation that happened to one of them, related to a given feeling. We collect around 25k conversations using the following format.
+
+\paragraph{Emotional situation grounding} Each conversation is grounded in a situation, which one participant writes about in association with a given emotion label.
+We consider 32 emotion labels, listed in Figure~\ref{promptdistrib}, which we chose by aggregating labels from several emotion prediction datasets \citep{ISEAR,SemEval2007,SkerrySaxe,DailyDialog, MohammadDataset}.  These emotion labels cover a broad range of positive and negative emotions. 
+Our goal in providing a single emotion label is to have a situation strongly related to (at least) one particular emotional experience, though we note that some emotions may be very closely related\footnote{Researchers could merge similar emotions, like "afraid" and "terrified", to get coarser labels, if desired.} and additional related emotions may be invoked in a given conversation.
+
+\paragraph{Speaker and listener} The person who wrote the situation description (\textit{Speaker}) initiates a conversation to talk about it. The other conversation participant (\textit{Listener}) becomes aware of the underlying situation through what the Speaker says and responds. Speaker and Listener then exchange up to 6 more turns.
+We include two example conversations from the training data in Figure~\ref{dataex} and ten more in Table~\ref{moreex} in the Appendix.
+The models discussed below are tested in the role of \textit{Listener} responding to the Speaker. Neither the situation description written by the Speaker nor the emotion label is given to the models (just as they were not given to the Listener during dialogue collection). 
+Our data could also be used to generate conversations for the Speaker conditioned on the situation description though we leave this for future work.
+
+\paragraph{Collection details}
+We collected crowdsourced dialogues using the ParlAI platform \citep{miller2017parlai} to interact with Amazon Mechanical Turk (MTurk), hiring 810 US workers. 
+A pair of workers are asked to (i) select an emotion word each and describe a situation when they felt that way, and to (ii) have a conversation about each of the situations, as outlined below.  Each worker had to contribute at least one situation description and
+one pair of conversations: one as Speaker about the situation they contributed, and one as Listener about the situation contributed by another worker.  They were allowed to participate in as many  hits as they wanted for the first $\sim$10k conversations, then we limited the more ``frequently active'' workers to a maximum of 100 conversations. The median number of conversations per worker was 8, while the average was 61 (some workers were more active contributors than others). To ensure quality, we manually checked random subsets of conversations by our most-frequent workers.
+
+\paragraph{Task set-up}
+In the first stage of the task, workers are asked to describe in a few sentences a situation based on a feeling label. 
+We ask the workers to try to keep these descriptions between 1-3 sentences. The average response is 19.8 words.
+In the second stage, two workers are paired and asked to have two short chats with each other.  In each chat, one worker (\emph{speaker}) starts a conversation about the situation they previously described, and the other worker (\emph{listener}) responds.  Neither can see what the other worker was given as emotion label or the situation description they submitted, so they must respond to each others' stories based solely on cues within the conversation. Each conversation is allowed to be 4-8 utterances long (the average is 4.31 utterances per conversation).  The average utterance length was 15.2 words long.
+
+\paragraph{Ensuring balanced emotion coverage}
+After the first few initial rounds of data collection, we forced workers to select an emotion that among three emotion labels that 
+ had been the least chosen overall so far if it was their first
+ time working on the task. If they had already performed
+ the task, the offered emotion labels were among those that
+ they had chosen the least often before.
+Given that a conversation model trained for empathetic responding needs to be able to handle emotions even if they are less frequent, we opted for this balancing procedure to make training for these categories easier, while still allowing for some measure of choice for workers.  As shown in Figure ~\ref{promptdistrib}, the distribution of emotion label prompts is close to evenly distributed, with a few that are selected slightly more/less often.
+
+
+\paragraph{\datasetname{} dataset statistics}
+
+The resulting dataset comprises 
+24,850 conversations about a situation description, gathered from 810 different participants, which are publicly available through the ParlAI framework\footnote{https://parl.ai/} and for direct download with accompanying code\footnote{https://github.com/facebookresearch/EmpatheticDialogues}.
+We split the conversations into approximately 80\% train, 10\% validation, and 10\% test partitions.  To prevent overlap of discussed situations between partitions, 
+we split the data so that all sets of conversations with the same speaker providing the initial situation description would be in the same partition.  The final train/val/test split was 19533 / 2770 / 2547 conversations, respectively.   We include ten examples from our training set in Appendix Section~\ref{sec:examples}.
+
+
+
+
+\section{Empathetic Response Generation}
+
+This section shows how ED can 
+be used as a benchmark to gauge the ability of a model to respond in an empathetic way, and as a training resource to make generic chitchat models more empathetic. We also examine different ways existing models can be combined to produce more empathetic responses.
+We use ED dialogues to train and evaluate models in the task of generating conversation responses in the \textit{Listener} role. To emulate a normal conversation, the model has access to previous utterances in the dialogue, but not to the emotion word prompt (e.g., ``proud''), nor to the situation description generated by the Speaker.
+Given a dialogue context $x$ of $n$ previous conversation utterances concatenated and tokenized as $x_1, \cdots, x_m$, followed by a target response $\bar{y}$, our models are trained to maximize the likelihood $p(\bar{y}|x)$ of producing the target response. We investigate both generative and retrieval-based settings \citep{lowe2016evaluation} as described in Figure~\ref{fig:arch1}.
+
+\subsection{Base Architecture}
+We base our models on Transformer networks \citep{TransformerNets}, which have proven successful in machine translation and dialogue generation tasks \citep{personachat,mazare2018training}. 
+
+\begin{figure}
+    \centering
+    \includegraphics[trim={5.45cm 16.75cm 17.cm 2.25cm},clip,width=.485\textwidth]{figures/fig3_arch.pdf}
+    \vspace*{-7mm}
+    \caption{Dialogue generation architectures used in our experiments. The context of concatenated previous utterances is tokenized into $x_1, x_2, \cdots$, and encoded into vector $h_x$ by the context encoder. \textit{Left:} In the retrieval set-up, each candidate $y$ is tokenized into $y_1, y_2, \cdots$ and encoded into vector $h_y$ by the candidate encoder.
+    The system outputs the candidate $y^*$ that maximizes dot product $h_x \cdot h_y$. \textit{Right:} In the generative set-up,
+    the encoded context $h_x$ is used as input to the decoder to generate start symbol $\texttt{</s>}$ and tokens $y_1, y_2, \cdots$. The model is trained to minimize the negative log-likelihood of target sequence $\bar{y}$ conditioned on context. }
+    \vspace*{-2mm}
+    \label{fig:arch1}
+\end{figure}
+
+\paragraph{Retrieval-based}In the retrieval-based set-up, the model is given a large set $Y$ of candidate responses and picks the ``best'' one, $y^*$.
+We first experiment with the retrieval Transformer-based architecture from \citet{Yangetal2018}: two Transformer encoders separately embedding the context, $x$, and candidates, $y \in Y$ ,  as $h_x$ and $h_y$, respectively. We also experiment with BERT \cite{bertppr} as base architecture 
+%for classification of candidate encodings paired with the context encoding. %\hannah{BERT explanation}
+to encode candidates and contexts, using the final hidden vector from BERT as the $h_x$ or $h_y$ encodings. The model chooses a candidate utterance according to a softmax on the dot product: $ h_x \cdot h_y$. 
+We minimize the negative log-likelihood of selecting the correct candidate. 
+At training time, we use all of the utterances from the batch as candidates, with a large batch size of 512 to give the model more negative examples (except for BERT for which a batch size of 256 was used).
+At inference time, we experiment with three sets of candidate utterances for the model to choose from: all of the response utterances in the ED training set ($Y^{ED}$), all the utterances in the DailyDialog \citep{DailyDialog} training set ($Y^{DD}$), and a million utterances from a dump of 1.7 billion Reddit (R) conversations ($Y^{R}$).  
+
+\paragraph{Generative} In the generative set-up, we use the full Transformer architecture \citep{TransformerNets}, consisting of
+an encoder and a decoder.
+The Transformer decoder uses the encoder output to predict a sequence of words $y$, and is trained to minimize the negative log-likelihood of
+the target sequence $\bar{y}$. At inference time, we use diverse beam search from \citet{DiverseBS}.
+
+\paragraph{Training details} Models are pretrained on predicting replies from a dump of 1.7 billion Reddit conversations, starting either from scratch for the Transformer architectures, or from the BERT$_{base}$ model released by \citet{bertppr} for the BERT-based architectures.\footnote{We used the Hugging Face PyTorch implementation of BERT at https://github.com/huggingface/pytorch-transformers. We experimented with directly fine-tuning BERT on ED without first training on Reddit conversations, but this did not perform as well.} Pretrained models without any fine-tuning on ED will be referred to as ``Pretrained'' hereafter.  
+We
+limit the maximum number of word tokens in the context and response to be 100 each.
+The Transformer networks used in most experiments have the same base architecture (four layers and six transformer heads) and are trained the same way as in \citet{mazare2018training}. We also experiment with a larger architecture of five layers (denoted as "Large"), and BERT retrieval models, that are allowed to train for much longer (see training times in Table~\ref{table:capacity}).\footnote{While the models had not fully converged when we stopped training, we trained the Pretrained models for a few iterations more than the corresponding Fine-Tuned models, to ensure that any observed improvement was due to the data used for fine-tuning and not
+the extra training time.}
+For all models, we keep the version that has the lowest loss on the validation set.  For the Transformer models, we use 300-d word embeddings pretrained on common-crawl data using fastText~\citep{grave2018learning}, and for the BERT models, we use 768-d word embeddings pretrained on BooksCorpus and English Wikipedia \citep{bertppr}. More training details are provided in Appendix~\ref{sec:training}.
+
+\subsection{Leveraging the Training Data from ED}
+%\paragraph{Conversations utterances}
+\label{sec:unsup}
+A retrieval-based model relies on candidates. ED data  was explicitly collected with instructions to be empathetic,
+in a one-on-one setting, which is not the case of the Reddit
+conversation data used for pretraining, and these domain candidates may be better suited to empathetic responding than generic conversation utterances. Thus, we experiment with incorporating ED training candidates into the pool used at inference time by pretrained retrieval-based models, with no fine-tuning on ED.
+For retrieval-based and generative models, 
+  we also experiment with fine-tuning pretrained models to predict the next utterance over ED with a context window of four previous utterances, which is the average length of a conversation in our dataset. These models are referred to as ``\basename{}'' models. This fine-tuning is conducted until convergence for all architectures except those referred to as ``Pretrained''.
+\begin{figure}
+    \centering
+    \includegraphics[trim={9.75cm 18.3cm 18.5cm 2.5cm},clip,width=.382\textwidth]{figures/fig4_supervisedmodels.pdf}
+    \vspace*{-2mm}
+    \caption{
+    Incorporating additional supervised information, here from an emotion classification task. %\textit{Left}: the context representation $h_x$ outputted by the context encoder is used both as input to a classifier, and to generate the next utterance as in the base setting. The encoder is trained with gradients from both output branches. \textit{Middle:} 
+    An input sequence (either a dialogue context or a candidate) is run through a pre-trained classifier, and the top $k$ output labels are prepended to the sequence, which is then run through the corresponding (context or candidate) encoder to output a hidden representation $h_w$ (either $h_x$ or $h_y$) as in the base setting.
+    %\textit{Right:}  an input sequence (that can be either a dialogue context or a candidate) is run through the corresponding encoder as well as a pretrained classifier with the last layer removed. The outputs $h_w$ and $h_c$ are concatenated and linearly projected into a representation $h_e$.
+    %\hannah{split and move part to the supp}
+    }
+    \vspace*{-2mm}
+    \label{fig:arch2}
+\end{figure}
+
+
+\input{automaticeval_table.tex}
+
+
+\subsection{Adding Information from External Predictors}
+\label{sec:explicit}
+
+Many existing models have been pretrained on supervised tasks that
+may be relevant to empathetic responding. %For instance, \citet{Deepmoji} have released a model trained on more than a billion tweets to predict emoji labels.
+Combining these models with the representations from our
+base architecture may reap benefits from previous training time
+and external training data without having to redo the work or requiring access to that data, which may matter to practitioners.
+Note that this may considerably augment the effective 
+capacity of the resulting models, as well as the total
+amount of training data used overall, but %, so it isn't surprising that this should result in better performance. 
+our goal here is to get an empirical sense of how robust performance improvement is to variations in architecture set-up or supervision domain.
+We experiment with adding supervised information from two prediction tasks: emotion detection, which is more closely relevant to our task, and topic detection, which may also be useful in crafting relevant replies.\footnote{We considered multitask or feature concatenation set-ups, but they did not provide consistent improvements. These experiments are included in Appendix~\ref{sec:addexp}.}
+%\ylan{UPDATE -- We experiment with two set-ups for adding explicit supervised information: prepending predicted label words, and ensemble learning over encoders trained on prediction objectives.}
+
+
+
+\paragraph{Prepending Top-k Predicted Labels}
+This set-up (Fig. \ref{fig:arch2}%, middle
+), \textsc{Prepend-1}, is a very simple way to add
+supervised information to data, requires no architecture modification, and can be used with black-box classifiers.
+The top predicted label\footnote{We only discuss prepending the top predicted label here, but also experimented with top-3 and top-5 models, with similar result patterns, shown in Appendix~\ref{sec:addexpres}.} from the supervised classifier
+is merely prepended to the beginning of the token sequence as encoder input, as below:
+
+{
+\hspace*{.2in}\textbf{Original}:``I finally got promoted!'' \\
+\hspace*{.2in} 
+\textbf{Prepend-1}:``\texttt{proud} I finally got promoted!''
+}
+
+Similar methods have been used for 
+controlling the style of generated text (e.g. \citealp{Politeness}). 
+Here, we use a fastText model \citep{fasttext}
+as prediction architecture.
+Both the context and the candidates are run through the classifier
+and receive prepended labels. Fine-tuning is conducted similarly as
+before, but using these modified inputs.
+We use two external sources of information.
+To provide emotion signal, we train a classifier to predict the emotion label from the description of the situation written by the Speaker before the dialogue for the training set dialogues of ED (\textsc{EmoPrepend-1}).\footnote{We also experimented with training the classifier on the utterances themselves, with similar results.}
+To gauge whether supervision from a more distant task
+would still be helpful, we also experiment with a classifier trained on the 20-Newsgroup dataset \citep{joachims1996probabilistic}, for topic classification (\textsc{TopicPrepend-1}).
+
+
+
+
+
+\input{humanevaltable.tex}
+\section{Experimental Evaluation}
+
+We evaluate the models on their ability to reproduce the Listener's portion of the conversation (i.e. the ability to react to someone else's story).  We use both automated metrics and human evaluation to score each model's retrievals/generations. Human evaluation is important, as automated metrics don't always correlate with human judgments of dialogue quality \citep{HowNotToEval}, but we provide automated metrics to give a sense of how well they
+align with human judgment on this task.
+
+\paragraph{Automated metrics (Table~\ref{table:automatic})} For both retrieval and generative systems, we compute BLEU scores \citep{papineni2002bleu} for the model response, comparing against the gold label (the actual response), following
+the practice of earlier work in dialogue generation \citep{wen2015semantically,li2015diversity,li2016persona}.
+For the generative systems, we additionally report perplexity of the actual gold response. 
+For the retrieval-based systems, we further compute $\texttt{p@1,100}$, the accuracy of the model at choosing the correct response out of a hundred randomly selected examples in the test set.  When we compute $\texttt{p@1,100}$, the actual response is included in the candidates, unlike inference from the retrieval systems for all other metrics, which only uses training utterances as candidates.
+
+
+\paragraph{Human ratings (Table~\ref{table:humaneval})} We ran crowdsourcing tasks on MTurk (further details in Appendix~\ref{sec:evaltask}). Participants were given a model's output for a randomly selected test set example and asked to score different aspects of the model. The rating task provides a means of comparing aspects of responses, and we ask raters specifically about whether the response is acknowledging the conversation partner's feelings. We collected at least 100 ratings per model and asked about three aspects of performance, all rated on a Likert scale (1: not at all, 3: somewhat, 5: very much):
+\\
+\hspace*{.2cm}\textbf{ Empathy/Sympathy:} did the responses show understanding of the feelings of the person talking about their experience? \\
+\hspace*{.2cm}\textbf{ Relevance:} did the responses seem appropriate to the conversation?  Were they on-topic? \\
+\hspace*{.2cm}\textbf{ Fluency:} could you understand the responses?  Did the language seem accurate?
+\\
+
+\input{resourcestable.tex}
+
+\begin{table*}[tb]
+\begin{center}
+\begin{tabular}{p{2.5cm}lllp{6cm}}
+\toprule
+
+Context & Setup&Model&Cand & Generated Response \\ \midrule
+\multirow{2}{2.4cm}{Someone came to my door with a gun the other day.} &
+\cellcolor{LightGray}Gen&\cellcolor{LightGray}Pretrained&\cellcolor{LightGray}- &\cellcolor{LightGray}I'm not sure if you're joking or not.\\
+ &\cellcolor{Gray}Gen&\cellcolor{Gray}\basename{}&\cellcolor{Gray}- &\cellcolor{Gray}Oh no! What did you do?\\
+ &\cellcolor{LightGray}Gen&\cellcolor{LightGray}EmoPrepend&\cellcolor{LightGray}-&\cellcolor{LightGray}Oh no! Did you have a weapon?\\
+ &\cellcolor{Gray}Gen&\cellcolor{Gray}TopicPrepend&\cellcolor{Gray}-&\cellcolor{Gray}I'm glad to hear that.\\
+\midrule
+
+\multirow{9}{2.4cm}{My son failed his exams! Can you believe it! I don't know what to do!}&\cellcolor{LightGray}Ret-BERT&\cellcolor{LightGray}Pretrained&\cellcolor{LightGray}R &\cellcolor{LightGray}Hopefully his mistakes can help you know what not to do on the tests.\\ 
+&\cellcolor{Gray}Ret-BERT&\cellcolor{Gray}Pretrained&\cellcolor{Gray}ED &\cellcolor{Gray}Oh no! I ' m so sorry! I hope you could pull your grade up!\\
+
+
+
+
+&\cellcolor{LightGray}Ret-BERT&\cellcolor{LightGray}\basename{}&\cellcolor{LightGray}ED &\cellcolor{LightGray}Oh no! Did he not study? \\
+&\cellcolor{Gray}Ret-BERT&\cellcolor{Gray}EmoPrepend&\cellcolor{Gray}ED &\cellcolor{Gray}Im sorry about that! Did your son start school already?\\
+&\cellcolor{LightGray}Ret-BERT&\cellcolor{LightGray}TopicPrepend&\cellcolor{LightGray}ED &\cellcolor{LightGray}Oh no! Does he have the option of taking it again? \\
+\bottomrule
+\end{tabular}
+\end{center}
+\caption{Examples of model responses. Shading is provided for better legibility.
+}
+\label{table:modelout}
+\end{table*}
+\subsection{Results}
+\paragraph{Pretrained models baseline}
+Pretrained conversation models are rated poorly by humans for empathy when the candidates are retrieved from 
+Reddit utterances or when a generative model is used  (Table~\ref{table:humaneval}). Higher ratings with models based on BERT or larger Transformer models show that increasing the capacity makes the models seem more empathetic, but still remain far
+from human performance, while being considerably more onerous to train (Table~\ref{table:capacity}).\footnote{Results on larger retrieval-based Transformer models in Table~\ref{table:capacity_full} of the Appendix show the same pattern.}
+
+\paragraph{Using \datasetname{} for candidate selection}
+Table~\ref{table:automatic} shows that merely using the pool of candidates from the training set of \datasetabbrev{} improves the BLEU scores of retrieval models.
+
+
+
+
+
+Using candidates from our dataset also substantially improves the performance of pre-trained retrieval models on all human metrics, particularly the Empathy subscore of most interest to us (Table~\ref{table:humaneval}).  
+
+
+\paragraph{Using \datasetname{} for fine-tuning}
+Additionally, fine-tuning to predict conversation responses on our data improves all automated metrics (Table~\ref{table:automatic}). 
+While fine-tuning on ED data improves performance on predicting the next ED utterance, this may come at the expense of performance when predicting next utterance in other corpora. To measure this, we compared automated metrics on next utterance prediction with pre-trained models and models fine-tuned using ED data (for our base and larger retrieval-based Transformer models) when predicting on 
+\textsc{DailyDialog} and \textsc{Reddit} (drawing both context and candidates from the same corpus).
+Compared to the 12-14\% P@1,100 increase measured with ED (see Tables~\ref{table:automatic} and \ref{tab:automatic_full}), fine-tuning on ED leads to a 5-7\% increase on DD, and a 2-3\% decrease on R.\footnote{Numbers for these datasets are included in Table~\ref{tab:ddr} of the appendix.} For all three datasets, fine-tuning increases AVG BLEU by 0.2 to 0.5.
+The slight decrease of performance on R is not surprising because the pre-trained model was trained directly on Reddit predictions. But, the improvement on DD is an encouraging sign that improvements from fine-tuning on ED may generalize to other conversation datasets. 
+
+
+Fine-tuning on the \datasetabbrev{} data also generally improves human metrics on the ED task, in both retrieval and generative set-ups (Table~\ref{table:humaneval}).
+
+
+\paragraph{Augmenting conversation models with external pretrained classifiers}
+Automated and human evaluations suggest that prepending emotion or topic predictions may boost perfomance of high-capacity models based on BERT (but not the smaller models), with Empathy ratings close to approaching human performance.
+
+More extensive experiments with large models would be required to confirm that larger capacity makes additional external supervision effective for this task.
+
+
+\paragraph{Resources and capacity}
+Table~\ref{table:capacity} quantifies resource and parameter usage for several models and set-ups, including
+
+
+a larger Transformer generative model (5 layers instead of 4) and
+ BERT-based architectures with substantially more parameters that require longer training.
+Using ED candidates in pretrained retrieval models, or fine-tuning pretrained conversation models on
+ED data makes smaller models perform better than larger ones with minimal increase in resource usage.
+
+
+
+
+
+
+\section{Conclusion}
+We introduce a new dataset of 25k dialogues grounded in situations prompted by specific emotion labels.  
+Our experiments show that using this dataset to provide retrieval candidates or fine-tune
+conversation models leads to responses that are evaluated as more empathetic. 
+how to integrate empathetic responding into more general dialogue when, for example, the needs for empathy have to be balanced with staying on topic or providing information. 
+We hope that our results and dataset will stimulate more research in the important direction of making dialog systems more empathetic.
+
+\section*{Acknowledgments}
+We thank the anonymous reviewers for insightful feedback and suggestions. This material is based, in part, upon work supported by the National Science Foundation Graduate Research Fellowship Program under Grant No. DGE-1256082.
+
+\bibliography{aclbib}
+\bibliographystyle{acl_natbib}
+
+\clearpage
+\appendix
+\input{appendix.tex}
+
+\end{document}
+

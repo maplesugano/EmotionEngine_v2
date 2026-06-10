@@ -30,7 +30,7 @@ where $\mathbf{m}_k$ are label-free meta-axes shared across all emotions, $\beta
 This chapter is organised as follows.
 \begin{enumerate}
   \item \textbf{Internal variance structure}: We characterise the internal dimensionality of each named emotion by applying PCA to the distribution of per-source residual vectors within each emotion category.
-  \item \textbf{Shared meta-axes via pooled PCA}: We show that a single per-emotion-centred pooled PCA directly recovers a set of shared meta-axes $\mathbf{m}_k$, without requiring any per-emotion partitioning or rank grouping.
+  \item \textbf{Shared meta-axes via pooled PCA}: We show that a single per-emotion-centred pooled PCA directly recovers a set of shared meta-axes $\mathbf{m}_k$, without requiring separate per-emotion PCAs or sign alignment.
   \item \textbf{Pre-verbal interpretation}: We interpret each $\mathbf{m}_k$ by presenting extreme examples from all emotions simultaneously to an LLM, obtaining emotion-independent semantic labels for each meta-axis.
   \item \textbf{Re-decomposition of $\hat{\mathbf{r}}_e$}: We project each $\hat{\mathbf{r}}_e$ onto the $\mathbf{m}_k$ basis, quantify the explained variance, and state the revised decomposition that extends the formula from Chapter~\ref{chap:development1_emo_steering}.
   \item \textbf{Causal validation by meta-axis steering}: We test whether adding $\pm\beta\,\mathbf{m}_1$ to the steering vector causally shifts outputs along the expected affective sub-dimension.
@@ -102,27 +102,31 @@ These results demonstrate that the named emotions are not equivalent in their in
 \section{Shared Meta-Axes via Pooled PCA}
 \label{sec:ch2-meta-axes}
 
-The participation ratio analysis in Section~\ref{sec:ch2-variance-structure} established that each emotion's residuals occupy a multi-dimensional region rather than a single vector direction. We now investigate whether those multiple dimensions are emotion-specific, or whether they recur across all emotion categories. The answer determines whether $\hat{\mathbf{r}}_e$ is a truly atomic vector or a projection onto a shared affective subspace.\par
+The participation ratio analysis in Section~\ref{sec:ch2-variance-structure} established that each emotion's residuals occupy a multi-dimensional region rather than a single vector direction. We now investigate whether those dimensions are emotion-specific or whether they recur across all emotion categories, which determines whether $\hat{\mathbf{r}}_e$ is a truly atomic vector or a projection onto a shared affective subspace.\par
 
-If we perform PCA separately for each emotion, we obtain a set of eigenvectors $\mathbf{u}_{e,k}$ that capture the internal variance structure of each emotion. However, these per-emotion PCAs are not directly comparable. For example, the $k$-th eigenvector of \textit{joy} may not correspond to the $k$-th eigenvector of \textit{sadness}.\par
+We write $\mathbf{u}_{e,k}$ for the $k$-th principal component of the residuals of emotion $e$ alone, so $\mathbf{u}_{e,1}$ is the leading within-emotion variance direction, $\mathbf{u}_{e,2}$ is the second, and so on. The associated eigenvalue $\lambda_{e,k}$ measures the residual variance of emotion $e$ along $\mathbf{u}_{e,k}$.\par
 
-The amplification mechanism can be made explicit. Suppose a vector $\mathbf{v}$ is shared across all eight emotions, appearing as the leading eigenvector of each emotion's covariance with eigenvalue $\lambda_{e,1}$ for each $e$. Its contribution to $\Sigma_{\mathrm{pool}}$ is
+Performing PCA separately per emotion yields a set of local eigenvectors $\{\mathbf{u}_{e,k}\}_k$ that capture the internal variance structure of each emotion. However, these per-emotion PCAs are not directly comparable{}: the $k$-th eigenvector of \textit{joy} need not correspond to the $k$-th eigenvector of \textit{sadness}, since their ordering is determined independently within each emotion block.\par
+
+Throughout this section, $\mathbf{u}_{e,k}$ denotes a local PC from a PCA fitted within a single emotion block, $\lambda_{e,k}$ denotes its associated eigenvalue, and $\tilde{\mathbf{m}}_k$ denotes a pooled PC obtained from a single PCA fitted to the stacked residual matrix.\par
+
+\subsection{Intuition of a Pooled PCA}
+
+Suppose a vector $\mathbf{v}$ is shared across all eight emotions, appearing as the leadi ng eigenvector of each emotion's covariance with eigenvalue $\lambda_{e,1}$ for each $e$. Its contribution to $\Sigma_{\mathrm{pool}}$ is
 \[
 \sum_{e} \lambda_{e,1}\,\mathbf{v}\mathbf{v}^\top
 = \Bigl(\lambda_{\mathrm{joy},1} + \lambda_{\mathrm{sadness},1} + \lambda_{\mathrm{anger},1} + \cdots\Bigr)\mathbf{v}\mathbf{v}^\top.
 \]
 The scalar prefactor accumulates the eigenvalue from every emotion. Concretely, if each $\lambda_{e,1} = 10$, the shared direction $\mathbf{v}$ contributes $10 \times 8 = 80$ to the pooled spectrum.\par
 
-On the other hand, suppose a vector $\mathbf{w}$ is specific to one emotion e.g. \textit{anger} only:
+By contrast, suppose a vector $\mathbf{w}$ is specific to one emotion (e.g.\ \textit{anger}):
 $\mathbf{u}_{\mathrm{anger},2} \approx \mathbf{w}$, while the other emotions have negligible variance along $\mathbf{w}$. Its pooled contribution is
 \[
 \lambda_{\mathrm{anger},2}\,\mathbf{w}\mathbf{w}^\top,
 \]
 a single term. Even if $\lambda_{\mathrm{anger},2} = 10$, the emotion-specific direction contributes only $10 \times 1 = 10$, one-eighth the weight of the shared direction. The pooled eigenvalue of $\mathbf{w}$ is suppressed by the very absence of cross-emotion support.\par
 
-This asymmetry is what makes a single pooled PCA a \textbf{detector of commonality}. Shared axes are promoted to the top of the spectrum by linear accumulation, while emotion-specific axes are diluted and pushed to lower components.
-
-This means a single PCA applied to the pooled residuals directly recovers whichever directions are genuinely shared, without requiring any prior per-emotion partitioning.\par
+This asymmetry makes a single pooled PCA a \textbf{detector of commonality}: shared axes are promoted to the top of the spectrum by linear accumulation, while emotion-specific axes are diluted into lower components. A single PCA applied to the pooled residuals therefore preferentially recovers directions of variance that are consistently supported across all emotions, without requiring separate per-emotion PCAs or sign alignment.\par
 
 \subsection{Protocol}
 
@@ -139,16 +143,16 @@ We then centre each emotion block, stack all blocks into a single $(N \cdot E,\,
 \subsection{Results}
 
 \subsubsection*{Explained Variance}
-The top three pooled components account for $11.4\%$, $4.5\%$, and $3.1\%$ of the total pooled variance (cumulative $18.9\%$). The first component is markedly dominant --- more than twice the variance of the second --- indicating a single primary shared dimension.\par
+The top three pooled components account for $11.4\%$, $4.5\%$, and $3.1\%$ of the total pooled variance (cumulative $18.9\%$). The first component is markedly dominant (more than twice the variance of the second), indicating a single primary shared dimension.\par
 
 \subsubsection*{Alignment with Meta-axes}
-To verify that the pooled components capture genuine cross-emotion structure, we compare them to the sign-aligned-mean meta-axes $\mathbf{m}_k$, defined as the normalised average of per-emotion $k$-th eigenvectors after sign alignment:
+To verify that the pooled components capture genuine cross-emotion structure, we compare them to the sign-aligned-mean meta-axes $\mathbf{m}_k$, defined as the normalised average of the per-emotion $k$-th eigenvectors after sign correction. Here $\sigma_{e,k}\in\{+1,-1\}$ corrects the arbitrary sign of each eigenvector before averaging across emotions:
 \[
 \mathbf{m}_k
 =\frac{\sum_{e\in E}\sigma_{e,k}\,\mathbf{u}_{e,k}}
-      {\left\lVert\sum_{e\in E}\sigma_{e,k}\,\mathbf{u}_{e,k}\right\rVert_2},
+      {\left\lVert\sum_{e\in E}\sigma_{e,k}\,\mathbf{u}_{e,k}\right\rVert_2}.
 \]
-where $\sigma_{e,k}\in\{+1,-1\}$ aligns each $\mathbf{u}_{e,k}$ in sign with the first emotion's axis. The agreement between $\tilde{\mathbf{m}}_k$ and $\mathbf{m}_k$ is axis-by-axis and near-perfect for the leading three components (Table~\ref{tab:pooled_vs_meta}).\par
+The pooled components $\tilde{\mathbf{m}}_k$ agree with $\mathbf{m}_k$ axis-by-axis and near-perfectly for the leading three components (Table~\ref{tab:pooled_vs_meta}, Figure~\ref{fig:pooled_robustness}).\par
 
 \begin{table}[H]
 \centering
@@ -166,28 +170,40 @@ $\tilde{\mathbf{m}}_3$ vs.\ $\mathbf{m}_3$ & 0.931 \\
 \label{tab:pooled_vs_meta}
 \end{table}
 
-The off-diagonal entries of the full $3\times 3$ cosine matrix are all below $0.13$, confirming that the pooled PCA reproduces not just the subspace but each individual axis. The mutual subspace-capture rate across the top-3 span is $96.6\%$. This constitutes the strongest form of robustness available: the meta-axes emerge from a single PCA with no knowledge of emotion labels or PC ranks.\par
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\linewidth]{figures/pooled_robustness.png}
+  \caption{Convergence of pooled PCA and sign-aligned-mean meta-axes at layer~13. \textbf{(a)} Scree plot: PC$_1$ accounts for $11.4\%$ of total variance, over $2.5\times$ the second component, indicating one strongly dominant shared direction. \textbf{(b)} Diagonal cosine between each pooled component $\tilde{\mathbf{m}}_k$ and the corresponding meta-axis $\mathbf{m}_k$; all three values exceed $0.93$.}
+  \label{fig:pooled_robustness}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.55\linewidth]{figures/pooled_mk_heatmap.png}
+  \caption{Full $5\times 5$ absolute cosine matrix between pooled PCA components and the sign-aligned-mean meta-axes $\mathbf{m}_k$ at layer~13. The top-left $3\times 3$ block is near-diagonal (diagonal $\geq 0.93$, off-diagonal $\leq 0.13$), confirming that the correspondence is axis-level, not merely subspace-level. Rows PC$_4$--PC$_5$ show no alignment with any $\mathbf{m}_k$.}
+  \label{fig:pooled_mk_heatmap}
+\end{figure}
+
+The off-diagonal entries of the full $3\times 3$ cosine matrix are all below $0.13$, confirming that pooled PCA reproduces not just the shared subspace but each individual axis. The mutual subspace-capture rate across the top-3 span is $96.6\%$.\par
 
 \subsubsection*{Geometric Properties of $\mathbf{m}_k$}
-The three meta-axes satisfy two further properties that confirm they capture affective \emph{texture} rather than the coarser emotion-identity or emotionalisation signals. First, all $\mathbf{m}_k$ are nearly orthogonal to the shared emotionalisation direction $\mathbf{g}$ ($|\cos(\mathbf{m}_k,\mathbf{g})| < 0.02$ for all $k$). Second, they are nearly orthogonal to every per-emotion prototype $\hat{\mathbf{r}}_e$ ($|\cos(\mathbf{m}_k,\hat{\mathbf{r}}_e)| < 0.09$ for all $k,e$). Together these ensure that the $\mathbf{m}_k$ basis is geometrically independent from both the global emotionalisation axis and the emotion-label directions, capturing the within-emotion variance that is obscured by prototype averaging.\par
+The three meta-axes satisfy two further properties that confirm they capture affective \emph{texture} rather than the coarser emotion-identity or emotionalisation signals. First, all $\mathbf{m}_k$ are nearly orthogonal to the shared emotionalisation direction $\mathbf{g}$ ($|\cos(\mathbf{m}_k,\mathbf{g})| < 0.02$ for all $k$). Second, they are nearly orthogonal to every per-emotion prototype $\hat{\mathbf{r}}_e$ ($|\cos(\mathbf{m}_k,\hat{\mathbf{r}}_e)| < 0.09$ for all $k,e$). Together, these two properties ensure that the $\mathbf{m}_k$ basis is geometrically independent of both the global emotionalisation axis and the emotion-label directions, capturing the within-emotion variance that prototype averaging obscures.\par
 
-We retain $\mathbf{m}_1$, $\mathbf{m}_2$, and $\mathbf{m}_3$ for subsequent interpretation and steering experiments. Components $\tilde{\mathbf{m}}_4$ and $\tilde{\mathbf{m}}_5$ are not used: their explained variance is small ($2.2\%$ and $1.9\%$) and their mutual-capture rate with any candidate higher-order meta-axis falls below $0.50$.\par
+Components $\tilde{\mathbf{m}}_4$ and $\tilde{\mathbf{m}}_5$ do not correspond to any stable meta-axis: their explained variance is small ($2.2\%$ and $1.9\%$), their mutual-capture rate with any candidate higher-order axis falls below $0.50$, and PC$_4$--PC$_5$ show cosines below $0.45$ against all five $\mathbf{m}_k$ (Figure~\ref{fig:pooled_mk_heatmap}). We therefore restrict all subsequent claims to the stable top-three meta-axes $\mathbf{m}_1$, $\mathbf{m}_2$, and $\mathbf{m}_3$.\par
 
 \subsection{Robustness: Convergence of Two Independent Methods}
+\label{sec:ch2-pooled-robustness}
 
-The near-perfect agreement between pooled PCA and the sign-aligned-mean meta-axes in Table~\ref{tab:pooled_vs_meta} deserves separate emphasis as a robustness result, independent of the performance evaluation in Section~\ref{sec:ch2-preverbal-interp}.\par
+The convergence reported in Table~\ref{tab:pooled_vs_meta} and Figure~\ref{fig:pooled_robustness} is the outcome of a deliberate robustness test; this subsection makes the design of that test explicit and states what the convergence implies.\par
 
-The sign-aligned-mean approach constructs each $\mathbf{m}_k$ in two stages. First, it runs a separate PCA within each emotion category, yielding per-emotion eigenvectors $\mathbf{u}_{e,k}$. Second, it sign-aligns these eigenvectors across emotions and averages them:
-\[
-\mathbf{m}_k
-= \frac{\sum_{e}\sigma_{e,k}\,\mathbf{u}_{e,k}}
-       {\left\|\sum_{e}\sigma_{e,k}\,\mathbf{u}_{e,k}\right\|_2}.
-\]
-This procedure depends on a per-emotion partitioning step and a rank-ordering convention to match components across emotions. Pooled PCA, by contrast, requires neither: it applies a single PCA to all centred residuals stacked together, with no knowledge of emotion labels at the decomposition stage.\par
+The sign-aligned mean and pooled PCA represent fundamentally different extraction strategies. The sign-aligned mean partitions the data by emotion label first: it runs a separate PCA within each of the eight emotion categories, then sign-aligns and averages the results rank by rank, relying on the emotion partition at every stage. Pooled PCA, by contrast, centres each emotion block to remove its mean and then applies a single decomposition to the stacked residuals. The centering step uses emotion labels, but the PCA itself sees only an unlabelled matrix and never consults which observation belongs to which emotion. The two methods therefore encode independent structural assumptions about how shared directions should be discovered.\par
 
-Despite this methodological independence, the two approaches recover the same three leading axes to cosines of $0.988$, $0.980$, and $0.931$. This convergence rules out a specific alternative explanation: that the meta-axes are an artifact of the per-emotion PCA procedure, arising from the sign-alignment step or from partitioning the data by emotion label before decomposing it. Because pooled PCA discards both of those steps and still recovers the same axes, the meta-axes must exist as genuine shared structure in the data itself.\par
+One natural concern is that the meta-axes could be an artefact of the sign-aligned-mean procedure, for instance that the sign-alignment step or the per-emotion partition imposes structure that would not otherwise be present. Pooled PCA is immune to both the sign-alignment choice and to rank-wise recombination; after block-centering it applies a single decomposition to the stacked matrix without consulting emotion identity during the eigendecomposition itself. Yet it recovers the same three directions, matching each $\mathbf{m}_k$ individually at the axis level and collectively at the subspace level (Table~\ref{tab:pooled_vs_meta}, Figures~\ref{fig:pooled_robustness}--\ref{fig:pooled_mk_heatmap}), ruling out those methodological choices as the source of $\mathbf{m}_1$, $\mathbf{m}_2$, and $\mathbf{m}_3$.\par
+
+Two methods that share no internal steps converge on the same three affective axes, constituting the strongest available evidence that $\mathbf{m}_1$, $\mathbf{m}_2$, and $\mathbf{m}_3$ reflect genuine shared structure in the model's residual activations rather than an artefact of any particular methodological choice.\par
 
 % ─────────────────────────────────────────────────────────────
+
 \section{Pre-Verbal Interpretation of Meta-Axes}
 \label{sec:ch2-preverbal-interp}
 
