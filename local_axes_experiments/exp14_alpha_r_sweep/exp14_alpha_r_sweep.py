@@ -1,33 +1,33 @@
 """
-Experiment 14: \Alpha_R sweep — what is the useful range of the residual coefficient?
+Experiment 14: α_R sweep — what is the useful range of the residual coefficient?
 Test-split sources pipeline.
 
 Background
 ----------
-The main CAA decomposition experiment fixed \Alpha_R=5.0 (residual direction) and varied
-\Alpha_G (shared direction).  Exp 12 confirmed that \Alpha_G>0 is largely counterproductive, and
-that \Alpha_R=5.0 with \Alpha_G=0 (residual-only) is the best performer.  However, only one
-value of \Alpha_R was ever tested in combination with the decomposition.  It is unknown:
-  - Whether \Alpha_R=5.0 is near-optimal or just a convenient round number.
-  - Whether negative \Alpha_R (steering *away* from the target emotion) produces coherent
+The main CAA decomposition experiment fixed α_R=5.0 (residual direction) and varied
+α_G (shared direction).  Exp 12 confirmed that α_G>0 is largely counterproductive, and
+that α_R=5.0 with α_G=0 (residual-only) is the best performer.  However, only one
+value of α_R was ever tested in combination with the decomposition.  It is unknown:
+  - Whether α_R=5.0 is near-optimal or just a convenient round number.
+  - Whether negative α_R (steering *away* from the target emotion) produces coherent
     text, and if so, what effect it has.
   - Where the "text-breaking" thresholds lie on each side.
 
 Research question
 -----------------
-Across what range of \Alpha_R does the residual steering vector Δ = \Alpha_R·r̂_e produce
+Across what range of α_R does the residual steering vector Δ = α_R·r̂_e produce
 intelligible rewrites, and where is target-emotion match maximised?
 
 Design
 ------
-\Alpha_G fixed at 0.0 (residual-only, best condition from Exp 12).
-\Alpha_R swept over: -8, -5, -3, -1, 0, 1, 3, 5, 8
+α_G fixed at 0.0 (residual-only, best condition from Exp 12).
+α_R swept over: -8, -5, -3, -1, 0, 1, 3, 5, 8
   → 0   replicates unsteered baseline.
   → 5   replicates the best condition from the main experiment.
   → ±8  are expected to produce degenerate or incoherent text.
 
 Source texts: first N_SOURCES test-split items (default 100).
-  100 sources x 8 emotions x 9 \Alpha_R values = 7200 generations.
+  100 sources x 8 emotions x 9 α_R values = 7200 generations.
   (Adjust N_SOURCES via --n_sources; use --n_sources 376 for the full set.)
 
 Evaluation: GPT-4o-mini judge (same rubric as main experiment / Exp 12).
@@ -209,7 +209,7 @@ def run_generation(n_sources: int) -> None:
     D = g.shape[0]
 
     sources = load_test_sources(n_sources)
-    print(f"Sources: {len(sources)}  |  Emotions: {E}  |  \Alpha_R sweep: {ALPHA_R_SWEEP}")
+    print(f"Sources: {len(sources)}  |  Emotions: {E}  |  α_R sweep: {ALPHA_R_SWEEP}")
     total_expected = len(sources) * E * len(ALPHA_R_SWEEP)
     print(f"Total expected: {total_expected}")
 
@@ -393,7 +393,7 @@ def submit_batch() -> None:
     batch_id = upload_and_submit(
         client, str(EVAL_REQUESTS),
         batch_index=0, n_batches=1,
-        description="exp14 \Alpha_R sweep eval",
+        description="exp14 α_R sweep eval",
     )
     print(f"Batch ID: {batch_id}")
     BATCH_ID_FILE.write_text(batch_id)
@@ -458,8 +458,8 @@ def analyse() -> None:
     SOUNDNESS_THRESHOLD = 0.70   # coherence cutoff
 
     # ── Aggregate table ───────────────────────────────────────────────────────
-    print("\n=== Aggregate by \Alpha_R (all emotions pooled) ===")
-    print(f"{'\Alpha_R':>6}  {'soundness':>12}  {'meaning_pres':>14}  {'tgt_intensity':>15}  {'n':>5}")
+    print("\n=== Aggregate by α_R (all emotions pooled) ===")
+    print(f"{'α_R':>6}  {'soundness':>12}  {'meaning_pres':>14}  {'tgt_intensity':>15}  {'n':>5}")
     summary_rows = []
     for ar in alpha_r_vals:
         sub = [d for d in data if d["alpha_r"] == ar]
@@ -482,11 +482,11 @@ def analyse() -> None:
     # ── Per-emotion thresholds and midpoints ──────────────────────────────────
     #
     # M_A (structural) = (L_e + R_e) / 2
-    #   The arithmetic midpoint of the coherent \Alpha_R range.
+    #   The arithmetic midpoint of the coherent α_R range.
     #   Interpretation: the geometric centre of where text stays intact.
     #
-    # M_B (empirical)  = argmax_{\Alpha in coherent} mean(meaning_preserved)
-    #   The \Alpha_R at which the rewrite best preserves the original base text.
+    # M_B (empirical)  = argmax_{α in coherent} mean(meaning_preserved)
+    #   The α_R at which the rewrite best preserves the original base text.
     #   Interpretation: "closest to base" — minimises the steering effect on content.
     #
     # Comparing M_A vs M_B reveals whether the coherence window is symmetric
@@ -520,7 +520,7 @@ def analyse() -> None:
         R_e = coherent[-1] if coherent else float("nan")
         M_A = (L_e + R_e) / 2 if coherent else float("nan")
 
-        # M_B: coherent \Alpha_R with highest mean meaning_preserved
+        # M_B: coherent α_R with highest mean meaning_preserved
         M_B = (max(coherent, key=lambda ar: mp_by_ar.get(ar, -1))
                if coherent else float("nan"))
 
@@ -558,15 +558,15 @@ def analyse() -> None:
         })
 
     # ── Dominant-emotion spot-check ───────────────────────────────────────────
-    print("\n=== Dominant-emotion distribution by \Alpha_R (all target emotions pooled) ===")
+    print("\n=== Dominant-emotion distribution by α_R (all target emotions pooled) ===")
     for ar in alpha_r_vals:
         sub = [d["de"] for d in data if d["alpha_r"] == ar]
         if not sub: continue
         top3 = ", ".join(f"{k}:{v}" for k, v in Counter(sub).most_common(3))
-        print(f"  \AlphaR={ar:6.1f}: {top3}")
+        print(f"  α_R={ar:6.1f}: {top3}")
 
-    # ── Paired t-test: intensity vs \Alpha_R=0 ────────────────────────────────────
-    print("\n=== Paired t-test: target_emotion_intensity vs \Alpha_R=0.0 ===")
+    # ── Paired t-test: intensity vs α_R=0 ────────────────────────────────────
+    print("\n=== Paired t-test: target_emotion_intensity vs α_R=0.0 ===")
     ti_by_key = defaultdict(dict)
     for d in data:
         ti_by_key[(d["source_id"], d["emotion"])][d["alpha_r"]] = d["ti"]
@@ -583,7 +583,7 @@ def analyse() -> None:
         return m, 1.96 * sd / math.sqrt(n), t, p, n
 
     anchor = 0.0
-    print(f"{'\Alpha_R':>6}  {'Δ vs 0':>10}  {'95% CI':>10}  {'t':>7}  {'p':>10}  {'n':>5}")
+    print(f"{'α_R':>6}  {'Δ vs 0':>10}  {'95% CI':>10}  {'t':>7}  {'p':>10}  {'n':>5}")
     for ar in alpha_r_vals:
         if ar == anchor: continue
         m, ci, t, p, n = paired_t(ar, anchor)
@@ -615,6 +615,48 @@ def plot() -> None:
     import matplotlib.pyplot as plt
     import matplotlib.ticker as mticker
 
+    # ── publication-quality global style ─────────────────────────────────────
+    plt.rcParams.update({
+        "font.family":        "DejaVu Sans",
+        "font.size":          9,
+        "axes.labelsize":     10,
+        "axes.titlesize":     10,
+        "axes.titleweight":   "bold",
+        "xtick.labelsize":    8,
+        "ytick.labelsize":    8,
+        "xtick.direction":    "out",
+        "ytick.direction":    "out",
+        "legend.fontsize":    8,
+        "legend.framealpha":  0.85,
+        "legend.edgecolor":   "0.8",
+        "axes.spines.top":    False,
+        "axes.spines.right":  False,
+        "axes.linewidth":     0.8,
+        "grid.alpha":         0.35,
+        "grid.linestyle":     ":",
+        "grid.linewidth":     0.6,
+        "lines.linewidth":    1.6,
+        "lines.markersize":   5,
+        "errorbar.capsize":   3,
+        "figure.dpi":         300,
+        "savefig.dpi":        300,
+        "savefig.bbox":       "tight",
+        "savefig.pad_inches": 0.05,
+    })
+
+    DPI           = 300
+    # Okabe-Ito 8-colour palette (colourblind-friendly)
+    PALETTE = [
+        "#E69F00", "#56B4E9", "#009E73", "#F0E442",
+        "#0072B2", "#D55E00", "#CC79A7", "#999999",
+    ]
+
+    def _save(fig, stem):
+        for ext in ("pdf", "png"):
+            p = OUT_DIR / f"{stem}.{ext}"
+            fig.savefig(p, dpi=DPI)
+            print(f"Saved → {p}")
+
     rows    = [json.loads(l) for l in open(GENERATION_FILE) if l.strip()]
     res_raw = [json.loads(l) for l in open(EVAL_RESULTS)    if l.strip()]
     scores  = {int(r["custom_id"].split("_")[1]):
@@ -637,104 +679,100 @@ def plot() -> None:
     def _mean(vals):
         return sum(vals) / len(vals) if vals else float("nan")
 
-    def mci(vals):
-        n = len(vals); m = _mean(vals)
-        if n < 2: return m, 0.0
-        sd = math.sqrt(sum((x - m) ** 2 for x in vals) / (n - 1))
-        return m, 1.96 * sd / math.sqrt(n)
+    def _mci_series(key, emo=None):
+        """Return (means, lo, hi) arrays over alpha_r_vals for CI bands."""
+        means, lo, hi = [], [], []
+        for ar in alpha_r_vals:
+            sub = [d[key] for d in data
+                   if d["alpha_r"] == ar and (emo is None or d["emotion"] == emo)]
+            if not sub:
+                means.append(float("nan"))
+                lo.append(float("nan")); hi.append(float("nan"))
+                continue
+            m = _mean(sub); n = len(sub)
+            ci = 0.0
+            if n > 1:
+                sd = math.sqrt(sum((x - m) ** 2 for x in sub) / (n - 1))
+                ci = 1.96 * sd / math.sqrt(n)
+            means.append(m); lo.append(m - ci); hi.append(m + ci)
+        return means, lo, hi
 
     alpha_r_vals     = sorted({d["alpha_r"] for d in data})
     emos             = sorted({d["emotion"]  for d in data})
     SOUNDNESS_THRESHOLD = 0.70
-    PALETTE = [
-        "#e41a1c", "#377eb8", "#4daf4a", "#984ea3",
-        "#ff7f00", "#a65628", "#f781bf", "#999999",
-    ]
+    X = alpha_r_vals  # shorthand
 
-    # ── Figure 1: aggregate metrics ───────────────────────────────────────────
+    # ── Figure 1: aggregate metrics (publication figure) ─────────────────────
+    # 3-panel: intensity · soundness · meaning_preserved  vs α_R
+    # Lines + 95 % CI fill_between bands
     metric_specs = [
-        ("ti", "Target-emotion intensity", "#2166ac"),
-        ("sn", "Soundness",                "#4dac26"),
-        ("mp", "Meaning preserved",        "#d6604d"),
+        ("ti", "Target-emotion intensity", "#0072B2"),
+        ("sn", "Soundness",                "#009E73"),
+        ("mp", "Meaning preserved",        "#D55E00"),
     ]
-    fig1, axes = plt.subplots(1, 3, figsize=(13, 4), sharey=False)
-    fig1.suptitle(
-        "Exp 14 — \Alpha_R sweep (\Alpha_G = 0.0 fixed)\nAggregate metrics ± 95 % CI",
-        fontsize=11, y=1.02,
-    )
-    for ax, (key, label, colour) in zip(axes, metric_specs):
-        means = [mci([d[key] for d in data if d["alpha_r"] == ar])[0] for ar in alpha_r_vals]
-        cis   = [mci([d[key] for d in data if d["alpha_r"] == ar])[1] for ar in alpha_r_vals]
-        ax.errorbar(alpha_r_vals, means, yerr=cis, fmt="o-", color=colour,
-                    capsize=4, capthick=1.2, linewidth=1.8, markersize=5)
-        ax.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
-        ax.set_xlabel("\Alpha_R", fontsize=10)
-        ax.set_title(label, fontsize=10)
-        ax.xaxis.set_major_locator(mticker.FixedLocator(alpha_r_vals))
-        ax.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.4g"))
-        ax.tick_params(axis="x", labelsize=8)
-        ax.grid(axis="y", linestyle=":", alpha=0.5)
-    fig1.tight_layout()
-    p1 = OUT_DIR / "fig1_aggregate_metrics.png"
-    fig1.savefig(p1, dpi=150, bbox_inches="tight")
-    print(f"Saved → {p1}")
+    fig1, axes = plt.subplots(1, 3, figsize=(7.0, 2.6), sharey=False)
+    for ax, (key, label, col) in zip(axes, metric_specs):
+        means, lo, hi = _mci_series(key)
+        ax.plot(X, means, "o-", color=col, linewidth=1.6, markersize=4, zorder=3)
+        ax.fill_between(X, lo, hi, color=col, alpha=0.18, zorder=2)
+        ax.axvline(0, color="#666666", linestyle="--", linewidth=0.8, alpha=0.7)
+        ax.set_xlabel(r"$\alpha_R$")
+        ax.set_title(label)
+        ax.set_ylim(-0.05, 1.05)
+        ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
+        ax.xaxis.set_major_locator(mticker.FixedLocator(X))
+        ax.xaxis.set_major_formatter(mticker.FormatStrFormatter("%g"))
+        ax.tick_params(axis="x", labelrotation=45)
+    fig1.tight_layout(pad=0.6, w_pad=1.2)
+    _save(fig1, "fig1_aggregate_metrics")
     plt.close(fig1)
 
-    # ── Figure 2: per-emotion target_emotion_intensity ────────────────────────
-    fig2, ax2 = plt.subplots(figsize=(9, 5))
-    for emo, colour in zip(emos, PALETTE):
-        means, cis = [], []
-        for ar in alpha_r_vals:
-            vals = [d["ti"] for d in data if d["emotion"] == emo and d["alpha_r"] == ar]
-            m, ci = mci(vals)
-            means.append(m); cis.append(ci)
-        ax2.errorbar(alpha_r_vals, means, yerr=cis, fmt="o-", color=colour,
-                     capsize=3, capthick=1, linewidth=1.5, markersize=4, label=emo)
-    ax2.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
-    ax2.axhline(0.5, color="grey", linestyle=":", linewidth=0.8, alpha=0.6)
-    ax2.set_xlabel("\Alpha_R", fontsize=10)
-    ax2.set_ylabel("Target-emotion intensity", fontsize=10)
-    ax2.set_title(
-        "Exp 14 — Per-emotion target_emotion_intensity ± 95 % CI\n(\Alpha_G = 0.0 fixed)",
-        fontsize=11,
-    )
-    ax2.xaxis.set_major_locator(mticker.FixedLocator(alpha_r_vals))
-    ax2.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.4g"))
-    ax2.legend(fontsize=8, ncol=2, loc="upper left")
-    ax2.grid(axis="y", linestyle=":", alpha=0.5)
-    fig2.tight_layout()
-    p2 = OUT_DIR / "fig2_per_emotion_intensity.png"
-    fig2.savefig(p2, dpi=150, bbox_inches="tight")
-    print(f"Saved → {p2}")
+    # ── Figure 2: per-emotion intensity (publication figure) ──────────────────
+    # 8 emotion lines + CI bands.  Two-column layout, clean legend.
+    fig2, ax2 = plt.subplots(figsize=(4.5, 3.2))
+    for emo, col in zip(emos, PALETTE):
+        means, lo, hi = _mci_series("ti", emo=emo)
+        ax2.plot(X, means, "o-", color=col, linewidth=1.4, markersize=3.5,
+                 label=emo, zorder=3)
+        ax2.fill_between(X, lo, hi, color=col, alpha=0.12, zorder=2)
+    ax2.axvline(0,   color="#666666", linestyle="--", linewidth=0.8, alpha=0.7)
+    ax2.axhline(0.5, color="#888888", linestyle=":",  linewidth=0.7, alpha=0.6)
+    ax2.set_xlabel(r"$\alpha_R$")
+    ax2.set_ylabel("Target-emotion intensity")
+    ax2.set_ylim(-0.05, 1.05)
+    ax2.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
+    ax2.xaxis.set_major_locator(mticker.FixedLocator(X))
+    ax2.xaxis.set_major_formatter(mticker.FormatStrFormatter("%g"))
+    ax2.tick_params(axis="x", labelrotation=45)
+    leg = ax2.legend(ncol=2, loc="upper left", handlelength=1.4,
+                     columnspacing=0.8, handletextpad=0.4)
+    fig2.tight_layout(pad=0.6)
+    _save(fig2, "fig2_per_emotion_intensity")
     plt.close(fig2)
 
-    # ── Figure 3: per-emotion threshold analysis ──────────────────────────────
-    # One subplot per emotion.  Left axis = soundness; right axis = intensity.
-    # Markers: L_e / R_e (coherence thresholds), M_A (arithmetic midpoint),
-    # M_B (alpha_r with highest meaning_preserved ≈ "closest to base").
+    # ── Figure 3: per-emotion threshold diagnostic ────────────────────────────
+    # One panel per emotion; left axis = soundness (green) + CI band,
+    # right axis = intensity (blue) + CI band.
+    # Vertical markers: α_R=0, L_e, R_e, M_A (--·), M_B (:).
     ncols = 4
     nrows = math.ceil(len(emos) / ncols)
-    fig3, axes3 = plt.subplots(nrows, ncols, figsize=(ncols * 4, nrows * 3.2))
+    fig3, axes3 = plt.subplots(nrows, ncols,
+                               figsize=(ncols * 3.0, nrows * 2.6))
     axes3_flat = list(axes3.flat) if hasattr(axes3, "flat") else [axes3]
-    fig3.suptitle(
-        "Exp 14 — Per-emotion coherence thresholds and midpoints\n"
-        "Soundness (green, left) · Target-emotion intensity (blue, right)",
-        fontsize=11,
-    )
 
-    for ax, emo in zip(axes3_flat, emos):
-        sn_means, ti_means, mp_means = [], [], []
-        for ar in alpha_r_vals:
-            sub = [d for d in data if d["emotion"] == emo and d["alpha_r"] == ar]
-            sn_means.append(_mean([d["sn"] for d in sub]))
-            ti_means.append(_mean([d["ti"] for d in sub]))
-            mp_means.append(_mean([d["mp"] for d in sub]))
+    SN_COL = "#009E73"
+    TI_COL = "#0072B2"
 
-        sn_by_ar = dict(zip(alpha_r_vals, sn_means))
-        ti_by_ar = dict(zip(alpha_r_vals, ti_means))
-        mp_by_ar = dict(zip(alpha_r_vals, mp_means))
+    for ax_sn, emo in zip(axes3_flat, emos):
+        sn_m, sn_lo, sn_hi = _mci_series("sn", emo=emo)
+        ti_m, ti_lo, ti_hi = _mci_series("ti", emo=emo)
+        mp_m, _, _          = _mci_series("mp", emo=emo)
 
-        coherent = sorted(ar for ar in alpha_r_vals
+        sn_by_ar = dict(zip(X, sn_m))
+        mp_by_ar = dict(zip(X, mp_m))
+        ti_by_ar = dict(zip(X, ti_m))
+
+        coherent = sorted(ar for ar in X
                           if not math.isnan(sn_by_ar.get(ar, float("nan")))
                           and sn_by_ar[ar] >= SOUNDNESS_THRESHOLD)
         L_e = coherent[0]  if coherent else None
@@ -743,51 +781,67 @@ def plot() -> None:
         M_B = (max(coherent, key=lambda ar: mp_by_ar.get(ar, -1))
                if coherent else None)
 
-        ax_sn = ax
-        ax_ti = ax.twinx()
+        ax_ti = ax_sn.twinx()
 
-        ax_sn.plot(alpha_r_vals, sn_means, "o-", color="#4dac26",
-                   linewidth=1.6, markersize=4, label="soundness")
-        ax_ti.plot(alpha_r_vals, ti_means, "s--", color="#2166ac",
-                   linewidth=1.6, markersize=4, label="intensity")
-        ax_sn.axhline(SOUNDNESS_THRESHOLD, color="#4dac26", linestyle=":",
-                      linewidth=0.9, alpha=0.7)
+        # CI bands first (behind lines)
+        ax_sn.fill_between(X, sn_lo, sn_hi, color=SN_COL, alpha=0.15, zorder=1)
+        ax_ti.fill_between(X, ti_lo, ti_hi, color=TI_COL, alpha=0.15, zorder=1)
 
-        for x, ls, lw, lbl in [
-            (0,   "--", 0.8, None),
-            (L_e, "-",  1.3, f"L_e={L_e}"),
-            (R_e, "-",  1.3, f"R_e={R_e}"),
-            (M_A, "-.", 1.5, f"M_A={M_A:.0f}" if M_A is not None else None),
-            (M_B, ":",  1.5, f"M_B={M_B}"     if M_B is not None else None),
+        ax_sn.plot(X, sn_m, "o-", color=SN_COL, linewidth=1.3,
+                   markersize=3, zorder=3, label="soundness")
+        ax_ti.plot(X, ti_m, "s--", color=TI_COL, linewidth=1.3,
+                   markersize=3, zorder=3, label="intensity")
+
+        # Threshold reference line
+        ax_sn.axhline(SOUNDNESS_THRESHOLD, color=SN_COL,
+                      linestyle=":", linewidth=0.8, alpha=0.8)
+
+        # Vertical markers
+        for x_val, ls, lw, lbl in [
+            (0,   "--", 0.7, None),
+            (L_e, "-",  1.1, f"L={L_e}"),
+            (R_e, "-",  1.1, f"R={R_e}"),
+            (M_A, "-.", 1.3, f"A={M_A:.0f}" if M_A is not None else None),
+            (M_B, ":",  1.3, f"B={M_B}"     if M_B is not None else None),
         ]:
-            if x is None: continue
-            ax_sn.axvline(x, color="grey", linestyle=ls, linewidth=lw, alpha=0.7)
+            if x_val is None: continue
+            ax_sn.axvline(x_val, color="grey", linestyle=ls,
+                          linewidth=lw, alpha=0.65, zorder=0)
             if lbl:
-                ax_sn.text(x, 0.02, lbl, fontsize=6, color="dimgrey",
+                ax_sn.text(x_val, 0.01, lbl, fontsize=5.5, color="dimgrey",
                            rotation=90, va="bottom", ha="right",
                            transform=ax_sn.get_xaxis_transform())
 
-        ax_sn.set_title(emo, fontsize=10)
-        ax_sn.set_xlabel("\Alpha_R", fontsize=8)
-        ax_sn.set_ylabel("soundness", fontsize=7, color="#4dac26")
-        ax_ti.set_ylabel("intensity", fontsize=7, color="#2166ac")
+        ax_sn.set_title(emo, fontsize=9, fontweight="bold", pad=3)
+        ax_sn.set_xlabel(r"$\alpha_R$", fontsize=7)
+        ax_sn.set_ylabel("soundness", fontsize=7, color=SN_COL, labelpad=2)
+        ax_ti.set_ylabel("intensity", fontsize=7, color=TI_COL, labelpad=2)
         ax_sn.set_ylim(-0.05, 1.05)
         ax_ti.set_ylim(-0.05, 1.05)
-        ax_sn.xaxis.set_major_locator(mticker.FixedLocator(alpha_r_vals))
-        ax_sn.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.4g"))
-        ax_sn.tick_params(axis="x", labelsize=6)
-        ax_sn.tick_params(axis="y", labelsize=7, colors="#4dac26")
-        ax_ti.tick_params(axis="y", labelsize=7, colors="#2166ac")
-        ax_sn.grid(axis="y", linestyle=":", alpha=0.3)
+        ax_sn.set_yticks([0, 0.5, 1.0])
+        ax_ti.set_yticks([0, 0.5, 1.0])
+        ax_sn.xaxis.set_major_locator(mticker.FixedLocator(X))
+        ax_sn.xaxis.set_major_formatter(mticker.FormatStrFormatter("%g"))
+        ax_sn.tick_params(axis="x", labelsize=5.5, labelrotation=45)
+        ax_sn.tick_params(axis="y", labelsize=6, colors=SN_COL)
+        ax_ti.tick_params(axis="y", labelsize=6, colors=TI_COL)
+        # Hide top/right spines for primary axis; right spine is twinx
+        ax_sn.spines["top"].set_visible(False)
+        ax_ti.spines["top"].set_visible(False)
 
     for ax in axes3_flat[len(emos):]:
         ax.set_visible(False)
 
-    fig3.tight_layout()
-    p3 = OUT_DIR / "fig3_per_emotion_thresholds.png"
-    fig3.savefig(p3, dpi=150, bbox_inches="tight")
-    print(f"Saved → {p3}")
+    fig3.suptitle(
+        r"Coherence thresholds and midpoints per emotion  ($\alpha_G = 0$)",
+        fontsize=9, y=1.01,
+    )
+    fig3.tight_layout(pad=0.5, h_pad=1.0, w_pad=0.8)
+    _save(fig3, "fig3_per_emotion_thresholds")
     plt.close(fig3)
+
+    # Reset rcParams so other code is unaffected
+    plt.rcdefaults()
 
 
 # ── main ──────────────────────────────────────────────────────────────────────
