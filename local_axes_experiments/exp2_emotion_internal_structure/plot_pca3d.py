@@ -9,6 +9,9 @@ Usage
 -----
 python plot_pca3d.py                   # defaults: layer 13, 800 pts/emotion
 python plot_pca3d.py --n-per-emotion 400 --out custom_path.png
+
+Output: one figure with three side-by-side 3-D panels, each rotated 120°
+in azimuth (elev=25°, azim=30/150/270°) for equal spatial coverage.
 """
 from __future__ import annotations
 
@@ -95,12 +98,12 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--n-per-emotion", type=int,   default=800,
                    help="Samples per emotion to plot (default 800)")
     p.add_argument("--seed",          type=int,   default=42)
-    p.add_argument("--elev",          type=float, default=20,
-                   help="Elevation angle of 3-D view")
-    p.add_argument("--azim",          type=float, default=45,
-                   help="Azimuth angle of 3-D view")
     p.add_argument("--out",           default=str(FIG_DIR / "pca3d_residuals.png"))
     return p.parse_args()
+
+
+# Three azimuth angles 120° apart at the same elevation give equal coverage.
+VIEWS = [(25, 30), (25, 150), (25, 270)]
 
 
 def main() -> None:
@@ -156,28 +159,38 @@ def main() -> None:
     log.info("EVR: PC1=%.2f%%  PC2=%.2f%%  PC3=%.2f%%",
              evr[0]*100, evr[1]*100, evr[2]*100)
 
-    # --- plot ----------------------------------------------------------------
-    fig = plt.figure(figsize=(9, 7))
-    ax  = fig.add_subplot(111, projection="3d")
-    ax.view_init(elev=args.elev, azim=args.azim)
+    # --- plot: three viewpoints 120° apart ----------------------------------
+    fig = plt.figure(figsize=(15, 5))
+    view_labels = ["(a)", "(b)", "(c)"]
 
-    for emo in emotions:
-        mask = labels == emo
-        ax.scatter(P[mask, 0], P[mask, 1], P[mask, 2],
-                   c=EMOTION_COLORS.get(emo, "#888888"),
-                   label=emo, alpha=0.30, s=5, linewidths=0)
+    for col, ((elev, azim), vlabel) in enumerate(zip(VIEWS, view_labels)):
+        ax = fig.add_subplot(1, 3, col + 1, projection="3d")
+        ax.view_init(elev=elev, azim=azim)
 
-    ax.set_xlabel(f"PC1 ({evr[0]:.1%})", fontsize=9, labelpad=6)
-    ax.set_ylabel(f"PC2 ({evr[1]:.1%})", fontsize=9, labelpad=6)
-    ax.set_zlabel(f"PC3 ({evr[2]:.1%})", fontsize=9, labelpad=6)
-    ax.tick_params(labelsize=7)
+        for emo in emotions:
+            mask = labels == emo
+            ax.scatter(P[mask, 0], P[mask, 1], P[mask, 2],
+                       c=EMOTION_COLORS.get(emo, "#888888"),
+                       label=emo if col == 0 else None,
+                       alpha=0.30, s=4, linewidths=0)
 
-    ax.set_title(
-        f"3-D PCA of per-source residual shifts — layer {args.layer}\n"
-        f"({n} samples per emotion, global projection)",
-        fontsize=11,
+        ax.set_xlabel(f"PC1 ({evr[0]:.1%})", fontsize=8, labelpad=4)
+        ax.set_ylabel(f"PC2 ({evr[1]:.1%})", fontsize=8, labelpad=4)
+        ax.set_zlabel(f"PC3 ({evr[2]:.1%})", fontsize=8, labelpad=4)
+        ax.tick_params(labelsize=6)
+        ax.set_title(f"{vlabel}  elev={elev}°  azim={azim}°", fontsize=9, pad=4)
+
+    # single legend from first axes
+    handles, lbls = fig.axes[0].get_legend_handles_labels()
+    fig.legend(handles, lbls, loc="lower center", ncol=8,
+               fontsize=8, markerscale=4, framealpha=0.8,
+               bbox_to_anchor=(0.5, -0.04))
+
+    fig.suptitle(
+        f"3-D PCA of per-source residual shifts — layer {args.layer}   "
+        f"({n} samples / emotion, global projection)",
+        fontsize=11, y=1.01,
     )
-    ax.legend(loc="upper left", fontsize=8, markerscale=4, framealpha=0.7)
 
     plt.tight_layout()
     out = Path(args.out)
