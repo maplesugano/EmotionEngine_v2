@@ -83,7 +83,7 @@ CAA_INFO = ACT_DIR / "caa_emotion_directions_info.json"
 PRIMARY_LAYER  = 13
 MAX_NEW_TOKENS = 60
 DO_SAMPLE      = False
-ALPHA_G        = 0.0
+ALPHA_G_SWEEP  = [0.0, 4.0, 8.0]
 ALPHA_R_SWEEP  = [-128, -112, -96, -80, -64, -48, -32, -16, 0.0, 16, 32, 48, 64, 80, 96, 112, 128]
 BATCH_SIZE     = 8
 CACHE_FLUSH_EVERY = 4
@@ -245,16 +245,16 @@ def run_seed_generation() -> None:
     emotion_order, g, r_raw, _ = load_caa()
     E = len(emotion_order)
 
-    print(f"Seeds: {len(SEED_TEXTS)}  |  Emotions: {E}  |  α_R sweep: {ALPHA_R_SWEEP}")
-    total_expected = len(SEED_TEXTS) * E * len(ALPHA_R_SWEEP)
+    print(f"Seeds: {len(SEED_TEXTS)}  |  Emotions: {E}  |  α_R sweep: {ALPHA_R_SWEEP}  |  α_G sweep: {ALPHA_G_SWEEP}")
+    total_expected = len(SEED_TEXTS) * E * len(ALPHA_R_SWEEP) * len(ALPHA_G_SWEEP)
     print(f"Total expected: {total_expected}")
 
-    existing: set[tuple[str, str, float]] = set()
+    existing: set[tuple[str, str, float, float]] = set()
     for gen_file in SEED_GENERATION_FILES:
         if gen_file.exists():
             for line in open(gen_file):
                 r = json.loads(line)
-                existing.add((r["seed_id"], r["target_emotion"], float(r["alpha_r"])))
+                existing.add((r["seed_id"], r["target_emotion"], float(r["alpha_r"]), float(r["alpha_g"])))
     pending = total_expected - len(existing)
     print(f"Existing: {len(existing)}  |  Remaining: {pending}")
     if pending == 0:
@@ -300,12 +300,13 @@ def run_seed_generation() -> None:
         finally:
             handle.remove()
 
-    def build_delta(ar: float, ei: int) -> torch.Tensor:
+    def build_delta(ar: float, ag: float, ei: int) -> torch.Tensor:
         layer  = model.model.layers[PRIMARY_LAYER]
         device = next(layer.parameters()).device
         dt     = next(layer.parameters()).dtype
         rv = torch.from_numpy(r_raw[ei].copy()).to(dtype=dt, device=device)
-        return (ar * rv).reshape(1, 1, -1)
+        gv = torch.from_numpy(g.copy()).to(dtype=dt, device=device)
+        return (ar * rv + ag * gv).reshape(1, 1, -1)
 
     def generate_batch(texts: list[str], delta: torch.Tensor) -> list[str]:
         inputs = tokenizer(
@@ -340,41 +341,57 @@ def run_seed_generation() -> None:
     with tqdm(total=pending, desc="Generating seeds", unit="row") as pbar:
         for emo in emotion_order:
             ei = emotion_order.index(emo)
-            for ar in ALPHA_R_SWEEP:
-                delta = build_delta(ar, ei)
-                pending_seeds = [
-                    s for s in SEED_TEXTS
-                    if (s["seed_id"], emo, ar) not in existing
-                ]
-                if not pending_seeds:
-                    continue
-                for i in range(0, len(pending_seeds), BATCH_SIZE):
-                    batch = pending_seeds[i: i + BATCH_SIZE]
-                    texts = [s["seed_text"].strip() for s in batch]
-                    gens  = generate_batch(texts, delta)
-                    for seed, gen in zip(batch, gens):
-                        row = {
-                            "seed_id":        seed["seed_id"],
-                            "seed_emotion":   seed["seed_emotion"],
-                            "seed_text":      seed["seed_text"].strip(),
-                            "target_emotion": emo,
-                            "alpha_r":        ar,
-                            "alpha_g":        ALPHA_G,
-                            "layer":          PRIMARY_LAYER,
-                            "generated_text": gen,
-                        }
-                        out_files[emo].write(json.dumps(row, ensure_ascii=False) + "\n")
-                        existing.add((seed["seed_id"], emo, ar))
-                        pbar.update(1)
-                    out_files[emo].flush()
-                    batch_count += 1
-                    if batch_count % CACHE_FLUSH_EVERY == 0:
-                        gc.collect()
-                        if torch.cuda.is_available(): torch.cuda.empty_cache()
-                del delta
+            for ag in ALPHA_G_SWEEP:
+                for ar in ALPHA_R_SWEEP:
+                    delta = build_delta(ar, ag, ei)
+                    pending_seeds = [
+                        s for s in SEED_TEXTS
+                        if (s["seed_id"], emo, ar, ag) not in existing
+                    ]
+                    if not pending_seeds:
+                        del delta
+                        continue
+                    for i in range(0, len(pending_seeds), BATCH_SIZE):
+                        batch = pending_seeds[i: i + BATCH_SIZE]
+                        texts = [s["seed_text"].strip() for s in batch]
+                        gens  = generate_batch(texts, delta)
+                        for seed, gen in zip(batch, gens):
+                            row = {
+                                "seed_id":        seed["seed_id"],
+                                "seed_emotion":   seed["seed_emotion"],
+                                "seed_text":      seed["seed_text"].strip(),
+                                "target_emotion": emo,
+                                "alpha_r":        ar,
+                                "alpha_g":        ag,
+                                "layer":          PRIMARY_LAYER,
+                                "generated_text": gen,
+                            }
+                            out_files[emo].write(json.dumps(row, ensure_ascii=False) + "\n")
+                            existing.add((seed["seed_id"], emo, ar, ag))
+                            pbar.update(1)
+                        out_files[emo].flush()
+                        batch_count += 1
+                        if batch_count % CACHE_FLUSH_EVERY == 0:
+                            gc.collect()
+                            if torch.cuda.is_available(): torch.cuda.empty_cache()
+                    del delta
     for f in out_files.values():
         f.close()
     print(f"\nSeed generation complete. Total rows: {len(existing)}")
+
+    # Re-sort each file: seed_id order (as in SEED_TEXTS) → alpha_r asc → alpha_g asc
+    seed_order = {s["seed_id"]: i for i, s in enumerate(SEED_TEXTS)}
+    print("Sorting generation files ...")
+    for gen_file in SEED_GENERATION_FILES:
+        if not gen_file.exists():
+            continue
+        rows = [json.loads(l) for l in open(gen_file) if l.strip()]
+        rows.sort(key=lambda r: (seed_order.get(r["seed_id"], 9999),
+                                  float(r["alpha_r"]), float(r["alpha_g"])))
+        with open(gen_file, "w") as f:
+            for r in rows:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+    print("Sort complete.")
 
 
 # ── seed eval batch ───────────────────────────────────────────────────────────
@@ -503,94 +520,17 @@ def analyse_seeds() -> None:
         return m, 1.96 * sd / math.sqrt(n), n
 
     alpha_r_vals     = sorted({d["alpha_r"] for d in data})
+    alpha_g_vals     = sorted({d["alpha_g"] for d in data})
     emos             = sorted({d["emotion"]  for d in data})
     SOUNDNESS_THRESHOLD = 0.70
 
-    print("\n=== Seed aggregate by α_R (all emotions pooled) ===")
-    print(f"{'α_R':>6}  {'soundness':>12}  {'meaning_pres':>14}  {'tgt_intensity':>15}  {'n':>5}")
     summary_rows = []
-    for ar in alpha_r_vals:
-        sub = [d for d in data if d["alpha_r"] == ar]
-        if not sub: continue
-        sn = mci([d["sn"] for d in sub])
-        mp = mci([d["mp"] for d in sub])
-        ti = mci([d["ti"] for d in sub])
-        ci_sn = f"±{sn[1]:.3f}" if not math.isnan(sn[1]) else "     "
-        ci_mp = f"±{mp[1]:.3f}" if not math.isnan(mp[1]) else "     "
-        ci_ti = f"±{ti[1]:.3f}" if not math.isnan(ti[1]) else "     "
-        print(f"{ar:6.2f}  {sn[0]:.3f}{ci_sn}   {mp[0]:.3f}{ci_mp}     {ti[0]:.3f}{ci_ti}  {sn[2]:5d}")
-        summary_rows.append({
-            "alpha_r": ar,
-            "sn_mean": sn[0], "sn_ci": sn[1],
-            "mp_mean": mp[0], "mp_ci": mp[1],
-            "ti_mean": ti[0], "ti_ci": ti[1],
-            "n": sn[2],
-        })
-
-    # ── Per-emotion thresholds and midpoints (mirrors exp14_alpha_r_sweep) ────
-    print(f"\n=== Seed per-emotion coherence thresholds and midpoints "
-          f"(soundness ≥ {SOUNDNESS_THRESHOLD}) ===")
-    print(
-        f"{'emotion':13s}  {'L_e':>6}  {'R_e':>6}  "
-        f"{'M_A(arith)':>11}  {'M_B(mp_max)':>12}  "
-        f"{'ti@M_A':>7}  {'ti@M_B':>7}  "
-        f"{'opt_pos':>8}  {'opt_neg':>8}"
-    )
-    threshold_rows = []
-    for emo in emos:
-        sn_by_ar = {}; mp_by_ar = {}; ti_by_ar = {}
-        for ar in alpha_r_vals:
-            sub = [d for d in data if d["emotion"] == emo and d["alpha_r"] == ar]
-            if sub:
-                sn_by_ar[ar] = _mean([d["sn"] for d in sub])
-                mp_by_ar[ar] = _mean([d["mp"] for d in sub])
-                ti_by_ar[ar] = _mean([d["ti"] for d in sub])
-
-        coherent = sorted(ar for ar in alpha_r_vals
-                          if ar in sn_by_ar and sn_by_ar[ar] >= SOUNDNESS_THRESHOLD)
-        L_e = coherent[0]  if coherent else float("nan")
-        R_e = coherent[-1] if coherent else float("nan")
-        M_A = (L_e + R_e) / 2 if coherent else float("nan")
-        M_B = (max(coherent, key=lambda ar: mp_by_ar.get(ar, -1))
-               if coherent else float("nan"))
-
-        def _ti_interp(alpha):
-            if math.isnan(alpha): return float("nan")
-            ars = sorted(ti_by_ar)
-            if not ars: return float("nan")
-            for k in range(len(ars) - 1):
-                if ars[k] <= alpha <= ars[k + 1]:
-                    span = ars[k + 1] - ars[k]
-                    t = (alpha - ars[k]) / span if span else 0.0
-                    return ti_by_ar[ars[k]] * (1 - t) + ti_by_ar[ars[k + 1]] * t
-            return ti_by_ar[ars[0]] if alpha <= ars[0] else ti_by_ar[ars[-1]]
-
-        ti_at_M_A = _ti_interp(M_A)
-        ti_at_M_B = (ti_by_ar.get(M_B, float("nan"))
-                     if not math.isnan(M_B) else float("nan"))
-        opt_pos = max(coherent, key=lambda ar: ti_by_ar.get(ar, -1)) if coherent else float("nan")
-        opt_neg = min(coherent, key=lambda ar: ti_by_ar.get(ar,  2)) if coherent else float("nan")
-
-        def _f(v): return f"{v:6.1f}" if not math.isnan(v) else "   nan"
-        print(
-            f"{emo:13s}  {_f(L_e)}  {_f(R_e)}  "
-            f"{_f(M_A):>11}  {_f(M_B):>12}  "
-            f"{ti_at_M_A:7.3f}  {ti_at_M_B:7.3f}  "
-            f"{_f(opt_pos):>8}  {_f(opt_neg):>8}"
-        )
-        threshold_rows.append({
-            "emotion": emo, "L_e": L_e, "R_e": R_e, "M_A": M_A, "M_B": M_B,
-            "ti_at_M_A": ti_at_M_A, "ti_at_M_B": ti_at_M_B,
-            "opt_pos_r": opt_pos, "opt_neg_r": opt_neg,
-        })
-
-    # same-emotion rows: seed_emotion == target_emotion (identity rewrite)
-    same = [d for d in data if d["seed_emotion"] == d["emotion"]]
-    if same:
-        print("\n=== Identity rewrites (seed_emotion == target_emotion) by α_R ===")
+    for ag in alpha_g_vals:
+        ag_data = [d for d in data if d["alpha_g"] == ag]
+        print(f"\n=== Seed aggregate by α_R (α_G={ag}, all emotions pooled) ===")
         print(f"{'α_R':>6}  {'soundness':>12}  {'meaning_pres':>14}  {'tgt_intensity':>15}  {'n':>5}")
         for ar in alpha_r_vals:
-            sub = [d for d in same if d["alpha_r"] == ar]
+            sub = [d for d in ag_data if d["alpha_r"] == ar]
             if not sub: continue
             sn = mci([d["sn"] for d in sub])
             mp = mci([d["mp"] for d in sub])
@@ -599,6 +539,93 @@ def analyse_seeds() -> None:
             ci_mp = f"±{mp[1]:.3f}" if not math.isnan(mp[1]) else "     "
             ci_ti = f"±{ti[1]:.3f}" if not math.isnan(ti[1]) else "     "
             print(f"{ar:6.2f}  {sn[0]:.3f}{ci_sn}   {mp[0]:.3f}{ci_mp}     {ti[0]:.3f}{ci_ti}  {sn[2]:5d}")
+            summary_rows.append({
+                "alpha_g": ag,
+                "alpha_r": ar,
+                "sn_mean": sn[0], "sn_ci": sn[1],
+                "mp_mean": mp[0], "mp_ci": mp[1],
+                "ti_mean": ti[0], "ti_ci": ti[1],
+                "n": sn[2],
+            })
+
+    # ── Per-emotion thresholds and midpoints (mirrors exp14_alpha_r_sweep) ────
+    threshold_rows = []
+    for ag in alpha_g_vals:
+        ag_data = [d for d in data if d["alpha_g"] == ag]
+        print(f"\n=== Seed per-emotion coherence thresholds and midpoints "
+              f"(α_G={ag}, soundness ≥ {SOUNDNESS_THRESHOLD}) ===")
+        print(
+            f"{'emotion':13s}  {'L_e':>6}  {'R_e':>6}  "
+            f"{'M_A(arith)':>11}  {'M_B(mp_max)':>12}  "
+            f"{'ti@M_A':>7}  {'ti@M_B':>7}  "
+            f"{'opt_pos':>8}  {'opt_neg':>8}"
+        )
+        for emo in emos:
+            sn_by_ar = {}; mp_by_ar = {}; ti_by_ar = {}
+            for ar in alpha_r_vals:
+                sub = [d for d in ag_data if d["emotion"] == emo and d["alpha_r"] == ar]
+                if sub:
+                    sn_by_ar[ar] = _mean([d["sn"] for d in sub])
+                    mp_by_ar[ar] = _mean([d["mp"] for d in sub])
+                    ti_by_ar[ar] = _mean([d["ti"] for d in sub])
+
+            coherent = sorted(ar for ar in alpha_r_vals
+                              if ar in sn_by_ar and sn_by_ar[ar] >= SOUNDNESS_THRESHOLD)
+            L_e = coherent[0]  if coherent else float("nan")
+            R_e = coherent[-1] if coherent else float("nan")
+            M_A = (L_e + R_e) / 2 if coherent else float("nan")
+            M_B = (max(coherent, key=lambda ar: mp_by_ar.get(ar, -1))
+                   if coherent else float("nan"))
+
+            def _ti_interp(alpha, _ti_by_ar=ti_by_ar):
+                if math.isnan(alpha): return float("nan")
+                ars = sorted(_ti_by_ar)
+                if not ars: return float("nan")
+                for k in range(len(ars) - 1):
+                    if ars[k] <= alpha <= ars[k + 1]:
+                        span = ars[k + 1] - ars[k]
+                        t = (alpha - ars[k]) / span if span else 0.0
+                        return _ti_by_ar[ars[k]] * (1 - t) + _ti_by_ar[ars[k + 1]] * t
+                return _ti_by_ar[ars[0]] if alpha <= ars[0] else _ti_by_ar[ars[-1]]
+
+            ti_at_M_A = _ti_interp(M_A)
+            ti_at_M_B = (ti_by_ar.get(M_B, float("nan"))
+                         if not math.isnan(M_B) else float("nan"))
+            opt_pos = max(coherent, key=lambda ar: ti_by_ar.get(ar, -1)) if coherent else float("nan")
+            opt_neg = min(coherent, key=lambda ar: ti_by_ar.get(ar,  2)) if coherent else float("nan")
+
+            def _f(v): return f"{v:6.1f}" if not math.isnan(v) else "   nan"
+            print(
+                f"{emo:13s}  {_f(L_e)}  {_f(R_e)}  "
+                f"{_f(M_A):>11}  {_f(M_B):>12}  "
+                f"{ti_at_M_A:7.3f}  {ti_at_M_B:7.3f}  "
+                f"{_f(opt_pos):>8}  {_f(opt_neg):>8}"
+            )
+            threshold_rows.append({
+                "alpha_g": ag,
+                "emotion": emo, "L_e": L_e, "R_e": R_e, "M_A": M_A, "M_B": M_B,
+                "ti_at_M_A": ti_at_M_A, "ti_at_M_B": ti_at_M_B,
+                "opt_pos_r": opt_pos, "opt_neg_r": opt_neg,
+            })
+
+    # same-emotion rows: seed_emotion == target_emotion (identity rewrite)
+    same = [d for d in data if d["seed_emotion"] == d["emotion"]]
+    if same:
+        for ag in alpha_g_vals:
+            ag_same = [d for d in same if d["alpha_g"] == ag]
+            if not ag_same: continue
+            print(f"\n=== Identity rewrites (seed_emotion == target_emotion, α_G={ag}) by α_R ===")
+            print(f"{'α_R':>6}  {'soundness':>12}  {'meaning_pres':>14}  {'tgt_intensity':>15}  {'n':>5}")
+            for ar in alpha_r_vals:
+                sub = [d for d in ag_same if d["alpha_r"] == ar]
+                if not sub: continue
+                sn = mci([d["sn"] for d in sub])
+                mp = mci([d["mp"] for d in sub])
+                ti = mci([d["ti"] for d in sub])
+                ci_sn = f"±{sn[1]:.3f}" if not math.isnan(sn[1]) else "     "
+                ci_mp = f"±{mp[1]:.3f}" if not math.isnan(mp[1]) else "     "
+                ci_ti = f"±{ti[1]:.3f}" if not math.isnan(ti[1]) else "     "
+                print(f"{ar:6.2f}  {sn[0]:.3f}{ci_sn}   {mp[0]:.3f}{ci_mp}     {ti[0]:.3f}{ci_ti}  {sn[2]:5d}")
 
     if summary_rows:
         with open(SEED_SUMMARY_CSV, "w", newline="") as f:
@@ -613,31 +640,33 @@ def analyse_seeds() -> None:
             w.writeheader(); w.writerows(threshold_rows)
         print(f"Saved threshold summary → {seed_threshold_csv}")
 
-    # paired t-test vs α_R=0 anchor
-    print("\n=== Paired t-test: target_emotion_intensity vs α_R=0.0 ===")
-    ti_by_key = defaultdict(dict)
-    for d in data:
-        ti_by_key[(d["seed_id"], d["emotion"])][d["alpha_r"]] = d["ti"]
-
-    def paired_t(a, b):
-        diffs = [v[a] - v[b] for v in ti_by_key.values() if a in v and b in v]
-        if len(diffs) < 2:
-            return float("nan"), float("nan"), float("nan"), float("nan"), len(diffs)
-        n = len(diffs); m = sum(diffs) / n
-        sd = math.sqrt(sum((x - m) ** 2 for x in diffs) / (n - 1))
-        t  = m / (sd / math.sqrt(n))
-        from math import erf, sqrt as msqrt
-        p = 2 * (1 - 0.5 * (1 + erf(abs(t) / msqrt(2))))
-        return m, 1.96 * sd / math.sqrt(n), t, p, n
-
+    # paired t-test vs α_R=0 anchor (per α_G)
     anchor = 0.0
-    print(f"{'α_R':>6}  {'Δ vs 0':>10}  {'95% CI':>10}  {'t':>7}  {'p':>10}  {'n':>5}")
-    for ar in alpha_r_vals:
-        if ar == anchor: continue
-        m, ci, t, p, n = paired_t(ar, anchor)
-        if math.isnan(m): continue
-        sig = "*" if p < 0.05 else ""
-        print(f"{ar:6.2f}  {m:+.4f}     ±{ci:.4f}   {t:+.2f}   {p:.2e} {sig}  {n:5d}")
+    for ag in alpha_g_vals:
+        ag_data = [d for d in data if d["alpha_g"] == ag]
+        print(f"\n=== Paired t-test: target_emotion_intensity vs α_R=0.0 (α_G={ag}) ===")
+        ti_by_key = defaultdict(dict)
+        for d in ag_data:
+            ti_by_key[(d["seed_id"], d["emotion"])][d["alpha_r"]] = d["ti"]
+
+        def paired_t(a, b, _ti_by_key=ti_by_key):
+            diffs = [v[a] - v[b] for v in _ti_by_key.values() if a in v and b in v]
+            if len(diffs) < 2:
+                return float("nan"), float("nan"), float("nan"), float("nan"), len(diffs)
+            n = len(diffs); m = sum(diffs) / n
+            sd = math.sqrt(sum((x - m) ** 2 for x in diffs) / (n - 1))
+            t  = m / (sd / math.sqrt(n))
+            from math import erf, sqrt as msqrt
+            p = 2 * (1 - 0.5 * (1 + erf(abs(t) / msqrt(2))))
+            return m, 1.96 * sd / math.sqrt(n), t, p, n
+
+        print(f"{'α_R':>6}  {'Δ vs 0':>10}  {'95% CI':>10}  {'t':>7}  {'p':>10}  {'n':>5}")
+        for ar in alpha_r_vals:
+            if ar == anchor: continue
+            m, ci, t, p, n = paired_t(ar, anchor)
+            if math.isnan(m): continue
+            sig = "*" if p < 0.05 else ""
+            print(f"{ar:6.2f}  {m:+.4f}     ±{ci:.4f}   {t:+.2f}   {p:.2e} {sig}  {n:5d}")
 
 
 # ── plot ──────────────────────────────────────────────────────────────────────
@@ -672,6 +701,7 @@ def plot_seeds() -> None:
             "seed_emotion": row["seed_emotion"],
             "emotion":      row["target_emotion"],
             "alpha_r":      float(row["alpha_r"]),
+            "alpha_g":      float(row["alpha_g"]),
             "sn":           s["soundness"],
             "mp":           s["meaning_preserved"],
             "ti":           s["target_emotion_intensity"],
@@ -686,12 +716,14 @@ def plot_seeds() -> None:
         sd = math.sqrt(sum((x - m) ** 2 for x in vals) / (n - 1))
         return m, 1.96 * sd / math.sqrt(n)
 
-    alpha_r_vals     = sorted({d["alpha_r"] for d in data})
-    emos             = sorted({d["emotion"]  for d in data})
+    alpha_r_vals = sorted({d["alpha_r"] for d in data})
+    alpha_g_vals = sorted({d["alpha_g"] for d in data})
+    emos         = sorted({d["emotion"]  for d in data})
     PALETTE = [
         "#e41a1c", "#377eb8", "#4daf4a", "#984ea3",
         "#ff7f00", "#a65628", "#f781bf", "#999999",
     ]
+    AG_STYLES = ["-", "--", ":"]
 
     metric_specs = [
         ("ti", "Target-emotion intensity", "#2166ac"),
@@ -699,82 +731,117 @@ def plot_seeds() -> None:
         ("mp", "Meaning preserved",        "#d6604d"),
     ]
 
-    # ── Figure 3: seed aggregate metrics ─────────────────────────────────────
-    fig3, axes = plt.subplots(1, 3, figsize=(13, 4), sharey=False)
-    fig3.suptitle(
-        "Exp 14 — α_R sweep, seed texts (α_G = 0.0 fixed)\nAggregate metrics ± 95 % CI",
-        fontsize=11, y=1.02,
-    )
-    for ax, (key, label, colour) in zip(axes, metric_specs):
-        means = [mci([d[key] for d in data if d["alpha_r"] == ar])[0] for ar in alpha_r_vals]
-        cis   = [mci([d[key] for d in data if d["alpha_r"] == ar])[1] for ar in alpha_r_vals]
-        ax.errorbar(alpha_r_vals, means, yerr=cis, fmt="o-", color=colour,
-                    capsize=4, capthick=1.2, linewidth=1.8, markersize=5)
-        ax.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
-        ax.set_xlabel("α_R", fontsize=10)
-        ax.set_title(label, fontsize=10)
-        ax.xaxis.set_major_locator(mticker.FixedLocator(alpha_r_vals))
-        ax.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.4g"))
-        ax.tick_params(axis="x", labelsize=8)
-        ax.grid(axis="y", linestyle=":", alpha=0.5)
+    # ── Figure 3: aggregate metrics — one row per α_G ────────────────────────
+    n_ag = len(alpha_g_vals)
+    fig3, axes3 = plt.subplots(n_ag, 3, figsize=(13, 4 * n_ag), sharey=False, squeeze=False)
+    fig3.suptitle("Exp 14 — α_R sweep, seed texts\nAggregate metrics ± 95 % CI", fontsize=11)
+    for row_i, ag in enumerate(alpha_g_vals):
+        ag_data = [d for d in data if d["alpha_g"] == ag]
+        for ax, (key, label, colour) in zip(axes3[row_i], metric_specs):
+            means = [mci([d[key] for d in ag_data if d["alpha_r"] == ar])[0] for ar in alpha_r_vals]
+            cis   = [mci([d[key] for d in ag_data if d["alpha_r"] == ar])[1] for ar in alpha_r_vals]
+            ax.errorbar(alpha_r_vals, means, yerr=cis, fmt="o-", color=colour,
+                        capsize=4, capthick=1.2, linewidth=1.8, markersize=5)
+            ax.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
+            ax.set_xlabel("α_R", fontsize=10)
+            ax.set_title(f"{label}\n(α_G={ag})", fontsize=10)
+            ax.xaxis.set_major_locator(mticker.FixedLocator(alpha_r_vals))
+            ax.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.4g"))
+            ax.tick_params(axis="x", labelsize=8)
+            ax.grid(axis="y", linestyle=":", alpha=0.5)
     fig3.tight_layout()
     p3 = OUT_DIR / "fig3_seed_aggregate_metrics.png"
     fig3.savefig(p3, dpi=150, bbox_inches="tight")
     print(f"Saved → {p3}")
     plt.close(fig3)
 
-    # ── Figure 4: seed per-target-emotion target_emotion_intensity ────────────
-    fig4, ax4 = plt.subplots(figsize=(9, 5))
+    # ── Figure 4: per-target-emotion intensity — one figure per α_G ──────────
+    for ag in alpha_g_vals:
+        ag_data = [d for d in data if d["alpha_g"] == ag]
+        fig4, ax4 = plt.subplots(figsize=(9, 5))
+        for emo, colour in zip(emos, PALETTE):
+            means, cis = [], []
+            for ar in alpha_r_vals:
+                vals = [d["ti"] for d in ag_data if d["emotion"] == emo and d["alpha_r"] == ar]
+                m, ci = mci(vals)
+                means.append(m); cis.append(ci)
+            ax4.errorbar(alpha_r_vals, means, yerr=cis, fmt="o-", color=colour,
+                         capsize=3, capthick=1, linewidth=1.5, markersize=4, label=emo)
+        ax4.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
+        ax4.axhline(0.5, color="grey", linestyle=":", linewidth=0.8, alpha=0.6)
+        ax4.set_xlabel("α_R", fontsize=10)
+        ax4.set_ylabel("Target-emotion intensity", fontsize=10)
+        ax4.set_title(
+            f"Exp 14 — Seed texts: per-target-emotion intensity ± 95 % CI\n(α_G = {ag})",
+            fontsize=11,
+        )
+        ax4.xaxis.set_major_locator(mticker.FixedLocator(alpha_r_vals))
+        ax4.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.4g"))
+        ax4.legend(fontsize=8, ncol=2, loc="upper left")
+        ax4.grid(axis="y", linestyle=":", alpha=0.5)
+        fig4.tight_layout()
+        ag_tag = f"{ag:g}".replace(".", "p")
+        p4 = OUT_DIR / f"fig4_seed_per_emotion_intensity_ag{ag_tag}.png"
+        fig4.savefig(p4, dpi=150, bbox_inches="tight")
+        print(f"Saved → {p4}")
+        plt.close(fig4)
+
+    # ── Figure 4b: all α_G overlaid per emotion (linestyle per α_G) ──────────
+    fig4b, ax4b = plt.subplots(figsize=(10, 5))
     for emo, colour in zip(emos, PALETTE):
-        means, cis = [], []
-        for ar in alpha_r_vals:
-            vals = [d["ti"] for d in data if d["emotion"] == emo and d["alpha_r"] == ar]
-            m, ci = mci(vals)
-            means.append(m); cis.append(ci)
-        ax4.errorbar(alpha_r_vals, means, yerr=cis, fmt="o-", color=colour,
-                     capsize=3, capthick=1, linewidth=1.5, markersize=4, label=emo)
-    ax4.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
-    ax4.axhline(0.5, color="grey", linestyle=":", linewidth=0.8, alpha=0.6)
-    ax4.set_xlabel("α_R", fontsize=10)
-    ax4.set_ylabel("Target-emotion intensity", fontsize=10)
-    ax4.set_title(
-        "Exp 14 — Seed texts: per-target-emotion intensity ± 95 % CI\n(α_G = 0.0 fixed)",
-        fontsize=11,
-    )
-    ax4.xaxis.set_major_locator(mticker.FixedLocator(alpha_r_vals))
-    ax4.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.4g"))
-    ax4.legend(fontsize=8, ncol=2, loc="upper left")
-    ax4.grid(axis="y", linestyle=":", alpha=0.5)
-    fig4.tight_layout()
-    p4 = OUT_DIR / "fig4_seed_per_emotion_intensity.png"
-    fig4.savefig(p4, dpi=150, bbox_inches="tight")
-    print(f"Saved → {p4}")
-    plt.close(fig4)
+        for ag, ls in zip(alpha_g_vals, AG_STYLES):
+            ag_data = [d for d in data if d["alpha_g"] == ag]
+            means = [mci([d["ti"] for d in ag_data if d["emotion"] == emo and d["alpha_r"] == ar])[0]
+                     for ar in alpha_r_vals]
+            lbl = f"{emo} (α_G={ag})" if ag == alpha_g_vals[0] else f"_ (α_G={ag})"
+            ax4b.plot(alpha_r_vals, means, color=colour, linestyle=ls, linewidth=1.4,
+                      marker="o", markersize=3, label=lbl)
+    ax4b.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
+    ax4b.axhline(0.5, color="grey", linestyle=":", linewidth=0.8, alpha=0.6)
+    ax4b.set_xlabel("α_R", fontsize=10)
+    ax4b.set_ylabel("Target-emotion intensity", fontsize=10)
+    ax4b.set_title("Exp 14 — Seed: per-emotion intensity, all α_G overlaid\n"
+                   "(solid=0, dashed=4, dotted=8)", fontsize=11)
+    ax4b.xaxis.set_major_locator(mticker.FixedLocator(alpha_r_vals))
+    ax4b.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.4g"))
+    ax4b.legend(fontsize=7, ncol=3, loc="upper left")
+    ax4b.grid(axis="y", linestyle=":", alpha=0.5)
+    fig4b.tight_layout()
+    p4b = OUT_DIR / "fig4b_seed_per_emotion_intensity_all_ag.png"
+    fig4b.savefig(p4b, dpi=150, bbox_inches="tight")
+    print(f"Saved → {p4b}")
+    plt.close(fig4b)
 
     # ── Figure 5: identity-rewrite quality (seed_emotion == target_emotion) ──
     same = [d for d in data if d["seed_emotion"] == d["emotion"]]
     if same:
-        fig5, ax5 = plt.subplots(figsize=(8, 4))
-        for key, label, colour in metric_specs:
-            means = [mci([d[key] for d in same if d["alpha_r"] == ar])[0] for ar in alpha_r_vals]
-            cis   = [mci([d[key] for d in same if d["alpha_r"] == ar])[1] for ar in alpha_r_vals]
-            ax5.errorbar(alpha_r_vals, means, yerr=cis, fmt="o-", color=colour,
-                         capsize=4, capthick=1.2, linewidth=1.8, markersize=5, label=label)
-        ax5.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
-        ax5.set_xlabel("α_R", fontsize=10)
-        ax5.set_title(
-            "Exp 14 — Identity rewrites (seed_emotion = target_emotion) ± 95 % CI",
-            fontsize=11,
-        )
-        ax5.xaxis.set_major_locator(mticker.FixedLocator(alpha_r_vals))
-        ax5.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.4g"))
-        ax5.legend(fontsize=9)
-        ax5.grid(axis="y", linestyle=":", alpha=0.5)
-        fig5.tight_layout()
-        p5 = OUT_DIR / "fig5_seed_identity_rewrite.png"
-        fig5.savefig(p5, dpi=150, bbox_inches="tight")
-        print(f"Saved → {p5}")
-        plt.close(fig5)
+        for ag in alpha_g_vals:
+            ag_same = [d for d in same if d["alpha_g"] == ag]
+            if not ag_same: continue
+            fig5, ax5 = plt.subplots(figsize=(8, 4))
+            for key, label, colour in metric_specs:
+                means = [mci([d[key] for d in ag_same if d["alpha_r"] == ar])[0]
+                         for ar in alpha_r_vals]
+                cis   = [mci([d[key] for d in ag_same if d["alpha_r"] == ar])[1]
+                         for ar in alpha_r_vals]
+                ax5.errorbar(alpha_r_vals, means, yerr=cis, fmt="o-", color=colour,
+                             capsize=4, capthick=1.2, linewidth=1.8, markersize=5, label=label)
+            ax5.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
+            ax5.set_xlabel("α_R", fontsize=10)
+            ax5.set_title(
+                f"Exp 14 — Identity rewrites (seed_emotion = target_emotion) ± 95 % CI\n(α_G = {ag})",
+                fontsize=11,
+            )
+            ax5.xaxis.set_major_locator(mticker.FixedLocator(alpha_r_vals))
+            ax5.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.4g"))
+            ax5.legend(fontsize=9)
+            ax5.grid(axis="y", linestyle=":", alpha=0.5)
+            fig5.tight_layout()
+            ag_tag = f"{ag:g}".replace(".", "p")
+            p5 = OUT_DIR / f"fig5_seed_identity_rewrite_ag{ag_tag}.png"
+            fig5.savefig(p5, dpi=150, bbox_inches="tight")
+            print(f"Saved → {p5}")
+            plt.close(fig5)
 
 
 # ── main ──────────────────────────────────────────────────────────────────────

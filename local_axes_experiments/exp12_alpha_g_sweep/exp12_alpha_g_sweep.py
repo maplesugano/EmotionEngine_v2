@@ -82,8 +82,9 @@ REWRITE   = REPO_ROOT / "dataset" / "emotion_rewrites" / "emotion_rewrites.jsonl
 PRIMARY_LAYER  = 13
 MAX_NEW_TOKENS = 60
 DO_SAMPLE      = False
-ALPHA_R        = 5.0
-ALPHA_G_SWEEP  = [0.0, 0.25, 0.5, 1.0, 2.0, 3.0]
+ALPHA_R        = 64
+ALPHA_G_SWEEP  = [0.0, 2, 4, 8]
+FILTER_EMOTIONS = None # set to None to run all emotions
 N_SOURCES      = 100      # override with --n_sources
 BATCH_SIZE     = 8
 CACHE_FLUSH_EVERY = 4
@@ -241,6 +242,8 @@ def run_generation(n_sources: int) -> None:
     from utils.text_utils import make_instruction_prefix
 
     emotion_order, g, r_raw, C = load_caa()
+    if FILTER_EMOTIONS:
+        emotion_order = [e for e in emotion_order if e in FILTER_EMOTIONS]
     E = len(emotion_order)
     D = g.shape[0]
 
