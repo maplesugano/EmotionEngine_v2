@@ -455,23 +455,17 @@ trust        & $-64$  & $96$  & $16$  & $0$  & $16$  & $0.536$ \\
 \caption{Per-emotion coherence thresholds at layer 13 ($\alpha_G = 0$, soundness threshold $\geq 0.70$). $L_e$/$R_e$: leftmost/rightmost coherent $\alpha_R$. $M_A$: arithmetic midpoint of coherent range. $M_B$: $\alpha_R$ of peak meaning preservation within the coherent range. $\alpha_R^{+}$: $\alpha_R$ maximising target-emotion intensity (positive side). TI at $M_B$: target-emotion intensity at $M_B$.}\label{tab:alpha_r_thresholds}
 \end{table}
 
-As shown in Table \ref{tab:alpha_r_thresholds} and Figures \ref{fig:alpha_r_sweep_per_emotion} to \ref{fig:alpha_r_sweep_thresholds}, the range of $\alpha_R$ within which text remains readable and the optimal operating point vary significantly depending on the emotion. Sadness has the widest coherent range (the entire sweep, $[-128, 128]$), whilst trust and surprise are the most constrained (width 160).\par
+As shown in Table~\ref{tab:alpha_r_thresholds} and Figure~\ref{fig:alpha_r_sweep_thresholds}, the range of $\alpha_R$ within which text remains readable and the optimal operating point vary significantly depending on the emotion. Sadness has the widest coherent range (the entire sweep, $[-128, 128]$), whilst trust and surprise are the most constrained (width 160).\par
 
 There are two emotions that exhibit particularly asymmetric profiles: anger and disgust. For both of these, the midpoint of the coherent range is slightly negative ($M_A=-16$ and $M_A=-24$), whereas the point with the highest semantic conservation is positive ($M_B=48$). Consequently, $\alpha_R=0$ is not the natural centre of these steering axes. Instead, as shifting slightly in the positive direction better preserves the original meaning, this suggests that these high-arousal negative residuals do not lie precisely at the centre of the unsteered distribution.\par
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.7\linewidth]{figures/alpha_r_sweep_fig2_per_emotion_intensity.png}
-\caption{Per-emotion target-emotion intensity vs.\ $\alpha_R$ ($\alpha_G = 0$ fixed; $n = 100$ per cell; error bars = 95\% CI). Anger and joy show the steepest gains; surprise has the lowest peak intensity across the sweep.}\label{fig:alpha_r_sweep_per_emotion}
-\end{figure}
+At $\alpha_R = 64$, which falls within a coherent range for all emotions, raters correctly identified the dominant emotion in 90\% of anger cases and 86\% of joy cases. The figures for fear and anticipation were 78\% and 66\% respectively. Disgust (45\%), sadness (46\%) and, in particular, surprise (16\%) were frequently classified as neutral even on this scale, indicating that these residual directions are causing stylistic shifts whereby they are not perceived by evaluators as strong emotions.\par
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\linewidth]{figures/alpha_r_sweep_fig3_per_emotion_thresholds.png}
 \caption{Per-emotion coherence thresholds. Each subplot shows soundness (green, left axis) and target-emotion intensity (blue, right axis) vs.\ $\alpha_R$. Vertical markers: $L_e$/$R_e$ (outermost coherent $\alpha_R$); $M_A = (L_e + R_e)/2$; $M_B$ ($\alpha_R$ maximising meaning preservation within the coherent range).}\label{fig:alpha_r_sweep_thresholds}
 \end{figure}
-
-At $\alpha_R = 64$, which falls within a coherent range for all emotions, raters correctly identified the dominant emotion in 90\% of anger cases and 86\% of joy cases. The figures for fear and anticipation were 78\% and 66\% respectively. Disgust (45\%), sadness (46\%) and, in particular, surprise (16\%) were frequently classified as neutral even on this scale, indicating that these residual directions are causing stylistic shifts whereby they are not perceived by evaluators as strong emotions.\par
 
 \subsubsection*{Anomaly Analysis}
 Trust exhibits a distinctive response pattern. Unlike all other emotions, the intensity of this emotion peaks at $\alpha_R = 16$ ($0.546$) and then decreases monotonically as the positive value increases, reaching $0.181$ at $\alpha_R = 96$. Furthermore, the lowest point of emotional intensity within a coherent range occurs at the positive value $\alpha_R = +96$. This implies that inducing ``towards trust'' paradoxically suppresses the expression of trust. \par
@@ -483,10 +477,6 @@ Steering at $\alpha_R < 0$ suppresses the target emotion whilst maintaining cohe
 
 \subsubsection*{$\alpha_G$ Sweep Results}
 \label{sec:alpha_g_sweep}
-
-We hold $\alpha_R = 64.0$ fixed and sweep $\alpha_G \in \{0, 2.0, 4.0, 8.0\}$ across $n = 800$ samples per condition ($100$ source texts $\times$ $8$ target emotions). This directly answers whether adding $\mathbf{g}$ helps at any scale.
-
-Figure~\ref{fig:alpha_g_sweep_aggregate} shows all three metrics as a function of $\alpha_G$. All three decline monotonically. Target-emotion match falls from $0.471 \pm 0.023$ at $\alpha_G = 0$ to $0.396 \pm 0.023$ at $\alpha_G = 2$, $0.314 \pm 0.023$ at $\alpha_G = 4$, and effectively zero at $\alpha_G = 8$, where the model produces incoherent or empty output. Semantic preservation declines from $0.794$ to $0.670$ over $\alpha_G \in [0, 4]$, and emotionality follows the same pattern ($0.625$ to $0.477$). Paired $t$-tests confirm that the degradation is statistically reliable at every tested scale: the drop at $\alpha_G = 2$ alone is $\Delta = -0.075$ ($t = -7.68$, $p = 1.55 \times 10^{-14}$, $n = 800$ pairs). The sole exception is joy, which shows a marginal increase at $\alpha_G = 2$ ($+0.020$), but this falls within the 95\% confidence interval ($\pm 0.023$) and is not statistically significant. No value of $\alpha_G > 0$ produces a reliable improvement on any metric, and the per-emotion breakdown (Figure~\ref{fig:alpha_g_sweep_per_emotion}) confirms that no individual emotion benefits from a positive $\alpha_G$ at any tested scale.
 
 \begin{figure}[H]
 \centering
@@ -500,12 +490,20 @@ Figure~\ref{fig:alpha_g_sweep_aggregate} shows all three metrics as a function o
 \caption{Per-emotion target-emotion match vs.\ $\alpha_G$ ($\alpha_R = 64$ fixed; $n = 100$ per cell; error bars = 95\% CI). No individual emotion benefits from a positive $\alpha_G$.}\label{fig:alpha_g_sweep_per_emotion}
 \end{figure}
 
+We hold $\alpha_R = 64.0$ fixed and sweep $\alpha_G \in \{0, 2.0, 4.0, 8.0\}$ across $n = 800$ samples per condition ($100$ source texts $\times$ $8$ target emotions). This directly answers whether adding $\mathbf{g}$ helps at any scale.
+
+Figure~\ref{fig:alpha_g_sweep_aggregate} shows all three metrics as a function of $\alpha_G$. All three decline monotonically. Target-emotion match falls from $0.471 \pm 0.023$ at $\alpha_G = 0$ to $0.396 \pm 0.023$ at $\alpha_G = 2$, $0.314 \pm 0.023$ at $\alpha_G = 4$, and effectively zero at $\alpha_G = 8$, where the model produces incoherent or empty output. Semantic preservation declines from $0.794$ to $0.670$ over $\alpha_G \in [0, 4]$, and emotionality follows the same pattern ($0.625$ to $0.477$). Paired $t$-tests confirm that the degradation is statistically reliable at every tested scale: the drop at $\alpha_G = 2$ alone is $\Delta = -0.075$ ($t = -7.68$, $p = 1.55 \times 10^{-14}$, $n = 800$ pairs). The sole exception is joy, which shows a marginal increase at $\alpha_G = 2$ ($+0.020$), but this falls within the 95\% confidence interval ($\pm 0.023$) and is not statistically significant. No value of $\alpha_G > 0$ produces a reliable improvement on any metric, and the per-emotion breakdown (Figure~\ref{fig:alpha_g_sweep_per_emotion}) confirms that no individual emotion benefits from a positive $\alpha_G$ at any tested scale.
+
 The shared direction $\mathbf{g}$ is useful as an analytical component for isolating emotion-specidic residuals. However, it is counterproductive as an additive generation-time steering component at every tested scale. Effective affective steering therefore reduces to $\Delta_e = \alpha_R\,\hat{\mathbf{r}}_e$, with $\alpha_G$ discarded.
 
-\subsection{Qualitative Results}
-\label{sec:steering_causal_validation}
+\subsection{Qualitative Results} 
+\label{sec:steering_causal_validation} 
 
-Table~\ref{tab:cross_sadness_anger} illustrates the behavioural effects of varying $\alpha_R$ and $\alpha_G$. As $\alpha_R$ increases from $0$ to $64$, the output shifts from a passive expression of loss to an active expression of grievance. The phrase ``the injustice of never being able to turn back time and reclaim what's been taken from me'' reframes the loss as something done to the speaker, shifting the affective stance from sorrow to outrage. At $\alpha_R = -64$, the loss is softened into nostalgic acceptance: ``a bittersweet sense of nostalgia, but also a gentle reminder of the things I've cherished.''\par
+Table~\ref{tab:cross_sadness_anger} presents representative qualitative examples of how basic sentences expressing sadness were steered towards the direction of anger. This example demonstrates three patterns that align with the quantitative sweep results. Firstly, increasing $\alpha_R$ alters not only the emotional vocabulary but also the evaluative framework of the sentences. At $\alpha_R=16$, the output remains close to grief and regret. The photographs become \textit{unforgettable memories} of irretrievable memories. At $\alpha_R=64$, the same loss is reframed as an injustice. Through the expression \textit{what was taken from me}, the event comes to be felt as a grievance or dissatisfaction rather than a passive lack. Thus, the anger residual not only adds angry words but also alters the causal interpretation of the loss.\par
+
+Secondly, negative steering directs the output in the opposite emotional direction. With $\alpha_R=-64$, the sentence no longer emphasises injustice or dissatisfaction. Instead, through expressions such as \textit{bittersweet nostalgia} and \textit{what I have cherished}, the sense of loss is softened into a nostalgic acceptance. This supports the interpretation that $\hat{\mathbf{r}}_e$ functions as a bipolar emotional axis. That is to say, positive values intensify the target emotion, whilst negative values suppress or negate it.
+
+Thirdly, excessive intervention leads to a decline in the quality of the generated text. At $\alpha_R=128$, the output becomes repetitive and semantically unstable, which is consistent with the decline in validity observed in the sweep experiments. A similar deterioration is observed when the shared component $\mathbf{g}$ is added: at $\alpha_G=4$, sentences become incomplete, and at $\alpha_G=8$, they fall into repetition. This qualitative pattern supports the quantitative finding that $\mathbf{g}$ is counterproductive as a control component during generation. However, $\mathbf{g}$ is useful for the analytical purpose of separating shared emotionality from emotion-specific residuals.
 
 \begin{table}[H]
 \centering
@@ -514,22 +512,64 @@ Table~\ref{tab:cross_sadness_anger} illustrates the behavioural effects of varyi
 \toprule
 \textbf{Condition} & \textbf{Steered output} \\
 \midrule
-\multicolumn{2}{l}{\textit{Base (sadness seed):} ``The old photographs reminded me of everything I had lost and would never get back''} \\
+\multicolumn{2}{l}{\textit{Base:} The old photographs reminded me of everything I had lost and would never get back} \\
 \midrule
-\makecell[l]{$\alpha_R=16$ \\ $\alpha_G=0$} & The old photographs stared back at me, a haunting reminder of all the fragments of my past that I could never reclaim, the memories that had slipped through my fingers like sand in the wind, and the love that had been irreparably lost. \\
+
+\begin{tabular}[t]{@{}l@{}}
+$\alpha_R=16$ \\
+$\alpha_G=0$
+\end{tabular}
+&
+The old photographs stared back at me, a haunting reminder of all the fragments of my past that I could never reclaim, the memories that had slipped through my fingers like sand in the wind, and the love that had been irreparably lost. \\
+
 \midrule
-\makecell[l]{$\alpha_R=64$ \\ $\alpha_G=0$} & The old photographs brought back the pain of everything I've lost and the injustice of never being able to turn back time and reclaim what's been taken from me. \\
+
+\begin{tabular}[t]{@{}l@{}}
+$\alpha_R=64$ \\
+$\alpha_G=0$
+\end{tabular}
+&
+The old photographs brought back the pain of everything I've lost and the injustice of never being able to turn back time and reclaim what's been taken from me. \\
+
 \midrule
-\makecell[l]{$\alpha_R=128$ \\ $\alpha_G=0$} & They're a constant reminder of everything you're supposed to have to pay for your existence, but you can't even get a moment's justice, but they're just a waste of your time, but they can't be erased\ldots \\
+
+\begin{tabular}[t]{@{}l@{}}
+$\alpha_R=128$ \\
+$\alpha_G=0$
+\end{tabular}
+&
+They're a constant reminder of everything you're supposed to have to pay for your existence, but you can't even get a moment's justice, but they're just a waste of your time, but they can't be erased\ldots \\
+
 \midrule
-\makecell[l]{$\alpha_R=-64$ \\ $\alpha_G=0$} & The old photographs brought a bittersweet sense of nostalgia, but also a gentle reminder of the things I've cherished and the memories that will forever remain, even if some of the people and moments themselves have slipped away. \\
+
+\begin{tabular}[t]{@{}l@{}}
+$\alpha_R=-64$ \\
+$\alpha_G=0$
+\end{tabular}
+&
+The old photographs brought a bittersweet sense of nostalgia, but also a gentle reminder of the things I've cherished and the memories that will forever remain, even if some of the people and moments themselves have slipped away. \\
+
 \midrule
-\makecell[l]{$\alpha_R=64$ \\ $\alpha_G=4$} & Those old photographs brought back every memory of all the things I've lost and will never be able\ldots \\
+
+\begin{tabular}[t]{@{}l@{}}
+$\alpha_R=64$ \\
+$\alpha_G=4$
+\end{tabular}
+&
+Those old photographs brought back every memory of all the things I've lost and will never be able\ldots \\
+
 \midrule
-\makecell[l]{$\alpha_R=64$ \\ $\alpha_G=8$} & Those those old photographs brought all the memories of all the things I used \\
+
+\begin{tabular}[t]{@{}l@{}}
+$\alpha_R=64$ \\
+$\alpha_G=8$
+\end{tabular}
+&
+Those those old photographs brought all the memories of all the things I used \\
+
 \bottomrule
 \end{tabular}
-\caption{Sadness seed steered with $\hat{\mathbf{r}}_\text{anger}$.}
+\caption{A base sentence ``The old photographs reminded me of everything I had lost and would never get back'' steered with $\hat{\mathbf{r}}_\text{anger}$.}
 \label{tab:cross_sadness_anger}
 \end{table}
 
@@ -544,8 +584,8 @@ Secondly, the residual direction acts as an emotion-dependent affective axis tha
 
 \section{Limitations and Transition}
 
-These results confirm that affective steering can be implemented as a decomposed residual-space intervention, and that the effective operating point is $\alpha_G = 0$, $\alpha_R > 0$. The shared direction $\mathbf{g}$ is counterproductive at every tested scale; only the emotion-specific residual $\hat{\mathbf{r}}_e$ provides a reliable steering signal. This conclusion was only reachable because the decomposition made the two components separable and independently testable.\par
+These results confirm that emotional steering can be implemented as an intervention in the decomposed residual space, and that the valid operating points are $\alpha_G = 0$ and $\alpha_R > 0$. The shared direction $\mathbf{g}$ is counterproductive across all metrics examined, and only the emotion-specific residual $\hat{\mathbf{r}}_e$ provides a reliable steering signal. This conclusion was derived precisely because the decomposition allowed the two components to be separated and verified independently. \par
 
-However, the results also reveal two limitations. First, the steering effect is modest rather than absolute: target-emotion match improves consistently but remains well below ceiling, and the intervention is bounded by the semantic and emotional content of the source utterance. Second, the effect magnitude varies substantially across emotions, suggesting that the discriminative power of $\hat{\mathbf{r}}_e$ differs by emotion category — a structural question addressed in the next chapter.\par
+ However, these results also reveal two limitations. Firstly, the steering effect is not absolute but modest. Although the degree of alignment with the target emotion improves consistently, it falls far short of an upper limit, and the intervention effect is constrained by the semantic and emotional content of the source utterance. Secondly, the magnitude of the effect varies significantly depending on the emotion, suggesting that the discriminative power of $\hat{\mathbf{r}}_e$ differs across emotion categories. This is a structural issue addressed in the next chapter. \par
 
-These limitations motivate the next chapter. So far, $\hat{\mathbf{r}}_e$ has been treated as a single entity. The next chapter asks what this residual actually represents. In particular, it examines whether emotions such as joy, sadness, and anger should be treated as atomic vectors, or whether they contain local sub-axes that correspond to more subtle, pre-verbal affective vectors.
+ These limitations provide the motivation for the next chapter. Until now, $\hat{\mathbf{r}}_e$ has been treated as a single entity. In the next chapter, we will examine what this residual actually represents. In particular, we will consider whether emotions such as joy, sadness and anger should be treated as atomic vectors, or whether they contain local sub-axes corresponding to more subtle, pre-linguistic affective vectors.\par
