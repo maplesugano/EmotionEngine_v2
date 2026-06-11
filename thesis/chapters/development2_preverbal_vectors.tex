@@ -207,12 +207,13 @@ Two methods that share no internal steps converge on the same three affective ax
 \section{Pre-Verbal Interpretation of Meta-Axes}
 \label{sec:ch2-preverbal-interp}
 
-% Exp8 v2: contrastive LLM judge, all emotions simultaneously.
-% m1=arousal/reactivity, m2=temporal, m3=social/internal, m4=meaning, m5=relief/tension.
+We next ask what affective information the shared meta-axes $\mathbf{m}_k$ carry. Unlike the residual prototype directions $\hat{\mathbf{r}}_e$, which are indexed by named emotion categories, the meta-axes are extracted from variance patterns that recur across emotions. Their interpretation is therefore not tied to any single label such as joy, sadness, or anger. Instead, we treat each $\mathbf{m}_k$ as a candidate \emph{pre-verbal affective dimension}: a direction that modulates how an emotion is experienced or expressed before it is assigned to a discrete emotion category.\par
 
-We now examine the emotional dimensions represented by each meta-axis, $\mathbf{m}_k$. The meta-axes are derived from aggregated activations across all named emotions. Their semantic content can therefore be described independently of specific emotion labels. To interpret these axes, we presented the LLM evaluator with examples of extreme activations extracted from all eight emotions simultaneously. The evaluator was instructed to assign distinguishable labels to the five axes. These labels had to describe the factors that separate the high and low poles across emotion categories. \par
+To interpret these directions, we apply a contrastive LLM evaluator (\texttt{gpt-5.4}) procedure. For each meta-axis, we collect examples with extreme positive and negative projections, pooling across all eight emotions, and present all five axes to the judge simultaneously, instructing it to assign distinct labels to the high and low pole of each axis. Simultaneous presentation is critical: when axes are interpreted in isolation, the dominant signal tends to collapse onto a generic engaged-vs-detached or arousal-like distinction. By requiring the evaluator to compare axes against one another, the procedure elicits labels that capture what is specific to each axis rather than what is shared by all affective variation.\par
 
-Unlike evaluations that examine nuances within individual emotions, this experiment aims to reveal dimensions that are more fundamental than emotion labels.\par
+A preliminary version presented each axis to the judge independently; this collapsed onto nearly identical labels for all axes (engaged vs.\ detached or aroused vs.\ calm), confirming that independent presentation is insufficient to elicit axis-specific labels.\par
+
+For each axis, the judge returned an axis name, high- and low-pole descriptions, a short pre-verbal interpretation, a contamination rating, and a confidence score. The contamination rating estimates whether the contrast reflects affective content or may partly track topic, phrasing, or stylistic regularities in the generated text; the confidence score reflects how consistently the contrast was observed across pooled examples.\par
 
 \begin{table}[H]
 \centering
@@ -242,7 +243,13 @@ $\mathbf{m}_5$ & Relief/release \textbf{vs} tension/constraint
 \label{tab:meta_axis_interpretations}
 \end{table}
 
-These five dimensions correspond to established conceptual frameworks in the psychology of emotion. Specifically, $\mathbf{m}_1$ corresponds to the arousal dimension in Russell's Circumplex Model~\cite{russell1980circumplex}, and $\mathbf{m}_2$ corresponds to temporal orientation in rumination theory~\cite{nolenhoeksema1991responses}. $\mathbf{m}_3$ corresponds to the social sharing of emotions~\cite{rime2009socialsharing}, $\mathbf{m}_4$ relates to the evaluation of relevance and importance in evaluation theory~\cite{scherer2001appraisal}, and $\mathbf{m}_5$ is similar to Damasio's somatic marker hypothesis~\cite{damasio1996somatic}. None of these dimensions are emotion-specific. Each spans all eight named categories and can vary independently of the emotion label.\par
+These axes suggest that the shared residual subspace is organised not only by emotion category but also by cross-cutting affective factors. $\mathbf{m}_1$ captures the most stable of these: an arousal-like distinction between agitated, reactive engagement and calmer acceptance. The remaining axes partition this affective space along more specific dimensions: temporal orientation ($\mathbf{m}_2$), interpersonal versus internal processing ($\mathbf{m}_3$), appraised significance ($\mathbf{m}_4$), and relief versus constraint ($\mathbf{m}_5$).\par
+
+Each axis finds a counterpart in established theoretical frameworks. $\mathbf{m}_1$ corresponds to the arousal dimension in Russell's circumplex model~\cite{russell1980circumplex}; $\mathbf{m}_2$ parallels the ruminative-versus-forward-oriented distinction in response-styles accounts of emotion regulation~\cite{nolenhoeksema1991responses}; $\mathbf{m}_3$ parallels the social sharing and interpersonal regulation of emotion~\cite{rime2009socialsharing}; $\mathbf{m}_4$ parallels appraisal-theoretic notions of relevance and goal-conduciveness~\cite{scherer2001appraisal}; and $\mathbf{m}_5$ aligns with somatic and situational accounts of affective constraint~\cite{damasio1996somatic}.\par
+
+These correspondences are interpretive, not identificatory: the axes are not validated measurements of psychological constructs, and the LLM-judge labels may partly reflect surface regularities in the generated text. Although $\mathbf{m}_1$ is highly stable across extraction methods, $\mathbf{m}_4$ and $\mathbf{m}_5$ are less stable and should be treated as tentative. We conclude not that the model implements a particular psychological theory, but that its affective residual space contains label-independent dimensions whose poles resemble known pre-verbal factors of emotional experience.\par
+
+Thus, named emotions in this representation are not atomic: a generated expression of \textit{anger}, \textit{fear}, or \textit{joy} can vary independently along axes of reactivity, temporal orientation, interpersonal directedness, significance, and pressure. This supports a compositional view of affective representation, in which emotion labels specify one component of the state while the meta-axes modulate how that state is expressed.\par
 
 % ─────────────────────────────────────────────────────────────
 \section{Re-Interpreting $\hat{\mathbf{r}}_e$ as a Pre-Verbal Projection}
