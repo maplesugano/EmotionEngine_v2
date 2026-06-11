@@ -70,12 +70,14 @@ CAA_PATH = ACT_DIR / "caa_emotion_directions.npz"
 CAA_INFO = ACT_DIR / "caa_emotion_directions_info.json"
 EXP7_DIR = REPO_ROOT / "local_axes_experiments" / "exp7_meta_axis_extraction" / "results"
 EXP8_DIR = REPO_ROOT / "local_axes_experiments" / "exp8_meta_axis_interpretation" / "results"
+REWRITE  = REPO_ROOT / "dataset" / "emotion_rewrites" / "emotion_rewrites.jsonl"
 
 PRIMARY_LAYER  = 13
 MAX_NEW_TOKENS = 60
 DO_SAMPLE      = False
 BATCH_SIZE     = 8
 CACHE_FLUSH_EVERY = 4
+N_SOURCES      = 100
 
 # β values to sweep (both poles are covered by sign; 0 is the unsteered baseline)
 BETA_SWEEP = [-16, -12, -8, -4, 0, 4, 8, 12, 16]
@@ -120,57 +122,27 @@ AXIS_FALLBACK: dict[str, dict] = {
     },
 }
 
-# ── Seed texts (same as exp9/exp14) ──────────────────────────────────────────
-SEED_TEXTS: list[dict[str, str]] = [
-    {"seed_id": "seed_joy_1", "seed_emotion": "joy",
-     "seed_text": "Today was a wonderful day. Everything went smoothly and I felt genuinely happy."},
-    {"seed_id": "seed_joy_2", "seed_emotion": "joy",
-     "seed_text": "I just got the news that I passed the exam. I could not stop smiling all afternoon."},
-    {"seed_id": "seed_joy_3", "seed_emotion": "joy",
-     "seed_text": "We spent the evening laughing and dancing and it felt like nothing else mattered."},
-    {"seed_id": "seed_trust_1", "seed_emotion": "trust",
-     "seed_text": "She has always kept her promises and I know she will come through for me again."},
-    {"seed_id": "seed_trust_2", "seed_emotion": "trust",
-     "seed_text": "He has never let me down in ten years and I have no reason to doubt him now."},
-    {"seed_id": "seed_trust_3", "seed_emotion": "trust",
-     "seed_text": "I handed the whole project over to her without hesitation because I know her work."},
-    {"seed_id": "seed_fear_1", "seed_emotion": "fear",
-     "seed_text": "Walking alone through the dark alley I felt a cold shiver run down my spine."},
-    {"seed_id": "seed_fear_2", "seed_emotion": "fear",
-     "seed_text": "Every creak of the floorboard made my heart race and I could not calm down."},
-    {"seed_id": "seed_fear_3", "seed_emotion": "fear",
-     "seed_text": "The test results were taking too long and all I could think about was the worst case."},
-    {"seed_id": "seed_surprise_1", "seed_emotion": "surprise",
-     "seed_text": "I opened the door and could not believe what was waiting for me on the other side."},
-    {"seed_id": "seed_surprise_2", "seed_emotion": "surprise",
-     "seed_text": "Out of nowhere my old friend called and said she was already standing outside my building."},
-    {"seed_id": "seed_surprise_3", "seed_emotion": "surprise",
-     "seed_text": "The envelope contained a cheque for an amount I never expected and I read it three times."},
-    {"seed_id": "seed_sadness_1", "seed_emotion": "sadness",
-     "seed_text": "The old photographs reminded me of everything I had lost and would never get back."},
-    {"seed_id": "seed_sadness_2", "seed_emotion": "sadness",
-     "seed_text": "I sat alone in the empty house after everyone had left and the silence was unbearable."},
-    {"seed_id": "seed_sadness_3", "seed_emotion": "sadness",
-     "seed_text": "No matter how hard I tried I could not hold back the tears when I finally said goodbye."},
-    {"seed_id": "seed_disgust_1", "seed_emotion": "disgust",
-     "seed_text": "The smell from the bin was overwhelming and the sight of it made my stomach turn."},
-    {"seed_id": "seed_disgust_2", "seed_emotion": "disgust",
-     "seed_text": "I found mold covering the entire back of the fridge and felt a wave of revulsion."},
-    {"seed_id": "seed_disgust_3", "seed_emotion": "disgust",
-     "seed_text": "Watching the video I felt sick. Some things simply should not exist in the world."},
-    {"seed_id": "seed_anger_1", "seed_emotion": "anger",
-     "seed_text": "He broke his word again and I am absolutely fed up with being taken for granted."},
-    {"seed_id": "seed_anger_2", "seed_emotion": "anger",
-     "seed_text": "They ignored every complaint I filed and now I am furious and done being patient."},
-    {"seed_id": "seed_anger_3", "seed_emotion": "anger",
-     "seed_text": "She talked over me again in the meeting and I could feel the rage building inside me."},
-    {"seed_id": "seed_anticipation_1", "seed_emotion": "anticipation",
-     "seed_text": "The results are due tomorrow and I keep checking my email every few minutes."},
-    {"seed_id": "seed_anticipation_2", "seed_emotion": "anticipation",
-     "seed_text": "Only three days left before the trip and I have been counting down since last week."},
-    {"seed_id": "seed_anticipation_3", "seed_emotion": "anticipation",
-     "seed_text": "The offer is still pending and every time my phone buzzes I hope it is the good news."},
-]
+def load_seed_texts(n: int = N_SOURCES) -> list[dict[str, str]]:
+    """Load the first n unique test-split sources from emotion_rewrites.jsonl.
+
+    Each entry becomes {"seed_id": source_id, "seed_emotion": source_emotion, "seed_text": base_text}.
+    source_emotion is not used by the steering or judge; it is kept for per-emotion breakdown analysis.
+    """
+    seen: set[str] = set()
+    seeds: list[dict[str, str]] = []
+    for line in open(REWRITE):
+        r = json.loads(line)
+        sid = r.get("source_id", "")
+        if sid and sid not in seen and r.get("source_split") == "test":
+            seen.add(sid)
+            seeds.append({
+                "seed_id":      sid,
+                "seed_emotion": r.get("source_emotion", "unknown"),
+                "seed_text":    r["base_text"].strip(),
+            })
+            if len(seeds) >= n:
+                break
+    return seeds
 
 # ── Evaluation prompt ─────────────────────────────────────────────────────────
 
@@ -356,16 +328,17 @@ def _make_eval_messages(
 
 # ── generation ────────────────────────────────────────────────────────────────
 
-def run_generation() -> None:
+def run_generation(n_sources: int = N_SOURCES) -> None:
     """Generate rewrites for every (seed, axis, β) combination."""
     from utils.text_utils import make_instruction_prefix
 
+    seed_texts = load_seed_texts(n_sources)
     axis_ids, M = load_meta_axes()
     # Only steer along requested axes (all 5 for generation; stability is for analysis)
     axis_ids_to_run = [aid for aid in axis_ids if aid in ALL_AXIS_IDS]
 
-    total_expected = len(SEED_TEXTS) * len(axis_ids_to_run) * len(BETA_SWEEP)
-    print(f"Seeds: {len(SEED_TEXTS)} | Axes: {len(axis_ids_to_run)} | β sweep: {BETA_SWEEP}")
+    total_expected = len(seed_texts) * len(axis_ids_to_run) * len(BETA_SWEEP)
+    print(f"Seeds: {len(seed_texts)} | Axes: {len(axis_ids_to_run)} | β sweep: {BETA_SWEEP}")
     print(f"Total expected: {total_expected}")
 
     existing: set[tuple[str, str, float]] = set()
@@ -463,7 +436,7 @@ def run_generation() -> None:
             for beta in BETA_SWEEP:
                 delta = build_delta(m_vec, beta)
                 pending_seeds = [
-                    s for s in SEED_TEXTS
+                    s for s in seed_texts
                     if (s["seed_id"], axis_id, float(beta)) not in existing
                 ]
                 if not pending_seeds:
@@ -497,7 +470,7 @@ def run_generation() -> None:
 
     # Sort: axis_id order → seed order → beta asc
     axis_order = {aid: i for i, aid in enumerate(ALL_AXIS_IDS)}
-    seed_order = {s["seed_id"]: i for i, s in enumerate(SEED_TEXTS)}
+    seed_order = {s["seed_id"]: i for i, s in enumerate(seed_texts)}
     print("Sorting generation file ...")
     rows = [json.loads(l) for l in open(GENERATION_FILE) if l.strip()]
     rows.sort(key=lambda r: (
@@ -771,14 +744,50 @@ def plot() -> None:
     axis_ids   = sorted({d["axis_id"] for d in data})
     axis_interps = load_axis_interpretations()
 
-    PALETTE = ["#e41a1c", "#377eb8", "#4daf4a", "#984ea3", "#ff7f00"]
+    plt.rcParams.update({
+        "font.family":        "sans-serif",
+        "axes.spines.top":    False,
+        "axes.spines.right":  False,
+        "axes.linewidth":     0.8,
+        "grid.alpha":         0.35,
+        "grid.linestyle":     ":",
+        "grid.linewidth":     0.6,
+        "legend.framealpha":  0.85,
+        "legend.edgecolor":   "0.8",
+        "figure.dpi":         300,
+        "savefig.dpi":        300,
+        "savefig.bbox":       "tight",
+        "savefig.pad_inches": 0.05,
+    })
+
+    import numpy as np
+    X = np.array(beta_vals)
+
+    # Okabe-Ito palette (colourblind-friendly)
+    PALETTE = ["#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"]
 
     metric_specs = [
-        ("pm", "Axis-pole match",       "#2166ac"),
-        ("sa", "Subtle affective shift", "#762a83"),
-        ("sn", "Soundness",              "#4dac26"),
-        ("mp", "Meaning preserved",      "#d6604d"),
+        ("pm", "Axis-pole match",        "#2166ac"),
+        ("sa", "Subtle affective shift",  "#762a83"),
+        ("sn", "Soundness",               "#4dac26"),
+        ("mp", "Meaning preserved",       "#d6604d"),
     ]
+
+    def _band(ax, vals_fn, colour, label=None, lw=1.6, ms=4):
+        means = np.array([mci(vals_fn(b))[0] for b in beta_vals])
+        cis   = np.array([mci(vals_fn(b))[1] for b in beta_vals])
+        kw = {"label": label} if label else {}
+        ax.plot(X, means, "o-", color=colour, linewidth=lw, markersize=ms, zorder=3, **kw)
+        ax.fill_between(X, means - cis, means + cis, color=colour, alpha=0.18, zorder=2, linewidth=0)
+
+    def _decorate(ax):
+        ax.axvline(0, color="#666666", linestyle="--", linewidth=0.8, alpha=0.7)
+        ax.set_ylim(-0.05, 1.05)
+        ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
+        ax.xaxis.set_major_locator(mticker.FixedLocator(beta_vals))
+        ax.xaxis.set_major_formatter(mticker.FormatStrFormatter("%g"))
+        ax.tick_params(axis="x", labelrotation=45)
+        ax.grid(axis="y")
 
     # ── Figure 1: aggregate metrics per axis ──────────────────────────────────
     n_axes = len(axis_ids)
@@ -789,20 +798,14 @@ def plot() -> None:
         interp  = axis_interps.get(axis_id, {})
         title_suffix = f"\n{interp.get('axis_name', axis_id)}" if interp else ""
         for ax, (key, label, colour) in zip(axes1[row_i], metric_specs):
-            means = [mci([d[key] for d in ax_data if d["beta"] == b])[0] for b in beta_vals]
-            cis   = [mci([d[key] for d in ax_data if d["beta"] == b])[1] for b in beta_vals]
-            ax.errorbar(beta_vals, means, yerr=cis, fmt="o-", color=colour,
-                        capsize=4, capthick=1.2, linewidth=1.8, markersize=5)
-            ax.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
-            ax.set_xlabel("β", fontsize=10)
+            _band(ax, lambda b, _d=ax_data, _k=key: [d[_k] for d in _d if d["beta"] == b],
+                  colour)
+            _decorate(ax)
+            ax.set_xlabel(r"$\beta$", fontsize=10)
             ax.set_title(f"{label}\n({axis_id}{title_suffix})", fontsize=9)
-            ax.xaxis.set_major_locator(mticker.FixedLocator(beta_vals))
-            ax.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.4g"))
-            ax.tick_params(axis="x", labelsize=7, rotation=45)
-            ax.grid(axis="y", linestyle=":", alpha=0.5)
     fig1.tight_layout()
     p1 = OUT_DIR / "fig1_aggregate_metrics_per_axis.png"
-    fig1.savefig(p1, dpi=150, bbox_inches="tight")
+    fig1.savefig(p1)
     print(f"Saved → {p1}")
     plt.close(fig1)
 
@@ -812,31 +815,27 @@ def plot() -> None:
         if axis_id not in STABLE_AXIS_IDS:
             continue
         ax_data = [d for d in data if d["axis_id"] == axis_id]
-        means = [mci([d["pm"] for d in ax_data if d["beta"] == b])[0] for b in beta_vals]
-        cis   = [mci([d["pm"] for d in ax_data if d["beta"] == b])[1] for b in beta_vals]
-        interp = axis_interps.get(axis_id, {})
-        label  = f"{axis_id}: {interp.get('axis_name', axis_id)}"
-        ax2.errorbar(beta_vals, means, yerr=cis, fmt="o-", color=PALETTE[i],
-                     capsize=3, capthick=1, linewidth=1.5, markersize=4, label=label)
-    ax2.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
-    ax2.axhline(0.5, color="grey", linestyle=":", linewidth=0.8, alpha=0.6)
-    ax2.set_xlabel("β", fontsize=10)
+        interp  = axis_interps.get(axis_id, {})
+        lbl     = f"{axis_id}: {interp.get('axis_name', axis_id)}"
+        _band(ax2,
+              lambda b, _d=ax_data: [d["pm"] for d in _d if d["beta"] == b],
+              PALETTE[i], label=lbl)
+    ax2.axhline(0.5, color="#666666", linestyle=":", linewidth=0.8, alpha=0.7)
+    _decorate(ax2)
+    ax2.set_xlabel(r"$\beta$", fontsize=10)
     ax2.set_ylabel("Axis-pole match", fontsize=10)
     ax2.set_title("Exp 15 — Axis-pole match by β (stable meta-axes m1–m3) ± 95 % CI", fontsize=11)
-    ax2.xaxis.set_major_locator(mticker.FixedLocator(beta_vals))
-    ax2.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.4g"))
     ax2.legend(fontsize=8, loc="upper left")
-    ax2.grid(axis="y", linestyle=":", alpha=0.5)
     fig2.tight_layout()
     p2 = OUT_DIR / "fig2_pole_match_stable_axes.png"
-    fig2.savefig(p2, dpi=150, bbox_inches="tight")
+    fig2.savefig(p2)
     print(f"Saved → {p2}")
     plt.close(fig2)
 
-    # ── Figure 3: per-seed-emotion breakdown for m1 ───────────────────────────
+    # ── Figure 3: per-seed-emotion breakdown (stable axes) ────────────────────
     EMO_PALETTE = [
-        "#e41a1c", "#377eb8", "#4daf4a", "#984ea3",
-        "#ff7f00", "#a65628", "#f781bf", "#999999",
+        "#E69F00", "#56B4E9", "#009E73", "#F0E442",
+        "#0072B2", "#D55E00", "#CC79A7", "#999999",
     ]
     emos = sorted({d["seed_emotion"] for d in data})
     for axis_id in STABLE_AXIS_IDS:
@@ -845,26 +844,22 @@ def plot() -> None:
         ax_data = [d for d in data if d["axis_id"] == axis_id]
         fig3, ax3 = plt.subplots(figsize=(9, 5))
         for emo, colour in zip(emos, EMO_PALETTE):
-            means, cis = [], []
-            for b in beta_vals:
-                vals = [d["pm"] for d in ax_data if d["seed_emotion"] == emo and d["beta"] == b]
-                m, ci = mci(vals)
-                means.append(m); cis.append(ci)
-            ax3.errorbar(beta_vals, means, yerr=cis, fmt="o-", color=colour,
-                         capsize=3, capthick=1, linewidth=1.5, markersize=4, label=emo)
-        ax3.axvline(0, color="grey", linestyle="--", linewidth=0.8, alpha=0.6)
-        ax3.axhline(0.5, color="grey", linestyle=":", linewidth=0.8, alpha=0.6)
-        ax3.set_xlabel("β", fontsize=10)
+            _band(ax3,
+                  lambda b, _d=ax_data, _e=emo: [d["pm"] for d in _d if d["seed_emotion"] == _e and d["beta"] == b],
+                  colour, label=emo, lw=1.4, ms=3.5)
+        ax3.axhline(0.5, color="#666666", linestyle=":", linewidth=0.8, alpha=0.7)
+        _decorate(ax3)
+        ax3.set_xlabel(r"$\beta$", fontsize=10)
         ax3.set_ylabel("Axis-pole match", fontsize=10)
         interp = axis_interps.get(axis_id, {})
-        ax3.set_title(f"Exp 15 — {axis_id} ({interp.get('axis_name', '')})\nPer-seed-emotion axis-pole match ± 95 % CI", fontsize=10)
-        ax3.xaxis.set_major_locator(mticker.FixedLocator(beta_vals))
-        ax3.xaxis.set_major_formatter(mticker.FormatStrFormatter("%.4g"))
+        ax3.set_title(
+            f"Exp 15 — {axis_id} ({interp.get('axis_name', '')})\nPer-seed-emotion axis-pole match ± 95 % CI",
+            fontsize=10,
+        )
         ax3.legend(fontsize=8, ncol=2, loc="upper left")
-        ax3.grid(axis="y", linestyle=":", alpha=0.5)
         fig3.tight_layout()
         p3 = OUT_DIR / f"fig3_per_emotion_{axis_id}.png"
-        fig3.savefig(p3, dpi=150, bbox_inches="tight")
+        fig3.savefig(p3)
         print(f"Saved → {p3}")
         plt.close(fig3)
 
@@ -876,6 +871,8 @@ if __name__ == "__main__":
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
+    parser.add_argument("--n_sources", type=int, default=N_SOURCES,
+                        help=f"Number of test-split sources to use (default {N_SOURCES})")
     parser.add_argument("--submit",  action="store_true",
                         help="Build eval batch and submit to OpenAI")
     parser.add_argument("--merge",   action="store_true",
@@ -895,4 +892,4 @@ if __name__ == "__main__":
     elif args.plot:
         plot()
     else:
-        run_generation()
+        run_generation(args.n_sources)
