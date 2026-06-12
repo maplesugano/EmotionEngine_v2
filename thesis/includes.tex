@@ -19,7 +19,15 @@
 %----------------------------------------------------------------------------------------
 \usepackage[a4paper,hmargin=2.8cm,vmargin=2.0cm,includeheadfoot]{geometry}
 \usepackage{textpos}
-\usepackage[numbers]{natbib} % numeric citations (compatible with unsrt style)
+\usepackage[
+  style=vancouver,
+  sorting=none,
+  backend=biber,
+  url=true,
+  doi=true,
+  isbn=false
+]{biblatex}
+\addbibresource{main.bib}
 \usepackage{tabularx,longtable,multirow,subfigure,caption}%hangcaption
 \usepackage{fncylab} %formatting of labels
 \usepackage{fancyhdr} % page layout
@@ -30,15 +38,16 @@
 \usepackage{graphicx}
 \usepackage{dsfont}
 \usepackage{epstopdf} % automatically replace .eps with .pdf in graphics
-\usepackage{backref} % needed for citations
+% backref removed — biblatex handles back-references natively
 \usepackage{array}
 \usepackage{latexsym}
 \usepackage{booktabs}
+\usepackage{threeparttable}
 \usepackage{float}
 \usepackage{blocked}
 \usepackage{enumitem}
 \usepackage{makecell}
-\usepackage[pdftex,pagebackref,hypertexnames=false,colorlinks]{hyperref} % provide links in pdf
+\usepackage[pdftex,hypertexnames=false,colorlinks]{hyperref} % provide links in pdf
 
 \hypersetup{pdftitle={},
   pdfsubject={}, 
@@ -80,7 +89,8 @@
 
 \setlength{\parindent}{0em}  % indentation of paragraph
 
-\setlength{\headheight}{14.5pt}
+\setlength{\headheight}{30pt}
+\setlength{\headsep}{10pt}
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}} 
 %\fancyhead[RO]{\sffamily \textbf{\thepage}} %Page no.in the right on even pages

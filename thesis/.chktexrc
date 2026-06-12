@@ -1,0 +1,5 @@
+## Project-level ChkTeX configuration.
+## Rule 38 ("punctuation before quotes") is suppressed because stimulus
+## sentences in the appendix and qualitative tables legitimately end with
+## punctuation inside closing double-quotes per English typographic convention.
+Silent = 38

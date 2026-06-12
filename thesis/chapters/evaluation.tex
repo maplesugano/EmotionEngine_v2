@@ -1,31 +1,175 @@
 \chapter{Evaluation}
+\label{chap:evaluation}
 
-This chapter describes how the steering behaviours identified in the previous chapter will be evaluated in a controlled and human-centred manner. The goal here is not to re-establish the existence of affective structure in residual space, but to assess whether the extracted control directions yield perceptible, monotonic, and semantically stable emotional edits.
+The two preceding chapters each presented a self-contained experiment with its own quantitative and qualitative assessments. This chapter steps back from both and evaluates the project as a whole: what the results collectively establish, where the evidence falls short, and what limitations remain open.
 
-\section{Evaluation Setup}
+\section{Summary of Results Across Experiments}
 
-We prepare a set of input texts spanning neutral descriptions, short narratives and conversational utterances. For each input, the system first extracts a baseline emotion vector, which is then modified along one or more predefined directions.
+The two experiments (Chapters~\ref{chap:development1_emo_steering} and~\ref{chap:development2_preverbal_vectors}) address complementary questions about the structure and controllability of affective representations in an LLM.\par
 
-For controlled experiments, we consider three conditions:
-\begin{enumerate}
-    \item no steering (baseline)
-    \item single dimensional manipulation within the PAD space, where users adjust pleasure, arousal, or dominance
-    \item two-dimensional manipulations within the PAD space
-\end{enumerate}
+Chapter~\ref{chap:development1_emo_steering} showed that raw CAA vectors are dominated by a shared emotionalisation component $\mathbf{g}$, and that projecting it out yields emotion-specific residuals $\hat{\mathbf{r}}_e$ that are more discriminative, better recover Plutchik's circular geometry, and produce reliable affective shifts during inference. The shared component is analytically useful for isolating emotion-specific signal but counterproductive as a generation-time intervention.\par
 
-We define three primary metrics to evaluate the behaviour of the emotion code:
-\begin{enumerate}
-    \item \textbf{Shift Accuracy}: the proportion of cases in which human annotators agree that the steered output expresses a stronger presence of the target emotion than the baseline
-    \item \textbf{Intensity Monotonicity}: evaluates whether increasing the magnitude of a steering vector leads to a monotonic increase in perceived emotional intensity. This metric directly tests whether emotion behaves as a continuous and scalable latent variable.
-    \item \textbf{Content Stability}: whether semantic content is preserved under emotional steering. This is measured using a combination of human judgement and embedding-based semantic similarity in concept space.
-\end{enumerate}
+Chapter~\ref{chap:development2_preverbal_vectors} showed that the within-emotion residual subspace is not flat: named emotions vary substantially in internal dimensionality, and pooled PCA recovers three stable shared axes confirmed by two independent extraction methods. Two of these axes ($\mathbf{m}_1$, $\mathbf{m}_2$) are causally active, producing judge-verified affective texture shifts without altering the emotion label, while meaning preservation remains high throughout the coherent steering window.\par
 
-\section{Human-Centred Evaluation}
 
-In addition to controlled steering experiments, we would like to conduct a small-scale user study focusing on interactive manipulation of emotion vectors. Participants are presented with the PAD visualisation and are asked to modify the emotional state of a given input text to match an intended affective description (e.g. ``more tense but less negative'').
+\section{Human Evaluation Study}
+\label{sec:eval-human}
 
-We evaluate whether users can reliably reach similar regions of the PAD space for similar intentions, whether users report that changes in the output align with their intuitive expectations, and whether fine-grained adjustments lead to perceptible but non-disruptive changes in tone. This evaluation focuses on intuitive usability rather than task performance, reflecting the project's goal of enabling pre-verbal emotional editing rather than emotion classification.
+To validate that the affective shifts detected by the automated LLM judge are perceptible to human readers, we conduct a small-scale human evaluation study ($N=18$ participants) using the form described in Appendix~\ref{app:human_eval}. The study covers three tasks corresponding to the three central claims of the thesis.
 
-\section{Failure Cases and Limitations}
+%TODO: Appendix 2: human eval form and instructions
 
-For the cases where steering fails to produce the intended emotional shift or results in semantic distortion, we would like to analyse how those happened. It might be the case that the steering magnitudes are too high for the humans to recognise the differences, or the interference between emotion dimensions. Such cases are not treated as errors but as signals of the limits of linear emotion composition and of the PAD projection itself, hence better ways of representing the latent emotion representation should be further investigated.
+\subsection{Part 1: Perceptibility of Meta-Axis Texture Shifts}
+
+Part~1 of the study tests whether the $\mathbf{m}_1$-steered texture shifts are perceptible to human readers. What we want to focus on here is, while the emotion category remains the same (e.g.\ joy remains joy, sadness remains sadness), whether one sentence is perceived by humans as
+\begin{itemize}
+    \item more physically overwhelming
+    \item expressing emotion in a more direct and instinctive way
+    \item conveying a sense of urgency or raw intensity
+\end{itemize}
+than the other.\par
+
+Participants are presented with pairs of sentences generated from the same source utterance, one steered toward the \textit{agitated/reactive} pole ($\beta = +4$) and one toward the \textit{mellow/accepting} pole ($\beta = -4$), without being told which is which. For each pair, participants select which sentence feels more intense and immediate in its emotional expression. This is a two-alternative forced choice (2AFC) task, meaning that participants must choose one of the two sentences as more intense, with no neutral option. Formally, the hypothesis is that if the $\mathbf{m}_1$ direction captures an \textit{agitated / immediate} sub-axis within an emotion, then human evaluators should consistently select the $\beta=+4$ output as more emotionally intense and immediate than the comparison output.\par
+
+\begin{table}[H]
+\centering
+\small
+\begin{threeparttable}
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Q} & \textbf{Emotion} & \textbf{Expected} & \textbf{Correct} & \textbf{Proportion} & \textbf{$p$-value} \\
+ & & \textbf{Direction} & \textbf{($N=18$)} & & \textbf{(binomial)} \\
+\midrule
+Q1 & Joy     & Sentence~1 & 14 & 0.778 & $0.031^{*}$ \\
+Q2 & Fear    & Sentence~1 & 14 & 0.778 & $0.031^{*}$ \\
+Q3 & Disgust & Sentence~2 & 14 & 0.778 & $0.031^{*}$ \\
+Q4 & Anger   & Sentence~1 & 17 & 0.944 & $<0.001^{***}$ \\
+Q5 & Sadness & Sentence~2 & 17 & 0.944 & $<0.001^{***}$ \\
+\midrule
+\textit{Overall} & --- & --- & 76 & 0.844 & $<0.001^{***}$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item $^{*}p < 0.05$;\quad $^{**}p < 0.01$;\quad $^{***}p < 0.001$ (exact two-sided binomial test against chance $p_0 = 0.5$).
+\end{tablenotes}
+\end{threeparttable}
+\caption{Part 1: Pairwise intensity discrimination results ($N = 18$). Participants selected which of two sentences expressed more emotional intensity. Expected direction indicates the $\beta=+4$ (agitated pole) steered sentence.}
+\label{tab:human_eval_p1}
+\end{table}
+
+Across all 90 judgements ($N=18$, 5 pairs each), the expected sentence was selected on 76 occasions ($84.4\%$), well above the $50\%$ chance level. The pooled exact binomial test confirmed this effect ($p < 0.001$). This provides strong evidence that the $\mathbf{m}_1$-steered texture shifts are perceptible to human readers as intended. The effect was particularly consistent for \textit{anger} and \textit{sadness}, where 17 of 18 participants selected the expected sentence ($p < 0.001$ each). Joy, fear, and disgust showed somewhat lower but still significant agreement ($14/18$, $p = 0.031$ each).\par
+
+\subsection{Part 2: Emotion Category Preservation}
+
+Part~2 verifies that $\mathbf{m}_1$-steered texture shifts do not alter the perceived emotion category. While Part~1 asked participants to select the more intensity-rich sentence, Part~2 asks them to assign a specific emotion label to each sentence. Formally, we verify that varying $\beta$ does not substitute one emotion category for another, but shifts representational style within the same category. Specifically, if sentences at both $\beta=-4$ and $\beta=0$ for \textit{fear} are judged to express \textit{fear}, this implies that the $\beta$ operation modulates expressive texture rather than converting the emotion itself.\par
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{llccc}
+\toprule
+\textbf{Q} & \textbf{Target Emotion} & \textbf{Condition ($\beta$)} & \textbf{Correct ($N=18$)} & \textbf{Proportion (\%)} \\
+\midrule
+Q6  & Fear    & $\beta = -4$ & 17 & 94.4 \\
+Q7  & Fear    & $\beta = 0$  & 17 & 94.4 \\
+\midrule
+Q8  & Anger   & $\beta = +4$ & 16 & 88.9 \\
+Q9  & Anger   & $\beta = -4$ & 15 & 83.3 \\
+\midrule
+Q10 & Sadness & $\beta = +4$ & 17 & 94.4 \\
+Q11 & Sadness & $\beta = -4$ & 17 & 94.4 \\
+\midrule
+\textit{Overall} & --- & --- & 99 & 91.7 \\
+\bottomrule
+\end{tabular}
+\caption{Part 2: Emotion identification results ($N = 18$). Participants labelled each steered sentence with one of Plutchik's eight basic emotions. $\beta$ denotes the axis-steering magnitude applied to the $\mathbf{m}_1$ direction.}
+\label{tab:human_eval_p2}
+\end{table}
+
+Category agreement with the intended emotion was high across all conditions (Table~\ref{tab:human_eval_p2}): $94.4\%$ for \textit{fear} at both $\beta = -4$ and $\beta = 0$, and $94.4\%$ for \textit{sadness} at both $\beta = +4$ and $\beta = -4$. Agreement for \textit{anger} was $88.9\%$ at $\beta = +4$, with one participant selecting \textit{disgust} and one selecting \textit{none of the above}, and $83.3\%$ at $\beta = -4$, with two participants selecting \textit{sadness} and one selecting \textit{trust}. \par
+
+Category labels remained stable across $\beta$ values within each emotion. Overall, 99 of 108 responses ($91.7\%$) matched the intended emotion. These results confirm that $\mathbf{m}_1$ steering shifts expressive texture without substituting the emotion category, consistent with the \texttt{subtle\_affective\_shift} scores reported by the LLM judge in Chapter~\ref{chap:development2_preverbal_vectors}.\par
+
+\subsection{Part 3: Perceptibility of Prototype Steering}
+
+To measure whether stronger target-emotion steering produces a perceptible increase in target-emotion intensity, Part~3 presents participants with pairs of sentences and asks them to rate each sentence independently. While Parts~1 and~2 use forced-choice comparisons, Part~3 uses an independent Likert rating for each sentence, decoupling the two ratings so that participants assign an absolute intensity score on its own merits rather than selecting the more intense of a pair.\par
+
+Specifically, each evaluation set consists of an original utterance, a designated target emotion, an unsteered sentence ($\alpha_R = 0$), and a sentence steered at $\alpha_R = 64$, presented without any indication of which $\alpha_R$ value produced them. For each sentence, participants rate \textit{How strongly do you feel [target emotion] in this sentence?} on a five-point scale (1 = \textit{do not feel it at all}; 5 = \textit{feel it very strongly}). The scale captures perceived target-emotion intensity and does not ask participants to assess naturalness or overall quality.\par
+
+The central hypothesis is that sentences generated with stronger target-emotion steering should receive higher human-rated intensity than the unsteered baseline, i.e.,\ $\mu_{\alpha_R=64} > \mu_{\alpha_R=0}$ for each of the six sentence pairs.\par
+
+\begin{table}[H]
+\centering
+\small
+\begin{threeparttable}
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Set} & \textbf{Target emotion} & $\boldsymbol{\mu}_{\alpha=64}$ \textbf{(SD)} & $\boldsymbol{\mu}_{\alpha=0}$ \textbf{(SD)} & $\boldsymbol{\Delta}$ & $\boldsymbol{t(17)}$ \\
+\midrule
+Anger set 1 & Anger   & 3.56 (0.86) & 1.89 (0.90) & $+1.67$ & $6.52^{***}$ \\
+Anger set 2 & Anger   & 3.61 (1.09) & 1.67 (0.69) & $+1.94$ & $8.26^{***}$ \\
+Fear set 1  & Fear    & 3.72 (0.96) & 1.78 (0.81) & $+1.94$ & $6.81^{***}$ \\
+Fear set 2  & Fear    & 3.89 (1.18) & 1.78 (0.73) & $+2.11$ & $8.30^{***}$ \\
+Joy set 1   & Joy     & 4.17 (0.51) & 2.33 (0.97) & $+1.83$ & $7.08^{***}$ \\
+Sadness set 1 & Sadness & 4.39 (0.50) & 2.06 (0.42) & $+2.33$ & $14.43^{***}$ \\
+\midrule
+\textbf{Overall} & & \textbf{3.89} & \textbf{1.92} & $+$\textbf{1.97} & --- \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item $^{***}p < 0.001$ (two-sided paired $t$-test, $\mathit{df}=17$). Ratings are on a 1--5 Likert scale.
+\end{tablenotes}
+\end{threeparttable}
+\caption{Part 3: Mean human intensity ratings for steered ($\alpha_R = 64$) and unsteered ($\alpha_R = 0$) sentences across six emotion\,--\,source pairs ($N = 18$). All differences are in the expected direction.}
+\label{tab:human_eval_p3}
+\end{table}
+
+We find that the steered sentence receives a higher mean rating than the baseline in every pair (Table~\ref{tab:human_eval_p3}), with an overall mean difference of $\Delta = +1.97$ points. Paired $t$-tests confirm the effect is highly significant for each individual pair ($t(17) \geq 6.52$, $p < 0.001$ in all cases).\par
+
+The Spearman correlation between LLM-judge \texttt{target\_emotion\_intensity} scores and human mean ratings, computed across 12 conditions (six pairs $\times$ two $\alpha_R$ levels), is $\rho = 0.643$, indicating moderate positive agreement. The main discrepancy arises in Fear set~2 at $\alpha_R = 64$: the LLM judge assigns a score of $0.00$ while humans rate the same sentence at $4.00$, suggesting the automated evaluator underestimates fear intensity in certain surface constructions. These results broadly support LLM-as-judge evaluation as a proxy for human perception, though the correspondence is imperfect and human calibration remains important.\par
+
+Together, these three tasks show that the proposed steering directions correspond to affective differences that human readers can reliably perceive, corroborating the automated evaluation results and partially addressing the LLM-as-a-judge limitation identified in Section~\ref{sec:eval-limitations}.
+
+\section{Limitations}
+\label{sec:eval-limitations}
+
+\subsection{LLM-as-a-Judge Evaluation}
+
+Both experiments use \texttt{GPT-4o} or \texttt{GPT-4o-mini} as the primary evaluator~\cite{gu2025surveyllmasajudge}. One limitation of this setup is that the judge and the steered model (\texttt{Llama-3.1-8B-Instruct}) are both instruction-tuned on overlapping corpora, so the judge may encode the same surface-level stylistic regularities it is asked to assess, rather than evaluating independent affective signal. \par
+
+A second concern is label coverage: the judge rates outputs against Plutchik's eight emotion labels and the axis pole descriptions supplied in the prompt; affective shifts that fall outside this label space may be scored incorrectly or collapsed onto the nearest label. \par
+
+A third concern is external validity. Judge scores are continuous proxies for human perception, and the human validation study ($N = 18$) is too small to establish ground-truth calibration. These findings should therefore be interpreted as LLM-perceived affective shifts. Whether they correspond to shifts perceived by human readers remains to be established with a larger-scale study.\par
+
+\subsection{Single-Layer Intervention}
+
+All steering experiments inject vectors at a single transformer layer (layer 13), following the layer diagnostics in Section~\ref{sec:layer_selection}. This is a principled but simplifying choice. Affective processing need not be localised at a single layer, and different dimensions may be best steered at different depths. The near-zero steering effect observed for $\mathbf{m}_3$ (interpersonal engagement) is consistent with this possibility: the axis may be distributed across layers in a way that a single-site injection cannot perturb effectively. Multi-layer interventions and per-axis layer selection were not explored in this work. A systematic study varying injection depth per axis would be needed to determine whether the null effect for $\mathbf{m}_3$ reflects representational geometry or simply a mismatch between the intervention site and where that axis is encoded.\par
+
+\subsection{Scope of Emotions and Generalisability}
+
+The CAA vectors are defined by contrastive pairs drawn from Plutchik's eight basic emotions, a choice that constrains the geometry of the resulting representation space. This taxonomy is a theoretical commitment: other frameworks (e.g.\ Russell's valence-arousal circumplex, or GEMS for music-evoked states) would partition emotion space differently, producing different contrasting pairs and, consequently, different CAA directions. Whether the decomposition $\mathbf{g}$, $\hat{\mathbf{r}}_e$, $\mathbf{m}_k$ is specific to Plutchik's categories or reflects a more general property of affective geometry is an open question.\par
+
+A further confound is introduced by the data generation procedure. The rewrite dataset is constructed from English dialogue corpora using GPT-4.1-mini. Affective shifts captured in the residual stream may therefore partly reflect GPT-4.1-mini's stylistic regularities rather than the inherent affective geometry of \texttt{Llama-3.1-8B}. Disentangling the contribution of the generation model from the target model's internal representations would require a controlled study varying the rewrite model while holding the target model fixed.\par
+
+All experiments use a single model family (\texttt{Llama-3.1-8B-Instruct}). Whether the decomposition generalises to other architectures or model scales is untested.\par
+
+\subsection{Interpretation of Meta-Axis Labels}
+
+The labels assigned to $\mathbf{m}_1$--$\mathbf{m}_5$ (Table~\ref{tab:meta_axis_interpretations}) are post-hoc interpretations produced by prompting an LLM judge to characterise the contrast between pole-matched examples. Such labels may partly track surface regularities in the generated text (topic, register, phrasing) rather than latent affective structure, and should be treated as plausible characterisations rather than ground-truth annotations.\par
+
+\section{Critical Appraisal}
+\label{sec:eval-appraisal}
+
+The experiments provide substantial evidence for the proposed decomposition of affective steering directions, though the strength of that evidence varies across claims. This section distinguishes findings directly supported by the experiments from interpretations that warrant more caution.\par
+
+The strongest empirical claim is that emotion-related CAA directions contain a large shared component and a smaller emotion-specific residual. Several converging results support this. The raw CAA vectors are highly similar to one another, suggesting that much of the signal reflects a general shift from neutral to emotional language rather than encoding any single named emotion. After removing the shared direction $\mathbf{g}$, the residual vectors $\hat{\mathbf{r}}_e$ become more useful for distinguishing emotion categories and better reflect the expected relationships among Plutchik emotions. These residual directions are also causally active: injecting them during generation produces predictable target-emotion shifts. $\hat{\mathbf{r}}_e$ is therefore not merely a descriptive artefact but a functional steering direction.\par
+
+A second well-supported claim is that affective steering is not exhausted by choosing a discrete emotion label. Chapter~\ref{chap:development2_preverbal_vectors} shows that there is meaningful structure within each named emotion: the meta-axes $\mathbf{m}_1$ and $\mathbf{m}_2$ modulate the expressive texture of an emotion while largely preserving the emotion category. The human evaluation strengthens this point, as participants perceived the $\mathbf{m}_1$ shift as a difference in intensity and immediacy while still assigning the same intended emotion label in most cases. This suggests that the model encodes not only \emph{which} emotion is expressed but also \emph{how} it is expressed. The term \emph{pre-verbal} is used in a narrow technical sense: $\mathbf{m}_k$ is sub-label, not pre-linguistic --- the model has no phenomenal experience, and what is recovered is activation geometry that correlates with psychologically grounded affective dimensions.\par
+
+The use of LLM-as-judge evaluation requires caution. The automated judge enabled consistent evaluation across many generations and multiple steering strengths, and the human evaluation broadly supports the automated results, especially for the perceptibility of $\mathbf{m}_1$ and the increase in target-emotion intensity under prototype steering. However, the correlation between LLM-judge scores and human ratings is only moderate, and a clear discrepancy arises in the fear condition. The LLM judge is therefore a useful scalable proxy but not a complete substitute for human evaluation. The strongest claims in this thesis are accordingly those supported by both sources of evidence.\par
+
+The experimental design is deliberately controlled: greedy decoding, held-out source splits, fixed layers, and structured evaluation prompts reduce noise and isolate the causal effects of the vectors. This control is both a strength and a limitation. The experiments evaluate single-sentence rewriting from dialogue-like source utterances, and whether the same decomposition transfers to longer passages, multi-turn conversations, cross-lingual settings, or other genres remains to be established. The results should therefore be understood as evidence for a reliable mechanism within a constrained setting, not as proof of universal affective control.\par
+
+Overall, the experiments support a bounded claim: affective generation in the studied model can be decomposed into a shared emotionalisation direction, emotion-specific residual directions, and sub-label texture axes that modulate expressive character within an emotion category. These components are geometrically meaningful, causally active, and perceptible to human readers. Whether the same decomposition is stable across model families, scales, or training regimes is an open question that the single-model, single-layer design cannot address.\par

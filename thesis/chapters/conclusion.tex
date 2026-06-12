@@ -1,1 +1,40 @@
-\chapter{Conclusions and Future work}
+\chapter{Conclusions and Future Work}
+\label{chap:conclusion}
+
+\section{Summary of Contributions}
+
+This project set out to decompose the affective residual stream of an LLM into interpretable, independently controllable components. The two experiments together establish a two-level structure:
+\[
+\Delta_e = \alpha_R\,\hat{\mathbf{r}}_e + \sum_k \gamma_k\,\mathbf{m}_k,
+\]
+where $\hat{\mathbf{r}}_e$ selects the emotion prototype and $\mathbf{m}_k$ modulates expressive texture independently of emotion identity. This decomposition is the primary contribution of the project.
+
+The first experiment showed that raw CAA vectors conflate a shared emotionalisation component $\mathbf{g}$ with emotion-specific signal, and that projecting out $\mathbf{g}$ improves both classification accuracy and recovery of Plutchik's circular geometry. The second experiment showed that the within-emotion residual subspace is not flat: pooled PCA recovers stable shared axes that are causally active in generation yet leave the emotion category intact. Human evaluation corroborated both findings at perceptual scale.
+
+Our main contributions are: 
+\begin{enumerate}
+    \item a geometric decomposition of CAA vectors that separates a shared emotionalisation component from emotion-specific prototypes, improving classification and recovering Plutchik's circular structure;
+    \item a pooled PCA method for extracting stable meta-axes from within-emotion residuals, each causally active in generation without altering emotion category; and
+    \item a human evaluation confirming that both decomposition levels produce perceptually distinct affective texture shifts.
+\end{enumerate}
+
+\section{Conclusions}
+
+The central question motivating this work was whether affective texture in LLM outputs can be decomposed and controlled independently of emotion category. The answer, at least within the scope tested here, is yes. The decomposition is geometrically principled and empirically validated. Steering along $\hat{\mathbf{r}}_e$ shifts emotion intensity, while steering along $\mathbf{m}_k$ shifts expressive texture without substituting the emotion label.\par
+
+The meta-axes $\mathbf{m}_k$ are \emph{pre-verbal} in a narrow technical sense: they are orthogonal to named emotion prototypes and recoverable from two independent extraction methods. Whether they correspond to dimensions of pre-linguistic affective experience is an interpretive claim that the current evidence supports but does not establish definitively. The model has no phenomenal experience; what is recovered is activation geometry that correlates with psychologically grounded affective dimensions.\par
+
+Taken together, these results suggest that LLMs do not simply encode affect as a set of discrete labelled states. There is internal structure within each emotion that can be identified, measured, and manipulated, a finding with direct implications for affective computing applications and for mechanistic interpretability of emotional content in neural language models.
+
+\section{Future Work}
+\label{sec:future-work}
+
+Several directions follow directly from the limitations identified above.
+
+The most immediate improvement would be to supplement LLM-as-judge scores with a larger human rater study measuring inter-rater agreement on affective texture shifts produced by meta-axis steering. A study of this kind would establish whether the judge-rated shifts are perceptually real at a scale beyond the present $N = 18$ pilot. \par
+
+Additionally, extending the intervention to multiple layers simultaneously, or transferring the extracted vectors to different model scales, would test the robustness and generalisability of the decomposition. The failure of $\mathbf{m}_3$ to respond to single-layer steering motivates a systematic multi-layer ablation as a first step. \par
+
+Jackson et al.~\cite{jackson2019emotion} document substantial cross-cultural variation in emotion semantics. Testing whether the same affective geometry is recovered from multilingual corpora, and whether meta-axis steering produces consistent effects across languages, would directly address one of the core motivations stated in the Introduction~\ref{chap:introduction}.\par
+
+Beyond Plutchik's taxonomy, the same methods could be applied to alternative emotion models. Repeating the construction with a different emotion taxonomy (e.g.\ Russell's circumplex VAD dimensions, or a data-driven label set) would test whether the meta-axes $\mathbf{m}_k$ reflect stable affective structure in the model or are artefacts of the Plutchik taxonomy.\par

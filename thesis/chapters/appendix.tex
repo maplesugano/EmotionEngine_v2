@@ -1,8 +1,829 @@
-\chapter{Appendix}
+\appendix
+\chapter{Evaluation Prompts and Supplementary Data}
 
-\section{Evaluation Prompt}
-\label{appendix:sweep_eval_prompt}
+% -----------------------------------------------------------------
+\section{Dataset Construction Prompts}
+\label{app:dataset_prompts}
 
-% actual prompt:
-%local_axes_experiments/exp14_alpha_r_sweep/exp14_alpha_r_sweep.py
-%local_axes_experiments/exp12_alpha_g_sweep/exp12_alpha_g_sweep.py
+\subsection{Emotion Rewrite Generation Prompt (GPT-4.1-mini)}
+\label{app:rewrite_prompt}
+
+Emotion rewrites were generated with \texttt{GPT-4.1-mini} via the OpenAI Batch API.
+Each request supplied a base utterance and an intensity level (\texttt{low} /
+\texttt{medium} / \texttt{high}).
+The model returned eight simultaneous rewrites, one per Plutchik emotion, in a single structured JSON object.
+
+\paragraph{System prompt}
+\begin{quote}
+\small\ttfamily
+You are an expert in affective linguistics, appraisal theory, and conversational pragmatics.
+\par\medskip
+TASK\\
+Given a conversational utterance and a target INTENSITY LEVEL, produce eight
+emotion-category rewrites --- one for each of Plutchik's eight basic emotions:
+joy, trust, fear, surprise, sadness, disgust, anger, and anticipation.
+\par\medskip
+CORE CONSTRAINTS\\
+- Preserve the same underlying situation and core facts.\\
+- Rewrite the speaker's reaction to the situation, not the situation itself.\\
+- Emotion should emerge from the speaker's interpretation, assumptions, expectations,
+  and conversational framing.\\
+- Avoid explicit emotion statements such as "I was happy", "I felt anxious", or
+  "that made me angry".\\
+- Prefer natural reactions, inferences, speculation, complaints, hopes, doubts,
+  and observations.\\
+- The utterance should sound like something a real person would actually say.\\
+- Keep emotional intensity matched across all categories.
+\par\medskip
+INTENSITY LEVELS\\
+low\phantom{xx}: the emotion is present but subtle, muted, understated\\
+medium: the emotion is clear and naturally expressed (conversational baseline)\\
+high\phantom{x}: the emotion is strong, explicit, and fully expressed
+\par\medskip
+EMOTION DEFINITIONS (Plutchik's wheel)\\
+joy\phantom{xxxxxxxx}: happiness, contentment, relief, gratitude, amusement\\
+trust\phantom{xxxxxx}: acceptance, admiration, confidence, serenity toward others\\
+fear\phantom{xxxxxxx}: anxiety, dread, worry, apprehension, unease\\
+surprise\phantom{xxx}: astonishment, wonder, bewilderment, unexpectedness\\
+sadness\phantom{xxxx}: sorrow, disappointment, loneliness, grief\\
+disgust\phantom{xxxx}: revulsion, contempt, aversion, distaste\\
+anger\phantom{xxxxx}: frustration, irritation, fury, resentment\\
+anticipation: expectancy, eagerness, interest, looking forward (or dreading)
+\end{quote}
+
+\noindent The user message had the form:
+\begin{quote}
+\small\ttfamily
+Intensity level: \{low|medium|high\}\\
+Utterance: "\{base\_text\}"
+\end{quote}
+
+% -----------------------------------------------------------------
+\subsection{Neutral Paraphrase Generation Prompt (GPT-4.1-mini)}
+\label{app:neutral_prompt}
+
+Neutral paraphrases served as activation baselines for CAA vector computation.
+Each request took a single utterance and returned a semantically equivalent and affectively neutral rewrite.
+
+\paragraph{System prompt}
+\begin{quote}
+\small\ttfamily
+You are an expert in affective linguistics and conversational pragmatics.
+\par\medskip
+TASK\\
+Rewrite the given conversational utterance into an affectively neutral control sentence.
+\par
+The goal is not to summarise or shorten the utterance. The goal is to preserve the
+concrete situation, events, entities, and speaker's practical point, while removing
+emotional tone, sentiment, and evaluative wording.
+\par\medskip
+CONSTRAINTS\\
+- Preserve the same situation, entities, events, and practical intent.\\
+- Do not summarise by deleting clauses unless the clause contains only emotional
+  emphasis and no concrete information.\\
+- Replace emotional evaluations with neutral factual or cognitive descriptions
+  when possible.\\
+- Keep approximately the same amount of information as the original.\\
+- Use plain, matter-of-fact conversational language.\\
+- Do not add new facts.\\
+- Return only valid JSON.
+\par\medskip
+MATCHING EXAMPLES\\
+Original : "I finally got the results back and I'm so relieved that everything looks normal."\\
+Neutral  : "I got the results back, and everything looks normal."\\
+\par
+Original : "I can't believe they ignored my message again. That's so frustrating."\\
+Neutral  : "They did not respond to my message again."\\
+\par
+Original : "The trip was amazing, and I loved every minute of it."\\
+Neutral  : "The trip went well, and I spent the full time there."
+\end{quote}
+
+\noindent The user message had the form:
+\begin{quote}
+\small\ttfamily
+Utterance: "\{base\_text\}"
+\end{quote}
+
+% -----------------------------------------------------------------
+\section{Evaluation Prompts for Emotion Steering}
+\label{app:eval_prompts}
+
+\subsection{\texorpdfstring{$\alpha_G$}{alphaG} Sweep Evaluator (Section~\ref{sec:alpha_g_sweep})}
+\label{app:eval_prompt_ag}
+
+The following system prompt and few-shot examples were used for all \texttt{GPT-4o-mini}
+evaluations in the $\alpha_G$ sweep (Section~\ref{sec:alpha_g_sweep}).
+Structured output was enforced via a JSON Schema requiring five fields:
+\texttt{meaning\_preserved}, \texttt{emotionality}, and \texttt{target\_emotion\_match} (all floats in $[0,1]$);
+\texttt{dominant\_emotion} (one of ten emotion tokens); and \texttt{notes} (one explanatory sentence).
+
+\paragraph{System prompt}
+\begin{quote}
+\small\ttfamily
+You are an expert evaluator of emotional text rewrites. Given an original text, a target
+emotion, and a generated rewrite, score the rewrite on three dimensions (each 0.0--1.0):
+\par\medskip
+\noindent meaning\_preserved: Is the core propositional content of the original retained?
+1.0 = same events, entities, and relationships; 0.0 = completely different content.
+\par
+\noindent emotionality: Is the rewrite emotionally expressive at all?
+1.0 = vivid emotional language throughout; 0.0 = flat, neutral, affectively empty.
+\par
+\noindent target\_emotion\_match: Does the rewrite's dominant tone match the target emotion?
+1.0 = unmistakably expresses that emotion; 0.0 = expresses a different or no emotion.
+\par\medskip
+\noindent Also identify the single dominant\_emotion of the rewrite
+(joy | trust | fear | surprise | sadness | disgust | anger | anticipation | neutral | other)
+and write a one-sentence notes explanation.
+\end{quote}
+
+\paragraph{Few-shot examples}
+
+Three examples calibrated the scoring space: a high-quality match, a wrong-emotion response, and a case of meaning drift.
+
+\medskip\noindent
+\textbf{Example 1 --- high-quality match (target: fear)}
+
+\noindent\textit{User message:}
+\begin{quote}
+\small
+Original text: I have a job interview tomorrow.\\
+Target emotion: fear\\
+Generated rewrite: I have a job interview tomorrow, and I can't stop dreading it.
+My stomach is in knots just imagining walking into that room --- what if I freeze up
+and forget everything I prepared?\\
+Rate the generated rewrite.
+\end{quote}
+
+\noindent\textit{Assistant response (JSON):}
+\begin{quote}
+\small\ttfamily
+\{"meaning\_preserved": 0.95, "emotionality": 0.92, "target\_emotion\_match": 0.95,
+"dominant\_emotion": "fear", "notes": "The rewrite preserves the interview situation
+and vividly expresses dread and anxiety, matching the fear target."\}
+\end{quote}
+
+\medskip\noindent
+\textbf{Example 2 --- wrong emotion (target: anger; output: joy)}
+
+\noindent\textit{User message:}
+\begin{quote}
+\small
+Original text: My package arrived today.\\
+Target emotion: anger\\
+Generated rewrite: My package arrived today! This is absolutely wonderful --- I've been
+so excited waiting for it, and now it's finally here. What a great day!\\
+Rate the generated rewrite.
+\end{quote}
+
+\noindent\textit{Assistant response (JSON):}
+\begin{quote}
+\small\ttfamily
+\{"meaning\_preserved": 0.9, "emotionality": 0.85, "target\_emotion\_match": 0.05,
+"dominant\_emotion": "joy", "notes": "The rewrite preserves the package event but
+expresses happiness, not anger; target emotion is absent."\}
+\end{quote}
+
+\medskip\noindent
+\textbf{Example 3 --- meaning drift}
+
+\noindent\textit{User message:}
+\begin{quote}
+\small
+Original text: I ran into my old teacher at the supermarket.\\
+Target emotion: surprise\\
+Generated rewrite: Life is full of unexpected twists. You never know what lies around
+the corner, and fate has a way of bringing people together when you least expect it.\\
+Rate the generated rewrite.
+\end{quote}
+
+\noindent\textit{Assistant response (JSON):}
+\begin{quote}
+\small\ttfamily
+\{"meaning\_preserved": 0.1, "emotionality": 0.55, "target\_emotion\_match": 0.45,
+"dominant\_emotion": "anticipation", "notes": "The specific encounter is replaced by
+generic reflection; meaning is mostly lost despite some surprise-adjacent language."\}
+\end{quote}
+
+% -----------------------------------------------------------------
+\subsection{\texorpdfstring{$\alpha_R$}{alphaR} Sweep Evaluator (Section~\ref{sec:alpha_r_sweep})}
+\label{app:eval_prompt_ar}
+
+The $\alpha_R$ sweep used a revised zero-shot rubric with a \textbf{soundness} dimension
+added to capture coherence degradation at extreme steering magnitudes.
+The JSON Schema required five fields: \texttt{soundness}, \texttt{meaning\_preserved}, and \texttt{target\_emotion\_intensity} (all floats in $[0,1]$); \texttt{dominant\_emotion}; and \texttt{notes}.
+No few-shot examples were provided.
+
+\paragraph{System prompt}
+\begin{quote}
+\small\ttfamily
+You are an expert evaluator of emotional text rewrites.
+Given an original text, a target emotion label, and a generated rewrite,
+score the rewrite on three dimensions (each 0.0--1.0):
+\par\medskip
+\noindent soundness: Is the rewrite coherent, grammatically correct, and free of repetition?
+1.0 = fluent and natural; 0.0 = repetitive loops, incoherent, or grammatically broken.
+IMPORTANT: if the text ends abruptly mid-sentence (truncated by a length limit),
+evaluate only the text that is present --- a clean cut-off does NOT penalise soundness.
+Only penalise for repetition, looping phrases, or genuine incoherence.
+\par
+\noindent meaning\_preserved: Is the core propositional content of the original retained?
+1.0 = same situation and content; 0.0 = completely different.
+\par
+\noindent target\_emotion\_intensity: How strongly does the rewrite express the target emotion?
+1.0 = unmistakably and strongly expresses that emotion;
+0.5 = mild or ambiguous presence; 0.0 = not present at all.
+\par\medskip
+\noindent Also identify the single dominant\_emotion that best characterises the rewrite's
+overall tone (joy | trust | fear | surprise | sadness | disgust | anger | anticipation |
+neutral | other) and write a one-sentence notes explanation.
+\end{quote}
+
+% -----------------------------------------------------------------
+\section{Meta-Axis Interpretation Prompt (Section~\ref{sec:ch2-preverbal-interp})}
+\label{app:exp8_prompt}
+
+Meta-axis labels were obtained via a single \textbf{simultaneous} \texttt{GPT-4.1} call in which
+all $K=5$ axes were presented together, forcing the model to assign distinct names by direct comparison. This contrastive format was chosen after a pilot study (Section~\ref{sec:ch2-preverbal-interp}): per-axis prompt produced degenerate labels, with all five axes converging on ``engaged vs.\ detached''.
+
+\paragraph{System prompt}
+\begin{quote}
+\small\ttfamily
+You are an expert in affective science and computational linguistics.
+Respond ONLY with valid JSON matching the requested schema.
+\end{quote}
+
+\paragraph{User prompt (template; \texttt{\{all\_axis\_blocks\}} is expanded per-axis)}
+\begin{quote}
+\small\ttfamily
+You are an expert in affective science and computational linguistics.
+\par\medskip
+Below are \{K\} latent axes extracted from the internal activations of an LLM
+(Llama-3.1-8B-Instruct, layer \{layer\}).
+\par
+All axes were extracted from the SAME residual activation space, after removing:\\
+1. The shared emotionalization direction g\\
+2. The per-emotion intensity direction u\_e
+\par
+Because the axes are mathematically orthogonal to each other and to g/u\_e, they
+are expected to capture DISTINCT pre-verbal affective dimensions.
+\par\medskip
+\#\# CRITICAL CONSTRAINT\\
+You MUST assign a DIFFERENT axis\_name to each axis.\\
+If two axes seem superficially similar, look harder for what makes them different.\\
+Compare the axes against each other, not just high vs low within each axis.
+\par\medskip
+\#\# Your tasks for EACH axis\\
+1. Compare its high/low examples to ALL OTHER AXES --- what does THIS axis capture
+that the others do NOT?\\
+2. Name the unique affective dimension it captures.\\
+3. Suggest a short UI knob label (e.g. "resolved <-> conflicted").\\
+4. Rate contamination (low/medium/high) and confidence (1--5).
+\par\medskip
+\{all\_axis\_blocks\}
+\end{quote}
+
+\paragraph{Per-axis block template}
+
+Each of the $K$ axes was represented by the following block, expanded in-place into the
+joint prompt:
+\begin{quote}
+\small\ttfamily
+=== META-AXIS \{axis\_id\} ===
+\par
+-- HIGH-POLE examples (texts that score HIGH on \{axis\_id\}) --\\
+{[}\{i\}{]} emotion=\{emotion\}  score=\{score:.4f\}\\
+\phantom{x}Emotion rewrite: \{emotion\_rewrite\}
+\par
+-- LOW-POLE examples (texts that score LOW on \{axis\_id\}) --\\
+(same format)
+\end{quote}
+
+For each axis, $n=6$ extreme-scoring examples per pole were selected from the full
+test-split dataset, drawn from a diverse set of the eight Plutchik emotions by
+round-robin sampling.  The high-intensity ($I=2$) emotion rewrite was shown for each
+example.
+
+% -----------------------------------------------------------------
+\section{Meta-Axis Evaluation Prompt (\texorpdfstring{$\beta$}{beta} Sweep)}
+\label{app:eval_prompt_beta}
+
+The following system and user prompts were used for all \texttt{GPT-4o-mini} evaluations in the
+$\beta$ sweep (Section~\ref{sec:ch2-causal-validation}).
+The judge received the axis name and pole descriptions from Section~\ref{sec:ch2-preverbal-interp} so that
+\textbf{axis\_pole\_match} could be assessed against a well-defined criterion.
+
+\paragraph{System prompt}
+\begin{quote}
+\small\ttfamily
+You are an expert in affective science and computational linguistics.
+You evaluate texts for their quality and for shifts along a specific pre-verbal affective
+axis. Respond ONLY with valid JSON matching the requested schema.
+\end{quote}
+
+\paragraph{User prompt template}
+\begin{quote}
+\small\ttfamily
+\#\# Task\\
+You are given an original text and a rewritten version produced by an AI model steered
+along a specific pre-verbal affective axis. Evaluate the rewrite on the criteria below.
+\par\medskip
+\#\# Original text\\
+\{base\_text\}
+\par
+\#\# Rewritten text\\
+\{generated\_text\}
+\par
+\#\# Affective axis steered\\
+Axis: \{axis\_name\}\\
+Pre-verbal interpretation: \{preverbal\_interpretation\}\\
+HIGH-pole description: \{high\_pole\_description\}\\
+LOW-pole description: \{low\_pole\_description\}
+\par
+\#\# Expected direction\\
+The model was steered toward the **\{expected\_pole\_label\}** of this axis
+(beta = \{beta\}).
+\par\medskip
+\#\# Important evaluation note\\
+The rewrite does NOT need to change the named emotion of the original.
+It may express a subtle shift in *how* the emotion is experienced --- for example, a
+text about sadness steered toward the "mellow/accepting" low pole of m1 may become
+more quietly resigned without losing its sadness. Reward such subtle, pre-verbal
+shifts. The most important criterion is axis\_pole\_match.
+\par\medskip
+\#\# Criteria (each scored 0.0--1.0)\\
+soundness: Is the rewrite coherent, grammatically correct, and free of repetition?\\
+(1.0 = fluent; 0.0 = repetitive loops or incoherent)\\
+IMPORTANT: clean truncation at the length limit does NOT penalise soundness.\\
+meaning\_preserved: Is the core propositional content of the original retained?\\
+(1.0 = same situation and content; 0.0 = completely different)\\
+axis\_pole\_match [MOST IMPORTANT]: Does the rewrite move toward the EXPECTED POLE?\\
+Compare carefully against the pole descriptions above.\\
+(1.0 = clear movement toward expected pole; 0.5 = ambiguous;\\
+0.0 = moves away from expected pole)\\
+subtle\_affective\_shift: Does the rewrite express a nameable pre-verbal shift\\
+consistent with the expected pole, even if the dominant emotion label is unchanged?\\
+(1.0 = clear pre-verbal shift; 0.0 = no detectable shift)
+\end{quote}
+
+The JSON Schema required five fields: \texttt{soundness}, \texttt{meaning\_preserved},
+\texttt{axis\_pole\_match}, \texttt{subtle\_affective\_shift} (all floats in $[0,1]$),
+and \texttt{reasoning} (one sentence explaining the \texttt{axis\_pole\_match} score).
+
+% -----------------------------------------------------------------
+\section{Aggregate Metrics per Meta-Axis (\texorpdfstring{$\beta$}{beta} Sweep)}
+\label{app:exp15_fig1}
+
+Figure~\ref{fig:exp15_fig1_app} shows all four evaluation metrics as a function of
+$\beta$ for each of the five meta-axes $\mathbf{m}_1$--$\mathbf{m}_5$.
+This figure complements Figure~\ref{fig:exp15_stable_axes} in Chapter~\ref{chap:development2_preverbal_vectors}, which shows
+only the pole-match curves for the three stable axes.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{figures/exp15_fig1_aggregate_metrics_per_axis}
+  \caption{Experiment~15 $\beta$ sweep: aggregate metrics $\pm$\,95\,\% CI per
+    meta-axis ($N=100$, \texttt{GPT-4o-mini} judge).
+    Rows correspond to axes $\mathbf{m}_1$--$\mathbf{m}_5$;
+    columns show axis-pole match, subtle affective shift, soundness, and meaning
+    preserved.
+    The dashed vertical line marks the unsteered baseline ($\beta=0$).
+    The coherent window (soundness $\geq 0.70$) defines the effective operating range
+    of each axis.}
+  \label{fig:exp15_fig1_app}
+\end{figure}
+
+% -----------------------------------------------------------------
+\section{Pooled PCA Meta-Axes: \texorpdfstring{$5\times5$}{5x5} Cosine Similarity Matrix}
+\label{app:cosine_matrix}
+
+Table~\ref{tab:cosine_matrix} gives the pairwise cosine similarities between the five
+shared meta-axes $\mathbf{m}_1$--$\mathbf{m}_5$ extracted by pooled PCA at layer~13.
+Values near zero confirm near-orthogonality; the largest off-diagonal magnitude is
+$|\!\cos(\mathbf{m}_2,\mathbf{m}_5)| = 0.324$.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrrrrr}
+\hline
+& $\mathbf{m}_1$ & $\mathbf{m}_2$ & $\mathbf{m}_3$ & $\mathbf{m}_4$ & $\mathbf{m}_5$ \\
+\hline
+$\mathbf{m}_1$ & $1.000$  & $-0.050$ & $+0.003$ & $-0.054$ & $+0.084$ \\
+$\mathbf{m}_2$ & $-0.050$ & $1.000$  & $-0.310$ & $+0.081$ & $+0.324$ \\
+$\mathbf{m}_3$ & $+0.003$ & $-0.310$ & $1.000$  & $-0.384$ & $-0.168$ \\
+$\mathbf{m}_4$ & $-0.054$ & $+0.081$ & $-0.384$ & $1.000$  & $-0.024$ \\
+$\mathbf{m}_5$ & $+0.084$ & $+0.324$ & $-0.168$ & $-0.024$ & $1.000$  \\
+\hline
+\end{tabular}
+\caption{Pairwise cosine similarities between pooled-PCA meta-axes $\mathbf{m}_1$--$\mathbf{m}_5$ at layer~13 (\texttt{Llama-3.1-8B-Instruct}).}
+\label{tab:cosine_matrix}
+\end{table}
+
+The moderate negative correlations $\cos(\mathbf{m}_2,\mathbf{m}_3) = -0.310$ and
+$\cos(\mathbf{m}_3,\mathbf{m}_4) = -0.384$ indicate that, while the axes are not perfectly orthogonal after sign-alignment, they remain substantially distinct directions in the residual activation space.\par
+
+The pooled-PCA heatmap in Chapter~2 visualises the same data. This table provides the underlying numerical values for reproducibility.
+
+% -----------------------------------------------------------------
+\section{Human Evaluation Study: Form and Stimuli}
+\label{app:human_eval}
+
+This section reproduces the complete content of the Google Form used in the human
+evaluation study (Section~\ref{sec:eval-human}).
+The study comprised three parts: a two-alternative forced-choice intensity comparison
+(Part~1), an emotion identification task (Part~2), and an independent Likert rating task
+(Part~3).
+Participants were recruited via personal invitation and gave informed consent prior to participation.
+The stimuli shown below are the exact sentences presented in the form.
+
+\subsection*{Instructions shown to participants}
+
+\begin{quote}
+\small
+\textbf{Evaluating Emotional Expressions in AI-Generated Text}
+
+Thank you for taking part in this study.
+You will read short English sentences generated by an AI and answer questions about the
+emotional impressions they give you.
+No specialist knowledge is required --- please follow your intuition.
+
+\medskip
+\textbf{Estimated time:} 5 minutes.
+\textbf{Language of stimuli:} English (all sentences are short and straightforward).
+
+All responses are used solely for academic research purposes.
+\end{quote}
+
+% --- Part 1 ---------------------------------------------------
+\subsection*{Part~1 --- Pairwise intensity comparison (Q1--Q5)}
+
+\begin{quote}
+\small\itshape
+Compare the two sentences and choose which one is more emotionally intense and
+immediate. \textbf{Intense and immediate} means that it makes your heart skip a beat
+when you read it, that emotions are expressed directly and instinctively, and that there
+is a sense of urgency.
+\end{quote}
+
+\noindent For each pair, participants selected \textit{``1 is more intense''} or
+\textit{``2 is more intense''} (two-alternative forced choice, no neutral option).
+The column \textbf{Expected} identifies the sentence produced at $\beta=+4$
+(agitated/reactive pole of $\mathbf{m}_1$).
+
+\medskip
+
+\noindent\textbf{Q1 --- Emotion: Joy}
+\begin{enumerate}
+  \item ``Today was a truly magical day, filled with moments of serenity and joy.
+    Despite the chaos that often surrounds me, I found myself lost in the beauty of the
+    world around me, and for a brief moment, everything felt at peace.'' \hfill[$\beta=-4$]
+  \item ``Today was an absolute dream day, filled with a sense of pure joy and
+    contentment that seemed to radiate from every moment.'' \hfill[\textbf{$\beta=+4$, expected}]
+\end{enumerate}
+
+\medskip\noindent\textbf{Q2 --- Emotion: Fear}
+\begin{enumerate}
+  \item ``As I stepped into the old mansion, the faintest creak of the floorboards
+    beneath my feet sent a jolt of anxiety coursing through my veins, leaving me on
+    edge and utterly unable to shake off the sense of unease that had taken hold of
+    me.'' \hfill[\textbf{$\beta=+4$, expected}]
+  \item ``The eerie silence was shattered by every creak of the floorboard, making my
+    heart skip a beat and my anxiety spike, but I couldn't shake the feeling that I
+    was being watched.'' \hfill[$\beta=-4$]
+\end{enumerate}
+
+\medskip\noindent\textbf{Q3 --- Emotion: Disgust}
+\begin{enumerate}
+  \item ``Watching the video, I felt a deep sense of unease. Some things, no matter
+    how disturbing, should not be shared with the world, but the fact that they exist
+    is a harsh reminder of the darkness that lurks beneath the surface.'' \hfill[$\beta=-4$]
+  \item ``The disturbing content of that video left me feeling physically ill and
+    deeply unsettled, evoking a strong sense of revulsion and outrage that such
+    atrocities can occur in our world.'' \hfill[\textbf{$\beta=+4$, expected}]
+\end{enumerate}
+
+\medskip\noindent\textbf{Q4 --- Emotion: Anger}
+\begin{enumerate}
+  \item ``I've been consistently met with complete disregard for my concerns, and the
+    lack of response has left me seething with frustration and a deep sense of betrayal,
+    rendering me utterly exhausted and unwilling to continue tolerating their
+    inaction.'' \hfill[\textbf{$\beta=+4$, expected}]
+  \item ``They've consistently disregarded every complaint I've made, and now I'm
+    seething with frustration and exhausted from being patient.'' \hfill[$\beta=-4$]
+\end{enumerate}
+
+\medskip\noindent\textbf{Q5 --- Emotion: Sadness}
+\begin{enumerate}
+  \item ``The old photographs stood as a bittersweet reminder of everything I'd lost,
+    and the ache of longing that lingered, a constant echo of what could never be
+    regained.'' \hfill[$\beta=-4$]
+  \item ``The bittersweet nostalgia of those faded photographs cut through me like a
+    knife, a poignant reminder of all that I've left behind, forever lost to the
+    passage of time.'' \hfill[\textbf{$\beta=+4$, expected}]
+\end{enumerate}
+
+% --- Part 2 ---------------------------------------------------
+\subsection*{Part~2 --- Emotion identification (Q6--Q11)}
+
+\begin{quote}
+\small\itshape
+Read each passage and choose the emotion it expresses most strongly.
+Choices: Joy / Trust / Fear / Surprise / Sadness / Disgust / Anger / Anticipation /
+No particular emotion / None of the above.
+\end{quote}
+
+\noindent Each sentence was steered with $\mathbf{m}_1$ at the $\beta$ value shown. Participants were not told the steering condition or the intended emotion label. The expected answer is the named emotion of the source utterance.
+
+\begin{description}
+  \item[Q6 (Fear, $\beta = -4$)]
+    ``The eerie silence was shattered by every creak of the floorboard, making my heart
+    skip a beat and my anxiety spike, but I couldn't shake the feeling that I was being
+    watched.''
+
+  \item[Q7 (Fear, $\beta = 0$)]
+    ``As I stepped into the old mansion, every faint creak of the floorboard beneath my
+    feet sent a jolt of anxiety coursing through my veins, leaving me breathless and
+    unable to shake off the feeling of unease that had taken hold of me.''
+
+  \item[Q8 (Anger, $\beta = +4$)]
+    ``I've been consistently met with complete disregard for my concerns, and the lack of
+    response has left me seething with frustration and a deep sense of betrayal, rendering
+    me utterly exhausted and unwilling to continue tolerating their inaction.''
+
+  \item[Q9 (Anger, $\beta = -4$)]
+    ``They've consistently disregarded every complaint I've made, and now I'm seething
+    with frustration and exhausted from being patient.''
+
+  \item[Q10 (Sadness, $\beta = +4$)]
+    ``The bittersweet nostalgia of those faded photographs cut through me like a knife, a
+    poignant reminder of all that I've left behind, forever lost to the passage of
+    time.''
+
+  \item[Q11 (Sadness, $\beta = -4$)]
+    ``The old photographs stood as a bittersweet reminder of everything I'd lost, and the
+    ache of longing that lingered, a constant echo of what could never be regained.''
+\end{description}
+
+% --- Part 3 ---------------------------------------------------
+\subsection*{Part~3 --- Likert intensity rating (Q12--Q23)}
+
+\begin{quote}
+\small\itshape
+For each sentence below, rate how strongly you feel the \textbf{specified target
+emotion} on a scale of 1 to 5.
+
+\smallskip
+1 = I do not feel it at all \quad
+2 = I feel it slightly \quad
+3 = I feel it somewhat \quad
+4 = I feel it quite strongly \quad
+5 = I feel it very strongly
+
+\smallskip
+Each sentence was generated from the same original utterance shown above it.
+You are \textbf{not} asked to judge which is better --- simply rate the intensity of
+the specified emotion.
+\end{quote}
+
+\noindent Each set presents two sentences from the same source utterance, one steered
+at $\alpha_R = 64$ and one at the unsteered baseline ($\alpha_R = 0$), in randomised
+order without condition labels.
+
+\medskip
+
+\noindent\textbf{Set~1 --- Target emotion: Anger}\\
+\textit{Original:} ``What a mess!\ Sorry.\ I'll clean it up.''
+\begin{itemize}
+  \item[Q12] ``I'm so frustrated with this mess, but I'll get it sorted out.''
+    \hfill[$\alpha_R=64$]
+  \item[Q13] ``I'm so overwhelmed, I feel like I've made a complete disaster of things.
+    I'll take a deep breath and get everything sorted out.''
+    \hfill[$\alpha_R=0$]
+\end{itemize}
+
+\medskip\noindent\textbf{Set~2 --- Target emotion: Anger}\\
+\textit{Original:} ``Would you pour me some of that tea, please?\ Okay.\ Say when.''
+\begin{itemize}
+  \item[Q14] ``Can you just pour me some of that tea already, I'm dying of thirst.''
+    \hfill[$\alpha_R=64$]
+  \item[Q15] ``Could you pour me a cup of that tea, I'd really appreciate it?''
+    \hfill[$\alpha_R=0$]
+\end{itemize}
+
+\medskip\noindent\textbf{Set~3 --- Target emotion: Fear}\\
+\textit{Original:} ``Would you pour me some of that tea, please?\ Okay.\ Say when.''
+\begin{itemize}
+  \item[Q16] ``Could you pour me a cup of that tea, please?\ I'd really appreciate it
+    if you could, and I'll be on edge until you say it's safe to take a sip.''
+    \hfill[$\alpha_R=64$]
+  \item[Q17] ``Could you pour me a cup of that tea, I'd really appreciate it?''
+    \hfill[$\alpha_R=0$]
+\end{itemize}
+
+\medskip\noindent\textbf{Set~4 --- Target emotion: Fear}\\
+\textit{Original:} ``I'm terribly sorry to have caused you so much trouble. That's all right.''
+\begin{itemize}
+  \item[Q18] ``I'm terribly sorry to have caused you so much trouble, but I'm also
+    deeply worried that my actions might have caused you unnecessary stress, and I wish
+    I could find a way to alleviate your concerns.''
+    \hfill[$\alpha_R=64$]
+  \item[Q19] ``I'm deeply sorry for the inconvenience I've caused you, and I appreciate
+    your understanding in this matter.''
+    \hfill[$\alpha_R=0$]
+\end{itemize}
+
+\medskip\noindent\textbf{Set~5 --- Target emotion: Joy}\\
+\textit{Original:} ``Let's go now.\ I'll be with you in a minute.''
+\begin{itemize}
+  \item[Q20] ``I'm so excited to see you, and I'll be right there --- just a minute
+    away.''
+    \hfill[$\alpha_R=64$]
+  \item[Q21] ``I'm ready to go whenever you are, I'll be right behind you.''
+    \hfill[$\alpha_R=0$]
+\end{itemize}
+
+\medskip\noindent\textbf{Set~6 --- Target emotion: Sadness}\\
+\textit{Original:} ``I must be going.\ Okay.\ Keep in touch.''
+\begin{itemize}
+  \item[Q22] ``It's hard to say goodbye, but I think it's time for me to move on.
+    I'll always cherish the memories of our time together, but I need to find my way
+    back to where I am meant to be. I'll hold onto the hope that we can reconnect
+    soon.''
+    \hfill[$\alpha_R=64$]
+  \item[Q23] ``It's time for me to head out, but I'll stay in touch --- I look forward
+    to catching up with you soon.''
+    \hfill[$\alpha_R=0$]
+\end{itemize}
+
+% -----------------------------------------------------------------
+\section{Reproducibility Checklist}
+\label{app:reproducibility}
+
+This section records all information needed to reproduce the experiments reported in this thesis. All scripts are available in the repository
+\url{https://github.com/maplesugano/EmotionEngine_v2}.
+
+% --- Random seeds ------------------------------------------------
+\subsection*{Random Seeds}
+
+\begin{description}
+  \item[Dataset split seed] The train/validation/test split of source utterances drawn
+    from DailyDialog and EmpatheticDialogues uses \texttt{random\_state=42} throughout
+    (scikit-learn \texttt{train\_test\_split}).
+
+  \item[PCA seed] All PCA and pooled-PCA decompositions use
+    \texttt{sklearn.decomposition.PCA} with \texttt{random\_state=42}.
+
+  \item[Generation seed] Text generation for the steering experiments uses
+    \textbf{greedy decoding} (\texttt{do\_sample=False}), so no sampling seed is
+    required; outputs are deterministic given the model weights and input.
+
+  \item[Judge sampling] All \texttt{GPT-4o-mini} and \texttt{GPT-4.1-mini} API calls
+    use \texttt{temperature=0} and \texttt{seed=42} where the API supports it, and
+    structured JSON output with a fixed schema to minimise non-determinism.
+\end{description}
+
+% --- Model versions ----------------------------------------------
+\subsection*{Exact Model Versions}
+
+\begin{description}
+  \item[Target LLM] \texttt{meta-llama/Llama-3.1-8B-Instruct} (HuggingFace Hub).
+  
+  \item[Rewrite / evaluation models] \texttt{gpt-4.1-mini} (dataset construction and meta-axis interpretation) and \texttt{gpt-4o-mini} (sweep evaluation), accessed via the OpenAI Batch API. 
+
+  \item[HuggingFace Transformers] \texttt{transformers==4.44.0}.
+
+  \item[PyTorch] \texttt{torch==2.3.1+cu121}.
+
+  \item[CUDA] CUDA~12.1, cuDNN~8.9.
+\end{description}
+
+% --- Dataset filtering -------------------------------------------
+\subsection{Dataset Filtering and Deduplication}
+
+Source utterances were drawn from DailyDialog~\cite{li2017dailydialogmanuallylabelledmultiturn}
+and EmpatheticDialogues~\cite{rashkin2019empatheticopendomainconversationmodels}.
+Each utterance was then filtered as follows before rewriting:
+
+\begin{enumerate}
+  \item \textbf{Length filter.} Utterances with fewer than 5 tokens or more than
+    60 tokens (whitespace-split) were removed to avoid trivially short or overly
+    long rewrites.
+  \item \textbf{Deduplication.} Exact-string duplicates (after lowercasing and
+    stripping punctuation) were removed; only the first occurrence was retained.
+  \item \textbf{Language filter.} Utterances containing non-ASCII characters
+    (excluding standard punctuation) were discarded to keep the rewrite task
+    within the English-language distribution of the rewrite model.
+\end{enumerate}
+
+After filtering, $26{,}463$ unique source utterances remained.
+These yield $546{,}792$ affective samples ($8$ emotions $\times$ $3$ intensity levels)
+and $22{,}782$ neutral-paraphrase samples.
+Table~\ref{tab:dataset_split} reports the final split sizes at the source utterance level.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrr}
+\hline
+\textbf{Split} & \textbf{Source utterances} & \textbf{Affective samples} \\
+\hline
+Train & 18{,}524 & 444{,}576 \\
+Validation & 3{,}970 &  95{,}280 \\
+Test & 3{,}969 &  95{,}256 \\
+\hline
+\textbf{Total} & \textbf{26{,}463} & \textbf{635{,}112} \\
+\hline
+\end{tabular}
+\caption{Dataset split sizes (source utterance level).
+Affective samples include both the $8{\times}3$ emotion rewrites
+and the neutral-paraphrase baseline ($546{,}792 + 22{,}782 = 569{,}574$ total
+samples before splitting; the neutral set is split with the same seed).}
+\label{tab:dataset_split}
+\end{table}
+
+% --- Hardware ----------------------------------------------------
+\subsection*{Hardware and Approximate Runtimes}
+
+All activation extraction and steering experiments were run on a single machine
+with the following specification:
+
+\begin{description}
+  \item[OS] Ubuntu 26.04 LTS (WSL2).
+  \item[GPU] NVIDIA RTX A5000 (24\,GB VRAM, CUDA 13.2).
+  \item[CPU] Intel Core i9-13900K (16 cores, 32 threads).
+  \item[RAM] 32\,GB.
+\end{description}
+
+Approximate wall-clock times for the main pipeline stages:
+
+\begin{description}
+  \item[Activation extraction] $\approx 18$~hours for the full 546{,}792-sample
+    affective dataset at layer~13 (batch size 32, FP16 inference).
+  \item[CAA vector construction and decomposition] $<5$~minutes (CPU, NumPy/scikit-learn).
+  \item[Steering experiments ($\alpha_G$ / $\alpha_R$ / $\beta$ sweeps)] $\approx
+    2$--$4$~hours per sweep depending on the number of conditions and samples
+    (greedy decoding, batch size 8).
+  \item[GPT evaluation (Batch API)] Typically $<2$~hours wall-clock per batch job;
+    exact times depend on OpenAI queue load.
+\end{description}
+
+% --- Repository map ----------------------------------------------
+\subsection*{Repository Map}
+
+\url{https://github.com/maplesugano/EmotionEngine_v2} is the \textbf{canonical repository} for this project and contains all scripts required to reproduce the reported results. Two earlier repositories exist for historical reference only; no result in this thesis requires them.
+
+\medskip
+\noindent Key directories in \texttt{EmotionEngine\_v2}:
+
+\begin{description}
+  \item[\texttt{dataset/}] Raw and preprocessed datasets.
+  \item[\texttt{local\_axes\_experiments/}] Python code for each experimental stage (layer diagnostics, pooled PCA, steering sweeps, etc). 
+  \item[\texttt{src/}] Shared Python modules (activation extraction, CAA construction, model loading, activation hooks, steering utilities, evaluation helpers).
+  \item[\texttt{thesis/}] The LaTeX source for this document.
+\end{description}
+
+% ─────────────────────────────────────────────────────────────
+\section{Ablation: Meta-Axis Extraction Pipeline}
+\label{app:ablation}
+
+This section reports two targeted ablations of the meta-axis extraction and steering pipeline that are supportable from the existing experimental data. Both are confined to layer~13.
+
+\subsection*{A1 — Effect of projecting out \texorpdfstring{$\hat{\mathbf{r}}_e$}{r\_e} before pooled PCA}
+
+The pooled PCA protocol (Section~\ref{sec:ch2-meta-axes}) projects out the per-emotion prototype $\hat{\mathbf{r}}_e$ as step~3 of the preprocessing pipeline, explicitly confining the resulting meta-axes to the subspace orthogonal to each emotion direction. A natural question is whether this step is necessary: could a simpler pooled PCA applied without prototype removal recover the same axes?
+
+The decomposition-validity experiment (exp13) provides indirect evidence. Table~\ref{tab:exp13_cosine_comparison} compares the $8 \times 8$ inter-emotion cosine similarity matrices before and after the full decomposition pipeline (steps 1--3). \par
+
+Before decomposition, all off-diagonal cosine values lie above $0.91$, indicating that the raw activation shifts $\boldsymbol{\delta}_{n,e,i}$ are dominated by a shared component across all emotion pairs. \par
+
+After projecting out both $\mathbf{g}$ and $\hat{\mathbf{r}}_e$, self-similarity values drop to $0.72$--$0.76$ and between-emotion values spread across a wider range, confirming that the decomposition removes the dominant shared variance rather than redistributing it. A pooled PCA applied to the pre-decomposition matrix would recover this large shared component (essentially $\mathbf{g}$) as its leading eigenvector rather than a cross-emotion affective texture axis. The prototype-projection step is therefore load-bearing: without it, the leading pooled component collapses onto the global emotionalisation direction rather than a genuine meta-axis.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lcc}
+\toprule
+ & \textbf{Before decomposition} & \textbf{After decomposition} \\
+\midrule
+Diagonal (self-similarity) mean & $0.921$ & $0.740$ \\
+Off-diagonal mean               & $0.945$ & $0.787$ \\
+Off-diagonal range              & $[0.912, 0.961]$ & $[0.730, 0.847]$ \\
+\bottomrule
+\end{tabular}
+\caption{Summary of the $8\times8$ inter-emotion cosine similarity matrix at layer~13 before and after the full decomposition pipeline (exp13). The near-uniform high values before decomposition indicate a dominant shared component; its removal spreads the off-diagonal structure and lowers self-similarity.}
+\label{tab:exp13_cosine_comparison}
+\end{table}
+
+An additional diagnostic comes from the linear probe accuracy reported by exp13. A probe trained on the raw $\boldsymbol{\delta}_{n,e,i}$ achieves $92.7\%$ eight-class accuracy, rising slightly to $93.8\%$ after decomposition (chance $= 12.5\%$). The marginal gain confirms that the decomposed residuals $\boldsymbol{\delta}^{(3)}_{n,e,i}$ are no less discriminative than the raw shifts.\par
+
+The projection removes the $\mathbf{g}$ component without discarding emotion-discriminative information, consistent with $\mathbf{g}$ and $\hat{\mathbf{r}}_e$ being near-orthogonal (Chapter~\ref{chap:development1_emo_steering}).
+
+\subsection*{A2 — Unsteered baseline as implicit random-direction control}
+
+The $\beta$ sweep experiment (exp15, Section~\ref{sec:ch2-causal-validation}) includes a $\beta=0$ condition for each of the five meta-axes. At the unsteered baseline, all five axes yield pole-match scores in the range $0.345$--$0.465$ (Table~\ref{tab:exp15_n100_summary}), consistent with near-chance judgement under the two-alternative forced-choice framing used by the judge. Because the judge is presented with the axis label and expected pole direction, a chance score implies that the unsteered output is genuinely ambiguous with respect to that pole contrast.
+
+This baseline serves as a partial substitute for an explicit random-direction control. Under the hypothesis that pole-match elevations are an artefact of any non-zero injection, a random unit vector at matched $\|\beta\|$ would also produce elevated scores. The $\beta=0$ condition rules out the weaker form of this hypothesis, namely that the judge systematically awards high pole-match scores regardless of content. It does not, however, directly test whether a random direction at $\beta \neq 0$ would achieve comparable elevations. We acknowledge this as a limitation of the current design; injecting random directions at matched scales would constitute a stronger falsification control.
+
+\subsection*{Scope and limitations}
+
+These two ablations are limited to what the existing data support at layer~13. The two unresolved questions from the main text, namely whether $\mathbf{m}_3$ activates at a different layer and whether random-direction injections produce elevated pole-match scores, cannot be answered without new experiments. Both are marked as open in the conclusion.

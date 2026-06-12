@@ -26,18 +26,20 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-Language inevitably compresses and simplifies human emotion, causing subtle affective nuances to be lost in verbal expression. Although large language models (LLMs) can recognise and generate emotional language, most existing methods rely on discrete emotion labels or token-level control, which limits fine-grained and intuitive affective manipulation.
+Verbalisation is a lossy compression of emotional experience. Natural language forces continuous affective states into discrete lexical categories, collapsing the subtle blends and gradations that precede and motivate linguistic output. This work investigates whether large language models encode a richer pre-verbal emotion representation in their internal activations, separable from surface lexical content, and whether that representation can be geometrically decomposed and causally manipulated.\par
 
-This project proposes an Emotion Engine that represents emotion as a continuous latent vector, rather than explicit linguistic categories. Given an input text, the system extracts its underlying emotional state as a low-dimensional emotion vector, which composes multiple overlapping affective directions. Users can directly adjust intensities of those vectors before regenerating text, that reflects the edited emotional state. Importantly, this operation is performed prior to language generation, bypassing the lossy compression inherent in verbalisation.
+We propose a two-level decomposition of affective structure in the residual stream of Llama-3.1-8B-Instruct. At the first level, CAA vectors computed for eight Plutchik emotions are dominated by a shared emotionalisation direction $\mathbf{g}$. Projecting out $\mathbf{g}$ yields emotion-specific residual prototypes $\hat{\mathbf{r}}_e$ that recover Plutchik's circular geometry. At the second level, within-emotion residuals are decomposed via pooled PCA into affective texture axes $\mathbf{m}_k$, which modulate arousal, temporal orientation, and social engagement independently of emotion identity. Two independent extraction methods converge at cosine similarities of $\geq 0.931$, ruling out methodological artefact. The full steering formula is $\Delta_e = \alpha_R \hat{\mathbf{r}}_e + \sum_k \gamma_k \mathbf{m}_k$.\par
 
-By leveraging recent advances in latent-space reasoning and internal activation steering in LLMs, the Emotion Engine enables controllable, pre-verbal emotion editing within a text-to-text pipeline. Human communication is always mediated by media. This project can affect all communication in the sense that it deals with feelings evoked by the media. Recent creative act with LLM prompt engineering may in fact be a role reversal, since creativity should serve before the verbalisation. By making it possible to edit the feelings that were really wanted to be conveyed, this project could bring about a more precise communication that society has never seen before.
-
+A human evaluation ($N = 18$) confirms both levels are perceptually distinguishable: $84.4\%$ of forced-choice judgements correctly identified the predicted arousal pole of $\mathbf{m}_1$ ($p < 0.001$), emotion categories were preserved in $91.7\%$ of steered outputs, and prototype steering raised Likert ratings by $+1.97$ points on average. Together, these findings show that affective generation decomposes into geometrically meaningful, causally active components that are perceptible to human readers.\par
 \end{abstract}
 
 \cleardoublepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgments}
-Comment this out if not needed.
+
+I would like to express my sincere gratitude to Professor William Knottenbelt, who has supported me since my Year 3 group project and kindly offered to support me in any way when I first proposed my own project idea. I am also grateful to Professor Ben Glocker, my second marker, for his valuable and constructive feedback after the interim report, which helped me reflect on and improve the direction of this work.\par
+
+I would also like to thank all of my friends who took part in the human evaluation. In particular, thanks to Ryota, Vlad, Ray and Yurika for reading my report, encouraging me by telling me that the idea was exciting, and patiently helping me correct my English grammar many times!\par
 
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
@@ -50,8 +52,9 @@ Comment this out if not needed.
 \clearpage{\pagestyle{empty}\cleardoublepage}
 \pagenumbering{arabic}
 \setcounter{page}{1}
-\fancyhead[LE,RO]{\slshape \rightmark}
-\fancyhead[LO,RE]{\slshape \leftmark}
+\fancyhead[RO]{\small\parbox[t]{0.75\textwidth}{\raggedleft\textsl{\rightmark}}}
+\fancyhead[LE]{\small\parbox[t]{0.75\textwidth}{\raggedright\textsl{\leftmark}}}
+\fancyhead[LO,RE]{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{chapters/introduction}
@@ -62,7 +65,9 @@ Comment this out if not needed.
 \input{chapters/conclusion}
 
 %% bibliography
-\bibliography{main}
-\bibliographystyle{unsrt}
+\printbibliography
+
+\input{chapters/declarations}
+\input{chapters/appendix}
 
 \end{document}
