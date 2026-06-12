@@ -441,6 +441,22 @@
       \verb https://arxiv.org/abs/2503.23547
       \endverb
     \endentry
+    \entry{PAD}{misc}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{title}{PAD emotional state model}
+      \field{urlday}{20}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/wiki/PAD_emotional_state_model#/media/File:PAD_emotional_state_model_Page_1.png
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/PAD_emotional_state_model#/media/File:PAD_emotional_state_model_Page_1.png
+      \endverb
+    \endentry
     \entry{buechel2021labelagnosticemotionembeddings}{misc}{}{}
       \name{author}{3}{}{%
         {{hash=cf2dcd609fa859ac722c3916885ceeba}{%
@@ -572,55 +588,52 @@
       \verb https://arxiv.org/abs/1908.07817
       \endverb
     \endentry
-    \entry{brochier2019global}{inproceedings}{}{}
+    \entry{pennington2014glove}{inproceedings}{}{}
       \name{author}{3}{}{%
-        {{hash=859dc9dc78698366ad92e393d8a64703}{%
-           family={Brochier},
-           familyi={B\bibinitperiod},
-           given={Robin},
-           giveni={R\bibinitperiod}}}%
-        {{hash=8e1956443c33bc4b36b068ade7f1955b}{%
-           family={Guille},
-           familyi={G\bibinitperiod},
-           given={Adrien},
-           giveni={A\bibinitperiod}}}%
-        {{hash=da609e4f17bfd3290dd313d33bad1d76}{%
-           family={Velcin},
-           familyi={V\bibinitperiod},
-           given={Julien},
+        {{hash=ab47b497d1b0cdaddd8594e4bd501ee5}{%
+           family={Pennington},
+           familyi={P\bibinitperiod},
+           given={Jeffrey},
            giveni={J\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {San Francisco, CA, USA}%
+        {{hash=d5670b2600fea169724521e252d9d09d}{%
+           family={Socher},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=2214edb8305f7ccd7cdc310b3a8ae1b4}{%
+           family={Manning},
+           familyi={M\bibinitperiod},
+           given={Christopher\bibnamedelima D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {ACM}%
+        {Association for Computational Linguistics}%
       }
-      \strng{namehash}{28273fa0142c7a54602a56badfe3c44f}
-      \strng{fullhash}{28273fa0142c7a54602a56badfe3c44f}
-      \strng{fullhashraw}{28273fa0142c7a54602a56badfe3c44f}
-      \strng{bibnamehash}{28273fa0142c7a54602a56badfe3c44f}
-      \strng{authorbibnamehash}{28273fa0142c7a54602a56badfe3c44f}
-      \strng{authornamehash}{28273fa0142c7a54602a56badfe3c44f}
-      \strng{authorfullhash}{28273fa0142c7a54602a56badfe3c44f}
-      \strng{authorfullhashraw}{28273fa0142c7a54602a56badfe3c44f}
+      \strng{namehash}{077003808bf2e10b988df0fc99931a19}
+      \strng{fullhash}{077003808bf2e10b988df0fc99931a19}
+      \strng{fullhashraw}{077003808bf2e10b988df0fc99931a19}
+      \strng{bibnamehash}{077003808bf2e10b988df0fc99931a19}
+      \strng{authorbibnamehash}{077003808bf2e10b988df0fc99931a19}
+      \strng{authornamehash}{077003808bf2e10b988df0fc99931a19}
+      \strng{authorfullhash}{077003808bf2e10b988df0fc99931a19}
+      \strng{authorfullhashraw}{077003808bf2e10b988df0fc99931a19}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the 2019 World Wide Web Conference (WWW '19)}
-      \field{title}{Global Vectors for Node Representations}
-      \field{year}{2019}
-      \field{pages}{2587\bibrangedash 2593}
-      \range{pages}{7}
+      \field{booktitle}{Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)}
+      \field{title}{{GloVe}: Global Vectors for Word Representation}
+      \field{year}{2014}
+      \field{pages}{1532\bibrangedash 1543}
+      \range{pages}{12}
       \verb{doi}
-      \verb 10.1145/3308558.3313595
+      \verb 10.3115/v1/D14-1162
       \endverb
       \verb{urlraw}
-      \verb https://doi.org/10.1145/3308558.3313595
+      \verb https://aclanthology.org/D14-1162
       \endverb
       \verb{url}
-      \verb https://doi.org/10.1145/3308558.3313595
+      \verb https://aclanthology.org/D14-1162
       \endverb
     \endentry
     \entry{plutchik1980emotion}{incollection}{}{}
@@ -2065,45 +2078,45 @@
       \verb https://arxiv.org/abs/2310.13548
       \endverb
     \endentry
-    \entry{ward1963hierarchical}{article}{}{}
+    \entry{pearson1901pca}{article}{}{}
       \name{author}{1}{}{%
-        {{hash=b69905bbd81f63432b7a103a7f5907f7}{%
-           family={Ward\bibnamedelima Jr},
-           familyi={W\bibinitperiod\bibinitdelim J\bibinitperiod},
-           given={Joe\bibnamedelima H},
-           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=b69135425e9c9d6adc927b94c33421d4}{%
+           family={Pearson},
+           familyi={P\bibinitperiod},
+           given={Karl},
+           giveni={K\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Taylor \& Francis}%
       }
-      \strng{namehash}{b69905bbd81f63432b7a103a7f5907f7}
-      \strng{fullhash}{b69905bbd81f63432b7a103a7f5907f7}
-      \strng{fullhashraw}{b69905bbd81f63432b7a103a7f5907f7}
-      \strng{bibnamehash}{b69905bbd81f63432b7a103a7f5907f7}
-      \strng{authorbibnamehash}{b69905bbd81f63432b7a103a7f5907f7}
-      \strng{authornamehash}{b69905bbd81f63432b7a103a7f5907f7}
-      \strng{authorfullhash}{b69905bbd81f63432b7a103a7f5907f7}
-      \strng{authorfullhashraw}{b69905bbd81f63432b7a103a7f5907f7}
+      \strng{namehash}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{fullhash}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{fullhashraw}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{bibnamehash}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{authorbibnamehash}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{authornamehash}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{authorfullhash}{b69135425e9c9d6adc927b94c33421d4}
+      \strng{authorfullhashraw}{b69135425e9c9d6adc927b94c33421d4}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of the American Statistical Association}
-      \field{number}{301}
-      \field{title}{Hierarchical grouping to optimize an objective function}
-      \field{urlday}{10}
+      \field{journaltitle}{The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science}
+      \field{number}{11}
+      \field{title}{On lines and planes of closest fit to systems of points in space}
+      \field{urlday}{12}
       \field{urlmonth}{6}
       \field{urlyear}{2026}
-      \field{volume}{58}
-      \field{year}{1963}
+      \field{volume}{2}
+      \field{year}{1901}
       \field{urldateera}{ce}
-      \field{pages}{236\bibrangedash 244}
-      \range{pages}{9}
+      \field{pages}{559\bibrangedash 572}
+      \range{pages}{14}
       \verb{urlraw}
-      \verb https://www.jstor.org/stable/2282967
+      \verb https://doi.org/10.1080/14786440109462720
       \endverb
       \verb{url}
-      \verb https://www.jstor.org/stable/2282967
+      \verb https://doi.org/10.1080/14786440109462720
       \endverb
     \endentry
     \entry{russell1980circumplex}{article}{}{}
@@ -2447,7 +2460,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{PAD}
 \endrefsection
 \endinput
 
