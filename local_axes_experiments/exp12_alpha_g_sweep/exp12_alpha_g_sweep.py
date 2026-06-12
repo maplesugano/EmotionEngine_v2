@@ -602,7 +602,7 @@ def plot() -> None:
     ]
     fig1, axes = plt.subplots(1, 3, figsize=(13, 4), sharey=False)
     fig1.suptitle(
-        "Exp 12 — α_G sweep (α_R = 5.0 fixed)\nAggregate metrics ± 95 % CI",
+        f"Exp 12 — α_G sweep (α_R = {ALPHA_R} fixed)\nAggregate metrics ± 95 % CI",
         fontsize=11, y=1.02,
     )
     for ax, (key, label, colour) in zip(axes, metric_specs):
@@ -642,7 +642,7 @@ def plot() -> None:
     ax2.set_xlabel("α_G", fontsize=10)
     ax2.set_ylabel("Target-emotion match", fontsize=10)
     ax2.set_title(
-        "Exp 12 — Per-emotion target_match ± 95 % CI\n(α_R = 5.0 fixed)",
+        f"Exp 12 — Per-emotion target_match ± 95 % CI\n(α_R = {ALPHA_R} fixed)",
         fontsize=11,
     )
     ax2.xaxis.set_major_locator(mticker.FixedLocator(alpha_g_vals))

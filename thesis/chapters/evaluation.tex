@@ -40,7 +40,7 @@ Participants are presented with pairs of sentences generated from the same sourc
 \textbf{Q} & \textbf{Emotion} & \textbf{Expected} & \textbf{Correct} & \textbf{Proportion} & \textbf{$p$-value} \\
  & & \textbf{Direction} & \textbf{($N=18$)} & & \textbf{(binomial)} \\
 \midrule
-Q1 & Joy     & Sentence~1 & 14 & 0.778 & $0.031^{*}$ \\
+Q1 & Joy     & Sentence~2 & 14 & 0.778 & $0.031^{*}$ \\
 Q2 & Fear    & Sentence~1 & 14 & 0.778 & $0.031^{*}$ \\
 Q3 & Disgust & Sentence~2 & 14 & 0.778 & $0.031^{*}$ \\
 Q4 & Anger   & Sentence~1 & 17 & 0.944 & $<0.001^{***}$ \\
@@ -128,7 +128,7 @@ Sadness set 1 & Sadness & 4.39 (0.50) & 2.06 (0.42) & $+2.33$ & $14.43^{***}$ \\
 
 We find that the steered sentence receives a higher mean rating than the baseline in every pair (Table~\ref{tab:human_eval_p3}), with an overall mean difference of $\Delta = +1.97$ points. Paired $t$-tests confirm the effect is highly significant for each individual pair ($t(17) \geq 6.52$, $p < 0.001$ in all cases).\par
 
-The Spearman correlation between LLM-judge \texttt{target\_emotion\_intensity} scores and human mean ratings, computed across 12 conditions (six pairs $\times$ two $\alpha_R$ levels), is $\rho = 0.643$, indicating moderate positive agreement. The main discrepancy arises in Fear set~2 at $\alpha_R = 64$: the LLM judge assigns a score of $0.00$ while humans rate the same sentence at $4.00$, suggesting the automated evaluator underestimates fear intensity in certain surface constructions. These results broadly support LLM-as-judge evaluation as a proxy for human perception, though the correspondence is imperfect and human calibration remains important.\par
+The Spearman correlation between LLM-judge \texttt{target\_emotion\_intensity} scores and human mean ratings, computed across 12 conditions (six pairs $\times$ two $\alpha_R$ levels), is $\rho = 0.643$, indicating moderate positive agreement. The main discrepancy arises in Fear set~2 at $\alpha_R = 64$: the LLM judge assigns a score of $0.00$ while humans rate the same sentence at $3.89$, suggesting the automated evaluator underestimates fear intensity in certain surface constructions. These results broadly support LLM-as-judge evaluation as a proxy for human perception, though the correspondence is imperfect and human calibration remains important.\par
 
 Together, these three tasks show that the proposed steering directions correspond to affective differences that human readers can reliably perceive, corroborating the automated evaluation results and partially addressing the LLM-as-a-judge limitation identified in Section~\ref{sec:eval-limitations}.
 

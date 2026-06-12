@@ -1,0 +1,73 @@
+\documentclass[12pt,twoside]{report}
+
+% some definitions for the title page
+\newcommand{\reporttitle}{The Emotion Engine}
+\newcommand{\reportauthor}{Kaede Sugano}
+\newcommand{\supervisor}{William Knottenbelt}
+\newcommand{\reporttype}{Undergraduate Individual Project}
+\newcommand{\degreetype}{MEng} 
+
+% load some definitions and default packages
+\input{includes}
+
+% load some macros
+\input{notation}
+
+% load title page
+\begin{document}
+\input{titlepage}
+
+
+% page numbering etc.
+\pagenumbering{roman}
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\setcounter{page}{1}
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+言語化とは、感情的経験の非可逆的な圧縮である。自然言語は連続的な感情状態を離散的な語彙カテゴリへと強制的に変換し、言語出力に先立ちそれを動機づける微細な感情の混合や段階的変化を消失させる。本研究は、大規模言語モデル（LLM）が内部の活性化表現において、表層的な語彙内容から分離可能な、より豊かな前言語的感情表現をエンコードしているかどうか、またその表現が幾何学的に分解され因果的に操作できるかどうかを探求するものである。\par
+
+本研究では、Llama-3.1-8B-Instructの残差ストリーム（residual stream）における感情的構造の二段階分解を提案する。第一段階では、Plutchikの8感情について計算されたCAAベクトルが、共有の感情化方向（emotionalisation direction）$\mathbf{g}$に支配されていることを示す。$\mathbf{g}$を射影除去することで、Plutchikの円形幾何学を復元する感情固有の残差プロトタイプ$\hat{\mathbf{r}}_e$が得られる。第二段階では、感情内残差をプールドPCAによって感情的テクスチャ軸（affective texture axes）$\mathbf{m}_k$へと分解する。これらの軸は、感情アイデンティティとは独立して、覚醒度（arousal）、時間的方向性、社会的方向性を捉える。二つの独立した抽出手法はコサイン類似度$\geq 0.931$で収束し、方法論的人工産物の可能性を排除する。完全なステアリング式は$\Delta_e = \alpha_R \hat{\mathbf{r}}_e + \sum_k \gamma_k \mathbf{m}_k$である。\par
+
+人間評価（$N = 18$）により、両段階が知覚的に区別可能であることが確認された。強制選択判断の$84.4\%$が$\mathbf{m}_1$の予測された覚醒極を正しく識別し（$p < 0.001$）、感情カテゴリはステアリング済み出力の$91.7\%$において保持され、プロトタイプ・ステアリングはリッカート評価を平均$+1.97$ポイント向上させた。因果的ステアリングにより、$\mathbf{m}_1$（覚醒度）および$\mathbf{m}_2$（時間的方向性）が信頼性高く活性化されることが確認された。$\mathbf{m}_3$（社会的方向性）は幾何学的に安定しているが、第13層では信頼性高くステアリングすることができなかった。これらの知見は総じて、感情的生成が人間の読者に知覚可能な幾何学的に意味のある成分へと分解されることを示している。\par
+\end{abstract}
+
+\cleardoublepage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{謝辞}
+
+3年次のグループプロジェクト以来ご支援いただき、私が初めて独自のプロジェクトを提案した際にもあらゆる面でサポートしてくださると快く申し出てくださったWilliam Knottenbelt教授に、心より感謝申し上げます。また、第二採点者として中間報告書に対して貴重かつ建設的なフィードバックをくださり、本研究の方向性を見直し改善するきっかけを与えてくださったBen Glocker教授にも深く感謝しています。\par
+
+また、人間評価にご参加いただいたすべての友人たち：特に、Ryota、Vlad、Ray、そしてYurikaへ。本論文を読んでくれたこと、アイデアが面白いと励ましてくれたこと、そして英語の文法を何度も辛抱強く直してくれたこと、本当にありがとう。\par
+
+\clearpage{\pagestyle{empty}\cleardoublepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--- table of contents
+\fancyhead[RE,LO]{\sffamily {目次}}
+\tableofcontents
+
+
+\clearpage{\pagestyle{empty}\cleardoublepage}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\fancyhead[RO]{\small\parbox[t]{0.75\textwidth}{\raggedleft\textsl{\rightmark}}}
+\fancyhead[LE]{\small\parbox[t]{0.75\textwidth}{\raggedright\textsl{\leftmark}}}
+\fancyhead[LO,RE]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/introduction}
+\input{chapters/background}
+\input{chapters/development1_emo_steering}
+\input{chapters/development2_preverbal_vectors}
+\input{chapters/evaluation}
+\input{chapters/conclusion}
+
+%% bibliography
+\printbibliography
+
+\input{chapters/declarations}
+\input{chapters/appendix}
+
+\end{document}

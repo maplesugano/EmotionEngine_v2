@@ -1,0 +1,16 @@
+flowchart LR
+    A["h^emo_{n,e}"] --> C["δ_{n,e}"]
+    B["h^neu_n"] --> C
+
+    C --> D["remove g<br/>δ^{g⊥}_{n,e}"]
+    D --> E["PCA-64"]
+    E --> F["linear probe"]
+    F --> G["emotion label e"]
+
+    style A fill:#fce4ec,stroke:#c97a95,stroke-width:1.5px,color:#333
+    style B fill:#e8f1fb,stroke:#7da2c7,stroke-width:1.5px,color:#333
+    style C fill:#fff8dc,stroke:#cdbb6a,stroke-width:1.5px,color:#333
+    style D fill:#efe7fb,stroke:#9a86c8,stroke-width:1.5px,color:#333
+    style E fill:#e8f8f0,stroke:#79b79a,stroke-width:1.5px,color:#333
+    style F fill:#fff0e3,stroke:#d2a06d,stroke-width:1.5px,color:#333
+    style G fill:#f7e8fb,stroke:#b483c7,stroke-width:1.5px,color:#333

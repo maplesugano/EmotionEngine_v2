@@ -76,23 +76,28 @@ frontend/dist/
 frontend/.vite/
 
 # ── LaTeX auxiliary files ─────────────────────────────────────────────────────
-thesis/*.aux
-thesis/*.bbl
-thesis/*.blg
-thesis/*.brf
-thesis/*.fdb_latexmk
-thesis/*.fls
-thesis/*.out
-thesis/*.toc
-thesis/*.lof
-thesis/*.lot
-thesis/*.synctex.gz
-thesis/*.synctex(busy)
-thesis/*.nav
-thesis/*.snm
-thesis/*.vrb
-thesis/_minted*/
-thesis/main.pdf
+**/*.aux
+**/*.bbl
+**/*.blg
+**/*.brf
+**/*.fdb_latexmk
+**/*.fls
+**/*.out
+**/*.toc
+**/*.lof
+**/*.lot
+**/*.synctex.gz
+**/*.synctex(busy)
+**/*.nav
+**/*.snm
+**/*.bcf
+**/*.run.xml
+**/.chktexrc
+**/.latexmkrc
+**/*.toc
+**/*.vrb
+**/_minted*/
+**/main.pdf
 
 # ── Claude  ─────────────────────────────────────────────────────
 .claude_cache/

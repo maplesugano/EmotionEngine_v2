@@ -33,11 +33,11 @@ This chapter is organised as follows.
 
 Chapter~\ref{chap:development1_emo_steering} established that $\hat{\mathbf{r}}_e$ is a valid emotion-specific signal. After residualising the shared emotionalisation component $\mathbf{g}$, the eight residual directions recover a Plutchik-like geometry (adjacent~--~opposite cosine gap growing from $0.010$ to $0.041$), and a linear probe achieves $93.8\%$ eight-class accuracy (Section~\ref{sec:decomposition_validity}).\par
 
-However, $\hat{\mathbf{r}}_e$ is the mean of many individual per-source residual shifts $\boldsymbol{\delta}^{g\perp}_{n,e,i}$ for the same emotion. These shifts may cluster tightly around the mean direction or spread across several distinct directions. This section examines the shape of that within-emotion distribution, asking whether each named emotion is well described by a single prototype direction or whether it occupies a broader, multi-dimensional region in residual space.\par
+However, $\hat{\mathbf{r}}_e$ is the mean of many individual per-source residual shifts $\boldsymbol{\delta}^{g\perp}_{n,e,i}$ for the same emotion. These shifts may cluster tightly around the mean direction or spread across several distinct directions. This section examines the shape of that within-emotion distribution, asking whether each named emotion is well described by a single vector or whether it occupies a broader, multi-dimensional region in residual space.\par
 
 \subsection*{Protocol}
 
-For each emotion $e$, we collect the per-source, per-intensity residuals $\boldsymbol{\delta}^{g\perp}_{n,e,i}$ at layer~13, apply PCA~\cite{ward1963hierarchical}, and compute the participation ratio
+For each emotion $e$, we collect the per-source, per-intensity residuals $\boldsymbol{\delta}^{g\perp}_{n,e,i}$ at layer~13, apply PCA~\cite{pearson1901pca}, and compute the participation ratio
 \[
 \mathrm{PR}_e
 =\frac{\left(\sum_k \lambda_k\right)^2}{\sum_k \lambda_k^2},
@@ -74,7 +74,7 @@ The results reveal a clear gradient across emotion categories. \textit{Joy} and 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\linewidth]{figures/pca3d_residuals.png}
-  \caption{Participation ratio of per-source affective shift distributions at layer~13. A negative excess indicates a near-uniaxial structure, and a positive excess indicates a multi-axis structure.}
+  \caption{3D PCA projection of per-source affective residual shifts at layer 13. The plot visualises the clustered–diffuse distinction across emotion categories.}
   \label{fig:exp2_pca3d_residuals}
 \end{figure}
 
@@ -87,7 +87,7 @@ This clustered--diffuse distinction is directly visible in the 3D PCA projection
   \label{fig:exp2_prototype_region}
 \end{figure}
 
-Together, these results show that named emotions differ in internal dimensionality. While some (\textit{joy}, \textit{trust}) are well captured by a single prototype direction, others (\textit{fear}, \textit{surprise}) occupy a broader, multi-axis region. Accordingly, $\hat{\mathbf{r}}_e$ provides a useful centroid for emotion $e$, but each named emotion is better characterised as a cone with internal sub-axes than as a single narrow vector.\par
+Together, these results show that named emotions differ in internal dimensionality. While some (\textit{joy}, \textit{trust}) are well captured by a single vector, others (\textit{fear}, \textit{surprise}) occupy a broader, multi-axis region. Accordingly, $\hat{\mathbf{r}}_e$ provides a useful centroid for emotion $e$, but each named emotion is better characterised as a cone with internal sub-axes than as a single narrow vector.\par
 
 % ─────────────────────────────────────────────────────────────
 \section{Shared Meta-Axes via Pooled PCA}
@@ -134,7 +134,7 @@ We then centre each emotion block, stack all blocks into a single $(N \cdot E,\,
 \subsection{Results}
 
 \subsubsection*{Explained Variance}
-The top three pooled components account for $11.4\%$, $4.5\%$, and $3.1\%$ of the total pooled variance (cumulative $18.9\%$). The first component is markedly dominant, explaining more than twice the variance of the second, indicating a single primary shared dimension.\par
+The top three pooled components account for $11.4\%$, $4.5\%$, and $3.1\%$ of the total pooled variance (cumulative $\approx 19.0\%$). The first component is markedly dominant, explaining more than twice the variance of the second, indicating a single primary shared dimension.\par
 
 \subsubsection*{Alignment with Meta-axes}
 To verify that the pooled components capture genuine cross-emotion structure, we compare them to the sign-aligned-mean meta-axes $\mathbf{m}_k$, defined as the normalised average of the per-emotion $k$-th eigenvectors after sign correction. Specifically, $\sigma_{e,k}\in\{+1,-1\}$ corrects the arbitrary sign of each eigenvector before averaging across emotions:
@@ -157,7 +157,7 @@ $\tilde{\mathbf{m}}_2$ vs.\ $\mathbf{m}_2$ & 0.980 \\
 $\tilde{\mathbf{m}}_3$ vs.\ $\mathbf{m}_3$ & 0.931 \\
 \bottomrule
 \end{tabular}
-\caption{Absolute cosine between the pooled-PCA components $\tilde{\mathbf{m}}_k$ and the sign-aligned-mean meta-axes $\mathbf{m}_k$ at layer~13. Off-diagonal values are all below $0.13$. The subspace mutual-capture rate across the top-3 span is $96.6\%$.}
+\caption{Absolute cosine between the pooled-PCA components $\tilde{\mathbf{m}}_k$ and the sign-aligned-mean meta-axes $\mathbf{m}_k$ at layer~13. The subspace mutual-capture rate across the top-3 span is $96.6\%$.}
 \label{tab:pooled_vs_meta}
 \end{table}
 
@@ -171,16 +171,16 @@ $\tilde{\mathbf{m}}_3$ vs.\ $\mathbf{m}_3$ & 0.931 \\
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.55\linewidth]{figures/pooled_mk_heatmap.png}
-  \caption{Full $5\times 5$ absolute cosine matrix between pooled PCA components and the sign-aligned-mean meta-axes $\mathbf{m}_k$ at layer~13. The top-left $3\times 3$ block is near-diagonal (diagonal $\geq 0.93$, off-diagonal $\leq 0.13$), confirming that the correspondence is axis-level, not merely subspace-level. Rows PC$_4$--PC$_5$ show no alignment with any $\mathbf{m}_k$.}
+  \caption{Full $5\times 5$ absolute cosine matrix between pooled PCA components and the sign-aligned-mean meta-axes $\mathbf{m}_k$ at layer~13. The top-left $3\times 3$ block is strongly diagonal (diagonal $\geq 0.93$), confirming that the correspondence is axis-level, not merely subspace-level. Rows PC$_4$--PC$_5$ show no substantial alignment above $0.50$ with any $\mathbf{m}_k$.}
   \label{fig:pooled_mk_heatmap}
 \end{figure}
 
-The off-diagonal entries of the full $3\times 3$ cosine matrix are all below $0.13$, confirming that pooled PCA reproduces not just the shared subspace but each individual axis. The mutual subspace-capture rate across the top-3 span is $96.6\%$.\par
+The off-diagonal entries of the full $3\times 3$ cosine matrix are mostly small, confirming that pooled PCA reproduces not just the shared subspace but each individual axis. The mutual subspace-capture rate across the top-3 span is $96.6\%$.\par
 
 \subsubsection*{Geometric Properties of $\mathbf{m}_k$}
 The three meta-axes satisfy two further geometric properties. First, all $\mathbf{m}_k$ are nearly orthogonal to the shared emotionalisation direction $\mathbf{g}$ ($|\cos(\mathbf{m}_k,\mathbf{g})| < 0.02$ for all $k$). Second, they are nearly orthogonal to every per-emotion prototype $\hat{\mathbf{r}}_e$ ($|\cos(\mathbf{m}_k,\hat{\mathbf{r}}_e)| < 0.09$ for all $k,e$). The second property is not incidental: it follows directly from the extraction procedure, in which step~3 projects out $\hat{\mathbf{r}}_e$ before PCA is applied, confining the $\mathbf{m}_k$ to the subspace orthogonal to the prototype by construction. Appendix~\ref{app:ablation} (A1) provides supporting evidence that this step is load-bearing: without prototype removal the leading pooled component collapses onto the global emotionalisation direction. Each meta-axis therefore captures not emotion identity but affective texture: the continuous variation in how a discrete emotion is expressed, independent of which emotion is active. Together, these properties confirm that the $\mathbf{m}_k$ basis is geometrically independent of both the global emotionalisation axis and the emotion-label directions, recovering the within-emotion variance that prototype averaging discards.\par
 
-Components $\tilde{\mathbf{m}}_4$ and $\tilde{\mathbf{m}}_5$ exhibit lower cross-method stability: each explains under $2.2\%$ of variance, mutual-capture rates with the corresponding sign-aligned-mean axes fall below $0.50$, and PC$_4$--PC$_5$ show cosines below $0.45$ against all $\mathbf{m}_k$ (Figure~\ref{fig:pooled_mk_heatmap}). We therefore distinguish the three stable axes ($\mathbf{m}_1$, $\mathbf{m}_2$, $\mathbf{m}_3$) from the two low-stability axes ($\mathbf{m}_4$, $\mathbf{m}_5$). Although $\mathbf{m}_4$ and $\mathbf{m}_5$ are geometrically low-stability, all five axes are carried forward for interpretation and causal testing in Sections~\ref{sec:ch2-preverbal-interp}--\ref{sec:ch2-causal-validation}: whether each axis is causally operative is an empirical question resolved by the steering experiment rather than by geometric stability alone.\par
+Components $\tilde{\mathbf{m}}_4$ and $\tilde{\mathbf{m}}_5$ exhibit lower cross-method stability: each explains under $2.2\%$ of variance, mutual-capture rates with the corresponding sign-aligned-mean axes fall below $0.50$, and PC$_4$--PC$_5$ show cosines $\leq 0.45$ against all $\mathbf{m}_k$ (Figure~\ref{fig:pooled_mk_heatmap}). We therefore distinguish the three stable axes ($\mathbf{m}_1$, $\mathbf{m}_2$, $\mathbf{m}_3$) from the two low-stability axes ($\mathbf{m}_4$, $\mathbf{m}_5$). Although $\mathbf{m}_4$ and $\mathbf{m}_5$ are geometrically low-stability, all five axes are carried forward for interpretation and causal testing in Sections~\ref{sec:ch2-preverbal-interp}--\ref{sec:ch2-causal-validation}: whether each axis is causally operative is an empirical question resolved by the steering experiment rather than by geometric stability alone.\par
 
 \subsection{Robustness: Convergence of Two Independent Methods}
 \label{sec:ch2-pooled-robustness}
@@ -198,7 +198,7 @@ Two methods that share no internal steps converge on the same three affective ax
 \section{Pre-Verbal Interpretation of Meta-Axes}
 \label{sec:ch2-preverbal-interp}
 
-We now turn to the question of what affective information the shared meta-axes $\mathbf{m}_k$ encode. Unlike the residual prototype directions $\hat{\mathbf{r}}_e$, which are indexed by named emotion categories, the $\mathbf{m}_k$ are extracted from variance structure shared across emotions. Each $\mathbf{m}_k$ is not indexed to any single emotion label such as \textit{joy}, \textit{sadness}, or \textit{anger}; instead, we treat it as a candidate \textbf{pre-verbal affective dimension}: a direction that modulates affective experience or expression prior to discrete category assignment. We interpret all five axes, including the low-stability axes $\mathbf{m}_4$ and $\mathbf{m}_5$. Labels for these two axes are provisional, and causal activity is assessed for each axis independently in Section~\ref{sec:ch2-causal-validation}.\par
+We now turn to the question of what affective information the shared meta-axes $\mathbf{m}_k$ encode. Unlike the residual vectors $\hat{\mathbf{r}}_e$, which are indexed by named emotion categories, the $\mathbf{m}_k$ are extracted from variance structure shared across emotions. Each $\mathbf{m}_k$ is not indexed to any single emotion label such as \textit{joy}, \textit{sadness}, or \textit{anger}; instead, we treat it as a candidate \textbf{pre-verbal affective dimension}: a direction that modulates affective experience or expression prior to discrete category assignment. We interpret all five axes, including the low-stability axes $\mathbf{m}_4$ and $\mathbf{m}_5$. Labels for these two axes are provisional, and causal activity is assessed for each axis independently in Section~\ref{sec:ch2-causal-validation}.\par
 
 To interpret these directions, we apply a contrastive LLM evaluator (\texttt{GPT-4o}) procedure. For each meta-axis, we collect examples with extreme positive and negative projections pooled across all eight emotions, then present all five axes to the judge simultaneously, instructing it to assign distinct labels to the high and low poles of each axis. Simultaneous presentation is critical: when axes are interpreted in isolation, the dominant signal tends to collapse onto a generic engaged-vs-detached or arousal-like distinction. By requiring the evaluator to compare axes against one another, the procedure elicits labels that capture what is specific to each axis rather than what is shared by all affective variation. The results are shown in Table~\ref{tab:meta_axis_interpretations}.\par
 
@@ -309,7 +309,7 @@ The judge is provided with the axis name, both pole descriptions, and the expect
 \end{figure}
 
 Figure~\ref{fig:exp15_stable_axes} shows that both $\mathbf{m}_1$ and $\mathbf{m}_2$ exhibit a robust steering response. Here, $\mathbf{m}_1$ corresponds to agitated/reactive $\leftrightarrow$ mellow/accepting. $\mathbf{m}_2$ corresponds to nostalgic/ruminative $\leftrightarrow$ pragmatic/forward-looking.\par
-Both axes sit near chance at the unsteered baseline. The baseline pole-match scores are pm@0 $= 0.46$--$0.47$. Steering at $\beta=-4$ raises pole match to $0.761$ for $\mathbf{m}_1$ and $0.710$ for $\mathbf{m}_2$. These correspond to absolute gains of $+0.27$--$+0.31$.\par
+Both axes sit near chance at the unsteered baseline. The baseline pole-match scores are pm@0 $= 0.46$--$0.47$. Steering at $\beta=-4$ raises pole match to $0.761$ for $\mathbf{m}_1$ and $0.710$ for $\mathbf{m}_2$. These correspond to absolute gains of $+0.26$--$+0.30$.\par
 The effect occurs within coherent steering windows. These windows are $[-8,16]$ for $\mathbf{m}_1$ and $[-16,12]$ for $\mathbf{m}_2$. Across both windows, soundness remains $\geq 0.94$. Meaning preservation also remains $\geq 0.97$. This indicates that the affective shift does not degrade fluency or propositional content.\par
 The \texttt{subtle\_affective\_shift} score closely tracks pole match throughout the sweep. This confirms that the observed change reflects a pre-verbal expressive shift. It is therefore better understood as a change in affective texture, rather than as an emotion-category substitution.\par
 

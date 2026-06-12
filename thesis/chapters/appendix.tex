@@ -263,10 +263,10 @@ Below are \{K\} latent axes extracted from the internal activations of an LLM
 (Llama-3.1-8B-Instruct, layer \{layer\}).
 \par
 All axes were extracted from the SAME residual activation space, after removing:\\
-1. The shared emotionalization direction g\\
-2. The per-emotion intensity direction u\_e
+1. The shared emotionalisation direction g\\
+2. The per-emotion vector hat\_r\_e
 \par
-Because the axes are mathematically orthogonal to each other and to g/u\_e, they
+Because the axes are mathematically orthogonal to each other and to g/hat\_r\_e, they
 are expected to capture DISTINCT pre-verbal affective dimensions.
 \par\medskip
 \#\# CRITICAL CONSTRAINT\\
@@ -395,13 +395,10 @@ only the pole-match curves for the three stable axes.
 \end{figure}
 
 % -----------------------------------------------------------------
-\section{Pooled PCA Meta-Axes: \texorpdfstring{$5\times5$}{5x5} Cosine Similarity Matrix}
+\section{Sign-Aligned-Mean Meta-Axes: \texorpdfstring{$5\times5$}{5x5} Pairwise Cosine Similarity Matrix}
 \label{app:cosine_matrix}
 
-Table~\ref{tab:cosine_matrix} gives the pairwise cosine similarities between the five
-shared meta-axes $\mathbf{m}_1$--$\mathbf{m}_5$ extracted by pooled PCA at layer~13.
-Values near zero confirm near-orthogonality; the largest off-diagonal magnitude is
-$|\!\cos(\mathbf{m}_2,\mathbf{m}_5)| = 0.324$.
+Table~\ref{tab:cosine_matrix} gives the pairwise cosine similarities between the five sign-aligned-mean meta-axes $\mathbf{m}_1$--$\mathbf{m}_5$ at layer~13. Values near zero confirm near-orthogonality; the largest off-diagonal magnitude is $|\!\cos(\mathbf{m}_3,\mathbf{m}_4)| = 0.384$.
 
 \begin{table}[htbp]
 \centering
@@ -416,14 +413,14 @@ $\mathbf{m}_4$ & $-0.054$ & $+0.081$ & $-0.384$ & $1.000$  & $-0.024$ \\
 $\mathbf{m}_5$ & $+0.084$ & $+0.324$ & $-0.168$ & $-0.024$ & $1.000$  \\
 \hline
 \end{tabular}
-\caption{Pairwise cosine similarities between pooled-PCA meta-axes $\mathbf{m}_1$--$\mathbf{m}_5$ at layer~13 (\texttt{Llama-3.1-8B-Instruct}).}
+\caption{Pairwise cosine similarities between sign-aligned-mean meta-axes $\mathbf{m}_1$--$\mathbf{m}_5$ at layer~13 (\texttt{Llama-3.1-8B-Instruct}).}
 \label{tab:cosine_matrix}
 \end{table}
 
 The moderate negative correlations $\cos(\mathbf{m}_2,\mathbf{m}_3) = -0.310$ and
 $\cos(\mathbf{m}_3,\mathbf{m}_4) = -0.384$ indicate that, while the axes are not perfectly orthogonal after sign-alignment, they remain substantially distinct directions in the residual activation space.\par
 
-The pooled-PCA heatmap in Chapter~2 visualises the same data. This table provides the underlying numerical values for reproducibility.
+The cross-method heatmap (Figure~\ref{fig:pooled_mk_heatmap}) in Chapter~\ref{chap:development2_preverbal_vectors} shows the absolute cosines between pooled-PCA components and these sign-aligned-mean axes; this table provides the underlying pairwise values for reproducibility.
 
 % -----------------------------------------------------------------
 \section{Human Evaluation Study: Form and Stimuli}
@@ -667,9 +664,7 @@ This section records all information needed to reproduce the experiments reporte
 \subsection*{Random Seeds}
 
 \begin{description}
-  \item[Dataset split seed] The train/validation/test split of source utterances drawn
-    from DailyDialog and EmpatheticDialogues uses \texttt{random\_state=42} throughout
-    (scikit-learn \texttt{train\_test\_split}).
+  \item[Dataset split seed] DailyDialog utterances retain their original corpus train/validation/test partitions. EmpatheticDialogues utterances (all labelled \texttt{all} in that corpus) form a separate pool; any downstream sub-sampling of this pool uses \texttt{random\_state=42} (scikit-learn \texttt{train\_test\_split}).
 
   \item[PCA seed] All PCA and pooled-PCA decompositions use
     \texttt{sklearn.decomposition.PCA} with \texttt{random\_state=42}.
@@ -695,7 +690,7 @@ This section records all information needed to reproduce the experiments reporte
 
   \item[PyTorch] \texttt{torch==2.3.1+cu121}.
 
-  \item[CUDA] CUDA~12.1, cuDNN~8.9.
+  \item[CUDA] PyTorch build: CUDA~12.1 (\texttt{cu121}), cuDNN~8.9. NVIDIA driver supports CUDA~13.2.
 \end{description}
 
 % --- Dataset filtering -------------------------------------------
@@ -716,10 +711,7 @@ Each utterance was then filtered as follows before rewriting:
     within the English-language distribution of the rewrite model.
 \end{enumerate}
 
-After filtering, $26{,}463$ unique source utterances remained.
-These yield $546{,}792$ affective samples ($8$ emotions $\times$ $3$ intensity levels)
-and $22{,}782$ neutral-paraphrase samples.
-Table~\ref{tab:dataset_split} reports the final split sizes at the source utterance level.
+After filtering, $22{,}782$ unique source utterances remained. These yield $546{,}768$ affective samples ($8$ emotions $\times$ $3$ intensity levels $\times$ $22{,}782$ source utterances) and $22{,}782$ neutral-paraphrase samples. Table~\ref{tab:dataset_split} reports the split sizes at the source utterance level, preserving the original corpus train/validation/test partitions from DailyDialog; EmpatheticDialogues utterances (labelled \texttt{all} in that corpus) form a separate pool.
 
 \begin{table}[htbp]
 \centering
@@ -727,17 +719,15 @@ Table~\ref{tab:dataset_split} reports the final split sizes at the source uttera
 \hline
 \textbf{Split} & \textbf{Source utterances} & \textbf{Affective samples} \\
 \hline
-Train & 18{,}524 & 444{,}576 \\
-Validation & 3{,}970 &  95{,}280 \\
-Test & 3{,}969 &  95{,}256 \\
+DailyDialog train      & 4{,}597 & 110{,}328 \\
+DailyDialog validation & 362     &   8{,}688 \\
+DailyDialog test       & 376     &   9{,}024 \\
+EmpatheticDialogues    & 17{,}447 & 418{,}728 \\
 \hline
-\textbf{Total} & \textbf{26{,}463} & \textbf{635{,}112} \\
+\textbf{Total} & \textbf{22{,}782} & \textbf{546{,}768} \\
 \hline
 \end{tabular}
-\caption{Dataset split sizes (source utterance level).
-Affective samples include both the $8{\times}3$ emotion rewrites
-and the neutral-paraphrase baseline ($546{,}792 + 22{,}782 = 569{,}574$ total
-samples before splitting; the neutral set is split with the same seed).}
+\caption{Dataset split sizes (source utterance level). Affective samples refer only to the $8{\times}3$ emotion rewrites. Neutral paraphrases were generated separately for all $22{,}782$ source utterances and partitioned using the same source-level boundaries.}
 \label{tab:dataset_split}
 \end{table}
 
@@ -757,7 +747,7 @@ with the following specification:
 Approximate wall-clock times for the main pipeline stages:
 
 \begin{description}
-  \item[Activation extraction] $\approx 18$~hours for the full 546{,}792-sample
+  \item[Activation extraction] $\approx 18$~hours for the full 546{,}768-sample
     affective dataset at layer~13 (batch size 32, FP16 inference).
   \item[CAA vector construction and decomposition] $<5$~minutes (CPU, NumPy/scikit-learn).
   \item[Steering experiments ($\alpha_G$ / $\alpha_R$ / $\beta$ sweeps)] $\approx
@@ -810,7 +800,7 @@ Off-diagonal mean               & $0.945$ & $0.787$ \\
 Off-diagonal range              & $[0.912, 0.961]$ & $[0.730, 0.847]$ \\
 \bottomrule
 \end{tabular}
-\caption{Summary of the $8\times8$ inter-emotion cosine similarity matrix at layer~13 before and after the full decomposition pipeline (exp13). The near-uniform high values before decomposition indicate a dominant shared component; its removal spreads the off-diagonal structure and lowers self-similarity.}
+\caption{Summary of the $8\times8$ inter-emotion cosine similarity matrix at layer~13 before and after the \emph{full} decomposition pipeline (exp13, steps 1--3: projecting out both $\mathbf{g}$ and $\hat{\mathbf{r}}_e$). These values differ from Figure~\ref{fig:caa_decomposition_cosine_before_after_L13}, which reports the intermediate state after projecting out $\mathbf{g}$ only (off-diagonal mean $0.794$, range $0.73$--$0.89$); the additional prototype-projection step reduces the mean further to $0.787$ and tightens the range to $[0.730, 0.847]$.}
 \label{tab:exp13_cosine_comparison}
 \end{table}
 
