@@ -183,6 +183,46 @@ def extract_current_state(
     return acts[0, 0, :].numpy()
 
 
+def residualise_caa(
+    caa_pooled: np.ndarray,
+    layer_pos: int = _LAYER_POS,
+) -> np.ndarray:
+    """Remove the shared emotionalisation direction g from caa_pooled.
+
+    Per the thesis, raw CAA vectors c_e are dominated by a single shared
+    direction g = normalize(mean_e c_e) with cosine similarity 0.91–0.97
+    between all emotion pairs.  Removing g gives emotion-specific residuals:
+
+        r_e  = c_e - (c_e · g) g
+        r̂_e = r_e / ‖r_e‖
+
+    Only the slice at ``layer_pos`` is modified; other layers are returned
+    unchanged (pass-through for completeness of the (E, L, D) array).
+
+    Parameters
+    ----------
+    caa_pooled : (E, L, D) float32 — raw pooled CAA directions
+    layer_pos : index into L for the scoring layer (default: 2 → layer 13)
+
+    Returns
+    -------
+    r_hat_full : (E, L, D) float32 — residualised unit-normalised directions
+        at ``layer_pos``; other layers left as-is.
+    """
+    result = caa_pooled.copy()
+    vecs = caa_pooled[:, layer_pos, :].astype(np.float32)  # (E, D)
+
+    g_raw = vecs.mean(axis=0)                              # (D,)
+    g = (g_raw / np.linalg.norm(g_raw)).astype(np.float32)
+
+    proj = (vecs @ g)[:, np.newaxis]                       # (E, 1)
+    residuals = vecs - proj * g                            # (E, D)
+
+    norms = np.linalg.norm(residuals, axis=-1, keepdims=True)  # (E, 1)
+    result[:, layer_pos, :] = (residuals / norms).astype(np.float32)
+    return result
+
+
 def compute_emotion_profile(
     s_raw: np.ndarray,
     mu_neutral: np.ndarray,
@@ -195,16 +235,38 @@ def compute_emotion_profile(
     ----------
     s_raw : (D,) float32 — output of :func:`extract_current_state`
     mu_neutral : (D,) float32 — output of :func:`load_neutral_mean`
-    caa_pooled : (E, L, D) float32 — unit-normalised pooled CAA directions,
-        loaded from ``caa_emotion_directions.npz["caa_pooled"]``
+    caa_pooled : (E, L, D) float32 — emotion direction vectors at ``layer_pos``.
+        Pass raw ``caa_pooled`` through :func:`residualise_caa` first so that
+        the shared direction g is removed before scoring.
     layer_pos : index into L for layer 13 (default: 2)
 
     Returns
     -------
     dict mapping emotion name → scalar dot-product score.
-    Positive values indicate alignment with that emotion direction.
     """
     s_centered = s_raw - mu_neutral        # (D,)
     vecs = caa_pooled[:, layer_pos, :]     # (E, D)
     scores = (vecs @ s_centered).tolist()  # (E,)
     return dict(zip(EMOTION_ORDER, scores))
+
+
+def compute_meta_projections(
+    s_raw: np.ndarray,
+    mu_neutral: np.ndarray,
+    meta_axes: np.ndarray,
+) -> dict[str, float]:
+    """Project s(x) = s_raw - μ_neutral onto each meta-axis m_k.
+
+    Parameters
+    ----------
+    s_raw : (D,) float32 — output of :func:`extract_current_state`
+    mu_neutral : (D,) float32 — output of :func:`load_neutral_mean`
+    meta_axes : (K, D) float32 — unit-normalised meta-axis vectors m_1..m_K
+
+    Returns
+    -------
+    dict mapping "m1".."mK" → scalar dot-product score.
+    """
+    s_centered = (s_raw - mu_neutral).astype(np.float32)  # (D,)
+    scores = (meta_axes @ s_centered).tolist()             # (K,)
+    return {f"m{k+1}": float(v) for k, v in enumerate(scores)}

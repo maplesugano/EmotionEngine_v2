@@ -7,6 +7,9 @@ export default defineConfig({
     proxy: {
       "/analyze": "http://localhost:8000",
       "/health": "http://localhost:8000",
+      "/steer": "http://localhost:8000",
+      "/generate-image": "http://localhost:8000",
+      "/generate-music": "http://localhost:8000",
     },
   },
 });
